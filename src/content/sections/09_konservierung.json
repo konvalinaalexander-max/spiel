@@ -1,0 +1,364 @@
+{
+  "id": "konservierung",
+  "order": 9,
+  "core": false,
+  "plannedMinutes": 6,
+  "de": {
+    "title": "Futterkonservierung",
+    "subtitle": "Silierung, Fehlgärungen und Heuwerbung",
+    "learningGoals": [
+      "Milchsäuregärung und die Voraussetzungen guter Silage erklären",
+      "Fehlgärungen und Nacherwärmung erkennen und vermeiden",
+      "Heuwerbung, Belüftungstrocknung und Heumilch einordnen",
+      "Gärqualität nach dem DLG-Schlüssel beurteilen"
+    ],
+    "slides": [
+      {
+        "title": "Silierung: Milchsäuregärung unter Luftabschluss",
+        "bullets": [
+          "Ziel: rasche pH-Absenkung durch Milchsäurebakterien",
+          "Anwelken auf etwa 30–40 % TM",
+          "Kurz häckseln, zügig befüllen, gut verdichten",
+          "Sofort luftdicht abdecken",
+          "Siliermittel: Milchsäurebakterien oder Säuren gezielt einsetzen"
+        ],
+        "diagram": {
+          "type": "flow",
+          "items": ["Mähen", "Anwelken", "Häckseln", "Befüllen", "Verdichten", "Abdecken", "Gärung"],
+          "direction": "right",
+          "highlight": 4
+        },
+        "source": "Gruber Tabelle (LfL 2024); DLG-Siliermittelliste"
+      },
+      {
+        "title": "Fehlgärungen, Nacherwärmung und Heu",
+        "bullets": [
+          "Buttersäure: Clostridien bei Nässe und Erdverschmutzung",
+          "Clostridiensporen in der Milch → Spätblähung im Hartkäse",
+          "Nacherwärmung: Hefen bauen bei Luftzutritt Milchsäure ab",
+          "Vorschub: Winter ≥ 1,5 m, Sommer ≥ 2,5 m pro Woche",
+          "Heu: lagerfähig ab 87–88 % TM, Belüftung ab ~60–70 % TM",
+          "DLG-Schlüssel: 90–100 Punkte = sehr gut"
+        ],
+        "diagram": {
+          "type": "bars",
+          "items": [
+            { "label": "0–3 g/kg TM", "value": 90 },
+            { "label": ">3–4 g", "value": 81 },
+            { "label": ">4–7 g", "value": 72 },
+            { "label": ">7–10 g", "value": 63 },
+            { "label": ">10–13 g", "value": 54 },
+            { "label": ">13–16 g", "value": 45 }
+          ],
+          "unit": "DLG-Punkte für Buttersäure",
+          "max": 100
+        },
+        "source": "DLG-Schlüssel 2006; HBLFA Raumberg-Gumpenstein; ARGE Heumilch"
+      }
+    ],
+    "board": [
+      { "id": "b1", "lines": ["Zucker → Milchsäure → pH ↓", "nur anaerob: O_{2} raus!", "Anwelken: 30-40 % TM", "Ziel-pH (30-45 % TM) ≤ 4,5"] },
+      { "id": "b2", "lines": ["lagerfähig: 87-88 % TM", "Belüftung: Einfuhr ~60-70 % TM", "Heumilch: keine Silage", "Raufutter ≥ 75 % der TM"] },
+      { "id": "b3", "lines": ["Buttersäure ≤ 3 g → 90 P.", "Essigsäure > 30 g → Abzug", "pH ≤ 4,5 (30-45 % TM): +10", "90-100 P. → Note 1"] }
+    ],
+    "beats": [
+      {
+        "variants": [
+          "Gras wächst im Mai und Juni, gefressen wird aber das ganze Jahr. Also müssen wir konservieren – entweder nass und sauer als Silage oder trocken als Heu. Schauen wir uns beides an.",
+          "Das Grundfutter aus dem letzten Abschnitt fällt nicht gleichmäßig übers Jahr an. Darum konservieren wir: als Silage, also sauer unter Luftabschluss, oder als Heu durch Trocknung.",
+          "Die Kuh frisst im Jänner genauso wie im Juni. Deshalb müssen wir Futter haltbar machen, und da gibt's im Wesentlichen zwei Wege: Silieren oder Trocknen."
+        ],
+        "slide": 0, "board": null, "look": "class", "gesture": "open", "pause": 0.6
+      },
+      {
+        "variants": [
+          "Beim Silieren arbeiten Milchsäurebakterien für uns: Sie vergären den Zucker der Pflanze zu Milchsäure, der pH fällt, und andere Keime haben keine Chance. Das funktioniert aber nur ohne Sauerstoff.",
+          "Das Prinzip ist simpel: Milchsäurebakterien machen aus Zucker Milchsäure, der pH sinkt, das Futter wird stabil. Voraussetzung ist ein anaerobes Milieu – die Luft muss raus.",
+          "Ich schreib's kurz an: Zucker, Milchsäure, pH runter. Die Milchsäurebakterien brauchen dafür Luftabschluss; solange Sauerstoff drin ist, veratmen Pflanze und Hefen nur Nährstoffe."
+        ],
+        "slide": null, "board": "b1", "look": "board", "gesture": "explain", "pause": 0.9
+      },
+      {
+        "variants": [
+          "Gras wird vorher angewelkt, auf etwa 30 bis 40 % TM. Zu nass, und Sie riskieren Gärsaft und Buttersäure; zu trocken, und Sie bringen die Luft beim Verdichten nicht mehr heraus.",
+          "Warum anwelken? Bei 30 bis 40 % TM ist der Zucker konzentrierter und Clostridien tun sich schwer. Ist das Gras aber zu trocken, lässt es sich kaum verdichten – dann bleibt Luft im Stock.",
+          "Der Zielbereich fürs Anwelken liegt bei rund 30 bis 40 % TM. Darunter drohen Sickersaft und Fehlgärung, darüber wird's schwierig mit dem Verdichten. Ein Kompromiss, wie so oft."
+        ],
+        "slide": null, "board": null, "look": "class", "gesture": "explain", "pause": 0.8
+      },
+      {
+        "variants": [
+          "Dann zählt Tempo: kurz häckseln, zügig befüllen, walzen, walzen, walzen – und sofort luftdicht abdecken. Im Fahrsilo entscheidet die Verdichtung über die Qualität im nächsten Winter.",
+          "Auf vielen Betrieben steht beim Silieren ein schwerer Traktor nur zum Walzen am Silo. Das hat seinen Grund: Je dichter das Futter, desto weniger Luft. Danach gleich mit Folie abdecken.",
+          "Praktisch heißt das: kurze Häcksellänge, schnelle Befüllung, gute Verdichtung, und die Folie kommt am selben Tag drauf. Jede Stunde mit Luftkontakt kostet Energie und Stabilität."
+        ],
+        "slide": null, "board": null, "look": "window", "gesture": "emphasis", "pause": 0.7
+      },
+      {
+        "variants": [
+          "Siliermittel können helfen: Homofermentative Milchsäurebakterien beschleunigen die pH-Absenkung, heterofermentative wie L. buchneri verbessern die aerobe Stabilität. Reparieren können sie nichts.",
+          "Bei Siliermitteln unterscheiden wir: Die einen fördern den Gärverlauf, die anderen machen die Silage nach dem Öffnen stabiler, etwa über Essigsäure bildende Bakterien. Kein Ersatz für gute Arbeit.",
+          "Siliermittel – Milchsäurebakterien oder Säuren – gibt's für verschiedene Ziele: schneller sauer werden oder länger stabil bleiben. Ein schlecht verdichtetes Silo retten sie trotzdem nicht."
+        ],
+        "slide": null, "board": null, "look": "notes", "gesture": "count", "pause": 0.7
+      },
+      {
+        "variants": [
+          "Die gefürchtete Fehlgärung ist die Buttersäuregärung durch Clostridien, typisch bei nassem, erdverschmutztem Futter. Die Sporen landen über den Kot in der Milch und machen im Hartkäse Spätblähung.",
+          "Clostridien kommen mit Erde ins Silo, etwa bei zu tiefem Schnitt. Sie bilden Buttersäure, die Kuh frisst weniger – und ihre Sporen überstehen die Käserei und blähen später den Hartkäse auf.",
+          "Riecht die Silage nach ranziger Butter, waren Clostridien am Werk. Das kostet Energie und Futteraufnahme, und für Hartkäsereien sind die Sporen in der Milch ein echtes Problem: Spätblähung."
+        ],
+        "slide": 1, "board": null, "look": "screen", "gesture": "emphasis", "pause": 0.8
+      },
+      {
+        "variants": [
+          "Nach dem Öffnen droht Nacherwärmung: Hefen bauen bei Luftzutritt die Milchsäure ab, der pH steigt, dann kommt Schimmel. Darum pro Woche mindestens 1,5 m Vorschub im Winter, 2,5 m im Sommer.",
+          "Ist das Silo offen, kommt Luft an die Anschnittfläche. Hefen verbrauchen dann die Milchsäure, das Futter erwärmt sich. Gegenmittel: glatter Anschnitt und genug Vorschub, im Sommer 2,5 m pro Woche.",
+          "Warmes Futter am Anschnitt heißt: Hefen sind aktiv und verbrauchen mit Sauerstoff die Milchsäure. Der Vorschub muss also passen – Richtwert im Winter 1,5, im Sommer 2,5 Meter pro Woche."
+        ],
+        "slide": null, "board": null, "look": "class", "gesture": "explain", "pause": 0.8
+      },
+      {
+        "variants": [
+          "Heu muss auf 87 bis 88 % TM, sonst schimmelt es. Am Feld kostet das Bröckelverluste, vor allem Blätter. Mit Belüftung fahren Sie schon bei 60 bis 70 % TM ein und trocknen unter Dach fertig.",
+          "Heu ist erst bei 87 bis 88 % TM lagerfähig. Bodentrocknung heißt viele Tage Wetterrisiko und Blattverluste; mit Belüftungstrocknung holt man das Futter schon mit etwa 60 bis 70 % TM herein.",
+          "Für lagerfähiges Heu brauchen Sie 87 bis 88 % TM. Die Belüftungstrocknung erlaubt die Einfuhr bei rund 60 bis 70 % TM, meist am Tag nach dem Mähen – weniger Bröckelverluste, mehr Energie."
+        ],
+        "slide": null, "board": "b2", "look": "board", "gesture": "explain", "pause": 0.8
+      },
+      {
+        "variants": [
+          "Ein Heumilchbetrieb im Salzburger Land darf gar keine Silage füttern, so will es das Regulativ, und mindestens 75 % der Jahresration müssen Raufutter sein. Gutes Belüftungsheu erreicht um 6 MJ NEL.",
+          "Für Heumilch, eine garantiert traditionelle Spezialität der EU, ist Silage tabu. Raufutter muss übers Jahr mindestens 75 % der TM ausmachen – deshalb investieren diese Betriebe in die Heubelüftung.",
+          "Heumilchbetriebe, etwa im Salzburger Land, verzichten komplett auf Silage, und Raufutter muss mindestens 75 % der Jahresration ausmachen. Mit guter Belüftung ist Heu um 6 MJ NEL drin."
+        ],
+        "slide": null, "board": null, "look": "student", "gesture": "explain", "pause": 0.7
+      },
+      {
+        "variants": [
+          "Beurteilt wird nach dem DLG-Schlüssel: Buttersäure bis 3 g/kg TM bringt 90 Punkte, Essigsäure über 30 g kostet Abzug, der pH je nach TM bis zu 10 Punkte. Ab 90 ist die Silage sehr gut.",
+          "Zum Schluss die Note: Im DLG-Schlüssel zählt vor allem die Buttersäure – bis 3 g je Kilo TM gibt 90 Punkte. Dazu pH-Punkte, bei 30 bis 45 % TM bis pH 4,5 volle 10. Ab 90 Punkten: sehr gut.",
+          "Der DLG-Schlüssel addiert drei Dinge: bis zu 90 Punkte für wenig Buttersäure, Abzüge für viel Essigsäure und bis zu 10 Punkte für einen passenden pH. Mit 90 bis 100 Punkten ist die Silage sehr gut."
+        ],
+        "slide": null, "board": "b3", "look": "board", "gesture": "count", "pause": 0.9
+      }
+    ],
+    "quiz": [
+      {
+        "q": "Grassilage, 35 % TM: 2 g Buttersäure und 20 g Essigsäure je kg TM, pH 4,4. Wie viele DLG-Punkte?",
+        "correct": "100 Punkte – sehr gut",
+        "wrong": ["90 Punkte – sehr gut", "80 Punkte – gut", "110 Punkte – sehr gut"],
+        "explain": "Buttersäure ≤ 3 g: 90 P.; Essigsäure < 30 g: kein Abzug; pH ≤ 4,5 bei 30–45 % TM: +10 P. = 100 Punkte.",
+        "calc": true
+      },
+      {
+        "q": "Welche Fehlgärung ist für Hartkäsereien besonders kritisch?",
+        "correct": "Buttersäuregärung durch Clostridien",
+        "wrong": ["Milchsäuregärung durch Laktobazillen", "Essigsäurebildung durch L. buchneri", "Propionsäurebildung im Silo"],
+        "explain": "Clostridiensporen gelangen über Kot und Melkhygiene in die Milch und verursachen im Hartkäse Spätblähung.",
+        "calc": false
+      },
+      {
+        "q": "Was verursacht die Nacherwärmung einer geöffneten Silage?",
+        "correct": "Hefen bauen bei Luftzutritt Milchsäure ab",
+        "wrong": ["Clostridien bilden Buttersäure", "Zu hoher Zuckergehalt beim Einsilieren", "Milchsäurebakterien vermehren sich zu stark"],
+        "explain": "Mit Sauerstoff werden Hefen aktiv, verbrauchen Milchsäure, der pH steigt und das Futter erwärmt sich.",
+        "calc": false
+      }
+    ],
+    "calc": {
+      "title": "Gärqualität nach DLG-Schlüssel",
+      "given": "Grassilage mit 35 % TM: Buttersäure 5 g/kg TM, Essigsäure 25 g/kg TM, pH 4,6",
+      "steps": ["Buttersäure 5 g → 72 P.", "Essigsäure < 30 g → 0 P.", "pH 4,6 (30-45 % TM) → +5 P.", "Summe: 72 + 0 + 5 = 77 P."],
+      "result": "77 Punkte → Note 2 (gut)"
+    },
+    "notes": [
+      "Silage: Milchsäuregärung, nur anaerob",
+      "Anwelken auf etwa 30–40 % TM",
+      "Buttersäure ≤ 3 g/kg TM anstreben",
+      "Vorschub: Winter 1,5 m, Sommer 2,5 m/Woche",
+      "Heu lagerfähig ab 87–88 % TM",
+      "DLG-Schlüssel: 90–100 Punkte = sehr gut"
+    ],
+    "script": "Ziel der Futterkonservierung ist es, das saisonal anfallende Grundfutter mit möglichst geringen Verlusten über das ganze Jahr verfügbar zu machen. Bei der Silierung vergären Milchsäurebakterien unter Luftabschluss die wasserlöslichen Kohlenhydrate zu Milchsäure; der pH-Wert sinkt, und unerwünschte Mikroorganismen werden gehemmt. Voraussetzungen sind ein ausreichender Zuckergehalt, Anwelken auf etwa 30–40 % TM, kurze Häcksellänge, zügige Befüllung, intensive Verdichtung und sofortiges luftdichtes Abdecken. Siliermittel mit homofermentativen Milchsäurebakterien verbessern den Gärverlauf, heterofermentative Stämme oder Säuren die aerobe Stabilität; Managementfehler gleichen sie nicht aus. Nasses oder erdverschmutztes Siliergut begünstigt die Buttersäuregärung durch Clostridien. Sie verursacht Energieverluste und eine geringere Futteraufnahme, und Clostridiensporen können über die Milch zur Spätblähung von Hartkäse führen. Nach dem Öffnen droht Nacherwärmung, weil Hefen bei Luftzutritt Milchsäure abbauen; ein ausreichender Vorschub (Winter mindestens 1,5 m, Sommer mindestens 2,5 m pro Woche) beugt vor. Heu ist erst bei 87–88 % TM lagerfähig. Die Belüftungstrocknung erlaubt die Einfuhr bei etwa 60–70 % TM und verringert Bröckel- und Atmungsverluste; sie ist eine wichtige Grundlage der silofreien Heumilcherzeugung. Die Gärqualität wird nach dem DLG-Schlüssel anhand von Buttersäure, Essigsäure und pH-Wert mit bis zu 100 Punkten beurteilt."
+  },
+  "en": {
+    "title": "Forage conservation",
+    "subtitle": "Ensiling, fermentation faults and haymaking",
+    "learningGoals": [
+      "Explain lactic fermentation and the prerequisites for good silage",
+      "Recognise and prevent fermentation faults and aerobic spoilage",
+      "Place haymaking, barn drying and hay milk in context",
+      "Assess fermentation quality using the DLG key"
+    ],
+    "slides": [
+      {
+        "title": "Ensiling: lactic fermentation without air",
+        "bullets": [
+          "Goal: rapid pH drop by lactic acid bacteria",
+          "Wilt to about 30–40 % DM",
+          "Chop short, fill quickly, compact well",
+          "Seal airtight immediately",
+          "Additives: lactic acid bacteria or acids, used purposefully"
+        ],
+        "diagram": {
+          "type": "flow",
+          "items": ["Mowing", "Wilting", "Chopping", "Filling", "Compacting", "Sealing", "Fermentation"],
+          "direction": "right",
+          "highlight": 4
+        },
+        "source": "Gruber Table (LfL 2024); DLG list of silage additives"
+      },
+      {
+        "title": "Fermentation faults, aerobic spoilage and hay",
+        "bullets": [
+          "Butyric acid: clostridia in wet, soil-contaminated forage",
+          "Clostridial spores in milk → late blowing in hard cheese",
+          "Aerobic spoilage: yeasts degrade lactic acid when air enters",
+          "Feed-out: winter ≥ 1.5 m, summer ≥ 2.5 m per week",
+          "Hay: storable from 87–88 % DM, barn drying from ~60–70 % DM",
+          "DLG key: 90–100 points = very good"
+        ],
+        "diagram": {
+          "type": "bars",
+          "items": [
+            { "label": "0–3 g/kg DM", "value": 90 },
+            { "label": ">3–4 g", "value": 81 },
+            { "label": ">4–7 g", "value": 72 },
+            { "label": ">7–10 g", "value": 63 },
+            { "label": ">10–13 g", "value": 54 },
+            { "label": ">13–16 g", "value": 45 }
+          ],
+          "unit": "DLG points for butyric acid",
+          "max": 100
+        },
+        "source": "DLG key 2006; AREC Raumberg-Gumpenstein; ARGE Heumilch"
+      }
+    ],
+    "board": [
+      { "id": "b1", "lines": ["sugar → lactic acid → pH ↓", "anaerobic only: O_{2} out!", "wilting: 30-40 % DM", "target pH (30-45 % DM) ≤ 4.5"] },
+      { "id": "b2", "lines": ["storable: 87-88 % DM", "barn drying: in at ~60-70 % DM", "hay milk: no silage", "roughage ≥ 75 % of DM"] },
+      { "id": "b3", "lines": ["butyric ≤ 3 g → 90 pts", "acetic > 30 g → deduction", "pH ≤ 4.5 (30-45 % DM): +10", "90-100 pts → grade 1"] }
+    ],
+    "beats": [
+      {
+        "variants": [
+          "Grass grows in May and June, but it's eaten all year round. So we have to conserve it – either wet and acidic as silage or dry as hay. Let's look at both.",
+          "The forage from the last section isn't available evenly throughout the year. That's why we conserve: as silage, acidified in the absence of air, or as hay, by drying.",
+          "The cow eats in January just as she does in June. So we have to make forage keep, and there are essentially two ways: ensiling or drying."
+        ],
+        "slide": 0, "board": null, "look": "class", "gesture": "open", "pause": 0.6
+      },
+      {
+        "variants": [
+          "When ensiling, lactic acid bacteria work for us: they ferment the plant sugars into lactic acid, pH drops, and other microbes don't stand a chance. But that only works without oxygen.",
+          "The principle is simple: lactic acid bacteria turn sugar into lactic acid, pH falls, the forage becomes stable. The prerequisite is an anaerobic environment – the air has to go.",
+          "Let me jot it down: sugar, lactic acid, pH down. The lactic acid bacteria need the air shut out; as long as there's oxygen inside, the plant and yeasts just respire nutrients away."
+        ],
+        "slide": null, "board": "b1", "look": "board", "gesture": "explain", "pause": 0.9
+      },
+      {
+        "variants": [
+          "Grass is wilted first, to about 30 to 40 % DM. Too wet, and you risk effluent and butyric acid; too dry, and you can't get the air out when compacting.",
+          "Why wilt? At 30 to 40 % DM the sugar is more concentrated and clostridia struggle. But if the grass is too dry, it's hard to compact – and air stays in the clamp.",
+          "The target for wilting is around 30 to 40 % DM. Below that, effluent and poor fermentation threaten; above it, compaction becomes difficult. A compromise, as so often."
+        ],
+        "slide": null, "board": null, "look": "class", "gesture": "explain", "pause": 0.8
+      },
+      {
+        "variants": [
+          "Then speed counts: chop short, fill quickly, roll, roll, roll – and seal airtight immediately. In a bunker silo, compaction decides the quality next winter.",
+          "On many farms, during silage making there's a heavy tractor at the clamp just for rolling. There's a reason: the denser the forage, the less air. Then cover it with film right away.",
+          "In practice that means: short chop length, fast filling, good compaction, and the film goes on the same day. Every hour of air contact costs energy and stability."
+        ],
+        "slide": null, "board": null, "look": "window", "gesture": "emphasis", "pause": 0.7
+      },
+      {
+        "variants": [
+          "Silage additives can help: homofermentative lactic acid bacteria speed up the pH drop, heterofermentative ones such as L. buchneri improve aerobic stability. But they can't fix anything.",
+          "With additives we distinguish: some improve the fermentation, others make the silage more stable after opening, for example via acetic-acid-producing bacteria. No substitute for good work.",
+          "Silage additives – lactic acid bacteria or acids – exist for different goals: acidify faster or stay stable longer. They still won't rescue a poorly compacted clamp."
+        ],
+        "slide": null, "board": null, "look": "notes", "gesture": "count", "pause": 0.7
+      },
+      {
+        "variants": [
+          "The dreaded fermentation fault is butyric fermentation by clostridia, typical of wet, soil-contaminated forage. The spores reach the milk via faeces and cause late blowing in hard cheese.",
+          "Clostridia get into the silo with soil, for example when mowing too low. They produce butyric acid, the cow eats less – and their spores survive cheesemaking and later blow up the hard cheese.",
+          "If the silage smells of rancid butter, clostridia were at work. That costs energy and intake, and for hard-cheese dairies the spores in the milk are a real problem: late blowing."
+        ],
+        "slide": 1, "board": null, "look": "screen", "gesture": "emphasis", "pause": 0.8
+      },
+      {
+        "variants": [
+          "After opening, aerobic spoilage threatens: with air, yeasts break down the lactic acid, pH rises, then mould follows. Hence at least 1.5 m feed-out per week in winter, 2.5 m in summer.",
+          "Once the silo is open, air reaches the face. Yeasts then consume the lactic acid and the forage heats up. Remedy: a smooth face and enough feed-out, in summer 2.5 metres per week.",
+          "Warm forage at the face means yeasts are active and using up lactic acid with oxygen. So the feed-out rate must fit – guideline 1.5 metres a week in winter, 2.5 in summer."
+        ],
+        "slide": null, "board": null, "look": "class", "gesture": "explain", "pause": 0.8
+      },
+      {
+        "variants": [
+          "Hay has to reach 87 to 88 % DM or it moulds. In the field that costs shattering losses, mainly leaves. With barn drying you bring it in at 60 to 70 % DM and finish drying under the roof.",
+          "Hay only keeps at 87 to 88 % DM. Field drying means days of weather risk and leaf losses; with barn drying, the forage comes in at around 60 to 70 % DM.",
+          "For storable hay you need 87 to 88 % DM. Barn drying allows harvesting at around 60 to 70 % DM, usually the day after mowing – less shattering loss, more energy."
+        ],
+        "slide": null, "board": "b2", "look": "board", "gesture": "explain", "pause": 0.8
+      },
+      {
+        "variants": [
+          "A hay-milk farm in the Salzburger Land may not feed any silage at all, the rules say so, and at least 75 % of the annual ration must be roughage. Good barn-dried hay reaches around 6 MJ NEL.",
+          "For Heumilch, protected in the EU as a traditional speciality, silage is taboo. Roughage must make up at least 75 % of DM over the year – which is why these farms invest in hay drying.",
+          "Hay-milk farms, for instance in the Salzburger Land, do without silage entirely, and roughage must make up at least 75 % of the annual ration. With good barn drying, hay of about 6 MJ NEL is possible."
+        ],
+        "slide": null, "board": null, "look": "student", "gesture": "explain", "pause": 0.7
+      },
+      {
+        "variants": [
+          "Assessment follows the DLG key: butyric acid up to 3 g/kg DM gives 90 points, acetic acid above 30 g costs a deduction, pH up to 10 points depending on DM. From 90, the silage is very good.",
+          "Finally, the grade: in the DLG key, butyric acid counts most – up to 3 g per kilo DM gives 90 points. Plus pH points, at 30 to 45 % DM a full 10 up to pH 4.5. From 90 points: very good.",
+          "The DLG key adds up three things: up to 90 points for little butyric acid, deductions for lots of acetic acid and up to 10 points for a suitable pH. With 90 to 100 points, the silage is very good."
+        ],
+        "slide": null, "board": "b3", "look": "board", "gesture": "count", "pause": 0.9
+      }
+    ],
+    "quiz": [
+      {
+        "q": "Grass silage, 35 % DM: 2 g butyric and 20 g acetic acid per kg DM, pH 4.4. How many DLG points?",
+        "correct": "100 points – very good",
+        "wrong": ["90 points – very good", "80 points – good", "110 points – very good"],
+        "explain": "Butyric acid ≤ 3 g: 90 pts; acetic acid < 30 g: no deduction; pH ≤ 4.5 at 30–45 % DM: +10 pts = 100 points.",
+        "calc": true
+      },
+      {
+        "q": "Which fermentation fault is especially critical for hard-cheese dairies?",
+        "correct": "Butyric fermentation by clostridia",
+        "wrong": ["Lactic fermentation by lactobacilli", "Acetic acid formation by L. buchneri", "Propionic acid formation in the silo"],
+        "explain": "Clostridial spores reach the milk via faeces and milking hygiene and cause late blowing in hard cheese.",
+        "calc": false
+      },
+      {
+        "q": "What causes an opened silage to heat up (aerobic spoilage)?",
+        "correct": "Yeasts break down lactic acid when air enters",
+        "wrong": ["Clostridia produce butyric acid", "Too much sugar at ensiling", "Lactic acid bacteria multiply too strongly"],
+        "explain": "With oxygen, yeasts become active, consume lactic acid, pH rises and the forage heats up.",
+        "calc": false
+      }
+    ],
+    "calc": {
+      "title": "Fermentation quality using the DLG key",
+      "given": "Grass silage at 35 % DM: butyric acid 5 g/kg DM, acetic acid 25 g/kg DM, pH 4.6",
+      "steps": ["butyric 5 g → 72 pts", "acetic < 30 g → 0 pts", "pH 4.6 (30-45 % DM) → +5", "total: 72 + 0 + 5 = 77 pts"],
+      "result": "77 points → grade 2 (good)"
+    },
+    "notes": [
+      "Silage: lactic fermentation, anaerobic only",
+      "Wilt to about 30–40 % DM",
+      "Aim for butyric acid ≤ 3 g/kg DM",
+      "Feed-out: winter 1.5 m, summer 2.5 m/week",
+      "Hay storable from 87–88 % DM",
+      "DLG key: 90–100 points = very good"
+    ],
+    "script": "The aim of forage conservation is to make seasonally produced forage available all year round with minimal losses. During ensiling, lactic acid bacteria ferment the water-soluble carbohydrates into lactic acid in the absence of air; the pH falls and undesirable microorganisms are inhibited. Prerequisites are a sufficient sugar content, wilting to about 30–40 % DM, a short chop length, rapid filling, intensive compaction and immediate airtight sealing. Additives containing homofermentative lactic acid bacteria improve the fermentation, while heterofermentative strains or acids improve aerobic stability; they cannot compensate for management errors. Wet or soil-contaminated material favours butyric fermentation by clostridia. It causes energy losses and lower feed intake, and clostridial spores can pass into the milk and cause late blowing of hard cheese. After opening, aerobic spoilage threatens because yeasts degrade lactic acid when air enters; a sufficient feed-out rate (at least 1.5 m per week in winter and 2.5 m in summer) prevents it. Hay is only storable at 87–88 % DM. Barn drying allows the crop to be brought in at about 60–70 % DM and reduces shattering and respiration losses; it is an important basis of silage-free hay-milk production. Fermentation quality is assessed with the DLG key on the basis of butyric acid, acetic acid and pH, with up to 100 points."
+  }
+}

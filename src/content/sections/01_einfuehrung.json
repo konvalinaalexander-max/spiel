@@ -1,0 +1,386 @@
+{
+  "id": "einfuehrung",
+  "order": 1,
+  "core": true,
+  "plannedMinutes": 6,
+  "de": {
+    "title": "Einführung in die Tierernährung",
+    "subtitle": "Vom Futter zum Lebensmittel – Kreisläufe, Kosten, Effizienz",
+    "learningGoals": [
+      "Die Rolle der Tierernährung zwischen Futter, Tier und Lebensmittel erklären",
+      "Den Nährstoffkreislauf Boden – Pflanze – Tier – Wirtschaftsdünger beschreiben",
+      "Futterkosten und Futterverwertung als wirtschaftliche Kenngrößen einordnen",
+      "Die Bedeutung des Grünlands für die Tierhaltung in Österreich begründen"
+    ],
+    "slides": [
+      {
+        "title": "Futter → Tier → Lebensmittel",
+        "bullets": [
+          "Tierernährung verbindet Pflanzenbau, Tiergesundheit und Lebensmittel",
+          "Fütterung wirkt auf Gesundheit, Leistung, Qualität und Umwelt",
+          "Futter ist der größte Kostenblock: Milch rund 50 % der Kosten",
+          "Schweinemast: Futter meist mehr als die Hälfte der Kosten",
+          "Futterverwertung: Mastschwein ~1 : 2,8, Masthuhn ~1 : 1,6",
+          "Milchkuh: rund 1,4–1,6 kg ECM je kg Futter-TM"
+        ],
+        "diagram": { "type": "flow", "items": ["Futter", "Tier", "Lebensmittel"], "direction": "right", "highlight": 1 },
+        "source": "LfL Bayern; LfL-Versuchsberichte; Kirchgeßner et al. (2014)"
+      },
+      {
+        "title": "Nährstoffkreislauf und Grünland",
+        "bullets": [
+          "Nur rund ein Viertel des Futter-N landet bei der Kuh in der Milch",
+          "Der Rest geht über Kot und Harn in Gülle und Mist",
+          "Wirtschaftsdünger bringt N und P zurück auf Wiese und Acker",
+          "Verluste als Ammoniak und Nitrat – die Fütterung beeinflusst sie",
+          "Österreich: knapp die Hälfte der Agrarfläche ist Dauergrünland",
+          "Grünland wird vor allem über Wiederkäuer zu Lebensmitteln"
+        ],
+        "diagram": { "type": "cycle", "items": ["Boden", "Pflanze", "Tier", "Wirtschaftsdünger"] },
+        "source": "Grüner Bericht (BML); LK Österreich; Kirchgeßner et al. (2014)"
+      }
+    ],
+    "board": [
+      { "id": "b1", "lines": ["Futterverwertung =", "Futter (kg) : Zuwachs (kg)", "Mastschwein ≈ 1 : 2,8", "Masthuhn ≈ 1 : 1,6"] },
+      { "id": "b2", "lines": ["Boden → Pflanze → Tier", "Tier → Gülle, Mist → Boden", "Kuh: ~25 % Futter-N in Milch"] }
+    ],
+    "beats": [
+      {
+        "variants": [
+          "Grüß Gott, fangen wir an. Tierernährung ist im Grunde das Bindeglied zwischen dem, was auf Acker und Wiese wächst, und dem, was dann als Milch, Fleisch oder Ei im Kühlregal liegt.",
+          "Schön, dass Sie da sind – wozu also Tierernährung? Sie verbindet das, was auf der Wiese wächst, mit dem, was am Ende als Lebensmittel auf dem Teller landet.",
+          "Also, worum geht's in diesem Fach? Um den Weg vom Futter über das Tier zum Lebensmittel – und um das, was das Tier auf diesem Weg braucht."
+        ],
+        "slide": 0,
+        "board": null,
+        "look": "class",
+        "gesture": "open",
+        "pause": 0.8
+      },
+      {
+        "variants": [
+          "Was und wie wir füttern, entscheidet über Gesundheit und Leistung der Tiere, aber auch über Milchinhaltsstoffe, Fleischqualität und die Emissionen aus dem Stall.",
+          "Die Fütterung wirkt auf alles: auf die Tiergesundheit, die Leistung, die Produktqualität – und auf das, was hinten an Stickstoff und Phosphor wieder herauskommt.",
+          "Denken Sie an einen Milchviehbetrieb im Mostviertel: Passt die Ration, passen meist auch Gesundheit, Fruchtbarkeit und Milchinhaltsstoffe. Passt sie nicht, merkt man es überall."
+        ],
+        "slide": null,
+        "board": null,
+        "look": "class",
+        "gesture": "explain",
+        "pause": 0.6
+      },
+      {
+        "variants": [
+          "Und dann das Geld: Futter ist in der Tierhaltung der größte Kostenblock. In der Milchproduktion macht es grob die Hälfte der Kosten aus, in der Schweinemast meist noch mehr.",
+          "Ökonomisch ist die Sache eindeutig: Der größte Einzelposten ist das Futter – bei der Milch rund die Hälfte der Produktionskosten, in der Schweinemast meist mehr als die Hälfte.",
+          "Wenn Sie später einen Betrieb beraten, schauen Sie zuerst aufs Futter. Das ist der größte Kostenblock – bei Milch etwa 50 Prozent, in der Schweinemast oft deutlich darüber."
+        ],
+        "slide": null,
+        "board": null,
+        "look": "student",
+        "gesture": "emphasis",
+        "pause": 0.7
+      },
+      {
+        "variants": [
+          "Deshalb ist die Futterverwertung so wichtig. Ich schreib Ihnen das kurz an: Kilo Futter pro Kilo Zuwachs – beim Mastschwein liegen wir in der Praxis bei etwa 1 zu 2,8.",
+          "Die zentrale Kennzahl schreib ich Ihnen an die Tafel: Futterverwertung, also Futteraufwand je Kilo Zuwachs. Ein gutes Mastschwein braucht rund 2,8 Kilo Futter je Kilo Zuwachs.",
+          "Merken Sie sich die Futterverwertung – ich schreib's Ihnen hin: Futter in Kilo durch Zuwachs in Kilo. In der Schweinemast in der Steiermark ist 1 zu 2,8 ein realistischer Wert."
+        ],
+        "slide": null,
+        "board": "b1",
+        "look": "board",
+        "gesture": "point",
+        "pause": 1.0
+      },
+      {
+        "variants": [
+          "Das Masthuhn ist mit rund 1 zu 1,6 deutlich effizienter. Bei der Milchkuh rechnet man umgekehrt: Gut sind etwa 1,4 bis 1,6 Kilo energiekorrigierte Milch je Kilo Futtertrockenmasse.",
+          "Zum Vergleich: Ein Masthuhn schafft etwa 1 zu 1,6. Bei Milchkühen dreht man die Kennzahl um und spricht von 1,4 bis 1,6 Kilo ECM pro Kilo aufgenommener Trockenmasse.",
+          "Geflügel liegt bei ungefähr 1,6 Kilo Futter je Kilo Zuwachs. Bei der Kuh fragt man, wie viel Milch aus einem Kilo Trockenmasse wird – 1,4 bis 1,6 Kilo ECM sind ein guter Bereich."
+        ],
+        "slide": null,
+        "board": null,
+        "look": "class",
+        "gesture": "count",
+        "pause": 0.6
+      },
+      {
+        "variants": [
+          "Schauen wir uns den Kreislauf an: Der Boden ernährt die Pflanze, die Pflanze das Tier, und über Gülle und Mist gehen die Nährstoffe als Wirtschaftsdünger zurück auf die Fläche.",
+          "Auf der Folie sehen Sie den Nährstoffkreislauf. Was das Tier nicht in Milch oder Fleisch einbaut, landet im Wirtschaftsdünger – und der kommt wieder auf Wiese und Acker.",
+          "Tierhaltung ist Teil eines Kreislaufs: Boden, Pflanze, Tier, Wirtschaftsdünger und wieder Boden. Der Betrieb im Mostviertel düngt seine Wiesen zum großen Teil mit der eigenen Gülle."
+        ],
+        "slide": 1,
+        "board": null,
+        "look": "screen",
+        "gesture": "point",
+        "pause": 0.7
+      },
+      {
+        "variants": [
+          "Ich notier Ihnen das an der Tafel: Vom Stickstoff, den eine Milchkuh frisst, findet sich nur rund ein Viertel in der Milch wieder. Der große Rest geht in Kot und Harn.",
+          "Schreiben wir's an: Eine Milchkuh baut grob 25 Prozent des Futterstickstoffs in die Milch ein. Drei Viertel scheidet sie aus – das ist Dünger, aber eben auch eine Emissionsquelle.",
+          "Eine Zahl für die Tafel: Nur etwa ein Viertel des Futter-N landet bei der Kuh in der Milch. Der Rest kommt über Kot und Harn in den Wirtschaftsdünger und teils als Ammoniak in die Luft."
+        ],
+        "slide": null,
+        "board": "b2",
+        "look": "board",
+        "gesture": "emphasis",
+        "pause": 1.0
+      },
+      {
+        "variants": [
+          "Für Österreich ist das besonders wichtig: Knapp die Hälfte unserer Agrarfläche ist Dauergrünland, dazu kommen die Almen. Das kann der Mensch praktisch nur über den Wiederkäuer nutzen.",
+          "In Österreich ist fast die Hälfte der landwirtschaftlichen Fläche Dauergrünland, viel davon in Hanglagen und auf Almen. Ohne Rinder, Schafe und Ziegen würde daraus kein Lebensmittel.",
+          "Denken Sie an eine Almweide in Tirol: Dort wächst kein Weizen. Knapp die Hälfte der heimischen Agrarfläche ist Grünland, und das wird erst über den Wiederkäuer zu Milch und Fleisch."
+        ],
+        "slide": null,
+        "board": null,
+        "look": "window",
+        "gesture": "open",
+        "pause": 0.8
+      },
+      {
+        "variants": [
+          "Ein Futter ist übrigens nur dann billig, wenn das Tier es auch frisst und verwertet – im Silo hat noch keine Kuh Milch gegeben. Darum schauen wir uns als Nächstes an, was drin ist.",
+          "Ein trockener Merksatz aus der Beratung: Billig ist nur das Futter, das im Tier ankommt – im Fahrsilo hat noch keine Kuh Milch gegeben. Was drinsteckt, klärt die Futtermittelanalyse.",
+          "Was ein Futter wirklich wert ist, sieht man am Tier, nicht am Lieferschein. Und um das zu bewerten, müssen wir wissen, was drinsteckt – das ist unser nächstes Thema."
+        ],
+        "slide": null,
+        "board": null,
+        "look": "class",
+        "gesture": "shrug",
+        "pause": 1.2
+      }
+    ],
+    "quiz": [
+      {
+        "q": "Welcher Kostenblock ist in der Tierhaltung in der Regel der größte?",
+        "correct": "Die Futterkosten",
+        "wrong": ["Die Tierarztkosten", "Die Energiekosten für den Stall", "Die Kosten für Einstreu"],
+        "explain": "Futter macht bei der Milch rund die Hälfte, in der Schweinemast meist mehr als die Hälfte der Kosten aus.",
+        "calc": false
+      },
+      {
+        "q": "Welcher Anteil des Futterstickstoffs findet sich bei der Milchkuh etwa in der Milch?",
+        "correct": "Rund ein Viertel",
+        "wrong": ["Rund drei Viertel", "Fast der gesamte Stickstoff", "Weniger als 2 Prozent"],
+        "explain": "Nur etwa 25 % des Futter-N werden in Milch eingebaut, der Rest wird über Kot und Harn ausgeschieden.",
+        "calc": false
+      },
+      {
+        "q": "Ein Mastschwein nimmt 90 kg zu und frisst dabei 261 kg Futter. Wie hoch ist die Futterverwertung?",
+        "correct": "1 : 2,9",
+        "wrong": ["1 : 0,34", "1 : 3,5", "1 : 2,6"],
+        "explain": "Futterverwertung = Futter : Zuwachs = 261 kg : 90 kg = 2,9.",
+        "calc": true
+      }
+    ],
+    "calc": {
+      "title": "Futterbedarf in der Schweinemast",
+      "given": "Mast von 30 auf 120 kg Lebendmasse, Futterverwertung 1 : 2,8",
+      "steps": ["Zuwachs = 120 − 30 = 90 kg", "Futter = 90 kg × 2,8", "Futter = 252 kg je Schwein"],
+      "result": "≈ 250 kg Mastfutter je Tier"
+    },
+    "notes": [
+      "Futter → Tier → Lebensmittel",
+      "Futter = größter Kostenblock (Milch ~50 %)",
+      "FVW = kg Futter : kg Zuwachs",
+      "Schwein ~1 : 2,8 · Masthuhn ~1 : 1,6",
+      "Kuh: nur ~25 % des Futter-N in der Milch",
+      "Ö: knapp die Hälfte der LN Dauergrünland"
+    ],
+    "script": "Die Tierernährung verbindet Pflanzenbau, Tierhaltung und Lebensmittelerzeugung. Im Tier wird Futter zu Milch, Fleisch und Eiern umgewandelt; wie gut das gelingt, hängt von der bedarfsgerechten Versorgung mit Energie, Protein, Mineralstoffen und Vitaminen ab. Die Fütterung beeinflusst Tiergesundheit, Leistung, Produktqualität und Umweltwirkungen gleichermaßen. Ökonomisch ist das Futter der größte Kostenblock der Tierhaltung: In der Milchproduktion entfällt grob die Hälfte der Produktionskosten auf Grund- und Kraftfutter, in der Schweinemast meist mehr als die Hälfte. Eine zentrale Kennzahl ist daher die Futterverwertung, also der Futteraufwand je Kilogramm Zuwachs. Praxisübliche Werte liegen beim Mastschwein bei etwa 1 : 2,8 bis 1 : 2,9, beim Masthuhn bei rund 1 : 1,6. Bei Milchkühen wird die Futtereffizienz als Kilogramm energiekorrigierte Milch je Kilogramm Futtertrockenmasse angegeben; Werte von etwa 1,4 bis 1,6 gelten als gut. Tierhaltung ist Teil eines Nährstoffkreislaufs aus Boden, Pflanze, Tier und Wirtschaftsdünger. Nur ein Teil der aufgenommenen Nährstoffe wird im Produkt festgelegt – bei der Milchkuh findet sich nur rund ein Viertel des Futterstickstoffs in der Milch. Der Rest gelangt über Kot und Harn in Gülle und Mist; er kann als Dünger genutzt werden, ist aber auch Quelle von Ammoniak- und Nitratverlusten. In Österreich ist knapp die Hälfte der landwirtschaftlich genutzten Fläche Dauergrünland, dazu kommen rund 8 000 Almen. Dieses Grünland ist für die menschliche Ernährung vor allem über Wiederkäuer nutzbar."
+  },
+  "en": {
+    "title": "Introduction to Animal Nutrition",
+    "subtitle": "From feed to food – cycles, costs, efficiency",
+    "learningGoals": [
+      "Explain the role of animal nutrition between feed, animal and food",
+      "Describe the nutrient cycle soil – plant – animal – livestock manure",
+      "Interpret feed costs and feed conversion as key economic indicators",
+      "Explain why grassland matters for livestock farming in Austria"
+    ],
+    "slides": [
+      {
+        "title": "Feed → Animal → Food",
+        "bullets": [
+          "Animal nutrition links crop production, animal health and food",
+          "Feeding affects health, performance, product quality, environment",
+          "Feed is the largest cost item: about 50 % of milk production costs",
+          "Pig fattening: feed usually more than half of the costs",
+          "Feed conversion: fattening pig ~2.8 : 1, broiler ~1.6 : 1",
+          "Dairy cow: about 1.4–1.6 kg ECM per kg feed DM"
+        ],
+        "diagram": { "type": "flow", "items": ["Feed", "Animal", "Food"], "direction": "right", "highlight": 1 },
+        "source": "LfL Bavaria; LfL trial reports; Kirchgeßner et al. (2014)"
+      },
+      {
+        "title": "Nutrient cycle and grassland",
+        "bullets": [
+          "Only about a quarter of feed N ends up in the cow's milk",
+          "The rest leaves via faeces and urine into slurry and manure",
+          "Manure returns N and P to meadows and fields",
+          "Losses as ammonia and nitrate – feeding influences them",
+          "Austria: almost half of the farmland is permanent grassland",
+          "Grassland becomes food mainly via ruminants"
+        ],
+        "diagram": { "type": "cycle", "items": ["Soil", "Plant", "Animal", "Manure"] },
+        "source": "Green Report (BML); LK Austria; Kirchgeßner et al. (2014)"
+      }
+    ],
+    "board": [
+      { "id": "b1", "lines": ["Feed conversion ratio =", "feed (kg) : gain (kg)", "Fattening pig ≈ 2.8 : 1", "Broiler ≈ 1.6 : 1"] },
+      { "id": "b2", "lines": ["Soil → plant → animal", "Animal → manure → soil", "Cow: ~25 % of feed N in milk"] }
+    ],
+    "beats": [
+      {
+        "variants": [
+          "Good morning, let's get started. Animal nutrition is basically the link between what grows on fields and meadows and what ends up as milk, meat or eggs in the supermarket fridge.",
+          "Nice to see you all – so why animal nutrition? It connects what grows on the meadow with what finally lands on your plate as food.",
+          "So, what is this subject about? The path from feed via the animal to food – and what the animal needs along the way."
+        ],
+        "slide": 0,
+        "board": null,
+        "look": "class",
+        "gesture": "open",
+        "pause": 0.8
+      },
+      {
+        "variants": [
+          "What and how we feed determines the animals' health and performance, but also milk composition, meat quality and the emissions coming out of the barn.",
+          "Feeding affects everything: animal health, performance, product quality – and whatever comes out at the back end in terms of nitrogen and phosphorus.",
+          "Think of a dairy farm in the Mostviertel: if the ration is right, health, fertility and milk components are usually fine too. If it isn't, you notice it everywhere."
+        ],
+        "slide": null,
+        "board": null,
+        "look": "class",
+        "gesture": "explain",
+        "pause": 0.6
+      },
+      {
+        "variants": [
+          "And then there's money: feed is the largest cost item in livestock farming. In dairy it accounts for roughly half of the costs, in pig fattening usually even more.",
+          "Economically it's quite clear: the biggest single cost item is feed – about half of the production costs for milk, and usually more than half in pig fattening.",
+          "When you advise a farm later on, look at the feed first. It's the largest cost item – around 50 percent for milk, and often well above that in pig fattening."
+        ],
+        "slide": null,
+        "board": null,
+        "look": "student",
+        "gesture": "emphasis",
+        "pause": 0.7
+      },
+      {
+        "variants": [
+          "That's why feed conversion matters so much. Let me write it up for you: kilos of feed per kilo of gain – for fattening pigs we're at about 2.8 to 1 in practice.",
+          "I'll put the key figure on the board: the feed conversion ratio, feed used per kilo of weight gain. A good fattening pig needs about 2.8 kilos of feed per kilo of gain.",
+          "Remember feed conversion – I'll write it down: feed in kilos divided by gain in kilos. In pig fattening in Styria, 2.8 to 1 is a realistic value."
+        ],
+        "slide": null,
+        "board": "b1",
+        "look": "board",
+        "gesture": "point",
+        "pause": 1.0
+      },
+      {
+        "variants": [
+          "The broiler is clearly more efficient, at about 1.6 to 1. For dairy cows we turn it around: about 1.4 to 1.6 kilos of energy-corrected milk per kilo of feed dry matter is good.",
+          "For comparison: a broiler manages about 1.6 to 1. For dairy cows we flip the ratio and talk about 1.4 to 1.6 kilos of ECM per kilo of dry matter eaten.",
+          "Poultry is at roughly 1.6 kilos of feed per kilo of gain. With the cow we ask how much milk one kilo of dry matter yields – 1.4 to 1.6 kilos of ECM is a good range."
+        ],
+        "slide": null,
+        "board": null,
+        "look": "class",
+        "gesture": "count",
+        "pause": 0.6
+      },
+      {
+        "variants": [
+          "Let's look at the cycle: the soil feeds the plant, the plant feeds the animal, and via slurry and manure the nutrients go back to the land as livestock manure.",
+          "On the slide you see the nutrient cycle. Whatever the animal doesn't build into milk or meat ends up in the manure – and that goes back onto meadows and fields.",
+          "Livestock farming is part of a cycle: soil, plant, animal, manure and back to soil. The farm in the Mostviertel fertilises its meadows largely with its own slurry."
+        ],
+        "slide": 1,
+        "board": null,
+        "look": "screen",
+        "gesture": "point",
+        "pause": 0.7
+      },
+      {
+        "variants": [
+          "I'll note this on the board: of the nitrogen a dairy cow eats, only about a quarter turns up again in the milk. The large remainder goes into faeces and urine.",
+          "Let's write it up: a dairy cow incorporates roughly 25 percent of the feed nitrogen into milk. Three quarters are excreted – that's fertiliser, but also a source of emissions.",
+          "A figure for the board: only about a quarter of feed N ends up in the cow's milk. The rest goes via faeces and urine into the manure, and partly into the air as ammonia."
+        ],
+        "slide": null,
+        "board": "b2",
+        "look": "board",
+        "gesture": "emphasis",
+        "pause": 1.0
+      },
+      {
+        "variants": [
+          "For Austria this is especially important: almost half of our farmland is permanent grassland, plus the alpine pastures. Humans can practically only use that for food via the ruminant.",
+          "In Austria almost half of the agricultural area is permanent grassland, much of it on slopes and alpine pastures. Without cattle, sheep and goats, it wouldn't produce any food.",
+          "Think of an alpine pasture in Tyrol: no wheat grows there. Almost half of our farmland is grassland, and only the ruminant turns it into milk and meat."
+        ],
+        "slide": null,
+        "board": null,
+        "look": "window",
+        "gesture": "open",
+        "pause": 0.8
+      },
+      {
+        "variants": [
+          "By the way, a feed is only cheap if the animal actually eats and uses it – no cow has ever given milk from a silo. That's why we'll look next at what's inside.",
+          "A dry rule of thumb from advisory work: the only cheap feed is the one that reaches the animal – no cow ever gave milk from a bunker silo. What's in it, feed analysis tells us.",
+          "What a feed is really worth shows in the animal, not on the delivery note. And to judge that, we need to know what's in it – that's our next topic."
+        ],
+        "slide": null,
+        "board": null,
+        "look": "class",
+        "gesture": "shrug",
+        "pause": 1.2
+      }
+    ],
+    "quiz": [
+      {
+        "q": "Which cost item is usually the largest in livestock farming?",
+        "correct": "Feed costs",
+        "wrong": ["Veterinary costs", "Energy costs for the barn", "Bedding costs"],
+        "explain": "Feed accounts for about half of the costs in dairy and usually more than half in pig fattening.",
+        "calc": false
+      },
+      {
+        "q": "Roughly what share of feed nitrogen ends up in the milk of a dairy cow?",
+        "correct": "About a quarter",
+        "wrong": ["About three quarters", "Almost all of the nitrogen", "Less than 2 percent"],
+        "explain": "Only about 25 % of feed N is incorporated into milk; the rest is excreted via faeces and urine.",
+        "calc": false
+      },
+      {
+        "q": "A fattening pig gains 90 kg and eats 261 kg of feed in the process. What is the feed conversion ratio?",
+        "correct": "2.9 : 1",
+        "wrong": ["0.34 : 1", "3.5 : 1", "2.6 : 1"],
+        "explain": "Feed conversion ratio = feed : gain = 261 kg : 90 kg = 2.9.",
+        "calc": true
+      }
+    ],
+    "calc": {
+      "title": "Feed requirement in pig fattening",
+      "given": "Fattening from 30 to 120 kg live weight, feed conversion ratio 2.8 : 1",
+      "steps": ["Gain = 120 − 30 = 90 kg", "Feed = 90 kg × 2.8", "Feed = 252 kg per pig"],
+      "result": "≈ 250 kg of finisher feed per animal"
+    },
+    "notes": [
+      "Feed → animal → food",
+      "Feed = largest cost item (milk ~50 %)",
+      "FCR = kg feed : kg gain",
+      "Pig ~2.8 : 1 · broiler ~1.6 : 1",
+      "Cow: only ~25 % of feed N in milk",
+      "Austria: almost half of farmland grassland"
+    ],
+    "script": "Animal nutrition links crop production, livestock farming and food production. In the animal, feed is converted into milk, meat and eggs; how well this works depends on a needs-based supply of energy, protein, minerals and vitamins. Feeding affects animal health, performance, product quality and environmental impact alike. Economically, feed is the largest cost item in livestock farming: in dairy production, forage and concentrates account for roughly half of the production costs, and in pig fattening usually for more than half. A key indicator is therefore the feed conversion ratio, i.e. the amount of feed used per kilogram of weight gain. Typical values in practice are about 2.8 to 2.9 : 1 for fattening pigs and around 1.6 : 1 for broilers. For dairy cows, feed efficiency is expressed as kilograms of energy-corrected milk per kilogram of feed dry matter; values of about 1.4 to 1.6 are considered good. Livestock farming is part of a nutrient cycle of soil, plant, animal and livestock manure. Only part of the nutrients consumed is retained in the product – in the dairy cow only about a quarter of the feed nitrogen ends up in the milk. The rest passes via faeces and urine into slurry and manure; it can be used as fertiliser, but is also a source of ammonia and nitrate losses. In Austria almost half of the utilised agricultural area is permanent grassland, plus around 8,000 alpine pastures. This grassland can be used for human nutrition mainly via ruminants."
+  }
+}

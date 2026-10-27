@@ -1,0 +1,428 @@
+{
+  "id": "protein_wdk",
+  "order": 6,
+  "core": true,
+  "plannedMinutes": 8,
+  "de": {
+    "title": "Proteinbewertung beim Wiederkäuer",
+    "subtitle": "Pansenabbau, Mikrobenprotein, nXP und RNB",
+    "learningGoals": [
+      "Den Abbau von Futterprotein im Pansen (RDP, UDP) beschreiben",
+      "nXP als nutzbares Rohprotein am Duodenum erklären",
+      "Die ruminale N-Bilanz berechnen und interpretieren",
+      "Milchharnstoff als Indikator der Proteinversorgung nutzen"
+    ],
+    "slides": [
+      {
+        "title": "Protein im Pansen",
+        "bullets": [
+          "RDP: im Pansen abgebaut zu Peptiden, Aminosäuren und NH₃",
+          "UDP: unabgebautes Futterprotein, fließt in den Dünndarm",
+          "Mikroben bauen aus NH₃ und Energie Mikrobenprotein auf",
+          "Faustzahl: rund 10 g Mikrobenprotein je MJ ME",
+          "nXP = Mikrobenprotein + UDP am Duodenum",
+          "RNB = (XP − nXP) / 6,25, angegeben in g N"
+        ],
+        "diagram": {
+          "type": "table",
+          "head": ["g/kg TM", "XP", "nXP", "RNB"],
+          "rows": [
+            ["Grassil. 1. Aufw.", "152", "138", "+2,2"],
+            ["Grassil. 3. Aufw.+", "164", "131", "+5,3"],
+            ["Maissilage", "67", "129", "−9,9"]
+          ]
+        },
+        "source": "GfE (2001); LK-Silageprojekt 2024, FML Rosenau (Resch 2025)"
+      },
+      {
+        "title": "Harnstoff: Kreislauf und Indikator",
+        "bullets": [
+          "Überschüssiges NH₃ wird in der Leber zu Harnstoff",
+          "Harnstoff kommt über Speichel und Pansenwand zurück",
+          "Ausscheidung über Harn und Milch",
+          "Milchharnstoff: Zielbereich etwa 15–25 mg/100 ml",
+          "Über 30 mg/100 ml: Proteinüberschuss, unter 15: Mangel",
+          "Immer zusammen mit dem Milcheiweiß beurteilen"
+        ],
+        "diagram": { "type": "cycle", "items": ["Pansen: NH3", "Blut", "Leber: Harnstoff", "Speichel"] },
+        "source": "Kirchgeßner et al. (2014); LK Burgenland (2022); LKV-Tagesbericht"
+      }
+    ],
+    "board": [
+      { "id": "b1", "lines": ["nXP = Mikroben-XP + UDP", "(am Duodenum)", "Mikroben: ~10 g XP/MJ ME", "Milch: ~85 g nXP/kg"] },
+      { "id": "b2", "lines": ["RNB = (XP − nXP) / 6,25", "RNB > 0: N-Überschuss", "RNB < 0: N-Mangel Pansen", "Ziel Ration: RNB ≥ 0"] },
+      { "id": "b3", "lines": ["Milchharnstoff:", "15-25 mg/100 ml optimal", "> 30: zu viel Protein", "< 15: zu wenig Protein"] }
+    ],
+    "beats": [
+      {
+        "variants": [
+          "Beim Protein müssen wir zwei Dinge zusammenbringen: das Rohprotein aus der Weender Analyse und die Mikroben aus dem Pansen. Denn bei der Kuh kommt am Darm nicht das an, was im Futter war.",
+          "Sie erinnern sich: XP ist Stickstoff mal 6,25. Beim Wiederkäuer sagt dieser Wert aber relativ wenig, weil die Pansenmikroben das Futterprotein zuerst umbauen.",
+          "Wie wir beim Pansen gesehen haben, steht vor dem eigentlichen Magen eine Gärkammer. Das gilt auch fürs Eiweiß: Was die Kuh frisst und was im Dünndarm ankommt, sind zwei Paar Schuhe."
+        ],
+        "slide": 0,
+        "board": null,
+        "look": "class",
+        "gesture": "open",
+        "pause": 0.7
+      },
+      {
+        "variants": [
+          "Ein Teil des Futterproteins wird im Pansen abgebaut, das ist das RDP – bis hin zu Ammoniak. Der Rest, das UDP, passiert den Pansen unverändert und erreicht direkt den Dünndarm.",
+          "Wir unterscheiden pansenabbaubares Protein, RDP, und unabgebautes Protein, UDP. Das RDP zerlegen die Mikroben zu Peptiden, Aminosäuren und Ammoniak, das UDP fließt einfach durch.",
+          "Im Pansen trennt sich der Weg: Das abbaubare Protein, RDP, endet großteils als Ammoniak. Das unabgebaute, UDP oder Durchflussprotein, geht weiter in Labmagen und Dünndarm."
+        ],
+        "slide": null,
+        "board": null,
+        "look": "screen",
+        "gesture": "explain",
+        "pause": 0.6
+      },
+      {
+        "variants": [
+          "Aus dem Ammoniak bauen die Mikroben ihr eigenes Eiweiß auf – vorausgesetzt, sie haben genug Energie. Als Faustzahl rechnet man mit etwa 10 Gramm Mikrobenprotein je MJ ME.",
+          "Die Mikroben brauchen für ihr Wachstum Stickstoff und Energie gleichzeitig. Pro MJ ME entstehen rund 10 Gramm Mikrobenprotein, und das hat ein sehr gutes Aminosäurenmuster.",
+          "Mikrobenprotein ist hochwertig und für die Kuh die wichtigste Eiweißquelle. Wie viel davon entsteht, hängt vor allem an der Energie: grob 10 Gramm je Megajoule ME."
+        ],
+        "slide": null,
+        "board": null,
+        "look": "class",
+        "gesture": "emphasis",
+        "pause": 0.7
+      },
+      {
+        "variants": [
+          "Daraus ergibt sich das nXP, ich schreib's an: nutzbares Rohprotein am Duodenum, also Mikrobenprotein plus UDP. Für ein Kilo Milch braucht die Kuh rund 85 Gramm davon.",
+          "An der Tafel: nXP gleich Mikrobenprotein plus unabgebautes Futterprotein, am Anfang des Dünndarms, am Duodenum. Daran bemisst sich der Proteinbedarf, etwa 85 Gramm je Kilo Milch.",
+          "Ich notier's Ihnen: Was am Duodenum ankommt, ist Mikrobenprotein plus UDP – zusammen das nutzbare Rohprotein, kurz nXP. Je Kilo Milch rechnet man mit rund 85 Gramm nXP."
+        ],
+        "slide": null,
+        "board": "b1",
+        "look": "board",
+        "gesture": "point",
+        "pause": 1.0
+      },
+      {
+        "variants": [
+          "Jetzt die ruminale N-Bilanz, die schreib ich Ihnen an: RNB gleich XP minus nXP, durch 6,25. Das Ergebnis ist in Gramm Stickstoff und sagt, ob die Pansenmikroben genug N haben.",
+          "Die zweite Formel für die Tafel: RNB ist Rohprotein minus nXP, geteilt durch 6,25 – also zurück auf Stickstoff. Positiv heißt N-Überschuss im Pansen, negativ heißt N-Mangel.",
+          "Ich schreib Ihnen die RNB hin: XP minus nXP, durch 6,25, in Gramm N. Ist sie negativ, fehlt den Mikroben Stickstoff; ist sie positiv, bleibt im Pansen Ammoniak übrig."
+        ],
+        "slide": null,
+        "board": "b2",
+        "look": "board",
+        "gesture": "count",
+        "pause": 1.0
+      },
+      {
+        "variants": [
+          "In der Tabelle sehen Sie: Grassilage hat eine positive RNB, Maissilage mit rund minus 10 eine deutlich negative. Die beiden ergänzen sich – die Gesamtration sollte nicht unter null liegen.",
+          "Ein Betrieb im Mostviertel mit Gras- und Maissilage hat Glück: Die Grassilage bringt N-Überschuss, die Maissilage ein Defizit. Für die Gesamtration sollte die RNB nicht unter null liegen.",
+          "Maissilage liegt bei etwa minus 10 Gramm N je Kilo TM, Grassilage leicht im Plus. Ziel ist, dass die gesamte Ration bei null oder knapp darüber landet."
+        ],
+        "slide": null,
+        "board": null,
+        "look": "screen",
+        "gesture": "explain",
+        "pause": 0.7
+      },
+      {
+        "variants": [
+          "Was passiert mit überschüssigem Ammoniak? Es geht über die Pansenwand ins Blut, die Leber macht daraus Harnstoff – ein Teil kommt über den Speichel zurück, der Rest geht in Harn und Milch.",
+          "Auf der Folie der Harnstoffkreislauf: Ammoniak aus dem Pansen wird in der Leber zu Harnstoff entgiftet. Der wird über Speichel und Pansenwand recycelt oder über Harn und Milch ausgeschieden.",
+          "Ammoniak ist giftig, also wandelt die Leber es in Harnstoff um – das kostet Energie. Harnstoff zirkuliert im Blut, kommt teils zurück in den Pansen und geht sonst in Harn und Milch."
+        ],
+        "slide": 1,
+        "board": null,
+        "look": "screen",
+        "gesture": "point",
+        "pause": 0.7
+      },
+      {
+        "variants": [
+          "Deshalb kann man Wiederkäuern sogar Futterharnstoff geben – die Kuh macht mit ihren Mikroben aus einem Stickstoffdünger Eiweiß. Das schafft kein Schwein, im wörtlichen Sinn.",
+          "Das erklärt auch, warum Futterharnstoff bei negativer RNB funktioniert: Die Mikroben bauen den Stickstoff in Eiweiß ein. Ein Schwein könnte damit nichts anfangen.",
+          "Randbemerkung: Bei maisbetonten Rationen setzt man manchmal Futterharnstoff ein. Die Kuh macht aus Dünger-Stickstoff Eiweiß – ein Schwein kann das nicht, ihm fehlen die Pansenmikroben."
+        ],
+        "slide": null,
+        "board": null,
+        "look": "student",
+        "gesture": "shrug",
+        "pause": 0.8
+      },
+      {
+        "variants": [
+          "Weil Harnstoff in die Milch übergeht, ist er ein gutes Kontrollwerkzeug. Ich schreib's an: Optimal sind etwa 15 bis 25 mg pro 100 ml, über 30 deutet auf Proteinüberschuss, unter 15 auf Mangel.",
+          "Den Milchharnstoff finden Sie im LKV-Tagesbericht – die Zielwerte kommen an die Tafel: rund 15 bis 25 Milligramm je 100 Milliliter. Über 30 ist zu viel Eiweiß, unter 15 zu wenig.",
+          "Ich notier Ihnen den Zielbereich: etwa 15 bis 25 mg Harnstoff je 100 ml Milch. Unter 15 heißt Proteinmangel, über 30 Eiweißüberschuss – typisch für junges Weidegras im Herbst."
+        ],
+        "slide": null,
+        "board": "b3",
+        "look": "board",
+        "gesture": "emphasis",
+        "pause": 1.0
+      },
+      {
+        "variants": [
+          "Den Harnstoff beurteilen Sie immer zusammen mit dem Milcheiweiß, denn das spiegelt die Energieversorgung. Hoher Harnstoff bei niedrigem Eiweiß heißt oft: Den Mikroben fehlt Energie.",
+          "Harnstoff allein reicht nicht: Niedriges Milcheiweiß zeigt Energiemangel, und dann steigt der Harnstoff oft mit. Deshalb schaut man im Tagesbericht immer beide Werte gemeinsam an.",
+          "Ein hoher Harnstoffwert bei niedrigem Milcheiweiß heißt meistens: Den Mikroben fehlt Energie, nicht Protein. Also lesen Sie beide Werte immer zusammen."
+        ],
+        "slide": null,
+        "board": null,
+        "look": "class",
+        "gesture": "glasses",
+        "pause": 1.2
+      }
+    ],
+    "quiz": [
+      {
+        "q": "Wofür steht nXP in der Proteinbewertung für Wiederkäuer?",
+        "correct": "Nutzbares Rohprotein am Duodenum",
+        "wrong": ["Nicht abbaubares Rohprotein im Pansen", "Netto-Rohprotein in der Milch", "Nicht-Protein-Stickstoff im Futter"],
+        "explain": "nXP ist die Summe aus Mikrobenprotein und unabgebautem Futterprotein (UDP) am Duodenum.",
+        "calc": false
+      },
+      {
+        "q": "Welcher Milchharnstoffgehalt gilt in Österreich etwa als optimal?",
+        "correct": "Etwa 15 bis 25 mg/100 ml",
+        "wrong": ["Etwa 2 bis 5 mg/100 ml", "Etwa 40 bis 60 mg/100 ml", "Unter 10 mg/100 ml"],
+        "explain": "15–25 mg/100 ml gelten als Optimum; über 30 deutet auf Protein-Überschuss, unter 15 auf Mangel.",
+        "calc": false
+      },
+      {
+        "q": "Ein Eiweißfutter enthält 390 g XP und 260 g nXP je kg TM. Wie hoch ist die RNB?",
+        "correct": "≈ +21 g N je kg TM",
+        "wrong": ["≈ −21 g N je kg TM", "≈ +130 g N je kg TM", "≈ +812 g N je kg TM"],
+        "explain": "RNB = (390 − 260) / 6,25 = 130 / 6,25 ≈ +20,8 g N je kg TM.",
+        "calc": true
+      }
+    ],
+    "calc": {
+      "title": "Ruminale N-Bilanz einer Tagesration",
+      "given": "Milchkuh-Tagesration: 3 500 g XP und 3 375 g nXP",
+      "steps": ["RNB = (3500 − 3375) / 6,25", "RNB = 125 / 6,25", "RNB = + 20 g N je Tag"],
+      "result": "RNB ≈ +20 g N/Tag – leicht positiv, ausgeglichen"
+    },
+    "notes": [
+      "RDP → NH₃ → Mikrobenprotein; UDP fließt durch",
+      "nXP = Mikrobenprotein + UDP (Duodenum)",
+      "RNB = (XP − nXP) / 6,25 in g N",
+      "Grassilage RNB +, Maissilage RNB −",
+      "Milchharnstoff 15–25 mg/100 ml optimal",
+      "Harnstoff immer mit Milcheiweiß lesen"
+    ],
+    "script": "Beim Wiederkäuer sagt der Rohproteingehalt des Futters wenig über die Proteinversorgung des Tieres aus, weil die Pansenmikroben das Futterprotein umbauen. Der im Pansen abbaubare Anteil (RDP) wird zu Peptiden, Aminosäuren und schließlich Ammoniak abgebaut; der unabgebaute Anteil (UDP) gelangt unverändert in den Dünndarm. Aus Ammoniak und fermentierbarer Energie synthetisieren die Mikroben Mikrobenprotein mit hochwertigem Aminosäurenmuster, als Faustzahl etwa 10 g je MJ ME. Nach GfE (2001) wird die Proteinversorgung als nutzbares Rohprotein am Duodenum (nXP) bewertet, der Summe aus Mikrobenprotein und UDP. Je kg Milch werden rund 85 g nXP benötigt. Die ruminale Stickstoffbilanz RNB = (XP − nXP) / 6,25 zeigt in g N, ob im Pansen Stickstoff im Überschuss (positiv) oder im Mangel (negativ) vorliegt. Grassilagen weisen meist eine positive, Maissilagen eine deutlich negative RNB von etwa −10 g N je kg TM auf; die Gesamtration sollte nicht unter null liegen. Überschüssiges Ammoniak gelangt über die Pansenwand ins Blut und wird in der Leber unter Energieaufwand zu Harnstoff umgewandelt. Harnstoff kann über Speichel und Pansenwand in den Pansen zurückgeführt werden oder wird mit Harn und Milch ausgeschieden. Der Milchharnstoffgehalt ist daher ein praktischer Indikator: Etwa 15–25 mg/100 ml gelten als optimal, Werte über 30 weisen auf einen Proteinüberschuss, Werte unter 15 auf einen Mangel hin. Er sollte stets gemeinsam mit dem Milcheiweißgehalt als Anzeiger der Energieversorgung beurteilt werden. Die GfE-Empfehlungen 2023 ersetzen das nXP künftig durch dünndarmverdauliches Protein."
+  },
+  "en": {
+    "title": "Protein Evaluation in Ruminants",
+    "subtitle": "Rumen degradation, microbial protein, uCP (nXP) and RNB",
+    "learningGoals": [
+      "Describe the degradation of feed protein in the rumen (RDP, UDP)",
+      "Explain uCP (nXP) as utilisable crude protein at the duodenum",
+      "Calculate and interpret the ruminal nitrogen balance",
+      "Use milk urea as an indicator of protein supply"
+    ],
+    "slides": [
+      {
+        "title": "Protein in the rumen",
+        "bullets": [
+          "RDP: degraded in the rumen to peptides, amino acids and NH₃",
+          "UDP: undegraded feed protein, flows on to the small intestine",
+          "Microbes build microbial protein from NH₃ and energy",
+          "Rule of thumb: about 10 g microbial protein per MJ ME",
+          "uCP (nXP) = microbial protein + UDP at the duodenum",
+          "RNB = (CP − uCP) / 6.25, given in g N"
+        ],
+        "diagram": {
+          "type": "table",
+          "head": ["g/kg DM", "CP", "uCP", "RNB"],
+          "rows": [
+            ["Grass sil. 1st cut", "152", "138", "+2.2"],
+            ["Grass sil. 3rd+", "164", "131", "+5.3"],
+            ["Maize silage", "67", "129", "−9.9"]
+          ]
+        },
+        "source": "GfE (2001); LK Silage Project 2024, FML Rosenau (Resch 2025)"
+      },
+      {
+        "title": "Urea: recycling and indicator",
+        "bullets": [
+          "Excess NH₃ is converted to urea in the liver",
+          "Urea returns to the rumen via saliva and the rumen wall",
+          "Excretion via urine and milk",
+          "Milk urea: target range about 15–25 mg/100 ml",
+          "Above 30 mg/100 ml: protein surplus, below 15: deficiency",
+          "Always assess together with milk protein"
+        ],
+        "diagram": { "type": "cycle", "items": ["Rumen: NH3", "Blood", "Liver: urea", "Saliva"] },
+        "source": "Kirchgeßner et al. (2014); LK Burgenland (2022); LKV daily report"
+      }
+    ],
+    "board": [
+      { "id": "b1", "lines": ["uCP = microbial CP + UDP", "(at the duodenum)", "Microbes: ~10 g CP/MJ ME", "Milk: ~85 g uCP/kg"] },
+      { "id": "b2", "lines": ["RNB = (CP − uCP) / 6.25", "RNB > 0: N surplus", "RNB < 0: N deficit rumen", "Target ration: RNB ≥ 0"] },
+      { "id": "b3", "lines": ["Milk urea:", "15-25 mg/100 ml optimal", "> 30: too much protein", "< 15: too little protein"] }
+    ],
+    "beats": [
+      {
+        "variants": [
+          "With protein we have to bring two things together: crude protein from the Weende analysis and the microbes in the rumen. Because in the cow, what reaches the gut isn't what was in the feed.",
+          "You remember: CP is nitrogen times 6.25. In ruminants, though, that value says relatively little, because the rumen microbes remodel feed protein first.",
+          "As we saw with the rumen, there's a fermentation chamber in front of the actual stomach. That applies to protein too: what the cow eats and what arrives in the small intestine are two different things."
+        ],
+        "slide": 0,
+        "board": null,
+        "look": "class",
+        "gesture": "open",
+        "pause": 0.7
+      },
+      {
+        "variants": [
+          "Part of the feed protein is degraded in the rumen, that's RDP – all the way down to ammonia. The rest, UDP, passes the rumen unchanged and goes straight to the small intestine.",
+          "We distinguish rumen-degradable protein, RDP, and undegradable protein, UDP. The microbes break RDP down to peptides, amino acids and ammonia, while UDP simply flows through.",
+          "In the rumen the paths split: degradable protein, RDP, largely ends up as ammonia. The undegradable part, UDP or bypass protein, moves on to the abomasum and small intestine."
+        ],
+        "slide": null,
+        "board": null,
+        "look": "screen",
+        "gesture": "explain",
+        "pause": 0.6
+      },
+      {
+        "variants": [
+          "From ammonia the microbes build their own protein – provided they have enough energy. As a rule of thumb, we reckon with about 10 grams of microbial protein per MJ ME.",
+          "Microbes need nitrogen and energy at the same time to grow. About 10 grams of microbial protein are formed per MJ ME, and it has a very good amino acid pattern.",
+          "Microbial protein is high-quality and the cow's most important protein source. How much is formed depends mainly on energy: roughly 10 grams per megajoule ME."
+        ],
+        "slide": null,
+        "board": null,
+        "look": "class",
+        "gesture": "emphasis",
+        "pause": 0.7
+      },
+      {
+        "variants": [
+          "That gives us uCP, or nXP in German – let me write it up: utilisable crude protein at the duodenum, microbial protein plus UDP. A cow needs about 85 grams per kilo of milk.",
+          "On the board: uCP equals microbial protein plus undegraded feed protein, at the start of the small intestine, the duodenum. Requirements are based on it, about 85 grams per kilo of milk.",
+          "I'll note it: what reaches the duodenum is microbial protein plus UDP – together the utilisable crude protein, uCP. Per kilo of milk we reckon with about 85 grams of uCP."
+        ],
+        "slide": null,
+        "board": "b1",
+        "look": "board",
+        "gesture": "point",
+        "pause": 1.0
+      },
+      {
+        "variants": [
+          "Now the ruminal nitrogen balance, let me write it up: RNB equals CP minus uCP, divided by 6.25. The result is in grams of nitrogen and tells us whether the rumen microbes have enough N.",
+          "The second formula for the board: RNB is crude protein minus uCP, divided by 6.25 – so back to nitrogen. Positive means N surplus in the rumen, negative means N deficit.",
+          "I'll write the RNB down for you: CP minus uCP, divided by 6.25, in grams of N. If it's negative, the microbes lack nitrogen; if it's positive, ammonia is left over in the rumen."
+        ],
+        "slide": null,
+        "board": "b2",
+        "look": "board",
+        "gesture": "count",
+        "pause": 1.0
+      },
+      {
+        "variants": [
+          "In the table you can see: grass silage has a positive RNB, maize silage a clearly negative one of about minus 10. The two complement each other – the total ration shouldn't fall below zero.",
+          "A farm in the Mostviertel with grass and maize silage is lucky: the grass silage brings an N surplus, the maize silage a deficit. For the total ration, RNB shouldn't fall below zero.",
+          "Maize silage is at about minus 10 grams of N per kilo DM, grass silage slightly positive. The aim is for the whole ration to end up at zero or just above."
+        ],
+        "slide": null,
+        "board": null,
+        "look": "screen",
+        "gesture": "explain",
+        "pause": 0.7
+      },
+      {
+        "variants": [
+          "What happens to excess ammonia? It passes through the rumen wall into the blood and the liver turns it into urea – some returns via saliva, the rest goes into urine and milk.",
+          "On the slide, urea recycling: ammonia from the rumen is detoxified to urea in the liver. It is recycled via saliva and the rumen wall, or excreted via urine and milk.",
+          "Ammonia is toxic, so the liver converts it to urea – which costs energy. Urea circulates in the blood, partly returns to the rumen and otherwise goes into urine and milk."
+        ],
+        "slide": 1,
+        "board": null,
+        "look": "screen",
+        "gesture": "point",
+        "pause": 0.7
+      },
+      {
+        "variants": [
+          "That's why you can even feed urea to ruminants – with her microbes, the cow turns a nitrogen fertiliser into protein. No pig could pull that off.",
+          "This also explains why feed urea works when RNB is negative: the microbes build the nitrogen into protein. A pig couldn't do anything with it.",
+          "A side note: with maize-based rations, feed urea is sometimes used. The cow makes protein out of fertiliser nitrogen – a pig can't, it lacks the rumen microbes."
+        ],
+        "slide": null,
+        "board": null,
+        "look": "student",
+        "gesture": "shrug",
+        "pause": 0.8
+      },
+      {
+        "variants": [
+          "Since urea passes into milk, it's a good monitoring tool. Let me write it up: about 15 to 25 mg per 100 ml is optimal, above 30 suggests a protein surplus, below 15 a deficiency.",
+          "You'll find milk urea in the LKV daily report – the targets go on the board: about 15 to 25 milligrams per 100 millilitres. Above 30 is too much protein, below 15 too little.",
+          "I'll note the target range: about 15 to 25 mg of urea per 100 ml of milk. Below 15 means protein deficiency, above 30 a protein surplus – typical of young pasture grass in autumn."
+        ],
+        "slide": null,
+        "board": "b3",
+        "look": "board",
+        "gesture": "emphasis",
+        "pause": 1.0
+      },
+      {
+        "variants": [
+          "Always assess urea together with milk protein, because that reflects energy supply. High urea with low milk protein often means: the microbes are short of energy.",
+          "Urea alone isn't enough: low milk protein indicates energy deficiency, and urea often rises with it. That's why you always look at both values together in the daily report.",
+          "A high urea value with low milk protein usually means the microbes lack energy, not protein. So always read both values together."
+        ],
+        "slide": null,
+        "board": null,
+        "look": "class",
+        "gesture": "glasses",
+        "pause": 1.2
+      }
+    ],
+    "quiz": [
+      {
+        "q": "What does uCP (German nXP) stand for in ruminant protein evaluation?",
+        "correct": "Utilisable crude protein at the duodenum",
+        "wrong": ["Undegradable crude protein in the rumen", "Net crude protein in milk", "Non-protein nitrogen in the feed"],
+        "explain": "uCP is the sum of microbial protein and undegraded feed protein (UDP) at the duodenum.",
+        "calc": false
+      },
+      {
+        "q": "Which milk urea content is considered roughly optimal in Austria?",
+        "correct": "About 15 to 25 mg/100 ml",
+        "wrong": ["About 2 to 5 mg/100 ml", "About 40 to 60 mg/100 ml", "Below 10 mg/100 ml"],
+        "explain": "15–25 mg/100 ml is considered optimal; above 30 suggests a protein surplus, below 15 a deficiency.",
+        "calc": false
+      },
+      {
+        "q": "A protein feed contains 390 g CP and 260 g uCP per kg DM. What is its RNB?",
+        "correct": "≈ +21 g N per kg DM",
+        "wrong": ["≈ −21 g N per kg DM", "≈ +130 g N per kg DM", "≈ +812 g N per kg DM"],
+        "explain": "RNB = (390 − 260) / 6.25 = 130 / 6.25 ≈ +20.8 g N per kg DM.",
+        "calc": true
+      }
+    ],
+    "calc": {
+      "title": "Ruminal N balance of a daily ration",
+      "given": "Dairy cow daily ration: 3,500 g CP and 3,375 g uCP",
+      "steps": ["RNB = (3500 − 3375) / 6.25", "RNB = 125 / 6.25", "RNB = + 20 g N per day"],
+      "result": "RNB ≈ +20 g N/day – slightly positive, balanced"
+    },
+    "notes": [
+      "RDP → NH₃ → microbial protein; UDP bypasses",
+      "uCP = microbial protein + UDP (duodenum)",
+      "RNB = (CP − uCP) / 6.25 in g N",
+      "Grass silage RNB +, maize silage RNB −",
+      "Milk urea 15–25 mg/100 ml optimal",
+      "Always read urea with milk protein"
+    ],
+    "script": "In ruminants, feed crude protein says little about protein supply, because rumen microbes remodel it. The rumen-degradable fraction (RDP) is broken down to peptides, amino acids and finally ammonia; the undegradable fraction (UDP) reaches the small intestine unchanged. From ammonia and fermentable energy, the microbes synthesise microbial protein with a high-quality amino acid pattern, as a rule of thumb about 10 g per MJ ME. According to GfE (2001), protein supply is evaluated as utilisable crude protein at the duodenum (uCP, German nXP), the sum of microbial protein and UDP. About 85 g uCP are needed per kg of milk. The ruminal nitrogen balance RNB = (CP − uCP) / 6.25 shows in g N whether nitrogen in the rumen is in surplus (positive) or deficit (negative). Grass silages usually have a positive RNB, maize silages a clearly negative one of about −10 g N per kg DM; the total ration should not fall below zero. Excess ammonia passes through the rumen wall into the blood and is converted to urea in the liver at an energy cost. Urea can be returned to the rumen via saliva and the rumen wall, or excreted in urine and milk. Milk urea content is therefore a practical indicator: about 15–25 mg/100 ml is considered optimal, values above 30 indicate a protein surplus, values below 15 a deficiency. It should always be read together with milk protein, which reflects energy supply. The GfE recommendations of 2023 will replace uCP with small-intestinal digestible protein."
+  }
+}

@@ -1,0 +1,342 @@
+{
+  "id": "ausblick",
+  "order": 15,
+  "core": false,
+  "plannedMinutes": 4,
+  "de": {
+    "title": "Ausblick: weitere Tierarten",
+    "subtitle": "Pferd, Schaf, Ziege und Fisch – und ein kurzer Rückblick",
+    "learningGoals": [
+      "Verdauungsbesonderheiten des Pferdes als Dickdarmverdauer erklären",
+      "Fütterungsbesonderheiten von Schaf und Ziege nennen",
+      "Fischmehl und seine Alternativen in der Aquakultur einordnen"
+    ],
+    "slides": [
+      {
+        "title": "Pferd, Schaf und Ziege",
+        "bullets": [
+          "Pferd: Dickdarmverdauer – Gärung in Blind- und Grimmdarm",
+          "Kleiner Magen: viele kleine Mahlzeiten, Fresspausen ≤ 4 h",
+          "Mind. 1,5 kg Raufutter-TM je 100 kg Körpermasse und Tag",
+          "Schaf: kupferempfindlich – kein Rindermineralfutter",
+          "Ziege: Intermediärtyp, sehr selektiv, frisst gern Laub"
+        ],
+        "diagram": {
+          "type": "flow",
+          "items": ["Maul", "Magen (klein)", "Dünndarm", "Blinddarm", "Grimmdarm", "Kot"],
+          "direction": "right",
+          "highlight": 3
+        },
+        "source": "GfE (2014); Gruber Tabelle Pferdefütterung (LfL); Hofmann (1989)"
+      },
+      {
+        "title": "Aquakultur und Rückblick",
+        "bullets": [
+          "Fische: wechselwarm – sehr effiziente Futterverwertung",
+          "Forelle, Saibling: hoher Proteinbedarf, Fischmehl und -öl",
+          "Alternativen: Pflanzenprotein, Insektenmehl, Algenöl",
+          "Insektenmehl für Aquakultur in der EU seit 2017 zugelassen",
+          "Rückblick: Bewertung → Futter → Ration → Gesundheit → Umwelt"
+        ],
+        "diagram": {
+          "type": "cycle",
+          "items": ["Futteranalyse", "Energiebewertung", "Proteinbewertung", "Futtermittel", "Ration", "Tiergesundheit", "Umwelt"]
+        },
+        "source": "FiBL; VO (EU) 2017/893"
+      }
+    ],
+    "board": [
+      { "id": "b1", "lines": ["Pferd: Dickdarmverdauer", "Magen 10-20 l, Dickdarm ~130 l", "Raufutter ≥ 1,5 kg TM/100 kg", "Fresspausen ≤ 4 h"] },
+      { "id": "b2", "lines": ["Cu max.: Schaf 15 mg/kg", "Rind 30, Ziege 35 mg/kg", "Ziege: Intermediärtyp", "→ selektiv, Laub, Kräuter"] },
+      { "id": "b3", "lines": ["Forelle: ~1-1,2 kg Futter/kg", "wechselwarm, schwebt im Wasser", "Fischmehl → Soja, Insekten", "Omega-3: Fischöl → Algenöl"] }
+    ],
+    "beats": [
+      {
+        "variants": [
+          "Zum Schluss ein Blick über die Kuh hinaus. Die Prinzipien – Energie, Protein, Mineralstoffe – gelten für alle Tierarten, aber die Verdauung unterscheidet sich teils gewaltig.",
+          "Wir haben fast nur über das Rind gesprochen. Zum Abschluss ein kurzer Ausblick auf Pferd, Schaf, Ziege und Fisch – gleiche Grundlagen, ganz andere Verdauungssysteme.",
+          "Bevor wir zusammenfassen, noch ein Ausblick: Was ändert sich, wenn kein Pansen da ist oder das Tier im Wasser lebt? Schauen wir uns Pferd, kleine Wiederkäuer und Fisch an."
+        ],
+        "slide": 0, "board": null, "look": "class", "gesture": "open", "pause": 0.6
+      },
+      {
+        "variants": [
+          "Das Pferd ist ein Dickdarmverdauer: Die Fasergärung findet erst im Blind- und Grimmdarm statt, also nach dem Dünndarm. Der Magen fasst nur 10 bis 20 Liter, der Dickdarm rund 130.",
+          "Beim Pferd ist die Reihenfolge umgekehrt: erst Magen und Dünndarm, dann die Mikroben im Blind- und Grimmdarm. Mikrobenprotein aus dem Dickdarm kann das Pferd deshalb kaum nutzen.",
+          "Ich zeichne es grob an: kleiner Magen, 10 bis 20 Liter, langer Dünndarm, dann ein riesiger Dickdarm mit gut 130 Litern. Dort, im Blind- und Grimmdarm, sitzt die Gärkammer des Pferdes."
+        ],
+        "slide": null, "board": "b1", "look": "board", "gesture": "explain", "pause": 1.0
+      },
+      {
+        "variants": [
+          "Daraus folgt: Heu ist die Basis, mindestens 1,5 kg Raufutter-TM je 100 kg Körpermasse, und Fresspausen nicht länger als etwa vier Stunden. Sonst greift die Magensäure die Schleimhaut an.",
+          "Für die Praxis heißt das: viel Raufutter, mindestens 1,5 kg TM je 100 kg Körpermasse, über den Tag verteilt. Lange Fresspausen über vier Stunden fördern Magengeschwüre.",
+          "Ein Pferd ist auf Dauerfressen ausgelegt. Deshalb mindestens 1,5 kg Raufutter-TM je 100 kg Körpermasse und keine Fresspause über etwa vier Stunden – Heu zuerst, Kraftfutter danach und sparsam."
+        ],
+        "slide": null, "board": null, "look": "class", "gesture": "emphasis", "pause": 0.8
+      },
+      {
+        "variants": [
+          "Zu viel Stärke auf einmal ist beim Pferd gefährlich: Was der Dünndarm nicht schafft, vergärt im Dickdarm, Kolik und Hufrehe drohen. Grenze: etwa 1 g Stärke und Zucker je kg Körpermasse und Mahlzeit.",
+          "Hafer in Maßen, bitte: Große Stärkemengen rutschen unverdaut in den Dickdarm, dort sinkt der pH, Kolik oder Hufrehe folgen. Richtwert: höchstens rund 1 g Stärke plus Zucker je kg Körpermasse und Mahlzeit.",
+          "Energetisch bewertet die GfE das Pferd heute über umsetzbare Energie. Und Vorsicht mit Kraftfutter: Mehr als etwa 1 g Stärke und Zucker je kg Körpermasse pro Mahlzeit überfordert den Dünndarm."
+        ],
+        "slide": null, "board": null, "look": "student", "gesture": "explain", "pause": 0.8
+      },
+      {
+        "variants": [
+          "Beim Schaf wiederhole ich mich gern: Kupfer! Höchstgehalt 15 mg je Kilo, beim Rind 30, bei der Ziege 35. Chronische Kupfervergiftung bleibt lange unbemerkt und endet in einer hämolytischen Krise.",
+          "Schafe speichern Kupfer in der Leber, bis die Speicherkapazität erschöpft ist, dann kommt es zur Hämolyse. Darum Schafmineral ohne Kupferzusatz und nie Rindermineralfutter – 15 statt 30 mg je Kilo.",
+          "Wie im Abschnitt Mineralstoffe gesagt: Das Schaf ist das kupferempfindlichste Nutztier. Höchstgehalt 15 mg je Kilo Alleinfutter, Rinder 30, Ziegen sogar 35 – die Ziege ist da deutlich robuster."
+        ],
+        "slide": null, "board": "b2", "look": "board", "gesture": "emphasis", "pause": 0.9
+      },
+      {
+        "variants": [
+          "Die Ziege ist ein Intermediärtyp mit Hang zum Laub: Sie sucht sich die besten Teile heraus, Blätter, Triebe, Kräuter. Rechnen Sie beim Heu mit deutlich mehr Futterresten als beim Rind.",
+          "Ziegen fressen extrem selektiv, am liebsten Laub und Kräuter, und lassen Stängel liegen. In der Praxis plant man deshalb mehr Vorlage ein, als rechnerisch gefressen wird.",
+          "Nach Hofmann zählt die Ziege zum Intermediärtyp: Sie nascht, wählt Blätter, Triebe und Kräuter und verschmäht Stängel. Für die Rationsplanung heißt das mehr Vorlage und mehr Futterreste."
+        ],
+        "slide": null, "board": null, "look": "window", "gesture": "explain", "pause": 0.8
+      },
+      {
+        "variants": [
+          "Fische sind wechselwarm und schweben im Wasser – sie sparen Energie für Körpertemperatur und Stehen. Eine Forelle braucht deshalb nur etwa 1 bis 1,2 kg Futter je kg Zuwachs.",
+          "In der Aquakultur sind die Zahlen beeindruckend: Futteraufwand bei der Forelle um 1 bis 1,2 kg je kg Zuwachs. Kein Wunder, Fische heizen nicht und tragen ihr Gewicht nicht gegen die Schwerkraft.",
+          "Warum ist Fisch so futtereffizient? Wechselwarm, also kein Energieaufwand fürs Warmhalten, und der Auftrieb trägt den Körper. Bei Forellen rechnet man mit gut 1 kg Futter je kg Zuwachs."
+        ],
+        "slide": 1, "board": "b3", "look": "board", "gesture": "count", "pause": 0.9
+      },
+      {
+        "variants": [
+          "Forelle und Saibling sind Raubfische und brauchen viel Protein, klassisch aus Fischmehl und Fischöl. Weil der Wildfang begrenzt ist, ersetzt man zunehmend durch Pflanzenprotein, Insektenmehl und Algenöl.",
+          "Das Problem ist das Fischmehl: Es stammt aus Wildfang und ist begrenzt. Alternativen sind Soja- und Rapsprotein, Insektenmehl – in der EU für Fische seit 2017 erlaubt – und Algenöl für die Omega-3-Fettsäuren.",
+          "In Österreichs Forellen- und Saiblingszucht stellt sich dieselbe Frage wie weltweit: Wie ersetzen wir das begrenzte Fischmehl aus Wildfang? Kandidaten sind Pflanzenprotein, Insektenmehl und Algenöl."
+        ],
+        "slide": null, "board": null, "look": "class", "gesture": "explain", "pause": 0.8
+      },
+      {
+        "variants": [
+          "Schauen wir zurück: Analyse, Energie- und Proteinbewertung, Futtermittel, Konservierung, Ration, Stoffwechsel, Mineralstoffe, Umwelt und Recht – alles greift ineinander, und am Ende steht ein gesundes Tier.",
+          "Wenn Sie den roten Faden suchen: Wir bewerten Futter, kennen den Bedarf, rechnen die Ration und kontrollieren das Ergebnis an Tier, Umwelt und Lebensmittel. Das ist Tierernährung in einem Satz.",
+          "Der Kreis auf der Folie fasst das Semester zusammen: von der Futteranalyse über Energie, Protein und Ration bis zu Tiergesundheit und Umwelt. Jeder Schritt baut auf dem vorigen auf."
+        ],
+        "slide": null, "board": null, "look": "screen", "gesture": "open", "pause": 0.7
+      },
+      {
+        "variants": [
+          "Wenn Sie sich nur eines merken: Füttern Sie zuerst die Mikroben, dann das Tier. Beim Rind sitzen die vorne im Pansen, beim Pferd halt ein paar Meter weiter hinten.",
+          "Mein Merksatz für alle Pflanzenfresser: Wer die Mikroben gut füttert, füttert das Tier gut. Beim Wiederkäuer passiert das vor dem Dünndarm, beim Pferd ein paar Meter weiter hinten.",
+          "Zum Mitnehmen: Pflanzenfresser füttert man über ihre Mikroben. Die Kuh hat ihre Gärkammer vorne, das Pferd hinten – und der Fisch braucht zum Glück keine Strukturbewertung."
+        ],
+        "slide": null, "board": null, "look": "student", "gesture": "shrug", "pause": 0.6
+      }
+    ],
+    "quiz": [
+      {
+        "q": "Pony mit 300 kg, mindestens 1,5 kg Raufutter-TM je 100 kg Körpermasse. Wie viel Raufutter-TM pro Tag?",
+        "correct": "4,5 kg TM",
+        "wrong": ["3,0 kg TM", "1,5 kg TM", "45 kg TM"],
+        "explain": "300 / 100 × 1,5 = 4,5 kg Raufutter-TM, also gut 5 kg Heu.",
+        "calc": true
+      },
+      {
+        "q": "Wo findet beim Pferd die mikrobielle Faserverdauung hauptsächlich statt?",
+        "correct": "Im Blind- und Grimmdarm",
+        "wrong": ["Im Vormagen wie beim Rind", "Im Magen", "Im Dünndarm"],
+        "explain": "Das Pferd ist Dickdarmverdauer: Die Gerüstsubstanzen werden erst nach dem Dünndarm mikrobiell abgebaut.",
+        "calc": false
+      },
+      {
+        "q": "Warum sucht man in der Forellenfütterung Alternativen zu Fischmehl?",
+        "correct": "Fischmehl stammt aus begrenztem Wildfang",
+        "wrong": ["Forellen verdauen kein tierisches Protein", "Fischmehl ist in der EU verboten", "Forellen brauchen kaum Protein"],
+        "explain": "Fischmehl und Fischöl sind begrenzt und belasten Wildbestände; Ersatz: Pflanzenprotein, Insektenmehl, Algenöl.",
+        "calc": false
+      }
+    ],
+    "calc": {
+      "title": "Mindest-Raufuttermenge beim Pferd",
+      "given": "Warmblut mit 600 kg Körpermasse; Heu mit 88 % TM; Minimum 1,5 kg Raufutter-TM je 100 kg Körpermasse und Tag",
+      "steps": ["600 kg / 100 = 6", "6 × 1,5 = 9 kg TM", "9 / 0,88 ≈ 10,2 kg Heu"],
+      "result": "≈ 10 kg Heu pro Tag als Untergrenze"
+    },
+    "notes": [
+      "Pferd: Dickdarmverdauer (Blind-/Grimmdarm)",
+      "Raufutter ≥ 1,5 kg TM je 100 kg KM",
+      "Stärke + Zucker ≤ ~1 g/kg KM je Mahlzeit",
+      "Schaf: Cu max. 15 mg/kg – kein Rindermineral",
+      "Ziege: Intermediärtyp, selektiv",
+      "Fisch: Futteraufwand ~1, Fischmehl ersetzen"
+    ],
+    "script": "Die in dieser Vorlesung erarbeiteten Prinzipien gelten für alle Nutztiere, ihre Umsetzung hängt jedoch vom Verdauungssystem ab. Das Pferd ist ein Dickdarmverdauer: Nach dem kleinen Magen (10–20 l) und dem Dünndarm erfolgt die mikrobielle Verdauung der Gerüstsubstanzen im Blind- und Grimmdarm. Daraus ergeben sich die Grundregeln der Pferdefütterung: Raufutter als Basis mit mindestens 1,5 kg TM je 100 kg Körpermasse und Tag, mehrere Mahlzeiten mit Fresspausen von höchstens etwa vier Stunden und begrenzte Stärke- und Zuckergaben je Mahlzeit, um Koliken und Hufrehe vorzubeugen. Die GfE (2014) bewertet den Energiebedarf von Pferden auf der Stufe der umsetzbaren Energie. Unter den kleinen Wiederkäuern ist das Schaf besonders kupferempfindlich; der EU-Höchstgehalt liegt bei 15 mg Cu/kg Alleinfutter gegenüber 30 mg beim Rind und 35 mg bei der Ziege. Die Ziege zählt nach Hofmann zum Intermediärtyp und frisst ausgeprägt selektiv, bevorzugt Blätter, Triebe und Kräuter. Fische sind wechselwarm und werden vom Wasser getragen, was ihre hohe Futtereffizienz erklärt; bei Forellen liegt der Futteraufwand bei etwa 1–1,2 kg je kg Zuwachs. Da Fischmehl und Fischöl aus begrenztem Wildfang stammen, gewinnen Pflanzenproteine, Insektenmehle – für die Aquakultur in der EU seit 2017 zugelassen – und Algenöle als Omega-3-Quelle an Bedeutung. Insgesamt verbindet die Tierernährung Futterbewertung, Bedarf und Rationsgestaltung mit Tiergesundheit, Lebensmittelqualität und Umweltwirkungen."
+  },
+  "en": {
+    "title": "Outlook: other species",
+    "subtitle": "Horse, sheep, goat and fish – and a brief review",
+    "learningGoals": [
+      "Explain the digestive features of the horse as a hindgut fermenter",
+      "Name feeding peculiarities of sheep and goats",
+      "Place fishmeal and its alternatives in aquaculture in context"
+    ],
+    "slides": [
+      {
+        "title": "Horse, sheep and goat",
+        "bullets": [
+          "Horse: hindgut fermenter – fermentation in caecum and colon",
+          "Small stomach: many small meals, feeding gaps ≤ 4 h",
+          "At least 1.5 kg roughage DM per 100 kg body weight per day",
+          "Sheep: copper-sensitive – no cattle mineral feed",
+          "Goat: intermediate feeder, very selective, likes browse"
+        ],
+        "diagram": {
+          "type": "flow",
+          "items": ["Mouth", "Stomach (small)", "Small intestine", "Caecum", "Colon", "Faeces"],
+          "direction": "right",
+          "highlight": 3
+        },
+        "source": "GfE (2014); LfL Gruber Table on Horse Feeding; Hofmann (1989)"
+      },
+      {
+        "title": "Aquaculture and review",
+        "bullets": [
+          "Fish: cold-blooded – very efficient feed conversion",
+          "Trout, char: high protein requirement, fishmeal and fish oil",
+          "Alternatives: plant protein, insect meal, algal oil",
+          "Insect meal approved for aquaculture in the EU since 2017",
+          "Review: evaluation → feed → ration → health → environment"
+        ],
+        "diagram": {
+          "type": "cycle",
+          "items": ["Feed analysis", "Energy evaluation", "Protein evaluation", "Feedstuffs", "Ration", "Animal health", "Environment"]
+        },
+        "source": "FiBL; Reg. (EU) 2017/893"
+      }
+    ],
+    "board": [
+      { "id": "b1", "lines": ["horse: hindgut fermenter", "stomach 10-20 l, hindgut 130 l", "roughage ≥ 1.5 kg DM/100 kg", "feeding gaps ≤ 4 h"] },
+      { "id": "b2", "lines": ["Cu max.: sheep 15 mg/kg", "cattle 30, goats 35 mg/kg", "goat: intermediate feeder", "→ selective, browse, herbs"] },
+      { "id": "b3", "lines": ["trout: ~1-1.2 kg feed/kg", "cold-blooded, buoyant", "fishmeal → soy, insects", "omega-3: fish oil → algae oil"] }
+    ],
+    "beats": [
+      {
+        "variants": [
+          "Finally, a look beyond the cow. The principles – energy, protein, minerals – apply to all species, but digestion differs, in part enormously.",
+          "We've talked almost only about cattle. To finish, a brief outlook on horse, sheep, goat and fish – same fundamentals, completely different digestive systems.",
+          "Before we sum up, one more outlook: what changes if there's no rumen, or the animal lives in water? Let's look at the horse, small ruminants and fish."
+        ],
+        "slide": 0, "board": null, "look": "class", "gesture": "open", "pause": 0.6
+      },
+      {
+        "variants": [
+          "The horse is a hindgut fermenter: fibre fermentation only takes place in the caecum and colon, i.e. after the small intestine. The stomach holds only 10 to 20 litres, the large intestine around 130.",
+          "In the horse the order is reversed: first stomach and small intestine, then the microbes in caecum and colon. That's why the horse can hardly use microbial protein from the hindgut.",
+          "I'll sketch it roughly: small stomach, 10 to 20 litres, long small intestine, then a huge large intestine with a good 130 litres. There, in the caecum and colon, sits the horse's fermentation chamber."
+        ],
+        "slide": null, "board": "b1", "look": "board", "gesture": "explain", "pause": 1.0
+      },
+      {
+        "variants": [
+          "It follows that hay is the basis, at least 1.5 kg roughage DM per 100 kg body weight, and feeding gaps no longer than about four hours. Otherwise stomach acid attacks the mucosa.",
+          "In practice that means: plenty of roughage, at least 1.5 kg DM per 100 kg body weight, spread over the day. Long feeding gaps of more than four hours promote gastric ulcers.",
+          "A horse is built for continuous eating. Hence at least 1.5 kg roughage DM per 100 kg body weight and no feeding gap longer than about four hours – hay first, concentrate afterwards and sparingly."
+        ],
+        "slide": null, "board": null, "look": "class", "gesture": "emphasis", "pause": 0.8
+      },
+      {
+        "variants": [
+          "Too much starch at once is dangerous for horses: what the small intestine can't handle ferments in the hindgut, and colic and laminitis threaten. Limit: about 1 g starch and sugar per kg body weight per meal.",
+          "Oats in moderation, please: large amounts of starch slip undigested into the hindgut, pH drops there, and colic or laminitis follow. Guideline: at most about 1 g starch plus sugar per kg body weight per meal.",
+          "For energy, the GfE now evaluates horses on the basis of metabolisable energy. And be careful with concentrate: more than about 1 g starch and sugar per kg body weight per meal overwhelms the small intestine."
+        ],
+        "slide": null, "board": null, "look": "student", "gesture": "explain", "pause": 0.8
+      },
+      {
+        "variants": [
+          "With sheep I'm happy to repeat myself: copper! Maximum level 15 mg per kilo, for cattle 30, for goats 35. Chronic copper poisoning goes unnoticed for a long time and ends in a haemolytic crisis.",
+          "Sheep store copper in the liver until the storage capacity is exhausted, then haemolysis occurs. Hence sheep minerals without added copper and never cattle mineral feed – 15 instead of 30 mg per kilo.",
+          "As said in the minerals section: the sheep is the most copper-sensitive farm animal. Maximum level 15 mg per kilo of complete feed, cattle 30, goats even 35 – the goat is considerably more robust."
+        ],
+        "slide": null, "board": "b2", "look": "board", "gesture": "emphasis", "pause": 0.9
+      },
+      {
+        "variants": [
+          "The goat is an intermediate feeder with a liking for browse: she picks out the best parts, leaves, shoots, herbs. With hay, expect considerably more refusals than with cattle.",
+          "Goats eat extremely selectively, preferably leaves and herbs, and leave stalks behind. In practice, you therefore plan to offer more than is eaten on paper.",
+          "According to Hofmann, the goat is an intermediate type: she nibbles, chooses leaves, shoots and herbs and spurns stalks. For ration planning that means more on offer and more refusals."
+        ],
+        "slide": null, "board": null, "look": "window", "gesture": "explain", "pause": 0.8
+      },
+      {
+        "variants": [
+          "Fish are cold-blooded and float in the water – they save the energy for keeping warm and for standing. A trout therefore needs only about 1 to 1.2 kg of feed per kg of gain.",
+          "In aquaculture the figures are impressive: feed conversion in trout around 1 to 1.2 kg per kg of gain. No wonder – fish don't heat themselves and don't carry their weight against gravity.",
+          "Why is fish so feed-efficient? Cold-blooded, so no energy spent on keeping warm, and buoyancy carries the body. For trout we expect a good 1 kg of feed per kg of gain."
+        ],
+        "slide": 1, "board": "b3", "look": "board", "gesture": "count", "pause": 0.9
+      },
+      {
+        "variants": [
+          "Trout and char are predatory fish and need a lot of protein, traditionally from fishmeal and fish oil. Because wild catch is limited, these are increasingly replaced by plant protein, insect meal and algal oil.",
+          "The problem is fishmeal: it comes from wild catch and is limited. Alternatives are soy and rapeseed protein, insect meal – permitted for fish in the EU since 2017 – and algal oil for the omega-3 fatty acids.",
+          "Austria's trout and char farms face the same question as the rest of the world: how do we replace the limited fishmeal from wild catch? Candidates are plant protein, insect meal and algal oil."
+        ],
+        "slide": null, "board": null, "look": "class", "gesture": "explain", "pause": 0.8
+      },
+      {
+        "variants": [
+          "Looking back: analysis, energy and protein evaluation, feedstuffs, conservation, ration, metabolism, minerals, environment and law – it all interlocks, and at the end there's a healthy animal.",
+          "If you're looking for the common thread: we evaluate feed, know the requirement, calculate the ration and check the result in the animal, the environment and the food. That's animal nutrition in one sentence.",
+          "The circle on the slide sums up the semester: from feed analysis via energy, protein and ration to animal health and the environment. Each step builds on the previous one."
+        ],
+        "slide": null, "board": null, "look": "screen", "gesture": "open", "pause": 0.7
+      },
+      {
+        "variants": [
+          "If you remember only one thing: feed the microbes first, then the animal. In cattle they sit at the front in the rumen, in the horse a few metres further back.",
+          "My motto for all herbivores: whoever feeds the microbes well feeds the animal well. In ruminants that happens before the small intestine, in the horse a few metres further back.",
+          "To take home: herbivores are fed via their microbes. The cow has her fermentation chamber at the front, the horse at the back – and the fish, luckily, needs no structure assessment."
+        ],
+        "slide": null, "board": null, "look": "student", "gesture": "shrug", "pause": 0.6
+      }
+    ],
+    "quiz": [
+      {
+        "q": "Pony of 300 kg, at least 1.5 kg roughage DM per 100 kg body weight. How much roughage DM per day?",
+        "correct": "4.5 kg DM",
+        "wrong": ["3.0 kg DM", "1.5 kg DM", "45 kg DM"],
+        "explain": "300 / 100 × 1.5 = 4.5 kg roughage DM, i.e. a good 5 kg of hay.",
+        "calc": true
+      },
+      {
+        "q": "Where does microbial fibre digestion mainly take place in the horse?",
+        "correct": "In the caecum and colon",
+        "wrong": ["In the forestomach, as in cattle", "In the stomach", "In the small intestine"],
+        "explain": "The horse is a hindgut fermenter: structural carbohydrates are degraded by microbes only after the small intestine.",
+        "calc": false
+      },
+      {
+        "q": "Why are alternatives to fishmeal sought in trout feeding?",
+        "correct": "Fishmeal comes from limited wild catch",
+        "wrong": ["Trout cannot digest animal protein", "Fishmeal is banned in the EU", "Trout need hardly any protein"],
+        "explain": "Fishmeal and fish oil are limited and put pressure on wild stocks; substitutes: plant protein, insect meal, algal oil.",
+        "calc": false
+      }
+    ],
+    "calc": {
+      "title": "Minimum roughage for a horse",
+      "given": "Warmblood horse, 600 kg body weight; hay with 88 % DM; minimum 1.5 kg roughage DM per 100 kg body weight per day",
+      "steps": ["600 kg / 100 = 6", "6 × 1.5 = 9 kg DM", "9 / 0.88 ≈ 10.2 kg hay"],
+      "result": "≈ 10 kg of hay per day as the lower limit"
+    },
+    "notes": [
+      "Horse: hindgut fermenter (caecum/colon)",
+      "Roughage ≥ 1.5 kg DM per 100 kg BW",
+      "Starch + sugar ≤ ~1 g/kg BW per meal",
+      "Sheep: Cu max. 15 mg/kg – no cattle minerals",
+      "Goat: intermediate feeder, selective",
+      "Fish: FCR ~1; replace fishmeal"
+    ],
+    "script": "The principles developed in this lecture apply to all farm animals, but their implementation depends on the digestive system. The horse is a hindgut fermenter: after the small stomach (10–20 l) and the small intestine, microbial digestion of structural carbohydrates takes place in the caecum and colon. This gives the basic rules of horse feeding: roughage as the basis with at least 1.5 kg DM per 100 kg body weight per day, several meals with feeding gaps of no more than about four hours, and limited amounts of starch and sugar per meal to prevent colic and laminitis. The GfE (2014) evaluates the energy requirement of horses at the level of metabolisable energy. Among small ruminants, the sheep is particularly sensitive to copper; the EU maximum level is 15 mg Cu/kg complete feed, compared with 30 mg for cattle and 35 mg for goats. According to Hofmann, the goat is an intermediate feeder and eats very selectively, preferring leaves, shoots and herbs. Fish are cold-blooded and supported by the water, which explains their high feed efficiency; in trout, feed conversion is about 1–1.2 kg per kg of gain. As fishmeal and fish oil come from limited wild catch, plant proteins, insect meals – approved for aquaculture in the EU since 2017 – and algal oils as a source of omega-3 are gaining importance. Overall, animal nutrition links feed evaluation, requirements and ration formulation with animal health, food quality and environmental impact."
+  }
+}

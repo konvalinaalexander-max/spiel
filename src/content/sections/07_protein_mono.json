@@ -1,0 +1,426 @@
+{
+  "id": "protein_mono",
+  "order": 7,
+  "core": false,
+  "plannedMinutes": 7,
+  "de": {
+    "title": "Proteinbewertung bei Schwein und Geflügel",
+    "subtitle": "Aminosäuren, ideales Protein und N-reduzierte Fütterung",
+    "learningGoals": [
+      "Essentielle Aminosäuren und das Konzept des idealen Proteins erklären",
+      "Erstlimitierende Aminosäuren bei Schwein und Geflügel benennen",
+      "Aminosäurengehalte nach dem Idealprotein ableiten",
+      "Phasenfütterung und N-/P-reduzierte Fütterung begründen"
+    ],
+    "slides": [
+      {
+        "title": "Aminosäuren und Minimumgesetz",
+        "bullets": [
+          "Schwein und Huhn brauchen Aminosäuren, nicht Rohprotein",
+          "Essentiell u. a.: Lys, Met, Thr, Trp, Val, Ile, Leu, His, Phe",
+          "Bewertung über praecaecal verdauliche Aminosäuren (pcv)",
+          "Schwein: Lysin meist erstlimitierend",
+          "Geflügel: Methionin meist erstlimitierend",
+          "Minimumgesetz: Die knappste AS begrenzt den Proteinansatz"
+        ],
+        "diagram": {
+          "type": "barrel",
+          "staves": [
+            { "label": "Lys", "value": 0.6 },
+            { "label": "Met+Cys", "value": 0.85 },
+            { "label": "Thr", "value": 0.75 },
+            { "label": "Trp", "value": 0.8 },
+            { "label": "Val", "value": 0.9 }
+          ]
+        },
+        "source": "Kirchgeßner et al. (2014); GfE (2006); schematisch: Getreide-Soja ohne AS-Zusatz"
+      },
+      {
+        "title": "Ideales Protein und N-reduzierte Fütterung",
+        "bullets": [
+          "Ideales Protein: alle essentiellen AS im Verhältnis zu Lysin",
+          "Phasenfütterung: XP und Lysin sinken mit steigendem Gewicht",
+          "Freie AS: L-Lysin, DL-Methionin, L-Threonin, L-Tryptophan",
+          "1 Prozentpunkt weniger XP: rund 10 % weniger N-Ausscheidung",
+          "Phytase macht Phytin-P verfügbar, weniger Mineral-P nötig",
+          "ÖPUL fördert stark N-reduzierte Schweinefütterung"
+        ],
+        "diagram": {
+          "type": "bars",
+          "items": [
+            { "label": "Lysin", "value": 100 },
+            { "label": "Met+Cys", "value": 60 },
+            { "label": "Threonin", "value": 65 },
+            { "label": "Tryptophan", "value": 18 }
+          ],
+          "unit": "% von Lysin (Mastschwein)",
+          "max": 110
+        },
+        "source": "DLG (2002) nach LfL Bayern; Lohmann Information (1999); LK OÖ (2024)"
+      }
+    ],
+    "board": [
+      { "id": "b1", "lines": ["Minimumgesetz (Liebig)", "Schwein: 1. Lysin", "Geflügel: 1. Methionin", "→ freie AS ergänzen"] },
+      { "id": "b2", "lines": ["Ideales Protein (Schwein)", "Lys : M+C : Thr : Trp", "100 : 60 : 65 : 18"] },
+      { "id": "b3", "lines": ["− 1 %-Punkt XP", "→ ca. − 10 % N-Ausscheidung", "→ weniger NH_{3} aus dem Stall"] }
+    ],
+    "beats": [
+      {
+        "variants": [
+          "Bei der Kuh bauen die Pansenmikroben das Futterprotein um. Schwein und Huhn haben diesen Puffer nicht – bei ihnen zählt jede einzelne Aminosäure im Futter.",
+          "Im Gegensatz zum Wiederkäuer gibt es bei Schwein und Geflügel kein Mikrobenprotein, das Lücken füllt. Sie brauchen die Aminosäuren in der richtigen Menge direkt aus dem Futter.",
+          "Beim Monogastrier ist das Rohprotein eigentlich die falsche Frage. Entscheidend ist, welche Aminosäuren im Dünndarm ankommen – und zwar die, die das Tier nicht selbst bilden kann."
+        ],
+        "slide": 0,
+        "board": null,
+        "look": "class",
+        "gesture": "open",
+        "pause": 0.7
+      },
+      {
+        "variants": [
+          "Essentiell sind Aminosäuren, die das Tier nicht selbst bilden kann: Lysin, Methionin, Threonin, Tryptophan, Valin und einige mehr. Wir bewerten sie praecaecal verdaulich, also bis Dünndarmende.",
+          "Die Liste der essentiellen Aminosäuren beginnt mit Lysin, Methionin, Threonin und Tryptophan. Gerechnet wird mit praecaecal verdaulichen Gehalten – was erst im Dickdarm frei wird, nützt nichts.",
+          "Lysin, Methionin, Threonin, Tryptophan, Valin, Isoleucin – das sind die üblichen Kandidaten, die das Schwein nicht selbst bildet. Die Tabellen geben sie als pcv an, verdaulich vor dem Blinddarm."
+        ],
+        "slide": null,
+        "board": null,
+        "look": "screen",
+        "gesture": "count",
+        "pause": 0.6
+      },
+      {
+        "variants": [
+          "Ich schreib Ihnen das Prinzip an: Liebigs Minimumgesetz. Die knappste Aminosäure begrenzt den Eiweißansatz – beim Schwein in Getreide-Soja-Rationen meist Lysin, beim Geflügel Methionin.",
+          "An die Tafel kommt Liebig: Das Minimum bestimmt das Ergebnis. Erstlimitierend ist beim Schwein in der Regel Lysin, beim Geflügel Methionin – dort auch wegen der schwefelreichen Federn.",
+          "Kurz an die Tafel, das Minimumgesetz nach Liebig: Beim Schwein limitiert zuerst das Lysin, beim Huhn das Methionin. Was über das Minimum hinausgeht, wird abgebaut und ausgeschieden."
+        ],
+        "slide": null,
+        "board": "b1",
+        "look": "board",
+        "gesture": "point",
+        "pause": 1.0
+      },
+      {
+        "variants": [
+          "Auf der Folie sehen Sie das Fass: Das Wasser läuft über die kürzeste Daube aus. Liebig hat das für Pflanzen formuliert – das Schwein kennt ihn nicht, hält sich aber trotzdem daran.",
+          "Das Bild mit dem Fass kennen Sie vielleicht aus dem Pflanzenbau: Die niedrigste Daube bestimmt den Füllstand. Beim Mastschwein ist diese Daube in einer Getreideration meist das Lysin.",
+          "Das Fass zeigt's anschaulich: Egal, wie hoch die anderen Dauben sind, mehr als bis zur kürzesten geht nicht hinein. Beim Schwein ist das Lysin diese kurze Daube."
+        ],
+        "slide": null,
+        "board": null,
+        "look": "screen",
+        "gesture": "shrug",
+        "pause": 0.8
+      },
+      {
+        "variants": [
+          "Daraus folgt das ideale Protein, ich schreib's an: Lysin gleich 100, die anderen im festen Verhältnis dazu – etwa 60 für Methionin plus Cystin, 65 für Threonin, 18 für Tryptophan.",
+          "An der Tafel das Idealprotein fürs Mastschwein: Lysin setzen wir auf 100, Methionin plus Cystin auf rund 60, Threonin auf 65 und Tryptophan auf etwa 18. So hat keine Aminosäure Überschuss.",
+          "Beim idealen Protein stehen alle essentiellen AS im optimalen Verhältnis zu Lysin. Ich notier Ihnen die Zahlen: 100 zu 60 zu 65 zu 18 für Lysin, Met plus Cys, Threonin und Tryptophan."
+        ],
+        "slide": 1,
+        "board": "b2",
+        "look": "board",
+        "gesture": "count",
+        "pause": 1.0
+      },
+      {
+        "variants": [
+          "Der Bedarf ändert sich mit dem Gewicht: Ein 30-Kilo-Schwein braucht pro Kilo Futter mehr Lysin als eines mit 100 Kilo. Phasenfütterung heißt, Protein und Aminosäuren dem Wachstum nachzuführen.",
+          "Mit zunehmendem Gewicht sinkt der Aminosäurenbedarf je Kilo Futter. In der Schweinemast in der Steiermark füttert man daher meist zwei oder drei Phasen statt eines Universalfutters.",
+          "Ein Universalfutter von 30 bis 120 Kilo ist am Anfang zu knapp und am Ende zu reich an Eiweiß. Mit Phasenfütterung senkt man Rohprotein und Lysin schrittweise mit dem Gewicht."
+        ],
+        "slide": null,
+        "board": null,
+        "look": "class",
+        "gesture": "explain",
+        "pause": 0.7
+      },
+      {
+        "variants": [
+          "Damit das klappt, ergänzt man freie Aminosäuren – L-Lysin, DL-Methionin, L-Threonin, L-Tryptophan. So deckt man das Minimum, ohne über Sojaschrot den ganzen Eiweißgehalt anzuheben.",
+          "Körnermais, wie er in der Steiermark viel verfüttert wird, ist lysinarm. Statt mehr Soja ergänzt man kristallines Lysin, Threonin und beim Geflügel DL-Methionin – das spart Rohprotein.",
+          "Freie Aminosäuren sind das Werkzeug dafür: Mit ein paar Kilo L-Lysin pro Tonne Futter kann man den Sojaanteil senken und trotzdem bedarfsgerecht füttern."
+        ],
+        "slide": null,
+        "board": null,
+        "look": "student",
+        "gesture": "emphasis",
+        "pause": 0.7
+      },
+      {
+        "variants": [
+          "Und das hat einen Umweltnutzen – ich schreib's an: Pro Prozentpunkt weniger Rohprotein sinkt die N-Ausscheidung um rund zehn Prozent, und mit dem Harnstickstoff auch das Ammoniak.",
+          "Die Faustzahl für die Tafel: ein Prozentpunkt weniger Rohprotein, etwa zehn Prozent weniger Stickstoff in der Gülle. Das senkt die Ammoniakemissionen aus Stall und Lager deutlich.",
+          "Ich notier Ihnen den Effekt: Senkt man den Rohproteingehalt um einen Prozentpunkt, scheidet das Schwein rund ein Zehntel weniger Stickstoff aus – weniger Ammoniak, weniger Nitratrisiko."
+        ],
+        "slide": null,
+        "board": "b3",
+        "look": "board",
+        "gesture": "point",
+        "pause": 1.0
+      },
+      {
+        "variants": [
+          "Dasselbe gilt für Phosphor: Mit Phytase im Futter wird der Phytin-Phosphor aus dem Getreide verfügbar, man braucht weniger Mineralphosphat. Und stark N-reduzierte Fütterung fördert das ÖPUL.",
+          "Beim Phosphor hilft das Enzym Phytase, weil ein Großteil des Getreide-P als Phytat gebunden ist. Und für stark N-reduzierte Schweinefütterung gibt es im ÖPUL eine eigene Förderung.",
+          "N- und P-reduziert füttern heißt: Aminosäuren gezielt ergänzen und Phytase einsetzen, damit weniger Phosphor in der Gülle landet. Die stark N-reduzierte Variante wird über das ÖPUL gefördert."
+        ],
+        "slide": null,
+        "board": null,
+        "look": "class",
+        "gesture": "open",
+        "pause": 1.2
+      }
+    ],
+    "quiz": [
+      {
+        "q": "Welche Aminosäuren sind in Getreide-Soja-Rationen meist erstlimitierend?",
+        "correct": "Schwein: Lysin, Geflügel: Methionin",
+        "wrong": ["Schwein: Methionin, Geflügel: Lysin", "Bei beiden Tryptophan", "Schwein: Threonin, Geflügel: Valin"],
+        "explain": "Getreide ist lysinarm, Soja methioninarm; Geflügel braucht zudem viel S-haltige AS für die Federn.",
+        "calc": false
+      },
+      {
+        "q": "Was besagt das Konzept des idealen Proteins?",
+        "correct": "Alle essentiellen AS im optimalen Verhältnis zu Lysin",
+        "wrong": ["Möglichst hoher Rohproteingehalt im Futter", "Nur tierisches Protein in der Ration", "Gleiche Mengen aller Aminosäuren"],
+        "explain": "Lysin = 100, die übrigen AS im festen Verhältnis, z. B. Met+Cys 60, Thr 65, Trp 18 beim Mastschwein.",
+        "calc": false
+      },
+      {
+        "q": "Ein Mastfutter enthält 8,0 g pcv Lysin je kg. Wie viel pcv Threonin sollte es nach dem Idealprotein (65 %) haben?",
+        "correct": "≈ 5,2 g je kg",
+        "wrong": ["≈ 12,3 g je kg", "≈ 8,0 g je kg", "≈ 1,4 g je kg"],
+        "explain": "Threonin = 8,0 g × 0,65 = 5,2 g pcv je kg Futter.",
+        "calc": true
+      }
+    ],
+    "calc": {
+      "title": "Idealprotein in der Anfangsmast",
+      "given": "Mastfutter mit 9,0 g pcv Lysin je kg; Lys : M+C : Thr : Trp = 100 : 60 : 65 : 18",
+      "steps": ["Met+Cys = 9,0 × 0,60 = 5,4 g", "Thr = 9,0 × 0,65 ≈ 5,9 g", "Trp = 9,0 × 0,18 ≈ 1,6 g"],
+      "result": "je kg Futter: 5,4 g Met+Cys, 5,9 g Thr, 1,6 g Trp (pcv)"
+    },
+    "notes": [
+      "Monogastrier: Bedarf an Aminosäuren (pcv)",
+      "Schwein: Lys erstlimitierend · Huhn: Met",
+      "Minimumgesetz: knappste AS begrenzt Ansatz",
+      "Idealprotein Lys : M+C : Thr : Trp",
+      "= 100 : 60 : 65 : 18 (Mastschwein)",
+      "−1 %-Punkt XP ≈ −10 % N-Ausscheidung"
+    ],
+    "script": "Schwein und Geflügel verfügen über keinen Pansen, in dem Mikroben Futterprotein umbauen. Ihr Bedarf ist daher ein Bedarf an Aminosäuren, genauer an essentiellen Aminosäuren, die der Organismus nicht selbst synthetisieren kann, etwa Lysin, Methionin, Threonin, Tryptophan, Valin, Isoleucin, Leucin, Histidin und Phenylalanin. Bewertet werden sie als praecaecal verdauliche Aminosäuren (pcv), weil nur das bis zum Ende des Dünndarms Resorbierte für den Proteinansatz genutzt werden kann. Nach dem Minimumgesetz begrenzt die am knappsten versorgte Aminosäure den Proteinansatz; anschaulich wird das im Bild des Fasses mit der kürzesten Daube. In Getreide-Soja-Rationen ist beim Schwein meist Lysin erstlimitierend, beim Geflügel Methionin, auch wegen des hohen Bedarfs an schwefelhaltigen Aminosäuren für die Befiederung. Das Konzept des idealen Proteins setzt Lysin gleich 100 und gibt die übrigen essentiellen Aminosäuren in festen Relationen an, beim Mastschwein etwa Met+Cys 60, Threonin 65 und Tryptophan 18. Da der Bedarf je kg Futter mit zunehmendem Gewicht sinkt, wird in der Schweinemast in Phasen gefüttert. Durch Ergänzung freier Aminosäuren wie L-Lysin, DL-Methionin, L-Threonin und L-Tryptophan lässt sich der Rohproteingehalt senken, ohne die Versorgung zu gefährden. Je Prozentpunkt weniger Rohprotein sinkt die Stickstoffausscheidung um rund 10 %, was vor allem die Ammoniakemissionen mindert. Der Einsatz von Phytase verbessert die Verfügbarkeit des Phytinphosphors und erlaubt eine P-reduzierte Fütterung. In Österreich wird die stark N-reduzierte Fütterung von Schweinen im Rahmen des ÖPUL gefördert."
+  },
+  "en": {
+    "title": "Protein Evaluation in Pigs and Poultry",
+    "subtitle": "Amino acids, ideal protein and N-reduced feeding",
+    "learningGoals": [
+      "Explain essential amino acids and the concept of ideal protein",
+      "Name the first-limiting amino acids in pigs and poultry",
+      "Derive amino acid contents from the ideal protein ratio",
+      "Justify phase feeding and N- and P-reduced feeding"
+    ],
+    "slides": [
+      {
+        "title": "Amino acids and the law of the minimum",
+        "bullets": [
+          "Pigs and chickens need amino acids, not crude protein",
+          "Essential incl.: Lys, Met, Thr, Trp, Val, Ile, Leu, His, Phe",
+          "Evaluated as precaecally digestible amino acids (pcd)",
+          "Pigs: lysine usually first-limiting",
+          "Poultry: methionine usually first-limiting",
+          "Law of the minimum: the scarcest AA limits protein deposition"
+        ],
+        "diagram": {
+          "type": "barrel",
+          "staves": [
+            { "label": "Lys", "value": 0.6 },
+            { "label": "Met+Cys", "value": 0.85 },
+            { "label": "Thr", "value": 0.75 },
+            { "label": "Trp", "value": 0.8 },
+            { "label": "Val", "value": 0.9 }
+          ]
+        },
+        "source": "Kirchgeßner et al. (2014); GfE (2006); schematic: cereal-soy diet without AA"
+      },
+      {
+        "title": "Ideal protein and N-reduced feeding",
+        "bullets": [
+          "Ideal protein: all essential AA in proportion to lysine",
+          "Phase feeding: CP and lysine decrease with rising weight",
+          "Free AA: L-lysine, DL-methionine, L-threonine, L-tryptophan",
+          "1 percentage point less CP: about 10 % less N excretion",
+          "Phytase releases phytate P, less mineral P needed",
+          "ÖPUL supports strongly N-reduced pig feeding"
+        ],
+        "diagram": {
+          "type": "bars",
+          "items": [
+            { "label": "Lysine", "value": 100 },
+            { "label": "Met+Cys", "value": 60 },
+            { "label": "Threonine", "value": 65 },
+            { "label": "Tryptophan", "value": 18 }
+          ],
+          "unit": "% of lysine (fattening pig)",
+          "max": 110
+        },
+        "source": "DLG (2002) after LfL Bavaria; Lohmann Information (1999); LK Upper Austria (2024)"
+      }
+    ],
+    "board": [
+      { "id": "b1", "lines": ["Law of the minimum", "Pig: 1st lysine", "Poultry: 1st methionine", "→ add free amino acids"] },
+      { "id": "b2", "lines": ["Ideal protein (pig)", "Lys : M+C : Thr : Trp", "100 : 60 : 65 : 18"] },
+      { "id": "b3", "lines": ["− 1 % point CP", "→ approx. − 10 % N excreted", "→ less NH_{3} from the barn"] }
+    ],
+    "beats": [
+      {
+        "variants": [
+          "In the cow, the rumen microbes remodel the feed protein. Pigs and chickens don't have this buffer – for them, every single amino acid in the feed counts.",
+          "Unlike ruminants, pigs and poultry have no microbial protein to fill the gaps. They need the amino acids in the right amounts directly from the feed.",
+          "For monogastrics, crude protein is actually the wrong question. What matters is which amino acids reach the small intestine – specifically those the animal can't make itself."
+        ],
+        "slide": 0,
+        "board": null,
+        "look": "class",
+        "gesture": "open",
+        "pause": 0.7
+      },
+      {
+        "variants": [
+          "Essential amino acids are those the animal can't synthesise: lysine, methionine, threonine, tryptophan, valine and a few more. We evaluate them as precaecally digestible, up to the end of the small intestine.",
+          "The list of essential amino acids starts with lysine, methionine, threonine and tryptophan. We calculate with precaecally digestible contents – whatever is released only in the hindgut is no use.",
+          "Lysine, methionine, threonine, tryptophan, valine, isoleucine – those are the usual candidates the pig can't make itself. Tables give them as pcd, digestible before the caecum."
+        ],
+        "slide": null,
+        "board": null,
+        "look": "screen",
+        "gesture": "count",
+        "pause": 0.6
+      },
+      {
+        "variants": [
+          "Let me write up the principle: Liebig's law of the minimum. The scarcest amino acid limits protein deposition – in pigs on cereal-soy diets usually lysine, in poultry methionine.",
+          "Liebig goes on the board: the minimum determines the result. The first-limiting amino acid is usually lysine in pigs and methionine in poultry – there also because of the sulphur-rich feathers.",
+          "Quickly on the board, Liebig's law of the minimum: in pigs lysine limits first, in chickens methionine. Anything beyond the minimum is broken down and excreted."
+        ],
+        "slide": null,
+        "board": "b1",
+        "look": "board",
+        "gesture": "point",
+        "pause": 1.0
+      },
+      {
+        "variants": [
+          "On the slide you see the barrel: the water runs out over the shortest stave. Liebig formulated this for plants – the pig has never heard of him, but sticks to it anyway.",
+          "You may know the barrel picture from crop science: the lowest stave determines the fill level. In a fattening pig on a cereal ration, that stave is usually lysine.",
+          "The barrel makes it clear: no matter how tall the other staves are, it won't hold more than up to the shortest one. In the pig, lysine is that short stave."
+        ],
+        "slide": null,
+        "board": null,
+        "look": "screen",
+        "gesture": "shrug",
+        "pause": 0.8
+      },
+      {
+        "variants": [
+          "From this follows ideal protein, let me write it up: lysine equals 100, the others in a fixed ratio to it – about 60 for methionine plus cystine, 65 for threonine, 18 for tryptophan.",
+          "On the board, the ideal protein for fattening pigs: we set lysine at 100, methionine plus cystine at about 60, threonine at 65 and tryptophan at about 18. That way no amino acid is in excess.",
+          "In ideal protein, all essential AA are in the optimal ratio to lysine. I'll note the numbers: 100 to 60 to 65 to 18 for lysine, Met plus Cys, threonine and tryptophan."
+        ],
+        "slide": 1,
+        "board": "b2",
+        "look": "board",
+        "gesture": "count",
+        "pause": 1.0
+      },
+      {
+        "variants": [
+          "Requirements change with weight: a 30-kilo pig needs more lysine per kilo of feed than one at 100 kilos. Phase feeding means adjusting protein and amino acids to growth.",
+          "As weight increases, the amino acid requirement per kilo of feed falls. That's why pig fattening in Styria usually uses two or three phases instead of a single all-in-one feed.",
+          "A single feed from 30 to 120 kilos is too tight at the start and too rich in protein at the end. With phase feeding, crude protein and lysine are reduced step by step with weight."
+        ],
+        "slide": null,
+        "board": null,
+        "look": "class",
+        "gesture": "explain",
+        "pause": 0.7
+      },
+      {
+        "variants": [
+          "To make that work, we add free amino acids – L-lysine, DL-methionine, L-threonine, L-tryptophan. That covers the minimum without raising the whole protein content via soybean meal.",
+          "Grain maize, widely fed in Styria, is low in lysine. Instead of more soy, we add crystalline lysine, threonine and, in poultry, DL-methionine – that saves crude protein.",
+          "Free amino acids are the tool for this: with a few kilos of L-lysine per tonne of feed, you can cut the soy share and still feed according to requirements."
+        ],
+        "slide": null,
+        "board": null,
+        "look": "student",
+        "gesture": "emphasis",
+        "pause": 0.7
+      },
+      {
+        "variants": [
+          "And there's an environmental benefit – let me write it up: per percentage point less crude protein, N excretion drops by about ten percent, and with urinary N the ammonia too.",
+          "The rule of thumb for the board: one percentage point less crude protein, about ten percent less nitrogen in the slurry. That clearly reduces ammonia emissions from barn and storage.",
+          "I'll note the effect: lower crude protein by one percentage point, and the pig excretes about a tenth less nitrogen – less ammonia, less nitrate risk."
+        ],
+        "slide": null,
+        "board": "b3",
+        "look": "board",
+        "gesture": "point",
+        "pause": 1.0
+      },
+      {
+        "variants": [
+          "The same goes for phosphorus: with phytase in the feed, phytate phosphorus from cereals becomes available, and less mineral phosphate is needed. And ÖPUL supports strongly N-reduced feeding.",
+          "For phosphorus the enzyme phytase helps, because much of the cereal P is bound as phytate. And for strongly N-reduced pig feeding there's dedicated funding in the ÖPUL programme.",
+          "N- and P-reduced feeding means: adding amino acids specifically and using phytase so less phosphorus ends up in the slurry. The strongly N-reduced variant is funded via ÖPUL."
+        ],
+        "slide": null,
+        "board": null,
+        "look": "class",
+        "gesture": "open",
+        "pause": 1.2
+      }
+    ],
+    "quiz": [
+      {
+        "q": "Which amino acids are usually first-limiting in cereal-soy diets?",
+        "correct": "Pig: lysine, poultry: methionine",
+        "wrong": ["Pig: methionine, poultry: lysine", "Tryptophan in both", "Pig: threonine, poultry: valine"],
+        "explain": "Cereals are low in lysine, soy in methionine; poultry also need lots of sulphur AA for feathers.",
+        "calc": false
+      },
+      {
+        "q": "What does the concept of ideal protein mean?",
+        "correct": "All essential AA in the optimal ratio to lysine",
+        "wrong": ["The highest possible crude protein in feed", "Only animal protein in the ration", "Equal amounts of all amino acids"],
+        "explain": "Lysine = 100, the other AA in fixed ratios, e.g. Met+Cys 60, Thr 65, Trp 18 in fattening pigs.",
+        "calc": false
+      },
+      {
+        "q": "A finisher feed contains 8.0 g pcd lysine per kg. How much pcd threonine should it contain according to ideal protein (65 %)?",
+        "correct": "≈ 5.2 g per kg",
+        "wrong": ["≈ 12.3 g per kg", "≈ 8.0 g per kg", "≈ 1.4 g per kg"],
+        "explain": "Threonine = 8.0 g × 0.65 = 5.2 g pcd per kg of feed.",
+        "calc": true
+      }
+    ],
+    "calc": {
+      "title": "Ideal protein in the grower phase",
+      "given": "Grower feed with 9.0 g pcd lysine per kg; Lys : M+C : Thr : Trp = 100 : 60 : 65 : 18",
+      "steps": ["Met+Cys = 9.0 × 0.60 = 5.4 g", "Thr = 9.0 × 0.65 ≈ 5.9 g", "Trp = 9.0 × 0.18 ≈ 1.6 g"],
+      "result": "per kg feed: 5.4 g Met+Cys, 5.9 g Thr, 1.6 g Trp (pcd)"
+    },
+    "notes": [
+      "Monogastrics: requirement for AA (pcd)",
+      "Pig: Lys first-limiting · chicken: Met",
+      "Law of minimum: scarcest AA limits growth",
+      "Ideal protein Lys : M+C : Thr : Trp",
+      "= 100 : 60 : 65 : 18 (fattening pig)",
+      "−1 % point CP ≈ −10 % N excretion"
+    ],
+    "script": "Pigs and poultry have no rumen in which microbes remodel feed protein. Their requirement is therefore a requirement for amino acids, more precisely for essential amino acids that the organism cannot synthesise itself, such as lysine, methionine, threonine, tryptophan, valine, isoleucine, leucine, histidine and phenylalanine. They are evaluated as precaecally digestible amino acids (pcd), because only what is absorbed by the end of the small intestine can be used for protein deposition. According to the law of the minimum, the amino acid in shortest supply limits protein deposition; the barrel with its shortest stave illustrates this. In cereal-soy diets lysine is usually first-limiting in pigs and methionine in poultry, partly because of the high requirement for sulphur amino acids for feathering. The ideal protein concept sets lysine at 100 and expresses the other essential amino acids in fixed ratios, for fattening pigs about Met+Cys 60, threonine 65 and tryptophan 18. Since the requirement per kg of feed declines with increasing weight, pigs are fed in phases. By adding free amino acids such as L-lysine, DL-methionine, L-threonine and L-tryptophan, crude protein can be reduced without compromising supply. Per percentage point less crude protein, nitrogen excretion falls by about 10 %, which mainly reduces ammonia emissions. Phytase improves the availability of phytate phosphorus and allows P-reduced feeding. In Austria, strongly N-reduced feeding of pigs is supported under the ÖPUL agri-environmental programme."
+  }
+}

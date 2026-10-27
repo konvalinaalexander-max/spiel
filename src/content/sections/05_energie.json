@@ -1,0 +1,452 @@
+{
+  "id": "energie",
+  "order": 5,
+  "core": true,
+  "plannedMinutes": 9,
+  "de": {
+    "title": "Energiebewertung",
+    "subtitle": "Von der Bruttoenergie zur Nettoenergie – NEL, ME und AMEn",
+    "learningGoals": [
+      "Die Energiestufen GE, DE, ME und NE mit ihren Verlusten erklären",
+      "Den NEL-Bedarf einer Milchkuh für Erhaltung und Milch berechnen",
+      "Die Bewertung in ME beim Schwein und in AMEn beim Geflügel begründen",
+      "Typische Energiegehalte von Grund- und Kraftfutter einordnen"
+    ],
+    "slides": [
+      {
+        "title": "Die Energiestufen",
+        "bullets": [
+          "GE: Brennwert, gemessen im Bombenkalorimeter",
+          "DE = GE − Energie im Kot",
+          "ME = DE − Energie in Harn und Methan",
+          "NE = ME − Wärmeverluste; Milch: NEL ≈ 0,6 × ME",
+          "Rind: NEL (GfE 2001); GfE 2023 stellt auf ME um",
+          "Schwein: ME; Geflügel: AMEn (auf N-Bilanz null korrigiert)"
+        ],
+        "diagram": {
+          "type": "cascade",
+          "levels": [
+            { "label": "GE", "value": 100 },
+            { "label": "DE", "value": 70 },
+            { "label": "ME", "value": 58 },
+            { "label": "NEL", "value": 35 }
+          ],
+          "losses": ["Kot", "Harn + CH₄", "Wärme"]
+        },
+        "source": "GfE (2001, 2023); Kirchgeßner et al. (2014); Richtwerte Milchkuhration"
+      },
+      {
+        "title": "Energiegehalte typischer Futtermittel",
+        "bullets": [
+          "Heu 1. Aufwuchs: je nach Trocknung ~5,3–5,9 MJ NEL/kg TM",
+          "Grassilage 1. Aufwuchs: im Mittel ~6,3 MJ NEL/kg TM",
+          "Maissilage: rund 6,6 MJ NEL/kg TM",
+          "Gerste ~8,1, Körnermais ~8,4 MJ NEL/kg TM",
+          "Schwein: Gerste ~12,6, Weizen ~13,8 MJ ME/kg (88 % TM)",
+          "Geflügel: Körnermais rund 13,5–14 MJ AMEn/kg"
+        ],
+        "diagram": {
+          "type": "bars",
+          "items": [
+            { "label": "Heu 1. Aufw.", "value": 5.7 },
+            { "label": "Grassil. 1. Aufw.", "value": 6.3 },
+            { "label": "Maissilage", "value": 6.6 },
+            { "label": "Gerste", "value": 8.1 },
+            { "label": "Körnermais", "value": 8.4 }
+          ],
+          "unit": "MJ NEL/kg TM",
+          "max": 9
+        },
+        "source": "LK-Heu- und Silageprojekte (Resch 2024, 2025); DLG-Futterwerttabellen"
+      }
+    ],
+    "board": [
+      { "id": "b1", "lines": ["NEL Erhaltung =", "0,293 MJ × LM^{0,75}", "650 kg: ≈ 37,7 MJ NEL"] },
+      { "id": "b2", "lines": ["NEL je kg Milch =", "1,05 + 0,38 × Fett %", "+ 0,21 × Eiweiß %", "4,0 / 3,4 % → 3,28 MJ"] },
+      { "id": "b3", "lines": ["Geflügel: Kloake", "Kot + Harn gemeinsam", "→ ME direkt bestimmen", "AMEn: N-Retention = 0"] }
+    ],
+    "beats": [
+      {
+        "variants": [
+          "Energie ist in fast jeder Ration der erste Engpass. Ausgangspunkt ist die Bruttoenergie, die wir im Bombenkalorimeter messen, indem wir die Probe vollständig verbrennen.",
+          "Fangen wir oben an: Die Bruttoenergie ist der Brennwert, gemessen im Bombenkalorimeter. Die meisten Futtermittel liegen bei etwa 18 bis 19 Megajoule je Kilo Trockenmasse.",
+          "Am Anfang steht die Bruttoenergie: Probe ins Bombenkalorimeter, vollständig verbrennen, Wärme messen. Das sagt aber noch nichts darüber, was das Tier davon nutzen kann."
+        ],
+        "slide": 0,
+        "board": null,
+        "look": "class",
+        "gesture": "open",
+        "pause": 0.7
+      },
+      {
+        "variants": [
+          "Holz hat übrigens eine ähnliche Bruttoenergie wie Heu – trotzdem hat noch keine Kuh von Hackschnitzeln Milch gegeben. Entscheidend ist, was davon verdaut und umgesetzt wird.",
+          "Ein Beispiel, warum GE allein nichts taugt: Stroh und Gerste haben fast denselben Brennwert, aber einen völlig unterschiedlichen Futterwert. Es kommt auf die Verdaulichkeit an.",
+          "Würde nur die Bruttoenergie zählen, wäre Sägemehl ein Spitzenfutter. Was zählt, ist der Anteil, den das Tier tatsächlich verdaut und im Stoffwechsel umsetzen kann."
+        ],
+        "slide": null,
+        "board": null,
+        "look": "student",
+        "gesture": "shrug",
+        "pause": 0.8
+      },
+      {
+        "variants": [
+          "Ziehen wir die Energie im Kot ab, haben wir die verdauliche Energie, DE. Ziehen wir noch Harn und – beim Wiederkäuer wichtig – Methan ab, landen wir bei der umsetzbaren Energie, ME.",
+          "Die Kaskade auf der Folie: minus Kotenergie ergibt DE, minus Harn- und Methanenergie ergibt ME. Das Methan aus dem Pansen kennen wir ja schon aus dem letzten Abschnitt.",
+          "Von der GE gehen zuerst die Verluste im Kot weg, das ergibt die DE. Danach Harn und Methan – das Methan haben wir beim Pansen besprochen –, und übrig bleibt die ME."
+        ],
+        "slide": null,
+        "board": null,
+        "look": "screen",
+        "gesture": "point",
+        "pause": 0.6
+      },
+      {
+        "variants": [
+          "Bei der Umsetzung im Stoffwechsel entsteht noch Wärme, und was danach bleibt, ist die Nettoenergie. Für Milchkühe ist das die NEL – von der ME kommen bei der Milchbildung nur rund 60 Prozent an.",
+          "Letzte Stufe: Nettoenergie, also ME minus Wärmeverluste. Bei der Milchkuh rechnet man in NEL, Nettoenergie Laktation; der Wirkungsgrad von ME zu NEL liegt bei etwa 0,6.",
+          "Dann kommt die Wärme, die beim Umsetzen verloren geht. Die Kuh nutzt ME für die Milch mit einem Wirkungsgrad von etwa 60 Prozent – deshalb bewerten wir Milchviehfutter in NEL."
+        ],
+        "slide": null,
+        "board": null,
+        "look": "class",
+        "gesture": "explain",
+        "pause": 0.7
+      },
+      {
+        "variants": [
+          "Jetzt der Bedarf, ich schreib's Ihnen an: Für die Erhaltung braucht eine Kuh 0,293 MJ NEL je Kilo metabolischer Lebendmasse, also LM hoch 0,75 – bei 650 Kilo knapp 38 MJ.",
+          "An die Tafel kommt der Erhaltungsbedarf: 0,293 Megajoule NEL mal Lebendmasse hoch 0,75. Eine 650-Kilo-Kuh braucht damit rund 37,7 MJ NEL am Tag, bevor sie einen Liter Milch gibt.",
+          "Ich notier Ihnen die Erhaltung: 0,293 mal LM hoch 0,75, in MJ NEL. Für eine Kuh mit 650 Kilo kommen wir auf etwa 37,7 Megajoule pro Tag – ganz ohne Milch."
+        ],
+        "slide": null,
+        "board": "b1",
+        "look": "board",
+        "gesture": "point",
+        "pause": 1.0
+      },
+      {
+        "variants": [
+          "Ich schreib Ihnen die Formel für die Milch an: 1,05 plus 0,38 mal Fett plus 0,21 mal Eiweiß. Bei 4,0 Prozent Fett und 3,4 Prozent Eiweiß ergibt das 3,28 MJ NEL je Kilo Milch.",
+          "Die Milchenergie kommt an die Tafel: NEL je Kilo gleich 1,05 plus 0,38 mal Fettprozent plus 0,21 mal Eiweißprozent. Milch mit 4,0 und 3,4 Prozent braucht damit 3,28 MJ.",
+          "Ich notier die Formel: 1,05 plus 0,38 mal Fett plus 0,21 mal Eiweiß, jeweils in Prozent. Für Milch mit 4 Prozent Fett und 3,4 Prozent Eiweiß sind das rund 3,3 MJ NEL je Kilo."
+        ],
+        "slide": null,
+        "board": "b2",
+        "look": "board",
+        "gesture": "count",
+        "pause": 1.0
+      },
+      {
+        "variants": [
+          "Unsere 650-Kilo-Kuh mit 30 Kilo Milch braucht also rund 136 MJ NEL am Tag. Die GfE-Empfehlungen von 2023 rechnen schon in ME, in der Praxis ist NEL aber vielerorts noch Standard.",
+          "Zusammen kommen wir bei 30 Kilo Milch auf gut 136 MJ NEL. Kleiner Ausblick: Die GfE hat 2023 auf ME umgestellt, die Futterwerttabellen für den Alpenraum werden gerade angepasst.",
+          "Erhaltung plus Milch ergibt bei 30 Kilo rund 136 MJ NEL täglich. Dass die GfE seit 2023 ME empfiehlt, sollten Sie wissen – in vielen Rationsprogrammen steht derzeit noch NEL."
+        ],
+        "slide": null,
+        "board": null,
+        "look": "class",
+        "gesture": "emphasis",
+        "pause": 0.8
+      },
+      {
+        "variants": [
+          "Schauen wir auf typische Gehalte: Heu vom ersten Aufwuchs liegt bei etwa 5,3 bis 5,9 MJ NEL je Kilo TM, gute Grassilage bei rund 6,3, Maissilage bei etwa 6,6 und Gerste bei rund 8.",
+          "Die Balken zeigen Mittelwerte aus Österreich: Heu rund 5,7, Grassilage vom ersten Schnitt etwa 6,3, Maissilage 6,6 MJ NEL je Kilo TM. Getreide liegt mit gut 8 deutlich darüber.",
+          "Ein Gefühl für die Zahlen: Grassilage vom 1. Aufwuchs etwa 6,3, Maissilage rund 6,6, Heu je nach Trocknung 5,3 bis 5,9 und Gerste oder Körnermais über 8 MJ NEL je Kilo TM."
+        ],
+        "slide": 1,
+        "board": null,
+        "look": "screen",
+        "gesture": "count",
+        "pause": 0.7
+      },
+      {
+        "variants": [
+          "Beim Schwein bewerten wir in umsetzbarer Energie, ME. Gerste hat etwa 12,6 MJ ME je Kilo Futter mit 88 Prozent TM, Weizen rund 13,8 und Körnermais gut 14.",
+          "Für Schweine ist die ME die Bewertungsstufe, angegeben je Kilo Futter mit 88 Prozent TM. Gerste kommt auf rund 12,6, Weizen auf etwa 13,8 MJ ME – Körnermais aus der Steiermark auf gut 14.",
+          "Das Schwein rechnen wir in ME, Methan spielt dort kaum eine Rolle. Typische Werte: Gerste etwa 12,6, Weizen 13,8 und Körnermais rund 14 MJ ME pro Kilo bei 88 Prozent TM."
+        ],
+        "slide": null,
+        "board": null,
+        "look": "class",
+        "gesture": "explain",
+        "pause": 0.6
+      },
+      {
+        "variants": [
+          "Beim Geflügel kommen Kot und Harn gemeinsam aus der Kloake – ich schreib's an. Darum misst man direkt die umsetzbare Energie und korrigiert sie auf eine ausgeglichene N-Bilanz: AMEn.",
+          "An die Tafel noch das Geflügel: Kot und Harn kommen gemeinsam, also bestimmt man direkt die ME, korrigiert auf N-Retention null – die AMEn. Körnermais hat etwa 13,5 bis 14 MJ je Kilo.",
+          "Geflügel hat eine Kloake, Kot und Harn lassen sich nicht trennen. Deshalb verwenden wir die AMEn, die scheinbar umsetzbare Energie, korrigiert auf null N-Ansatz – ich schreib's Ihnen hin."
+        ],
+        "slide": null,
+        "board": "b3",
+        "look": "board",
+        "gesture": "point",
+        "pause": 1.2
+      }
+    ],
+    "quiz": [
+      {
+        "q": "Welche Energiestufe wird beim Geflügel üblicherweise verwendet?",
+        "correct": "AMEn, die N-korrigierte scheinbar umsetzbare Energie",
+        "wrong": ["NEL, die Nettoenergie Laktation", "DE, die verdauliche Energie", "GE, die Bruttoenergie"],
+        "explain": "Kot und Harn werden gemeinsam über die Kloake ausgeschieden, daher bestimmt man direkt die ME, N-korrigiert.",
+        "calc": false
+      },
+      {
+        "q": "Was unterscheidet beim Wiederkäuer die ME von der DE?",
+        "correct": "Abzug der Energie in Harn und Methan",
+        "wrong": ["Abzug der Energie im Kot", "Abzug der Wärmeverluste", "Abzug der Energie in der Milch"],
+        "explain": "DE = GE − Kot; ME = DE − Harn − Methan; erst die NE zieht die Wärmeverluste ab.",
+        "calc": false
+      },
+      {
+        "q": "Kuh mit 600 kg LM (Erhaltung 35,5 MJ NEL) gibt 25 kg Milch mit 4,0 % Fett und 3,4 % Eiweiß. NEL-Bedarf pro Tag?",
+        "correct": "≈ 117,5 MJ NEL",
+        "wrong": ["≈ 82 MJ NEL", "≈ 100 MJ NEL", "≈ 136 MJ NEL"],
+        "explain": "35,5 MJ + 25 kg × 3,28 MJ = 35,5 + 82 = 117,5 MJ NEL.",
+        "calc": true
+      }
+    ],
+    "calc": {
+      "title": "NEL-Bedarf einer Milchkuh",
+      "given": "650 kg LM, 30 kg Milch mit 4,0 % Fett und 3,4 % Eiweiß",
+      "steps": ["650^{0,75} ≈ 128,7 kg", "Erh.: 0,293 × 128,7 ≈ 37,7", "Milch: 30 × 3,28 = 98,4", "Σ = 37,7 + 98,4 = 136,1"],
+      "result": "≈ 136 MJ NEL pro Tag"
+    },
+    "notes": [
+      "GE → DE (Kot) → ME (Harn, CH₄) → NE (Wärme)",
+      "NEL Erhaltung = 0,293 MJ × LM^0,75",
+      "Milch 4,0 % F / 3,4 % E: 3,28 MJ NEL/kg",
+      "Schwein: ME · Geflügel: AMEn",
+      "Grassilage ~6,3 · Maissilage ~6,6 MJ NEL",
+      "GfE 2023: Milchkuh künftig auf ME-Basis"
+    ],
+    "script": "Die Energiebewertung geht von der Bruttoenergie (GE) aus, dem im Bombenkalorimeter bestimmten Brennwert. Zieht man die Energie im Kot ab, erhält man die verdauliche Energie (DE), nach Abzug der Energie in Harn und – beim Wiederkäuer bedeutsam – Methan die umsetzbare Energie (ME). Die Nettoenergie (NE) ergibt sich nach Abzug der Wärmeverluste bei der Umsetzung im Stoffwechsel. Für Milchkühe wurde nach GfE (2001) in Nettoenergie Laktation (NEL) bewertet; die Verwertung der ME für die Milchbildung beträgt etwa 60 %. Der Erhaltungsbedarf beträgt 0,293 MJ NEL je kg metabolischer Lebendmasse (LM^0,75), für eine 650 kg schwere Kuh also rund 37,7 MJ NEL täglich. Je kg Milch werden 1,05 + 0,38 × Fett-% + 0,21 × Eiweiß-% MJ NEL benötigt, bei 4,0 % Fett und 3,4 % Eiweiß 3,28 MJ. Mit 30 kg Milch ergibt sich ein Tagesbedarf von etwa 136 MJ NEL. Die GfE-Empfehlungen von 2023 stellen die Bewertung für Milchkühe auf ME um; Futterwerttabellen und Rationsprogramme werden schrittweise angepasst. Typische Gehalte österreichischer Grundfutter sind etwa 5,3–5,9 MJ NEL je kg TM für Heu des ersten Aufwuchses, rund 6,3 für Grassilage des ersten Aufwuchses und rund 6,6 für Maissilage; Gerste liegt bei etwa 8,1, Körnermais bei 8,4 MJ NEL. Beim Schwein wird in ME bewertet, etwa 12,6 MJ für Gerste und 13,8 MJ für Weizen je kg bei 88 % TM. Beim Geflügel werden Kot und Harn gemeinsam ausgeschieden; man verwendet die auf ausgeglichene N-Bilanz korrigierte scheinbar umsetzbare Energie (AMEn)."
+  },
+  "en": {
+    "title": "Energy Evaluation",
+    "subtitle": "From gross energy to net energy – NEL, ME and AMEn",
+    "learningGoals": [
+      "Explain the energy levels GE, DE, ME and NE and their losses",
+      "Calculate the NEL requirement of a dairy cow for maintenance and milk",
+      "Explain evaluation in ME for pigs and in AMEn for poultry",
+      "Interpret typical energy contents of forages and concentrates"
+    ],
+    "slides": [
+      {
+        "title": "The energy levels",
+        "bullets": [
+          "GE: heat of combustion, measured in a bomb calorimeter",
+          "DE = GE − energy in faeces",
+          "ME = DE − energy in urine and methane",
+          "NE = ME − heat losses; milk: NEL ≈ 0.6 × ME",
+          "Cattle: NEL (GfE 2001); GfE 2023 switches to ME",
+          "Pigs: ME; poultry: AMEn (corrected to zero N balance)"
+        ],
+        "diagram": {
+          "type": "cascade",
+          "levels": [
+            { "label": "GE", "value": 100 },
+            { "label": "DE", "value": 70 },
+            { "label": "ME", "value": 58 },
+            { "label": "NEL", "value": 35 }
+          ],
+          "losses": ["Faeces", "Urine + CH₄", "Heat"]
+        },
+        "source": "GfE (2001, 2023); Kirchgeßner et al. (2014); guide values dairy ration"
+      },
+      {
+        "title": "Energy content of typical feeds",
+        "bullets": [
+          "Hay, 1st cut: ~5.3–5.9 MJ NEL/kg DM depending on drying",
+          "Grass silage, 1st cut: on average ~6.3 MJ NEL/kg DM",
+          "Maize silage: about 6.6 MJ NEL/kg DM",
+          "Barley ~8.1, grain maize ~8.4 MJ NEL/kg DM",
+          "Pigs: barley ~12.6, wheat ~13.8 MJ ME/kg (88 % DM)",
+          "Poultry: grain maize about 13.5–14 MJ AMEn/kg"
+        ],
+        "diagram": {
+          "type": "bars",
+          "items": [
+            { "label": "Hay 1st cut", "value": 5.7 },
+            { "label": "Grass sil. 1st cut", "value": 6.3 },
+            { "label": "Maize silage", "value": 6.6 },
+            { "label": "Barley", "value": 8.1 },
+            { "label": "Grain maize", "value": 8.4 }
+          ],
+          "unit": "MJ NEL/kg DM",
+          "max": 9
+        },
+        "source": "LK hay and silage projects (Resch 2024, 2025); DLG feed tables"
+      }
+    ],
+    "board": [
+      { "id": "b1", "lines": ["NEL maintenance =", "0.293 MJ × BW^{0.75}", "650 kg: ≈ 37.7 MJ NEL"] },
+      { "id": "b2", "lines": ["NEL per kg milk =", "1.05 + 0.38 × fat %", "+ 0.21 × protein %", "4.0 / 3.4 % → 3.28 MJ"] },
+      { "id": "b3", "lines": ["Poultry: cloaca", "faeces + urine together", "→ measure ME directly", "AMEn: N retention = 0"] }
+    ],
+    "beats": [
+      {
+        "variants": [
+          "Energy is the first bottleneck in almost every ration. The starting point is gross energy, which we measure in a bomb calorimeter by burning the sample completely.",
+          "Let's start at the top: gross energy is the heat of combustion, measured in a bomb calorimeter. Most feeds are at about 18 to 19 megajoules per kilo of dry matter.",
+          "At the beginning there's gross energy: sample into the bomb calorimeter, burn it completely, measure the heat. But that tells us nothing yet about what the animal can use."
+        ],
+        "slide": 0,
+        "board": null,
+        "look": "class",
+        "gesture": "open",
+        "pause": 0.7
+      },
+      {
+        "variants": [
+          "Wood, by the way, has a gross energy similar to hay – still, no cow has ever given milk from wood chips. What matters is how much is digested and metabolised.",
+          "An example of why GE alone is useless: straw and barley have almost the same heat of combustion, but completely different feeding values. It's all about digestibility.",
+          "If only gross energy counted, sawdust would be a top feed. What counts is the share the animal actually digests and can metabolise."
+        ],
+        "slide": null,
+        "board": null,
+        "look": "student",
+        "gesture": "shrug",
+        "pause": 0.8
+      },
+      {
+        "variants": [
+          "Subtract the energy in faeces and we have digestible energy, DE. Subtract urine and – important in ruminants – methane, and we arrive at metabolisable energy, ME.",
+          "The cascade on the slide: minus faecal energy gives DE, minus urine and methane energy gives ME. We already know the methane from the rumen from the last section.",
+          "From GE we first lose the energy in faeces, which gives DE. Then urine and methane – we discussed methane with the rumen – and what remains is ME."
+        ],
+        "slide": null,
+        "board": null,
+        "look": "screen",
+        "gesture": "point",
+        "pause": 0.6
+      },
+      {
+        "variants": [
+          "Metabolism also produces heat, and what's left after that is net energy. For dairy cows that's NEL – of the ME, only about 60 percent ends up in the milk.",
+          "Last level: net energy, i.e. ME minus heat losses. For the dairy cow we calculate in NEL, net energy for lactation; the efficiency from ME to NEL is about 0.6.",
+          "Then comes the heat lost during metabolism. The cow uses ME for milk with an efficiency of about 60 percent – that's why we evaluate dairy feeds in NEL."
+        ],
+        "slide": null,
+        "board": null,
+        "look": "class",
+        "gesture": "explain",
+        "pause": 0.7
+      },
+      {
+        "variants": [
+          "Now the requirement, let me write it up: for maintenance a cow needs 0.293 MJ NEL per kilo of metabolic body weight, BW to the 0.75 – for 650 kilos almost 38 MJ.",
+          "The maintenance requirement goes on the board: 0.293 megajoules NEL times body weight to the power of 0.75. A 650-kilo cow needs about 37.7 MJ NEL a day before giving a litre of milk.",
+          "I'll note maintenance for you: 0.293 times BW to the 0.75, in MJ NEL. For a cow of 650 kilos we get about 37.7 megajoules per day – without any milk at all."
+        ],
+        "slide": null,
+        "board": "b1",
+        "look": "board",
+        "gesture": "point",
+        "pause": 1.0
+      },
+      {
+        "variants": [
+          "Let me write up the formula for milk: 1.05 plus 0.38 times fat plus 0.21 times protein. At 4.0 percent fat and 3.4 percent protein that gives 3.28 MJ NEL per kilo of milk.",
+          "Milk energy goes on the board: NEL per kilo equals 1.05 plus 0.38 times fat percent plus 0.21 times protein percent. Milk with 4.0 and 3.4 percent thus needs 3.28 MJ.",
+          "I'll note the formula: 1.05 plus 0.38 times fat plus 0.21 times protein, each in percent. For milk with 4 percent fat and 3.4 percent protein that's about 3.3 MJ NEL per kilo."
+        ],
+        "slide": null,
+        "board": "b2",
+        "look": "board",
+        "gesture": "count",
+        "pause": 1.0
+      },
+      {
+        "variants": [
+          "So our 650-kilo cow with 30 kilos of milk needs about 136 MJ NEL a day. The GfE recommendations of 2023 already work in ME, but in practice NEL is still standard in many places.",
+          "Together we get just over 136 MJ NEL for 30 kilos of milk. A brief outlook: the GfE switched to ME in 2023, and the feed tables for the Alpine region are currently being adapted.",
+          "Maintenance plus milk gives about 136 MJ NEL daily for 30 kilos. You should know that the GfE has recommended ME since 2023 – many ration programs still show NEL for now."
+        ],
+        "slide": null,
+        "board": null,
+        "look": "class",
+        "gesture": "emphasis",
+        "pause": 0.8
+      },
+      {
+        "variants": [
+          "Let's look at typical contents: first-cut hay is at about 5.3 to 5.9 MJ NEL per kilo DM, good grass silage at around 6.3, maize silage at about 6.6 and barley at around 8.",
+          "The bars show Austrian averages: hay about 5.7, first-cut grass silage about 6.3, maize silage 6.6 MJ NEL per kilo DM. Grain is clearly higher at just over 8.",
+          "A feel for the numbers: first-cut grass silage about 6.3, maize silage around 6.6, hay 5.3 to 5.9 depending on drying, and barley or grain maize above 8 MJ NEL per kilo DM."
+        ],
+        "slide": 1,
+        "board": null,
+        "look": "screen",
+        "gesture": "count",
+        "pause": 0.7
+      },
+      {
+        "variants": [
+          "In pigs we evaluate in metabolisable energy, ME. Barley has about 12.6 MJ ME per kilo of feed at 88 percent DM, wheat about 13.8 and grain maize just over 14.",
+          "For pigs, ME is the evaluation level, given per kilo of feed at 88 percent DM. Barley comes to about 12.6, wheat to about 13.8 MJ ME – Styrian grain maize to just over 14.",
+          "We calculate pigs in ME, methane hardly matters there. Typical values: barley about 12.6, wheat 13.8 and grain maize about 14 MJ ME per kilo at 88 percent DM."
+        ],
+        "slide": null,
+        "board": null,
+        "look": "class",
+        "gesture": "explain",
+        "pause": 0.6
+      },
+      {
+        "variants": [
+          "In poultry, faeces and urine leave the cloaca together – let me write it up. So we measure metabolisable energy directly and correct it to zero nitrogen balance: AMEn.",
+          "Poultry on the board too: faeces and urine come together, so we determine ME directly, corrected to zero N retention – that's AMEn. Grain maize has about 13.5 to 14 MJ per kilo.",
+          "Poultry have a cloaca, so faeces and urine can't be separated. That's why we use AMEn, apparent metabolisable energy corrected to zero N retention – I'll write it down for you."
+        ],
+        "slide": null,
+        "board": "b3",
+        "look": "board",
+        "gesture": "point",
+        "pause": 1.2
+      }
+    ],
+    "quiz": [
+      {
+        "q": "Which energy level is commonly used for poultry?",
+        "correct": "AMEn, N-corrected apparent metabolisable energy",
+        "wrong": ["NEL, net energy for lactation", "DE, digestible energy", "GE, gross energy"],
+        "explain": "Faeces and urine are excreted together via the cloaca, so ME is determined directly, corrected for N.",
+        "calc": false
+      },
+      {
+        "q": "In ruminants, what distinguishes ME from DE?",
+        "correct": "Deduction of the energy in urine and methane",
+        "wrong": ["Deduction of the energy in faeces", "Deduction of heat losses", "Deduction of the energy in milk"],
+        "explain": "DE = GE − faeces; ME = DE − urine − methane; only NE deducts the heat losses.",
+        "calc": false
+      },
+      {
+        "q": "A 600 kg cow (maintenance 35.5 MJ NEL) gives 25 kg of milk with 4.0 % fat and 3.4 % protein. NEL requirement per day?",
+        "correct": "≈ 117.5 MJ NEL",
+        "wrong": ["≈ 82 MJ NEL", "≈ 100 MJ NEL", "≈ 136 MJ NEL"],
+        "explain": "35.5 MJ + 25 kg × 3.28 MJ = 35.5 + 82 = 117.5 MJ NEL.",
+        "calc": true
+      }
+    ],
+    "calc": {
+      "title": "NEL requirement of a dairy cow",
+      "given": "650 kg BW, 30 kg milk with 4.0 % fat and 3.4 % protein",
+      "steps": ["650^{0.75} ≈ 128.7 kg", "Maint.: 0.293 × 128.7 ≈ 37.7", "Milk: 30 × 3.28 = 98.4", "Σ = 37.7 + 98.4 = 136.1"],
+      "result": "≈ 136 MJ NEL per day"
+    },
+    "notes": [
+      "GE → DE (faeces) → ME (urine, CH₄) → NE",
+      "NEL maintenance = 0.293 MJ × BW^0.75",
+      "Milk 4.0 % fat / 3.4 % prot.: 3.28 MJ NEL/kg",
+      "Pigs: ME · poultry: AMEn",
+      "Grass silage ~6.3 · maize silage ~6.6 MJ NEL",
+      "GfE 2023: dairy cows moving to ME"
+    ],
+    "script": "Energy evaluation starts from gross energy (GE), the heat of combustion determined in a bomb calorimeter. Subtracting the energy in faeces gives digestible energy (DE); after deducting the energy in urine and – significant in ruminants – methane, we obtain metabolisable energy (ME). Net energy (NE) results after deducting heat losses during metabolism. According to GfE (2001), dairy cows were evaluated in net energy for lactation (NEL); the efficiency of ME use for milk production is about 60 %. The maintenance requirement is 0.293 MJ NEL per kg of metabolic body weight (BW^0.75), i.e. about 37.7 MJ NEL daily for a 650 kg cow. Each kg of milk requires 1.05 + 0.38 × fat % + 0.21 × protein % MJ NEL, which is 3.28 MJ at 4.0 % fat and 3.4 % protein. With 30 kg of milk, the daily requirement is about 136 MJ NEL. The GfE recommendations of 2023 switch the evaluation of dairy cows to ME; feed tables and software are being adapted. Typical contents of Austrian forages are about 5.3–5.9 MJ NEL per kg DM for first-cut hay, around 6.3 for first-cut grass silage and around 6.6 for maize silage; barley is at about 8.1 and grain maize at 8.4 MJ NEL. Pigs are evaluated in ME, about 12.6 MJ for barley and 13.8 MJ for wheat per kg at 88 % DM. In poultry, faeces and urine are excreted together; the apparent metabolisable energy corrected to zero nitrogen balance (AMEn) is used."
+  }
+}

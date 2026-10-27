@@ -1,0 +1,386 @@
+{
+  "id": "verdauung_mono",
+  "order": 3,
+  "core": false,
+  "plannedMinutes": 6,
+  "de": {
+    "title": "Verdauung bei Schwein und Geflügel",
+    "subtitle": "Magen, Dünndarm, Dickdarm – und die Besonderheiten des Vogels",
+    "learningGoals": [
+      "Abschnitte des Verdauungstrakts beim Schwein und ihre Funktion beschreiben",
+      "Den Dünndarm als Hauptort der enzymatischen Verdauung begründen",
+      "Kropf, Drüsenmagen, Muskelmagen und Blinddärme des Geflügels erklären",
+      "Passagezeiten und scheinbare Verdaulichkeit einordnen"
+    ],
+    "slides": [
+      {
+        "title": "Verdauungstrakt des Schweins",
+        "bullets": [
+          "Einhöhliger Magen: Salzsäure und Pepsin, pH etwa 2 bis 4",
+          "Dünndarm: Pankreasenzyme, Galle und Bürstensaumenzyme",
+          "Hauptort von Verdauung und Absorption (praecaecal)",
+          "Dickdarm: mikrobielle Fermentation von Faser, Wasserresorption",
+          "Mastschwein: mittlere Verweildauer grob 1,5 Tage"
+        ],
+        "diagram": { "type": "flow", "items": ["Maul", "Magen", "Dünndarm", "Dickdarm"], "direction": "right", "highlight": 2 },
+        "source": "Kirchgeßner et al. (2014); Jeroch, Drochner, Simon (2008); Le Goff et al. (2002)"
+      },
+      {
+        "title": "Verdauungstrakt des Huhns",
+        "bullets": [
+          "Keine Zähne: Das Futter wird ganz abgeschluckt",
+          "Kropf: Zwischenspeicher, das Futter quillt ein",
+          "Drüsenmagen: Salzsäure und Pepsin, kurze Verweildauer",
+          "Muskelmagen: zerkleinert mit Koilinschicht und Grit",
+          "Paarige Blinddärme; Kot und Harn gemeinsam über die Kloake",
+          "Passage beim Masthuhn: nur etwa 3 bis 5 Stunden"
+        ],
+        "diagram": { "type": "flow", "items": ["Kropf", "Drüsenmagen", "Muskelmagen", "Dünndarm", "Blinddärme", "Kloake"], "direction": "right", "highlight": 2 },
+        "source": "nach Jeroch, Simon, Zentek: Geflügelernährung; Lohmann Breeders (2025)"
+      }
+    ],
+    "board": [
+      { "id": "b1", "lines": ["Magen: HCl + Pepsin", "Dünndarm: Enzyme + Galle", "→ Absorption (praecaecal)", "Dickdarm: Fermentation"] },
+      { "id": "b2", "lines": ["Verdaulichkeit (scheinbar):", "(Aufnahme − Kot) / Aufnahme", "× 100 = sV in %"] },
+      { "id": "b3", "lines": ["Passagezeit (grob):", "Mastschwein ~ 30-40 h", "Masthuhn ~ 3-5 h"] }
+    ],
+    "beats": [
+      {
+        "variants": [
+          "Schwein und Huhn sind Monogastrier, also Tiere mit einem einhöhligen Magen. Sie verdauen in erster Linie mit körpereigenen Enzymen – ganz anders als die Kuh, zu der wir noch kommen.",
+          "Beginnen wir mit den Monogastriern. Beim Schwein und beim Geflügel leisten körpereigene Enzyme den Großteil der Verdauung, Mikroben spielen erst am Ende des Darms eine Rolle.",
+          "Wie wir in der Einführung gesehen haben, verwerten Schweine und Hühner Futter sehr effizient. Das liegt an ihrer Verdauung: einhöhliger Magen, viel Enzymarbeit, und das Ganze geht schnell."
+        ],
+        "slide": 0,
+        "board": null,
+        "look": "class",
+        "gesture": "open",
+        "pause": 0.7
+      },
+      {
+        "variants": [
+          "Im Magen des Schweins wird das Futter angesäuert: Salzsäure senkt den pH auf etwa 2 bis 4, Pepsin beginnt mit der Eiweißspaltung, und die Säure hält nebenbei Keime in Schach.",
+          "Der Schweinemagen ist stark sauer, pH grob 2 bis 4. Dort startet mit Pepsin der Proteinabbau, und die Säure ist eine wichtige Barriere gegen Krankheitserreger.",
+          "Erste Station ist der Magen: Salzsäure, Pepsin, ein pH-Wert zwischen etwa 2 und 4. Fertig verdaut wird dort aber noch wenig – der Magen bereitet vor."
+        ],
+        "slide": null,
+        "board": null,
+        "look": "screen",
+        "gesture": "explain",
+        "pause": 0.6
+      },
+      {
+        "variants": [
+          "Ich schreib Ihnen die Stationen an. Die Hauptarbeit leistet der Dünndarm: Pankreasenzyme, Galle und Bürstensaumenzyme spalten Stärke, Eiweiß und Fett, und dort wird auch absorbiert.",
+          "An der Tafel sehen Sie: Der Dünndarm ist der Hauptort der enzymatischen Verdauung. Hier kommen Pankreassaft und Galle dazu, und hier werden Glucose, Aminosäuren und Fettsäuren aufgenommen.",
+          "Kurz zur Tafel: Magen, Dünndarm, Dickdarm. Entscheidend ist der Dünndarm – dort wirken die Enzyme der Bauchspeicheldrüse und der Darmwand, und dort gehen die Nährstoffe ins Blut."
+        ],
+        "slide": null,
+        "board": "b1",
+        "look": "board",
+        "gesture": "point",
+        "pause": 1.0
+      },
+      {
+        "variants": [
+          "Was den Dünndarm unverdaut verlässt, fermentieren Mikroben im Dickdarm. Das bringt etwas Energie aus Faser, aber Aminosäuren, die erst dort frei werden, nützen dem Schwein kaum noch.",
+          "Im Dickdarm vergären Mikroben Faserreste zu flüchtigen Fettsäuren. Eiweiß, das erst dort ankommt, ist für die Aminosäureversorgung verloren – darum zählt die praecaecale Verdaulichkeit.",
+          "Der Dickdarm ist die Gärkammer des Schweins, allerdings eine kleine. Für Aminosäuren kommt er zu spät, deshalb bewerten wir beim Schwein die Verdaulichkeit bis zum Ende des Dünndarms."
+        ],
+        "slide": null,
+        "board": null,
+        "look": "class",
+        "gesture": "emphasis",
+        "pause": 0.7
+      },
+      {
+        "variants": [
+          "Wie gut ein Futter verdaut wird, rechnen wir so – ich schreib's an: Aufnahme minus Kot, durch Aufnahme, mal 100. Scheinbar heißt das, weil im Kot auch körpereigenes Material steckt.",
+          "Ich notier Ihnen die Formel für die scheinbare Verdaulichkeit: Aufnahme minus Kot, durch Aufnahme, mal hundert. Scheinbar, weil im Kot auch Darmzellen und Enzymreste mitgezählt werden.",
+          "Kurz an die Tafel: Verdaulichkeit gleich Aufnahme minus Kot, bezogen auf die Aufnahme, in Prozent. Wir nennen sie scheinbar, denn der Kot enthält auch endogene Anteile vom Tier selbst."
+        ],
+        "slide": null,
+        "board": "b2",
+        "look": "board",
+        "gesture": "count",
+        "pause": 1.0
+      },
+      {
+        "variants": [
+          "Jetzt zum Huhn: Es hat keine Zähne und schluckt das Futter ganz. Zuerst landet es im Kropf, einer Ausbuchtung der Speiseröhre, wo es gespeichert wird und einweicht.",
+          "Beim Geflügel schaut's anders aus: kein Kauen, das Futter geht über die Speiseröhre in den Kropf. Der dient als Zwischenlager, dort quillt das Futter auf.",
+          "Das Huhn hat einen Schnabel, aber keine Zähne. Das Futter wird im Kropf zwischengespeichert und eingeweicht – eine Art Vorratskammer am Hals."
+        ],
+        "slide": 1,
+        "board": null,
+        "look": "screen",
+        "gesture": "point",
+        "pause": 0.6
+      },
+      {
+        "variants": [
+          "Dann folgt der Drüsenmagen, der Salzsäure und Pepsin bildet, und gleich danach der Muskelmagen. Der zerkleinert mit kräftiger Muskulatur und mit Steinchen – Kauen ausgelagert, sozusagen.",
+          "Im Drüsenmagen werden Säure und Pepsin zugemischt, aber das Futter bleibt dort nur kurz. Das Zerkleinern übernimmt der Muskelmagen mit seiner harten Koilinschicht und aufgenommenem Grit.",
+          "Der Vogel hat zwei Mägen hintereinander: den Drüsenmagen für die Chemie, also Salzsäure und Pepsin, und den Muskelmagen für die Mechanik – dort mahlen Grit-Steinchen das Futter."
+        ],
+        "slide": null,
+        "board": null,
+        "look": "class",
+        "gesture": "explain",
+        "pause": 0.7
+      },
+      {
+        "variants": [
+          "Verdaut und absorbiert wird auch beim Huhn im Dünndarm. Danach folgen zwei Blinddärme, in denen Mikroben etwas Faser fermentieren, und Kot und Harn gehen gemeinsam über die Kloake ab.",
+          "Hauptort der Verdauung ist auch hier der Dünndarm. Die paarigen Blinddärme übernehmen eine bescheidene Fermentation, und Kot und Harn verlassen den Körper gemeinsam über die Kloake.",
+          "Nach dem Dünndarm, wo die Hauptverdauung läuft, zweigen beim Huhn zwei Blinddärme ab – dort wird mikrobiell fermentiert. Kot und Harnsäure kommen dann zusammen aus der Kloake."
+        ],
+        "slide": null,
+        "board": null,
+        "look": "screen",
+        "gesture": "count",
+        "pause": 0.6
+      },
+      {
+        "variants": [
+          "Und das Tempo – ich schreib's hin: Beim Mastschwein braucht das Futter grob 30 bis 40 Stunden durch den Darm, beim Masthuhn nur etwa 3 bis 5 Stunden. Es muss also leicht verdaulich sein.",
+          "Zum Schluss die Passagezeiten an der Tafel: Mastschwein rund eineinhalb Tage, Masthuhn nur ein paar Stunden, etwa 3 bis 5. Wer so schnell verdaut, braucht hochverdauliches Futter.",
+          "Merken Sie sich die Größenordnung, ich schreib sie an: Schwein 30 bis 40 Stunden, Huhn 3 bis 5 Stunden. Deshalb spielt Faser beim Geflügel als Energiequelle kaum eine Rolle."
+        ],
+        "slide": null,
+        "board": "b3",
+        "look": "board",
+        "gesture": "emphasis",
+        "pause": 1.2
+      }
+    ],
+    "quiz": [
+      {
+        "q": "Wo findet beim Schwein der Großteil der enzymatischen Verdauung und Absorption statt?",
+        "correct": "Im Dünndarm",
+        "wrong": ["Im Magen", "Im Blinddarm", "Im Dickdarm (Kolon)"],
+        "explain": "Pankreasenzyme, Galle und Bürstensaumenzyme wirken im Dünndarm, dort werden die Nährstoffe absorbiert.",
+        "calc": false
+      },
+      {
+        "q": "Welche Aufgabe hat der Muskelmagen beim Huhn?",
+        "correct": "Mechanisches Zerkleinern des Futters, unterstützt durch Grit",
+        "wrong": ["Speichern und Einweichen des Futters", "Bildung von Salzsäure und Pepsin", "Mikrobielle Fermentation der Faser"],
+        "explain": "Der Kropf speichert, der Drüsenmagen bildet Säure und Pepsin, der Muskelmagen zerkleinert.",
+        "calc": false
+      },
+      {
+        "q": "Eine Sau nimmt 3,0 kg TM auf und scheidet 0,6 kg TM im Kot aus. Wie hoch ist die scheinbare Verdaulichkeit der TM?",
+        "correct": "80 %",
+        "wrong": ["20 %", "60 %", "90 %"],
+        "explain": "sV = (3,0 − 0,6) / 3,0 × 100 = 80 %.",
+        "calc": true
+      }
+    ],
+    "calc": {
+      "title": "Scheinbare Verdaulichkeit beim Schwein",
+      "given": "Mastschwein: 2,4 kg TM Futter pro Tag, 0,36 kg TM im Kot",
+      "steps": ["sV = (2,4 − 0,36) / 2,4", "sV = 2,04 / 2,4 = 0,85", "sV = 85 %"],
+      "result": "Scheinbare TM-Verdaulichkeit ≈ 85 %"
+    },
+    "notes": [
+      "Monogastrier: Enzyme statt Vormägen",
+      "Schweinemagen: HCl + Pepsin, pH ~2–4",
+      "Dünndarm = Hauptort Verdauung/Absorption",
+      "Huhn: Kropf → Drüsenmagen → Muskelmagen",
+      "sV = (Aufnahme − Kot) / Aufnahme × 100",
+      "Passage: Schwein ~30–40 h, Huhn ~3–5 h"
+    ],
+    "script": "Schwein und Geflügel sind Monogastrier. Ihre Verdauung beruht überwiegend auf körpereigenen Enzymen; die mikrobielle Fermentation ist auf den Dickdarm beziehungsweise die Blinddärme beschränkt. Beim Schwein wird das Futter im einhöhligen Magen durch Salzsäure auf einen pH-Wert von etwa 2 bis 4 angesäuert, Pepsin beginnt mit der Proteinspaltung, und die Säure wirkt als Barriere gegen Keime. Hauptort der enzymatischen Verdauung und der Absorption ist der Dünndarm: Pankreasenzyme, Galle und die Enzyme des Bürstensaums spalten Stärke, Proteine und Fette, und Glucose, Aminosäuren und Fettsäuren werden resorbiert. Im Dickdarm vergären Mikroben unverdaute Faserreste zu flüchtigen Fettsäuren und Wasser wird rückresorbiert. Aminosäuren, die erst dort frei werden, stehen dem Tier praktisch nicht mehr zur Verfügung; deshalb wird beim Schwein die praecaecale Verdaulichkeit herangezogen. Die scheinbare Verdaulichkeit errechnet sich als (Aufnahme − Kotausscheidung) / Aufnahme × 100; scheinbar deshalb, weil der Kot auch endogene Anteile enthält. Beim Huhn wird das Futter ungekaut abgeschluckt und im Kropf gespeichert und eingeweicht. Im Drüsenmagen werden Salzsäure und Pepsin zugesetzt, im Muskelmagen wird das Futter mithilfe der Koilinschicht und von Grit mechanisch zerkleinert. Verdauung und Absorption erfolgen im Dünndarm, in den paarigen Blinddärmen findet eine begrenzte Fermentation statt. Kot und Harn werden gemeinsam über die Kloake ausgeschieden. Die Passage ist kurz: beim Masthuhn wenige Stunden, beim Mastschwein grob 30 bis 40 Stunden."
+  },
+  "en": {
+    "title": "Digestion in Pigs and Poultry",
+    "subtitle": "Stomach, small intestine, large intestine – and what makes birds special",
+    "learningGoals": [
+      "Describe the sections of the pig's digestive tract and their functions",
+      "Explain why the small intestine is the main site of enzymatic digestion",
+      "Explain the crop, proventriculus, gizzard and caeca of poultry",
+      "Interpret passage times and apparent digestibility"
+    ],
+    "slides": [
+      {
+        "title": "The pig's digestive tract",
+        "bullets": [
+          "Simple stomach: hydrochloric acid and pepsin, pH about 2 to 4",
+          "Small intestine: pancreatic enzymes, bile, brush-border enzymes",
+          "Main site of digestion and absorption (precaecal)",
+          "Large intestine: microbial fermentation of fibre, water uptake",
+          "Fattening pig: mean retention time roughly 1.5 days"
+        ],
+        "diagram": { "type": "flow", "items": ["Mouth", "Stomach", "Small intestine", "Large intestine"], "direction": "right", "highlight": 2 },
+        "source": "Kirchgeßner et al. (2014); Jeroch, Drochner, Simon (2008); Le Goff et al. (2002)"
+      },
+      {
+        "title": "The chicken's digestive tract",
+        "bullets": [
+          "No teeth: feed is swallowed whole",
+          "Crop: temporary storage, the feed soaks and swells",
+          "Proventriculus: hydrochloric acid and pepsin, short retention",
+          "Gizzard: grinds with its koilin lining and grit",
+          "Paired caeca; faeces and urine leave together via the cloaca",
+          "Passage in broilers: only about 3 to 5 hours"
+        ],
+        "diagram": { "type": "flow", "items": ["Crop", "Proventriculus", "Gizzard", "Small intestine", "Caeca", "Cloaca"], "direction": "right", "highlight": 2 },
+        "source": "after Jeroch, Simon, Zentek: Geflügelernährung; Lohmann Breeders (2025)"
+      }
+    ],
+    "board": [
+      { "id": "b1", "lines": ["Stomach: HCl + pepsin", "Small int.: enzymes + bile", "→ absorption (precaecal)", "Large int.: fermentation"] },
+      { "id": "b2", "lines": ["Apparent digestibility:", "(intake − faeces) / intake", "× 100 = AD in %"] },
+      { "id": "b3", "lines": ["Passage time (rough):", "Fattening pig ~ 30-40 h", "Broiler ~ 3-5 h"] }
+    ],
+    "beats": [
+      {
+        "variants": [
+          "Pigs and chickens are monogastrics, animals with a simple stomach. They digest mainly with their own enzymes – quite unlike the cow, which we'll come to later.",
+          "Let's start with the monogastrics. In pigs and poultry, the animal's own enzymes do most of the digestive work; microbes only play a role at the end of the gut.",
+          "As we saw in the introduction, pigs and chickens use feed very efficiently. That's down to their digestion: simple stomach, lots of enzyme work, and it all happens fast."
+        ],
+        "slide": 0,
+        "board": null,
+        "look": "class",
+        "gesture": "open",
+        "pause": 0.7
+      },
+      {
+        "variants": [
+          "In the pig's stomach the feed is acidified: hydrochloric acid lowers the pH to about 2 to 4, pepsin starts splitting protein, and the acid also keeps germs in check.",
+          "The pig's stomach is strongly acidic, pH roughly 2 to 4. Protein breakdown starts there with pepsin, and the acid is an important barrier against pathogens.",
+          "The first station is the stomach: hydrochloric acid, pepsin, a pH between about 2 and 4. But not much is fully digested there yet – the stomach prepares."
+        ],
+        "slide": null,
+        "board": null,
+        "look": "screen",
+        "gesture": "explain",
+        "pause": 0.6
+      },
+      {
+        "variants": [
+          "Let me write up the stations. The small intestine does the main work: pancreatic enzymes, bile and brush-border enzymes split starch, protein and fat, and absorption happens there too.",
+          "On the board you see: the small intestine is the main site of enzymatic digestion. Pancreatic juice and bile join here, and glucose, amino acids and fatty acids are absorbed here.",
+          "Quickly on the board: stomach, small intestine, large intestine. The small intestine is decisive – that's where pancreatic and gut wall enzymes act and nutrients enter the blood."
+        ],
+        "slide": null,
+        "board": "b1",
+        "look": "board",
+        "gesture": "point",
+        "pause": 1.0
+      },
+      {
+        "variants": [
+          "Whatever leaves the small intestine undigested is fermented by microbes in the large intestine. That yields some energy from fibre, but amino acids released only there hardly help the pig.",
+          "In the large intestine microbes ferment fibre residues to volatile fatty acids. Protein arriving only there is lost for amino acid supply – that's why precaecal digestibility counts.",
+          "The large intestine is the pig's fermentation chamber, if a small one. For amino acids it comes too late, so in pigs we assess digestibility up to the end of the small intestine."
+        ],
+        "slide": null,
+        "board": null,
+        "look": "class",
+        "gesture": "emphasis",
+        "pause": 0.7
+      },
+      {
+        "variants": [
+          "How well a feed is digested we calculate like this – let me write it: intake minus faeces, divided by intake, times 100. Apparent, because faeces also contain material from the body.",
+          "I'll note the formula for apparent digestibility: intake minus faeces, divided by intake, times a hundred. Apparent, because gut cells and enzyme residues in the faeces are counted too.",
+          "Quickly on the board: digestibility equals intake minus faeces, relative to intake, in percent. We call it apparent, since faeces also contain endogenous material from the animal itself."
+        ],
+        "slide": null,
+        "board": "b2",
+        "look": "board",
+        "gesture": "count",
+        "pause": 1.0
+      },
+      {
+        "variants": [
+          "Now the chicken: it has no teeth and swallows its feed whole. First it lands in the crop, a pouch of the oesophagus, where it is stored and soaks.",
+          "Poultry works differently: no chewing, the feed goes down the oesophagus into the crop. That serves as an interim store, and the feed swells there.",
+          "The chicken has a beak but no teeth. The feed is stored and softened in the crop – a kind of pantry at the neck."
+        ],
+        "slide": 1,
+        "board": null,
+        "look": "screen",
+        "gesture": "point",
+        "pause": 0.6
+      },
+      {
+        "variants": [
+          "Next comes the proventriculus, which secretes hydrochloric acid and pepsin, and right after it the gizzard. It grinds with strong muscles and little stones – chewing outsourced, so to speak.",
+          "In the proventriculus acid and pepsin are mixed in, but the feed stays there only briefly. The grinding is done by the gizzard with its hard koilin lining and ingested grit.",
+          "The bird has two stomachs in a row: the proventriculus for the chemistry, hydrochloric acid and pepsin, and the gizzard for the mechanics – grit stones grind the feed there."
+        ],
+        "slide": null,
+        "board": null,
+        "look": "class",
+        "gesture": "explain",
+        "pause": 0.7
+      },
+      {
+        "variants": [
+          "In the chicken, too, digestion and absorption take place in the small intestine. Then come two caeca, where microbes ferment a little fibre, and faeces and urine leave together via the cloaca.",
+          "Here, too, the small intestine is the main site of digestion. The paired caeca do a modest amount of fermentation, and faeces and urine leave the body together via the cloaca.",
+          "After the small intestine, where main digestion happens, two caeca branch off in the chicken – that's where microbial fermentation occurs. Faeces and uric acid then exit the cloaca together."
+        ],
+        "slide": null,
+        "board": null,
+        "look": "screen",
+        "gesture": "count",
+        "pause": 0.6
+      },
+      {
+        "variants": [
+          "And the speed – let me write it: in fattening pigs feed takes roughly 30 to 40 hours through the gut, in broilers only about 3 to 5 hours. So it has to be easily digestible.",
+          "Finally the passage times on the board: fattening pig about a day and a half, broiler only a few hours, around 3 to 5. Anything that digests this fast needs highly digestible feed.",
+          "Remember the order of magnitude, I'll write it up: pig 30 to 40 hours, chicken 3 to 5 hours. That's why fibre hardly matters as an energy source in poultry."
+        ],
+        "slide": null,
+        "board": "b3",
+        "look": "board",
+        "gesture": "emphasis",
+        "pause": 1.2
+      }
+    ],
+    "quiz": [
+      {
+        "q": "Where does most enzymatic digestion and absorption take place in the pig?",
+        "correct": "In the small intestine",
+        "wrong": ["In the stomach", "In the caecum", "In the large intestine (colon)"],
+        "explain": "Pancreatic enzymes, bile and brush-border enzymes act in the small intestine, where nutrients are absorbed.",
+        "calc": false
+      },
+      {
+        "q": "What is the function of the gizzard in the chicken?",
+        "correct": "Mechanical grinding of the feed, assisted by grit",
+        "wrong": ["Storing and soaking the feed", "Secreting hydrochloric acid and pepsin", "Microbial fermentation of fibre"],
+        "explain": "The crop stores, the proventriculus secretes acid and pepsin, the gizzard grinds.",
+        "calc": false
+      },
+      {
+        "q": "A sow takes in 3.0 kg DM and excretes 0.6 kg DM in faeces. What is the apparent DM digestibility?",
+        "correct": "80 %",
+        "wrong": ["20 %", "60 %", "90 %"],
+        "explain": "AD = (3.0 − 0.6) / 3.0 × 100 = 80 %.",
+        "calc": true
+      }
+    ],
+    "calc": {
+      "title": "Apparent digestibility in the pig",
+      "given": "Fattening pig: 2.4 kg feed DM per day, 0.36 kg DM in faeces",
+      "steps": ["AD = (2.4 − 0.36) / 2.4", "AD = 2.04 / 2.4 = 0.85", "AD = 85 %"],
+      "result": "Apparent DM digestibility ≈ 85 %"
+    },
+    "notes": [
+      "Monogastrics: enzymes, no forestomachs",
+      "Pig stomach: HCl + pepsin, pH ~2–4",
+      "Small intestine = main digestion/absorption",
+      "Chicken: crop → proventriculus → gizzard",
+      "AD = (intake − faeces) / intake × 100",
+      "Passage: pig ~30–40 h, chicken ~3–5 h"
+    ],
+    "script": "Pigs and poultry are monogastrics. Their digestion relies mainly on endogenous enzymes; microbial fermentation is confined to the large intestine or the caeca. In the pig, feed is acidified in the simple stomach by hydrochloric acid to a pH of about 2 to 4, pepsin starts protein breakdown, and the acid acts as a barrier against germs. The small intestine is the main site of enzymatic digestion and absorption: pancreatic enzymes, bile and brush-border enzymes split starch, proteins and fats, and glucose, amino acids and fatty acids are absorbed. In the large intestine, microbes ferment undigested fibre residues to volatile fatty acids, and water is reabsorbed. Amino acids released only there are practically no longer available to the animal; that is why precaecal digestibility is used in pigs. Apparent digestibility is calculated as (intake − faecal excretion) / intake × 100; it is called apparent because faeces also contain endogenous material. The chicken swallows its feed without chewing; it is stored and softened in the crop. In the proventriculus hydrochloric acid and pepsin are added, and in the gizzard the feed is ground mechanically with the help of the koilin lining and grit. Digestion and absorption take place in the small intestine, while the paired caeca carry out limited fermentation. Faeces and urine are excreted together via the cloaca. Passage is short: a few hours in broilers, and roughly 30 to 40 hours in fattening pigs."
+  }
+}

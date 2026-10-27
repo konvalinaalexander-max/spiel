@@ -1,0 +1,370 @@
+{
+  "id": "mineralstoffe",
+  "order": 12,
+  "core": true,
+  "plannedMinutes": 7,
+  "de": {
+    "title": "Mineralstoffe und Vitamine",
+    "subtitle": "Mengen- und Spurenelemente, Vitamine und Mineralfutter",
+    "learningGoals": [
+      "Funktionen und Bedarf wichtiger Mengenelemente erklären",
+      "Se, Cu, Zn und J und ihre Risiken in Österreich einordnen",
+      "Vitamine A, D, E und die B-Vitamin-Synthese im Pansen erklären",
+      "Mineralfuttermenge aus Bedarf und Grundfutter ableiten"
+    ],
+    "slides": [
+      {
+        "title": "Mengenelemente: Ca, P, Mg, Na, K",
+        "bullets": [
+          "Ca und P: Knochen und Milch – Ca:P etwa 1,5–2 : 1",
+          "Bedarf je kg Milch: ≈ 2,5 g Ca und 1,4 g P",
+          "Mg: kein mobilisierbarer Speicher, täglich zuführen",
+          "Na: im Grünlandfutter knapp – Viehsalz, Leckstein",
+          "K: im Grünlandfutter reichlich, oft im Überschuss"
+        ],
+        "diagram": {
+          "type": "bars",
+          "items": [
+            { "label": "Ca", "value": 115 },
+            { "label": "P", "value": 72 },
+            { "label": "Mg", "value": 31 },
+            { "label": "Na", "value": 31 },
+            { "label": "K", "value": 226 }
+          ],
+          "unit": "g/Tag bei 30 kg Milch (700-kg-Kuh)",
+          "max": 250
+        },
+        "source": "Kirchgeßner (2014), nach Gruber Tabelle (LfL 2024)"
+      },
+      {
+        "title": "Spurenelemente und Vitamine",
+        "bullets": [
+          "Se: Grundfutter in Österreich oft selenarm – ergänzen",
+          "Cu: Rind ≈ 10 mg/kg TM, Schaf sehr kupferempfindlich",
+          "Zn ≈ 50, J ≈ 0,5, Se ≈ 0,2 mg/kg TM (GfE)",
+          "Vit. A aus β-Carotin, Vit. D über UV-Licht, Vit. E im Grünfutter",
+          "B-Vitamine bildet der Pansen selbst – Kobalt für B12 nötig"
+        ],
+        "diagram": {
+          "type": "table",
+          "head": ["Element", "Empf. mg/kg TM", "Max. (88 % TM)"],
+          "rows": [
+            ["Kupfer", "10", "30 (Schaf 15)"],
+            ["Zink", "50", "120"],
+            ["Selen", "0,2", "0,5"],
+            ["Jod", "0,5", "5 (Milchkuh)"],
+            ["Kobalt", "0,2", "1"]
+          ]
+        },
+        "source": "GfE (2001); EU-Höchstgehalte nach Gruber Tabelle (LfL 2024)"
+      }
+    ],
+    "board": [
+      { "id": "b1", "lines": ["Ca : P ≈ 1,5-2 : 1", "je kg Milch: 2,5 g Ca", "je kg Milch: 1,4 g P", "Mg: kein Speicher!"] },
+      { "id": "b2", "lines": ["Se-Bedarf: 0,2 mg/kg TM", "Grundfutter oft < 0,1", "Cu Schaf: max. 15 mg/kg", "Rindermineral nicht fürs Schaf"] },
+      { "id": "b3", "lines": ["Se: 20 kg TM × 0,2 = 4,0 mg", "Futter: 20 × 0,05 = 1,0 mg", "Lücke: 4,0 − 1,0 = 3,0 mg", "MF 35 mg/kg: 3,0/35 ≈ 86 g"] }
+    ],
+    "beats": [
+      {
+        "variants": [
+          "Energie und Protein hätten wir. Jetzt zu den Stoffen, die mengenmäßig klein sind, aber große Wirkung haben: Mineralstoffe und Vitamine. In der Weender Analyse waren sie nur die Rohasche.",
+          "Erinnern Sie sich an die Rohasche aus der Weender Analyse? Dahinter stecken die Mineralstoffe, und die schauen wir uns jetzt genauer an – zuerst die Mengenelemente.",
+          "Mineralstoffe machen nur ein paar Prozent der Trockenmasse aus, aber ohne sie läuft nichts: Knochen, Milch, Nerven, Enzyme. Beginnen wir mit den Mengenelementen."
+        ],
+        "slide": 0, "board": null, "look": "class", "gesture": "open", "pause": 0.6
+      },
+      {
+        "variants": [
+          "Kalzium und Phosphor brauchen wir für Knochen und Milch: je Kilo Milch rund 2,5 g Ca und 1,4 g P. Das Verhältnis Ca zu P sollte etwa 1,5 bis 2 zu 1 betragen.",
+          "Jedes Kilo Milch enthält Mineralstoffe, die die Kuh ersetzen muss – etwa 2,5 g Kalzium und 1,4 g Phosphor. In der Gesamtration peilen wir ein Ca:P-Verhältnis von etwa 1,5 bis 2 zu 1 an.",
+          "Beim Kalzium und Phosphor rechnen wir je Kilo Milch mit rund 2,5 und 1,4 Gramm. Wichtig ist auch das Verhältnis: Ca zu P etwa 1,5 bis 2 zu 1."
+        ],
+        "slide": null, "board": null, "look": "screen", "gesture": "explain", "pause": 0.8
+      },
+      {
+        "variants": [
+          "Magnesium ist heikel, weil die Kuh keinen mobilisierbaren Speicher hat – es muss täglich ins Futter. Natrium ist im Grünlandfutter knapp, Kalium dagegen meist im Überschuss, gerade nach Gülledüngung.",
+          "Ich schreib's an: Mg hat keinen Speicher, also tägliche Zufuhr. Na fehlt in Gras und Heu oft, daher Viehsalz oder Leckstein. Und Kalium? Davon hat Grünlandfutter eher zu viel als zu wenig.",
+          "Bei den übrigen Mengenelementen: Magnesium täglich zuführen, weil es keinen Speicher gibt; Natrium ergänzen, weil Grünland wenig liefert; Kalium im Blick behalten, weil es oft im Überschuss ist."
+        ],
+        "slide": null, "board": "b1", "look": "board", "gesture": "count", "pause": 0.9
+      },
+      {
+        "variants": [
+          "Beim Phosphor gilt: so viel wie nötig, so wenig wie möglich. Überschüsse landen in Gülle und Gewässern. Mit Rapsextraktionsschrot in der Ration braucht das Mineralfutter oft gar keinen Phosphor mehr.",
+          "Phosphor bitte nicht nach dem Motto „viel hilft viel“ – der Überschuss geht über die Gülle in die Umwelt. Rationen mit Rapsschrot sind meist schon gut versorgt, da reicht ein P-armes Mineralfutter.",
+          "Ein Wort zum Phosphor: Er ist teuer und belastet Gewässer, also bedarfsgerecht füttern. Rapsextraktionsschrot bringt viel P mit; dann kann das Mineralfutter phosphorarm oder sogar phosphorfrei sein."
+        ],
+        "slide": null, "board": null, "look": "class", "gesture": "explain", "pause": 0.7
+      },
+      {
+        "variants": [
+          "Jetzt die Spurenelemente, gemessen in Milligramm je Kilo TM: Kupfer etwa 10, Zink 50, Jod 0,5, Selen 0,2. Und rechts sehen Sie die EU-Höchstgehalte – der Abstand ist teilweise klein.",
+          "Spurenelemente rechnen wir in mg je Kilo TM. Die GfE empfiehlt etwa 10 mg Kupfer, 50 mg Zink, 0,5 mg Jod und 0,2 mg Selen. Daneben stehen die Höchstgehalte – dazwischen ist oft wenig Luft.",
+          "Bei den Spurenelementen bewegen wir uns im Milligrammbereich: Kupfer rund 10, Zink 50, Jod 0,5 und Selen 0,2 mg je Kilo TM. Vergleichen Sie das mit den Höchstgehalten in der rechten Spalte."
+        ],
+        "slide": 1, "board": null, "look": "screen", "gesture": "point", "pause": 0.8
+      },
+      {
+        "variants": [
+          "Selen ist in Österreich ein Dauerthema: Viele Böden sind selenarm, Grundfutter hat oft unter 0,1 mg je Kilo TM, empfohlen sind 0,2. Mangel zeigt sich etwa als Nachgeburtsverhalten oder Muskeldystrophie beim Kalb.",
+          "Österreich hat in weiten Teilen selenarme Böden, das Grundfutter liegt oft deutlich unter 0,1 mg Se je Kilo TM. Ohne Ergänzung drohen Nachgeburtsverhalten, Fruchtbarkeitsprobleme und Weißmuskelkrankheit.",
+          "Beim Selen sind wir in Österreich fast überall auf Ergänzung angewiesen: Die Böden sind arm, das Grundfutter erreicht die empfohlenen 0,2 mg je Kilo TM selten. Folgen: Nachgeburtsverhalten, Kälberprobleme."
+        ],
+        "slide": null, "board": "b2", "look": "board", "gesture": "emphasis", "pause": 0.9
+      },
+      {
+        "variants": [
+          "Kupfer braucht das Rind, etwa 10 mg je Kilo TM. Das Schaf speichert Kupfer aber in der Leber und scheidet es kaum aus. Deshalb nie Rindermineralfutter an Schafe – deren Höchstgehalt liegt bei 15 mg.",
+          "Was dem Rind guttut, kann das Schaf umbringen: Schafe reichern Kupfer in der Leber an, bis es zur hämolytischen Krise kommt. Darum gilt beim Schaf ein Höchstgehalt von 15 statt 30 mg – kein Rindermineral!",
+          "Ein Praxisfehler, von dem ich immer wieder höre: Schafe bekommen das Mineralfutter der Kühe. Das ist gefährlich, weil Schafe sehr kupferempfindlich sind – Höchstgehalt 15 mg je Kilo, beim Rind 30."
+        ],
+        "slide": null, "board": null, "look": "student", "gesture": "emphasis", "pause": 0.8
+      },
+      {
+        "variants": [
+          "Zink braucht die Kuh für Haut, Klauen und Immunabwehr. Jod ist fürs Schilddrüsenhormon nötig; bei Rapsfütterung gibt man mehr, weil Glucosinolate die Jodverwertung hemmen und die Milch jodärmer wird.",
+          "Zink steht für Klauen, Haut und Immunsystem, Jod für die Schilddrüse. Achtung bei Raps: Seine Glucosinolate hemmen die Jodverwertung, die Milch wird jodärmer – dann etwas mehr Jod ins Mineralfutter.",
+          "Zwei weitere: Zink für Klauen, Haut und Abwehr; Jod für die Schilddrüse. Wird viel Rapsschrot gefüttert, erhöht man das Jod, weil Glucosinolate seine Verwertung hemmen. Auch die Milch enthält dann weniger Jod."
+        ],
+        "slide": null, "board": null, "look": "class", "gesture": "explain", "pause": 0.7
+      },
+      {
+        "variants": [
+          "Vitamine: A bildet die Kuh aus β-Carotin, das reichlich im frischen Gras steckt. D entsteht in der Haut durch UV-Licht, E kommt aus Grünfutter. B-Vitamine und Vitamin K liefern die Pansenmikroben selbst.",
+          "Bei den Vitaminen hat's der Wiederkäuer bequem: B-Vitamine und Vitamin K machen die Pansenmikroben, für B12 brauchen sie nur Kobalt. Ergänzen müssen wir vor allem A, D und E – A und E sinken beim Konservieren.",
+          "Frisches Gras ist reich an β-Carotin, der Vorstufe von Vitamin A, und an Vitamin E; beides geht bei Heu und Silage zurück. Vitamin D macht die Haut mit UV-Licht. Und die B-Vitamine? Die liefert der Pansen."
+        ],
+        "slide": null, "board": null, "look": "window", "gesture": "explain", "pause": 0.8
+      },
+      {
+        "variants": [
+          "Rechnen wir die Selenlücke: 20 Kilo TM mal 0,2 sind 4 mg Bedarf, das Futter liefert 1 mg. Fehlen 3 mg – bei 35 mg Se je Kilo Mineralfutter sind das rund 86 g pro Kuh und Tag.",
+          "Ein Mineralfutter wählt man nach Rechnung, nicht nach Gefühl: Bedarf 4 mg Se, aus dem Futter 1 mg, Lücke 3 mg. Durch 35 mg je Kilo – macht etwa 86 g Mineralfutter. Mit dem Leckstein allein trifft man das selten.",
+          "Zur Mineralfuttermenge: 4 mg Se Bedarf minus 1 mg aus dem Futter gibt 3 mg Lücke, geteilt durch 35 mg je Kilo – rund 86 g. Und am Leckstein steht erfahrungsgemäß die ranghöchste Kuh, nicht die bedürftigste."
+        ],
+        "slide": null, "board": "b3", "look": "board", "gesture": "count", "pause": 1.0
+      }
+    ],
+    "quiz": [
+      {
+        "q": "Kuh: 18 kg TM-Aufnahme, Ration 0,05 mg Se/kg TM, Empfehlung 0,2 mg/kg TM. Wie groß ist die Se-Lücke?",
+        "correct": "2,7 mg Se pro Tag",
+        "wrong": ["3,6 mg Se pro Tag", "0,9 mg Se pro Tag", "0,15 mg Se pro Tag"],
+        "explain": "Bedarf 18 × 0,2 = 3,6 mg; Futter 18 × 0,05 = 0,9 mg; Lücke 2,7 mg Se.",
+        "calc": true
+      },
+      {
+        "q": "Warum darf man Rindermineralfutter nicht an Schafe verfüttern?",
+        "correct": "Zu viel Kupfer – Schafe sind kupferempfindlich",
+        "wrong": ["Zu wenig Selen für Schafe", "Zu viel Natrium für Schafe", "Schafe brauchen viel mehr Phosphor"],
+        "explain": "Schafe speichern Kupfer in der Leber und scheiden es schlecht aus; EU-Höchstgehalt Schaf 15 mg/kg, Rind 30 mg/kg.",
+        "calc": false
+      },
+      {
+        "q": "Welche Vitamine bilden die Pansenmikroben selbst?",
+        "correct": "B-Vitamine (und Vitamin K)",
+        "wrong": ["Vitamin A aus β-Carotin", "Vitamin D", "Vitamin E"],
+        "explain": "Bei funktionierendem Pansen synthetisieren die Mikroben B-Vitamine und Vitamin K; für B12 brauchen sie Kobalt.",
+        "calc": false
+      }
+    ],
+    "calc": {
+      "title": "Selenlücke mit Mineralfutter schließen",
+      "given": "Kuh mit 20 kg TM-Aufnahme; Ration 0,05 mg Se/kg TM; Empfehlung 0,2 mg Se/kg TM; Mineralfutter mit 35 mg Se/kg",
+      "steps": ["Bedarf: 20 × 0,2 = 4,0 mg Se", "Futter: 20 × 0,05 = 1,0 mg Se", "Lücke: 4,0 − 1,0 = 3,0 mg", "3,0 / 35 mg/kg ≈ 0,086 kg"],
+      "result": "≈ 86 g Mineralfutter pro Kuh und Tag (der Höchstgehalt von 0,5 mg Se/kg bleibt eingehalten)"
+    },
+    "notes": [
+      "Ca:P ≈ 1,5–2:1; je kg Milch 2,5 g Ca, 1,4 g P",
+      "Mg: kein Speicher – täglich zuführen",
+      "Se: Bedarf 0,2 mg/kg TM, Böden in Ö arm",
+      "Schaf: Cu-empfindlich, max. 15 mg/kg",
+      "B-Vitamine + Vit. K aus dem Pansen",
+      "Mineralfutter nach Grundfutteranalyse wählen"
+    ],
+    "script": "Mineralstoffe werden in Mengen- und Spurenelemente eingeteilt. Kalzium und Phosphor sind Bausteine von Skelett und Milch; je kg Milch werden etwa 2,5 g Ca und 1,4 g P benötigt, das Ca:P-Verhältnis der Ration sollte bei etwa 1,5–2 : 1 liegen. Phosphor ist bedarfsgerecht zu dosieren, da Überschüsse über die Wirtschaftsdünger Gewässer belasten; rapsschrotreiche Rationen kommen häufig mit phosphorfreiem Mineralfutter aus. Magnesium muss täglich zugeführt werden, weil die Kuh über keinen mobilisierbaren Speicher verfügt. Grünlandfutter ist meist natriumarm und kaliumreich. Unter den Spurenelementen empfiehlt die GfE für Milchkühe etwa 10 mg Kupfer, 50 mg Zink, 0,5 mg Jod und 0,2 mg Selen je kg TM. Weite Teile Österreichs gelten als selenarm, das Grundfutter liegt häufig unter 0,1 mg Se/kg TM; ein Mangel äußert sich unter anderem in Nachgeburtsverhaltungen und Muskeldystrophien beim Kalb. Schafe sind besonders kupferempfindlich und dürfen daher kein Rindermineralfutter erhalten. Vitamin A wird aus β-Carotin gebildet, Vitamin D in der Haut unter UV-Einfluss, Vitamin E stammt vor allem aus Grünfutter; beim Konservieren nehmen β-Carotin und Vitamin E ab. B-Vitamine und Vitamin K synthetisieren die Pansenmikroben, für Vitamin B12 benötigen sie Kobalt. Die Mineralfuttermenge ergibt sich aus der Differenz zwischen Bedarf und Versorgung über die Ration, wobei die EU-Höchstgehalte einzuhalten sind."
+  },
+  "en": {
+    "title": "Minerals and vitamins",
+    "subtitle": "Macro and trace elements, vitamins and mineral feed",
+    "learningGoals": [
+      "Explain functions and requirements of key macro elements",
+      "Assess Se, Cu, Zn and I and their risks in Austria",
+      "Explain vitamins A, D, E and B-vitamin synthesis in the rumen",
+      "Derive the mineral feed amount from requirement and forage"
+    ],
+    "slides": [
+      {
+        "title": "Macro elements: Ca, P, Mg, Na, K",
+        "bullets": [
+          "Ca and P: bones and milk – Ca:P about 1.5–2 : 1",
+          "Requirement per kg milk: ≈ 2.5 g Ca and 1.4 g P",
+          "Mg: no mobilisable store, supply daily",
+          "Na: scarce in grassland forage – salt, lick block",
+          "K: plentiful in grassland forage, often in surplus"
+        ],
+        "diagram": {
+          "type": "bars",
+          "items": [
+            { "label": "Ca", "value": 115 },
+            { "label": "P", "value": 72 },
+            { "label": "Mg", "value": 31 },
+            { "label": "Na", "value": 31 },
+            { "label": "K", "value": 226 }
+          ],
+          "unit": "g/day at 30 kg milk (700 kg cow)",
+          "max": 250
+        },
+        "source": "Kirchgeßner (2014), after Gruber Table (LfL 2024)"
+      },
+      {
+        "title": "Trace elements and vitamins",
+        "bullets": [
+          "Se: Austrian forage is often low in selenium – supplement",
+          "Cu: cattle ≈ 10 mg/kg DM, sheep very copper-sensitive",
+          "Zn ≈ 50, I ≈ 0.5, Se ≈ 0.2 mg/kg DM (GfE)",
+          "Vit. A from β-carotene, vit. D via UV light, vit. E in green forage",
+          "The rumen makes B vitamins itself – cobalt needed for B12"
+        ],
+        "diagram": {
+          "type": "table",
+          "head": ["Element", "Rec. mg/kg DM", "Max. (88 % DM)"],
+          "rows": [
+            ["Copper", "10", "30 (sheep 15)"],
+            ["Zinc", "50", "120"],
+            ["Selenium", "0.2", "0.5"],
+            ["Iodine", "0.5", "5 (dairy cow)"],
+            ["Cobalt", "0.2", "1"]
+          ]
+        },
+        "source": "GfE (2001); EU maximum levels after Gruber Table (LfL 2024)"
+      }
+    ],
+    "board": [
+      { "id": "b1", "lines": ["Ca : P ≈ 1.5-2 : 1", "per kg milk: 2.5 g Ca", "per kg milk: 1.4 g P", "Mg: no store!"] },
+      { "id": "b2", "lines": ["Se need: 0.2 mg/kg DM", "forage often < 0.1", "Cu sheep: max. 15 mg/kg", "no cattle minerals for sheep"] },
+      { "id": "b3", "lines": ["Se: 20 kg DM × 0.2 = 4.0 mg", "feed: 20 × 0.05 = 1.0 mg", "gap: 4.0 − 1.0 = 3.0 mg", "MF 35 mg/kg: 3.0/35 ≈ 86 g"] }
+    ],
+    "beats": [
+      {
+        "variants": [
+          "We've covered energy and protein. Now to substances that are small in quantity but big in effect: minerals and vitamins. In the Weende analysis, they were just the crude ash.",
+          "Remember the crude ash from the Weende analysis? Behind it are the minerals, and we'll now look at them more closely – first the macro elements.",
+          "Minerals make up only a few percent of dry matter, but nothing works without them: bones, milk, nerves, enzymes. Let's start with the macro elements."
+        ],
+        "slide": 0, "board": null, "look": "class", "gesture": "open", "pause": 0.6
+      },
+      {
+        "variants": [
+          "We need calcium and phosphorus for bones and milk: per kilo of milk about 2.5 g Ca and 1.4 g P. The Ca to P ratio should be about 1.5 to 2 to 1.",
+          "Every kilo of milk contains minerals the cow must replace – about 2.5 g calcium and 1.4 g phosphorus. In the total ration we aim for a Ca:P ratio of about 1.5 to 2 to 1.",
+          "For calcium and phosphorus we calculate about 2.5 and 1.4 grams per kilo of milk. The ratio matters too: Ca to P about 1.5 to 2 to 1."
+        ],
+        "slide": null, "board": null, "look": "screen", "gesture": "explain", "pause": 0.8
+      },
+      {
+        "variants": [
+          "Magnesium is tricky because the cow has no store she can mobilise – it has to be in the feed every day. Sodium is scarce in grassland forage, potassium usually in surplus, especially after slurry application.",
+          "Let me write it up: Mg has no store, so daily supply. Na is often lacking in grass and hay, hence livestock salt or a lick block. And potassium? Grassland forage tends to have too much rather than too little.",
+          "For the other macro elements: supply magnesium daily because there is no store; supplement sodium because grassland provides little; keep an eye on potassium because it's often in surplus."
+        ],
+        "slide": null, "board": "b1", "look": "board", "gesture": "count", "pause": 0.9
+      },
+      {
+        "variants": [
+          "With phosphorus: as much as necessary, as little as possible. Surpluses end up in slurry and waters. With rapeseed meal in the ration, the mineral feed often needs no phosphorus at all.",
+          "Please don't feed phosphorus on the principle 'more helps more' – the surplus goes via slurry into the environment. Rations with rapeseed meal are usually well supplied already; a low-P mineral feed is enough.",
+          "A word on phosphorus: it's expensive and pollutes waters, so feed to requirement. Rapeseed meal brings plenty of P; then the mineral feed can be low in phosphorus or even phosphorus-free."
+        ],
+        "slide": null, "board": null, "look": "class", "gesture": "explain", "pause": 0.7
+      },
+      {
+        "variants": [
+          "Now the trace elements, measured in milligrams per kilo of DM: copper about 10, zinc 50, iodine 0.5, selenium 0.2. And on the right you see the EU maximum levels – the gap is small in places.",
+          "Trace elements are calculated in mg per kilo of DM. The GfE recommends about 10 mg copper, 50 mg zinc, 0.5 mg iodine and 0.2 mg selenium. Next to them are the maximum levels – often with little room in between.",
+          "With trace elements we're in the milligram range: copper around 10, zinc 50, iodine 0.5 and selenium 0.2 mg per kilo of DM. Compare that with the maximum levels in the right-hand column."
+        ],
+        "slide": 1, "board": null, "look": "screen", "gesture": "point", "pause": 0.8
+      },
+      {
+        "variants": [
+          "Selenium is a perennial topic in Austria: many soils are low in selenium, forage often has less than 0.1 mg per kilo of DM, 0.2 is recommended. Deficiency shows as retained placenta or muscular dystrophy in calves.",
+          "Large parts of Austria have selenium-poor soils; forage is often well below 0.1 mg Se per kilo of DM. Without supplementation, retained placenta, fertility problems and white muscle disease threaten.",
+          "With selenium, we depend on supplementation almost everywhere in Austria: soils are poor, and forage rarely reaches the recommended 0.2 mg per kilo of DM. Consequences: retained placenta, calf problems."
+        ],
+        "slide": null, "board": "b2", "look": "board", "gesture": "emphasis", "pause": 0.9
+      },
+      {
+        "variants": [
+          "Cattle need copper, about 10 mg per kilo of DM. Sheep, however, store copper in the liver and hardly excrete it. So never feed cattle mineral feed to sheep – their maximum level is 15 mg.",
+          "What's good for cattle can kill sheep: sheep accumulate copper in the liver until a haemolytic crisis occurs. That's why sheep have a maximum level of 15 instead of 30 mg – no cattle minerals!",
+          "A practical mistake I hear about again and again: sheep get the cows' mineral feed. That's dangerous because sheep are very sensitive to copper – maximum level 15 mg per kilo, for cattle 30."
+        ],
+        "slide": null, "board": null, "look": "student", "gesture": "emphasis", "pause": 0.8
+      },
+      {
+        "variants": [
+          "The cow needs zinc for skin, claws and immune defence. Iodine is needed for thyroid hormone; with rapeseed feeding more is given, because glucosinolates impair iodine utilisation and milk iodine falls.",
+          "Zinc stands for claws, skin and immune system, iodine for the thyroid. Careful with rapeseed: its glucosinolates impair iodine utilisation, the milk gets lower in iodine – then a bit more iodine in the mineral feed.",
+          "Two more: zinc for claws, skin and defence; iodine for the thyroid. If a lot of rapeseed meal is fed, iodine is increased because glucosinolates impair its utilisation. The milk then contains less iodine, too."
+        ],
+        "slide": null, "board": null, "look": "class", "gesture": "explain", "pause": 0.7
+      },
+      {
+        "variants": [
+          "Vitamins: the cow forms A from β-carotene, which is plentiful in fresh grass. D forms in the skin through UV light, E comes from green forage. B vitamins and vitamin K come from the rumen microbes themselves.",
+          "With vitamins the ruminant has it easy: rumen microbes make B vitamins and vitamin K, for B12 they just need cobalt. We mainly have to supplement A, D and E – A and E decline during conservation.",
+          "Fresh grass is rich in β-carotene, the precursor of vitamin A, and in vitamin E; both decline in hay and silage. Vitamin D is made by the skin with UV light. And the B vitamins? The rumen supplies those."
+        ],
+        "slide": null, "board": null, "look": "window", "gesture": "explain", "pause": 0.8
+      },
+      {
+        "variants": [
+          "Let's calculate the selenium gap: 20 kilos of DM times 0.2 is 4 mg requirement, the feed supplies 1 mg. 3 mg are missing – at 35 mg Se per kilo of mineral feed that's about 86 g per cow per day.",
+          "You choose a mineral feed by calculation, not by feel: requirement 4 mg Se, from the feed 1 mg, gap 3 mg. Divided by 35 mg per kilo – makes about 86 g of mineral feed. A lick block alone rarely hits that.",
+          "On the amount of mineral feed: 4 mg Se requirement minus 1 mg from the feed gives a 3 mg gap, divided by 35 mg per kilo – about 86 g. And in my experience the top-ranking cow stands at the lick block, not the neediest."
+        ],
+        "slide": null, "board": "b3", "look": "board", "gesture": "count", "pause": 1.0
+      }
+    ],
+    "quiz": [
+      {
+        "q": "Cow: 18 kg DM intake, ration 0.05 mg Se/kg DM, recommendation 0.2 mg/kg DM. How big is the Se gap?",
+        "correct": "2.7 mg Se per day",
+        "wrong": ["3.6 mg Se per day", "0.9 mg Se per day", "0.15 mg Se per day"],
+        "explain": "Requirement 18 × 0.2 = 3.6 mg; feed 18 × 0.05 = 0.9 mg; gap 2.7 mg Se.",
+        "calc": true
+      },
+      {
+        "q": "Why must cattle mineral feed not be fed to sheep?",
+        "correct": "Too much copper – sheep are copper-sensitive",
+        "wrong": ["Too little selenium for sheep", "Too much sodium for sheep", "Sheep need far more phosphorus"],
+        "explain": "Sheep store copper in the liver and excrete it poorly; EU maximum for sheep 15 mg/kg, for cattle 30 mg/kg.",
+        "calc": false
+      },
+      {
+        "q": "Which vitamins do the rumen microbes synthesise themselves?",
+        "correct": "B vitamins (and vitamin K)",
+        "wrong": ["Vitamin A from β-carotene", "Vitamin D", "Vitamin E"],
+        "explain": "With a functioning rumen, the microbes synthesise B vitamins and vitamin K; for B12 they need cobalt.",
+        "calc": false
+      }
+    ],
+    "calc": {
+      "title": "Closing the selenium gap with mineral feed",
+      "given": "Cow with 20 kg DM intake; ration 0.05 mg Se/kg DM; recommendation 0.2 mg Se/kg DM; mineral feed with 35 mg Se/kg",
+      "steps": ["Need: 20 × 0.2 = 4.0 mg Se", "Feed: 20 × 0.05 = 1.0 mg Se", "Gap: 4.0 − 1.0 = 3.0 mg", "3.0 / 35 mg/kg ≈ 0.086 kg"],
+      "result": "≈ 86 g mineral feed per cow per day (the maximum of 0.5 mg Se/kg is respected)"
+    },
+    "notes": [
+      "Ca:P ≈ 1.5–2:1; per kg milk 2.5 g Ca, 1.4 g P",
+      "Mg: no store – supply daily",
+      "Se: need 0.2 mg/kg DM, Austrian soils poor",
+      "Sheep: Cu-sensitive, max. 15 mg/kg",
+      "B vitamins + vit. K from the rumen",
+      "Choose mineral feed by forage analysis"
+    ],
+    "script": "Minerals are divided into macro and trace elements. Calcium and phosphorus are building blocks of the skeleton and of milk; each kg of milk requires about 2.5 g Ca and 1.4 g P, and the Ca:P ratio of the ration should be about 1.5–2 : 1. Phosphorus should be fed to requirement, as surpluses pollute waters via farm manure; rations rich in rapeseed meal can often manage with phosphorus-free mineral feed. Magnesium must be supplied daily because the cow has no mobilisable store. Grassland forage is usually low in sodium and rich in potassium. Among trace elements, the GfE recommends about 10 mg copper, 50 mg zinc, 0.5 mg iodine and 0.2 mg selenium per kg DM for dairy cows. Large parts of Austria are considered selenium-poor, and forage is often below 0.1 mg Se/kg DM; deficiency shows, among other things, in retained placentas and muscular dystrophy in calves. Sheep are particularly sensitive to copper and must therefore not receive cattle mineral feed. Vitamin A is formed from β-carotene, vitamin D in the skin under UV light, and vitamin E comes mainly from green forage; β-carotene and vitamin E decline during conservation. B vitamins and vitamin K are synthesised by the rumen microbes, which need cobalt for vitamin B12. The amount of mineral feed results from the difference between requirement and supply from the ration, while respecting the EU maximum levels."
+  }
+}

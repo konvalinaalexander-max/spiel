@@ -1,0 +1,368 @@
+{
+  "id": "futtermittel",
+  "order": 8,
+  "core": true,
+  "plannedMinutes": 8,
+  "de": {
+    "title": "Futtermittelkunde",
+    "subtitle": "Grundfutter, Kraftfutter, Nebenprodukte und Mineralfutter",
+    "learningGoals": [
+      "Grund- und Kraftfutter nach Trockenmasse, Energie und Protein einordnen",
+      "Typische Gehalte von Heu, Gras- und Maissilage nennen",
+      "Heimische Eiweißfuttermittel und gentechnikfreie Fütterung erklären",
+      "Nebenprodukte und Mineralfutter in der Ration richtig einsetzen"
+    ],
+    "slides": [
+      {
+        "title": "Grundfutter – die Basis der Wiederkäuerration",
+        "bullets": [
+          "Grundfutter: Grünfutter, Heu und Silagen aus dem eigenen Betrieb",
+          "Energie und Protein sinken mit dem Vegetationsstadium",
+          "Grassilage eiweißbetont, Maissilage energie- und stärkereich",
+          "Weide- und Almfutter: wertvoll, aber stark schwankend",
+          "Tabellenwerte je kg TM – die eigene Futteranalyse ist besser"
+        ],
+        "diagram": {
+          "type": "table",
+          "head": ["Futtermittel", "TM %", "MJ NEL/kg TM", "XP g/kg TM"],
+          "rows": [
+            ["Wiesenheu 1. Schn.", "86", "5,3–6,1", "100–130"],
+            ["Grassilage", "30–40", "5,7–6,6", "145–190"],
+            ["Maissilage", "30–36", "6,5–6,9", "80–85"],
+            ["Weidegras jung", "15–17", "6,7–7,1", "195–215"]
+          ]
+        },
+        "source": "Gruber Tabelle zur Fütterung der Milchkühe (LfL 2024)"
+      },
+      {
+        "title": "Kraftfutter, Eiweißfutter und Nebenprodukte",
+        "bullets": [
+          "Getreide und Körnermais: Stärke, ≈ 8,2–8,4 MJ NEL/kg TM",
+          "Soja- und Rapsextraktionsschrot: Eiweißergänzung",
+          "Österreich: Milchkühe seit 2010 gentechnikfrei gefüttert",
+          "Biertreber, Trockenschnitzel, Kleie: wertvolle Nebenprodukte",
+          "Mineralfutter ergänzt Mengen- und Spurenelemente"
+        ],
+        "diagram": {
+          "type": "table",
+          "head": ["Futtermittel", "TM %", "MJ NEL/kg TM", "XP g/kg TM"],
+          "rows": [
+            ["Gerste", "88", "8,2", "125"],
+            ["Körnermais", "88", "8,4", "100"],
+            ["SES 44 % XP", "88", "8,6", "500"],
+            ["Rapsextr.schrot", "89", "7,2", "390"],
+            ["Biertreber sil.", "25", "6,7", "250"],
+            ["Trockenschnitzel", "91", "7,4", "85"]
+          ]
+        },
+        "source": "Gruber Tabelle (LfL 2024); AGES; Verein Donau Soja"
+      }
+    ],
+    "board": [
+      { "id": "b1", "lines": ["FM × TM-Gehalt = TM", "20 kg Silage × 0,35 = 7 kg TM", "7 kg TM × 6,2 MJ NEL", "≈ 43 MJ NEL"] },
+      { "id": "b2", "lines": ["SES 44: ≈ 500 g XP/kg TM", "RES: ≈ 390 g XP/kg TM", "1 kg SES ≈ 1,3 kg RES (XP)", "heimisch: Soja, Raps, Erbse"] },
+      { "id": "b3", "lines": ["Biertreber: XP-reich, ~25 % TM", "Trockenschnitzel: Pektin", "Weizenkleie: viel P", "Mineralfutter: Ca, P, Mg, Na"] }
+    ],
+    "beats": [
+      {
+        "variants": [
+          "So, nach Energie- und Proteinbewertung wird's jetzt handfest: Womit füttern wir eigentlich? Beim Wiederkäuer fängt das immer beim Grundfutter an.",
+          "Bewerten können wir jetzt – NEL und nXP sitzen hoffentlich. Jetzt schauen wir, was tatsächlich am Futtertisch liegt, und da steht beim Rind das Grundfutter ganz vorne.",
+          "Wir haben gelernt, wie man Energie und Protein bewertet. Jetzt die praktische Frage: Was frisst die Kuh wirklich? Fangen wir mit dem Grundfutter an, dem Fundament jeder Ration."
+        ],
+        "slide": 0, "board": null, "look": "class", "gesture": "open", "pause": 0.6
+      },
+      {
+        "variants": [
+          "Schauen Sie auf die Tabelle: Heu vom ersten Schnitt liegt bei etwa 5,3 bis 6 MJ NEL. Entscheidend ist weniger das Verfahren als der Schnittzeitpunkt – je älter der Bestand, desto weniger Energie.",
+          "Die Tabelle zeigt es: Wiesenheu kommt auf rund 5,3 bis 6 MJ NEL je Kilo TM. Ob früh oder spät gemäht wurde, macht dabei mehr aus als die Frage, ob Heu oder Silage daraus wird.",
+          "Beim Heu sehen Sie eine große Spanne, etwa 5,3 bis 6 MJ NEL. Das ist vor allem der Schnittzeitpunkt: Mit jeder Woche, die der Bestand älter wird, steigt die Faser und die Energie sinkt."
+        ],
+        "slide": null, "board": null, "look": "screen", "gesture": "point", "pause": 0.8
+      },
+      {
+        "variants": [
+          "Im Mostviertel haben viele Betriebe beides: Grassilage mit rund 150 bis 190 g Rohprotein und Maissilage mit nur etwa 80 g, dafür viel Stärke. Die zwei ergänzen sich fast ideal.",
+          "Grassilage ist eher eiweißbetont, gut 150 g XP und mehr. Maissilage liefert Energie und Stärke, hat aber nur rund 80 g Rohprotein – deshalb kombiniert man die beiden so gern.",
+          "Merken Sie sich den Gegensatz: Maissilage ist das eiweißärmste Grundfutter in der Tabelle, rund 80 g XP, dafür energiereich. Grassilage bringt etwa doppelt so viel Protein mit."
+        ],
+        "slide": null, "board": null, "look": "class", "gesture": "explain", "pause": 0.7
+      },
+      {
+        "variants": [
+          "Ganz wichtig, da passieren die meisten Fehler: Tabellenwerte gelten je Kilo Trockenmasse. Zwanzig Kilo Grassilage mit 35 % TM sind sieben Kilo TM – mal 6,2 ergibt das rund 43 MJ NEL.",
+          "Ich schreib's Ihnen an: Frischmasse mal TM-Gehalt gibt Trockenmasse. Zwanzig Kilo Silage mal 0,35 sind sieben Kilo TM, und erst die multipliziere ich mit 6,2 – also rund 43 MJ NEL.",
+          "Die Tabelle rechnet immer in TM, der Landwirt wiegt aber Frischmasse. Also: zwanzig Kilo Silage mal 35 % sind sieben Kilo TM, mal 6,2 MJ – rund 43 MJ NEL, nicht 124."
+        ],
+        "slide": null, "board": "b1", "look": "board", "gesture": "explain", "pause": 0.9
+      },
+      {
+        "variants": [
+          "Junges Weidegras ist energetisch fast schon Kraftfutter: um 7 MJ NEL und rund 200 g XP, allerdings bei nur etwa 15 % TM. Auf der Alm liegt das Futter oft nur bei 4 bis 5,5 MJ NEL.",
+          "Auf der Frühjahrsweide haben Sie um die 7 MJ NEL je Kilo TM, aber das Gras ist zu über 80 % Wasser. Almfutter ist meist deutlich ärmer, etwa 4 bis 5,5 MJ – für Hochleistung zu wenig.",
+          "Weide ist ein Sonderfall: Jung genutzt hat sie um 7 MJ NEL und viel Eiweiß, nur die TM ist niedrig. Almweiden schwanken stark und liegen oft nur bei 4 bis 5,5 MJ NEL."
+        ],
+        "slide": null, "board": null, "look": "window", "gesture": "explain", "pause": 0.7
+      },
+      {
+        "variants": [
+          "Beim Kraftfutter liefern Gerste und Körnermais rund 8,2 bis 8,4 MJ NEL je Kilo TM, vor allem über Stärke. Maisstärke wird im Pansen langsamer abgebaut – das schont den Pansen-pH.",
+          "Getreide ist Energie: Gerste um 8,2, Körnermais um 8,4 MJ NEL. Der Unterschied liegt in der Stärke – beim Mais geht ein größerer Teil unabgebaut am Pansen vorbei in den Dünndarm.",
+          "Gerste und Körnermais sind die klassischen Energiekraftfutter, beide über 8 MJ NEL. Die Gerstenstärke ist im Pansen schnell weg, die Maisstärke langsamer – wichtig für die Azidosegefahr."
+        ],
+        "slide": 1, "board": null, "look": "screen", "gesture": "count", "pause": 0.7
+      },
+      {
+        "variants": [
+          "Beim Eiweiß: Sojaextraktionsschrot hat rund 500 g XP je Kilo TM, Rapsextraktionsschrot etwa 390. Für denselben Rohproteinbeitrag brauchen Sie also gut 1,3 Kilo Raps statt einem Kilo Soja.",
+          "Ich schreib die Eiweißträger daneben: Soja um 500, Raps um 390 g XP je Kilo TM. Rechnerisch ersetzen rund 1,3 Kilo Rapsschrot ein Kilo Sojaschrot – beim Rohprotein jedenfalls.",
+          "Soja ist der Eiweißstandard mit etwa 500 g XP, Raps liegt bei rund 390. Wer umstellt, braucht also gut ein Viertel mehr Menge – Faustzahl: 1,3 Kilo Raps für ein Kilo Soja."
+        ],
+        "slide": null, "board": "b2", "look": "board", "gesture": "emphasis", "pause": 0.8
+      },
+      {
+        "variants": [
+          "In Österreich wird für die Milch seit 2010 gentechnikfrei gefüttert. Soja kommt zunehmend aus heimischem Anbau, inzwischen über 80.000 Hektar, oder als Donau Soja – gentechnikfrei und aus Europa.",
+          "Österreichs Milchwirtschaft füttert seit 2010 gentechnikfrei. Darum spielen Raps, heimisches Soja und Donau Soja eine große Rolle – das ist gentechnikfreies Soja mit europäischer Herkunft.",
+          "Ein österreichisches Spezifikum: Milch wird seit 2010 gentechnikfrei gefüttert. Das Eiweiß kommt deshalb aus Raps, heimischem Soja oder über Donau Soja, also gentechnikfrei aus Europa."
+        ],
+        "slide": null, "board": null, "look": "class", "gesture": "explain", "pause": 0.8
+      },
+      {
+        "variants": [
+          "Zu den Nebenprodukten: Beim Biertreber behält die Brauerei die Stärke fürs Bier, die Kuh kriegt den Rest – mit rund doppelt so viel Eiweiß wie die Gerste. Nicht das schlechtere Geschäft.",
+          "Biertreber ist Gerste nach dem Brauen: Die Stärke ist im Bier, das Eiweiß bleibt im Treber, rund 250 g XP je Kilo TM. Da hat die Kuh, ehrlich gesagt, nicht das schlechtere Ende erwischt.",
+          "Nebenprodukte, erstens Biertreber: nass, nur rund 25 % TM, aber gut 250 g Rohprotein, doppelt so viel wie Gerste. Die Brauerei behält die Stärke, die Kuh das Eiweiß – fair aufgeteilt."
+        ],
+        "slide": null, "board": "b3", "look": "board", "gesture": "shrug", "pause": 0.7
+      },
+      {
+        "variants": [
+          "Trockenschnitzel liefern Energie über Pektin statt Stärke, Weizenkleie bringt viel Phosphor. Und das Mineralfutter ergänzt, was der Rest nicht deckt – dazu kommen wir bei den Mineralstoffen.",
+          "Dazu Trockenschnitzel – pansenfreundliche Energie aus Pektin – und Weizenkleie mit viel Phosphor. Das Mineralfutter schließt dann die Lücken bei Mengen- und Spurenelementen, Details später.",
+          "Trockenschnitzel und Kleie sind die zweite Gruppe: Energie ohne viel Stärke beziehungsweise viel Phosphor. Ganz am Ende der Kette steht das Mineralfutter – das kriegt einen eigenen Abschnitt."
+        ],
+        "slide": null, "board": null, "look": "class", "gesture": "count", "pause": 0.6
+      }
+    ],
+    "quiz": [
+      {
+        "q": "30 kg Maissilage (Frischmasse) mit 33 % TM und 6,7 MJ NEL/kg TM – wie viel NEL liefert das?",
+        "correct": "≈ 66 MJ NEL",
+        "wrong": ["≈ 201 MJ NEL", "≈ 10 MJ NEL", "≈ 33 MJ NEL"],
+        "explain": "30 kg × 0,33 = 9,9 kg TM; 9,9 kg TM × 6,7 MJ ≈ 66 MJ NEL.",
+        "calc": true
+      },
+      {
+        "q": "Welches Grundfutter hat typischerweise den niedrigsten Rohproteingehalt?",
+        "correct": "Maissilage",
+        "wrong": ["Grassilage", "Junges Weidegras", "Wiesenheu 1. Schnitt"],
+        "explain": "Maissilage liefert viel Energie und Stärke, aber nur rund 80 g XP je kg TM.",
+        "calc": false
+      },
+      {
+        "q": "Wofür steht „Donau Soja“?",
+        "correct": "Gentechnikfreies Soja aus europäischem Anbau",
+        "wrong": ["Zertifiziertes Importsoja aus Übersee", "Sojaschrot mit mindestens 48 % XP", "Eine nur in Österreich zugelassene Sorte"],
+        "explain": "Donau Soja steht für gentechnikfreies Soja europäischer Herkunft; Österreichs Milch wird seit 2010 gentechnikfrei gefüttert.",
+        "calc": false
+      }
+    ],
+    "calc": {
+      "title": "Rapsschrot statt Sojaschrot",
+      "given": "1,5 kg Sojaextraktionsschrot (88 % TM, 500 g XP/kg TM) sollen durch Rapsextraktionsschrot (89 % TM, 390 g XP/kg TM) ersetzt werden.",
+      "steps": ["XP: 1,5 × 0,88 × 500 = 660 g", "RES je kg FM: 0,89 × 390", "= 347 g XP/kg FM", "660 / 347 ≈ 1,9 kg RES"],
+      "result": "≈ 1,9 kg Rapsextraktionsschrot liefern so viel Rohprotein wie 1,5 kg Sojaschrot"
+    },
+    "notes": [
+      "Tabellenwerte gelten je kg Trockenmasse",
+      "Grassilage XP-reich, Maissilage stärkereich",
+      "Gerste/Körnermais: ≈ 8,2–8,4 MJ NEL/kg TM",
+      "SES ≈ 500, RES ≈ 390 g XP/kg TM",
+      "Milch in Österreich seit 2010 GVO-frei",
+      "Biertreber, Schnitzel, Kleie: Nebenprodukte"
+    ],
+    "script": "Die Futtermittelkunde ordnet Futtermittel nach Herkunft, Trockenmassegehalt und Nährstoffkonzentration. Beim Wiederkäuer bildet das wirtschaftseigene Grundfutter die Basis der Ration: Heu, Gras- und Maissilage sowie Weide- und Almfutter. Sein Futterwert hängt vor allem vom Vegetationsstadium bei der Nutzung ab; mit zunehmendem Alter des Bestands steigt der Fasergehalt, während Energie- und Proteinkonzentration sinken. Grassilage ist eiweißbetont (etwa 145–190 g XP/kg TM), Maissilage dagegen energie- und stärkereich, aber proteinarm (rund 80 g XP/kg TM), weshalb sich beide gut ergänzen. Almfutter erreicht häufig nur 4–5,5 MJ NEL/kg TM. Alle Tabellenwerte beziehen sich auf die Trockenmasse, Frischmassen sind daher stets mit dem TM-Gehalt umzurechnen. Kraftfutter liefern entweder Energie (Gerste, Körnermais: etwa 8,2–8,4 MJ NEL/kg TM) oder Protein (Sojaextraktionsschrot rund 500, Rapsextraktionsschrot rund 390 g XP/kg TM). In Österreich wird die Milch seit 2010 gentechnikfrei erzeugt; heimischer Raps, heimisches Soja und gentechnikfreies Soja europäischer Herkunft (Donau Soja) haben dadurch große Bedeutung. Nebenprodukte der Lebensmittelverarbeitung wie Biertreber, Trockenschnitzel oder Weizenkleie verwerten Reststoffe, die der Mensch nicht nutzt. Mineralfuttermittel ergänzen schließlich Mengen- und Spurenelemente, die über Grund- und Kraftfutter nicht ausreichend zugeführt werden."
+  },
+  "en": {
+    "title": "Feedstuffs",
+    "subtitle": "Forages, concentrates, by-products and mineral feeds",
+    "learningGoals": [
+      "Classify forages and concentrates by dry matter, energy and protein",
+      "State typical values for hay, grass silage and maize silage",
+      "Explain home-grown protein feeds and GM-free feeding in Austria",
+      "Use by-products and mineral feeds correctly in the ration"
+    ],
+    "slides": [
+      {
+        "title": "Forage – the basis of the ruminant ration",
+        "bullets": [
+          "Forage: fresh grass, hay and silages produced on the farm",
+          "Energy and protein decline as the plants mature",
+          "Grass silage is protein-rich, maize silage rich in energy and starch",
+          "Pasture and alpine forage: valuable but highly variable",
+          "Table values are per kg DM – your own feed analysis is better"
+        ],
+        "diagram": {
+          "type": "table",
+          "head": ["Feed", "DM %", "MJ NEL/kg DM", "CP g/kg DM"],
+          "rows": [
+            ["Meadow hay 1st cut", "86", "5.3–6.1", "100–130"],
+            ["Grass silage", "30–40", "5.7–6.6", "145–190"],
+            ["Maize silage", "30–36", "6.5–6.9", "80–85"],
+            ["Young pasture", "15–17", "6.7–7.1", "195–215"]
+          ]
+        },
+        "source": "Gruber Table on Dairy Cow Feeding (LfL 2024)"
+      },
+      {
+        "title": "Concentrates, protein feeds and by-products",
+        "bullets": [
+          "Cereals and grain maize: starch, ≈ 8.2–8.4 MJ NEL/kg DM",
+          "Soybean and rapeseed meal: protein supplements",
+          "Austria: dairy cows fed GM-free since 2010",
+          "Brewers' grains, beet pulp, bran: valuable by-products",
+          "Mineral feed supplies macro and trace elements"
+        ],
+        "diagram": {
+          "type": "table",
+          "head": ["Feed", "DM %", "MJ NEL/kg DM", "CP g/kg DM"],
+          "rows": [
+            ["Barley", "88", "8.2", "125"],
+            ["Grain maize", "88", "8.4", "100"],
+            ["SBM 44 % CP", "88", "8.6", "500"],
+            ["Rapeseed meal", "89", "7.2", "390"],
+            ["Brewers' grains", "25", "6.7", "250"],
+            ["Dried beet pulp", "91", "7.4", "85"]
+          ]
+        },
+        "source": "Gruber Table (LfL 2024); AGES; Donau Soja association"
+      }
+    ],
+    "board": [
+      { "id": "b1", "lines": ["FM × DM content = DM", "20 kg silage × 0.35 = 7 kg DM", "7 kg DM × 6.2 MJ NEL", "≈ 43 MJ NEL"] },
+      { "id": "b2", "lines": ["SBM 44: ≈ 500 g CP/kg DM", "RSM: ≈ 390 g CP/kg DM", "1 kg SBM ≈ 1.3 kg RSM (CP)", "local: soy, rapeseed, peas"] },
+      { "id": "b3", "lines": ["Brewers' grains: CP ↑, 25 % DM", "Beet pulp: pectin", "Wheat bran: high in P", "Mineral feed: Ca, P, Mg, Na"] }
+    ],
+    "beats": [
+      {
+        "variants": [
+          "Right, after energy and protein evaluation it gets hands-on: what do we actually feed? With ruminants, that always starts with forage.",
+          "We can evaluate feeds now – NEL and uCP should be firmly in place. Now let's look at what's actually on the feed table, and for cattle, forage comes first.",
+          "We've learned how to evaluate energy and protein. Now the practical question: what does the cow really eat? Let's start with forage, the foundation of every ration."
+        ],
+        "slide": 0, "board": null, "look": "class", "gesture": "open", "pause": 0.6
+      },
+      {
+        "variants": [
+          "Look at the table: first-cut hay comes in at about 5.3 to 6 MJ NEL. What matters is less the method than the cutting date – the older the sward, the less energy.",
+          "The table shows it: meadow hay reaches roughly 5.3 to 6 MJ NEL per kilo of DM. Whether it was cut early or late matters more than whether it ends up as hay or silage.",
+          "With hay you see a wide range, around 5.3 to 6 MJ NEL. That's mainly the cutting date: with every week the sward gets older, fibre goes up and energy goes down."
+        ],
+        "slide": null, "board": null, "look": "screen", "gesture": "point", "pause": 0.8
+      },
+      {
+        "variants": [
+          "Many farms in the Mostviertel have both: grass silage with roughly 150 to 190 g crude protein and maize silage with only about 80 g, but lots of starch. The two complement each other almost perfectly.",
+          "Grass silage is protein-oriented, a good 150 g CP and more. Maize silage supplies energy and starch but only around 80 g crude protein – that's why the two are combined so often.",
+          "Remember the contrast: maize silage is the lowest-protein forage in the table, around 80 g CP, but rich in energy. Grass silage brings about twice as much protein."
+        ],
+        "slide": null, "board": null, "look": "class", "gesture": "explain", "pause": 0.7
+      },
+      {
+        "variants": [
+          "Very important, this is where most mistakes happen: table values are per kilo of dry matter. Twenty kilos of grass silage at 35 % DM are seven kilos DM – times 6.2 gives about 43 MJ NEL.",
+          "Let me write it up: fresh matter times DM content gives dry matter. Twenty kilos of silage times 0.35 are seven kilos DM, and only that gets multiplied by 6.2 – so about 43 MJ NEL.",
+          "The table always works in DM, but the farmer weighs fresh matter. So: twenty kilos of silage times 35 % is seven kilos DM, times 6.2 MJ – about 43 MJ NEL, not 124."
+        ],
+        "slide": null, "board": "b1", "look": "board", "gesture": "explain", "pause": 0.9
+      },
+      {
+        "variants": [
+          "Young pasture grass is almost a concentrate in energy terms: around 7 MJ NEL and roughly 200 g CP, though at only about 15 % DM. On alpine pasture, forage often reaches just 4 to 5.5 MJ NEL.",
+          "On spring pasture you have around 7 MJ NEL per kilo of DM, but the grass is over 80 % water. Alpine forage is usually much poorer, about 4 to 5.5 MJ – too little for high yields.",
+          "Pasture is a special case: grazed young it has around 7 MJ NEL and plenty of protein, only the DM is low. Alpine pastures vary a lot and are often just 4 to 5.5 MJ NEL."
+        ],
+        "slide": null, "board": null, "look": "window", "gesture": "explain", "pause": 0.7
+      },
+      {
+        "variants": [
+          "Among concentrates, barley and grain maize supply about 8.2 to 8.4 MJ NEL per kilo of DM, mostly via starch. Maize starch is degraded more slowly in the rumen – easier on rumen pH.",
+          "Cereals are energy: barley around 8.2, grain maize around 8.4 MJ NEL. The difference lies in the starch – with maize, a larger share bypasses the rumen undegraded into the small intestine.",
+          "Barley and grain maize are the classic energy concentrates, both above 8 MJ NEL. Barley starch disappears quickly in the rumen, maize starch more slowly – relevant for the acidosis risk."
+        ],
+        "slide": 1, "board": null, "look": "screen", "gesture": "count", "pause": 0.7
+      },
+      {
+        "variants": [
+          "On protein: soybean meal has about 500 g CP per kilo of DM, rapeseed meal about 390. For the same crude protein contribution you need a good 1.3 kilos of rapeseed instead of one kilo of soy.",
+          "I'll write the protein feeds next to it: soy around 500, rapeseed around 390 g CP per kilo DM. Arithmetically, about 1.3 kilos of rapeseed meal replace one kilo of soybean meal – for crude protein, anyway.",
+          "Soy is the protein benchmark at about 500 g CP, rapeseed is around 390. If you switch, you need a good quarter more – rule of thumb: 1.3 kilos of rapeseed for one kilo of soy."
+        ],
+        "slide": null, "board": "b2", "look": "board", "gesture": "emphasis", "pause": 0.8
+      },
+      {
+        "variants": [
+          "In Austria, dairy cows have been fed GM-free since 2010. Soy increasingly comes from domestic cultivation, now over 80,000 hectares, or as Donau Soja – GM-free and from Europe.",
+          "Austria's dairy sector has fed GM-free since 2010. That's why rapeseed, domestic soy and Donau Soja matter so much – that's GM-free soy of European origin.",
+          "An Austrian speciality: milk has been produced with GM-free feed since 2010. Protein therefore comes from rapeseed, domestic soy or via Donau Soja, i.e. GM-free soy from Europe."
+        ],
+        "slide": null, "board": null, "look": "class", "gesture": "explain", "pause": 0.8
+      },
+      {
+        "variants": [
+          "On to by-products: with brewers' grains the brewery keeps the starch for the beer and the cow gets the rest – with about twice as much protein as barley. Not a bad deal for the cow.",
+          "Brewers' grains are barley after brewing: the starch is in the beer, the protein stays in the grains, around 250 g CP per kilo of DM. Frankly, the cow didn't get the short end of the stick.",
+          "By-products, first brewers' grains: wet, only about 25 % DM, but a good 250 g crude protein, twice as much as barley. The brewery keeps the starch, the cow the protein – a fair split."
+        ],
+        "slide": null, "board": "b3", "look": "board", "gesture": "shrug", "pause": 0.7
+      },
+      {
+        "variants": [
+          "Dried beet pulp supplies energy via pectin rather than starch, wheat bran brings lots of phosphorus. And the mineral feed covers what the rest doesn't – we'll get to that under minerals.",
+          "Plus dried beet pulp – rumen-friendly energy from pectin – and wheat bran with plenty of phosphorus. The mineral feed then closes the gaps in macro and trace elements, details later.",
+          "Beet pulp and bran are the second group: energy without much starch, and lots of phosphorus, respectively. At the very end of the chain comes the mineral feed – it gets its own section."
+        ],
+        "slide": null, "board": null, "look": "class", "gesture": "count", "pause": 0.6
+      }
+    ],
+    "quiz": [
+      {
+        "q": "30 kg maize silage (fresh matter) at 33 % DM and 6.7 MJ NEL/kg DM – how much NEL does that supply?",
+        "correct": "≈ 66 MJ NEL",
+        "wrong": ["≈ 201 MJ NEL", "≈ 10 MJ NEL", "≈ 33 MJ NEL"],
+        "explain": "30 kg × 0.33 = 9.9 kg DM; 9.9 kg DM × 6.7 MJ ≈ 66 MJ NEL.",
+        "calc": true
+      },
+      {
+        "q": "Which forage typically has the lowest crude protein content?",
+        "correct": "Maize silage",
+        "wrong": ["Grass silage", "Young pasture grass", "Meadow hay, 1st cut"],
+        "explain": "Maize silage supplies plenty of energy and starch but only around 80 g CP per kg DM.",
+        "calc": false
+      },
+      {
+        "q": "What does 'Donau Soja' stand for?",
+        "correct": "GM-free soy grown in Europe",
+        "wrong": ["Certified soy imported from overseas", "Soybean meal with at least 48 % CP", "A variety approved only in Austria"],
+        "explain": "Donau Soja stands for GM-free soy of European origin; Austrian milk has been produced with GM-free feed since 2010.",
+        "calc": false
+      }
+    ],
+    "calc": {
+      "title": "Rapeseed meal instead of soybean meal",
+      "given": "1.5 kg soybean meal (88 % DM, 500 g CP/kg DM) is to be replaced by rapeseed meal (89 % DM, 390 g CP/kg DM).",
+      "steps": ["CP: 1.5 × 0.88 × 500 = 660 g", "RSM per kg FM: 0.89 × 390", "= 347 g CP/kg FM", "660 / 347 ≈ 1.9 kg RSM"],
+      "result": "≈ 1.9 kg rapeseed meal supply as much crude protein as 1.5 kg soybean meal"
+    },
+    "notes": [
+      "Table values always per kg dry matter",
+      "Grass silage: CP-rich; maize silage: starch",
+      "Barley/grain maize: ≈ 8.2–8.4 MJ NEL/kg DM",
+      "SBM ≈ 500, RSM ≈ 390 g CP/kg DM",
+      "Austrian milk: GM-free feeding since 2010",
+      "Brewers' grains, beet pulp, bran: by-products"
+    ],
+    "script": "Feed science classifies feedstuffs by origin, dry matter content and nutrient concentration. In ruminants, home-grown forage forms the basis of the ration: hay, grass and maize silage, as well as pasture and alpine forage. Its feeding value depends above all on the stage of growth at harvest; as the sward matures, the fibre content rises while energy and protein concentrations fall. Grass silage is protein-oriented (about 145–190 g CP/kg DM), whereas maize silage is rich in energy and starch but low in protein (around 80 g CP/kg DM), which is why the two complement each other well. Alpine forage often reaches only 4–5.5 MJ NEL/kg DM. All table values refer to dry matter, so fresh weights must always be converted using the DM content. Concentrates supply either energy (barley, grain maize: about 8.2–8.4 MJ NEL/kg DM) or protein (soybean meal around 500, rapeseed meal around 390 g CP/kg DM). In Austria, milk has been produced with GM-free feed since 2010; domestic rapeseed, domestic soy and GM-free soy of European origin (Donau Soja) are therefore particularly important. By-products of food processing such as brewers' grains, dried beet pulp or wheat bran make use of residues that humans do not use. Finally, mineral feeds supply the macro and trace elements that forage and concentrates do not provide in sufficient amounts."
+  }
+}

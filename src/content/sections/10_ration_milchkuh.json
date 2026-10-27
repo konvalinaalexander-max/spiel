@@ -1,0 +1,360 @@
+{
+  "id": "ration_milchkuh",
+  "order": 10,
+  "core": true,
+  "plannedMinutes": 9,
+  "de": {
+    "title": "Rationsberechnung Milchkuh",
+    "subtitle": "Bedarf, Grundfutterleistung und Kraftfutter",
+    "learningGoals": [
+      "Energie- und nXP-Bedarf aus Erhaltung und Leistung berechnen",
+      "Grundfutterleistung und Kraftfutterbedarf ableiten",
+      "Ausgleichsfutter und Milchleistungsfutter richtig einsetzen",
+      "Die Futteraufnahme als begrenzenden Faktor einschätzen"
+    ],
+    "slides": [
+      {
+        "title": "Bedarf der Milchkuh: Erhaltung plus Leistung",
+        "bullets": [
+          "Erhaltung: 0,293 MJ NEL je kg metabolischer Lebendmasse",
+          "Leistung: ≈ 3,3 MJ NEL je kg Milch (4,0 % Fett, 3,4 % Eiweiß)",
+          "nXP: ≈ 450 g Erhaltung (650 kg) + 85 g je kg Milch",
+          "TM-Aufnahme bei 30 kg Milch: rund 20–21 kg TM",
+          "Daraus folgt die nötige Energie- und Nährstoffdichte"
+        ],
+        "diagram": {
+          "type": "stack",
+          "parts": [
+            { "label": "Erhaltung", "value": 37.7 },
+            { "label": "Milch (30 kg)", "value": 99 }
+          ],
+          "unit": "MJ NEL/Tag"
+        },
+        "source": "GfE (2001); Gruber Tabelle (LfL 2024)"
+      },
+      {
+        "title": "Vom Bedarf zur Kraftfuttermenge",
+        "bullets": [
+          "Grundfutter-NEL minus Erhaltung = Grundfutterleistung",
+          "Ausgleichsfutter gleicht Energie oder Eiweiß im Grundfutter aus",
+          "Restbedarf über Milchleistungsfutter (MLF) decken",
+          "Faustzahl: 1 kg MLF (6,7 MJ NEL) für rund 2 kg Milch",
+          "RNB der Gesamtration um 0, Kraftfutter ≤ ~10 kg/Tag"
+        ],
+        "diagram": {
+          "type": "bars",
+          "items": [
+            { "label": "Bedarf", "value": 137 },
+            { "label": "Grundfutter", "value": 93 },
+            { "label": "Kraftfutter", "value": 44 }
+          ],
+          "unit": "MJ NEL/Tag",
+          "max": 150
+        },
+        "source": "Gruber Tabelle zur Fütterung der Milchkühe (LfL 2024)"
+      }
+    ],
+    "board": [
+      { "id": "b1", "lines": ["Kuh: 650 kg LM, 30 kg Milch", "650^{0,75} ≈ 128,8 kg", "Erhaltung: 0,293 × 128,8", "≈ 37,7 MJ NEL"] },
+      { "id": "b2", "lines": ["Leistung: 30 kg × 3,3 MJ", "= 99 MJ NEL", "Summe: 37,7 + 99 ≈ 137 MJ", "nXP: 450 + 30 × 85 = 3000 g"] },
+      { "id": "b3", "lines": ["GF: 15 kg TM × 6,2 = 93 MJ", "GF-Milch: 55,3 / 3,3 ≈ 17 kg", "Rest: 137 − 93 = 44 MJ NEL", "MLF: 44 / 6,7 ≈ 6,6 kg FM"] }
+    ],
+    "beats": [
+      {
+        "variants": [
+          "Jetzt bringen wir alles zusammen: Energie- und Proteinbewertung, Futtermittel – und rechnen eine Ration für eine konkrete Kuh. Rechnen Sie ruhig mit, der Taschenrechner darf heraus.",
+          "So, jetzt wird gerechnet. Wir nehmen, was wir bei Energie- und Proteinbewertung gelernt haben, und stellen eine Ration für eine Milchkuh zusammen – Schritt für Schritt.",
+          "Bis jetzt war vieles Theorie. Jetzt nehmen wir eine konkrete Kuh und berechnen, was sie braucht und womit wir das decken. Taschenrechner dürfen Sie gern herausholen."
+        ],
+        "slide": 0, "board": null, "look": "class", "gesture": "open", "pause": 0.6
+      },
+      {
+        "variants": [
+          "Bedarf ist Erhaltung plus Leistung. Für die Erhaltung nimmt die GfE 0,293 MJ NEL je Kilo metabolischer Lebendmasse, also LM hoch 0,75 – die neuen ME-Empfehlungen der GfE lassen wir heute beiseite.",
+          "Erst die Erhaltung: Die Kuh braucht Energie, auch wenn sie keinen Liter gibt – nach GfE 0,293 MJ NEL je Kilo LM hoch 0,75. Die GfE rechnet seit 2023 mit ME, in der Praxis ist NEL aber noch Standard.",
+          "Wir rechnen im bewährten NEL-System, auch wenn die GfE 2023 auf umsetzbare Energie umgestellt hat. Erhaltung: 0,293 MJ NEL je Kilo metabolischer Lebendmasse, das ist LM hoch 0,75."
+        ],
+        "slide": null, "board": null, "look": "notes", "gesture": "glasses", "pause": 0.7
+      },
+      {
+        "variants": [
+          "Unsere Kuh hat 650 Kilo. 650 hoch 0,75 sind rund 128,8 – mal 0,293 ergibt etwa 37,7 MJ NEL. Das braucht sie täglich, bevor überhaupt ein Liter Milch im Tank ist.",
+          "Rechnen wir: 650 Kilo Lebendmasse, hoch 0,75, macht rund 128,8 Kilo metabolische Masse. Mal 0,293 – rund 37,7 MJ NEL Erhaltungsbedarf pro Tag.",
+          "Ich schreib's an: Kuh mit 650 Kilo und 30 Kilo Milch. Für die Erhaltung 650 hoch 0,75, das sind etwa 128,8, mal 0,293 – macht rund 37,7 MJ NEL."
+        ],
+        "slide": null, "board": "b1", "look": "board", "gesture": "explain", "pause": 1.0
+      },
+      {
+        "variants": [
+          "Dann die Leistung: Ein Kilo Milch mit 4 % Fett und 3,4 % Eiweiß braucht rund 3,3 MJ NEL. Dreißig Kilo sind also 99 MJ – zusammen mit der Erhaltung rund 137 MJ NEL am Tag.",
+          "Für die Milch rechnen wir mit etwa 3,3 MJ NEL je Kilo bei 4 % Fett. Dreißig mal 3,3 gibt 99, plus 37,7 Erhaltung – Gesamtbedarf rund 137 MJ NEL.",
+          "Leistungsbedarf: 30 Kilo mal 3,3 MJ NEL, das sind 99 MJ. Addiert zur Erhaltung kommen wir auf rund 137 MJ NEL pro Tag. Das ist die Zahl, die wir jetzt decken müssen."
+        ],
+        "slide": null, "board": "b2", "look": "board", "gesture": "count", "pause": 1.0
+      },
+      {
+        "variants": [
+          "Beim Protein dasselbe Spiel: rund 450 g nXP für die Erhaltung und 85 g je Kilo Milch – macht 3.000 g. Bei rund 20 Kilo TM-Aufnahme braucht die Ration knapp 7 MJ NEL und 150 g nXP je Kilo TM.",
+          "Protein: Erhaltung rund 450 g nXP, dazu 85 g je Kilo Milch, zusammen 3.000 g. Die Kuh frisst aber nur rund 20 Kilo TM – die Ration braucht also knapp 7 MJ NEL und 150 g nXP je Kilo TM.",
+          "Für nXP gilt: 450 g Erhaltung plus 30 mal 85 g, also 3.000 g am Tag. Geteilt durch etwa 20 Kilo Futteraufnahme ergibt sich die nötige Dichte: knapp 7 MJ NEL und 150 g nXP je Kilo TM."
+        ],
+        "slide": null, "board": null, "look": "class", "gesture": "explain", "pause": 0.8
+      },
+      {
+        "variants": [
+          "Jetzt das Grundfutter: 15 Kilo TM mit 6,2 MJ NEL liefern 93 MJ. Minus 37,7 Erhaltung bleiben 55,3 – geteilt durch 3,3 sind das rund 17 Kilo Milch aus dem Grundfutter.",
+          "Unser Betrieb hat Grundfutter mit 6,2 MJ NEL, die Kuh frisst davon 15 Kilo TM, also 93 MJ. Nach Abzug der Erhaltung reicht das für etwa 17 Kilo Milch – das ist die Grundfutterleistung.",
+          "Grundfutterleistung heißt: Wie viel Milch schafft die Kuh nur aus dem Grundfutter? 15 Kilo TM mal 6,2 sind 93 MJ, minus Erhaltung 55,3, durch 3,3 – rund 17 Kilo."
+        ],
+        "slide": 1, "board": "b3", "look": "board", "gesture": "explain", "pause": 1.0
+      },
+      {
+        "variants": [
+          "Fehlen noch 137 minus 93, also 44 MJ NEL. Mit einem Milchleistungsfutter mit 6,7 MJ je Kilo Frischmasse sind das rund 6,6 Kilo pro Tag. Faustzahl: ein Kilo Kraftfutter für zwei Kilo Milch.",
+          "Der Rest kommt aus dem Kraftfutter: 44 MJ geteilt durch 6,7 MJ je Kilo ergibt rund 6,6 Kilo Milchleistungsfutter. Passt zur Faustzahl – ein Kilo deckt etwa zwei Kilo Milch.",
+          "Bleiben 44 MJ NEL offen. Das Milchleistungsfutter hat 6,7 MJ je Kilo, also brauchen wir gut 6,5 Kilo. Zur Kontrolle: 13 Kilo Milch über der Grundfutterleistung, ein Kilo je zwei Kilo Milch – passt."
+        ],
+        "slide": null, "board": null, "look": "board", "gesture": "point", "pause": 0.9
+      },
+      {
+        "variants": [
+          "Achtung, das ist vereinfacht: Mehr Kraftfutter verdrängt Grundfutter, die Kuh frisst dann weniger Silage. Und über etwa 10 Kilo Kraftfutter am Tag wird's für den Pansen-pH kritisch.",
+          "In der Realität verdrängt jedes Kilo Kraftfutter einen Teil des Grundfutters – die Kuh hat die Tabelle ja nicht gelesen. Und deutlich über 10 Kilo Kraftfutter am Tag verträgt der Pansen nicht.",
+          "Zwei Einschränkungen: Kraftfutter verdrängt Grundfutter, und ab rund 10 Kilo Kraftfutter am Tag steigt die Azidosegefahr deutlich. Erinnern Sie sich an den Pansen-pH – da hört sich das Rechnen auf."
+        ],
+        "slide": null, "board": null, "look": "class", "gesture": "emphasis", "pause": 0.8
+      },
+      {
+        "variants": [
+          "Vor dem Leistungsfutter kommt das Ausgleichsfutter: Ist die Ration grasbetont, fehlt eher Energie – also Körnermais oder Gerste. Ist sie maissilagereich, fehlt Eiweiß – dann Raps- oder Sojaschrot.",
+          "Wozu Ausgleichsfutter? Es bringt das Grundfutter ins Gleichgewicht, RNB um null. Maislastige Rationen brauchen Eiweiß wie Rapsschrot, grasreiche eher Energie wie Körnermais oder Trockenschnitzel.",
+          "Was würden Sie zu einer Ration mit viel Maissilage geben? Richtig, etwas Eiweißreiches, etwa Rapsextraktionsschrot. Bei viel Grassilage dagegen Energie – Getreide oder Körnermais."
+        ],
+        "slide": null, "board": null, "look": "student", "gesture": "question", "pause": 0.8
+      },
+      {
+        "variants": [
+          "Was ist Grundfutterqualität wert? Bei 5,9 statt 6,2 MJ NEL braucht eine Kuh mit 28 Kilo Milch zwei bis drei Kilo Kraftfutter mehr am Tag. Ein paar Zehntel MJ, die sich jeden Tag rechnen.",
+          "Ein paar Zehntel MJ im Grundfutter klingen nach wenig. Aber bei 5,9 statt 6,2 MJ NEL braucht eine Kuh mit 28 Kilo Milch zwei bis drei Kilo Kraftfutter mehr – Tag für Tag, Kuh für Kuh.",
+          "Darum predige ich Grundfutterqualität: Sinkt die Energie von 6,2 auf 5,9 MJ NEL, braucht eine Kuh mit 28 Kilo Milch zwei bis drei Kilo mehr Kraftfutter täglich. Das spürt jeder Betrieb im Geldbörsel."
+        ],
+        "slide": null, "board": null, "look": "window", "gesture": "shrug", "pause": 0.6
+      }
+    ],
+    "quiz": [
+      {
+        "q": "Erhaltungsbedarf 37,7 MJ NEL, Leistung 25 kg Milch zu je 3,3 MJ NEL. Wie hoch ist der Gesamtbedarf?",
+        "correct": "≈ 120 MJ NEL pro Tag",
+        "wrong": ["≈ 83 MJ NEL pro Tag", "≈ 137 MJ NEL pro Tag", "≈ 99 MJ NEL pro Tag"],
+        "explain": "25 × 3,3 = 82,5 MJ; 82,5 + 37,7 ≈ 120 MJ NEL.",
+        "calc": true
+      },
+      {
+        "q": "Was versteht man unter Grundfutterleistung?",
+        "correct": "Milchmenge, die das Grundfutter energetisch deckt",
+        "wrong": ["TM-Menge, die die Kuh an Grundfutter frisst", "Anteil des Grundfutters an der Ration in %", "Milchmenge, die das Kraftfutter ermöglicht"],
+        "explain": "Grundfutter-NEL minus Erhaltungsbedarf, geteilt durch den Bedarf je kg Milch.",
+        "calc": false
+      },
+      {
+        "q": "Welches Ausgleichsfutter passt zu einer maissilagereichen Ration?",
+        "correct": "Eiweißreiches, z. B. Rapsextraktionsschrot",
+        "wrong": ["Energiereiches, z. B. Körnermais", "Stärkereiches, z. B. Gerste", "Keines, Maissilage ist ausgeglichen"],
+        "explain": "Maissilage ist energiereich, aber eiweißarm (negative RNB) – daher ein eiweißreicher Ausgleich.",
+        "calc": false
+      }
+    ],
+    "calc": {
+      "title": "Energiebedarf und Kraftfutter: 650-kg-Kuh mit 30 kg Milch",
+      "given": "650 kg LM, 30 kg Milch (4,0 % Fett, 3,4 % Eiweiß); 15 kg TM Grundfutter mit 6,2 MJ NEL/kg TM; Milchleistungsfutter mit 6,7 MJ NEL/kg FM",
+      "steps": ["Erh.: 0,293 × 650^{0,75} ≈ 37,7", "Leistung: 30 × 3,3 = 99 MJ", "Bedarf ≈ 137 MJ NEL", "137 − 93 (GF) = 44 MJ", "44 / 6,7 ≈ 6,6 kg MLF"],
+      "result": "Bedarf ≈ 137 MJ NEL/Tag; Grundfutterleistung ≈ 17 kg Milch; ≈ 6,6 kg Milchleistungsfutter je Tag"
+    },
+    "notes": [
+      "Erhaltung: 0,293 MJ NEL × LM hoch 0,75",
+      "Leistung: ≈ 3,3 MJ NEL/kg Milch (4 % Fett)",
+      "nXP: 450 g + 85 g je kg Milch (650 kg)",
+      "Grundfutterleistung = (GF-NEL − Erh.) / 3,3",
+      "1 kg MLF (6,7 MJ) ≈ 2 kg Milch",
+      "Mais → Eiweiß-, Gras → Energieausgleich"
+    ],
+    "script": "Die Rationsberechnung verknüpft den Bedarf des Tieres mit den Futterwerten der verfügbaren Futtermittel. Der Energiebedarf einer Milchkuh setzt sich aus Erhaltungs- und Leistungsbedarf zusammen. Nach GfE (2001) beträgt der Erhaltungsbedarf 0,293 MJ NEL je kg metabolischer Lebendmasse (LM hoch 0,75), für eine 650 kg schwere Kuh also rund 37,7 MJ NEL täglich. Je kg Milch mit 4,0 % Fett und 3,4 % Eiweiß werden etwa 3,3 MJ NEL benötigt; bei 30 kg Milch ergibt sich ein Gesamtbedarf von rund 137 MJ NEL. Der Bedarf an nutzbarem Rohprotein liegt bei etwa 450 g nXP für die Erhaltung und 85 g je kg Milch, zusammen rund 3.000 g. Da die Futteraufnahme bei dieser Leistung nur etwa 20–21 kg TM beträgt, muss die Ration knapp 7 MJ NEL und rund 150 g nXP je kg TM enthalten. Die Energie aus dem Grundfutter abzüglich des Erhaltungsbedarfs ergibt die Grundfutterleistung; im Beispiel decken 15 kg TM mit 6,2 MJ NEL rund 17 kg Milch. Ausgleichsfutter gleicht Energie- oder Proteinüberschüsse des Grundfutters aus (RNB um null), der verbleibende Bedarf wird über Milchleistungsfutter gedeckt, als Faustzahl 1 kg je 2 kg Milch. Zu beachten sind die Grundfutterverdrängung und eine Obergrenze von etwa 10 kg Kraftfutter je Tag. Die GfE hat 2023 neue Empfehlungen auf Basis der umsetzbaren Energie vorgelegt; in Tabellenwerken und Beratung ist NEL weiterhin verbreitet."
+  },
+  "en": {
+    "title": "Ration calculation for the dairy cow",
+    "subtitle": "Requirements, milk from forage and concentrates",
+    "learningGoals": [
+      "Calculate energy and uCP requirements from maintenance and production",
+      "Derive milk yield from forage and the concentrate requirement",
+      "Use balancers and dairy concentrates correctly",
+      "Assess feed intake as the limiting factor"
+    ],
+    "slides": [
+      {
+        "title": "Dairy cow requirement: maintenance plus production",
+        "bullets": [
+          "Maintenance: 0.293 MJ NEL per kg metabolic body weight",
+          "Production: ≈ 3.3 MJ NEL per kg milk (4.0 % fat, 3.4 % protein)",
+          "uCP: ≈ 450 g maintenance (650 kg) + 85 g per kg milk",
+          "DM intake at 30 kg milk: about 20–21 kg DM",
+          "This determines the required energy and nutrient density"
+        ],
+        "diagram": {
+          "type": "stack",
+          "parts": [
+            { "label": "Maintenance", "value": 37.7 },
+            { "label": "Milk (30 kg)", "value": 99 }
+          ],
+          "unit": "MJ NEL/day"
+        },
+        "source": "GfE (2001); Gruber Table (LfL 2024)"
+      },
+      {
+        "title": "From requirement to concentrate allowance",
+        "bullets": [
+          "Forage NEL minus maintenance = milk yield from forage",
+          "Balancer corrects energy or protein in the forage",
+          "Cover the remainder with dairy concentrate (DC)",
+          "Rule of thumb: 1 kg DC (6.7 MJ NEL) for about 2 kg milk",
+          "Total ration RNB around 0, concentrate ≤ ~10 kg/day"
+        ],
+        "diagram": {
+          "type": "bars",
+          "items": [
+            { "label": "Requirement", "value": 137 },
+            { "label": "Forage", "value": 93 },
+            { "label": "Concentrate", "value": 44 }
+          ],
+          "unit": "MJ NEL/day",
+          "max": 150
+        },
+        "source": "Gruber Table on Dairy Cow Feeding (LfL 2024)"
+      }
+    ],
+    "board": [
+      { "id": "b1", "lines": ["Cow: 650 kg BW, 30 kg milk", "650^{0.75} ≈ 128.8 kg", "Maintenance: 0.293 × 128.8", "≈ 37.7 MJ NEL"] },
+      { "id": "b2", "lines": ["Yield: 30 kg × 3.3 MJ", "= 99 MJ NEL", "Total: 37.7 + 99 ≈ 137 MJ", "uCP: 450 + 30 × 85 = 3000 g"] },
+      { "id": "b3", "lines": ["Forage: 15 kg DM × 6.2 = 93 MJ", "Forage milk: 55.3 / 3.3 ≈ 17", "Rest: 137 − 93 = 44 MJ NEL", "DC: 44 / 6.7 ≈ 6.6 kg FM"] }
+    ],
+    "beats": [
+      {
+        "variants": [
+          "Now we bring it all together: energy and protein evaluation, feedstuffs – and calculate a ration for a specific cow. Do calculate along, calculators are allowed.",
+          "Right, now we calculate. We take what we learned in energy and protein evaluation and put together a ration for a dairy cow – step by step.",
+          "Up to now a lot was theory. Now we take a specific cow and calculate what she needs and how we cover it. Feel free to get your calculators out."
+        ],
+        "slide": 0, "board": null, "look": "class", "gesture": "open", "pause": 0.6
+      },
+      {
+        "variants": [
+          "Requirement is maintenance plus production. For maintenance the GfE uses 0.293 MJ NEL per kilo of metabolic body weight, i.e. BW to the 0.75 – we'll leave the new ME-based GfE values aside today.",
+          "First, maintenance: the cow needs energy even if she gives not a single litre – per GfE, 0.293 MJ NEL per kilo of BW to the 0.75. Since 2023 the GfE works with ME, but NEL is still standard in practice.",
+          "We calculate in the established NEL system, even though the GfE switched to metabolisable energy in 2023. Maintenance: 0.293 MJ NEL per kilo of metabolic body weight, that's BW to the power of 0.75."
+        ],
+        "slide": null, "board": null, "look": "notes", "gesture": "glasses", "pause": 0.7
+      },
+      {
+        "variants": [
+          "Our cow weighs 650 kilos. 650 to the power of 0.75 is about 128.8 – times 0.293 gives roughly 37.7 MJ NEL. She needs that every day before a single litre of milk is in the tank.",
+          "Let's calculate: 650 kilos body weight, to the power of 0.75, makes about 128.8 kilos of metabolic weight. Times 0.293 – about 37.7 MJ NEL maintenance requirement per day.",
+          "I'll write it up: a cow with 650 kilos and 30 kilos of milk. For maintenance, 650 to the 0.75, that's about 128.8, times 0.293 – makes roughly 37.7 MJ NEL."
+        ],
+        "slide": null, "board": "b1", "look": "board", "gesture": "explain", "pause": 1.0
+      },
+      {
+        "variants": [
+          "Then production: one kilo of milk with 4 % fat and 3.4 % protein needs about 3.3 MJ NEL. Thirty kilos is therefore 99 MJ – together with maintenance, about 137 MJ NEL a day.",
+          "For the milk we use about 3.3 MJ NEL per kilo at 4 % fat. Thirty times 3.3 gives 99, plus 37.7 for maintenance – total requirement about 137 MJ NEL.",
+          "Production requirement: 30 kilos times 3.3 MJ NEL, that's 99 MJ. Added to maintenance we arrive at about 137 MJ NEL per day. That's the number we now have to cover."
+        ],
+        "slide": null, "board": "b2", "look": "board", "gesture": "count", "pause": 1.0
+      },
+      {
+        "variants": [
+          "Same game for protein: about 450 g uCP for maintenance and 85 g per kilo of milk – makes 3,000 g. At about 20 kilos of DM intake, the ration needs almost 7 MJ NEL and 150 g uCP per kilo of DM.",
+          "Protein: maintenance about 450 g uCP, plus 85 g per kilo of milk, together 3,000 g. But the cow only eats about 20 kilos of DM – so the ration needs almost 7 MJ NEL and 150 g uCP per kilo of DM.",
+          "For uCP: 450 g maintenance plus 30 times 85 g, i.e. 3,000 g a day. Divided by about 20 kilos of intake, that gives the required density: almost 7 MJ NEL and 150 g uCP per kilo of DM."
+        ],
+        "slide": null, "board": null, "look": "class", "gesture": "explain", "pause": 0.8
+      },
+      {
+        "variants": [
+          "Now the forage: 15 kilos of DM at 6.2 MJ NEL supply 93 MJ. Minus 37.7 for maintenance leaves 55.3 – divided by 3.3, that's about 17 kilos of milk from forage.",
+          "Our farm has forage with 6.2 MJ NEL, the cow eats 15 kilos of DM of it, so 93 MJ. After deducting maintenance that's enough for about 17 kilos of milk – that's the milk yield from forage.",
+          "Milk from forage means: how much milk can the cow produce from forage alone? 15 kilos of DM times 6.2 is 93 MJ, minus maintenance 55.3, divided by 3.3 – about 17 kilos."
+        ],
+        "slide": 1, "board": "b3", "look": "board", "gesture": "explain", "pause": 1.0
+      },
+      {
+        "variants": [
+          "Still missing: 137 minus 93, so 44 MJ NEL. With a dairy concentrate at 6.7 MJ per kilo of fresh matter that's about 6.6 kilos a day. Rule of thumb: one kilo of concentrate for two kilos of milk.",
+          "The rest comes from concentrate: 44 MJ divided by 6.7 MJ per kilo gives about 6.6 kilos of dairy concentrate. Fits the rule of thumb – one kilo covers about two kilos of milk.",
+          "That leaves 44 MJ NEL open. The dairy concentrate has 6.7 MJ per kilo, so we need a good 6.5 kilos. Cross-check: 13 kilos of milk above forage yield, one kilo per two kilos of milk – fits."
+        ],
+        "slide": null, "board": null, "look": "board", "gesture": "point", "pause": 0.9
+      },
+      {
+        "variants": [
+          "Careful, this is simplified: more concentrate displaces forage, the cow then eats less silage. And above about 10 kilos of concentrate a day it gets critical for rumen pH.",
+          "In reality every kilo of concentrate displaces some forage – the cow hasn't read the feed table, after all. And clearly more than 10 kilos of concentrate a day is too much for the rumen.",
+          "Two caveats: concentrate displaces forage, and from around 10 kilos of concentrate a day the risk of acidosis rises sharply. Remember rumen pH – that's where calculating ends."
+        ],
+        "slide": null, "board": null, "look": "class", "gesture": "emphasis", "pause": 0.8
+      },
+      {
+        "variants": [
+          "Before the production concentrate comes the balancer: if the ration is grass-based, energy tends to be short – so grain maize or barley. If it's rich in maize silage, protein is short – then rapeseed or soybean meal.",
+          "What's a balancer for? It brings the forage into balance, RNB around zero. Maize-heavy rations need protein such as rapeseed meal, grass-rich ones rather energy like grain maize or beet pulp.",
+          "What would you add to a ration with lots of maize silage? Exactly, something protein-rich, such as rapeseed meal. With lots of grass silage, on the other hand, energy – cereals or grain maize."
+        ],
+        "slide": null, "board": null, "look": "student", "gesture": "question", "pause": 0.8
+      },
+      {
+        "variants": [
+          "What is forage quality worth? At 5.9 instead of 6.2 MJ NEL, a cow giving 28 kilos of milk needs two to three kilos more concentrate a day. A few tenths of an MJ that add up every day.",
+          "A few tenths of an MJ in the forage sound like little. But at 5.9 instead of 6.2 MJ NEL, a cow giving 28 kilos of milk needs two to three kilos more concentrate – day after day, cow after cow.",
+          "That's why I preach forage quality: if energy drops from 6.2 to 5.9 MJ NEL, a cow giving 28 kilos of milk needs two to three kilos more concentrate daily. Every farm feels that in its wallet."
+        ],
+        "slide": null, "board": null, "look": "window", "gesture": "shrug", "pause": 0.6
+      }
+    ],
+    "quiz": [
+      {
+        "q": "Maintenance 37.7 MJ NEL, production 25 kg milk at 3.3 MJ NEL each. What is the total requirement?",
+        "correct": "≈ 120 MJ NEL per day",
+        "wrong": ["≈ 83 MJ NEL per day", "≈ 137 MJ NEL per day", "≈ 99 MJ NEL per day"],
+        "explain": "25 × 3.3 = 82.5 MJ; 82.5 + 37.7 ≈ 120 MJ NEL.",
+        "calc": true
+      },
+      {
+        "q": "What is meant by 'milk yield from forage'?",
+        "correct": "Milk that the forage covers in energy terms",
+        "wrong": ["Forage DM the cow eats per day", "Share of forage in the ration in %", "Milk made possible by the concentrate"],
+        "explain": "Forage NEL minus maintenance requirement, divided by the requirement per kg of milk.",
+        "calc": false
+      },
+      {
+        "q": "Which balancer suits a ration rich in maize silage?",
+        "correct": "A protein-rich one, e.g. rapeseed meal",
+        "wrong": ["An energy-rich one, e.g. grain maize", "A starch-rich one, e.g. barley", "None, maize silage is balanced"],
+        "explain": "Maize silage is rich in energy but low in protein (negative RNB) – hence a protein-rich balancer.",
+        "calc": false
+      }
+    ],
+    "calc": {
+      "title": "Energy requirement and concentrate: 650 kg cow, 30 kg milk",
+      "given": "650 kg BW, 30 kg milk (4.0 % fat, 3.4 % protein); 15 kg DM forage at 6.2 MJ NEL/kg DM; dairy concentrate at 6.7 MJ NEL/kg FM",
+      "steps": ["Maint.: 0.293 × 650^{0.75} ≈ 37.7", "Yield: 30 × 3.3 = 99 MJ", "Requirement ≈ 137 MJ NEL", "137 − 93 (forage) = 44 MJ", "44 / 6.7 ≈ 6.6 kg DC"],
+      "result": "Requirement ≈ 137 MJ NEL/day; milk from forage ≈ 17 kg; ≈ 6.6 kg dairy concentrate per day"
+    },
+    "notes": [
+      "Maintenance: 0.293 MJ NEL × BW to the 0.75",
+      "Production: ≈ 3.3 MJ NEL/kg milk (4 % fat)",
+      "uCP: 450 g + 85 g per kg milk (650 kg)",
+      "Forage milk = (forage NEL − maint.) / 3.3",
+      "1 kg DC (6.7 MJ) ≈ 2 kg milk",
+      "Maize → protein, grass → energy balancer"
+    ],
+    "script": "Ration calculation links the animal's requirements with the feeding values of the available feeds. The energy requirement of a dairy cow consists of maintenance and production. According to the GfE (2001), the maintenance requirement is 0.293 MJ NEL per kg of metabolic body weight (BW to the power of 0.75), i.e. about 37.7 MJ NEL per day for a cow weighing 650 kg. Each kg of milk with 4.0 % fat and 3.4 % protein requires about 3.3 MJ NEL; at 30 kg of milk, this gives a total requirement of about 137 MJ NEL. The requirement for utilisable crude protein is about 450 g uCP for maintenance and 85 g per kg of milk, around 3,000 g in total. Since feed intake at this yield is only about 20–21 kg DM, the ration must contain almost 7 MJ NEL and about 150 g uCP per kg DM. Energy from forage minus the maintenance requirement gives the milk yield from forage; in the example, 15 kg DM at 6.2 MJ NEL cover about 17 kg of milk. A balancer corrects energy or protein surpluses in the forage (RNB around zero), and the remaining requirement is covered by dairy concentrate, roughly 1 kg per 2 kg of milk. Forage displacement and a limit of about 10 kg of concentrate per day must be considered. In 2023 the GfE published new recommendations based on metabolisable energy; in feed tables and advisory practice, NEL is still widely used."
+  }
+}

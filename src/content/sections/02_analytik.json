@@ -1,0 +1,448 @@
+{
+  "id": "analytik",
+  "order": 2,
+  "core": true,
+  "plannedMinutes": 8,
+  "de": {
+    "title": "Futtermittelanalytik",
+    "subtitle": "Weender Analyse und Gerüstsubstanzen nach Van Soest",
+    "learningGoals": [
+      "Die Fraktionen der Weender Analyse und ihre Bestimmung nennen",
+      "Rohprotein aus dem Stickstoffgehalt (Kjeldahl, Faktor 6,25) berechnen",
+      "NfE als Differenzgröße und ihre Schwächen erklären",
+      "NDF, ADF und ADL nach Van Soest unterscheiden und für Wiederkäuer deuten"
+    ],
+    "slides": [
+      {
+        "title": "Die Weender Futtermittelanalyse",
+        "bullets": [
+          "TM: Trocknen bei 103 °C, der Gewichtsverlust ist Wasser",
+          "XA: Veraschen bei 550 °C – Mineralstoffe plus Sand und Erde",
+          "XP: N nach Kjeldahl × 6,25 (Protein enthält ~16 % N)",
+          "XL: Extraktion mit Petrolether",
+          "XF: Rückstand nach Kochen in verdünnter Säure und Lauge",
+          "NfE wird nicht gemessen: TM − (XA + XP + XL + XF)"
+        ],
+        "diagram": {
+          "type": "stack",
+          "parts": [
+            { "label": "Wasser", "value": 14 },
+            { "label": "Rohasche (XA)", "value": 7.6 },
+            { "label": "Rohprotein (XP)", "value": 10.1 },
+            { "label": "Rohfett (XL)", "value": 2.0 },
+            { "label": "Rohfaser (XF)", "value": 24.1 },
+            { "label": "NfE", "value": 42.2 }
+          ],
+          "unit": "% der Frischmasse (Heu)"
+        },
+        "source": "VDLUFA-Methodenbuch III; Kirchgeßner et al. (2014); Heu, Richtwerte"
+      },
+      {
+        "title": "Gerüstsubstanzen nach Van Soest",
+        "bullets": [
+          "NDF: Zellwand = Hemicellulose + Cellulose + Lignin",
+          "ADF: Cellulose + Lignin",
+          "ADL: im Wesentlichen Lignin – praktisch unverdaulich",
+          "Hemicellulose = NDF − ADF, Cellulose = ADF − ADL",
+          "NDF begrenzt die Futteraufnahme, ADF und ADL die Verdaulichkeit",
+          "Rohfaser erfasst Hemicellulose und Lignin nur unvollständig"
+        ],
+        "diagram": {
+          "type": "table",
+          "head": ["g/kg TM", "NDF", "ADF", "ADL"],
+          "rows": [
+            ["Grassil. 1. Aufw.", "406", "261", "25"],
+            ["Grassil. 2. Aufw.", "450", "297", "37"],
+            ["Maissilage", "378", "221", "27"]
+          ]
+        },
+        "source": "LK-Silageprojekt 2024; FML Rosenau 2015–2024 (Resch 2025)"
+      }
+    ],
+    "board": [
+      { "id": "b1", "lines": ["XP = N × 6,25", "6,25 = 100 : 16", "NfE = TM − (XA+XP+XL+XF)"] },
+      { "id": "b2", "lines": ["NDF = Hemicell. + ADF", "ADF = Cellulose + ADL", "ADL ≈ Lignin", "Hemicell. = NDF − ADF"] }
+    ],
+    "beats": [
+      {
+        "variants": [
+          "Wir haben vorhin gesagt, dass Futter der größte Kostenblock ist. Dann sollten wir auch wissen, was drinsteckt – und dafür gibt es seit über 150 Jahren die Weender Analyse.",
+          "Bevor man eine Ration rechnet, muss man wissen, was im Futter ist. Das Standardverfahren dafür heißt Weender Analyse, benannt nach der Versuchsstation Weende bei Göttingen.",
+          "Wenn eine Futterprobe von der Versuchswirtschaft in Groß-Enzersdorf ins Labor geht, wird sie zuerst nach dem Weender Schema zerlegt – einem Verfahren aus den 1860er-Jahren."
+        ],
+        "slide": 0,
+        "board": null,
+        "look": "class",
+        "gesture": "open",
+        "pause": 0.7
+      },
+      {
+        "variants": [
+          "Zuerst wird getrocknet, bei 103 Grad bis zur Gewichtskonstanz: Was übrig bleibt, ist die Trockenmasse. Dann wird bei 550 Grad verascht – der Rückstand ist die Rohasche.",
+          "Der erste Schritt ist die Trocknung bei 103 Grad, daraus ergibt sich die TM. Danach kommt die Probe in den Muffelofen, 550 Grad – was dann noch da ist, nennen wir Rohasche.",
+          "Trockenmasse bestimmen wir durch Trocknen bei 103 Grad, Rohasche durch Veraschen bei 550 Grad. Viel Rohasche in einer Grassilage heißt übrigens oft: Da war Erde dabei."
+        ],
+        "slide": null,
+        "board": null,
+        "look": "screen",
+        "gesture": "count",
+        "pause": 0.6
+      },
+      {
+        "variants": [
+          "Beim Rohprotein misst man gar kein Protein, sondern Stickstoff, klassisch nach Kjeldahl. Ich schreib Ihnen das an: N mal 6,25 – weil Protein im Mittel rund 16 Prozent N enthält.",
+          "Ich schreib Ihnen die wichtigste Formel an: XP gleich N mal 6,25. Der Faktor kommt daher, dass Eiweiß im Schnitt 16 Prozent Stickstoff enthält – 100 durch 16 ergibt 6,25.",
+          "Fürs Rohprotein bestimmen wir den Stickstoff nach Kjeldahl und rechnen hoch – das kommt an die Tafel: N mal 6,25, denn 100 durch 16 Prozent Stickstoff im Protein sind 6,25."
+        ],
+        "slide": null,
+        "board": "b1",
+        "look": "board",
+        "gesture": "point",
+        "pause": 1.0
+      },
+      {
+        "variants": [
+          "Deshalb heißt es auch Rohprotein: Mitgezählt wird jeder Stickstoff, also auch Harnstoff, Ammoniak oder freie Aminosäuren. Das wird uns beim Wiederkäuer noch beschäftigen.",
+          "Die Vorsilbe Roh- ist ernst gemeint. Der Kjeldahl-Wert enthält auch Nicht-Protein-Stickstoff, etwa Ammoniak aus einer Silage oder zugesetzten Harnstoff.",
+          "Wichtig: Die Methode unterscheidet nicht, woher der Stickstoff kommt. Ammoniak in einer schlecht vergorenen Silage erhöht das Rohprotein genauso wie echtes Eiweiß."
+        ],
+        "slide": null,
+        "board": null,
+        "look": "class",
+        "gesture": "emphasis",
+        "pause": 0.6
+      },
+      {
+        "variants": [
+          "Rohfett wird mit Petrolether extrahiert. Für die Rohfaser kocht man die Probe nacheinander in verdünnter Schwefelsäure und Lauge – der unlösliche Rest, abzüglich Asche, ist XF.",
+          "Das Rohfett ist der Etherextrakt. Die Rohfaser ist der Rest, der das Kochen in verdünnter Säure und danach in verdünnter Lauge übersteht – nach Abzug der Asche.",
+          "Dann kommen Rohfett, über die Extraktion mit Petrolether, und Rohfaser: in Säure kochen, in Lauge kochen, Rückstand wiegen, veraschen, Differenz bilden."
+        ],
+        "slide": null,
+        "board": null,
+        "look": "notes",
+        "gesture": "explain",
+        "pause": 0.6
+      },
+      {
+        "variants": [
+          "Die stickstofffreien Extraktstoffe misst niemand – die NfE ist einfach der Rest: TM minus Asche, Protein, Fett und Faser. Alle Analysenfehler landen also genau dort.",
+          "Die NfE ist eine reine Differenzgröße, sozusagen die Fraktion, für die sich kein Labor zuständig fühlt. Sie enthält Stärke und Zucker, aber auch Teile von Hemicellulose und Lignin.",
+          "NfE berechnen wir: TM minus XA, XP, XL und XF. Darin stecken Stärke und Zucker, aber auch das, was die Rohfaserbestimmung übersehen hat – darum ist die NfE recht unscharf."
+        ],
+        "slide": null,
+        "board": null,
+        "look": "class",
+        "gesture": "shrug",
+        "pause": 0.8
+      },
+      {
+        "variants": [
+          "Genau diese Schwäche der Rohfaser hat zur Van-Soest-Analyse geführt. Statt Säure und Lauge nimmt man Detergenzien und trennt die Zellwand sauberer in ihre Bestandteile.",
+          "Die Rohfaserbestimmung löst einen Teil der Hemicellulose und des Lignins mit auf. Deshalb arbeitet man heute zusätzlich mit den Detergenzienmethoden nach Van Soest.",
+          "Für Wiederkäuer reicht die Rohfaser nicht, weil sie Hemicellulose und Lignin nur teilweise erfasst. Van Soest hat in den 1960ern ein besseres System entwickelt – schauen wir's uns an."
+        ],
+        "slide": 1,
+        "board": null,
+        "look": "screen",
+        "gesture": "explain",
+        "pause": 0.7
+      },
+      {
+        "variants": [
+          "Ich schreib Ihnen die drei Fraktionen an: NDF ist die gesamte Zellwand, also Hemicellulose, Cellulose und Lignin. ADF ist Cellulose plus Lignin, und ADL ist praktisch das Lignin.",
+          "Ich schreib's Ihnen hin: NDF ist die ganze Zellwand. NDF minus ADF ergibt die Hemicellulose, ADF minus ADL die Cellulose, und das ADL ist im Wesentlichen Lignin.",
+          "Kurz an die Tafel: Neutral-Detergenz-Faser gleich Hemicellulose, Cellulose und Lignin; Säure-Detergenz-Faser gleich Cellulose und Lignin; das Säure-Detergenz-Lignin ist das Lignin."
+        ],
+        "slide": null,
+        "board": "b2",
+        "look": "board",
+        "gesture": "count",
+        "pause": 1.0
+      },
+      {
+        "variants": [
+          "Für die Kuh ist das zentral: Viel NDF füllt den Pansen und begrenzt die Futteraufnahme, viel ADF und Lignin senken die Verdaulichkeit. Gute Grassilage vom 1. Aufwuchs hat rund 400 g NDF.",
+          "Faustregel: NDF steht für Pansenfüllung und Futteraufnahme, ADF und ADL für die Verdaulichkeit. Im LK-Silageprojekt hatten erste Aufwüchse im Schnitt gut 400 g NDF je kg TM.",
+          "NDF bestimmt, wie voll der Pansen wird und damit die Futteraufnahme; ADF und Lignin bestimmen die Verdaulichkeit. Ein spät gemähter Aufwuchs hat davon mehr – sehen Sie in der Tabelle."
+        ],
+        "slide": null,
+        "board": null,
+        "look": "student",
+        "gesture": "emphasis",
+        "pause": 0.8
+      },
+      {
+        "variants": [
+          "In der Praxis wird das heute meist per Nahinfrarot geschätzt, etwa im Futtermittellabor Rosenau, und nasschemisch kalibriert. Die NDF brauchen wir gleich wieder beim Pansen.",
+          "Die Werte bekommen Sie vom Labor heute oft per NIRS, kalibriert auf die klassischen Methoden. Die Faserfraktionen nehmen wir mit – beim Pansen spielen sie die Hauptrolle.",
+          "Kein Betrieb muss das selbst kochen: Die Silageprobe geht ans Labor, und Sie bekommen Weender- und Van-Soest-Werte zurück. Die NDF merken Sie sich bitte für den Wiederkäuer."
+        ],
+        "slide": null,
+        "board": null,
+        "look": "class",
+        "gesture": "open",
+        "pause": 1.0
+      }
+    ],
+    "quiz": [
+      {
+        "q": "Welche Fraktion nach Van Soest umfasst Hemicellulose, Cellulose und Lignin?",
+        "correct": "NDF (Neutral-Detergenz-Faser)",
+        "wrong": ["ADF (Säure-Detergenz-Faser)", "ADL (Säure-Detergenz-Lignin)", "Rohfaser nach Weender"],
+        "explain": "NDF ist die gesamte Zellwand; ADF enthält nur noch Cellulose und Lignin, ADL im Wesentlichen Lignin.",
+        "calc": false
+      },
+      {
+        "q": "Wie werden die stickstofffreien Extraktstoffe (NfE) bestimmt?",
+        "correct": "Als Differenz – sie werden nicht direkt gemessen",
+        "wrong": ["Durch Veraschen bei 550 °C", "Durch Extraktion mit Petrolether", "Durch Kochen in Säure und Lauge"],
+        "explain": "NfE = TM − (XA + XP + XL + XF); alle Analysenfehler gehen in diese Restgröße ein.",
+        "calc": false
+      },
+      {
+        "q": "Eine Heuprobe enthält 1,92 % N in der TM. Wie hoch ist der Rohproteingehalt?",
+        "correct": "12,0 % der TM",
+        "wrong": ["30,7 % der TM", "19,2 % der TM", "0,3 % der TM"],
+        "explain": "XP = N × 6,25 = 1,92 % × 6,25 = 12,0 % der TM (120 g/kg TM).",
+        "calc": true
+      }
+    ],
+    "calc": {
+      "title": "Weender-Rechnung für eine Grassilage",
+      "given": "Grassilage, je in der TM: 2,4 % N, 9 % XA, 3 % XL, 25 % XF",
+      "steps": ["XP = 2,4 % × 6,25 = 15 %", "Σ = 9 + 15 + 3 + 25 = 52 %", "NfE = 100 − 52 = 48 %"],
+      "result": "NfE ≈ 48 % der TM (480 g/kg TM)"
+    },
+    "notes": [
+      "TM 103 °C · XA 550 °C",
+      "XP = N × 6,25 (Protein ~16 % N)",
+      "NfE = Differenz, nicht gemessen",
+      "NDF = Hemicellulose + Cellulose + Lignin",
+      "ADF = Cellulose + Lignin · ADL ≈ Lignin",
+      "NDF ↔ Futteraufnahme, ADF/ADL ↔ Verdaulichk."
+    ],
+    "script": "Die Weender Futtermittelanalyse wurde in den 1860er-Jahren an der Versuchsstation Weende bei Göttingen entwickelt und ist bis heute die Grundlage der Futtermittelbewertung. Durch Trocknen bei 103 °C wird die Trockenmasse (TM) bestimmt, durch Veraschen bei 550 °C die Rohasche (XA), die neben Mineralstoffen auch Verunreinigungen wie Erde enthält. Das Rohprotein (XP) wird über den Stickstoffgehalt nach Kjeldahl ermittelt und mit dem Faktor 6,25 multipliziert, da Proteine im Mittel etwa 16 % Stickstoff enthalten. Weil jeder Stickstoff erfasst wird, enthält XP auch Nicht-Protein-Stickstoff wie Ammoniak oder Harnstoff. Das Rohfett (XL) ist der Petroletherextrakt, die Rohfaser (XF) der organische Rückstand nach Kochen in verdünnter Säure und Lauge. Die stickstofffreien Extraktstoffe (NfE) werden nicht gemessen, sondern als Differenz berechnet: NfE = TM − (XA + XP + XL + XF). Da bei der Rohfaserbestimmung Teile der Hemicellulose und des Lignins gelöst werden, ist die NfE eine unscharfe Größe. Für Wiederkäuer wird deshalb die Detergenzienanalyse nach Van Soest herangezogen. Die NDF umfasst die gesamte Zellwand aus Hemicellulose, Cellulose und Lignin, die ADF Cellulose und Lignin, das ADL im Wesentlichen das Lignin. Daraus lassen sich Hemicellulose (NDF − ADF) und Cellulose (ADF − ADL) ableiten. Die NDF ist eng mit der Pansenfüllung und damit der Futteraufnahme verknüpft, ADF und ADL mit der Verdaulichkeit. Österreichische Grassilagen des ersten Aufwuchses enthielten im LK-Silageprojekt 2024 im Mittel rund 406 g NDF je kg TM."
+  },
+  "en": {
+    "title": "Feed Analysis",
+    "subtitle": "Weende proximate analysis and Van Soest fibre fractions",
+    "learningGoals": [
+      "Name the fractions of the Weende analysis and how they are determined",
+      "Calculate crude protein from nitrogen content (Kjeldahl, factor 6.25)",
+      "Explain NFE as a difference value and its weaknesses",
+      "Distinguish NDF, ADF and ADL after Van Soest and interpret them for ruminants"
+    ],
+    "slides": [
+      {
+        "title": "The Weende proximate analysis",
+        "bullets": [
+          "DM: drying at 103 °C, the weight loss is water",
+          "CA: ashing at 550 °C – minerals plus sand and soil",
+          "CP: Kjeldahl N × 6.25 (protein contains ~16 % N)",
+          "EE: extraction with petroleum ether",
+          "CF: residue after boiling in dilute acid and alkali",
+          "NFE is not measured: DM − (CA + CP + EE + CF)"
+        ],
+        "diagram": {
+          "type": "stack",
+          "parts": [
+            { "label": "Water", "value": 14 },
+            { "label": "Crude ash (CA)", "value": 7.6 },
+            { "label": "Crude prot. (CP)", "value": 10.1 },
+            { "label": "Ether extr. (EE)", "value": 2.0 },
+            { "label": "Crude fibre (CF)", "value": 24.1 },
+            { "label": "NFE", "value": 42.2 }
+          ],
+          "unit": "% of fresh matter (hay)"
+        },
+        "source": "VDLUFA Methods Book III; Kirchgeßner et al. (2014); hay, guide values"
+      },
+      {
+        "title": "Van Soest fibre fractions",
+        "bullets": [
+          "NDF: cell wall = hemicellulose + cellulose + lignin",
+          "ADF: cellulose + lignin",
+          "ADL: essentially lignin – practically indigestible",
+          "Hemicellulose = NDF − ADF, cellulose = ADF − ADL",
+          "NDF limits feed intake, ADF and ADL limit digestibility",
+          "Crude fibre captures hemicellulose and lignin only partly"
+        ],
+        "diagram": {
+          "type": "table",
+          "head": ["g/kg DM", "NDF", "ADF", "ADL"],
+          "rows": [
+            ["Grass sil. 1st cut", "406", "261", "25"],
+            ["Grass sil. 2nd cut", "450", "297", "37"],
+            ["Maize silage", "378", "221", "27"]
+          ]
+        },
+        "source": "LK Silage Project 2024; FML Rosenau 2015–2024 (Resch 2025)"
+      }
+    ],
+    "board": [
+      { "id": "b1", "lines": ["CP = N × 6.25", "6.25 = 100 : 16", "NFE = DM − (CA+CP+EE+CF)"] },
+      { "id": "b2", "lines": ["NDF = hemicell. + ADF", "ADF = cellulose + ADL", "ADL ≈ lignin", "Hemicell. = NDF − ADF"] }
+    ],
+    "beats": [
+      {
+        "variants": [
+          "We said earlier that feed is the largest cost item. Then we'd better know what's in it – and for that we've had the Weende analysis for more than 150 years.",
+          "Before you calculate a ration, you need to know what's in the feed. The standard method is called the Weende analysis, named after the Weende research station near Göttingen.",
+          "When a feed sample from the experimental farm in Groß-Enzersdorf goes to the lab, it's first broken down according to the Weende scheme – a method from the 1860s."
+        ],
+        "slide": 0,
+        "board": null,
+        "look": "class",
+        "gesture": "open",
+        "pause": 0.7
+      },
+      {
+        "variants": [
+          "First we dry the sample at 103 degrees until the weight is constant: what's left is the dry matter. Then we ash it at 550 degrees – the residue is the crude ash.",
+          "Step one is drying at 103 degrees, which gives us the DM. Then the sample goes into the muffle furnace at 550 degrees – whatever is still there, we call crude ash.",
+          "Dry matter we get by drying at 103 degrees, crude ash by ashing at 550 degrees. By the way, lots of crude ash in a grass silage often means: there was soil in it."
+        ],
+        "slide": null,
+        "board": null,
+        "look": "screen",
+        "gesture": "count",
+        "pause": 0.6
+      },
+      {
+        "variants": [
+          "For crude protein we don't measure protein at all, but nitrogen, classically by Kjeldahl. Let me write it up: N times 6.25 – because protein contains about 16 percent N on average.",
+          "I'll write up the most important formula: CP equals N times 6.25. The factor comes from protein containing 16 percent nitrogen on average – 100 divided by 16 is 6.25.",
+          "For crude protein we determine nitrogen by Kjeldahl and scale it up – that goes on the board: N times 6.25, because 100 divided by 16 percent nitrogen in protein is 6.25."
+        ],
+        "slide": null,
+        "board": "b1",
+        "look": "board",
+        "gesture": "point",
+        "pause": 1.0
+      },
+      {
+        "variants": [
+          "That's why it's called crude protein: every nitrogen counts, including urea, ammonia or free amino acids. That will keep us busy again with ruminants.",
+          "The word crude is meant seriously. The Kjeldahl value also contains non-protein nitrogen, for example ammonia from a silage or added urea.",
+          "Important: the method doesn't care where the nitrogen comes from. Ammonia in a poorly fermented silage raises crude protein just as much as real protein."
+        ],
+        "slide": null,
+        "board": null,
+        "look": "class",
+        "gesture": "emphasis",
+        "pause": 0.6
+      },
+      {
+        "variants": [
+          "Crude fat is extracted with petroleum ether. For crude fibre the sample is boiled in dilute sulphuric acid and then in alkali – the insoluble residue, minus ash, is CF.",
+          "Crude fat is the ether extract. Crude fibre is whatever survives boiling in dilute acid and then in dilute alkali – after deducting the ash.",
+          "Then come ether extract, via petroleum ether, and crude fibre: boil in acid, boil in alkali, weigh the residue, ash it, take the difference."
+        ],
+        "slide": null,
+        "board": null,
+        "look": "notes",
+        "gesture": "explain",
+        "pause": 0.6
+      },
+      {
+        "variants": [
+          "Nobody measures the nitrogen-free extract – NFE is simply what's left: DM minus ash, protein, fat and fibre. So all analytical errors end up right there.",
+          "NFE is a pure difference value, the fraction no lab feels responsible for, so to speak. It contains starch and sugar, but also parts of the hemicellulose and lignin.",
+          "We calculate NFE: DM minus CA, CP, EE and CF. It holds starch and sugar, but also whatever the crude fibre method missed – which is why NFE is rather fuzzy."
+        ],
+        "slide": null,
+        "board": null,
+        "look": "class",
+        "gesture": "shrug",
+        "pause": 0.8
+      },
+      {
+        "variants": [
+          "Exactly this weakness of crude fibre led to the Van Soest analysis. Instead of acid and alkali, it uses detergents and separates the cell wall more cleanly into its components.",
+          "The crude fibre method dissolves part of the hemicellulose and lignin. That's why today we also use the detergent methods after Van Soest.",
+          "For ruminants crude fibre isn't enough, because it captures hemicellulose and lignin only partly. Van Soest developed a better system in the 1960s – let's have a look."
+        ],
+        "slide": 1,
+        "board": null,
+        "look": "screen",
+        "gesture": "explain",
+        "pause": 0.7
+      },
+      {
+        "variants": [
+          "Let me write up the three fractions: NDF is the entire cell wall, so hemicellulose, cellulose and lignin. ADF is cellulose plus lignin, and ADL is practically the lignin.",
+          "I'll write it down: NDF is the whole cell wall. NDF minus ADF gives hemicellulose, ADF minus ADL gives cellulose, and ADL is essentially lignin.",
+          "Quickly on the board: neutral detergent fibre is hemicellulose, cellulose and lignin; acid detergent fibre is cellulose and lignin; acid detergent lignin is the lignin."
+        ],
+        "slide": null,
+        "board": "b2",
+        "look": "board",
+        "gesture": "count",
+        "pause": 1.0
+      },
+      {
+        "variants": [
+          "For the cow this is key: lots of NDF fills the rumen and limits intake, lots of ADF and lignin lower digestibility. Good first-cut grass silage has around 400 g NDF.",
+          "Rule of thumb: NDF stands for rumen fill and feed intake, ADF and ADL for digestibility. In the LK silage project, first cuts averaged just over 400 g NDF per kg DM.",
+          "NDF determines how full the rumen gets and thus feed intake; ADF and lignin determine digestibility. A late-cut regrowth has more of them – you can see it in the table."
+        ],
+        "slide": null,
+        "board": null,
+        "look": "student",
+        "gesture": "emphasis",
+        "pause": 0.8
+      },
+      {
+        "variants": [
+          "In practice this is mostly estimated by near-infrared today, for example at the Rosenau feed lab, calibrated against wet chemistry. We'll need NDF again shortly for the rumen.",
+          "Today the lab often gives you these values by NIRS, calibrated on the classical methods. Keep the fibre fractions in mind – they play the leading role in the rumen.",
+          "No farm has to boil this itself: the silage sample goes to the lab, and you get Weende and Van Soest values back. Please remember NDF for the ruminant."
+        ],
+        "slide": null,
+        "board": null,
+        "look": "class",
+        "gesture": "open",
+        "pause": 1.0
+      }
+    ],
+    "quiz": [
+      {
+        "q": "Which Van Soest fraction comprises hemicellulose, cellulose and lignin?",
+        "correct": "NDF (neutral detergent fibre)",
+        "wrong": ["ADF (acid detergent fibre)", "ADL (acid detergent lignin)", "Weende crude fibre"],
+        "explain": "NDF is the entire cell wall; ADF only contains cellulose and lignin, ADL essentially lignin.",
+        "calc": false
+      },
+      {
+        "q": "How is the nitrogen-free extract (NFE) determined?",
+        "correct": "As a difference – it is not measured directly",
+        "wrong": ["By ashing at 550 °C", "By extraction with petroleum ether", "By boiling in acid and alkali"],
+        "explain": "NFE = DM − (CA + CP + EE + CF); all analytical errors end up in this residual value.",
+        "calc": false
+      },
+      {
+        "q": "A hay sample contains 1.92 % N in the DM. What is its crude protein content?",
+        "correct": "12.0 % of DM",
+        "wrong": ["30.7 % of DM", "19.2 % of DM", "0.3 % of DM"],
+        "explain": "CP = N × 6.25 = 1.92 % × 6.25 = 12.0 % of DM (120 g/kg DM).",
+        "calc": true
+      }
+    ],
+    "calc": {
+      "title": "Weende calculation for a grass silage",
+      "given": "Grass silage, all in DM: 2.4 % N, 9 % CA, 3 % EE, 25 % CF",
+      "steps": ["CP = 2.4 % × 6.25 = 15 %", "Σ = 9 + 15 + 3 + 25 = 52 %", "NFE = 100 − 52 = 48 %"],
+      "result": "NFE ≈ 48 % of DM (480 g/kg DM)"
+    },
+    "notes": [
+      "DM 103 °C · CA 550 °C",
+      "CP = N × 6.25 (protein ~16 % N)",
+      "NFE = difference, not measured",
+      "NDF = hemicellulose + cellulose + lignin",
+      "ADF = cellulose + lignin · ADL ≈ lignin",
+      "NDF ↔ intake, ADF/ADL ↔ digestibility"
+    ],
+    "script": "The Weende proximate analysis was developed in the 1860s at the Weende research station near Göttingen and is still the basis of feed evaluation today. Drying at 103 °C gives the dry matter (DM), ashing at 550 °C the crude ash (CA), which contains not only minerals but also contaminants such as soil. Crude protein (CP) is determined from the nitrogen content by the Kjeldahl method and multiplied by the factor 6.25, since proteins contain about 16 % nitrogen on average. Because every form of nitrogen is captured, CP also includes non-protein nitrogen such as ammonia or urea. Ether extract (EE) is the petroleum ether extract, crude fibre (CF) the organic residue after boiling in dilute acid and alkali. The nitrogen-free extract (NFE) is not measured but calculated as a difference: NFE = DM − (CA + CP + EE + CF). Because parts of the hemicellulose and lignin dissolve during the crude fibre procedure, NFE is an imprecise value. For ruminants, the detergent analysis after Van Soest is therefore used. NDF comprises the entire cell wall of hemicellulose, cellulose and lignin, ADF cellulose and lignin, and ADL essentially the lignin. From these, hemicellulose (NDF − ADF) and cellulose (ADF − ADL) can be derived. NDF is closely linked to rumen fill and thus feed intake, ADF and ADL to digestibility. In the LK Silage Project 2024, Austrian first-cut grass silages contained on average about 406 g NDF per kg DM."
+  }
+}

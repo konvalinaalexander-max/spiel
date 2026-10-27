@@ -1,0 +1,362 @@
+{
+  "id": "futtermittelrecht",
+  "order": 14,
+  "core": false,
+  "plannedMinutes": 5,
+  "de": {
+    "title": "Futtermittelrecht und Qualitätssicherung",
+    "subtitle": "EU-Recht, Kontrolle in Österreich, Kennzeichnung und Mykotoxine",
+    "learningGoals": [
+      "Die wichtigsten EU-Rechtsakte und das Futtermittelgesetz 1999 nennen",
+      "Zuständigkeiten der Futtermittelkontrolle in Österreich beschreiben",
+      "Die Kennzeichnung eines Mischfuttermittels lesen und verstehen",
+      "Mykotoxine DON, ZEA und Aflatoxin und ihre Bedeutung einordnen"
+    ],
+    "slides": [
+      {
+        "title": "Rechtsrahmen und Kontrolle",
+        "bullets": [
+          "EU: VO 178/2002 (Grundsätze), 183/2005 (Futtermittelhygiene)",
+          "VO 767/2009: Inverkehrbringen und Kennzeichnung",
+          "Zusatzstoffe: VO 1831/2003 – nur zugelassene Stoffe",
+          "Unerwünschte Stoffe: RL 2002/32/EG – Höchstgehalte",
+          "Österreich: Futtermittelgesetz 1999, Futtermittelverordnung 2010",
+          "BAES/AGES: Hersteller und Handel; Länder: Kontrolle am Hof"
+        ],
+        "diagram": {
+          "type": "flow",
+          "items": ["Einzelfuttermittel", "Mischfutterwerk", "Handel", "Landwirt", "Tier", "Lebensmittel"],
+          "direction": "right",
+          "highlight": 1
+        },
+        "source": "BMLUK; AGES; VO (EG) Nr. 767/2009"
+      },
+      {
+        "title": "Kennzeichnung und Mykotoxine",
+        "bullets": [
+          "Etikett: Futtermittelart, Tierart, Inhaltsstoffe, Zusatzstoffe",
+          "Einzelfuttermittel in absteigender Reihenfolge nach Gewicht",
+          "DON (Vomitoxin): Schweine reagieren am empfindlichsten",
+          "ZEA: östrogen wirksam – Jungsauen, Fruchtbarkeit",
+          "Aflatoxin B1 → M1 in der Milch: strenger Höchstgehalt",
+          "Gentechnikfrei: GVO-Spuren ≤ 0,9 %, nur zufällig/unvermeidbar"
+        ],
+        "diagram": {
+          "type": "table",
+          "head": ["Mykotoxin", "Futter", "mg/kg (88 % TM)"],
+          "rows": [
+            ["DON", "Schweinefutter", "0,9"],
+            ["DON", "Rinderfutter", "5"],
+            ["ZEA", "Sau/Mastschwein", "0,25"],
+            ["ZEA", "Milchrind", "0,5"],
+            ["Aflatoxin B1", "Milchviehfutter", "0,005"]
+          ]
+        },
+        "source": "Orientierungswerte: Empf. 2006/576/EG; Aflatoxin: RL 2002/32/EG"
+      }
+    ],
+    "board": [
+      { "id": "b1", "lines": ["VO 767/2009: Kennzeichnung", "VO 1831/2003: Zusatzstoffe", "RL 2002/32: unerw. Stoffe", "FMG 1999 (Österreich)"] },
+      { "id": "b2", "lines": ["Alleinfutter: deckt Bedarf", "Ergänzungsf.: + Grundfutter", "Mineralfutter: ≥ 40 % XA", "Zutaten absteigend (Gewicht)"] },
+      { "id": "b3", "lines": ["DON Schwein: 0,9 mg/kg", "ZEA Sau: 0,25 mg/kg", "AFB_{1} Milchvieh: 0,005 mg/kg", "AFM_{1} Milch: 0,05 µg/kg"] }
+    ],
+    "beats": [
+      {
+        "variants": [
+          "Futtermittel sind das erste Glied der Lebensmittelkette. Spätestens seit BSE und den Dioxinfällen gilt: Futtermittelsicherheit ist Lebensmittelsicherheit. Entsprechend dicht ist das Recht.",
+          "Ein Abschnitt Recht, ich halte ihn kurz. Der Grundgedanke: Was die Kuh frisst, landet indirekt auf unserem Teller. Darum ist Futtermittelrecht im Kern Verbraucherschutz.",
+          "Warum regelt der Gesetzgeber Futter so genau? Weil BSE, Dioxin im Futterfett und Mykotoxine gezeigt haben, wie schnell Probleme vom Trog in die Lebensmittel wandern."
+        ],
+        "slide": 0, "board": null, "look": "class", "gesture": "open", "pause": 0.6
+      },
+      {
+        "variants": [
+          "Fast alles ist EU-Recht: Die Verordnung 178/2002 legt die Grundsätze fest, 183/2005 die Futtermittelhygiene, 767/2009 Inverkehrbringen und Kennzeichnung, 1831/2003 die Zusatzstoffe.",
+          "Ich schreib Ihnen die wichtigsten Nummern an: 767/2009 für die Kennzeichnung, 1831/2003 für die Zusatzstoffe, die Richtlinie 2002/32 für unerwünschte Stoffe. Dazu das österreichische Futtermittelgesetz 1999.",
+          "Den Rahmen setzt die EU: Hygiene, Kennzeichnung, Zusatzstoffe, unerwünschte Stoffe – jeweils eigene Rechtsakte. Österreich ergänzt mit dem Futtermittelgesetz 1999 und der Futtermittelverordnung 2010."
+        ],
+        "slide": null, "board": "b1", "look": "board", "gesture": "count", "pause": 0.9
+      },
+      {
+        "variants": [
+          "Kontrolliert wird zweigeteilt: Das Bundesamt für Ernährungssicherheit ist für Herstellung und Inverkehrbringen zuständig, untersucht wird bei der AGES. Die Verfütterung am Hof kontrollieren die Länder.",
+          "Wer kontrolliert? Hersteller und Handel prüft das BAES gemeinsam mit der AGES, die Proben zieht und analysiert. Am Betrieb sind die Bundesländer zuständig – auch Sie als Landwirt sind Futtermittelunternehmer.",
+          "In Österreich teilen sich Bund und Länder die Aufgabe: BAES und AGES prüfen Futtermittelwerke und Händler, die Länder kontrollieren die Verfütterung am Hof. Registriert sein müssen übrigens auch Landwirte."
+        ],
+        "slide": null, "board": null, "look": "class", "gesture": "explain", "pause": 0.8
+      },
+      {
+        "variants": [
+          "Zusatzstoffe brauchen eine EU-Zulassung, und zwar für Tierart, Dosierung und Zweck. Es gibt technologische, sensorische, ernährungsphysiologische und zootechnische Zusatzstoffe sowie Kokzidiostatika.",
+          "Bei Zusatzstoffen gilt das Positivprinzip: Erlaubt ist nur, was zugelassen ist – Vitamine, Spurenelemente, Enzyme wie Phytase, Siliermittel. Antibiotische Leistungsförderer sind seit 2006 verboten.",
+          "Zusatzstoffe sind zulassungspflichtig, von der Phytase bis zum Selen. Die Zulassung legt Tierart, Höchstgehalte und Dauer fest. Antibiotika als Leistungsförderer sind in der EU seit 2006 verboten."
+        ],
+        "slide": null, "board": null, "look": "notes", "gesture": "glasses", "pause": 0.7
+      },
+      {
+        "variants": [
+          "Schauen wir aufs Etikett eines Milchleistungsfutters: Futtermittelart, also Allein-, Ergänzungs- oder Mineralfutter, dann Tierart, Inhaltsstoffe wie Rohprotein, Zusatzstoffe und die Zutaten nach Gewicht absteigend.",
+          "Auf jedem Sack steht, was es ist: Alleinfutter deckt den Bedarf allein, Ergänzungsfutter nur mit Grundfutter, Mineralfutter hat mindestens 40 % Rohasche. Die Einzelfuttermittel stehen nach Gewicht absteigend.",
+          "Lesen Sie einmal ein Etikett genau: Art des Futtermittels, Tierart, Fütterungshinweis, analytische Bestandteile, Zusatzstoffe, Zusammensetzung absteigend nach Gewicht. Mineralfutter: mindestens 40 % Rohasche."
+        ],
+        "slide": 1, "board": "b2", "look": "board", "gesture": "point", "pause": 0.9
+      },
+      {
+        "variants": [
+          "Wichtig ist der Unterschied: Für unerwünschte Stoffe wie Aflatoxin B1, Dioxin oder Schwermetalle gibt es verbindliche Höchstgehalte. Was darüber liegt, darf auch nicht durch Verschneiden verdünnt werden.",
+          "Unterscheiden Sie Höchstgehalte und Orientierungswerte: Höchstgehalte – etwa für Aflatoxin B1 oder Blei – sind verbindlich, ein Verdünnen durch Mischen ist verboten. Für DON und ZEA gibt es EU-Orientierungswerte.",
+          "Bei Aflatoxin, Dioxin oder Cadmium sind die Höchstgehalte rechtlich bindend, belastete Partien darf man nicht durch Mischen verdünnen. Für DON und ZEA hat die EU dagegen Orientierungswerte empfohlen."
+        ],
+        "slide": null, "board": null, "look": "class", "gesture": "emphasis", "pause": 0.8
+      },
+      {
+        "variants": [
+          "DON und ZEA bilden Fusarien schon am Feld – bei nasser Blüte kann das auch auf unserer Versuchswirtschaft in Groß-Enzersdorf passieren. Schweine sind am empfindlichsten: 0,9 mg DON je Kilo, Sauen 0,25 mg ZEA.",
+          "In der Steiermark, wo viel Körnermais an Schweine geht, ist DON ein Dauerbrenner: Ab etwa 0,9 mg je Kilo drohen Futterverweigerung und Leistungseinbußen. ZEA wirkt östrogen, Richtwert für Sauen 0,25 mg.",
+          "Fusarientoxine entstehen auf dem Feld: DON, auch Vomitoxin genannt, macht Schweine futterscheu, Richtwert 0,9 mg je Kilo. ZEA wirkt wie ein Östrogen und stört die Fruchtbarkeit, für Sauen 0,25 mg je Kilo."
+        ],
+        "slide": null, "board": "b3", "look": "board", "gesture": "count", "pause": 1.0
+      },
+      {
+        "variants": [
+          "Aflatoxin B1 stammt von Aspergillus, eher aus warmen Regionen oder schlechter Lagerung. Es geht als M1 in die Milch über, daher im Milchviehfutter nur 0,005 mg je Kilo. Die Werte gelten bei 88 % TM.",
+          "Aflatoxine sind Lagerpilzgifte und stark krebserregend. Die Kuh scheidet einen Teil als Aflatoxin M1 mit der Milch aus – deshalb der strenge Höchstgehalt von 0,005 mg je Kilo Milchviehfutter.",
+          "Nach heißen, trockenen Sommern ist Aflatoxin im Mais auch in Südosteuropa ein Thema. Für uns entscheidend: Es geht als M1 in die Milch, deshalb gilt im Milchviehfutter ein Höchstgehalt von 0,005 mg je Kilo."
+        ],
+        "slide": null, "board": null, "look": "window", "gesture": "explain", "pause": 0.8
+      },
+      {
+        "variants": [
+          "Merken Sie sich die Größenordnungen, nicht jede Kommastelle: Die EU hat die Orientierungswerte für Mykotoxine 2026 überarbeitet, teils werden sie strenger. Die Logik bleibt – das Schwein ist am empfindlichsten.",
+          "Ein Hinweis fürs Lernen: Die EU-Orientierungswerte für DON und ZEA wurden 2026 neu gefasst und teils gesenkt, sie greifen schrittweise. Wichtiger als die Kommastelle ist die Reihenfolge: Schwein vor Rind.",
+          "Zur Aktualität: Die Kommission hat 2026 eine neue Empfehlung zu Mykotoxinen im Futter beschlossen, mit teils niedrigeren Werten. Merken Sie sich die Größenordnung – und dass Schweine empfindlicher sind als Wiederkäuer."
+        ],
+        "slide": null, "board": null, "look": "student", "gesture": "shrug", "pause": 0.7
+      },
+      {
+        "variants": [
+          "Über das Gesetz hinaus gibt's Qualitätssicherung, in Österreich etwa pastus+ für die Futtermittelwirtschaft. Gentechnikfrei heißt: nicht kennzeichnungspflichtig, also GVO-Spuren bis 0,9 %, zufällig und unvermeidbar.",
+          "Dazu kommen private Standards wie pastus+ für Futtermittelhersteller und -händler. Für die gentechnikfreie Milch darf das Futter höchstens 0,9 % zufällige, technisch unvermeidbare GVO-Anteile enthalten.",
+          "Und die Gentechnikfreiheit? Futter gilt als GVO-frei, wenn es nicht kennzeichnungspflichtig ist – zufällige, unvermeidbare Spuren bis 0,9 %. Geprüft wird über Programme wie pastus+ und amtliche Proben."
+        ],
+        "slide": null, "board": null, "look": "class", "gesture": "explain", "pause": 0.8
+      }
+    ],
+    "quiz": [
+      {
+        "q": "Schweinefutter: 50 % Mais mit 1,6 mg DON/kg, der Rest DON-frei. Wie hoch ist der DON-Gehalt?",
+        "correct": "0,8 mg DON/kg",
+        "wrong": ["1,6 mg DON/kg", "3,2 mg DON/kg", "0,5 mg DON/kg"],
+        "explain": "0,50 × 1,6 mg/kg = 0,8 mg/kg – knapp unter dem Orientierungswert von 0,9 mg/kg für Schweine.",
+        "calc": true
+      },
+      {
+        "q": "Wer kontrolliert in Österreich die Verfütterung am landwirtschaftlichen Betrieb?",
+        "correct": "Die Bundesländer",
+        "wrong": ["Ausschließlich die AGES", "Die Landwirtschaftskammer", "Die Europäische Kommission direkt"],
+        "explain": "Das BAES (mit der AGES) kontrolliert Herstellung und Inverkehrbringen, die Länder die Verfütterung am Hof.",
+        "calc": false
+      },
+      {
+        "q": "Warum ist Aflatoxin B1 im Milchviehfutter besonders streng geregelt?",
+        "correct": "Es geht als Aflatoxin M1 in die Milch über",
+        "wrong": ["Es verursacht Buttersäuregärung", "Es senkt den Pansen-pH stark ab", "Es ist nur für Schweine giftig"],
+        "explain": "Ein Teil des Aflatoxin B1 wird als M1 mit der Milch ausgeschieden; der Höchstgehalt in Milch liegt bei 0,05 µg/kg.",
+        "calc": false
+      }
+    ],
+    "calc": {
+      "title": "DON-Belastung eines Schweinefutters abschätzen",
+      "given": "Alleinfutter: 60 % Körnermais mit 1,2 mg DON/kg, 30 % Weizen mit 0,3 mg/kg, 10 % Sojaschrot ohne DON (alle Werte bei 88 % TM)",
+      "steps": ["Mais: 0,60 × 1,2 = 0,72", "Weizen: 0,30 × 0,3 = 0,09", "Soja: 0,10 × 0 = 0", "Summe ≈ 0,81 mg DON/kg", "< 0,9 → unter Richtwert"],
+      "result": "≈ 0,81 mg DON/kg Alleinfutter – knapp unter dem Orientierungswert von 0,9 mg/kg"
+    },
+    "notes": [
+      "Futtersicherheit ist Lebensmittelsicherheit",
+      "Kennzeichnung: VO 767/2009",
+      "BAES/AGES: Handel; Länder: Kontrolle am Hof",
+      "Höchstgehalt verbindlich, kein Verschneiden",
+      "DON Schwein 0,9; ZEA Sau 0,25 mg/kg",
+      "Aflatoxin B1 → M1 in die Milch"
+    ],
+    "script": "Futtermittel bilden das erste Glied der Lebensmittelkette; Futtermittelsicherheit ist daher Teil des Verbraucherschutzes. Das Futtermittelrecht ist weitgehend durch EU-Rechtsakte geregelt: Die Verordnung (EG) Nr. 178/2002 enthält die allgemeinen Grundsätze einschließlich der Rückverfolgbarkeit, die Verordnung (EG) Nr. 183/2005 die Anforderungen an die Futtermittelhygiene, die auch für Landwirte als Futtermittelunternehmer gelten. Die Verordnung (EG) Nr. 767/2009 regelt Inverkehrbringen und Kennzeichnung, die Verordnung (EG) Nr. 1831/2003 die Zulassung von Zusatzstoffen und die Richtlinie 2002/32/EG die Höchstgehalte unerwünschter Stoffe. In Österreich setzen das Futtermittelgesetz 1999 und die Futtermittelverordnung 2010 diese Vorgaben um. Das Bundesamt für Ernährungssicherheit ist für die Kontrolle von Herstellung und Inverkehrbringen zuständig, die AGES führt Probenahmen und Analysen durch; die Kontrolle der Verfütterung am landwirtschaftlichen Betrieb obliegt den Ländern. Die Kennzeichnung eines Mischfuttermittels umfasst unter anderem Futtermittelart, Tierart, analytische Bestandteile, Zusatzstoffe und die Einzelfuttermittel in absteigender Reihenfolge ihres Gewichtsanteils. Für Aflatoxin B1 gelten verbindliche Höchstgehalte, da es als Aflatoxin M1 in die Milch übergeht; für Deoxynivalenol und Zearalenon bestehen EU-Orientierungswerte, die 2026 überarbeitet wurden. Schweine reagieren auf diese Fusarientoxine besonders empfindlich. Private Qualitätssicherungssysteme ergänzen die amtliche Kontrolle; gentechnikfreie Fütterung erlaubt nur zufällige, technisch unvermeidbare GVO-Anteile bis 0,9 %."
+  },
+  "en": {
+    "title": "Feed law and quality assurance",
+    "subtitle": "EU law, controls in Austria, labelling and mycotoxins",
+    "learningGoals": [
+      "Name the key EU acts and the Austrian Feed Act 1999",
+      "Describe the responsibilities for feed control in Austria",
+      "Read and understand the label of a compound feed",
+      "Assess the mycotoxins DON, ZEA and aflatoxin and their relevance"
+    ],
+    "slides": [
+      {
+        "title": "Legal framework and control",
+        "bullets": [
+          "EU: Reg. 178/2002 (principles), 183/2005 (feed hygiene)",
+          "Reg. 767/2009: placing on the market and labelling",
+          "Additives: Reg. 1831/2003 – authorised substances only",
+          "Undesirable substances: Dir. 2002/32/EC – maximum levels",
+          "Austria: Feed Act 1999, Feed Ordinance 2010",
+          "BAES/AGES: manufacturers and trade; provinces: on-farm control"
+        ],
+        "diagram": {
+          "type": "flow",
+          "items": ["Feed materials", "Feed mill", "Trade", "Farmer", "Animal", "Food"],
+          "direction": "right",
+          "highlight": 1
+        },
+        "source": "BMLUK; AGES; Reg. (EC) No 767/2009"
+      },
+      {
+        "title": "Labelling and mycotoxins",
+        "bullets": [
+          "Label: feed type, species, analytical constituents, additives",
+          "Feed materials listed in descending order by weight",
+          "DON (vomitoxin): pigs are the most sensitive",
+          "ZEA: oestrogenic – gilts, fertility",
+          "Aflatoxin B1 → M1 in milk: strict maximum level",
+          "GM-free: GM traces ≤ 0.9 %, adventitious/unavoidable only"
+        ],
+        "diagram": {
+          "type": "table",
+          "head": ["Mycotoxin", "Feed", "mg/kg (88 % DM)"],
+          "rows": [
+            ["DON", "Pig feed", "0.9"],
+            ["DON", "Cattle feed", "5"],
+            ["ZEA", "Sows/fatteners", "0.25"],
+            ["ZEA", "Dairy cattle", "0.5"],
+            ["Aflatoxin B1", "Dairy feed", "0.005"]
+          ]
+        },
+        "source": "Guidance values: Rec. 2006/576/EC; aflatoxin: Dir. 2002/32/EC"
+      }
+    ],
+    "board": [
+      { "id": "b1", "lines": ["Reg. 767/2009: labelling", "Reg. 1831/2003: additives", "Dir. 2002/32: undesirables", "FMG 1999 (Austrian law)"] },
+      { "id": "b2", "lines": ["complete feed: covers needs", "complementary: + forage", "mineral feed: ≥ 40 % ash", "ingredients by weight ↓"] },
+      { "id": "b3", "lines": ["DON pigs: 0.9 mg/kg", "ZEA sows: 0.25 mg/kg", "AFB_{1} dairy: 0.005 mg/kg", "AFM_{1} milk: 0.05 µg/kg"] }
+    ],
+    "beats": [
+      {
+        "variants": [
+          "Feed is the first link in the food chain. Since BSE and the dioxin incidents at the latest, the rule is: feed safety is food safety. The legislation is correspondingly dense.",
+          "A section on law – I'll keep it short. The basic idea: what the cow eats ends up indirectly on our plate. That's why feed law is essentially consumer protection.",
+          "Why does the legislator regulate feed so precisely? Because BSE, dioxin in feed fat and mycotoxins have shown how quickly problems move from the trough into food."
+        ],
+        "slide": 0, "board": null, "look": "class", "gesture": "open", "pause": 0.6
+      },
+      {
+        "variants": [
+          "Almost everything is EU law: Regulation 178/2002 lays down the principles, 183/2005 feed hygiene, 767/2009 placing on the market and labelling, 1831/2003 the additives.",
+          "I'll write the key numbers up: 767/2009 for labelling, 1831/2003 for additives, Directive 2002/32 for undesirable substances. Plus the Austrian Feed Act of 1999.",
+          "The EU sets the framework: hygiene, labelling, additives, undesirable substances – each with its own legal act. Austria adds the Feed Act 1999 and the Feed Ordinance 2010."
+        ],
+        "slide": null, "board": "b1", "look": "board", "gesture": "count", "pause": 0.9
+      },
+      {
+        "variants": [
+          "Control is split in two: the Federal Office for Food Safety is responsible for manufacturing and placing on the market, testing is done at AGES. Feeding on the farm is controlled by the provinces.",
+          "Who checks? Manufacturers and trade: the BAES together with AGES, which takes samples and analyses them. On the farm the federal provinces are responsible – and as a farmer you're a feed business operator too.",
+          "In Austria the federal state and the provinces share the job: BAES and AGES inspect feed mills and traders, the provinces control feeding on the farm. Farmers, by the way, must be registered as well."
+        ],
+        "slide": null, "board": null, "look": "class", "gesture": "explain", "pause": 0.8
+      },
+      {
+        "variants": [
+          "Additives need EU authorisation – for species, dosage and purpose. There are technological, sensory, nutritional and zootechnical additives as well as coccidiostats.",
+          "For additives the positive principle applies: only what is authorised is allowed – vitamins, trace elements, enzymes such as phytase, silage additives. Antibiotic growth promoters have been banned since 2006.",
+          "Additives require authorisation, from phytase to selenium. The authorisation sets species, maximum levels and duration. Antibiotics as growth promoters have been banned in the EU since 2006."
+        ],
+        "slide": null, "board": null, "look": "notes", "gesture": "glasses", "pause": 0.7
+      },
+      {
+        "variants": [
+          "Let's look at the label of a dairy concentrate: feed type, i.e. complete, complementary or mineral feed, then species, constituents such as crude protein, additives and the ingredients by descending weight.",
+          "Every bag says what it is: a complete feed covers needs on its own, a complementary feed only with forage, a mineral feed has at least 40 % crude ash. Feed materials are listed by descending weight.",
+          "Read a label carefully once: type of feed, species, directions for use, analytical constituents, additives, composition by descending weight. Mineral feed means at least 40 % crude ash."
+        ],
+        "slide": 1, "board": "b2", "look": "board", "gesture": "point", "pause": 0.9
+      },
+      {
+        "variants": [
+          "The difference matters: for undesirable substances such as aflatoxin B1, dioxin or heavy metals there are binding maximum levels. Anything above may not be diluted by mixing either.",
+          "Distinguish maximum levels from guidance values: maximum levels – for aflatoxin B1 or lead, say – are binding, and diluting by mixing is prohibited. For DON and ZEA there are EU guidance values.",
+          "For aflatoxin, dioxin or cadmium the maximum levels are legally binding; contaminated batches may not be diluted by mixing. For DON and ZEA, by contrast, the EU has recommended guidance values."
+        ],
+        "slide": null, "board": null, "look": "class", "gesture": "emphasis", "pause": 0.8
+      },
+      {
+        "variants": [
+          "DON and ZEA are formed by Fusarium already in the field – with a wet flowering period, even at our experimental farm in Groß-Enzersdorf. Pigs are the most sensitive: 0.9 mg DON per kilo, sows 0.25 mg ZEA.",
+          "In Styria, where a lot of grain maize goes to pigs, DON is a perennial issue: from about 0.9 mg per kilo, feed refusal and performance losses threaten. ZEA is oestrogenic, guidance value for sows 0.25 mg.",
+          "Fusarium toxins form in the field: DON, also called vomitoxin, makes pigs reluctant to eat, guidance value 0.9 mg per kilo. ZEA acts like an oestrogen and disturbs fertility, for sows 0.25 mg per kilo."
+        ],
+        "slide": null, "board": "b3", "look": "board", "gesture": "count", "pause": 1.0
+      },
+      {
+        "variants": [
+          "Aflatoxin B1 comes from Aspergillus, rather from warm regions or poor storage. It passes into milk as M1, hence only 0.005 mg per kilo in dairy feed. The values apply at 88 % DM.",
+          "Aflatoxins are storage-fungus toxins and strongly carcinogenic. The cow excretes part of them as aflatoxin M1 in milk – hence the strict maximum level of 0.005 mg per kilo of dairy feed.",
+          "After hot, dry summers, aflatoxin in maize is an issue in south-eastern Europe too. What matters for us: it passes into milk as M1, so dairy feed has a maximum level of 0.005 mg per kilo."
+        ],
+        "slide": null, "board": null, "look": "window", "gesture": "explain", "pause": 0.8
+      },
+      {
+        "variants": [
+          "Remember the orders of magnitude, not every decimal: the EU revised the mycotoxin guidance values in 2026, and some become stricter step by step. The logic stays – the pig is the most sensitive.",
+          "A tip for learning: the EU guidance values for DON and ZEA were revised in 2026 and partly lowered; they apply step by step. More important than the decimal is the ranking: pig before cattle.",
+          "On being up to date: in 2026 the Commission adopted a new recommendation on mycotoxins in feed, with partly lower values. Remember the order of magnitude – and that pigs are far more sensitive than ruminants."
+        ],
+        "slide": null, "board": null, "look": "student", "gesture": "shrug", "pause": 0.7
+      },
+      {
+        "variants": [
+          "Beyond the law there's quality assurance, in Austria for example pastus+ for the feed industry. And GM-free means: not subject to labelling, i.e. GM traces at most 0.9 %, adventitious and unavoidable.",
+          "On top come private standards such as pastus+ for feed manufacturers and traders. For GM-free milk, the feed may contain at most 0.9 % adventitious, technically unavoidable GM material.",
+          "And GM-free status? Feed counts as GM-free if it isn't subject to labelling – adventitious, unavoidable traces up to 0.9 %. It's checked via schemes such as pastus+ and official sampling."
+        ],
+        "slide": null, "board": null, "look": "class", "gesture": "explain", "pause": 0.8
+      }
+    ],
+    "quiz": [
+      {
+        "q": "Pig feed: 50 % maize with 1.6 mg DON/kg, the rest DON-free. What is the DON content?",
+        "correct": "0.8 mg DON/kg",
+        "wrong": ["1.6 mg DON/kg", "3.2 mg DON/kg", "0.5 mg DON/kg"],
+        "explain": "0.50 × 1.6 mg/kg = 0.8 mg/kg – just below the guidance value of 0.9 mg/kg for pigs.",
+        "calc": true
+      },
+      {
+        "q": "Who controls feeding on the farm in Austria?",
+        "correct": "The federal provinces",
+        "wrong": ["AGES alone", "The Chamber of Agriculture", "The European Commission directly"],
+        "explain": "BAES (with AGES) controls manufacturing and placing on the market; the provinces control feeding on the farm.",
+        "calc": false
+      },
+      {
+        "q": "Why is aflatoxin B1 regulated so strictly in dairy feed?",
+        "correct": "It passes into milk as aflatoxin M1",
+        "wrong": ["It causes butyric fermentation", "It lowers rumen pH sharply", "It is toxic only to pigs"],
+        "explain": "Part of the aflatoxin B1 is excreted in milk as M1; the maximum level in milk is 0.05 µg/kg.",
+        "calc": false
+      }
+    ],
+    "calc": {
+      "title": "Estimating the DON load of a pig feed",
+      "given": "Complete feed: 60 % grain maize with 1.2 mg DON/kg, 30 % wheat with 0.3 mg/kg, 10 % soybean meal without DON (all values at 88 % DM)",
+      "steps": ["maize: 0.60 × 1.2 = 0.72", "wheat: 0.30 × 0.3 = 0.09", "soy: 0.10 × 0 = 0", "total ≈ 0.81 mg DON/kg", "< 0.9 → below guidance"],
+      "result": "≈ 0.81 mg DON/kg complete feed – just below the guidance value of 0.9 mg/kg"
+    },
+    "notes": [
+      "Feed safety is food safety",
+      "Labelling: Reg. 767/2009",
+      "BAES/AGES: trade; provinces: on-farm control",
+      "Maximum level binding, no dilution",
+      "DON pigs 0.9; ZEA sows 0.25 mg/kg",
+      "Aflatoxin B1 → M1 in milk"
+    ],
+    "script": "Feed is the first link in the food chain; feed safety is therefore part of consumer protection. Feed law is largely governed by EU legal acts: Regulation (EC) No 178/2002 contains the general principles including traceability, Regulation (EC) No 183/2005 the requirements for feed hygiene, which also apply to farmers as feed business operators. Regulation (EC) No 767/2009 governs placing on the market and labelling, Regulation (EC) No 1831/2003 the authorisation of additives, and Directive 2002/32/EC the maximum levels of undesirable substances. In Austria, the Feed Act 1999 and the Feed Ordinance 2010 implement these requirements. The Federal Office for Food Safety (BAES) is responsible for controlling manufacturing and placing on the market, while AGES carries out sampling and analyses; control of feeding on the farm is the responsibility of the federal provinces. The label of a compound feed includes, among other things, the type of feed, the target species, analytical constituents, additives and the feed materials in descending order of their weight. Binding maximum levels apply to aflatoxin B1 because it passes into milk as aflatoxin M1; for deoxynivalenol and zearalenone there are EU guidance values, which were revised in 2026. Pigs are particularly sensitive to these Fusarium toxins. Private quality assurance schemes complement official control; GM-free feeding only permits adventitious, technically unavoidable GM content of up to 0.9 %."
+  }
+}

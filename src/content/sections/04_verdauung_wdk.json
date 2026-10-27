@@ -1,0 +1,426 @@
+{
+  "id": "verdauung_wdk",
+  "order": 4,
+  "core": true,
+  "plannedMinutes": 9,
+  "de": {
+    "title": "Verdauung beim Wiederkäuer",
+    "subtitle": "Vormägen, Pansenmikroben, Fettsäuren und Struktur",
+    "learningGoals": [
+      "Aufbau und Funktion des Vormagensystems beschreiben",
+      "Bildung und Bedeutung von Acetat, Propionat und Butyrat erklären",
+      "Ursachen und Folgen der subakuten Pansenazidose benennen",
+      "Strukturwirksamkeit, Wiederkauen, Speichel und Methanbildung einordnen"
+    ],
+    "slides": [
+      {
+        "title": "Vormagensystem und Pansenmikrobiom",
+        "bullets": [
+          "Pansen, Netzmagen, Blättermagen – danach der Labmagen",
+          "Pansenvolumen der Milchkuh: rund 160 Liter",
+          "Bakterien, Protozoen, Pilze und methanbildende Archaeen",
+          "Gärprodukte: Acetat, Propionat, Butyrat, CO₂ und CH₄",
+          "Acetat ~60–70 %, Propionat ~15–25 %, Butyrat ~10–15 %",
+          "Die Fettsäuren decken den Großteil des Energiebedarfs"
+        ],
+        "diagram": { "type": "stomach", "highlight": "pansen" },
+        "source": "Kirchgeßner et al. (2014); LfL Bayern, Merkblatt Pansen (2020)"
+      },
+      {
+        "title": "Pansen-pH, Azidose und Struktur",
+        "bullets": [
+          "Normaler Pansen-pH: etwa 6,2 bis 7,0",
+          "SARA: pH länger als ~5 Stunden am Tag unter 5,8",
+          "Ursache: viel rasch abbaubare Stärke, zu wenig Struktur",
+          "peNDF regt Wiederkauen an: etwa 7–10 Stunden pro Tag",
+          "Speichel puffert mit Bicarbonat: rund 100–200 l pro Tag",
+          "Methan: etwa 6–7 % der Bruttoenergie gehen verloren"
+        ],
+        "diagram": {
+          "type": "line",
+          "x": [0, 2, 4, 6, 8, 10, 12],
+          "y": [6.5, 6.1, 5.7, 5.6, 5.8, 6.1, 6.4],
+          "xLabel": "Stunden nach Kraftfuttergabe",
+          "yLabel": "Pansen-pH",
+          "threshold": { "value": 5.8, "label": "SARA-Grenze" }
+        },
+        "source": "LfL Bayern (2020); Zebeli et al. (2008, 2012); schematischer Verlauf"
+      }
+    ],
+    "board": [
+      { "id": "b1", "lines": ["Kohlenhydrate → FFS", "Acetat ~ 60-70 %", "Propionat ~ 15-25 %", "Butyrat ~ 10-15 %", "+ CO_{2} und CH_{4}"] },
+      { "id": "b2", "lines": ["peNDF → Wiederkauen", "→ Speichel 100-200 l/Tag", "→ Bicarbonat puffert", "SARA: pH < 5,8 für > 5 h/d"] },
+      { "id": "b3", "lines": ["CO_{2} + 4 H_{2} → CH_{4} + 2 H_{2}O", "Verlust ~ 6-7 % der GE"] }
+    ],
+    "beats": [
+      {
+        "variants": [
+          "Kommen wir zur Kuh – erinnern Sie sich an die NDF aus der Futtermittelanalyse? Genau diese Zellwand kann kein Säugetier selbst verdauen, die Kuh lässt das ihre Mikroben erledigen.",
+          "Jetzt der Wiederkäuer. Bei Van Soest haben wir die Zellwand kennengelernt; Cellulose spalten können aber nur Mikroben, und die hält die Kuh in ihren Vormägen.",
+          "Wie wir bei der Analytik gesehen haben, besteht Grundfutter zu einem großen Teil aus NDF. Die Kuh kann das nutzen, weil sie vor den eigentlichen Magen eine Gärkammer geschaltet hat."
+        ],
+        "slide": 0,
+        "board": null,
+        "look": "class",
+        "gesture": "open",
+        "pause": 0.7
+      },
+      {
+        "variants": [
+          "Das Vormagensystem besteht aus Pansen, Netzmagen und Blättermagen; erst der Labmagen entspricht unserem Magen. Der Pansen einer Milchkuh fasst rund 160 Liter.",
+          "Auf der Folie: Pansen, Netzmagen, Blättermagen – das sind die Vormägen, danach kommt der Labmagen als eigentlicher Drüsenmagen. Allein der Pansen hat bei der Milchkuh grob 160 Liter.",
+          "Drei Vormägen, ein echter Magen: Pansen, Netzmagen und Blättermagen fermentieren, sortieren und entwässern, der Labmagen verdaut mit Säure. Der Pansen ist mit etwa 160 Litern der größte."
+        ],
+        "slide": null,
+        "board": null,
+        "look": "screen",
+        "gesture": "point",
+        "pause": 0.6
+      },
+      {
+        "variants": [
+          "Im Pansen leben Bakterien, Protozoen, Pilze und Archaeen – pro Milliliter Pansensaft Milliarden Bakterien. Die Kuh füttert eigentlich ihre Mikroben, und die Mikroben füttern die Kuh.",
+          "Im Pansen arbeiten Bakterien, Protozoen, Pilze und Archaeen. Die Kuh ist sozusagen Vermieterin von 160 Litern Gärraum – die Miete zahlen die Mikroben in Energie und Eiweiß.",
+          "Bakterien, Protozoen, anaerobe Pilze, dazu methanbildende Archaeen: Im Pansensaft sind es Milliarden Mikroben pro Milliliter. Sie bauen die Kohlenhydrate ab, die Kuh lebt von den Produkten."
+        ],
+        "slide": null,
+        "board": null,
+        "look": "class",
+        "gesture": "explain",
+        "pause": 0.7
+      },
+      {
+        "variants": [
+          "Ich schreib Ihnen die Produkte an: flüchtige Fettsäuren. Bei raufutterreicher Ration sind das etwa 60 bis 70 Prozent Essigsäure, 15 bis 25 Prozent Propionsäure, 10 bis 15 Prozent Buttersäure.",
+          "An die Tafel kommt das Fettsäuremuster: Acetat mit grob 60 bis 70 Prozent, Propionat mit 15 bis 25, Butyrat mit 10 bis 15 Prozent. Dazu entstehen Kohlendioxid und Methan.",
+          "Was dabei herauskommt, notier ich Ihnen: Acetat, Propionat, Butyrat. Bei viel Grundfutter dominiert Acetat mit etwa 60 bis 70 Prozent, Propionat liegt bei 15 bis 25, Butyrat bei 10 bis 15."
+        ],
+        "slide": null,
+        "board": "b1",
+        "look": "board",
+        "gesture": "count",
+        "pause": 1.0
+      },
+      {
+        "variants": [
+          "Diese Fettsäuren decken den Großteil des Energiebedarfs der Kuh. Acetat ist Baustein fürs Milchfett, Propionat wird in der Leber zu Glucose – und daraus macht das Euter Milchzucker.",
+          "Wozu das Ganze? Aus Propionat bildet die Leber Glucose für den Milchzucker, Acetat und Butyrat liefern Energie und die Bausteine für das Milchfett.",
+          "Merken Sie sich: Acetat gleich Milchfett, Propionat gleich Glucose und damit Milchmenge. Mehr Kraftfutter verschiebt das Muster Richtung Propionat – und kann das Milchfett drücken."
+        ],
+        "slide": null,
+        "board": null,
+        "look": "student",
+        "gesture": "emphasis",
+        "pause": 0.7
+      },
+      {
+        "variants": [
+          "Der Pansen-pH sollte etwa zwischen 6,2 und 7 liegen. Bleibt er länger als rund fünf Stunden am Tag unter 5,8, sprechen wir von subakuter Pansenazidose, kurz SARA.",
+          "Auf der Kurve sehen Sie, was nach einer großen Kraftfuttergabe passiert: Der pH fällt. Liegt er täglich mehr als etwa fünf Stunden unter 5,8, ist das eine subakute Pansenazidose.",
+          "Normal ist ein Pansen-pH von etwa 6,2 bis 7. Kritisch wird's, wenn er mehr als ungefähr fünf Stunden pro Tag unter 5,8 liegt – das ist die übliche Definition der subakuten Azidose."
+        ],
+        "slide": 1,
+        "board": null,
+        "look": "screen",
+        "gesture": "point",
+        "pause": 0.8
+      },
+      {
+        "variants": [
+          "Ursache ist fast immer zu viel rasch abbaubare Stärke bei zu wenig Struktur. Die Folgen: schwankende Futteraufnahme, sinkendes Milchfett, dünner Kot und später oft Klauenprobleme.",
+          "Typischer Fall im Mostviertel: viel Maissilage, viel Getreide, wenig Heu. Die Kühe fressen unregelmäßig, das Milchfett fällt ab, der Kot wird dünn, und Klauenrehe folgt nicht selten.",
+          "SARA sieht man nicht sofort: Hinweise sind wechselnde Futteraufnahme, niedriges Milchfett, dünner Kot und langfristig Klauenrehe. Auslöser sind zu viel schnell vergärbare Stärke und zu wenig Struktur."
+        ],
+        "slide": null,
+        "board": null,
+        "look": "class",
+        "gesture": "count",
+        "pause": 0.7
+      },
+      {
+        "variants": [
+          "Die Gegenmaßnahme schreib ich Ihnen an: Struktur. Physikalisch effektive NDF regt das Wiederkauen an, sieben bis zehn Stunden am Tag, und dabei bildet die Kuh 100 bis 200 Liter Speichel.",
+          "Hier die Kette an der Tafel: peNDF sorgt fürs Kauen, Kauen für Speichel, und der Speichel puffert mit Bicarbonat. Eine Milchkuh produziert so rund 100 bis 200 Liter Speichel täglich.",
+          "Ich notier's Ihnen: Strukturwirksame Faser, also peNDF, bringt die Kuh zum Wiederkauen. Dabei fließen grob 100 bis 200 Liter Speichel pro Tag in den Pansen – ein natürlicher Bicarbonatpuffer."
+        ],
+        "slide": null,
+        "board": "b2",
+        "look": "board",
+        "gesture": "explain",
+        "pause": 1.0
+      },
+      {
+        "variants": [
+          "peNDF ist der Teil der NDF in ausreichend langen Partikeln, geprüft etwa mit der Schüttelbox. Als Untergrenze gelten grob 18 Prozent peNDF über acht Millimeter in der Rations-TM.",
+          "Die physikalisch effektive NDF ist NDF mal dem Anteil langer Partikel. Mit der Schüttelbox prüft man das am Futtertisch; über acht Millimeter sollten es rund 18 Prozent der TM sein.",
+          "Struktur misst man nicht nur im Labor: Die Schüttelbox zeigt, wie viel Futter in langen Partikeln vorliegt. Daraus ergibt sich die peNDF – Richtwert etwa 18 Prozent der TM über 8 mm."
+        ],
+        "slide": null,
+        "board": null,
+        "look": "student",
+        "gesture": "question",
+        "pause": 0.7
+      },
+      {
+        "variants": [
+          "Ein Nebenprodukt der Gärung schreib ich Ihnen noch an: Methan. Archaeen machen aus CO2 und Wasserstoff CH4, und damit verliert die Kuh rund 6 bis 7 Prozent der Bruttoenergie.",
+          "Zuletzt die Gleichung an der Tafel: CO2 plus Wasserstoff ergibt Methan. Das sind bei einer Milchkuh einige hundert Gramm am Tag und etwa 6 bis 7 Prozent der Bruttoenergie.",
+          "Methan entsteht, weil Archaeen den Wasserstoff aus der Gärung abfangen – ich schreib's an. Für die Kuh ist das ein Energieverlust von etwa 6 bis 7 Prozent, fürs Klima ein Treibhausgas."
+        ],
+        "slide": null,
+        "board": "b3",
+        "look": "board",
+        "gesture": "emphasis",
+        "pause": 1.2
+      }
+    ],
+    "quiz": [
+      {
+        "q": "Welche flüchtige Fettsäure dominiert bei raufutterreicher Fütterung im Pansen?",
+        "correct": "Essigsäure (Acetat), etwa 60–70 %",
+        "wrong": ["Propionsäure, etwa 60–70 %", "Buttersäure, etwa 60–70 %", "Milchsäure, etwa 60–70 %"],
+        "explain": "Raufutterreiche Rationen liefern vor allem Acetat; Propionat liegt bei etwa 15–25 %, Butyrat bei 10–15 %.",
+        "calc": false
+      },
+      {
+        "q": "Wann spricht man von einer subakuten Pansenazidose (SARA)?",
+        "correct": "pH länger als etwa 5 Stunden täglich unter 5,8",
+        "wrong": ["pH dauerhaft über 7,0", "pH zwischen 6,2 und 6,8", "pH kurz unter 6,5 nach dem Melken"],
+        "explain": "Normal sind etwa 6,2–7,0; SARA liegt vor, wenn der pH mehr als rund 5 h/Tag unter 5,8 fällt.",
+        "calc": false
+      },
+      {
+        "q": "Eine Kuh nimmt 18 kg TM mit 18,5 MJ GE/kg auf; 6 % der GE gehen als Methan verloren. Wie viel Energie ist das?",
+        "correct": "≈ 20 MJ pro Tag",
+        "wrong": ["≈ 3 MJ pro Tag", "≈ 111 MJ pro Tag", "≈ 333 MJ pro Tag"],
+        "explain": "18 kg × 18,5 MJ = 333 MJ GE; 333 MJ × 0,06 ≈ 20 MJ als Methan.",
+        "calc": true
+      }
+    ],
+    "calc": {
+      "title": "Energieverlust über Methan",
+      "given": "Milchkuh: 20 kg TM mit 18,5 MJ GE/kg; Methanverlust 6,5 % der GE; 55,65 MJ je kg CH₄",
+      "steps": ["GE = 20 kg × 18,5 = 370 MJ", "CH_{4}-Energie = 370 × 0,065", "= 24 MJ je Tag", "24 MJ : 55,65 MJ/kg", "≈ 0,43 kg CH_{4} je Tag"],
+      "result": "≈ 24 MJ bzw. rund 430 g Methan pro Tag"
+    },
+    "notes": [
+      "Pansen ~160 l · Netz-, Blätter-, Labmagen",
+      "Acetat 60–70 %, Propionat 15–25 %, Butyrat",
+      "Propionat → Glucose; Acetat → Milchfett",
+      "Pansen-pH 6,2–7,0 · SARA < 5,8 über > 5 h",
+      "peNDF → Wiederkauen → 100–200 l Speichel",
+      "Methan ≈ 6–7 % der GE"
+    ],
+    "script": "Wiederkäuer besitzen vor dem Labmagen, der dem Drüsenmagen der Monogastrier entspricht, ein Vormagensystem aus Pansen, Netzmagen und Blättermagen. Der Pansen einer Milchkuh fasst rund 160 Liter und beherbergt eine dichte Gemeinschaft aus Bakterien, Protozoen, anaeroben Pilzen und methanbildenden Archaeen. Diese Mikroben bauen Kohlenhydrate einschließlich der Cellulose zu flüchtigen Fettsäuren, Kohlendioxid und Methan ab. Bei raufutterreicher Fütterung entfallen etwa 60–70 % der Fettsäuren auf Acetat, 15–25 % auf Propionat und 10–15 % auf Butyrat; stärkereiche Rationen verschieben das Muster zugunsten von Propionat. Die Fettsäuren werden über die Pansenwand resorbiert und decken den Großteil des Energiebedarfs. Propionat ist die wichtigste Vorstufe der Gluconeogenese in der Leber, Acetat und Butyrat dienen der Energiegewinnung und der Milchfettsynthese. Der Pansen-pH liegt normalerweise bei etwa 6,2 bis 7,0. Sinkt er mehr als rund fünf Stunden pro Tag unter 5,8, liegt eine subakute Pansenazidose (SARA) vor, meist ausgelöst durch zu viel rasch fermentierbare Stärke bei zu wenig Struktur. Folgen sind schwankende Futteraufnahme, Milchfettdepression, dünner Kot und Klauenrehe. Strukturwirksame Faser (peNDF) regt das Wiederkauen an, das bei Milchkühen etwa 7 bis 10 Stunden täglich dauert. Dabei werden rund 100 bis 200 Liter Speichel gebildet, dessen Bicarbonat und Phosphat die Fettsäuren puffern. Als Richtwert gelten etwa 18 % peNDF (Partikel über 8 mm) in der Rations-TM. Methan entsteht, indem Archaeen Wasserstoff mit CO₂ zu CH₄ umsetzen; dabei gehen etwa 6–7 % der Bruttoenergie verloren."
+  },
+  "en": {
+    "title": "Digestion in Ruminants",
+    "subtitle": "Forestomachs, rumen microbes, fatty acids and fibre structure",
+    "learningGoals": [
+      "Describe the structure and function of the forestomach system",
+      "Explain the formation and role of acetate, propionate and butyrate",
+      "Name causes and consequences of subacute ruminal acidosis",
+      "Interpret effective fibre, rumination, saliva and methane formation"
+    ],
+    "slides": [
+      {
+        "title": "Forestomachs and the rumen microbiome",
+        "bullets": [
+          "Rumen, reticulum, omasum – followed by the abomasum",
+          "Rumen volume of a dairy cow: about 160 litres",
+          "Bacteria, protozoa, fungi and methanogenic archaea",
+          "Fermentation products: acetate, propionate, butyrate, CO₂, CH₄",
+          "Acetate ~60–70 %, propionate ~15–25 %, butyrate ~10–15 %",
+          "The fatty acids cover most of the energy requirement"
+        ],
+        "diagram": { "type": "stomach", "highlight": "pansen" },
+        "source": "Kirchgeßner et al. (2014); LfL Bavaria, rumen fact sheet (2020)"
+      },
+      {
+        "title": "Rumen pH, acidosis and fibre structure",
+        "bullets": [
+          "Normal rumen pH: about 6.2 to 7.0",
+          "SARA: pH below 5.8 for more than ~5 hours a day",
+          "Cause: lots of rapidly degradable starch, too little structure",
+          "peNDF stimulates rumination: about 7–10 hours per day",
+          "Saliva buffers with bicarbonate: about 100–200 l per day",
+          "Methane: about 6–7 % of gross energy is lost"
+        ],
+        "diagram": {
+          "type": "line",
+          "x": [0, 2, 4, 6, 8, 10, 12],
+          "y": [6.5, 6.1, 5.7, 5.6, 5.8, 6.1, 6.4],
+          "xLabel": "Hours after concentrate feeding",
+          "yLabel": "Rumen pH",
+          "threshold": { "value": 5.8, "label": "SARA threshold" }
+        },
+        "source": "LfL Bavaria (2020); Zebeli et al. (2008, 2012); schematic curve"
+      }
+    ],
+    "board": [
+      { "id": "b1", "lines": ["Carbohydrates → VFA", "Acetate ~ 60-70 %", "Propionate ~ 15-25 %", "Butyrate ~ 10-15 %", "+ CO_{2} and CH_{4}"] },
+      { "id": "b2", "lines": ["peNDF → rumination", "→ saliva 100-200 l/day", "→ bicarbonate buffers", "SARA: pH < 5.8 for > 5 h/d"] },
+      { "id": "b3", "lines": ["CO_{2} + 4 H_{2} → CH_{4} + 2 H_{2}O", "Loss ~ 6-7 % of GE"] }
+    ],
+    "beats": [
+      {
+        "variants": [
+          "Let's turn to the cow – remember NDF from feed analysis? No mammal can digest this cell wall by itself, so the cow leaves that job to her microbes.",
+          "Now the ruminant. With Van Soest we got to know the cell wall; but only microbes can split cellulose, and the cow keeps them in her forestomachs.",
+          "As we saw in feed analysis, forage consists largely of NDF. The cow can use it because she has a fermentation chamber placed in front of her actual stomach."
+        ],
+        "slide": 0,
+        "board": null,
+        "look": "class",
+        "gesture": "open",
+        "pause": 0.7
+      },
+      {
+        "variants": [
+          "The forestomach system consists of rumen, reticulum and omasum; only the abomasum corresponds to our stomach. The rumen of a dairy cow holds about 160 litres.",
+          "On the slide: rumen, reticulum, omasum – those are the forestomachs, followed by the abomasum as the true glandular stomach. The rumen alone holds roughly 160 litres in a dairy cow.",
+          "Three forestomachs, one true stomach: rumen, reticulum and omasum ferment, sort and dewater, the abomasum digests with acid. At about 160 litres, the rumen is the largest."
+        ],
+        "slide": null,
+        "board": null,
+        "look": "screen",
+        "gesture": "point",
+        "pause": 0.6
+      },
+      {
+        "variants": [
+          "The rumen is home to bacteria, protozoa, fungi and archaea – billions of bacteria per millilitre of rumen fluid. The cow really feeds her microbes, and the microbes feed the cow.",
+          "Bacteria, protozoa, fungi and archaea work in the rumen. The cow is the landlady of 160 litres of fermentation space, so to speak – and the microbes pay rent in energy and protein.",
+          "Bacteria, protozoa, anaerobic fungi, plus methanogenic archaea: rumen fluid holds billions of microbes per millilitre. They break down carbohydrates, and the cow lives on the products."
+        ],
+        "slide": null,
+        "board": null,
+        "look": "class",
+        "gesture": "explain",
+        "pause": 0.7
+      },
+      {
+        "variants": [
+          "Let me write up the products: volatile fatty acids. On a forage-rich ration that's about 60 to 70 percent acetic acid, 15 to 25 percent propionic acid, 10 to 15 percent butyric acid.",
+          "The fatty acid pattern goes on the board: acetate at roughly 60 to 70 percent, propionate at 15 to 25, butyrate at 10 to 15 percent. Carbon dioxide and methane are formed as well.",
+          "What comes out, I'll note for you: acetate, propionate, butyrate. With lots of forage, acetate dominates at about 60 to 70 percent, propionate is at 15 to 25, butyrate at 10 to 15."
+        ],
+        "slide": null,
+        "board": "b1",
+        "look": "board",
+        "gesture": "count",
+        "pause": 1.0
+      },
+      {
+        "variants": [
+          "These fatty acids cover most of the cow's energy requirement. Acetate is a building block for milk fat, propionate becomes glucose in the liver – and the udder turns that into lactose.",
+          "What's it all for? From propionate the liver makes glucose for lactose, while acetate and butyrate supply energy and the building blocks for milk fat.",
+          "Remember: acetate means milk fat, propionate means glucose and thus milk yield. More concentrate shifts the pattern towards propionate – and can depress milk fat."
+        ],
+        "slide": null,
+        "board": null,
+        "look": "student",
+        "gesture": "emphasis",
+        "pause": 0.7
+      },
+      {
+        "variants": [
+          "Rumen pH should be roughly between 6.2 and 7. If it stays below 5.8 for more than about five hours a day, we speak of subacute ruminal acidosis, SARA for short.",
+          "On the curve you see what happens after a big concentrate meal: the pH drops. If it's below 5.8 for more than about five hours daily, that's subacute ruminal acidosis.",
+          "A rumen pH of about 6.2 to 7 is normal. It becomes critical when it's below 5.8 for more than roughly five hours a day – that's the usual definition of subacute acidosis."
+        ],
+        "slide": 1,
+        "board": null,
+        "look": "screen",
+        "gesture": "point",
+        "pause": 0.8
+      },
+      {
+        "variants": [
+          "The cause is almost always too much rapidly degradable starch and too little structure. The consequences: fluctuating intake, falling milk fat, loose faeces and often hoof problems later.",
+          "A typical case in the Mostviertel: lots of maize silage, lots of grain, little hay. The cows eat irregularly, milk fat drops, faeces get loose, and laminitis often follows.",
+          "You don't see SARA straight away: signs are variable intake, low milk fat, loose faeces and in the long run laminitis. Triggers are too much rapidly fermentable starch and too little structure."
+        ],
+        "slide": null,
+        "board": null,
+        "look": "class",
+        "gesture": "count",
+        "pause": 0.7
+      },
+      {
+        "variants": [
+          "Let me write up the countermeasure: structure. Physically effective NDF stimulates rumination, seven to ten hours a day, and the cow produces 100 to 200 litres of saliva in the process.",
+          "Here's the chain on the board: peNDF ensures chewing, chewing ensures saliva, and saliva buffers with bicarbonate. A dairy cow produces about 100 to 200 litres of saliva daily this way.",
+          "I'll note it for you: physically effective fibre, peNDF, makes the cow ruminate. Roughly 100 to 200 litres of saliva a day flow into the rumen – a natural bicarbonate buffer."
+        ],
+        "slide": null,
+        "board": "b2",
+        "look": "board",
+        "gesture": "explain",
+        "pause": 1.0
+      },
+      {
+        "variants": [
+          "peNDF is the part of NDF in sufficiently long particles, checked for example with the shaker box. As a lower limit, roughly 18 percent peNDF above eight millimetres in ration DM applies.",
+          "Physically effective NDF is NDF times the share of long particles. You check it at the feed bunk with the shaker box; above eight millimetres it should be about 18 percent of DM.",
+          "Structure isn't only measured in the lab: the shaker box shows how much feed is in long particles. That gives you peNDF – guide value about 18 percent of DM above 8 mm."
+        ],
+        "slide": null,
+        "board": null,
+        "look": "student",
+        "gesture": "question",
+        "pause": 0.7
+      },
+      {
+        "variants": [
+          "One more by-product of fermentation for the board: methane. Archaea make CH4 from CO2 and hydrogen, and the cow loses about 6 to 7 percent of her gross energy that way.",
+          "Finally the equation on the board: CO2 plus hydrogen gives methane. For a dairy cow that's a few hundred grams a day and about 6 to 7 percent of gross energy.",
+          "Methane forms because archaea capture the hydrogen from fermentation – I'll write it up. For the cow it's an energy loss of about 6 to 7 percent, for the climate a greenhouse gas."
+        ],
+        "slide": null,
+        "board": "b3",
+        "look": "board",
+        "gesture": "emphasis",
+        "pause": 1.2
+      }
+    ],
+    "quiz": [
+      {
+        "q": "Which volatile fatty acid dominates in the rumen on forage-rich diets?",
+        "correct": "Acetic acid (acetate), about 60–70 %",
+        "wrong": ["Propionic acid, about 60–70 %", "Butyric acid, about 60–70 %", "Lactic acid, about 60–70 %"],
+        "explain": "Forage-rich rations mainly yield acetate; propionate is about 15–25 %, butyrate 10–15 %.",
+        "calc": false
+      },
+      {
+        "q": "When do we speak of subacute ruminal acidosis (SARA)?",
+        "correct": "pH below 5.8 for more than about 5 hours daily",
+        "wrong": ["pH permanently above 7.0", "pH between 6.2 and 6.8", "pH briefly below 6.5 after milking"],
+        "explain": "About 6.2–7.0 is normal; SARA is present when pH falls below 5.8 for more than about 5 h/day.",
+        "calc": false
+      },
+      {
+        "q": "A cow eats 18 kg DM with 18.5 MJ GE/kg; 6 % of GE is lost as methane. How much energy is that?",
+        "correct": "≈ 20 MJ per day",
+        "wrong": ["≈ 3 MJ per day", "≈ 111 MJ per day", "≈ 333 MJ per day"],
+        "explain": "18 kg × 18.5 MJ = 333 MJ GE; 333 MJ × 0.06 ≈ 20 MJ as methane.",
+        "calc": true
+      }
+    ],
+    "calc": {
+      "title": "Energy loss via methane",
+      "given": "Dairy cow: 20 kg DM with 18.5 MJ GE/kg; methane loss 6.5 % of GE; 55.65 MJ per kg CH₄",
+      "steps": ["GE = 20 kg × 18.5 = 370 MJ", "CH_{4} energy = 370 × 0.065", "= 24 MJ per day", "24 MJ : 55.65 MJ/kg", "≈ 0.43 kg CH_{4} per day"],
+      "result": "≈ 24 MJ, or about 430 g of methane per day"
+    },
+    "notes": [
+      "Rumen ~160 l · reticulum, omasum, abomasum",
+      "Acetate 60–70 %, propionate 15–25 %, butyrate",
+      "Propionate → glucose; acetate → milk fat",
+      "Rumen pH 6.2–7.0 · SARA < 5.8 for > 5 h",
+      "peNDF → rumination → 100–200 l saliva",
+      "Methane ≈ 6–7 % of GE"
+    ],
+    "script": "Ahead of the abomasum, which corresponds to the glandular stomach of monogastrics, ruminants have a forestomach system consisting of rumen, reticulum and omasum. The rumen of a dairy cow holds about 160 litres and harbours a dense community of bacteria, protozoa, anaerobic fungi and methanogenic archaea. These microbes break down carbohydrates, including cellulose, into volatile fatty acids, carbon dioxide and methane. On forage-rich diets about 60–70 % of the fatty acids are acetate, 15–25 % propionate and 10–15 % butyrate; starch-rich rations shift the pattern towards propionate. The fatty acids are absorbed through the rumen wall and cover most of the energy requirement. Propionate is the most important precursor of gluconeogenesis in the liver, while acetate and butyrate serve energy supply and milk fat synthesis. Rumen pH is normally about 6.2 to 7.0. If it falls below 5.8 for more than about five hours a day, subacute ruminal acidosis (SARA) is present, usually triggered by too much rapidly fermentable starch combined with too little structure. Consequences are fluctuating feed intake, milk fat depression, loose faeces and laminitis. Physically effective fibre (peNDF) stimulates rumination, which lasts about 7 to 10 hours daily in dairy cows. This produces about 100 to 200 litres of saliva, whose bicarbonate and phosphate buffer the fatty acids. A guide value is about 18 % peNDF (particles above 8 mm) in ration DM. Methane is formed when archaea convert hydrogen and CO₂ to CH₄; about 6–7 % of gross energy is lost in the process."
+  }
+}

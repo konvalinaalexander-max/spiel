@@ -1,0 +1,358 @@
+{
+  "id": "stoffwechsel",
+  "order": 11,
+  "core": false,
+  "plannedMinutes": 6,
+  "de": {
+    "title": "Stoffwechselstörungen der Milchkuh",
+    "subtitle": "Transitphase, Ketose, Milchfieber, Pansenazidose und Weidetetanie",
+    "learningGoals": [
+      "Transitphase und negative Energiebilanz beschreiben",
+      "Ketose, Milchfieber und subakute Pansenazidose fütterungsbedingt erklären",
+      "DCAB-Konzept und Einsatz saurer Salze verstehen",
+      "Body Condition Score als Werkzeug der Fütterungskontrolle nutzen"
+    ],
+    "slides": [
+      {
+        "title": "Transitphase: drei Wochen vor bis drei Wochen nach der Kalbung",
+        "bullets": [
+          "Futteraufnahme sinkt vor der Kalbung, Bedarf steigt steil an",
+          "Negative Energiebilanz → Fettmobilisierung → Ketose (BHB ↑)",
+          "Subklinische Ketose ab etwa 1,2 mmol BHB/l Blut",
+          "Milchfieber: Blut-Ca fällt mit Beginn der Kolostrumbildung",
+          "DCAB senken: K-arme Ration, gegebenenfalls saure Salze",
+          "Folgen: Labmagenverlagerung, Gebärmutterentzündung, Fruchtbarkeit"
+        ],
+        "diagram": {
+          "type": "flow",
+          "items": ["Futteraufnahme ↓", "Energiedefizit", "Fettmobilisierung", "Ketose (BHB ↑)", "Labmagen verlagert"],
+          "direction": "right",
+          "highlight": 3
+        },
+        "source": "Gruber Tabelle (LfL 2024); DLG (2023)"
+      },
+      {
+        "title": "Azidose, Weidetetanie und Körperkondition",
+        "bullets": [
+          "SARA: Pansen-pH über Stunden unter etwa 5,8",
+          "Ursache: viel Stärke/Zucker, zu wenig strukturwirksame Faser",
+          "Weidetetanie: Mg-Mangel bei jungem, kaliumreichem Gras",
+          "Vorbeugung: Mg zufüttern, Weidegang langsam anfüttern",
+          "BCS (Skala 1–5): Kondition regelmäßig beurteilen"
+        ],
+        "diagram": {
+          "type": "table",
+          "head": ["Phase", "Fleckvieh", "Holstein/Braunvieh"],
+          "rows": [
+            ["Kalbung", "4,0", "3,5"],
+            ["Tag 1–100", "4,0–3,5", "3,5–3,0"],
+            ["Tag 101–200", "3,5", "3,0"],
+            ["ab Tag 201", "3,5–4,0", "3,0–3,5"]
+          ]
+        },
+        "source": "BCS-Zielwerte nach Gruber Tabelle (LfL 2024)"
+      }
+    ],
+    "board": [
+      { "id": "b1", "lines": ["Bedarf ↑ > Aufnahme ↑", "→ negative Energiebilanz", "Fett → NEFA → Leber → BHB", "BHB ≥ 1,2 mmol/l: subklinisch", "BHB ≥ 3,0 mmol/l: klinisch"] },
+      { "id": "b2", "lines": ["DCAB = (Na + K) − (Cl + S)", "in mEq/kg TM", "saure Salze: −100 bis 0", "Kontrolle: Harn-pH 6,0-7,0"] },
+      { "id": "b3", "lines": ["Weidetetanie: Mg ↓, K ↑", "BCS Kalbung: FV 4,0 / HF 3,5", "Abbau bis Tag 100: ~0,5", "verfettet → frisst weniger"] }
+    ],
+    "beats": [
+      {
+        "variants": [
+          "Jetzt schauen wir, was passiert, wenn Ration und Kuh nicht zusammenpassen. Die kritischste Zeit ist die Transitphase, etwa drei Wochen vor bis drei Wochen nach der Kalbung.",
+          "Rund um die Kalbung entscheidet sich die ganze Laktation. Die drei Wochen davor und danach nennen wir Transitphase – und da passieren die meisten Stoffwechselstörungen.",
+          "Die beste Ration nützt nichts, wenn die Kuh nicht frisst. Und genau das ist das Problem der Transitphase: drei Wochen vor bis drei Wochen nach dem Abkalben."
+        ],
+        "slide": 0, "board": null, "look": "class", "gesture": "open", "pause": 0.6
+      },
+      {
+        "variants": [
+          "Nach der Kalbung steigt die Milchleistung schnell, die Futteraufnahme hinkt aber wochenlang hinterher. Die Lücke deckt die Kuh aus dem Körperfett – das ist die negative Energiebilanz.",
+          "Die Milch steigt steil an, die Futteraufnahme nur langsam. Ergebnis: Die Kuh gibt mehr Energie ab, als sie aufnimmt, und baut Körperfett ab. Wir sprechen von negativer Energiebilanz.",
+          "Das Grundproblem: Bedarf rauf, Appetit noch nicht. Frischlaktierende Kühe holen sich die fehlende Energie aus den Fettreserven – eine negative Bilanz ist anfangs normal, nur nicht beliebig tief."
+        ],
+        "slide": null, "board": null, "look": "screen", "gesture": "explain", "pause": 0.8
+      },
+      {
+        "variants": [
+          "Wird zu viel Fett mobilisiert, kommt die Leber nicht nach: Aus den freien Fettsäuren entstehen Ketonkörper, vor allem BHB. Ab etwa 1,2 mmol/l im Blut sprechen wir von subklinischer Ketose.",
+          "Die freigesetzten Fettsäuren, die NEFA, landen in der Leber. Ist die überfordert, bildet sie Ketonkörper wie Beta-Hydroxybutyrat. Ab rund 1,2 mmol BHB je Liter: subklinisch, ab 3: klinisch.",
+          "Ketose ist die Folge zu starker Fettmobilisierung: Leber überlastet, Ketonkörper steigen. Gemessen wird BHB im Blut – ab etwa 1,2 mmol/l subklinisch, ab etwa 3 mmol/l klinische Ketose."
+        ],
+        "slide": null, "board": "b1", "look": "board", "gesture": "explain", "pause": 1.0
+      },
+      {
+        "variants": [
+          "Besonders gefährdet sind verfettete Kühe: Sie fressen nach der Kalbung weniger und mobilisieren mehr. Vorbeugen heißt also, schon im letzten Laktationsdrittel die Kondition im Auge zu behalten.",
+          "Paradox, aber wahr: Die dicke Kuh hat das größte Ketoserisiko, weil sie nach der Kalbung schlechter frisst. Die Vorbeugung beginnt deshalb im letzten Laktationsdrittel und beim Trockenstellen.",
+          "Wer Ketose vermeiden will, darf die Kuh am Ende der Laktation nicht verfetten lassen. Fette Kühe fressen nach dem Abkalben weniger – und rutschen damit noch tiefer ins Energiedefizit."
+        ],
+        "slide": null, "board": null, "look": "class", "gesture": "emphasis", "pause": 0.8
+      },
+      {
+        "variants": [
+          "Zweites Thema: Milchfieber, eigentlich eine Hypokalzämie. Das Kalb im Mutterleib braucht nur wenige Gramm Kalzium am Tag, das Kolostrum plötzlich 30 bis 50 g. Fieber hat die Kuh übrigens keines.",
+          "Milchfieber heißt so, hat aber mit Fieber nichts zu tun – die Kühe sind eher unterkühlt. Es ist ein Kalziumabfall: Mit dem Kolostrum steigt der Ca-Bedarf schlagartig von wenigen auf 30 bis 50 g am Tag.",
+          "Beim Milchfieber, der Gebärparese, fällt das Blutkalzium ab, weil das Kolostrum auf einmal 30 bis 50 g Ca am Tag braucht. Und trotz des Namens: Die Kuh ist dabei eher kühl als fiebrig."
+        ],
+        "slide": null, "board": null, "look": "student", "gesture": "explain", "pause": 0.8
+      },
+      {
+        "variants": [
+          "Vorbeugen lässt sich über die DCAB: Natrium und Kalium minus Chlorid und Schwefel. Senken wir sie mit sauren Salzen, sinkt der Blut-pH leicht, und die Kuh mobilisiert Kalzium besser aus dem Skelett.",
+          "Ich schreib die DCAB an: Kationen minus Anionen. Kaliumreiches Gras treibt sie hoch. Saure Salze in den letzten zwei bis drei Wochen senken sie Richtung −100 bis 0 – das trainiert die Ca-Mobilisierung.",
+          "Das Werkzeug heißt DCAB. Senken wir sie mit sauren Salzen auf etwa −100 bis 0 mEq je Kilo TM, wird die Kalziummobilisierung aus dem Knochen trainiert. Kontrolle über den Harn-pH, Ziel 6 bis 7."
+        ],
+        "slide": null, "board": "b2", "look": "board", "gesture": "count", "pause": 1.0
+      },
+      {
+        "variants": [
+          "Dann die subakute Pansenazidose, Sie erinnern sich an den Pansen-pH: Bleibt er über Stunden unter etwa 5,8, leidet die Faserverdauung. Ursache sind zu viel Stärke und zu wenig Struktur.",
+          "Subakute Pansenazidose, kurz SARA: zu viel rasch fermentierbare Stärke, zu wenig strukturwirksame Faser, der pH bleibt stundenlang unter etwa 5,8. Folgen: weniger Futteraufnahme, weniger Milchfett.",
+          "Kommt die Kuh nach der Kalbung zu schnell auf viel Kraftfutter, droht SARA – der Pansen-pH liegt dann über Stunden unter rund 5,8. Darum Kraftfutter langsam steigern und auf Struktur achten."
+        ],
+        "slide": 1, "board": null, "look": "screen", "gesture": "point", "pause": 0.8
+      },
+      {
+        "variants": [
+          "Im Frühjahr beim Weideaustrieb droht die Weidetetanie: Junges, stark gedüngtes Gras ist arm an Magnesium und reich an Kalium, und Kalium hemmt die Mg-Aufnahme. Mobilisieren kann die Kuh Mg kaum.",
+          "Weidetetanie ist ein akuter Magnesiummangel. Typisch: erster Weidegang auf junges, kaliumreiches Gras. Da die Kuh Magnesium kaum speichert, braucht sie es täglich – also Mg zufüttern, langsam anweiden.",
+          "Ein Klassiker im Frühjahr, auch vor dem Almauftrieb: Weidetetanie. Junges Gras bringt viel Kalium und wenig Magnesium, und weil die Kuh kein Mg-Depot hat, wird's schnell kritisch. Also Mg ergänzen."
+        ],
+        "slide": null, "board": null, "look": "window", "gesture": "explain", "pause": 0.8
+      },
+      {
+        "variants": [
+          "Und was haben Ketose und Milchfieber mit dem Labmagen zu tun? Beide bremsen die Magen-Darm-Motorik. Dazu ist nach der Kalbung im Bauch Platz frei – der Labmagen verlagert sich, meist nach links.",
+          "Die Labmagenverlagerung ist oft eine Folgeerkrankung: Wenig Futter, Ketose und Kalziummangel schwächen die Motorik, nach der Kalbung ist im Bauchraum Platz – und der Labmagen wandert, meist nach links.",
+          "Typische Folgekrankheit in den ersten Wochen nach der Kalbung: die linksseitige Labmagenverlagerung. Sie hängt eng mit geringer Futteraufnahme, Ketose und Hypokalzämie zusammen."
+        ],
+        "slide": null, "board": null, "look": "class", "gesture": "question", "pause": 0.8
+      },
+      {
+        "variants": [
+          "Ein einfaches Werkzeug ist der Body Condition Score, Skala 1 bis 5. Zur Kalbung sollen Fleckviehkühe etwa 4,0 haben, Holstein eher 3,5, und bis Tag 100 nicht mehr als rund einen halben Punkt verlieren.",
+          "Schauen Sie sich die Kühe an: Beim BCS beurteilen wir Lende, Hüft- und Sitzbeinhöcker und Schwanzansatz. Ziel zur Kalbung bei Fleckvieh etwa 4, bei Holstein 3,5 – Abbau danach maximal rund 0,5.",
+          "Die Kondition kontrollieren wir mit dem BCS: Fleckvieh zur Kalbung um 4, Holstein um 3,5, in den ersten hundert Tagen höchstens etwa einen halben Punkt Abbau. Mehr heißt: zu tiefes Energiedefizit."
+        ],
+        "slide": null, "board": "b3", "look": "board", "gesture": "count", "pause": 0.9
+      }
+    ],
+    "quiz": [
+      {
+        "q": "Bedarf 130 MJ NEL, Aufnahme 16 kg TM mit 6,9 MJ NEL/kg TM. Wie hoch ist die Energiebilanz?",
+        "correct": "≈ −20 MJ NEL pro Tag",
+        "wrong": ["≈ +20 MJ NEL pro Tag", "≈ −110 MJ NEL pro Tag", "≈ −7 MJ NEL pro Tag"],
+        "explain": "16 × 6,9 ≈ 110 MJ; 110 − 130 ≈ −20 MJ NEL.",
+        "calc": true
+      },
+      {
+        "q": "Was soll der Einsatz saurer Salze vor der Kalbung bewirken?",
+        "correct": "Die Ca-Mobilisierung aus dem Skelett anregen",
+        "wrong": ["Den Pansen-pH stabilisieren", "Die Futteraufnahme deutlich steigern", "Mehr Kalzium über das Futter zuführen"],
+        "explain": "Eine niedrige DCAB senkt den Blut-pH leicht und trainiert die Kalziummobilisierung – das beugt Milchfieber vor.",
+        "calc": false
+      },
+      {
+        "q": "Welche Situation begünstigt Weidetetanie?",
+        "correct": "Junges, kaliumreiches Gras beim Weideaustrieb",
+        "wrong": ["Spätes, rohfaserreiches Heu im Winter", "Hohe Maissilageanteile im Stall", "Zu viel Magnesium im Mineralfutter"],
+        "explain": "Junges, stark gedüngtes Gras ist Mg-arm und K-reich; Kalium hemmt die Mg-Aufnahme, und die Kuh hat keinen mobilisierbaren Mg-Speicher.",
+        "calc": false
+      }
+    ],
+    "calc": {
+      "title": "Negative Energiebilanz nach der Kalbung",
+      "given": "Frischlaktierende Kuh: Bedarf 140 MJ NEL/Tag; Futteraufnahme 17 kg TM mit 6,9 MJ NEL/kg TM",
+      "steps": ["Aufnahme: 17 × 6,9 ≈ 117 MJ", "Bilanz: 117 − 140 = −23 MJ", "Deckung: 117 / 140 ≈ 84 %"],
+      "result": "Energiedefizit ≈ 23 MJ NEL/Tag – es wird aus Körperfett gedeckt"
+    },
+    "notes": [
+      "Transitphase: ± 3 Wochen um die Kalbung",
+      "Ketose: BHB ≥ 1,2 mmol/l subklinisch",
+      "Milchfieber: Ca-Abfall durch Kolostrum",
+      "DCAB senken: K-arm, saure Salze",
+      "Weidetetanie: Mg-Mangel, K-reiches Gras",
+      "BCS Kalbung: Fleckvieh ≈ 4,0, HF ≈ 3,5"
+    ],
+    "script": "Die Transitphase umfasst etwa die drei Wochen vor bis drei Wochen nach der Kalbung und ist die stoffwechselkritischste Zeit der Milchkuh. Die Futteraufnahme sinkt vor der Kalbung und steigt danach nur langsam an, während die Milchleistung rasch zunimmt. Die resultierende negative Energiebilanz wird durch Mobilisierung von Körperfett ausgeglichen; übersteigt der Zustrom freier Fettsäuren die Kapazität der Leber, entstehen vermehrt Ketonkörper. Eine subklinische Ketose liegt ab etwa 1,2 mmol β-Hydroxybutyrat (BHB) je Liter Blut vor, eine klinische ab etwa 3,0 mmol/l. Verfettete Kühe sind besonders gefährdet, weil sie nach der Kalbung weniger fressen. Milchfieber (Hypokalzämie) entsteht, weil der Kalziumbedarf mit Beginn der Kolostrumbildung sprunghaft steigt. Eine kalium- und kalziumarme Vorbereitungsfütterung sowie die Absenkung der Kationen-Anionen-Bilanz (DCAB) mit sauren Salzen trainieren die Kalziummobilisierung aus dem Skelett; die Wirkung wird über den Harn-pH kontrolliert. Hohe Gaben rasch fermentierbarer Kohlenhydrate bei zu wenig strukturwirksamer Faser führen zur subakuten Pansenazidose. Weidetetanie ist ein akuter Magnesiummangel, typischerweise beim Weideaustrieb auf junges, kaliumreiches Gras. Ketose und Hypokalzämie vermindern die Motorik des Verdauungstrakts und begünstigen die Labmagenverlagerung. Der Body Condition Score ist ein einfaches Instrument, um die Energieversorgung über die Laktation zu steuern."
+  },
+  "en": {
+    "title": "Metabolic disorders in dairy cows",
+    "subtitle": "Transition period, ketosis, milk fever, rumen acidosis and grass tetany",
+    "learningGoals": [
+      "Describe the transition period and negative energy balance",
+      "Explain ketosis, milk fever and subacute rumen acidosis in terms of feeding",
+      "Understand the DCAB concept and the use of anionic salts",
+      "Use the body condition score as a tool for feeding control"
+    ],
+    "slides": [
+      {
+        "title": "Transition period: three weeks before to three weeks after calving",
+        "bullets": [
+          "Intake falls before calving while requirements rise steeply",
+          "Negative energy balance → fat mobilisation → ketosis (BHB ↑)",
+          "Subclinical ketosis from about 1.2 mmol BHB/l blood",
+          "Milk fever: blood Ca falls as colostrum production starts",
+          "Lower the DCAB: low-K ration, anionic salts if needed",
+          "Consequences: displaced abomasum, metritis, fertility"
+        ],
+        "diagram": {
+          "type": "flow",
+          "items": ["Intake ↓", "Energy deficit", "Fat mobilisation", "Ketosis (BHB ↑)", "Displaced abomasum"],
+          "direction": "right",
+          "highlight": 3
+        },
+        "source": "Gruber Table (LfL 2024); DLG (2023)"
+      },
+      {
+        "title": "Acidosis, grass tetany and body condition",
+        "bullets": [
+          "SARA: rumen pH below about 5.8 for hours",
+          "Cause: much starch/sugar, too little physically effective fibre",
+          "Grass tetany: Mg deficiency on young, potassium-rich grass",
+          "Prevention: supplement Mg, introduce grazing gradually",
+          "BCS (scale 1–5): assess body condition regularly"
+        ],
+        "diagram": {
+          "type": "table",
+          "head": ["Phase", "Simmental", "HF/Brown Swiss"],
+          "rows": [
+            ["Calving", "4.0", "3.5"],
+            ["Day 1–100", "4.0–3.5", "3.5–3.0"],
+            ["Day 101–200", "3.5", "3.0"],
+            ["From day 201", "3.5–4.0", "3.0–3.5"]
+          ]
+        },
+        "source": "BCS targets after Gruber Table (LfL 2024)"
+      }
+    ],
+    "board": [
+      { "id": "b1", "lines": ["need ↑ > intake ↑", "→ negative energy balance", "fat → NEFA → liver → BHB", "BHB ≥ 1.2 mmol/l: subclinical", "BHB ≥ 3.0 mmol/l: clinical"] },
+      { "id": "b2", "lines": ["DCAB = (Na + K) − (Cl + S)", "in mEq/kg DM", "anionic salts: −100 to 0", "check: urine pH 6.0-7.0"] },
+      { "id": "b3", "lines": ["grass tetany: Mg ↓, K ↑", "BCS calving: FV 4.0 / HF 3.5", "loss to day 100: ~0.5", "over-fat → eats less"] }
+    ],
+    "beats": [
+      {
+        "variants": [
+          "Now let's look at what happens when ration and cow don't match. The most critical time is the transition period, about three weeks before to three weeks after calving.",
+          "Around calving, the whole lactation is decided. The three weeks before and after we call the transition period – and that's when most metabolic disorders occur.",
+          "The best ration is no use if the cow doesn't eat. And that's exactly the problem of the transition period: three weeks before to three weeks after calving."
+        ],
+        "slide": 0, "board": null, "look": "class", "gesture": "open", "pause": 0.6
+      },
+      {
+        "variants": [
+          "After calving, milk yield rises quickly, but feed intake lags behind for weeks. The cow covers the gap from body fat – that's the negative energy balance.",
+          "Milk rises steeply, intake only slowly. The result: the cow puts out more energy than she takes in and breaks down body fat. We call that a negative energy balance.",
+          "The basic problem: requirement up, appetite not yet. Fresh cows take the missing energy from their fat reserves – a negative balance is normal at first, just not arbitrarily deep."
+        ],
+        "slide": null, "board": null, "look": "screen", "gesture": "explain", "pause": 0.8
+      },
+      {
+        "variants": [
+          "If too much fat is mobilised, the liver can't keep up: ketone bodies are formed from the free fatty acids, mainly BHB. From about 1.2 mmol/l in blood we speak of subclinical ketosis.",
+          "The released fatty acids, the NEFA, end up in the liver. If it's overwhelmed, it produces ketone bodies such as beta-hydroxybutyrate. From about 1.2 mmol BHB per litre: subclinical, from 3: clinical.",
+          "Ketosis is the consequence of excessive fat mobilisation: liver overloaded, ketone bodies rise. We measure BHB in blood – from about 1.2 mmol/l subclinical, from about 3 mmol/l clinical ketosis."
+        ],
+        "slide": null, "board": "b1", "look": "board", "gesture": "explain", "pause": 1.0
+      },
+      {
+        "variants": [
+          "Over-conditioned cows are particularly at risk: they eat less after calving and mobilise more. Prevention therefore means watching body condition already in the last third of lactation.",
+          "Paradoxical but true: the fat cow has the highest ketosis risk because she eats less after calving. Prevention therefore starts in the last third of lactation and at drying off.",
+          "If you want to avoid ketosis, don't let the cow get fat at the end of lactation. Fat cows eat less after calving – and slide even deeper into energy deficit."
+        ],
+        "slide": null, "board": null, "look": "class", "gesture": "emphasis", "pause": 0.8
+      },
+      {
+        "variants": [
+          "Second topic: milk fever, actually a hypocalcaemia. The calf in the womb needs only a few grams of calcium a day, the colostrum suddenly 30 to 50 g. By the way, the cow has no fever at all.",
+          "Milk fever is called that but has nothing to do with fever – the cows are rather hypothermic. It's a calcium drop: with colostrum, Ca demand jumps from a few grams to 30 to 50 g a day.",
+          "With milk fever, or parturient paresis, blood calcium falls because colostrum suddenly needs 30 to 50 g of Ca a day. And despite the name: the cow is cool rather than feverish."
+        ],
+        "slide": null, "board": null, "look": "student", "gesture": "explain", "pause": 0.8
+      },
+      {
+        "variants": [
+          "Prevention works via the DCAB: sodium and potassium minus chloride and sulphur. If we lower it with anionic salts, blood pH drops slightly and the cow mobilises calcium from the skeleton better.",
+          "I'll write the DCAB up: cations minus anions. Potassium-rich grass drives it up. Anionic salts in the last two to three weeks lower it towards −100 to 0 – that trains Ca mobilisation.",
+          "The tool is called DCAB. If we lower it with anionic salts to about −100 to 0 mEq per kilo of DM, calcium mobilisation from bone is trained. We check it via urine pH, target 6 to 7."
+        ],
+        "slide": null, "board": "b2", "look": "board", "gesture": "count", "pause": 1.0
+      },
+      {
+        "variants": [
+          "Then subacute rumen acidosis, you remember rumen pH: if it stays below about 5.8 for hours, fibre digestion suffers. The causes are too much starch and too little structure.",
+          "Subacute rumen acidosis, SARA for short: too much rapidly fermentable starch, too little effective fibre, pH stays below about 5.8 for hours. Consequences: lower intake, less milk fat.",
+          "If the cow is moved onto lots of concentrate too quickly after calving, SARA looms – rumen pH then stays below about 5.8 for hours. So increase concentrate slowly and watch the structure."
+        ],
+        "slide": 1, "board": null, "look": "screen", "gesture": "point", "pause": 0.8
+      },
+      {
+        "variants": [
+          "In spring at turnout, grass tetany looms: young, heavily fertilised grass is low in magnesium and rich in potassium, and potassium inhibits Mg absorption. The cow can hardly mobilise Mg.",
+          "Grass tetany is an acute magnesium deficiency. Typical: first turnout onto young, potassium-rich grass. Since the cow hardly stores magnesium, she needs it daily – so supplement Mg, start grazing slowly.",
+          "A spring classic, also before going up to the alpine pasture: grass tetany. Young grass brings lots of potassium and little magnesium, and since the cow has no Mg depot, it quickly gets critical. So supplement Mg."
+        ],
+        "slide": null, "board": null, "look": "window", "gesture": "explain", "pause": 0.8
+      },
+      {
+        "variants": [
+          "And what do ketosis and milk fever have to do with the abomasum? Both slow down gut motility. Plus, after calving there's free space in the abdomen – the abomasum shifts, usually to the left.",
+          "Displaced abomasum is often a secondary disease: little feed, ketosis and calcium deficiency weaken motility, after calving there's room in the abdomen – and the abomasum moves, usually to the left.",
+          "A typical secondary disease in the first weeks after calving: left displaced abomasum. It's closely linked with low feed intake, ketosis and hypocalcaemia."
+        ],
+        "slide": null, "board": null, "look": "class", "gesture": "question", "pause": 0.8
+      },
+      {
+        "variants": [
+          "A simple tool is the body condition score, scale 1 to 5. At calving, Simmental cows should score about 4.0, Holsteins rather 3.5, and lose no more than about half a point by day 100.",
+          "Look at the cows: for BCS we assess the loin, hip and pin bones and the tailhead. Target at calving about 4 for Simmental, 3.5 for Holstein – loss afterwards at most around 0.5.",
+          "We check body condition with the BCS: Simmental around 4 at calving, Holstein around 3.5, at most about half a point lost in the first hundred days. More means: energy deficit too deep."
+        ],
+        "slide": null, "board": "b3", "look": "board", "gesture": "count", "pause": 0.9
+      }
+    ],
+    "quiz": [
+      {
+        "q": "Requirement 130 MJ NEL, intake 16 kg DM at 6.9 MJ NEL/kg DM. What is the energy balance?",
+        "correct": "≈ −20 MJ NEL per day",
+        "wrong": ["≈ +20 MJ NEL per day", "≈ −110 MJ NEL per day", "≈ −7 MJ NEL per day"],
+        "explain": "16 × 6.9 ≈ 110 MJ; 110 − 130 ≈ −20 MJ NEL.",
+        "calc": true
+      },
+      {
+        "q": "What is the purpose of feeding anionic salts before calving?",
+        "correct": "To stimulate Ca mobilisation from the skeleton",
+        "wrong": ["To stabilise rumen pH", "To increase feed intake markedly", "To supply more calcium via the feed"],
+        "explain": "A low DCAB slightly lowers blood pH and trains calcium mobilisation – this prevents milk fever.",
+        "calc": false
+      },
+      {
+        "q": "Which situation favours grass tetany?",
+        "correct": "Young, potassium-rich grass at turnout",
+        "wrong": ["Late, fibrous hay in winter", "High maize silage shares indoors", "Too much magnesium in the mineral feed"],
+        "explain": "Young, heavily fertilised grass is low in Mg and rich in K; potassium inhibits Mg absorption, and the cow has no mobilisable Mg store.",
+        "calc": false
+      }
+    ],
+    "calc": {
+      "title": "Negative energy balance after calving",
+      "given": "Fresh cow: requirement 140 MJ NEL/day; intake 17 kg DM at 6.9 MJ NEL/kg DM",
+      "steps": ["Intake: 17 × 6.9 ≈ 117 MJ", "Balance: 117 − 140 = −23 MJ", "Coverage: 117 / 140 ≈ 84 %"],
+      "result": "Energy deficit ≈ 23 MJ NEL/day – it is covered from body fat"
+    },
+    "notes": [
+      "Transition: ± 3 weeks around calving",
+      "Ketosis: BHB ≥ 1.2 mmol/l subclinical",
+      "Milk fever: Ca drop due to colostrum",
+      "Lower DCAB: low-K ration, anionic salts",
+      "Grass tetany: Mg deficiency, K-rich grass",
+      "BCS at calving: Simmental ≈ 4.0, HF ≈ 3.5"
+    ],
+    "script": "The transition period covers roughly the three weeks before to three weeks after calving and is the most critical metabolic phase of the dairy cow. Feed intake falls before calving and rises only slowly afterwards, while milk yield increases rapidly. The resulting negative energy balance is compensated by mobilising body fat; if the influx of free fatty acids exceeds the capacity of the liver, more ketone bodies are formed. Subclinical ketosis is present from about 1.2 mmol β-hydroxybutyrate (BHB) per litre of blood, clinical ketosis from about 3.0 mmol/l. Over-conditioned cows are particularly at risk because they eat less after calving. Milk fever (hypocalcaemia) occurs because the calcium requirement rises abruptly when colostrum production begins. A close-up diet low in potassium and calcium, and lowering the dietary cation-anion balance (DCAB) with anionic salts, train calcium mobilisation from the skeleton; the effect is monitored via urine pH. High amounts of rapidly fermentable carbohydrates combined with too little physically effective fibre lead to subacute rumen acidosis. Grass tetany is an acute magnesium deficiency, typically at turnout onto young, potassium-rich grass. Ketosis and hypocalcaemia reduce gut motility and favour displacement of the abomasum. The body condition score is a simple tool for managing energy supply over the lactation."
+  }
+}

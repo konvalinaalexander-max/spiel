@@ -1,0 +1,10 @@
+Tic Tac Tierernährung v2 – verwendete Drittsoftware
+====================================================
+
+three.js r183 – MIT License – Copyright 2010-2025 Three.js Authors – https://threejs.org
+postprocessing 6.39 – Zlib License – Copyright (c) 2015 Raoul van Rüschen – https://github.com/pmndrs/postprocessing
+N8AO 2.0 – CC0 1.0 (Public Domain) – Copyright (c) N8python – https://github.com/N8python/n8ao
+hersheytext 2.0 – MIT License – Copyright (c) 2014 James T (Hershey-Schriften: Dr. A. V. Hershey, U.S. National Bureau of Standards, frei verwendbar)
+
+Spiel-Code und Inhalte: MIT License. Fan-Projekt, kein offizielles Angebot der BOKU.
+Work Sans – SIL Open Font License 1.1 – Copyright 2019 The Work Sans Project Authors (Wei Huang) – via @fontsource/work-sans

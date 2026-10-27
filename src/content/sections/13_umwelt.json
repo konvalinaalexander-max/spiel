@@ -1,0 +1,352 @@
+{
+  "id": "umwelt",
+  "order": 13,
+  "core": false,
+  "plannedMinutes": 6,
+  "de": {
+    "title": "Fütterung und Umwelt",
+    "subtitle": "Methan, Stickstoff, Phosphor und Feed-Food-Competition",
+    "learningGoals": [
+      "Entstehung und Größenordnung der Methanbildung im Pansen erklären",
+      "Stickstoff- und Phosphorausscheidungen über die Fütterung beeinflussen",
+      "Minderungsstrategien und ihre Grenzen kritisch bewerten",
+      "Feed-Food-Competition und die Rolle des Grünlands einordnen"
+    ],
+    "slides": [
+      {
+        "title": "Methan aus dem Pansen",
+        "bullets": [
+          "Methanogene Archaeen nutzen H₂ und CO₂ aus der Pansengärung",
+          "Milchkuh: grob 300–500 g CH₄ pro Tag",
+          "Energieverlust: rund 6 % der Bruttoenergie",
+          "Pro kg Milch sinkt CH₄ mit steigender Leistung",
+          "Treibhauswirkung: rund 27-mal stärker als CO₂ (100 Jahre)"
+        ],
+        "diagram": {
+          "type": "flow",
+          "items": ["Futter", "Pansengärung", "H₂ + CO₂", "Archaeen", "CH₄", "Ruktus"],
+          "direction": "right",
+          "highlight": 4
+        },
+        "source": "Kirchgeßner et al. (2014); IPCC AR6 (2021)"
+      },
+      {
+        "title": "Minderung: Stickstoff, Phosphor, Effizienz",
+        "bullets": [
+          "Protein bedarfsgerecht: RNB ≈ 0, Milchharnstoff 15–25 mg/100 ml",
+          "Schwein: Phasenfütterung, Aminosäuren, Phytase",
+          "Fettzulagen und 3-NOP senken CH₄ – mit Grenzen",
+          "Effizienz: weniger Erhaltungsanteil je kg Milch",
+          "Grünland liefert Futter, das der Mensch nicht essen kann"
+        ],
+        "diagram": {
+          "type": "pie",
+          "parts": [
+            { "label": "nicht essbar", "value": 86 },
+            { "label": "essbar", "value": 14 }
+          ],
+          "unit": "% der Futter-TM weltweit"
+        },
+        "source": "Mottet et al. (2017); DLG (2022); Gruber Tabelle (LfL 2024)"
+      }
+    ],
+    "board": [
+      { "id": "b1", "lines": ["Kohlenhydrate → FFS + H_{2}", "CO_{2} + 4 H_{2} → CH_{4} + 2 H_{2}O", "Kuh: ~300-500 g CH_{4}/Tag", "≈ 6 % der Bruttoenergie"] },
+      { "id": "b2", "lines": ["N-Effizienz Kuh: ~20-30 %", "Rest → Kot + Harn", "Milchharnstoff: 15-25 mg/dl", "Phytase: Phytin-P nutzbar"] },
+      { "id": "b3", "lines": ["86 % der Futter-TM weltweit", "nicht vom Menschen essbar", "Grünland Ö: ~46 % der LF", "→ Nutzung über Wiederkäuer"] }
+    ],
+    "beats": [
+      {
+        "variants": [
+          "Kuh und Klima – kaum ein Thema ist in den Medien so präsent. Schauen wir's sachlich an: Methan ist zuerst einmal ein Energieverlust, wie wir bei der Energiebewertung gesehen haben.",
+          "Jetzt zur Umweltseite der Fütterung. Erinnern Sie sich an die Energiekaskade: Zwischen verdaulicher und umsetzbarer Energie geht unter anderem Methan verloren. Darüber reden wir jetzt.",
+          "Fütterung hat Folgen über den Stall hinaus: Methan, Stickstoff, Phosphor. Fangen wir beim Methan an, das in der Energiebewertung schon als Verlustposten aufgetaucht ist."
+        ],
+        "slide": 0, "board": null, "look": "class", "gesture": "open", "pause": 0.6
+      },
+      {
+        "variants": [
+          "Bei der Gärung im Pansen entstehen flüchtige Fettsäuren und Wasserstoff. Methanbildende Archaeen machen aus CO₂ und Wasserstoff Methan – das hält den Wasserstoffdruck im Pansen niedrig.",
+          "Die Mikroben bauen Kohlenhydrate zu Fettsäuren ab, dabei fällt Wasserstoff an. Den verwerten methanogene Archaeen: CO₂ plus vier H₂ gibt CH₄ plus Wasser. Für den Pansen ist das eine Entsorgung.",
+          "Ich schreib die Reaktion an: CO₂ plus vier H₂ ergibt Methan und Wasser. Gemacht wird das von Archaeen, die den Wasserstoff aus der Fasergärung abfangen. Ohne sie würde die Gärung gebremst."
+        ],
+        "slide": null, "board": "b1", "look": "board", "gesture": "explain", "pause": 1.0
+      },
+      {
+        "variants": [
+          "Eine Milchkuh bildet grob 300 bis 500 g Methan am Tag, das sind rund 6 % der aufgenommenen Bruttoenergie. In Österreich stammt etwa ein Zehntel der Treibhausgase aus der Landwirtschaft.",
+          "Größenordnung: 300 bis 500 g CH₄ pro Kuh und Tag, energetisch rund 6 % der Bruttoenergie, die die Kuh nie nutzen kann. Die Landwirtschaft verursacht in Österreich rund ein Zehntel der Treibhausgase.",
+          "Merken Sie sich: rund 300 bis 500 g Methan täglich je Kuh und etwa 6 % Energieverlust. Methan wirkt auf 100 Jahre rund 27-mal stärker als CO₂, wird aber in etwa zwölf Jahren abgebaut."
+        ],
+        "slide": null, "board": null, "look": "class", "gesture": "count", "pause": 0.8
+      },
+      {
+        "variants": [
+          "Wichtig ist die Bezugsgröße: Eine Kuh mit 35 Kilo Milch stößt zwar mehr Methan aus als eine mit 20, je Kilo Milch aber deutlich weniger, weil sich der Erhaltungsanteil verdünnt.",
+          "Rechnen Sie pro Kilo Milch, schaut's anders aus: Mehr Leistung heißt mehr Methan pro Kuh, aber weniger pro Kilo, weil die Erhaltung auf mehr Milch verteilt wird. Aufzucht und Futterbau gehören aber dazu.",
+          "Je Kilo Milch sinkt das Methan mit der Leistung – der Erhaltungsbedarf verteilt sich auf mehr Milch. Achtung, das ist nur die Kuh: Nachzucht, Nutzungsdauer und Futterbau müssen mitgerechnet werden."
+        ],
+        "slide": null, "board": null, "look": "screen", "gesture": "explain", "pause": 0.8
+      },
+      {
+        "variants": [
+          "Was hilft? Fettzulagen senken Methan etwas, über etwa 5 % Fett in der Ration leidet aber die Faserverdauung. Der Zusatzstoff 3-NOP ist seit 2022 für Milchkühe zugelassen und senkt Methan um etwa 15 bis 30 %.",
+          "Fütterungsseitig gibt's Stellschrauben: Fett in Maßen, sonst leidet die Faserverdauung, und Zusatzstoffe wie 3-NOP, das ein Enzym der Archaeen hemmt. Wirkung grob 15 bis 30 %, die EFSA prüft die Daten erneut.",
+          "Zu 3-NOP werde ich oft gefragt: in der EU seit 2022 für Milchkühe zugelassen, Methan minus etwa 15 bis 30 %, stark rationsabhängig, Langzeitwirkung noch in Prüfung. Fettzulagen wirken auch, aber begrenzt."
+        ],
+        "slide": 1, "board": null, "look": "screen", "gesture": "point", "pause": 0.8
+      },
+      {
+        "variants": [
+          "Beim Stickstoff ist die Kuh nicht sehr effizient: Nur etwa 20 bis 30 % des Futter-N landen in der Milch, der Rest in Kot und Harn. Hebel: bedarfsgerechtes Protein, Milchharnstoff 15 bis 25 mg je 100 ml.",
+          "Vom aufgenommenen Stickstoff gehen nur rund 20 bis 30 % in die Milch. Überschüsse werden als Harnstoff ausgeschieden und gasen als Ammoniak aus. Darum RNB um null und den Milchharnstoff im Blick behalten.",
+          "Bedarfsgerechte Proteinversorgung ist der wichtigste Hebel, denn nur 20 bis 30 % des Futterstickstoffs landen in der Milch. Ziel: RNB um null, Milchharnstoff zwischen 15 und 25 mg je 100 ml."
+        ],
+        "slide": null, "board": "b2", "look": "board", "gesture": "explain", "pause": 0.9
+      },
+      {
+        "variants": [
+          "In der Schweinemast in der Steiermark sieht man, was geht: Phasenfütterung und freie Aminosäuren wie Lysin senken das Rohprotein, Phytase macht Phytin-Phosphor verfügbar. Das kann die P-Ausscheidung um über 30 % senken.",
+          "Beim Schwein sind die Werkzeuge klar: mehrphasig füttern, Rohprotein senken und mit Lysin, Methionin, Threonin ergänzen, dazu Phytase, damit der Phytin-Phosphor aus Getreide und Soja nutzbar wird.",
+          "Ein steirischer Mastbetrieb mit Körnermais und Soja kann über Phasenfütterung und Aminosäurenergänzung deutlich Stickstoff sparen. Und Phytase spaltet das Phytat, sodass weniger mineralischer Phosphor nötig ist."
+        ],
+        "slide": null, "board": null, "look": "student", "gesture": "explain", "pause": 0.8
+      },
+      {
+        "variants": [
+          "Futtereffizienz heißt: kg ECM je kg Futter-TM. Dazu kommen Nutzungsdauer und Lebensleistung – eine Kuh, die nach zwei Laktationen geht, hat ihre Aufzucht kaum zurückgezahlt, auch klimatisch nicht.",
+          "Effizienz misst man etwa als Kilo energiekorrigierte Milch je Kilo Futter-TM. Mindestens so wichtig: eine lange Nutzungsdauer. Jede Kalbin verursacht in der Aufzucht Emissionen, ohne Milch zu geben.",
+          "Ein unterschätzter Hebel ist die Nutzungsdauer: Die Aufzucht dauert gut zwei Jahre ohne Milch. Je mehr Laktationen eine Kuh schafft, desto besser verteilt sich dieser Aufwand – auch beim Methan."
+        ],
+        "slide": null, "board": null, "look": "window", "gesture": "explain", "pause": 0.7
+      },
+      {
+        "variants": [
+          "Zur Feed-Food-Competition: Weltweit sind rund 86 % der Futter-TM für den Menschen nicht essbar. In Österreich sind etwa 46 % der Agrarfläche Grünland, viel davon steil oder hoch gelegen – nutzbar über Wiederkäuer.",
+          "Gras kann der Mensch nicht verdauen, die Kuh schon. Laut einer FAO-Studie sind rund 86 % des weltweiten Tierfutters nicht essbar. Grünland, bei uns knapp die Hälfte der Agrarfläche, ist damit keine Konkurrenz zum Teller.",
+          "Unterscheiden Sie bitte: Getreide und Soja im Trog konkurrieren mit dem Menschen, Gras von der Alm nicht. Weltweit sind etwa 86 % der Futter-TM nicht essbar, in Österreich ist fast die Hälfte der Agrarfläche Grünland."
+        ],
+        "slide": null, "board": "b3", "look": "board", "gesture": "emphasis", "pause": 0.9
+      },
+      {
+        "variants": [
+          "Noch eine Richtigstellung: Das Methan kommt fast vollständig vorne heraus, über Ruktus und Atem – nicht hinten. Die Karikaturen in der Zeitung zielen also meist aufs falsche Ende.",
+          "Und weil's immer wieder falsch gezeichnet wird: Pansenmethan verlässt die Kuh fast ganz über Maul und Atem, nicht über den Darm. Die Witze über die Kuh zielen meistens aufs falsche Ende.",
+          "Kleine Korrektur zu einem Klischee: Fast das gesamte Methan wird ausgeatmet oder gerülpst, kaum etwas kommt hinten heraus. Wer über Kühe witzelt, sollte also zumindest das richtige Ende wählen."
+        ],
+        "slide": null, "board": null, "look": "class", "gesture": "shrug", "pause": 0.6
+      }
+    ],
+    "quiz": [
+      {
+        "q": "Eine Kuh mit 28 kg Milch stößt 420 g CH₄ pro Tag aus. Wie viel Methan ist das je kg Milch?",
+        "correct": "≈ 15 g CH₄ je kg Milch",
+        "wrong": ["≈ 12 g CH₄ je kg Milch", "≈ 67 g CH₄ je kg Milch", "≈ 1,5 g CH₄ je kg Milch"],
+        "explain": "420 g / 28 kg = 15 g CH₄ je kg Milch.",
+        "calc": true
+      },
+      {
+        "q": "Wie wirkt Phytase im Schweinefutter?",
+        "correct": "Macht Phytin-Phosphor aus Pflanzen verfügbar",
+        "wrong": ["Bindet Methan im Dickdarm", "Erhöht die Stickstoffausscheidung", "Ersetzt Lysin in der Ration"],
+        "explain": "Phytase spaltet Phytat; Phosphor aus pflanzlichen Futtermitteln wird nutzbar, es braucht weniger mineralischen P und weniger P landet in der Gülle.",
+        "calc": false
+      },
+      {
+        "q": "Warum konkurriert Grünland kaum mit der menschlichen Ernährung?",
+        "correct": "Gras ist für den Menschen nicht verwertbar",
+        "wrong": ["Grünland liefert mehr Eiweiß als Ackerland", "Gras hat mehr Energie als Getreide", "Wiederkäuer brauchen gar kein Kraftfutter"],
+        "explain": "Wiederkäuer machen aus Gras – oft von nicht ackerfähigen Flächen – Milch und Fleisch.",
+        "calc": false
+      }
+    ],
+    "calc": {
+      "title": "Methan je kg Milch",
+      "given": "Kuh A: 20 kg Milch, 380 g CH₄/Tag; Kuh B: 35 kg Milch, 460 g CH₄/Tag",
+      "steps": ["A: 380 / 20 = 19 g CH_{4}/kg", "B: 460 / 35 ≈ 13 g CH_{4}/kg", "B: ≈ 30 % weniger je kg"],
+      "result": "Höhere Leistung verdünnt den Erhaltungsanteil: ≈ 13 statt 19 g CH₄ je kg Milch – ohne Aufzucht und Futterbau gerechnet"
+    },
+    "notes": [
+      "CH₄: ~300–500 g/Kuh/Tag, ≈ 6 % der GE",
+      "Je kg Milch: CH₄ sinkt mit der Leistung",
+      "N-Effizienz der Kuh nur ~20–30 %",
+      "Milchharnstoff 15–25 mg/100 ml anstreben",
+      "Phytase: Phytin-P nutzbar, weniger P-Zusatz",
+      "86 % des Futters weltweit nicht essbar"
+    ],
+    "script": "Bei der mikrobiellen Fermentation im Pansen entstehen neben flüchtigen Fettsäuren Kohlendioxid und Wasserstoff. Methanogene Archaeen nutzen den Wasserstoff zur Reduktion von CO₂ zu Methan, das fast vollständig über Ruktus und Atemluft abgegeben wird. Eine Milchkuh bildet grob 300–500 g CH₄ pro Tag; das entspricht einem Energieverlust von rund 6 % der Bruttoenergie. Methan ist auf 100 Jahre gerechnet etwa 27-mal so klimawirksam wie CO₂, wird in der Atmosphäre aber innerhalb von rund zwölf Jahren abgebaut. Mit steigender Leistung sinkt die Emission je kg Milch, weil sich der Erhaltungsbedarf auf mehr Produkt verteilt; eine vollständige Bilanz muss jedoch Aufzucht, Nutzungsdauer und Futterbau einbeziehen. Fettzulagen und Zusatzstoffe wie 3-Nitrooxypropanol (3-NOP), in der EU seit 2022 für Milchkühe zugelassen, können die Methanbildung je nach Ration um etwa 15–30 % senken; Grenzen ergeben sich aus der Faserverdauung, den Kosten und offenen Fragen zur Langzeitwirkung. Milchkühe setzen nur etwa 20–30 % des aufgenommenen Stickstoffs in Milch um. Eine bedarfsgerechte Proteinversorgung (RNB um null, Milchharnstoff 15–25 mg/100 ml) verringert Ammoniak- und Nitratverluste. In der Schweinefütterung senken Phasenfütterung, Aminosäurenergänzung und Phytase die N- und P-Ausscheidung deutlich. Rund 86 % der weltweit verfütterten Trockenmasse sind für den Menschen nicht essbar. Grünland, in Österreich knapp die Hälfte der landwirtschaftlich genutzten Fläche, ist für die Lebensmittelerzeugung vor allem über Wiederkäuer nutzbar."
+  },
+  "en": {
+    "title": "Feeding and the environment",
+    "subtitle": "Methane, nitrogen, phosphorus and feed-food competition",
+    "learningGoals": [
+      "Explain how rumen methane forms and its order of magnitude",
+      "Influence nitrogen and phosphorus excretion through feeding",
+      "Critically assess mitigation strategies and their limits",
+      "Place feed-food competition and the role of grassland in context"
+    ],
+    "slides": [
+      {
+        "title": "Methane from the rumen",
+        "bullets": [
+          "Methanogenic archaea use H₂ and CO₂ from rumen fermentation",
+          "Dairy cow: roughly 300–500 g CH₄ per day",
+          "Energy loss: about 6 % of gross energy",
+          "Per kg of milk, CH₄ falls as yield rises",
+          "Greenhouse effect: about 27 times that of CO₂ (100 years)"
+        ],
+        "diagram": {
+          "type": "flow",
+          "items": ["Feed", "Rumen fermentation", "H₂ + CO₂", "Archaea", "CH₄", "Eructation"],
+          "direction": "right",
+          "highlight": 4
+        },
+        "source": "Kirchgeßner et al. (2014); IPCC AR6 (2021)"
+      },
+      {
+        "title": "Mitigation: nitrogen, phosphorus, efficiency",
+        "bullets": [
+          "Protein to requirement: RNB ≈ 0, milk urea 15–25 mg/100 ml",
+          "Pigs: phase feeding, amino acids, phytase",
+          "Added fat and 3-NOP lower CH₄ – within limits",
+          "Efficiency: smaller maintenance share per kg of milk",
+          "Grassland supplies feed that humans cannot eat"
+        ],
+        "diagram": {
+          "type": "pie",
+          "parts": [
+            { "label": "not edible", "value": 86 },
+            { "label": "edible", "value": 14 }
+          ],
+          "unit": "% of global feed DM"
+        },
+        "source": "Mottet et al. (2017); DLG (2022); Gruber Table (LfL 2024)"
+      }
+    ],
+    "board": [
+      { "id": "b1", "lines": ["carbohydrates → VFA + H_{2}", "CO_{2} + 4 H_{2} → CH_{4} + 2 H_{2}O", "cow: ~300-500 g CH_{4}/day", "≈ 6 % of gross energy"] },
+      { "id": "b2", "lines": ["N efficiency cow: ~20-30 %", "rest → faeces + urine", "milk urea: 15-25 mg/dl", "phytase: phytate P usable"] },
+      { "id": "b3", "lines": ["86 % of global feed DM", "not edible for humans", "grassland AT: ~46 % of UAA", "→ used via ruminants"] }
+    ],
+    "beats": [
+      {
+        "variants": [
+          "Cows and climate – hardly any topic is as present in the media. Let's look at it objectively: methane is first of all an energy loss, as we saw in energy evaluation.",
+          "Now to the environmental side of feeding. Remember the energy cascade: between digestible and metabolisable energy, methane is among the losses. That's what we'll talk about now.",
+          "Feeding has consequences beyond the barn: methane, nitrogen, phosphorus. Let's start with methane, which already appeared as a loss item in energy evaluation."
+        ],
+        "slide": 0, "board": null, "look": "class", "gesture": "open", "pause": 0.6
+      },
+      {
+        "variants": [
+          "Fermentation in the rumen produces volatile fatty acids and hydrogen. Methanogenic archaea turn CO₂ and hydrogen into methane – that keeps the hydrogen pressure in the rumen low.",
+          "The microbes break carbohydrates down to fatty acids, releasing hydrogen. Methanogenic archaea use it: CO₂ plus four H₂ gives CH₄ plus water. For the rumen, that's waste disposal.",
+          "I'll write the reaction up: CO₂ plus four H₂ gives methane and water. It's done by archaea that capture the hydrogen from fibre fermentation. Without them, fermentation would slow down."
+        ],
+        "slide": null, "board": "b1", "look": "board", "gesture": "explain", "pause": 1.0
+      },
+      {
+        "variants": [
+          "A dairy cow produces roughly 300 to 500 g of methane a day, that's about 6 % of the gross energy ingested. In Austria, about a tenth of greenhouse gases come from agriculture.",
+          "Order of magnitude: 300 to 500 g CH₄ per cow per day, in energy terms about 6 % of gross energy that the cow can never use. Agriculture causes about a tenth of greenhouse gases in Austria.",
+          "Remember: around 300 to 500 g of methane daily per cow and about 6 % energy loss. Over 100 years, methane is about 27 times as potent as CO₂, but it breaks down within about twelve years."
+        ],
+        "slide": null, "board": null, "look": "class", "gesture": "count", "pause": 0.8
+      },
+      {
+        "variants": [
+          "The reference unit matters: a cow giving 35 kilos of milk emits more methane than one giving 20, but considerably less per kilo of milk, because the maintenance share is diluted.",
+          "If you calculate per kilo of milk, it looks different: higher yield means more methane per cow but less per kilo, because maintenance is spread over more milk. But rearing and forage production belong in the balance.",
+          "Per kilo of milk, methane falls as yield rises – maintenance is spread over more milk. Careful, that's just the cow: replacement heifers, productive lifespan and forage production must be included."
+        ],
+        "slide": null, "board": null, "look": "screen", "gesture": "explain", "pause": 0.8
+      },
+      {
+        "variants": [
+          "What helps? Added fat lowers methane somewhat, but above about 5 % fat in the ration fibre digestion suffers. The additive 3-NOP, approved for dairy cows since 2022, cuts methane by about 15 to 30 %.",
+          "On the feeding side there are levers: fat in moderation, otherwise fibre digestion suffers, and additives such as 3-NOP, which blocks an enzyme of the archaea. Effect roughly 15 to 30 %; EFSA is reviewing the data.",
+          "I'm often asked about 3-NOP: approved in the EU for dairy cows since 2022, methane minus about 15 to 30 %, strongly ration-dependent, long-term effects still under review. Added fat works too, but to a limited extent."
+        ],
+        "slide": 1, "board": null, "look": "screen", "gesture": "point", "pause": 0.8
+      },
+      {
+        "variants": [
+          "With nitrogen the cow isn't very efficient: only about 20 to 30 % of feed N ends up in milk, the rest in faeces and urine. Lever: protein fed to requirement, milk urea 15 to 25 mg per 100 ml.",
+          "Of the nitrogen ingested, only around 20 to 30 % goes into the milk. Surpluses are excreted as urea and volatilise as ammonia. Hence RNB around zero, and keep an eye on milk urea.",
+          "Protein supply matched to requirement is the most important lever, because only 20 to 30 % of feed nitrogen ends up in milk. Target: RNB around zero, milk urea between 15 and 25 mg per 100 ml."
+        ],
+        "slide": null, "board": "b2", "look": "board", "gesture": "explain", "pause": 0.9
+      },
+      {
+        "variants": [
+          "Pig fattening in Styria shows what's possible: phase feeding and free amino acids such as lysine lower crude protein, phytase makes phytate phosphorus available. That can cut P excretion by over 30 %.",
+          "With pigs the tools are clear: feed in several phases, lower crude protein and supplement lysine, methionine, threonine, plus phytase, so that phytate phosphorus from cereals and soy becomes usable.",
+          "A Styrian fattening farm using grain maize and soy can save considerable nitrogen through phase feeding and amino acid supplementation. And phytase cleaves phytate, so less mineral phosphorus is needed."
+        ],
+        "slide": null, "board": null, "look": "student", "gesture": "explain", "pause": 0.8
+      },
+      {
+        "variants": [
+          "Feed efficiency means kg ECM per kg feed DM. Add to that productive lifespan and lifetime yield – a cow that leaves after two lactations has hardly paid back her rearing – in climate terms, too.",
+          "Efficiency is measured, for example, as kilos of energy-corrected milk per kilo of feed DM. At least as important: a long productive life. Every heifer causes emissions during rearing without giving milk.",
+          "An underestimated lever is productive lifespan: rearing takes a good two years without milk. The more lactations a cow achieves, the better that effort is spread – for methane, too."
+        ],
+        "slide": null, "board": null, "look": "window", "gesture": "explain", "pause": 0.7
+      },
+      {
+        "variants": [
+          "On feed-food competition: worldwide, about 86 % of feed DM is not edible for humans. In Austria, about 46 % of farmland is grassland, much of it steep or high up – usable via ruminants.",
+          "Humans can't digest grass, cows can. According to an FAO study, about 86 % of global livestock feed is not edible. Grassland, almost half the farmland here, is therefore no competitor for our plates.",
+          "Please distinguish: cereals and soy in the trough compete with humans, grass from the alpine pasture doesn't. Globally about 86 % of feed DM is inedible; in Austria almost half the farmland is grassland."
+        ],
+        "slide": null, "board": "b3", "look": "board", "gesture": "emphasis", "pause": 0.9
+      },
+      {
+        "variants": [
+          "One more correction: the methane comes out almost entirely at the front, via belching and breath – not at the back. So newspaper cartoons usually aim at the wrong end.",
+          "And because it keeps being drawn wrongly: rumen methane leaves the cow almost entirely via mouth and breath, not via the gut. Jokes about cows usually aim at the wrong end.",
+          "A small correction to a cliché: almost all methane is exhaled or belched, hardly any comes out at the back. So if you joke about cows, at least pick the right end."
+        ],
+        "slide": null, "board": null, "look": "class", "gesture": "shrug", "pause": 0.6
+      }
+    ],
+    "quiz": [
+      {
+        "q": "A cow giving 28 kg of milk emits 420 g CH₄ per day. How much methane is that per kg of milk?",
+        "correct": "≈ 15 g CH₄ per kg milk",
+        "wrong": ["≈ 12 g CH₄ per kg milk", "≈ 67 g CH₄ per kg milk", "≈ 1.5 g CH₄ per kg milk"],
+        "explain": "420 g / 28 kg = 15 g CH₄ per kg of milk.",
+        "calc": true
+      },
+      {
+        "q": "How does phytase work in pig feed?",
+        "correct": "Makes phytate phosphorus from plants available",
+        "wrong": ["Binds methane in the large intestine", "Increases nitrogen excretion", "Replaces lysine in the ration"],
+        "explain": "Phytase cleaves phytate; phosphorus from plant feeds becomes usable, less mineral P is needed and less P ends up in the slurry.",
+        "calc": false
+      },
+      {
+        "q": "Why does grassland hardly compete with human nutrition?",
+        "correct": "Humans cannot utilise grass",
+        "wrong": ["Grassland yields more protein than arable land", "Grass has more energy than cereals", "Ruminants need no concentrate at all"],
+        "explain": "Ruminants turn grass – often from land unsuitable for crops – into milk and meat.",
+        "calc": false
+      }
+    ],
+    "calc": {
+      "title": "Methane per kg of milk",
+      "given": "Cow A: 20 kg milk, 380 g CH₄/day; cow B: 35 kg milk, 460 g CH₄/day",
+      "steps": ["A: 380 / 20 = 19 g CH_{4}/kg", "B: 460 / 35 ≈ 13 g CH_{4}/kg", "B: ≈ 30 % less per kg"],
+      "result": "Higher yield dilutes the maintenance share: ≈ 13 instead of 19 g CH₄ per kg of milk – calculated without rearing and forage production"
+    },
+    "notes": [
+      "CH₄: ~300–500 g/cow/day, ≈ 6 % of GE",
+      "Per kg milk: CH₄ falls as yield rises",
+      "N efficiency of the cow only ~20–30 %",
+      "Aim for milk urea 15–25 mg/100 ml",
+      "Phytase: phytate P usable, less P added",
+      "86 % of global feed is not human-edible"
+    ],
+    "script": "Microbial fermentation in the rumen produces carbon dioxide and hydrogen in addition to volatile fatty acids. Methanogenic archaea use the hydrogen to reduce CO₂ to methane, which is released almost entirely via eructation and exhaled air. A dairy cow produces roughly 300–500 g CH₄ per day, corresponding to an energy loss of about 6 % of gross energy. Over 100 years, methane is about 27 times as climate-active as CO₂, but it is broken down in the atmosphere within about twelve years. As yield rises, emissions per kg of milk fall because the maintenance requirement is spread over more product; a complete balance, however, must include rearing, productive lifespan and forage production. Added fat and additives such as 3-nitrooxypropanol (3-NOP), approved in the EU for dairy cows since 2022, can reduce methane formation by about 15–30 % depending on the ration; limits arise from fibre digestion, costs and open questions about long-term effects. Dairy cows convert only about 20–30 % of ingested nitrogen into milk. Protein supply matched to requirement (RNB around zero, milk urea 15–25 mg/100 ml) reduces ammonia and nitrate losses. In pig feeding, phase feeding, amino acid supplementation and phytase markedly reduce N and P excretion. Around 86 % of the dry matter fed to livestock worldwide is not edible for humans. Grassland, almost half of the utilised agricultural area in Austria, can be used for food production mainly via ruminants."
+  }
+}
