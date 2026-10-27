@@ -184,7 +184,7 @@ export function buildHall(gfx) {
     add(rbox(bw, 0.035, 0.08, 0.008), M.bench, mat(bx, top - 0.012, z0 + 0.045), { tile: 1.1 });
     add(box(bw - 0.02, 0.004, 0.016), M.bench, mat(bx, top + 0.004, z0 + 0.06), { cast: false, receive: true, tile: 1 });
     // Ablagefach
-    add(box(bw - 0.04, 0.018, 0.27), M.bench, mat(bx, f + LY.DESK_H - 0.2, z0 + 0.17), { tile: 1.1, cast: false });
+    add(box(bw - 0.04, 0.018, 0.12), M.bench, mat(bx, f + LY.DESK_H - 0.14, z0 + 0.1), { tile: 1.1, cast: false });
     // Bank: Sitzbrett + Vorderkante, Konsolen
     const sz0 = z0 + LY.ROW_DEPTH - LY.SEAT_D - 0.02;
     add(rbox(bw, 0.04, LY.SEAT_D, 0.012), M.benchTop, mat(bx, f + LY.SEAT_H, sz0 + LY.SEAT_D / 2), { tile: 1.1 });

@@ -16,8 +16,8 @@ export function skeletonDef(h = 1.0, build = 1.0) {
     ['hips', 'root', [0, 0.95 * s, 0]],
     ['spine', 'hips', [0, 0.10 * s, -0.01]],
     ['chest', 'spine', [0, 0.20 * s, 0.0]],
-    ['neck', 'chest', [0, 0.20 * s, -0.005]],
-    ['head', 'neck', [0, 0.095 * s, 0.01]],
+    ['neck', 'chest', [0, 0.195 * s, -0.005]],
+    ['head', 'neck', [0, 0.085 * s, 0.01]],
     ['jaw', 'head', [0, -0.02 * s, 0.02]],
     ['eyeL', 'head', [0.032, 0.075 * s, 0.075]],
     ['eyeR', 'head', [-0.032, 0.075 * s, 0.075]],
@@ -191,20 +191,20 @@ export function buildCharacter(spec, material) {
 
   // --- Hals & Rumpf -----------------------------------------------------------
   const n = P('neck'), ch = P('chest'), sp = P('spine'), hp = P('hips');
-  add(capsuleBetween(n.clone().add(new THREE.Vector3(0, -0.02, 0)), P('head').add(new THREE.Vector3(0, 0.02, 0.005)), 0.045, 0.042, 10), 'neck', skin, 0.55, 0);
+  add(capsuleBetween(n.clone().add(new THREE.Vector3(0, -0.03, 0)), P('head').add(new THREE.Vector3(0, 0.0, 0.005)), 0.05, 0.046, 10), 'neck', skin, 0.55, 0);
   const sh = 0.165 * W; // halbe Schulterbreite
   const chestProf = [
-    [0.0, 0.135 * W, 0.105], [0.06, 0.15 * W, 0.115 + F * 0.012], [0.12, 0.165 * W, 0.12 + F * 0.02],
-    [0.17, sh, 0.108], [0.205, 0.12 * W, 0.085], [0.225, 0.055, 0.05]
+    [0.0, 0.148 * W, 0.112], [0.06, 0.162 * W, 0.122 + F * 0.012], [0.12, 0.176 * W, 0.128 + F * 0.02],
+    [0.17, sh + 0.012, 0.115], [0.205, 0.13 * W, 0.09], [0.228, 0.06, 0.055]
   ];
   const chestGeo = torsoLathe(chestProf.map(([y, r, d]) => [y * H, r, d]), 0.0);
   chestGeo.translate(ch.x, ch.y - 0.01, ch.z);
   add(chestGeo, 'chest', topC, 0.9, 1);
-  const bellyProf = [[0.0, 0.14 * W, 0.1], [0.08, 0.13 * W + (spec.belly || 0), 0.1 + (spec.belly || 0)], [0.2, 0.136 * W, 0.105]];
+  const bellyProf = [[0.0, 0.15 * W, 0.108], [0.08, 0.142 * W + (spec.belly || 0), 0.108 + (spec.belly || 0)], [0.2, 0.148 * W, 0.112]];
   const belly = torsoLathe(bellyProf.map(([y, r, d]) => [y * H, r, d]));
   belly.translate(sp.x, sp.y - 0.005, sp.z);
-  add(belly, 'spine', top.type === 'vest' ? (top.shirt ?? 0xdde6ee) : topC, 0.9, 1);
-  const pelvis = torsoLathe([[-0.09, 0.14 * W + F * 0.012, 0.1], [0.0, 0.145 * W + F * 0.015, 0.105], [0.11, 0.138 * W, 0.1]]);
+  add(belly, 'spine', topC, 0.9, 1);
+  const pelvis = torsoLathe([[-0.09, 0.15 * W + F * 0.014, 0.108], [0.0, 0.156 * W + F * 0.016, 0.112], [0.11, 0.15 * W, 0.108]]);
   pelvis.translate(hp.x, hp.y, hp.z);
   add(pelvis, 'hips', legC, 0.9, 1);
   if (top.type === 'vest') { // Pullunder über Hemd: Hemdkragen + V-Ausschnitt
@@ -237,27 +237,28 @@ export function buildCharacter(spec, material) {
   for (const [side, sx] of [['L', 1], ['R', -1]]) {
     const ua = P('upperArm' + side), fa = P('foreArm' + side), ha = P('hand' + side), fi = P('fingers' + side), th = P('thumb' + side);
     const sleeve = top.type === 'vest' ? (top.shirt ?? 0xdde6ee) : topC;
-    add(ellipsoid(ua.x - sx * 0.01, ua.y + 0.005, ua.z, 0.058 * W, 0.052, 0.058, 10), 'upperArm' + side, sleeve, 0.9, 1); // Schulterkappe
-    add(capsuleBetween(ua, fa, 0.047 * W, 0.041 * W, 10), 'upperArm' + side, sleeve, 0.9, 1);
+    const bulk = ['sweater', 'hoodie', 'jacket', 'flannel'].includes(top.type) ? 0.007 : 0;
+    add(ellipsoid(ua.x - sx * 0.01, ua.y + 0.005, ua.z, 0.064 * W + bulk, 0.058, 0.064 + bulk, 10), 'upperArm' + side, sleeve, 0.9, 1); // Schulterkappe
+    add(capsuleBetween(ua, fa, 0.054 * W + bulk, 0.047 * W + bulk, 10), 'upperArm' + side, sleeve, 0.9, 1);
     if (longSleeve || top.type === 'vest') {
-      add(capsuleBetween(fa, ha.clone().add(new THREE.Vector3(0, 0.03, 0)), 0.039 * W, 0.033, 10), 'foreArm' + side, sleeve, 0.9, 1);
+      add(capsuleBetween(fa, ha.clone().add(new THREE.Vector3(0, 0.03, 0)), 0.045 * W + bulk, 0.037 + bulk * 0.5, 10), 'foreArm' + side, sleeve, 0.9, 1);
       add(capsuleBetween(ha.clone().add(new THREE.Vector3(0, 0.035, 0)), ha.clone().add(new THREE.Vector3(0, -0.01, 0)), 0.026, 0.024, 8), 'foreArm' + side, skin, 0.55, 0);
     } else {
       add(capsuleBetween(fa.clone().add(new THREE.Vector3(0, 0.1, 0)), fa.clone().add(new THREE.Vector3(0, -0.02, 0)), 0.045 * W, 0.043, 10), 'upperArm' + side, sleeve, 0.9, 1);
-      add(capsuleBetween(fa, ha, 0.036, 0.026, 10), 'foreArm' + side, skin, 0.55, 0);
+      add(capsuleBetween(fa, ha, 0.04, 0.029, 10), 'foreArm' + side, skin, 0.55, 0);
     }
     if (spec.watch && side === 'L') add(rbox(ha.x, ha.y + 0.025, ha.z, 0.06, 0.02, 0.058, 0.008), 'foreArm' + side, spec.watch, 0.3, 0);
     // Hand: Handfläche, Finger, Daumen
-    add(rbox(ha.x, ha.y - 0.045, ha.z + 0.002, 0.026, 0.085, 0.075, 0.012, 0, Math.PI / 2 * 0, 0), 'hand' + side, skin, 0.55, 0);
-    add(rbox(fi.x, fi.y - 0.032, fi.z, 0.022, 0.07, 0.07, 0.01), 'fingers' + side, skin, 0.55, 0);
+    add(rbox(ha.x, ha.y - 0.047, ha.z + 0.002, 0.03, 0.09, 0.082, 0.013), 'hand' + side, skin, 0.55, 0);
+    add(rbox(fi.x, fi.y - 0.034, fi.z, 0.025, 0.075, 0.076, 0.011), 'fingers' + side, skin, 0.55, 0);
     add(capsuleBetween(th, th.clone().add(new THREE.Vector3(0, -0.04, 0.012)), 0.011, 0.009, 6), 'thumb' + side, skin, 0.55, 0);
   }
 
   // --- Beine ------------------------------------------------------------------
   for (const [side] of [['L'], ['R']]) {
     const t = P('thigh' + side), s = P('shin' + side), f = P('foot' + side);
-    add(capsuleBetween(t.clone().add(new THREE.Vector3(0, 0.03, 0)), s, 0.074 * W + F * 0.008, 0.056 * W, 12), 'thigh' + side, legC, 0.9, 1);
-    add(capsuleBetween(s, f.clone().add(new THREE.Vector3(0, 0.02, 0)), 0.054 * W, 0.04, 12), 'shin' + side, legC, 0.9, 1);
+    add(capsuleBetween(t.clone().add(new THREE.Vector3(0, 0.03, 0)), s, 0.084 * W + F * 0.008, 0.064 * W, 12), 'thigh' + side, legC, 0.9, 1);
+    add(capsuleBetween(s, f.clone().add(new THREE.Vector3(0, 0.02, 0)), 0.06 * W, 0.047, 12), 'shin' + side, legC, 0.9, 1);
     add(rbox(f.x, f.y - 0.045, f.z + 0.05, 0.095, 0.075, 0.27, 0.03), 'foot' + side, shoeC, 0.6, 0);
     add(rbox(f.x, f.y - 0.078, f.z + 0.05, 0.1, 0.018, 0.275, 0.006), 'foot' + side, spec.soleColor ?? 0xe6e3dc, 0.7, 0);
   }

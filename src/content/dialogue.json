@@ -1,1536 +1,1558 @@
 {
-  "de": {
-    "mic_check": [
-      "So, hört man mich hinten? Die letzte Reihe, bitte kurz die Hand heben, wenn's zu leise ist.",
-      "Eins, zwei … Funktioniert das? Ja, ich seh Nicken in der letzten Reihe, sehr gut.",
-      "Ist das Mikro an? Ah, das Lämpchen ist grün. Hört man mich da oben?",
-      "Hallo – passt das so von der Lautstärke? Sonst drehen wir ein bisserl auf.",
-      "Ich probier's einmal mit Mikro. Wenn's hinten rauscht oder zu leise ist, geben Sie mir bitte ein Zeichen."
-    ],
-    "projector_wait": [
-      "Der Beamer braucht noch einen Moment, der ist auch noch nicht ganz munter.",
-      "Wir warten kurz, bis das Bild da ist. Das Gerät muss sich erst aufwärmen.",
-      "Noch ein wenig Geduld, der Beamer fährt hoch. Inzwischen können Sie schon BOKUlearn aufmachen, dort sind die Folien.",
-      "So, eingesteckt ist alles … jetzt sucht er das Signal. Das dauert immer ein paar Sekunden.",
-      "Die Lampe muss erst warm werden. Ich erzähl Ihnen inzwischen, was wir heute vorhaben."
-    ],
-    "greeting": [
-      "Grüß Gott, meine Damen und Herren. Es ist Viertel, dann fangen wir an.",
-      "Guten Morgen allerseits. Das akademische Viertel ist um, ich darf Sie herzlich begrüßen.",
-      "Grüß Gott zur Tierernährung. Schön, dass so viele da sind – an einem Dienstag um diese Uhrzeit.",
-      "So, guten Morgen. Ich würde sagen, wir beginnen – wer jetzt noch kommt, findet hoffentlich leise einen Platz.",
-      "Grüß Gott! Ich warte noch einen Moment, bis alle sitzen … gut, dann legen wir los."
-    ],
-    "smalltalk": [
-      "Bei uns im Ort war am Sonntag Erntedank – die Erntekrone war heuer besonders schön. War wer von Ihnen auch bei einem Fest?",
-      "Draußen ist es heute ziemlich frisch. Den Kühen auf der Weide macht das weniger aus als uns, Rinder vertragen Kälte viel besser als Hitze.",
-      "Für die Exkursion nach Raumberg-Gumpenstein gibt's noch ein paar freie Plätze. Die Anmeldung läuft über BOKUonline.",
-      "Das Semester läuft jetzt schon ein paar Wochen. Ich hoffe, Sie haben sich eingelebt und finden inzwischen alle Hörsäle.",
-      "Ich bin heute mit dem Rad gekommen. Der Anstieg zur Türkenschanze erinnert mich jedes Mal daran, dass ich nicht mehr zwanzig bin.",
-      "Wer von Ihnen kommt von einem landwirtschaftlichen Betrieb? … Doch einige. Dann können Sie heute gleich aus der Praxis mitreden.",
-      "Die ÖH sucht übrigens noch Leute für die Studienvertretung. Die Infos hängen draußen am Schwarzen Brett."
-    ],
-    "recap": [
-      "Kurz zur Erinnerung: Letzte Woche haben wir die Grundlagen gelegt, auf denen wir heute aufbauen.",
-      "Bevor wir weitermachen, ganz kurz, wo wir letztes Mal stehen geblieben sind.",
-      "Letzte Woche haben wir schon gesehen, dass das Tier nie alles nutzen kann, was im Futter steckt. Das zieht sich durch die ganze Lehrveranstaltung.",
-      "Wer letzte Woche nicht da war: Die Folien sind auf BOKUlearn, schauen Sie sich das bitte bis zur nächsten Einheit an.",
-      "Hat's zur letzten Einheit noch Fragen gegeben? … Nein? Sie können mir auch jederzeit über BOKUlearn schreiben."
-    ],
-    "agenda": [
-      "Heute fangen wir mit dem Thema {section} an und schauen dann, wie weit wir kommen.",
-      "Auf dem Programm steht als Erstes: {section}. Danach geht's Schritt für Schritt weiter.",
-      "Wir beginnen heute mit {section} – das ist eine gute Grundlage für den Rest der Einheit.",
-      "Ich hab mir für heute einiges vorgenommen. Starten wir mit {section}.",
-      "Schauen wir uns zuerst {section} an. Wenn die Zeit reicht, schaffen wir danach noch einiges mehr."
-    ],
-    "transition": [
-      "Gut. Damit kommen wir zum nächsten Thema: {section}.",
-      "Das soll fürs Erste reichen. Machen wir weiter mit {section}.",
-      "So, und jetzt ein Themenwechsel – {section}.",
-      "Wenn's dazu keine Fragen gibt, gehen wir weiter zu {section}.",
-      "Behalten Sie das im Hinterkopf, das brauchen wir später wieder. Nächster Punkt: {section}.",
-      "Damit hätten wir das. Jetzt schauen wir uns {section} an.",
-      "Ich wechsle die Folie … genau, wir sind jetzt bei {section}.",
-      "Weiter im Text. Als Nächstes steht {section} auf dem Plan.",
-      "Machen wir hier einen Punkt. Das nächste Kapitel heißt {section}."
-    ],
-    "latecomer_enter": [
-      "'Tschuldigung …",
-      "Sorry, die Bim ist ausgefallen …",
-      "Darf ich kurz durch? Danke …",
-      "Pardon, ist der Platz da frei?",
-      "Entschuldigung, ich hab den Hörsaal nicht gleich gefunden."
-    ],
-    "latecomer_prof": [
-      "Grüß Gott. Setzen Sie sich ruhig, hinten ist noch Platz.",
-      "Kommen Sie nur, Sie haben nicht viel versäumt – nur das Wichtigste.",
-      "Guten Morgen. Den Anfang finden Sie dann in den Folien auf BOKUlearn.",
-      "Kein Problem. Da drüben, am Rand, ist noch was frei.",
-      "Bitte die Tür leise zumachen – die fällt sonst gern laut ins Schloss."
-    ],
-    "phone_ring_prof": [
-      "Das ist nicht meins, oder? … Nein. Gut.",
-      "Da möchte jemand ganz dringend mit Ihnen sprechen. Ich warte kurz.",
-      "Den Klingelton kenn ich noch gar nicht. Bitte auf lautlos stellen, danke.",
-      "Wenn das die Studienabteilung ist, richten Sie einen schönen Gruß aus.",
-      "Kurze Unterbrechung – bitte stellen Sie die Handys stumm, das stört auch Ihre Nachbarn."
-    ],
-    "phone_ring_student": [
-      "Oh – Entschuldigung …",
-      "Sorry, sorry, ist schon aus.",
-      "Das war mein Wecker … tut mir leid.",
-      "Tut mir leid, hab vergessen, es leise zu stellen.",
-      "Ups … Entschuldigung, ich mach's gleich aus."
-    ],
-    "projector_lost": [
-      "Hoppla, jetzt ist das Bild weg.",
-      "Und schwarz. Moment, das haben wir gleich.",
-      "„Kein Signal“ – das sagt er mir in letzter Zeit öfter.",
-      "Sehen Sie noch was? Ich nämlich auch nicht mehr.",
-      "Das Kabel schon wieder. Bleiben Sie kurz sitzen, ich schau mir das an."
-    ],
-    "projector_fixing": [
-      "Das da hinten … nein, das ist der Strom.",
-      "Raus und wieder rein … komm schon.",
-      "Vielleicht liegt's am Adapter …",
-      "Die Taste da müsst's sein … nein, doch nicht.",
-      "Einen Moment noch, gleich hab ich's."
-    ],
-    "projector_back": [
-      "So, da ist es wieder. Wo waren wir?",
-      "Na bitte. Die Technik und ich, wir verstehen uns doch noch.",
-      "Das Bild ist zurück. Ich wiederhole kurz den letzten Gedanken.",
-      "Danke für die Geduld. Machen wir weiter.",
-      "Es geht wieder. Und falls nicht, erzähl ich halt ohne Folien weiter."
-    ],
-    "long_calc_intro": [
-      "Rechnen wir das einmal durch, Schritt für Schritt – schreiben Sie ruhig mit.",
-      "Das schauen wir uns jetzt an der Tafel an. Dauert ein paar Minuten, aber es zahlt sich aus.",
-      "Ich rechne Ihnen das einmal vor, so wie Sie's in der Prüfung auch machen müssen.",
-      "Zahlen sagen mehr als jede Folie. Ich schreib das jetzt an.",
-      "Machen wir ein konkretes Beispiel mit realistischen Werten, dann wird das greifbar."
-    ],
-    "long_calc_step": [
-      "So, und das setzen wir jetzt hier ein.",
-      "Achten Sie auf die Einheiten – da passieren in der Prüfung die meisten Fehler.",
-      "Bis hierher klar? Gut, dann der nächste Schritt.",
-      "Das runden wir, so genau sind die Tabellenwerte auch wieder nicht.",
-      "Nicht erschrecken, das schaut komplizierter aus, als es ist.",
-      "Rechnen Sie ruhig mit dem Taschenrechner mit. Ich mach's im Kopf und hoffe, es stimmt."
-    ],
-    "long_calc_end": [
-      "Und das ist das Ergebnis. Ist das plausibel? Ja, die Größenordnung passt.",
-      "Merken Sie sich weniger die Zahl als den Rechenweg.",
-      "Wenn Sie in der Praxis etwas ganz anderes herausbekommen, schauen Sie zuerst bei den Einheiten nach.",
-      "So rechnet man das am Betrieb auch – nur hilft dort meistens ein Rationsprogramm.",
-      "Das ist kein Naturgesetz, sondern eine Planungsgröße. Die Kuh hält sich nicht immer an die Tabelle."
-    ],
-    "aisle_walk": [
-      "Ich komm ein Stück zu Ihnen hinauf, dann hört man mich hinten besser.",
-      "Bleiben Sie sitzen, ich geh nur kurz durch die Reihen.",
-      "Ich will sehen, ob man das in den hinteren Reihen auch lesen kann.",
-      "Erzählen kann ich das genauso gut von hier oben.",
-      "Ich vertret mir kurz die Beine – den ganzen Vormittag am Pult stehen ist auch nix."
-    ],
-    "aisle_return": [
-      "So, zurück nach vorne zur Tafel.",
-      "Ich geh wieder runter, sonst sehen Sie die Folie nicht.",
-      "Gut, dann wieder ans Pult.",
-      "Und wieder hinunter. Danke da oben fürs Zuhören.",
-      "Ich brauch die Tafel, also zurück nach vorn."
-    ],
-    "attendance_start": [
-      "Ich lass jetzt die Anwesenheitsliste herumgehen. Bitte leserlich unterschreiben und weitergeben.",
-      "Die Liste geht wieder durch die Reihen – bitte jede und jeder nur für sich selbst.",
-      "Die Anwesenheitsliste startet vorne links. Bitte nicht im Rucksack verschwinden lassen.",
-      "Ich geb die Liste in die erste Reihe. Am Ende hätte ich sie gern vollständig zurück.",
-      "Wie jede Woche die Liste: Name, Matrikelnummer, Unterschrift."
-    ],
-    "attendance_neighbor": [
-      "Da, die Liste.",
-      "Hier, für dich.",
-      "Unterschreibst du kurz? Dann weiter nach rechts.",
-      "Liste. Der Kuli hängt eh dran.",
-      "Gibst du's dann weiter?"
-    ],
-    "attendance_collect": [
-      "Wo ist denn die Liste gerade? … Ah, hinten. Bitte nach vorne durchreichen.",
-      "Die Anwesenheitsliste hätte ich gern wieder – legen Sie sie einfach beim Rausgehen aufs Pult.",
-      "Hat noch wer nicht unterschrieben? Dann bitte jetzt.",
-      "Danke, die Liste ist wieder da. Schaut vollständig aus.",
-      "Bitte geben Sie die Liste nach vorne, bevor alle zusammenpacken."
-    ],
-    "direct_question_intro": [
-      "Ich frag einmal in Reihe {row} – ja, Sie.",
-      "Eine Frage an Sie, in Reihe {row}:",
-      "Schauen wir, ob das angekommen ist. Reihe {row}, genau Sie – was sagen Sie?",
-      "Ich hätte gern eine Antwort aus Reihe {row}. Sie schauen so, als wüssten Sie's.",
-      "Darf ich Sie fragen, in Reihe {row}? Keine Sorge, das geht in keine Note ein."
-    ],
-    "quiz_right": [
-      "Richtig, sehr gut.",
-      "Genau so ist es. Danke.",
-      "Ja, das stimmt. Schön, dass das hängen geblieben ist.",
-      "Korrekt – und das war keine ganz leichte Frage.",
-      "Passt. Haben das alle mitbekommen?"
-    ],
-    "quiz_wrong": [
-      "Nicht ganz – aber das ist ein häufiger Gedanke. Schauen wir's uns noch einmal an.",
-      "Das stimmt leider nicht. Ich erklär's noch einmal kurz, das betrifft wahrscheinlich mehrere.",
-      "Knapp daneben. Die richtige Antwort ist eine andere, ich zeig's Ihnen gleich.",
-      "Nein, aber gut, dass Sie's versucht haben – genau dafür fragen wir ja.",
-      "Das verwechselt man leicht. Richtig ist die andere Variante – ich sag gleich, warum."
-    ],
-    "quiz_timeout": [
-      "Keine Idee? Kein Problem, ich lös auf.",
-      "Ich warte noch kurz … gut, dann sag ich's.",
-      "Ich seh schon, das braucht noch einen Moment. Ich verrat's Ihnen.",
-      "Auch keine Antwort ist eine Antwort. Dann erklär ich's eben selbst.",
-      "Dann helfe ich nach – wir hatten das vor ein paar Minuten auf der Folie."
-    ],
-    "neighbor_warn": [
-      "Psst, er schaut.",
-      "Achtung, er schaut her.",
-      "Pass auf, er kommt rauf.",
-      "Mach zu, schnell.",
-      "Er schaut grad zu uns."
-    ],
-    "neighbor_betray": [
-      "[räuspert sich laut und schaut demonstrativ zu dir] Ähm …",
-      "[rückt hörbar ein Stück von dir weg] Also ich schreib mit.",
-      "[schaut zu dir, dann zum Prof, dann wieder zu dir] Hm.",
-      "[hustet absichtlich, gerade als der Prof herschaut] 'Tschuldigung.",
-      "[deutet mit dem Kuli unauffällig auf deinen Bildschirm] Na ja …",
-      "[seufzt hörbar und schüttelt den Kopf] Echt jetzt?"
-    ],
-    "neighbor_smalltalk": [
-      "Hast du das mitgeschrieben? Ich bin nicht nachgekommen.",
-      "Glaubst du, das ist prüfungsrelevant?",
-      "Der redet echt gern über den Pansen.",
-      "Ich glaub, das steht eh im Skriptum.",
-      "Wie viele Folien kommen heute noch?",
-      "Die Rechnung von vorhin hab ich nicht ganz kapiert.",
-      "Das war letztes Jahr bei der Prüfung, hat mir wer erzählt."
-    ],
-    "joke": [
-      "Die Kuh ist eine Gärkammer auf vier Beinen. In einem einzigen Milliliter Pansensaft schwimmen mehr Bakterien, als es Menschen auf der Erde gibt.",
-      "Die Kuh selbst hat übrigens kein einziges Enzym, das Zellulose spaltet. Sie ist eigentlich nur die Vermieterin – die Arbeit machen die Untermieter im Pansen.",
-      "Beim Schwein ist das Liebig'sche Fass in einer Getreideration fast immer gleich gebaut: Die kürzeste Daube heißt Lysin. Sie können überall sonst nachlegen, es rinnt trotzdem dort raus.",
-      "Grassilage ist im Prinzip Sauerkraut im Fahrsilo. Dieselben Milchsäurebakterien, dieselbe Idee – nur die Portionen sind größer.",
-      "Beim Methan schauen alle immer aufs falsche Ende der Kuh. Über neunzig Prozent kommen vorne raus, beim Rülpsen und Ausatmen.",
-      "Das Pferd hat keine Gallenblase. Braucht's auch nicht – wer von Natur aus bis zu sechzehn Stunden am Tag frisst, muss die Galle nicht zwischenlagern.",
-      "Das Huhn hat keine Zähne, dafür einen Muskelmagen mit kleinen Steinchen drin. Ein Gebiss zum Selbstnachfüllen, sozusagen.",
-      "Die stickstofffreien Extraktstoffe hat eigentlich noch nie jemand gemessen. Die sind einfach das, was übrig bleibt – wie das Budget am Monatsende.",
-      "Nach der Formel N mal 6,25 hätte Futterharnstoff knapp 290 Prozent Rohprotein. Deshalb heißt es auch Rohprotein und nicht Protein.",
-      "Der Blättermagen heißt in der alten Literatur auch Psalter, weil er innen ausschaut wie ein aufgeschlagenes Buch. Damit ist er der belesenste Teil der Kuh.",
-      "Manche Kühe tragen einen Magneten im Netzmagen – nicht für die Kühlschranktür, sondern damit verschluckte Drahtstücke dort liegen bleiben und nichts durchstechen.",
-      "Österreich ist reich an vielem, aber Selen im Boden gehört nicht dazu. Deshalb steht es auf praktisch jedem Etikett von Rindermineralfutter.",
-      "Die Kuh frisst Gras, das wir nicht verdauen können, und macht daraus Milch, die wir verdauen können. Das ist eigentlich die ganze Vorlesung in einem Satz – der Rest sind Details."
-    ],
-    "drink": [
-      "Moment … So.",
-      "Entschuldigung, kurz einen Schluck Wasser.",
-      "Reden macht durstig – einen Augenblick.",
-      "Ich muss kurz was trinken, die Luft herinnen ist sehr trocken.",
-      "Eine Sekunde … Wasser ist übrigens auch bei der Milchkuh das Futtermittel, auf das man am leichtesten vergisst."
-    ],
-    "clock_check": [
-      "Oh, die Zeit läuft. Ich mach ein bisserl schneller.",
-      "Wir haben noch gut {minutes} Minuten, das sollte sich ausgehen.",
-      "Ich seh grad auf die Uhr – da muss ich ein wenig Gas geben.",
-      "Noch {minutes} Minuten. Dann fass ich den Rest etwas kürzer.",
-      "Hm, schon so spät. Ein paar Details lass ich weg, die stehen eh im Skriptum."
-    ],
-    "break_announce": [
-      "Machen wir hier fünf Minuten Pause. Lüften Sie ruhig kurz durch.",
-      "So, fünf Minuten Pause. Bitte pünktlich wieder da sein.",
-      "Wir machen eine kurze Pause – fünf Minuten, nicht fünfzehn.",
-      "Ich glaub, eine Pause können wir alle brauchen. Fünf Minuten, dann geht's weiter.",
-      "Kurze Pause, fünf Minuten. Wer noch einen Kaffee will, muss sich beeilen."
-    ],
-    "break_end": [
-      "So, die fünf Minuten sind um. Wenn Sie bitte wieder Platz nehmen.",
-      "Darf ich bitten? Wir machen weiter.",
-      "Alle wieder da? Die Tür bitte zumachen, danke.",
-      "Gut, weiter geht's – wo waren wir stehen geblieben?",
-      "Ich fang wieder an. Wer noch draußen ist, kommt hoffentlich gleich nach."
-    ],
-    "board_wipe": [
-      "Ich mach kurz Platz auf der Tafel.",
-      "Das brauchen wir nicht mehr – haben's alle abgeschrieben? Gut.",
-      "Einen Moment, ich wisch das weg.",
-      "Die Tafel ist voll. Wer's noch braucht, bitte jetzt fotografieren.",
-      "So, sauber. Neue Tafel, neues Glück."
-    ],
-    "board_slide": [
-      "Ich schieb die Tafel hinauf, dann sehen Sie's auch hinten.",
-      "Das kommt nach oben, das brauchen wir gleich noch.",
-      "Moment, ich hol mir die untere Tafel.",
-      "Hinauf damit – dann bleibt's stehen.",
-      "Die schieben wir hoch, dann hab ich unten wieder Platz."
-    ],
-    "mic_feedback": [
-      "Uh, Entschuldigung. Das war das Mikro.",
-      "Pardon – ich geh einen Schritt weg vom Lautsprecher.",
-      "Das hat jetzt allen in den Ohren wehgetan, mir auch.",
-      "Ich dreh ein wenig leiser. Hört man mich noch?",
-      "Hoppla. Die Technik meldet sich auch zu Wort."
-    ],
-    "blinds": [
-      "Die Sonne blendet auf der Leinwand – könnte jemand am Fenster bitte die Jalousie runterlassen?",
-      "Sieht man da hinten noch was auf der Folie? Ich glaub nicht. Die Jalousie bitte, danke.",
-      "Darf ich Sie am Fenster bitten, die Jalousie ein Stück runterzulassen? Danke vielmals.",
-      "Bei so viel Sonne sieht man das Diagramm nicht mehr. Kann wer die Jalousie bedienen?",
-      "Schönes Wetter, aber schlecht für den Beamer. Jalousie runter, bitte."
-    ],
-    "rain_start": [
-      "Jetzt fängt's zu regnen an. Gut für die Wiesen, schlecht für alle mit dem Rad.",
-      "Hören Sie das? Regen. Da ist man froh, wenn das Heu schon herinnen ist.",
-      "Es regnet. Dann bleiben Sie in der Pause wohl lieber herinnen.",
-      "Na, da hat der Wetterbericht ausnahmsweise recht gehabt.",
-      "Das klingt nach einem ordentlichen Guss. Hoffentlich hat jeder einen Schirm mit."
-    ],
-    "door_bang": [
-      "Oha. Die Tür.",
-      "Das war nur die Tür – die fällt leider immer so laut zu.",
-      "Huch – ich glaub, das hat man bis in die Mensa gehört.",
-      "Die Tür hat einen sehr eigenen Charakter.",
-      "Kein Problem, die schließt halt kräftig."
-    ],
-    "leaves_early": [
-      "Auf Wiedersehen – die Folien sind dann online.",
-      "Gehen Sie nur, aber bitte leise.",
-      "Schönen Tag noch. Den Rest finden Sie im Skriptum.",
-      "Kein Problem. Die Tür bitte sanft zumachen.",
-      "Da hat wohl jemand einen Termin. Alles gut, wir machen weiter."
-    ],
-    "cough_fit": [
-      "Gesundheit. Geht's? Ich warte gern kurz.",
-      "Brauchen Sie ein Wasser? Ich hab hier vorne noch eine Flasche.",
-      "Lassen Sie sich Zeit. Wenn Sie kurz rausgehen wollen, ist das völlig in Ordnung.",
-      "Ich mach kurz Pause, bis es wieder geht.",
-      "Alles in Ordnung? Kann jemand ein Wasser rüberreichen?"
-    ],
-    "light_flicker": [
-      "Das Licht flackert. Ich hoffe, das ist kein schlechtes Omen für die Prüfung.",
-      "Hm, die Deckenbeleuchtung. Das meld ich nachher der Haustechnik.",
-      "Solange der Beamer geht, ist mir das Licht fast egal.",
-      "Wenn's ganz ausgeht, machen wir halt mit der Tafel weiter.",
-      "Das flackert schon seit letzter Woche. Ignorieren wir's einfach."
-    ],
-    "bottle_drop": [
-      "Da ist was runtergefallen – nichts passiert?",
-      "Rollt da eine Flasche nach vorne? Lassen Sie, ich heb sie dann auf.",
-      "Kein Problem, das passiert jedem einmal.",
-      "Hoffentlich war die zu.",
-      "So, jetzt sind alle wieder munter."
-    ],
-    "exam_hint": [
-      "Das zu {section} merken Sie sich bitte – das kommt in der Prüfung sicher in irgendeiner Form.",
-      "Wenn Sie aus {section} nur eine Sache mitnehmen, dann bitte das.",
-      "Ich sag's ganz offen: Bei {section} frag ich das gern bei der Prüfung.",
-      "Das ist bei {section} der Kern. Den sollten Sie erklären können, nicht nur auswendig wissen.",
-      "Unterstreichen Sie sich das im Skriptum – bei {section} ist das prüfungsrelevant.",
-      "Das Prinzip hinter {section} sollten Sie bis zur Prüfung selbst herleiten können.",
-      "Bei {section} wird in der Prüfung erfahrungsgemäß genau das am häufigsten verwechselt. Hier also bitte aufpassen."
-    ],
-    "slides_online": [
-      "Die Folien finden Sie wie immer auf BOKUlearn.",
-      "Sie müssen nicht alles abschreiben – die Folien stell ich heute noch auf BOKUlearn.",
-      "Das ist alles auf BOKUlearn, auch das Skriptum als PDF.",
-      "Die Folien von heute lade ich am Nachmittag hoch.",
-      "Wer die Tafelbilder will: Ich fotografier sie und stell sie zu den Folien auf BOKUlearn."
-    ],
-    "attention_hm": [
-      "Hm.",
-      "Alles klar da hinten?",
-      "Kommen alle mit?",
-      "Hm … gut, weiter.",
-      "Alles in Ordnung in Reihe {row}?"
-    ],
-    "attention_lock": [
-      "Ich warte kurz, bis alle wieder bei mir sind.",
-      "Hm … ich schau nur, ob das bei allen angekommen ist.",
-      "Da hinten … na gut.",
-      "Ich mach einen Moment Pause. Nicht meinetwegen.",
-      "Ist da oben alles in Ordnung? … Gut."
-    ],
-    "caught_1": [
-      "Sie in Reihe {row} – bitte den Laptop jetzt nur für die Vorlesung. Danke.",
-      "Ich sehe, da läuft etwas anderes am Bildschirm. Bitte machen Sie das zu.",
-      "Darf ich Sie bitten, bei uns zu bleiben? Das Spiel läuft Ihnen nicht davon.",
-      "Bitte schließen Sie, was Sie da gerade offen haben. Wir sind mitten im Stoff.",
-      "Kurz an Sie: Ich hätte gern Ihre Aufmerksamkeit hier vorne, nicht am Bildschirm."
-    ],
-    "caught_2": [
-      "Das ist jetzt das zweite Mal. Bitte klappen Sie den Laptop zu.",
-      "Ich hab Sie schon einmal gebeten. Wenn Sie nicht zuhören wollen, lenken Sie bitte wenigstens die anderen nicht ab.",
-      "Reihe {row}, noch einmal: Laptop zu, bitte. Ich sag's ungern ein drittes Mal.",
-      "Ich nehme an, das ist kein Rationsprogramm, was Sie da offen haben. Bitte zumachen – jetzt.",
-      "Ich möchte die Vorlesung nicht ständig deswegen unterbrechen. Bitte legen Sie das weg."
-    ],
-    "caught_3_kick": [
-      "Ich muss Sie jetzt bitten, den Hörsaal zu verlassen. Die Folien finden Sie auf BOKUlearn.",
-      "Das war jetzt das dritte Mal. Packen Sie bitte zusammen und gehen Sie – wir sehen uns nächste Woche.",
-      "Bitte verlassen Sie für heute die Lehrveranstaltung. Das ist nichts Persönliches, aber so geht's nicht.",
-      "Ich habe Sie zweimal gebeten. Für heute ist hier für Sie Schluss – bitte gehen Sie.",
-      "Ich unterbreche jetzt nicht ein viertes Mal. Bitte verlassen Sie den Hörsaal, danke."
-    ],
-    "caught_3_move": [
-      "Setzen Sie sich bitte nach vorne in die erste Reihe. Da ist genug Platz.",
-      "Packen Sie bitte zusammen und kommen Sie nach vorne in die erste Reihe. Dann hab ich Sie im Blick.",
-      "Sie haben vorhin gut mitgedacht, deshalb schick ich Sie nicht hinaus. Bitte in die erste Reihe.",
-      "Ich mach Ihnen einen Vorschlag: erste Reihe, Laptop zu, und wir vergessen das.",
-      "Setzen Sie sich bitte nach vorne. Wer so gut antwortet, gehört eh in die erste Reihe."
-    ],
-    "opponent_caught": [
-      "Sie in Reihe {row}, das gilt auch für Sie: Laptop bitte nur für die Vorlesung.",
-      "In Reihe {row} spielt auch wer, seh ich. Bitte zumachen.",
-      "Reihe {row}, bitte. Ich sehe den Bildschirm von hier.",
-      "Und in Reihe {row} – auch Sie hätte ich gern bei der Sache.",
-      "Reihe {row}: Was immer das ist, es hat Zeit bis zur Pause."
-    ],
-    "tutor_pass": [
-      "Pst – er hat schon zweimal zu dir geschaut.",
-      "Tipp: Bildschirm ein bisserl dunkler.",
-      "Die Liste kommt gleich bei dir vorbei.",
-      "Kurz Laptop runter, er schaut her.",
-      "Die Folien sind eh online, du musst nicht alles abtippen."
-    ],
-    "closing": [
-      "Gut, das war's für heute. Nächste Woche machen wir dort weiter, wo wir jetzt aufgehört haben.",
-      "Danke für die Aufmerksamkeit. Nächste Woche wird's praktischer, da rechnen wir mehr Rationen.",
-      "Damit sind wir am Ende. Schauen Sie sich bis nächste Woche bitte die Folien noch einmal an.",
-      "Das war's für heute. Ich wünsch Ihnen einen schönen Tag, wir sehen uns nächsten Dienstag.",
-      "Schluss für heute. Wer Fragen hat, kann gern noch nach vorne kommen – ich bin noch ein paar Minuten da."
-    ],
-    "exam_info": [
-      "Noch kurz zur Prüfung: Die Anmeldung läuft über BOKUonline, bitte vergessen Sie nicht auf die Frist.",
-      "Der erste Prüfungstermin ist am Ende des Semesters. Die Termine stehen schon in BOKUonline.",
-      "Zur Prüfung: schriftlich, Stoff sind die Folien und das Skriptum. Bitte rechtzeitig in BOKUonline anmelden.",
-      "Bei der Prüfung kommen auch Rechenbeispiele. Taschenrechner mitnehmen – das Handy bleibt in der Tasche.",
-      "Wer sich noch nicht angemeldet hat: Das geht in BOKUonline, und die Frist endet ein paar Tage vor dem Termin."
-    ],
-    "chat_opponent_wait": [
-      "warte, er schaut zu mir",
-      "moment",
-      "sek, er geht grad rauf",
-      "nicht jetzt, nachbarin schaut mit",
-      "kurz pause, der schaut die ganze zeit her"
-    ],
-    "chat_opponent_move": [
-      "du bist",
-      "dein zug",
-      "so. du",
-      "hab gesetzt",
-      "bitte sehr",
-      "jetzt du, schnell"
-    ],
-    "chat_opponent_win": [
-      "gg",
-      "haha, diagonale",
-      "sry, das war zu leicht",
-      "punkt für mich",
-      "nochmal? ich bin grad im flow"
-    ],
-    "chat_opponent_lose": [
-      "ok, verdient",
-      "hab die ecke nicht gesehen",
-      "na super. revanche",
-      "war abgelenkt, er hat grad zu mir geschaut",
-      "gg, die nächste gewinn ich"
-    ],
-    "chat_opponent_draw": [
-      "unentschieden, war klar",
-      "remis. nochmal?",
-      "wieder nix lol",
-      "patt. wir sind zu gut",
-      "ok, das bringt nix, neue runde"
-    ],
-    "chat_opponent_idle": [
-      "gehst du nachher mensa?",
-      "weißt du schon, wann der erste prüfungstermin ist?",
-      "tüwi am donnerstag?",
-      "hast du die folien von letzter woche?",
-      "ich hab um 2 noch bodenkunde ue",
-      "kaffee nach der vo?",
-      "das mit der weender analyse hab ich null verstanden",
-      "der redet heute echt schnell",
-      "hast du dich schon für die prüfung angemeldet?"
-    ],
-    "chat_opponent_caught": [
-      "oida. erwischt",
-      "ups, hat mich gesehen",
-      "sry, muss kurz brav sein",
-      "bin mal 5 min unsichtbar",
-      "peinlich. später weiter"
-    ],
-    "chat_you_caught": [
-      "autsch",
-      "uff. alles ok?",
-      "sorry, aber man hat's echt gesehen lol",
-      "mach mal pause, ich wart",
-      "der schaut jetzt sicher öfter zu dir"
-    ],
-    "audience_questions": [
-      {
-        "section": "einfuehrung",
-        "student": "Konkurrieren Nutztiere nicht mit uns um Lebensmittel?",
-        "repeat": "Die Frage ist, ob Nutztiere nicht mit uns um Lebensmittel konkurrieren.",
-        "answer": [
-          "Das hängt stark vom Haltungssystem ab.",
-          "Nach einer FAO-Studie sind weltweit rund 86 Prozent des verfütterten Futters für Menschen nicht direkt essbar – Gras, Stroh, Nebenprodukte.",
-          "Eine Kuh auf Grünland macht aus Flächen, die wir nicht beackern können, Milch und Fleisch; bei viel Getreide im Trog schaut die Rechnung schon anders aus."
-        ]
-      },
-      {
-        "section": "analytik",
-        "student": "Warum rechnet man beim Rohprotein eigentlich mal 6,25?",
-        "repeat": "Fürs Mikro: Warum wird beim Rohprotein mit 6,25 multipliziert?",
-        "answer": [
-          "Weil Proteine im Mittel etwa 16 Prozent Stickstoff enthalten, und 100 durch 16 ergibt 6,25.",
-          "Das ist ein Durchschnittswert – für Milcheiweiß nimmt man eher 6,38, für Weizen etwa 5,7.",
-          "Und weil Kjeldahl auch Nicht-Protein-Stickstoff wie Harnstoff miterfasst, heißt das Ergebnis ehrlicherweise Rohprotein."
-        ]
-      },
-      {
-        "section": "analytik",
-        "student": "Was ist der Unterschied zwischen Rohfaser und NDF?",
-        "repeat": "Die Frage war, wie sich Rohfaser und NDF unterscheiden.",
-        "answer": [
-          "Bei der Rohfaser nach Weende geht in Säure und Lauge ein Teil der Hemizellulose und des Lignins verloren – der landet rechnerisch in den NfE.",
-          "Die NDF nach Van Soest erfasst dagegen die ganze Zellwand, also Hemizellulose, Zellulose und Lignin.",
-          "Die ADF ist dann Zellulose plus Lignin, und das ADL praktisch das Lignin allein."
-        ]
-      },
-      {
-        "section": "verdauung_mono",
-        "student": "Wofür hat das Huhn einen Kropf?",
-        "repeat": "Ich wiederhol's kurz: Wozu braucht das Huhn einen Kropf?",
-        "answer": [
-          "Der Kropf ist eine Erweiterung der Speiseröhre und vor allem ein Speicher – das Huhn kann schnell viel aufnehmen und in Ruhe weiterverdauen.",
-          "Dort wird das Futter eingeweicht; die eigentliche Verdauung beginnt im Drüsenmagen mit Salzsäure und Pepsin.",
-          "Zerkleinert wird dann im Muskelmagen, denn Zähne hat das Huhn ja keine."
-        ]
-      },
-      {
-        "section": "verdauung_mono",
-        "student": "Kann das Schwein Rohfaser überhaupt verwerten?",
-        "repeat": "Gefragt wurde, ob das Schwein mit Rohfaser überhaupt etwas anfangen kann.",
-        "answer": [
-          "Im Dünndarm kaum, aber im Dickdarm wird ein Teil mikrobiell fermentiert, und die flüchtigen Fettsäuren nimmt das Schwein auf.",
-          "Beim Mastschwein ist dieser Energiebeitrag gering, bei der Sau deutlich größer, weil ihr Dickdarm größer ist und das Futter länger drin bleibt.",
-          "Für tragende Sauen ist Faser außerdem wichtig für die Sättigung und gegen Verstopfung."
-        ]
-      },
-      {
-        "section": "verdauung_wdk",
-        "student": "Warum muss die Kuh überhaupt wiederkäuen?",
-        "repeat": "Gute Frage – nämlich, warum die Kuh überhaupt wiederkäut.",
-        "answer": [
-          "Zum einen wird das Futter feiner, und die Mikroben bekommen mehr Angriffsfläche.",
-          "Zum anderen bildet sie dabei sehr viel Speichel, oft über hundert Liter am Tag, und das Bicarbonat darin puffert den Pansen.",
-          "Eine Milchkuh käut sieben bis neun Stunden am Tag wieder – wird das deutlich weniger, fehlt meistens Struktur in der Ration."
-        ]
-      },
-      {
-        "section": "verdauung_wdk",
-        "student": "Was passiert bei einer Pansenazidose genau?",
-        "repeat": "Kurz für alle: Was passiert bei einer Pansenazidose im Pansen?",
-        "answer": [
-          "Kommen viel Stärke und Zucker auf einmal, entstehen schneller Säuren, als der Pansen puffern und aufnehmen kann – der pH sinkt.",
-          "Bei der subklinischen Form liegt er über mehrere Stunden am Tag unter etwa 5,8, und das sieht man der Kuh kaum an.",
-          "Typische Folgen sind schwankende Futteraufnahme, niedriger Milchfettgehalt und später oft Klauenprobleme."
-        ]
-      },
-      {
-        "section": "energie",
-        "student": "Warum rechnet man bei der Kuh mit NEL, beim Schwein aber mit ME?",
-        "repeat": "Fürs Mikro: Warum Nettoenergie bei der Milchkuh, aber umsetzbare Energie beim Schwein?",
-        "answer": [
-          "Beim Wiederkäuer schwankt die Verwertung der umsetzbaren Energie stark je nach Futter, deshalb geht man eine Stufe weiter bis zur Nettoenergie.",
-          "Beim Schwein sind diese Unterschiede kleiner, und bei uns arbeitet man nach GfE mit ME.",
-          "In Frankreich oder den Niederlanden rechnet man übrigens auch beim Schwein mit Nettoenergie – vertretbar ist beides."
-        ]
-      },
-      {
-        "section": "energie",
-        "student": "Haben Stroh und Getreide wirklich ungefähr die gleiche Bruttoenergie?",
-        "repeat": "Die Frage ist, ob Stroh und Getreide wirklich ähnlich viel Bruttoenergie haben.",
-        "answer": [
-          "Ja, beide liegen bei rund 18 Megajoule pro Kilo Trockenmasse, weil beide großteils aus Kohlenhydraten bestehen.",
-          "Deutlich mehr hat nur Fett, mit knapp 40 Megajoule.",
-          "Der Unterschied liegt in der Verdaulichkeit – genau deshalb sagt die Bruttoenergie allein über den Futterwert fast nichts aus."
-        ]
-      },
-      {
-        "section": "protein_wdk",
-        "student": "Was sagt mir der Harnstoffgehalt in der Milch?",
-        "repeat": "Ich wiederhol's: Was kann man aus dem Milchharnstoff ablesen?",
-        "answer": [
-          "Er zeigt, wie gut Stickstoff und Energie im Pansen zusammenpassen – im Grunde ein Spiegel der RNB.",
-          "Als günstig gelten ungefähr 15 bis 25 Milligramm pro 100 Milliliter.",
-          "Hohe Werte deuten auf zu viel abbaubares Protein oder zu wenig Energie, niedrige auf Proteinmangel – darum immer zusammen mit dem Milcheiweiß anschauen."
-        ]
-      },
-      {
-        "section": "protein_wdk",
-        "student": "Kann man einer Kuh wirklich Harnstoff füttern?",
-        "repeat": "Gefragt ist, ob man Kühen tatsächlich Harnstoff füttern kann.",
-        "answer": [
-          "Ja, die Pansenmikroben bauen aus dem Ammoniak Mikrobenprotein auf, vorausgesetzt, es ist genug Energie da.",
-          "Sinnvoll ist das nur bei negativer RNB, etwa in maisbetonten Rationen, und nur bei Tieren mit voll entwickeltem Pansen.",
-          "Die Mengen sind begrenzt und müssen gut in der Ration verteilt sein, sonst droht eine Ammoniakvergiftung."
-        ]
-      },
-      {
-        "section": "protein_mono",
-        "student": "Warum ist beim Schwein immer Lysin das große Thema?",
-        "repeat": "Die Frage war, warum beim Schwein gerade Lysin so im Vordergrund steht.",
-        "answer": [
-          "Weil Getreide wenig Lysin enthält – in typischen Getreide-Soja-Rationen ist es die erstlimitierende Aminosäure.",
-          "Beim Idealprotein drückt man deshalb alle anderen essenziellen Aminosäuren als Verhältnis zu Lysin aus.",
-          "Beim Geflügel ist es meistens Methionin, auch weil für die Federn viel schwefelhaltige Aminosäuren gebraucht werden."
-        ]
-      },
-      {
-        "section": "protein_mono",
-        "student": "Bringt Phasenfütterung wirklich so viel?",
-        "repeat": "Fürs Mikro: Wie viel bringt Phasenfütterung tatsächlich?",
-        "answer": [
-          "Der Proteinbedarf pro Kilo Futter sinkt im Lauf der Mast – wer die ganze Mast mit einem Futter fährt, füttert gegen Ende zu viel.",
-          "Mit zwei, drei Phasen und ergänzten freien Aminosäuren kann man den Rohproteingehalt senken, ohne Leistung zu verlieren.",
-          "Das spart Eiweißfutter und senkt die Stickstoffausscheidung spürbar – genau das meint man mit N-reduzierter Fütterung."
-        ]
-      },
-      {
-        "section": "futtermittel",
-        "student": "Kann Rapsextraktionsschrot Soja komplett ersetzen?",
-        "repeat": "Kurz für alle: Kann Rapsextraktionsschrot das Sojaextraktionsschrot ganz ersetzen?",
-        "answer": [
-          "Bei der Milchkuh weitgehend ja – in Österreich wird die Milch ja gentechnikfrei erzeugt, und Raps ist dort ein wichtiger Eiweißträger.",
-          "Beim Schwein und beim Geflügel ist es schwieriger: weniger Lysin, mehr Faser und, je nach Sorte, Glucosinolate.",
-          "Dort ersetzt man meist nur einen Teil, und man achtet auf 00-Sorten."
-        ]
-      },
-      {
-        "section": "futtermittel",
-        "student": "Was ist Biertreber eigentlich genau?",
-        "repeat": "Die Frage ist, was Biertreber eigentlich ist.",
-        "answer": [
-          "Das ist der Rückstand vom Malz nach dem Maischen in der Brauerei – die Stärke ist da großteils schon als Zucker in die Würze gegangen.",
-          "Übrig bleiben Spelzen, Faser und Protein, deshalb hat Biertreber etwa ein Viertel Rohprotein in der Trockenmasse.",
-          "Frisch hält er nur ein paar Tage, darum wird er oft siliert."
-        ]
-      },
-      {
-        "section": "konservierung",
-        "student": "Warum soll man das Gras vor dem Silieren anwelken?",
-        "repeat": "Gute Frage: Warum soll man vor dem Silieren anwelken?",
-        "answer": [
-          "Bei etwa 30 bis 40 Prozent Trockenmasse ist der Zucker konzentrierter, und die Clostridien tun sich deutlich schwerer.",
-          "Außerdem fällt viel weniger Sickersaft an.",
-          "Zu trocken darf's aber auch nicht werden, sonst lässt sich das Material schlecht verdichten, und es bleibt Luft drin."
-        ]
-      },
-      {
-        "section": "konservierung",
-        "student": "Woher kommt der Buttersäuregeruch bei schlechter Silage?",
-        "repeat": "Gefragt wurde, woher der Buttersäuregeruch in schlechter Silage kommt.",
-        "answer": [
-          "Von Clostridien – die vermehren sich, wenn das Material zu nass ist, zu wenig Zucker hat oder Erde mit hineingekommen ist.",
-          "Ihre Sporen gelangen über Kot und verschmutzte Zitzen bis in die Milch und überleben sogar das Pasteurisieren.",
-          "Für Hartkäse wie Bergkäse ist das ein echtes Problem, deshalb ist Silage in der Heumilchproduktion gar nicht erlaubt."
-        ]
-      },
-      {
-        "section": "ration_milchkuh",
-        "student": "Wie viel Energie braucht eine Kuh für einen Liter Milch?",
-        "repeat": "Fürs Mikro: Wie viel Energie braucht die Kuh pro Kilo Milch?",
-        "answer": [
-          "Bei 4 Prozent Fett und 3,4 Prozent Eiweiß rechnet man mit rund 3,3 Megajoule NEL pro Kilo Milch.",
-          "Dazu kommt der Erhaltungsbedarf, bei einer 650-Kilo-Kuh etwa 38 Megajoule NEL am Tag.",
-          "Bei 30 Kilo Milch sind wir damit bei ungefähr 135 Megajoule – und die muss sie erst einmal fressen können."
-        ]
-      },
-      {
-        "section": "ration_milchkuh",
-        "student": "Wie viel Trockenmasse frisst so eine Kuh am Tag?",
-        "repeat": "Die Frage war, wie viel Trockenmasse eine Milchkuh am Tag frisst.",
-        "answer": [
-          "Eine 650-Kilo-Kuh mit 30 Kilo Milch frisst grob 20 bis 22 Kilo Trockenmasse.",
-          "Das hängt aber stark von Grundfutterqualität, Laktationsstadium und Leistung ab – in Österreich schätzt man das gern mit der Formel aus Raumberg-Gumpenstein.",
-          "Gleich nach der Abkalbung frisst sie deutlich weniger, und genau dort wird's mit der Energie eng."
-        ]
-      },
-      {
-        "section": "stoffwechsel",
-        "student": "Warum kriegen Kühe gerade nach der Geburt Milchfieber?",
-        "repeat": "Ich wiederhol's kurz: Warum tritt Milchfieber gerade rund um die Abkalbung auf?",
-        "answer": [
-          "Mit dem Kolostrum gibt die Kuh auf einmal ein Vielfaches des Kalziums ab, das in ihrem ganzen Blut zirkuliert.",
-          "Die Mobilisierung aus den Knochen und die stärkere Aufnahme im Darm brauchen aber ein paar Tage, bis sie anlaufen.",
-          "Vorbeugen kann man mit einer kalziumarmen Trockenstehration oder einer negativen DCAB über saure Salze."
-        ]
-      },
-      {
-        "section": "stoffwechsel",
-        "student": "Ist Ketose einfach Energiemangel?",
-        "repeat": "Die Frage ist, ob Ketose einfach dasselbe wie Energiemangel ist.",
-        "answer": [
-          "Der Auslöser ist ein Energiemangel in der Frühlaktation, die Ketose selbst ist aber eigentlich die Folge davon.",
-          "Die Kuh mobilisiert Körperfett, die Leber kommt mit den Fettsäuren nicht nach und bildet Ketonkörper wie Beta-Hydroxybutyrat.",
-          "Ab etwa 1,2 Millimol BHB pro Liter Blut spricht man meist von subklinischer Ketose, und zu fette Kühe beim Trockenstellen sind besonders gefährdet."
-        ]
-      },
-      {
-        "section": "mineralstoffe",
-        "student": "Warum ist Selen in Österreich so ein großes Thema?",
-        "repeat": "Kurz für alle: Warum ist Selen gerade in Österreich so wichtig?",
-        "answer": [
-          "Weil viele Böden bei uns selenarm sind – und damit auch das Grundfutter.",
-          "Ein Mangel zeigt sich etwa als Weißmuskelkrankheit bei Kälbern und Lämmern oder als gehäuftes Nachgeburtsverhalten.",
-          "Deshalb ergänzt man über das Mineralfutter, aber mit Maß: Zwischen Bedarf und Vergiftung ist wenig Spielraum, und es gibt gesetzliche Höchstgehalte."
-        ]
-      },
-      {
-        "section": "mineralstoffe",
-        "student": "Warum darf man Schafen kein Rindermineralfutter geben?",
-        "repeat": "Fürs Mikro: Warum ist Rindermineralfutter für Schafe ungeeignet?",
-        "answer": [
-          "Wegen des Kupfers – Schafe speichern Kupfer in der Leber und scheiden es nur schlecht über die Galle aus.",
-          "Was fürs Rind passt, kann beim Schaf über Wochen bis Monate zu einer chronischen Kupfervergiftung führen.",
-          "Darum gibt's eigenes Schafmineralfutter mit sehr wenig Kupfer."
-        ]
-      },
-      {
-        "section": "umwelt",
-        "student": "Kann man den Methanausstoß über die Fütterung wirklich senken?",
-        "repeat": "Gefragt ist, ob sich Methan über die Fütterung wirklich reduzieren lässt.",
-        "answer": [
-          "Ein Stück weit schon – mehr Stärke, etwas mehr Fett oder besseres Grundfutter senken das Methan pro Kilo Milch, mit Grenzen wegen der Pansengesundheit.",
-          "Seit 2022 ist in der EU auch ein Futterzusatzstoff zugelassen, 3-NOP, der in Versuchen grob 20 bis 30 Prozent weniger Methan gebracht hat.",
-          "Der größte Hebel bleibt aber die Effizienz: Gesunde Kühe mit langer Nutzungsdauer verteilen Erhaltung und Aufzucht auf mehr Milch."
-        ]
-      },
-      {
-        "section": "umwelt",
-        "student": "Warum ist Phosphor beim Schwein ein Umweltthema?",
-        "repeat": "Die Frage war, warum Phosphor in der Schweinefütterung ein Umweltthema ist.",
-        "answer": [
-          "Ein Großteil des Phosphors im Getreide liegt als Phytat vor, und das Schwein hat selbst kaum Phytase, um ihn freizusetzen.",
-          "Früher hat man deshalb reichlich mineralischen Phosphor zugelegt, und der Überschuss ist über die Gülle auf die Felder gegangen.",
-          "Heute setzt man Phytase zu und füttert in Phasen – damit sinkt die Phosphorausscheidung deutlich."
-        ]
-      },
-      {
-        "section": "futtermittelrecht",
-        "student": "Was ist der Unterschied zwischen Alleinfutter und Ergänzungsfutter?",
-        "repeat": "Ich wiederhol's: Was unterscheidet Alleinfuttermittel und Ergänzungsfuttermittel?",
-        "answer": [
-          "Ein Alleinfuttermittel deckt für sich allein den gesamten Tagesbedarf, wie etwa ein Mastfutter beim Schwein.",
-          "Ein Ergänzungsfuttermittel ist nur zusammen mit anderen Futtermitteln vollständig, zum Beispiel das Milchleistungsfutter neben dem Grundfutter.",
-          "Mineralfuttermittel sind rechtlich übrigens Ergänzungsfuttermittel mit mindestens 40 Prozent Rohasche."
-        ]
-      },
-      {
-        "section": "futtermittelrecht",
-        "student": "Welche Mykotoxine sind bei uns eigentlich relevant?",
-        "repeat": "Gute Frage – welche Mykotoxine spielen bei uns praktisch eine Rolle?",
-        "answer": [
-          "Vor allem die Fusarientoxine Deoxynivalenol und Zearalenon in Mais und Weizen, besonders nach feuchtem Wetter zur Blüte.",
-          "Am empfindlichsten sind Schweine: DON drückt die Futteraufnahme, Zearalenon wirkt östrogen und stört die Fruchtbarkeit.",
-          "Für diese beiden gibt's EU-Richtwerte, für Aflatoxin B1 dagegen einen verbindlichen Höchstgehalt."
-        ]
-      },
-      {
-        "section": "ausblick",
-        "student": "Kann man ein Pferd ähnlich füttern wie ein Rind?",
-        "repeat": "Die Frage ist, ob man ein Pferd ähnlich wie ein Rind füttern kann.",
-        "answer": [
-          "Nur bedingt – das Pferd ist ein Dickdarmverdauer, die Mikroben sitzen erst hinter dem Dünndarm.",
-          "Es hat einen kleinen Magen und verträgt große Stärkemengen auf einmal schlecht; da drohen Koliken oder Hufrehe.",
-          "Darum viel Raufutter und das Kraftfutter auf mehrere kleine Mahlzeiten verteilt."
-        ]
-      },
-      {
-        "section": "ausblick",
-        "student": "Stimmt es, dass Katzen unbedingt Taurin im Futter brauchen?",
-        "repeat": "Fürs Mikro: Brauchen Katzen wirklich Taurin im Futter?",
-        "answer": [
-          "Ja, Katzen können Taurin nicht in ausreichender Menge selbst bilden.",
-          "Bei Mangel drohen Netzhautschäden und eine bestimmte Form von Herzmuskelerkrankung.",
-          "Deshalb wird Katzenfutter mit Taurin ergänzt, und deshalb ist Hundefutter für Katzen auf Dauer keine gute Idee."
-        ]
-      }
+ "de": {
+  "mic_check": [
+   "So, hört man mich hinten? Die letzte Reihe, bitte kurz die Hand heben, wenn's zu leise ist.",
+   "Eins, zwei … Funktioniert das? Ja, ich seh Nicken in der letzten Reihe, sehr gut.",
+   "Ist das Mikro an? Ah, das Lämpchen ist grün. Hört man mich da oben?",
+   "Hallo – passt das so von der Lautstärke? Sonst drehen wir ein bisserl auf.",
+   "Ich probier's einmal mit Mikro. Wenn's hinten rauscht oder zu leise ist, geben Sie mir bitte ein Zeichen."
+  ],
+  "projector_wait": [
+   "Der Beamer braucht noch einen Moment, der ist auch noch nicht ganz munter.",
+   "Wir warten kurz, bis das Bild da ist. Das Gerät muss sich erst aufwärmen.",
+   "Noch ein wenig Geduld, der Beamer fährt hoch. Inzwischen können Sie schon BOKUlearn aufmachen, dort sind die Folien.",
+   "So, eingesteckt ist alles … jetzt sucht er das Signal. Das dauert immer ein paar Sekunden.",
+   "Die Lampe muss erst warm werden. Ich erzähl Ihnen inzwischen, was wir heute vorhaben."
+  ],
+  "greeting": [
+   "Grüß Gott, meine Damen und Herren. Es ist Viertel, dann fangen wir an.",
+   "Guten Morgen allerseits. Das akademische Viertel ist um, ich darf Sie herzlich begrüßen.",
+   "Grüß Gott zur Tierernährung. Schön, dass so viele da sind – an einem Dienstag um diese Uhrzeit.",
+   "So, guten Morgen. Ich würde sagen, wir beginnen – wer jetzt noch kommt, findet hoffentlich leise einen Platz.",
+   "Grüß Gott! Ich warte noch einen Moment, bis alle sitzen … gut, dann legen wir los."
+  ],
+  "smalltalk": [
+   "Bei uns im Ort war am Sonntag Erntedank – die Erntekrone war heuer besonders schön. War wer von Ihnen auch bei einem Fest?",
+   "Draußen ist es heute ziemlich frisch. Den Kühen auf der Weide macht das weniger aus als uns, Rinder vertragen Kälte viel besser als Hitze.",
+   "Für die Exkursion nach Raumberg-Gumpenstein gibt's noch ein paar freie Plätze. Die Anmeldung läuft über BOKUonline.",
+   "Das Semester läuft jetzt schon ein paar Wochen. Ich hoffe, Sie haben sich eingelebt und finden inzwischen alle Hörsäle.",
+   "Ich bin heute mit dem Rad gekommen. Der Anstieg zur Türkenschanze erinnert mich jedes Mal daran, dass ich nicht mehr zwanzig bin.",
+   "Wer von Ihnen kommt von einem landwirtschaftlichen Betrieb? … Doch einige. Dann können Sie heute gleich aus der Praxis mitreden.",
+   "Die ÖH sucht übrigens noch Leute für die Studienvertretung. Die Infos hängen draußen am Schwarzen Brett."
+  ],
+  "recap": [
+   "Kurz zur Erinnerung: Letzte Woche haben wir die Grundlagen gelegt, auf denen wir heute aufbauen.",
+   "Bevor wir weitermachen, ganz kurz, wo wir letztes Mal stehen geblieben sind.",
+   "Letzte Woche haben wir schon gesehen, dass das Tier nie alles nutzen kann, was im Futter steckt. Das zieht sich durch die ganze Lehrveranstaltung.",
+   "Wer letzte Woche nicht da war: Die Folien sind auf BOKUlearn, schauen Sie sich das bitte bis zur nächsten Einheit an.",
+   "Hat's zur letzten Einheit noch Fragen gegeben? … Nein? Sie können mir auch jederzeit über BOKUlearn schreiben."
+  ],
+  "agenda": [
+   "Heute fangen wir mit dem Thema {section} an und schauen dann, wie weit wir kommen.",
+   "Auf dem Programm steht als Erstes: {section}. Danach geht's Schritt für Schritt weiter.",
+   "Wir beginnen heute mit {section} – das ist eine gute Grundlage für den Rest der Einheit.",
+   "Ich hab mir für heute einiges vorgenommen. Starten wir mit {section}.",
+   "Schauen wir uns zuerst {section} an. Wenn die Zeit reicht, schaffen wir danach noch einiges mehr."
+  ],
+  "transition": [
+   "Gut. Damit kommen wir zum nächsten Thema: {section}.",
+   "Das soll fürs Erste reichen. Machen wir weiter mit {section}.",
+   "So, und jetzt ein Themenwechsel – {section}.",
+   "Wenn's dazu keine Fragen gibt, gehen wir weiter zu {section}.",
+   "Behalten Sie das im Hinterkopf, das brauchen wir später wieder. Nächster Punkt: {section}.",
+   "Damit hätten wir das. Jetzt schauen wir uns {section} an.",
+   "Ich wechsle die Folie … genau, wir sind jetzt bei {section}.",
+   "Weiter im Text. Als Nächstes steht {section} auf dem Plan.",
+   "Machen wir hier einen Punkt. Das nächste Kapitel heißt {section}."
+  ],
+  "latecomer_enter": [
+   "'Tschuldigung …",
+   "Sorry, die Bim ist ausgefallen …",
+   "Darf ich kurz durch? Danke …",
+   "Pardon, ist der Platz da frei?",
+   "Entschuldigung, ich hab den Hörsaal nicht gleich gefunden."
+  ],
+  "latecomer_prof": [
+   "Grüß Gott. Setzen Sie sich ruhig, hinten ist noch Platz.",
+   "Kommen Sie nur, Sie haben nicht viel versäumt – nur das Wichtigste.",
+   "Guten Morgen. Den Anfang finden Sie dann in den Folien auf BOKUlearn.",
+   "Kein Problem. Da drüben, am Rand, ist noch was frei.",
+   "Bitte die Tür leise zumachen – die fällt sonst gern laut ins Schloss."
+  ],
+  "phone_ring_prof": [
+   "Das ist nicht meins, oder? … Nein. Gut.",
+   "Da möchte jemand ganz dringend mit Ihnen sprechen. Ich warte kurz.",
+   "Den Klingelton kenn ich noch gar nicht. Bitte auf lautlos stellen, danke.",
+   "Wenn das die Studienabteilung ist, richten Sie einen schönen Gruß aus.",
+   "Kurze Unterbrechung – bitte stellen Sie die Handys stumm, das stört auch Ihre Nachbarn."
+  ],
+  "phone_ring_student": [
+   "Oh – Entschuldigung …",
+   "Sorry, sorry, ist schon aus.",
+   "Das war mein Wecker … tut mir leid.",
+   "Tut mir leid, hab vergessen, es leise zu stellen.",
+   "Ups … Entschuldigung, ich mach's gleich aus."
+  ],
+  "projector_lost": [
+   "Hoppla, jetzt ist das Bild weg.",
+   "Und schwarz. Moment, das haben wir gleich.",
+   "„Kein Signal“ – das sagt er mir in letzter Zeit öfter.",
+   "Sehen Sie noch was? Ich nämlich auch nicht mehr.",
+   "Das Kabel schon wieder. Bleiben Sie kurz sitzen, ich schau mir das an."
+  ],
+  "projector_fixing": [
+   "Das da hinten … nein, das ist der Strom.",
+   "Raus und wieder rein … komm schon.",
+   "Vielleicht liegt's am Adapter …",
+   "Die Taste da müsst's sein … nein, doch nicht.",
+   "Einen Moment noch, gleich hab ich's."
+  ],
+  "projector_back": [
+   "So, da ist es wieder. Wo waren wir?",
+   "Na bitte. Die Technik und ich, wir verstehen uns doch noch.",
+   "Das Bild ist zurück. Ich wiederhole kurz den letzten Gedanken.",
+   "Danke für die Geduld. Machen wir weiter.",
+   "Es geht wieder. Und falls nicht, erzähl ich halt ohne Folien weiter."
+  ],
+  "long_calc_intro": [
+   "Rechnen wir das einmal durch, Schritt für Schritt – schreiben Sie ruhig mit.",
+   "Das schauen wir uns jetzt an der Tafel an. Dauert ein paar Minuten, aber es zahlt sich aus.",
+   "Ich rechne Ihnen das einmal vor, so wie Sie's in der Prüfung auch machen müssen.",
+   "Zahlen sagen mehr als jede Folie. Ich schreib das jetzt an.",
+   "Machen wir ein konkretes Beispiel mit realistischen Werten, dann wird das greifbar."
+  ],
+  "long_calc_step": [
+   "So, und das setzen wir jetzt hier ein.",
+   "Achten Sie auf die Einheiten – da passieren in der Prüfung die meisten Fehler.",
+   "Bis hierher klar? Gut, dann der nächste Schritt.",
+   "Das runden wir, so genau sind die Tabellenwerte auch wieder nicht.",
+   "Nicht erschrecken, das schaut komplizierter aus, als es ist.",
+   "Rechnen Sie ruhig mit dem Taschenrechner mit. Ich mach's im Kopf und hoffe, es stimmt."
+  ],
+  "long_calc_end": [
+   "Und das ist das Ergebnis. Ist das plausibel? Ja, die Größenordnung passt.",
+   "Merken Sie sich weniger die Zahl als den Rechenweg.",
+   "Wenn Sie in der Praxis etwas ganz anderes herausbekommen, schauen Sie zuerst bei den Einheiten nach.",
+   "So rechnet man das am Betrieb auch – nur hilft dort meistens ein Rationsprogramm.",
+   "Das ist kein Naturgesetz, sondern eine Planungsgröße. Die Kuh hält sich nicht immer an die Tabelle."
+  ],
+  "aisle_walk": [
+   "Ich komm ein Stück zu Ihnen hinauf, dann hört man mich hinten besser.",
+   "Bleiben Sie sitzen, ich geh nur kurz durch die Reihen.",
+   "Ich will sehen, ob man das in den hinteren Reihen auch lesen kann.",
+   "Erzählen kann ich das genauso gut von hier oben.",
+   "Ich vertret mir kurz die Beine – den ganzen Vormittag am Pult stehen ist auch nix."
+  ],
+  "aisle_return": [
+   "So, zurück nach vorne zur Tafel.",
+   "Ich geh wieder runter, sonst sehen Sie die Folie nicht.",
+   "Gut, dann wieder ans Pult.",
+   "Und wieder hinunter. Danke da oben fürs Zuhören.",
+   "Ich brauch die Tafel, also zurück nach vorn."
+  ],
+  "attendance_start": [
+   "Ich lass jetzt die Anwesenheitsliste herumgehen. Bitte leserlich unterschreiben und weitergeben.",
+   "Die Liste geht wieder durch die Reihen – bitte jede und jeder nur für sich selbst.",
+   "Die Anwesenheitsliste startet vorne links. Bitte nicht im Rucksack verschwinden lassen.",
+   "Ich geb die Liste in die erste Reihe. Am Ende hätte ich sie gern vollständig zurück.",
+   "Wie jede Woche die Liste: Name, Matrikelnummer, Unterschrift."
+  ],
+  "attendance_neighbor": [
+   "Da, die Liste.",
+   "Hier, für dich.",
+   "Unterschreibst du kurz? Dann weiter nach rechts.",
+   "Liste. Der Kuli hängt eh dran.",
+   "Gibst du's dann weiter?"
+  ],
+  "attendance_collect": [
+   "Wo ist denn die Liste gerade? … Ah, hinten. Bitte nach vorne durchreichen.",
+   "Die Anwesenheitsliste hätte ich gern wieder – legen Sie sie einfach beim Rausgehen aufs Pult.",
+   "Hat noch wer nicht unterschrieben? Dann bitte jetzt.",
+   "Danke, die Liste ist wieder da. Schaut vollständig aus.",
+   "Bitte geben Sie die Liste nach vorne, bevor alle zusammenpacken."
+  ],
+  "direct_question_intro": [
+   "Ich frag einmal in Reihe {row} – ja, Sie.",
+   "Eine Frage an Sie, in Reihe {row}:",
+   "Schauen wir, ob das angekommen ist. Reihe {row}, genau Sie – was sagen Sie?",
+   "Ich hätte gern eine Antwort aus Reihe {row}. Sie schauen so, als wüssten Sie's.",
+   "Darf ich Sie fragen, in Reihe {row}? Keine Sorge, das geht in keine Note ein."
+  ],
+  "quiz_right": [
+   "Richtig, sehr gut.",
+   "Genau so ist es. Danke.",
+   "Ja, das stimmt. Schön, dass das hängen geblieben ist.",
+   "Korrekt – und das war keine ganz leichte Frage.",
+   "Passt. Haben das alle mitbekommen?"
+  ],
+  "quiz_wrong": [
+   "Nicht ganz – aber das ist ein häufiger Gedanke. Schauen wir's uns noch einmal an.",
+   "Das stimmt leider nicht. Ich erklär's noch einmal kurz, das betrifft wahrscheinlich mehrere.",
+   "Knapp daneben. Die richtige Antwort ist eine andere, ich zeig's Ihnen gleich.",
+   "Nein, aber gut, dass Sie's versucht haben – genau dafür fragen wir ja.",
+   "Das verwechselt man leicht. Richtig ist die andere Variante – ich sag gleich, warum."
+  ],
+  "quiz_timeout": [
+   "Keine Idee? Kein Problem, ich lös auf.",
+   "Ich warte noch kurz … gut, dann sag ich's.",
+   "Ich seh schon, das braucht noch einen Moment. Ich verrat's Ihnen.",
+   "Auch keine Antwort ist eine Antwort. Dann erklär ich's eben selbst.",
+   "Dann helfe ich nach – wir hatten das vor ein paar Minuten auf der Folie."
+  ],
+  "neighbor_warn": [
+   "Psst, er schaut.",
+   "Achtung, er schaut her.",
+   "Pass auf, er kommt rauf.",
+   "Mach zu, schnell.",
+   "Er schaut grad zu uns."
+  ],
+  "neighbor_betray": [
+   "[räuspert sich laut und schaut demonstrativ zu dir] Ähm …",
+   "[rückt hörbar ein Stück von dir weg] Also ich schreib mit.",
+   "[schaut zu dir, dann zum Prof, dann wieder zu dir] Hm.",
+   "[hustet absichtlich, gerade als der Prof herschaut] 'Tschuldigung.",
+   "[deutet mit dem Kuli unauffällig auf deinen Bildschirm] Na ja …",
+   "[seufzt hörbar und schüttelt den Kopf] Echt jetzt?"
+  ],
+  "neighbor_smalltalk": [
+   "Hast du das mitgeschrieben? Ich bin nicht nachgekommen.",
+   "Glaubst du, das ist prüfungsrelevant?",
+   "Der redet echt gern über den Pansen.",
+   "Ich glaub, das steht eh im Skriptum.",
+   "Wie viele Folien kommen heute noch?",
+   "Die Rechnung von vorhin hab ich nicht ganz kapiert.",
+   "Das war letztes Jahr bei der Prüfung, hat mir wer erzählt."
+  ],
+  "joke": [
+   "Die Kuh ist eine Gärkammer auf vier Beinen. In einem einzigen Milliliter Pansensaft schwimmen mehr Bakterien, als es Menschen auf der Erde gibt.",
+   "Die Kuh selbst hat übrigens kein einziges Enzym, das Zellulose spaltet. Sie ist eigentlich nur die Vermieterin – die Arbeit machen die Untermieter im Pansen.",
+   "Beim Schwein ist das Liebig'sche Fass in einer Getreideration fast immer gleich gebaut: Die kürzeste Daube heißt Lysin. Sie können überall sonst nachlegen, es rinnt trotzdem dort raus.",
+   "Grassilage ist im Prinzip Sauerkraut im Fahrsilo. Dieselben Milchsäurebakterien, dieselbe Idee – nur die Portionen sind größer.",
+   "Beim Methan schauen alle immer aufs falsche Ende der Kuh. Über neunzig Prozent kommen vorne raus, beim Rülpsen und Ausatmen.",
+   "Das Pferd hat keine Gallenblase. Braucht's auch nicht – wer von Natur aus bis zu sechzehn Stunden am Tag frisst, muss die Galle nicht zwischenlagern.",
+   "Das Huhn hat keine Zähne, dafür einen Muskelmagen mit kleinen Steinchen drin. Ein Gebiss zum Selbstnachfüllen, sozusagen.",
+   "Die stickstofffreien Extraktstoffe hat eigentlich noch nie jemand gemessen. Die sind einfach das, was übrig bleibt – wie das Budget am Monatsende.",
+   "Nach der Formel N mal 6,25 hätte Futterharnstoff knapp 290 Prozent Rohprotein. Deshalb heißt es auch Rohprotein und nicht Protein.",
+   "Der Blättermagen heißt in der alten Literatur auch Psalter, weil er innen ausschaut wie ein aufgeschlagenes Buch. Damit ist er der belesenste Teil der Kuh.",
+   "Manche Kühe tragen einen Magneten im Netzmagen – nicht für die Kühlschranktür, sondern damit verschluckte Drahtstücke dort liegen bleiben und nichts durchstechen.",
+   "Österreich ist reich an vielem, aber Selen im Boden gehört nicht dazu. Deshalb steht es auf praktisch jedem Etikett von Rindermineralfutter.",
+   "Die Kuh frisst Gras, das wir nicht verdauen können, und macht daraus Milch, die wir verdauen können. Das ist eigentlich die ganze Vorlesung in einem Satz – der Rest sind Details."
+  ],
+  "drink": [
+   "Moment … So.",
+   "Entschuldigung, kurz einen Schluck Wasser.",
+   "Reden macht durstig – einen Augenblick.",
+   "Ich muss kurz was trinken, die Luft herinnen ist sehr trocken.",
+   "Eine Sekunde … Wasser ist übrigens auch bei der Milchkuh das Futtermittel, auf das man am leichtesten vergisst."
+  ],
+  "clock_check": [
+   "Oh, die Zeit läuft. Ich mach ein bisserl schneller.",
+   "Wir haben noch gut {minutes} Minuten, das sollte sich ausgehen.",
+   "Ich seh grad auf die Uhr – da muss ich ein wenig Gas geben.",
+   "Noch {minutes} Minuten. Dann fass ich den Rest etwas kürzer.",
+   "Hm, schon so spät. Ein paar Details lass ich weg, die stehen eh im Skriptum."
+  ],
+  "break_announce": [
+   "Machen wir hier fünf Minuten Pause. Lüften Sie ruhig kurz durch.",
+   "So, fünf Minuten Pause. Bitte pünktlich wieder da sein.",
+   "Wir machen eine kurze Pause – fünf Minuten, nicht fünfzehn.",
+   "Ich glaub, eine Pause können wir alle brauchen. Fünf Minuten, dann geht's weiter.",
+   "Kurze Pause, fünf Minuten. Wer noch einen Kaffee will, muss sich beeilen."
+  ],
+  "break_end": [
+   "So, die fünf Minuten sind um. Wenn Sie bitte wieder Platz nehmen.",
+   "Darf ich bitten? Wir machen weiter.",
+   "Alle wieder da? Die Tür bitte zumachen, danke.",
+   "Gut, weiter geht's – wo waren wir stehen geblieben?",
+   "Ich fang wieder an. Wer noch draußen ist, kommt hoffentlich gleich nach."
+  ],
+  "board_wipe": [
+   "Ich mach kurz Platz auf der Tafel.",
+   "Das brauchen wir nicht mehr – haben's alle abgeschrieben? Gut.",
+   "Einen Moment, ich wisch das weg.",
+   "Die Tafel ist voll. Wer's noch braucht, bitte jetzt fotografieren.",
+   "So, sauber. Neue Tafel, neues Glück."
+  ],
+  "board_slide": [
+   "Ich schieb die Tafel hinauf, dann sehen Sie's auch hinten.",
+   "Das kommt nach oben, das brauchen wir gleich noch.",
+   "Moment, ich hol mir die untere Tafel.",
+   "Hinauf damit – dann bleibt's stehen.",
+   "Die schieben wir hoch, dann hab ich unten wieder Platz."
+  ],
+  "mic_feedback": [
+   "Uh, Entschuldigung. Das war das Mikro.",
+   "Pardon – ich geh einen Schritt weg vom Lautsprecher.",
+   "Das hat jetzt allen in den Ohren wehgetan, mir auch.",
+   "Ich dreh ein wenig leiser. Hört man mich noch?",
+   "Hoppla. Die Technik meldet sich auch zu Wort."
+  ],
+  "blinds": [
+   "Die Sonne blendet auf der Leinwand – könnte jemand am Fenster bitte die Jalousie runterlassen?",
+   "Sieht man da hinten noch was auf der Folie? Ich glaub nicht. Die Jalousie bitte, danke.",
+   "Darf ich Sie am Fenster bitten, die Jalousie ein Stück runterzulassen? Danke vielmals.",
+   "Bei so viel Sonne sieht man das Diagramm nicht mehr. Kann wer die Jalousie bedienen?",
+   "Schönes Wetter, aber schlecht für den Beamer. Jalousie runter, bitte."
+  ],
+  "rain_start": [
+   "Jetzt fängt's zu regnen an. Gut für die Wiesen, schlecht für alle mit dem Rad.",
+   "Hören Sie das? Regen. Da ist man froh, wenn das Heu schon herinnen ist.",
+   "Es regnet. Dann bleiben Sie in der Pause wohl lieber herinnen.",
+   "Na, da hat der Wetterbericht ausnahmsweise recht gehabt.",
+   "Das klingt nach einem ordentlichen Guss. Hoffentlich hat jeder einen Schirm mit."
+  ],
+  "door_bang": [
+   "Oha. Die Tür.",
+   "Das war nur die Tür – die fällt leider immer so laut zu.",
+   "Huch – ich glaub, das hat man bis in die Mensa gehört.",
+   "Die Tür hat einen sehr eigenen Charakter.",
+   "Kein Problem, die schließt halt kräftig."
+  ],
+  "leaves_early": [
+   "Auf Wiedersehen – die Folien sind dann online.",
+   "Gehen Sie nur, aber bitte leise.",
+   "Schönen Tag noch. Den Rest finden Sie im Skriptum.",
+   "Kein Problem. Die Tür bitte sanft zumachen.",
+   "Da hat wohl jemand einen Termin. Alles gut, wir machen weiter."
+  ],
+  "cough_fit": [
+   "Gesundheit. Geht's? Ich warte gern kurz.",
+   "Brauchen Sie ein Wasser? Ich hab hier vorne noch eine Flasche.",
+   "Lassen Sie sich Zeit. Wenn Sie kurz rausgehen wollen, ist das völlig in Ordnung.",
+   "Ich mach kurz Pause, bis es wieder geht.",
+   "Alles in Ordnung? Kann jemand ein Wasser rüberreichen?"
+  ],
+  "light_flicker": [
+   "Das Licht flackert. Ich hoffe, das ist kein schlechtes Omen für die Prüfung.",
+   "Hm, die Deckenbeleuchtung. Das meld ich nachher der Haustechnik.",
+   "Solange der Beamer geht, ist mir das Licht fast egal.",
+   "Wenn's ganz ausgeht, machen wir halt mit der Tafel weiter.",
+   "Das flackert schon seit letzter Woche. Ignorieren wir's einfach."
+  ],
+  "bottle_drop": [
+   "Da ist was runtergefallen – nichts passiert?",
+   "Rollt da eine Flasche nach vorne? Lassen Sie, ich heb sie dann auf.",
+   "Kein Problem, das passiert jedem einmal.",
+   "Hoffentlich war die zu.",
+   "So, jetzt sind alle wieder munter."
+  ],
+  "exam_hint": [
+   "Das zu {section} merken Sie sich bitte – das kommt in der Prüfung sicher in irgendeiner Form.",
+   "Wenn Sie aus {section} nur eine Sache mitnehmen, dann bitte das.",
+   "Ich sag's ganz offen: Bei {section} frag ich das gern bei der Prüfung.",
+   "Das ist bei {section} der Kern. Den sollten Sie erklären können, nicht nur auswendig wissen.",
+   "Unterstreichen Sie sich das im Skriptum – bei {section} ist das prüfungsrelevant.",
+   "Das Prinzip hinter {section} sollten Sie bis zur Prüfung selbst herleiten können.",
+   "Bei {section} wird in der Prüfung erfahrungsgemäß genau das am häufigsten verwechselt. Hier also bitte aufpassen."
+  ],
+  "slides_online": [
+   "Die Folien finden Sie wie immer auf BOKUlearn.",
+   "Sie müssen nicht alles abschreiben – die Folien stell ich heute noch auf BOKUlearn.",
+   "Das ist alles auf BOKUlearn, auch das Skriptum als PDF.",
+   "Die Folien von heute lade ich am Nachmittag hoch.",
+   "Wer die Tafelbilder will: Ich fotografier sie und stell sie zu den Folien auf BOKUlearn."
+  ],
+  "attention_hm": [
+   "Hm.",
+   "Alles klar da hinten?",
+   "Kommen alle mit?",
+   "Hm … gut, weiter.",
+   "Alles in Ordnung in Reihe {row}?"
+  ],
+  "attention_lock": [
+   "Ich warte kurz, bis alle wieder bei mir sind.",
+   "Hm … ich schau nur, ob das bei allen angekommen ist.",
+   "Da hinten … na gut.",
+   "Ich mach einen Moment Pause. Nicht meinetwegen.",
+   "Ist da oben alles in Ordnung? … Gut."
+  ],
+  "caught_1": [
+   "Sie in Reihe {row} – bitte den Laptop jetzt nur für die Vorlesung. Danke.",
+   "Ich sehe, da läuft etwas anderes am Bildschirm. Bitte machen Sie das zu.",
+   "Darf ich Sie bitten, bei uns zu bleiben? Das Spiel läuft Ihnen nicht davon.",
+   "Bitte schließen Sie, was Sie da gerade offen haben. Wir sind mitten im Stoff.",
+   "Kurz an Sie: Ich hätte gern Ihre Aufmerksamkeit hier vorne, nicht am Bildschirm."
+  ],
+  "caught_2": [
+   "Das ist jetzt das zweite Mal. Bitte klappen Sie den Laptop zu.",
+   "Ich hab Sie schon einmal gebeten. Wenn Sie nicht zuhören wollen, lenken Sie bitte wenigstens die anderen nicht ab.",
+   "Reihe {row}, noch einmal: Laptop zu, bitte. Ich sag's ungern ein drittes Mal.",
+   "Ich nehme an, das ist kein Rationsprogramm, was Sie da offen haben. Bitte zumachen – jetzt.",
+   "Ich möchte die Vorlesung nicht ständig deswegen unterbrechen. Bitte legen Sie das weg."
+  ],
+  "caught_3_kick": [
+   "Ich muss Sie jetzt bitten, den Hörsaal zu verlassen. Die Folien finden Sie auf BOKUlearn.",
+   "Das war jetzt das dritte Mal. Packen Sie bitte zusammen und gehen Sie – wir sehen uns nächste Woche.",
+   "Bitte verlassen Sie für heute die Lehrveranstaltung. Das ist nichts Persönliches, aber so geht's nicht.",
+   "Ich habe Sie zweimal gebeten. Für heute ist hier für Sie Schluss – bitte gehen Sie.",
+   "Ich unterbreche jetzt nicht ein viertes Mal. Bitte verlassen Sie den Hörsaal, danke."
+  ],
+  "caught_3_move": [
+   "Setzen Sie sich bitte nach vorne in die erste Reihe. Da ist genug Platz.",
+   "Packen Sie bitte zusammen und kommen Sie nach vorne in die erste Reihe. Dann hab ich Sie im Blick.",
+   "Sie haben vorhin gut mitgedacht, deshalb schick ich Sie nicht hinaus. Bitte in die erste Reihe.",
+   "Ich mach Ihnen einen Vorschlag: erste Reihe, Laptop zu, und wir vergessen das.",
+   "Setzen Sie sich bitte nach vorne. Wer so gut antwortet, gehört eh in die erste Reihe."
+  ],
+  "opponent_caught": [
+   "Sie in Reihe {row}, das gilt auch für Sie: Laptop bitte nur für die Vorlesung.",
+   "In Reihe {row} spielt auch wer, seh ich. Bitte zumachen.",
+   "Reihe {row}, bitte. Ich sehe den Bildschirm von hier.",
+   "Und in Reihe {row} – auch Sie hätte ich gern bei der Sache.",
+   "Reihe {row}: Was immer das ist, es hat Zeit bis zur Pause."
+  ],
+  "tutor_pass": [
+   "Pst – er hat schon zweimal zu dir geschaut.",
+   "Tipp: Bildschirm ein bisserl dunkler.",
+   "Die Liste kommt gleich bei dir vorbei.",
+   "Kurz Laptop runter, er schaut her.",
+   "Die Folien sind eh online, du musst nicht alles abtippen."
+  ],
+  "closing": [
+   "Gut, das war's für heute. Nächste Woche machen wir dort weiter, wo wir jetzt aufgehört haben.",
+   "Danke für die Aufmerksamkeit. Nächste Woche wird's praktischer, da rechnen wir mehr Rationen.",
+   "Damit sind wir am Ende. Schauen Sie sich bis nächste Woche bitte die Folien noch einmal an.",
+   "Das war's für heute. Ich wünsch Ihnen einen schönen Tag, wir sehen uns nächsten Dienstag.",
+   "Schluss für heute. Wer Fragen hat, kann gern noch nach vorne kommen – ich bin noch ein paar Minuten da."
+  ],
+  "exam_info": [
+   "Noch kurz zur Prüfung: Die Anmeldung läuft über BOKUonline, bitte vergessen Sie nicht auf die Frist.",
+   "Der erste Prüfungstermin ist am Ende des Semesters. Die Termine stehen schon in BOKUonline.",
+   "Zur Prüfung: schriftlich, Stoff sind die Folien und das Skriptum. Bitte rechtzeitig in BOKUonline anmelden.",
+   "Bei der Prüfung kommen auch Rechenbeispiele. Taschenrechner mitnehmen – das Handy bleibt in der Tasche.",
+   "Wer sich noch nicht angemeldet hat: Das geht in BOKUonline, und die Frist endet ein paar Tage vor dem Termin."
+  ],
+  "chat_opponent_wait": [
+   "warte, er schaut zu mir",
+   "moment",
+   "sek, er geht grad rauf",
+   "nicht jetzt, nachbarin schaut mit",
+   "kurz pause, der schaut die ganze zeit her"
+  ],
+  "chat_opponent_move": [
+   "du bist",
+   "dein zug",
+   "so. du",
+   "hab gesetzt",
+   "bitte sehr",
+   "jetzt du, schnell"
+  ],
+  "chat_opponent_win": [
+   "gg",
+   "haha, diagonale",
+   "sry, das war zu leicht",
+   "punkt für mich",
+   "nochmal? ich bin grad im flow"
+  ],
+  "chat_opponent_lose": [
+   "ok, verdient",
+   "hab die ecke nicht gesehen",
+   "na super. revanche",
+   "war abgelenkt, er hat grad zu mir geschaut",
+   "gg, die nächste gewinn ich"
+  ],
+  "chat_opponent_draw": [
+   "unentschieden, war klar",
+   "remis. nochmal?",
+   "wieder nix lol",
+   "patt. wir sind zu gut",
+   "ok, das bringt nix, neue runde"
+  ],
+  "chat_opponent_idle": [
+   "gehst du nachher mensa?",
+   "weißt du schon, wann der erste prüfungstermin ist?",
+   "tüwi am donnerstag?",
+   "hast du die folien von letzter woche?",
+   "ich hab um 2 noch bodenkunde ue",
+   "kaffee nach der vo?",
+   "das mit der weender analyse hab ich null verstanden",
+   "der redet heute echt schnell",
+   "hast du dich schon für die prüfung angemeldet?"
+  ],
+  "chat_opponent_caught": [
+   "oida. erwischt",
+   "ups, hat mich gesehen",
+   "sry, muss kurz brav sein",
+   "bin mal 5 min unsichtbar",
+   "peinlich. später weiter"
+  ],
+  "chat_you_caught": [
+   "autsch",
+   "uff. alles ok?",
+   "sorry, aber man hat's echt gesehen lol",
+   "mach mal pause, ich wart",
+   "der schaut jetzt sicher öfter zu dir"
+  ],
+  "audience_questions": [
+   {
+    "section": "einfuehrung",
+    "student": "Konkurrieren Nutztiere nicht mit uns um Lebensmittel?",
+    "repeat": "Die Frage ist, ob Nutztiere nicht mit uns um Lebensmittel konkurrieren.",
+    "answer": [
+     "Das hängt stark vom Haltungssystem ab.",
+     "Nach einer FAO-Studie sind weltweit rund 86 Prozent des verfütterten Futters für Menschen nicht direkt essbar – Gras, Stroh, Nebenprodukte.",
+     "Eine Kuh auf Grünland macht aus Flächen, die wir nicht beackern können, Milch und Fleisch; bei viel Getreide im Trog schaut die Rechnung schon anders aus."
     ]
-  },
-  "en": {
-    "mic_check": [
-      "So, can you hear me at the back? Last row, just raise a hand if it's too quiet.",
-      "One, two … is this working? Yes, I see nodding in the back row, very good.",
-      "Is the mic on? Ah, the little light is green. Can you hear me up there?",
-      "Hello – is the volume all right like this? Otherwise we'll turn it up a bit.",
-      "Let me try it with the microphone. If it's crackling or too quiet at the back, just give me a sign."
-    ],
-    "projector_wait": [
-      "The projector needs another moment, it's not quite awake yet either.",
-      "We'll wait a moment until the picture comes up. The thing has to warm up first.",
-      "A little more patience, the projector is starting up. In the meantime you can open BOKUlearn, the slides are there.",
-      "So, everything's plugged in … now it's looking for the signal. That always takes a few seconds.",
-      "The lamp has to warm up first. Meanwhile I'll tell you what we're planning for today."
-    ],
-    "greeting": [
-      "Good morning, ladies and gentlemen. It's quarter past, so let's begin.",
-      "Good morning, everyone. The academic quarter is over, so a warm welcome to you all.",
-      "Good morning and welcome to Animal Nutrition. Nice to see so many of you – on a Tuesday, at this hour.",
-      "Right, good morning. I'd say we start – anyone still coming in will hopefully find a seat quietly.",
-      "Good morning! I'll wait a moment until everyone's seated … good, then let's get going."
-    ],
-    "smalltalk": [
-      "Back in my village we had the harvest festival on Sunday – the harvest crown was particularly nice this year. Did any of you go to one?",
-      "It's pretty chilly outside today. The cows on pasture mind that less than we do – cattle cope with cold much better than with heat.",
-      "There are still a few places left on the excursion to Raumberg-Gumpenstein. You register via BOKUonline.",
-      "The semester's been running for a few weeks now. I hope you've settled in and can find all the lecture halls by now.",
-      "I came by bike today. The climb up to Türkenschanze reminds me every time that I'm not twenty any more.",
-      "Who here comes from a farm? … Quite a few, actually. Then you can bring in some practical experience today.",
-      "By the way, the ÖH is still looking for people for the student representation. The information is on the notice board outside."
-    ],
-    "recap": [
-      "Just a quick reminder: last week we laid the foundations that we're building on today.",
-      "Before we carry on, very briefly, where we left off last time.",
-      "Last week we already saw that an animal can never use everything that's in the feed. That's the thread running through this whole course.",
-      "For those who weren't here last week: the slides are on BOKUlearn, please have a look before the next session.",
-      "Any questions left over from last time? … No? You can always write to me via BOKUlearn as well."
-    ],
-    "agenda": [
-      "Today we'll start with {section} and then see how far we get.",
-      "First on the programme today: {section}. After that we'll take it step by step.",
-      "We'll begin with {section} today – that's a good basis for the rest of the session.",
-      "I've planned quite a lot for today. Let's start with {section}.",
-      "Let's have a look at {section} first. If time allows, we'll cover quite a bit more after that."
-    ],
-    "transition": [
-      "Good. That brings us to the next topic: {section}.",
-      "That should do for now. Let's move on to {section}.",
-      "Right, and now a change of topic – {section}.",
-      "If there are no questions on that, we'll move on to {section}.",
-      "Keep that in the back of your mind, we'll need it again later. Next point: {section}.",
-      "So much for that. Now let's have a look at {section}.",
-      "Let me change the slide … exactly, we're now at {section}.",
-      "Moving on. Next on the plan is {section}.",
-      "Let's stop there. The next chapter is {section}."
-    ],
-    "latecomer_enter": [
-      "Sorry …",
-      "Sorry, the tram didn't come …",
-      "Can I just squeeze past? Thanks …",
-      "Excuse me, is this seat free?",
-      "Sorry, I couldn't find the lecture hall at first."
-    ],
-    "latecomer_prof": [
-      "Good morning. Do sit down, there's still room at the back.",
-      "Come on in, you haven't missed much – only the most important part.",
-      "Good morning. You'll find the beginning in the slides on BOKUlearn.",
-      "No problem. Over there, at the end of the row, there's still a free seat.",
-      "Please close the door quietly – otherwise it tends to slam."
-    ],
-    "phone_ring_prof": [
-      "That's not mine, is it? … No. Good.",
-      "Someone urgently wants to talk to you. I'll wait a moment.",
-      "I don't know that ringtone yet. Please switch it to silent, thank you.",
-      "If that's the student office, do give them my regards.",
-      "A short interruption – please put your phones on silent, it bothers the people next to you as well."
-    ],
-    "phone_ring_student": [
-      "Oh – sorry …",
-      "Sorry, sorry, it's off.",
-      "That was my alarm … I'm sorry.",
-      "Sorry, I forgot to put it on silent.",
-      "Oops … sorry, I'm turning it off right now."
-    ],
-    "projector_lost": [
-      "Whoops, the picture's gone.",
-      "And black. One moment, we'll sort that out.",
-      "“No signal” – it's been telling me that a lot lately.",
-      "Can you still see anything? Because I can't.",
-      "The cable again. Stay seated for a moment, I'll have a look."
-    ],
-    "projector_fixing": [
-      "This one at the back … no, that's the power.",
-      "Out and back in … come on.",
-      "Maybe it's the adapter …",
-      "It should be this button … no, it isn't.",
-      "Just a moment, almost got it."
-    ],
-    "projector_back": [
-      "There we go, it's back. Where were we?",
-      "There you are. The technology and I still get along after all.",
-      "The picture's back. Let me briefly repeat the last point.",
-      "Thanks for your patience. Let's carry on.",
-      "It's working again. And if it isn't, I'll simply carry on without slides."
-    ],
-    "long_calc_intro": [
-      "Let's work through this once, step by step – feel free to write along.",
-      "Let's look at this on the board now. It takes a few minutes, but it's worth it.",
-      "I'll calculate this for you once, the way you'll have to do it in the exam.",
-      "Numbers say more than any slide. I'll write it up now.",
-      "Let's do a concrete example with realistic values, then it becomes tangible."
-    ],
-    "long_calc_step": [
-      "Right, and this is what we plug in here.",
-      "Watch the units – that's where most mistakes happen in the exam.",
-      "Clear so far? Good, then the next step.",
-      "We'll round that, the table values aren't that precise anyway.",
-      "Don't be alarmed, it looks more complicated than it is.",
-      "Feel free to follow along on your calculator. I'm doing it in my head and hoping it's right."
-    ],
-    "long_calc_end": [
-      "And that's the result. Is it plausible? Yes, the order of magnitude is right.",
-      "Remember the method rather than the number.",
-      "If you get something completely different in practice, check the units first.",
-      "That's how it's done on the farm too – except there a ration programme usually helps.",
-      "That's not a law of nature, it's a planning figure. The cow doesn't always stick to the table."
-    ],
-    "aisle_walk": [
-      "I'll come up towards you a bit, then you can hear me better at the back.",
-      "Stay seated, I'm just walking through the rows for a moment.",
-      "I want to see whether you can read this in the back rows too.",
-      "I can tell you this just as well from up here.",
-      "I'll stretch my legs a little – standing at the lectern all morning isn't great either."
-    ],
-    "aisle_return": [
-      "Right, back down to the board.",
-      "I'll go back down, otherwise you can't see the slide.",
-      "Good, back to the lectern then.",
-      "And back down again. Thanks for listening up there.",
-      "I need the board, so back to the front."
-    ],
-    "attendance_start": [
-      "I'm sending the attendance list round now. Please sign legibly and pass it on.",
-      "The list is going through the rows again – please, everyone sign only for themselves.",
-      "The attendance list starts at the front left. Please don't let it disappear into your backpack.",
-      "I'm handing the list to the front row. At the end I'd like it back complete.",
-      "The list, as every week: name, student ID number, signature."
-    ],
-    "attendance_neighbor": [
-      "Here, the list.",
-      "Here, for you.",
-      "Can you sign quickly? Then pass it to the right.",
-      "List. The pen's attached.",
-      "Can you pass it on after?"
-    ],
-    "attendance_collect": [
-      "Where's the list right now? … Ah, at the back. Please pass it forward.",
-      "I'd like the attendance list back – just leave it on the lectern on your way out.",
-      "Has anyone not signed yet? Then please do it now.",
-      "Thank you, the list is back. Looks complete.",
-      "Please pass the list to the front before everyone packs up."
-    ],
-    "direct_question_intro": [
-      "Let me ask in row {row} – yes, you.",
-      "A question for you, in row {row}:",
-      "Let's see if that's sunk in. Row {row}, yes, you – what do you say?",
-      "I'd like an answer from row {row}. You look as if you know it.",
-      "May I ask you, in row {row}? Don't worry, it doesn't count towards any grade."
-    ],
-    "quiz_right": [
-      "Correct, very good.",
-      "Exactly right. Thank you.",
-      "Yes, that's right. Nice to see that it stuck.",
-      "Correct – and that wasn't an easy question.",
-      "Spot on. Did everyone catch that?"
-    ],
-    "quiz_wrong": [
-      "Not quite – but it's a common line of thought. Let's look at it again.",
-      "That's not right, unfortunately. Let me explain it again briefly, it probably concerns several of you.",
-      "Close, but no. The correct answer is a different one, I'll show you in a second.",
-      "No, but good that you tried – that's exactly why we ask.",
-      "That's easy to mix up. The other option is correct – I'll explain why in a moment."
-    ],
-    "quiz_timeout": [
-      "No idea? No problem, I'll give you the answer.",
-      "I'll wait a moment … all right, then I'll tell you.",
-      "I can see that needs a moment longer. I'll let you in on it.",
-      "No answer is an answer too. Then I'll explain it myself.",
-      "Then I'll help out – we had that on the slide a few minutes ago."
-    ],
-    "neighbor_warn": [
-      "Psst, he's looking.",
-      "Careful, he's looking over.",
-      "Watch out, he's coming up.",
-      "Close it, quick.",
-      "He's looking our way."
-    ],
-    "neighbor_betray": [
-      "[clears throat loudly and looks pointedly at you] Um …",
-      "[shifts audibly away from you] Well, I'm taking notes.",
-      "[looks at you, then at the professor, then back at you] Hm.",
-      "[coughs deliberately just as the professor looks over] Sorry.",
-      "[points discreetly at your screen with a pen] Well …",
-      "[sighs audibly and shakes head] Seriously?"
-    ],
-    "neighbor_smalltalk": [
-      "Did you get that down? I couldn't keep up.",
-      "Do you think that's on the exam?",
-      "He really likes talking about the rumen.",
-      "I think that's in the lecture notes anyway.",
-      "How many more slides today?",
-      "I didn't quite get the calculation from before.",
-      "That was on last year's exam, someone told me."
-    ],
-    "joke": [
-      "The cow is a fermentation vat on four legs. A single millilitre of rumen fluid holds more bacteria than there are people on Earth.",
-      "The cow herself, by the way, doesn't have a single enzyme that breaks down cellulose. She's really just the landlady – the tenants in the rumen do the work.",
-      "In a cereal-based pig ration, Liebig's barrel is almost always built the same way: the shortest stave is called lysine. You can top up everything else – it still leaks out there.",
-      "Grass silage is basically sauerkraut in a bunker silo. Same lactic acid bacteria, same idea – just bigger portions.",
-      "When it comes to methane, everyone always looks at the wrong end of the cow. Over ninety percent comes out the front, by belching and breathing out.",
-      "The horse has no gallbladder. It doesn't need one – if you naturally eat for up to sixteen hours a day, there's no point storing bile.",
-      "The chicken has no teeth, but it has a gizzard with little stones in it. Self-refilling dentures, so to speak.",
-      "Nobody has ever actually measured the nitrogen-free extract. It's simply what's left over – like your budget at the end of the month.",
-      "By the formula N times 6.25, feed urea would have almost 290 percent crude protein. That's why it's called crude protein and not protein.",
-      "In older literature the omasum is also called the psalterium, because inside it looks like an open book. Which makes it the best-read part of the cow.",
-      "Some cows carry a magnet in their reticulum – not for the fridge door, but so that swallowed bits of wire stay put and don't pierce anything.",
-      "Austria is rich in many things, but selenium in the soil isn't one of them. That's why it's on practically every label of cattle mineral feed.",
-      "The cow eats grass that we can't digest and turns it into milk that we can. That's really the whole lecture in one sentence – the rest is detail."
-    ],
-    "drink": [
-      "One moment … There.",
-      "Excuse me, just a sip of water.",
-      "Talking makes you thirsty – just a second.",
-      "I need a quick drink, the air in here is very dry.",
-      "One second … Water, by the way, is also the feed people most easily forget about with dairy cows."
-    ],
-    "clock_check": [
-      "Oh, time's running. I'll speed up a little.",
-      "We've still got a good {minutes} minutes, that should work out.",
-      "I'm just looking at the clock – I'll have to step on it a bit.",
-      "{minutes} minutes left. Then I'll keep the rest a bit shorter.",
-      "Hm, already this late. I'll skip a few details, they're in the lecture notes anyway."
-    ],
-    "break_announce": [
-      "Let's take a five-minute break here. Feel free to let some fresh air in.",
-      "Right, five minutes' break. Please be back on time.",
-      "We'll take a short break – five minutes, not fifteen.",
-      "I think we could all use a break. Five minutes, then we'll continue.",
-      "Short break, five minutes. If you still want a coffee, you'll have to hurry."
-    ],
-    "break_end": [
-      "Right, the five minutes are up. If you'd please take your seats again.",
-      "If I may? Let's continue.",
-      "Everyone back? Please close the door, thank you.",
-      "Good, let's go on – where did we leave off?",
-      "I'm starting again. Whoever's still outside will hopefully follow shortly."
-    ],
-    "board_wipe": [
-      "Let me make some room on the board.",
-      "We don't need this any more – has everyone copied it? Good.",
-      "One moment, I'll wipe this off.",
-      "The board's full. If you still need it, please take a photo now.",
-      "There, clean. Fresh board, fresh start."
-    ],
-    "board_slide": [
-      "I'll slide the board up, then you can see it at the back too.",
-      "This goes up top, we'll need it again shortly.",
-      "One moment, I'll get the lower board.",
-      "Up it goes – that way it stays visible.",
-      "We'll push this one up, then I've got space at the bottom again."
-    ],
-    "mic_feedback": [
-      "Ooh, sorry. That was the mic.",
-      "Pardon me – I'll step away from the speaker.",
-      "That hurt everyone's ears, mine included.",
-      "I'll turn it down a little. Can you still hear me?",
-      "Whoops. The technology wants to have its say too."
-    ],
-    "blinds": [
-      "The sun's glaring on the screen – could someone by the window please lower the blinds?",
-      "Can you still see anything on the slide at the back? I don't think so. The blinds, please, thank you.",
-      "May I ask you by the window to lower the blinds a little? Thanks very much.",
-      "With this much sun, you can't see the diagram any more. Could someone work the blinds?",
-      "Lovely weather, but bad for the projector. Blinds down, please."
-    ],
-    "rain_start": [
-      "Now it's starting to rain. Good for the meadows, bad for everyone on a bike.",
-      "Can you hear that? Rain. That's when you're glad the hay is already in.",
-      "It's raining. Then you'll probably prefer to stay inside during the break.",
-      "Well, the weather forecast was right for once.",
-      "That sounds like a proper downpour. Hopefully everyone brought an umbrella."
-    ],
-    "door_bang": [
-      "Oh. The door.",
-      "That was just the door – unfortunately it always slams like that.",
-      "Whoa – I think they heard that all the way to the Mensa.",
-      "That door has a character all of its own.",
-      "No problem, it just closes with some force."
-    ],
-    "leaves_early": [
-      "Goodbye – the slides will be online.",
-      "Go ahead, but quietly, please.",
-      "Have a nice day. You'll find the rest in the lecture notes.",
-      "No problem. Please close the door gently.",
-      "Someone must have an appointment. That's fine, let's carry on."
-    ],
-    "cough_fit": [
-      "Bless you. Are you all right? I'm happy to wait a moment.",
-      "Do you need some water? I've got another bottle up here.",
-      "Take your time. If you'd like to step out for a moment, that's perfectly fine.",
-      "I'll pause for a moment until it's better.",
-      "Everything OK? Can someone pass some water over?"
-    ],
-    "light_flicker": [
-      "The light's flickering. I hope that's not a bad omen for the exam.",
-      "Hm, the ceiling lights. I'll report that to building services afterwards.",
-      "As long as the projector works, I don't mind the light that much.",
-      "If it goes out completely, we'll just carry on with the board.",
-      "It's been flickering since last week. Let's just ignore it."
-    ],
-    "bottle_drop": [
-      "Something fell down there – nothing broken?",
-      "Is that a bottle rolling down to the front? Leave it, I'll pick it up later.",
-      "No problem, that happens to everyone.",
-      "Hopefully that one had its lid on.",
-      "Well, that's woken everyone up."
-    ],
-    "exam_hint": [
-      "Please remember this point on {section} – it'll come up in the exam in some form, for sure.",
-      "If you take away only one thing from {section}, let it be this.",
-      "I'll be quite open with you: on {section}, I like to ask this in the exam.",
-      "That's the core of {section}. You should be able to explain it, not just recite it.",
-      "Underline that in your lecture notes – for {section}, this is exam-relevant.",
-      "By the exam, you should be able to derive the principle behind {section} yourself.",
-      "In {section}, experience shows this is exactly what gets mixed up most often in the exam. So please pay attention here."
-    ],
-    "slides_online": [
-      "As always, you'll find the slides on BOKUlearn.",
-      "You don't need to copy everything – I'll put the slides on BOKUlearn later today.",
-      "It's all on BOKUlearn, including the lecture notes as a PDF.",
-      "I'll upload today's slides this afternoon.",
-      "If you want the board notes: I'll take photos and put them with the slides on BOKUlearn."
-    ],
-    "attention_hm": [
-      "Hm.",
-      "All right back there?",
-      "Is everyone keeping up?",
-      "Hm … right, moving on.",
-      "Everything all right in row {row}?"
-    ],
-    "attention_lock": [
-      "I'll wait a moment until everyone's with me again.",
-      "Hm … I'm just checking whether that's got through to everyone.",
-      "Back there … all right.",
-      "I'll pause for a moment. Not for my sake.",
-      "Is everything all right up there? … Good."
-    ],
-    "caught_1": [
-      "You in row {row} – please use the laptop only for the lecture now. Thank you.",
-      "I can see something else is running on your screen. Please close it.",
-      "May I ask you to stay with us? The game won't run away.",
-      "Please close whatever you have open there. We're in the middle of the material.",
-      "Just a word to you: I'd like your attention here at the front, not on the screen."
-    ],
-    "caught_2": [
-      "That's the second time now. Please close the laptop.",
-      "I've already asked you once. If you don't want to listen, please at least don't distract the others.",
-      "Row {row}, once more: laptop closed, please. I'd rather not say it a third time.",
-      "I assume that's not a ration programme you've got open there. Please close it – now.",
-      "I don't want to keep interrupting the lecture for this. Please put it away."
-    ],
-    "caught_3_kick": [
-      "I have to ask you to leave the lecture hall now. You'll find the slides on BOKUlearn.",
-      "That was the third time. Please pack up and leave – we'll see each other next week.",
-      "Please leave the lecture for today. It's nothing personal, but it can't go on like this.",
-      "I've asked you twice. That's it for you today – please go.",
-      "I won't interrupt a fourth time. Please leave the lecture hall, thank you."
-    ],
-    "caught_3_move": [
-      "Please move to the front, to the first row. There's plenty of room.",
-      "Please pack up and come to the front row. Then I can keep an eye on you.",
-      "You were thinking along well earlier, so I won't send you out. Front row, please.",
-      "Here's my suggestion: first row, laptop closed, and we'll forget about it.",
-      "Please sit at the front. Anyone who answers that well belongs in the first row anyway."
-    ],
-    "opponent_caught": [
-      "You in row {row}, that goes for you too: laptop only for the lecture, please.",
-      "Someone in row {row} is playing too, I see. Please close it.",
-      "Row {row}, please. I can see the screen from here.",
-      "And row {row} – I'd like you with us as well.",
-      "Row {row}: whatever that is, it can wait until the break."
-    ],
-    "tutor_pass": [
-      "Psst – he's already looked at you twice.",
-      "Tip: turn your screen down a bit.",
-      "The list's coming your way in a sec.",
-      "Laptop down for a sec, he's looking.",
-      "The slides are online anyway, you don't have to type everything."
-    ],
-    "closing": [
-      "Good, that's it for today. Next week we'll pick up where we left off.",
-      "Thank you for your attention. Next week will be more practical, we'll be calculating more rations.",
-      "That brings us to the end. Please have another look at the slides before next week.",
-      "That's all for today. Have a nice day, see you next Tuesday.",
-      "That's it for today. If you have questions, feel free to come to the front – I'll be here a few more minutes."
-    ],
-    "exam_info": [
-      "Quickly about the exam: registration is via BOKUonline, please don't forget the deadline.",
-      "The first exam date is at the end of the semester. The dates are already in BOKUonline.",
-      "About the exam: it's written, and it covers the slides and the lecture notes. Please register in BOKUonline in good time.",
-      "The exam includes calculation problems as well. Bring a calculator – the phone stays in your bag.",
-      "If you haven't registered yet: you do that in BOKUonline, and the deadline is a few days before the exam."
-    ],
-    "chat_opponent_wait": [
-      "wait he's looking at me",
-      "hang on",
-      "sec, he's walking up",
-      "not now, my neighbour's watching",
-      "short break, he keeps looking over here"
-    ],
-    "chat_opponent_move": [
-      "ur turn",
-      "your move",
-      "ok. you",
-      "done",
-      "there you go",
-      "you now, quick"
-    ],
-    "chat_opponent_win": [
-      "gg",
-      "haha, diagonal",
-      "sry, that was too easy",
-      "point to me",
-      "again? i'm on a roll"
-    ],
-    "chat_opponent_lose": [
-      "ok, fair enough",
-      "didn't see the corner",
-      "great. rematch",
-      "got distracted, he was looking at me",
-      "gg, i'll take the next one"
-    ],
-    "chat_opponent_draw": [
-      "draw, obviously",
-      "tie. again?",
-      "nothing again lol",
-      "stalemate. we're too good",
-      "ok this is going nowhere, new round"
-    ],
-    "chat_opponent_idle": [
-      "you going to the mensa after?",
-      "do you know when the first exam date is yet?",
-      "tüwi on thursday?",
-      "do you have last week's slides?",
-      "i've got soil science practical at 2",
-      "coffee after the lecture?",
-      "i understood zero of the weende analysis stuff",
-      "he's talking really fast today",
-      "have you registered for the exam yet?"
-    ],
-    "chat_opponent_caught": [
-      "damn. caught",
-      "oops, he saw me",
-      "sry, gotta behave for a bit",
-      "going invisible for 5 min",
-      "embarrassing. later"
-    ],
-    "chat_you_caught": [
-      "ouch",
-      "oof. you ok?",
-      "sorry but it was really obvious lol",
-      "take a break, i'll wait",
-      "he's def gonna watch you more now"
-    ],
-    "audience_questions": [
-      {
-        "section": "einfuehrung",
-        "student": "Don't farm animals compete with us for food?",
-        "repeat": "The question is whether livestock compete with us for food.",
-        "answer": [
-          "That depends very much on the production system.",
-          "According to an FAO study, around 86 percent of the feed eaten by livestock worldwide isn't directly edible for humans – grass, straw, by-products.",
-          "A cow on grassland turns land we can't use for crops into milk and meat; with a lot of grain in the trough, the calculation looks quite different."
-        ]
-      },
-      {
-        "section": "analytik",
-        "student": "Why do we actually multiply by 6.25 for crude protein?",
-        "repeat": "For the mic: why do we multiply by 6.25 for crude protein?",
-        "answer": [
-          "Because proteins contain about 16 percent nitrogen on average, and 100 divided by 16 is 6.25.",
-          "It's an average – for milk protein you'd rather use 6.38, for wheat about 5.7.",
-          "And because Kjeldahl also picks up non-protein nitrogen such as urea, the result is honestly called crude protein."
-        ]
-      },
-      {
-        "section": "analytik",
-        "student": "What's the difference between crude fibre and NDF?",
-        "repeat": "The question was how crude fibre and NDF differ.",
-        "answer": [
-          "With Weende crude fibre, part of the hemicellulose and lignin is lost in the acid and alkali – and by calculation it ends up in the NFE.",
-          "Van Soest's NDF, on the other hand, captures the whole cell wall: hemicellulose, cellulose and lignin.",
-          "ADF is then cellulose plus lignin, and ADL is essentially the lignin alone."
-        ]
-      },
-      {
-        "section": "verdauung_mono",
-        "student": "What does a chicken have a crop for?",
-        "repeat": "Let me repeat that: what does a chicken need a crop for?",
-        "answer": [
-          "The crop is a widening of the oesophagus and mainly a storage organ – the chicken can take in a lot quickly and digest it at leisure.",
-          "The feed is softened there; actual digestion begins in the proventriculus with hydrochloric acid and pepsin.",
-          "Grinding then happens in the gizzard, since the chicken has no teeth."
-        ]
-      },
-      {
-        "section": "verdauung_mono",
-        "student": "Can pigs make any use of crude fibre at all?",
-        "repeat": "The question was whether the pig can do anything with crude fibre at all.",
-        "answer": [
-          "Hardly in the small intestine, but in the large intestine part of it is fermented by microbes, and the pig absorbs the volatile fatty acids.",
-          "In fattening pigs that energy contribution is small; in sows it's much larger, because their hindgut is bigger and the feed stays there longer.",
-          "For pregnant sows, fibre also matters for satiety and against constipation."
-        ]
-      },
-      {
-        "section": "verdauung_wdk",
-        "student": "Why does the cow need to chew the cud at all?",
-        "repeat": "Good question – namely, why the cow ruminates in the first place.",
-        "answer": [
-          "For one thing, the feed gets finer, and the microbes get more surface to work on.",
-          "For another, she produces a lot of saliva while doing it, often over a hundred litres a day, and the bicarbonate in it buffers the rumen.",
-          "A dairy cow ruminates seven to nine hours a day – if that drops noticeably, the ration is usually lacking structure."
-        ]
-      },
-      {
-        "section": "verdauung_wdk",
-        "student": "What exactly happens in ruminal acidosis?",
-        "repeat": "Briefly for everyone: what happens in the rumen during acidosis?",
-        "answer": [
-          "If a lot of starch and sugar arrives at once, acids are produced faster than the rumen can buffer and absorb them – the pH drops.",
-          "In the subclinical form, it stays below about 5.8 for several hours a day, and you can hardly tell by looking at the cow.",
-          "Typical consequences are fluctuating feed intake, low milk fat and, later on, often hoof problems."
-        ]
-      },
-      {
-        "section": "energie",
-        "student": "Why do we use NEL for cows but ME for pigs?",
-        "repeat": "For the mic: why net energy for dairy cows but metabolisable energy for pigs?",
-        "answer": [
-          "In ruminants, the efficiency of using metabolisable energy varies a lot with the feed, so we go one step further to net energy.",
-          "In pigs these differences are smaller, and here we work with ME according to the GfE.",
-          "In France or the Netherlands, by the way, they use net energy for pigs as well – both approaches are defensible."
-        ]
-      },
-      {
-        "section": "energie",
-        "student": "Do straw and grain really have roughly the same gross energy?",
-        "repeat": "The question is whether straw and grain really have similar gross energy.",
-        "answer": [
-          "Yes, both are around 18 megajoules per kilo of dry matter, because both consist mainly of carbohydrates.",
-          "Only fat has considerably more, at nearly 40 megajoules.",
-          "The difference lies in digestibility – which is exactly why gross energy alone tells you almost nothing about feeding value."
-        ]
-      },
-      {
-        "section": "protein_wdk",
-        "student": "What does the urea content in milk tell me?",
-        "repeat": "Let me repeat: what can you read from milk urea?",
-        "answer": [
-          "It shows how well nitrogen and energy match in the rumen – basically a mirror of the RNB.",
-          "Roughly 15 to 25 milligrams per 100 millilitres is considered favourable.",
-          "High values point to too much degradable protein or too little energy, low values to protein shortage – so always look at it together with milk protein."
-        ]
-      },
-      {
-        "section": "protein_wdk",
-        "student": "Can you really feed urea to a cow?",
-        "repeat": "The question is whether you can actually feed urea to cows.",
-        "answer": [
-          "Yes, the rumen microbes build microbial protein from the ammonia, provided there's enough energy available.",
-          "It only makes sense with a negative RNB, for example in maize-based rations, and only in animals with a fully developed rumen.",
-          "The amounts are limited and have to be well mixed into the ration, otherwise there's a risk of ammonia poisoning."
-        ]
-      },
-      {
-        "section": "protein_mono",
-        "student": "Why is lysine always the big issue with pigs?",
-        "repeat": "The question was why lysine in particular is so prominent with pigs.",
-        "answer": [
-          "Because cereals contain little lysine – in typical cereal-soy rations it's the first limiting amino acid.",
-          "In the ideal protein concept, all other essential amino acids are therefore expressed as a ratio to lysine.",
-          "In poultry it's usually methionine, partly because feathers need a lot of sulphur-containing amino acids."
-        ]
-      },
-      {
-        "section": "protein_mono",
-        "student": "Does phase feeding really make that much difference?",
-        "repeat": "For the mic: how much does phase feeding actually achieve?",
-        "answer": [
-          "Protein requirement per kilo of feed falls over the fattening period – if you use one feed throughout, you overfeed towards the end.",
-          "With two or three phases and supplemented free amino acids you can lower crude protein without losing performance.",
-          "That saves protein feed and noticeably reduces nitrogen excretion – exactly what we mean by N-reduced feeding."
-        ]
-      },
-      {
-        "section": "futtermittel",
-        "student": "Can rapeseed meal replace soy completely?",
-        "repeat": "Briefly for everyone: can rapeseed meal fully replace soybean meal?",
-        "answer": [
-          "For dairy cows, largely yes – milk in Austria is produced GMO-free, and rapeseed meal is an important protein source there.",
-          "For pigs and poultry it's harder: less lysine, more fibre and, depending on the variety, glucosinolates.",
-          "There you usually replace only part of it, and you make sure to use double-zero varieties."
-        ]
-      },
-      {
-        "section": "futtermittel",
-        "student": "What exactly are brewers' grains?",
-        "repeat": "The question is what brewers' grains actually are.",
-        "answer": [
-          "It's the malt residue left after mashing in the brewery – most of the starch has already gone into the wort as sugar.",
-          "What remains are husks, fibre and protein, which is why brewers' grains have about a quarter crude protein in the dry matter.",
-          "Fresh, they only keep for a few days, so they're often ensiled."
-        ]
-      },
-      {
-        "section": "konservierung",
-        "student": "Why should grass be wilted before ensiling?",
-        "repeat": "Good question: why should you wilt before ensiling?",
-        "answer": [
-          "At around 30 to 40 percent dry matter, the sugar is more concentrated and clostridia have a much harder time.",
-          "You also get far less effluent.",
-          "But it mustn't get too dry either, otherwise the material is hard to compact and air stays trapped inside."
-        ]
-      },
-      {
-        "section": "konservierung",
-        "student": "Where does the butyric acid smell in bad silage come from?",
-        "repeat": "The question was where the butyric acid smell in poor silage comes from.",
-        "answer": [
-          "From clostridia – they multiply when the material is too wet, has too little sugar, or when soil got in.",
-          "Their spores get into the milk via faeces and dirty teats, and they even survive pasteurisation.",
-          "For hard cheeses like Bergkäse that's a real problem, which is why silage isn't allowed at all in hay milk production."
-        ]
-      },
-      {
-        "section": "ration_milchkuh",
-        "student": "How much energy does a cow need for one litre of milk?",
-        "repeat": "For the mic: how much energy does the cow need per kilo of milk?",
-        "answer": [
-          "At 4 percent fat and 3.4 percent protein, we calculate with about 3.3 megajoules NEL per kilo of milk.",
-          "On top of that comes maintenance, for a 650-kilo cow about 38 megajoules NEL a day.",
-          "At 30 kilos of milk that brings us to roughly 135 megajoules – and she has to be able to eat that first."
-        ]
-      },
-      {
-        "section": "ration_milchkuh",
-        "student": "How much dry matter does a cow like that eat per day?",
-        "repeat": "The question was how much dry matter a dairy cow eats per day.",
-        "answer": [
-          "A 650-kilo cow giving 30 kilos of milk eats roughly 20 to 22 kilos of dry matter.",
-          "But that depends heavily on forage quality, stage of lactation and yield – in Austria it's commonly estimated with the Raumberg-Gumpenstein equation.",
-          "Right after calving she eats considerably less, and that's exactly where energy gets tight."
-        ]
-      },
-      {
-        "section": "stoffwechsel",
-        "student": "Why do cows get milk fever right after calving?",
-        "repeat": "Let me repeat that briefly: why does milk fever occur right around calving?",
-        "answer": [
-          "With the colostrum, the cow suddenly gives off several times the amount of calcium circulating in her entire blood.",
-          "But mobilisation from bone and increased absorption in the gut take a few days to get going.",
-          "You can prevent it with a low-calcium dry cow ration or a negative DCAB using anionic salts."
-        ]
-      },
-      {
-        "section": "stoffwechsel",
-        "student": "Is ketosis simply an energy deficit?",
-        "repeat": "The question is whether ketosis is simply the same as energy deficiency.",
-        "answer": [
-          "The trigger is an energy deficit in early lactation, but the ketosis itself is really the consequence of it.",
-          "The cow mobilises body fat, the liver can't keep up with the fatty acids and forms ketone bodies such as beta-hydroxybutyrate.",
-          "From about 1.2 millimoles of BHB per litre of blood we usually speak of subclinical ketosis, and cows too fat at drying-off are particularly at risk."
-        ]
-      },
-      {
-        "section": "mineralstoffe",
-        "student": "Why is selenium such a big issue in Austria?",
-        "repeat": "Briefly for everyone: why is selenium so important in Austria in particular?",
-        "answer": [
-          "Because many of our soils are low in selenium – and so is the forage grown on them.",
-          "Deficiency shows up, for example, as white muscle disease in calves and lambs or as more frequent retained placentas.",
-          "That's why it's supplemented via mineral feed, but in moderation: the margin between requirement and toxicity is narrow, and there are legal maximum levels."
-        ]
-      },
-      {
-        "section": "mineralstoffe",
-        "student": "Why shouldn't you give sheep cattle mineral feed?",
-        "repeat": "For the mic: why is cattle mineral feed unsuitable for sheep?",
-        "answer": [
-          "Because of the copper – sheep store copper in the liver and excrete it only poorly via the bile.",
-          "What's fine for cattle can lead to chronic copper poisoning in sheep over weeks to months.",
-          "That's why there's dedicated sheep mineral feed with very little copper."
-        ]
-      },
-      {
-        "section": "umwelt",
-        "student": "Can you really reduce methane emissions through feeding?",
-        "repeat": "The question is whether methane can really be reduced through feeding.",
-        "answer": [
-          "To some extent, yes – more starch, a bit more fat or better forage lower methane per kilo of milk, within limits set by rumen health.",
-          "Since 2022 there's also a feed additive approved in the EU, 3-NOP, which in trials reduced methane by roughly 20 to 30 percent.",
-          "But the biggest lever remains efficiency: healthy cows with a long productive life spread maintenance and rearing over more milk."
-        ]
-      },
-      {
-        "section": "umwelt",
-        "student": "Why is phosphorus an environmental issue with pigs?",
-        "repeat": "The question was why phosphorus in pig feeding is an environmental issue.",
-        "answer": [
-          "A large share of the phosphorus in cereals is bound as phytate, and the pig itself has hardly any phytase to release it.",
-          "So in the past a lot of mineral phosphorus was added, and the surplus ended up on the fields via the slurry.",
-          "Today phytase is added to the feed and pigs are fed in phases – that lowers phosphorus excretion considerably."
-        ]
-      },
-      {
-        "section": "futtermittelrecht",
-        "student": "What's the difference between complete feed and complementary feed?",
-        "repeat": "Let me repeat: what's the difference between complete and complementary feedingstuffs?",
-        "answer": [
-          "A complete feed covers the entire daily requirement on its own, like a fattening feed for pigs.",
-          "A complementary feed is only complete in combination with other feeds, for example dairy concentrate alongside forage.",
-          "Legally, by the way, mineral feeds are complementary feeds with at least 40 percent crude ash."
-        ]
-      },
-      {
-        "section": "futtermittelrecht",
-        "student": "Which mycotoxins are actually relevant here?",
-        "repeat": "Good question – which mycotoxins actually matter in practice here?",
-        "answer": [
-          "Mainly the Fusarium toxins deoxynivalenol and zearalenone in maize and wheat, especially after wet weather at flowering.",
-          "Pigs are the most sensitive: DON depresses feed intake, zearalenone acts like oestrogen and disrupts fertility.",
-          "For these two there are EU guidance values, whereas aflatoxin B1 has a binding maximum level."
-        ]
-      },
-      {
-        "section": "ausblick",
-        "student": "Can you feed a horse much like cattle?",
-        "repeat": "The question is whether you can feed a horse much like cattle.",
-        "answer": [
-          "Only to a limited extent – the horse is a hindgut fermenter, its microbes only come after the small intestine.",
-          "It has a small stomach and copes badly with large amounts of starch at once; that risks colic or laminitis.",
-          "So: plenty of roughage, and the concentrate split into several small meals."
-        ]
-      },
-      {
-        "section": "ausblick",
-        "student": "Is it true that cats absolutely need taurine in their food?",
-        "repeat": "For the mic: do cats really need taurine in their food?",
-        "answer": [
-          "Yes, cats can't synthesise enough taurine themselves.",
-          "Deficiency can lead to retinal damage and a particular form of heart muscle disease.",
-          "That's why cat food is supplemented with taurine, and why dog food isn't a good long-term option for cats."
-        ]
-      }
+   },
+   {
+    "section": "analytik",
+    "student": "Warum rechnet man beim Rohprotein eigentlich mal 6,25?",
+    "repeat": "Fürs Mikro: Warum wird beim Rohprotein mit 6,25 multipliziert?",
+    "answer": [
+     "Weil Proteine im Mittel etwa 16 Prozent Stickstoff enthalten, und 100 durch 16 ergibt 6,25.",
+     "Das ist ein Durchschnittswert – für Milcheiweiß nimmt man eher 6,38, für Weizen etwa 5,7.",
+     "Und weil Kjeldahl auch Nicht-Protein-Stickstoff wie Harnstoff miterfasst, heißt das Ergebnis ehrlicherweise Rohprotein."
     ]
-  }
+   },
+   {
+    "section": "analytik",
+    "student": "Was ist der Unterschied zwischen Rohfaser und NDF?",
+    "repeat": "Die Frage war, wie sich Rohfaser und NDF unterscheiden.",
+    "answer": [
+     "Bei der Rohfaser nach Weende geht in Säure und Lauge ein Teil der Hemizellulose und des Lignins verloren – der landet rechnerisch in den NfE.",
+     "Die NDF nach Van Soest erfasst dagegen die ganze Zellwand, also Hemizellulose, Zellulose und Lignin.",
+     "Die ADF ist dann Zellulose plus Lignin, und das ADL praktisch das Lignin allein."
+    ]
+   },
+   {
+    "section": "verdauung_mono",
+    "student": "Wofür hat das Huhn einen Kropf?",
+    "repeat": "Ich wiederhol's kurz: Wozu braucht das Huhn einen Kropf?",
+    "answer": [
+     "Der Kropf ist eine Erweiterung der Speiseröhre und vor allem ein Speicher – das Huhn kann schnell viel aufnehmen und in Ruhe weiterverdauen.",
+     "Dort wird das Futter eingeweicht; die eigentliche Verdauung beginnt im Drüsenmagen mit Salzsäure und Pepsin.",
+     "Zerkleinert wird dann im Muskelmagen, denn Zähne hat das Huhn ja keine."
+    ]
+   },
+   {
+    "section": "verdauung_mono",
+    "student": "Kann das Schwein Rohfaser überhaupt verwerten?",
+    "repeat": "Gefragt wurde, ob das Schwein mit Rohfaser überhaupt etwas anfangen kann.",
+    "answer": [
+     "Im Dünndarm kaum, aber im Dickdarm wird ein Teil mikrobiell fermentiert, und die flüchtigen Fettsäuren nimmt das Schwein auf.",
+     "Beim Mastschwein ist dieser Energiebeitrag gering, bei der Sau deutlich größer, weil ihr Dickdarm größer ist und das Futter länger drin bleibt.",
+     "Für tragende Sauen ist Faser außerdem wichtig für die Sättigung und gegen Verstopfung."
+    ]
+   },
+   {
+    "section": "verdauung_wdk",
+    "student": "Warum muss die Kuh überhaupt wiederkäuen?",
+    "repeat": "Gute Frage – nämlich, warum die Kuh überhaupt wiederkäut.",
+    "answer": [
+     "Zum einen wird das Futter feiner, und die Mikroben bekommen mehr Angriffsfläche.",
+     "Zum anderen bildet sie dabei sehr viel Speichel, oft über hundert Liter am Tag, und das Bicarbonat darin puffert den Pansen.",
+     "Eine Milchkuh käut sieben bis neun Stunden am Tag wieder – wird das deutlich weniger, fehlt meistens Struktur in der Ration."
+    ]
+   },
+   {
+    "section": "verdauung_wdk",
+    "student": "Was passiert bei einer Pansenazidose genau?",
+    "repeat": "Kurz für alle: Was passiert bei einer Pansenazidose im Pansen?",
+    "answer": [
+     "Kommen viel Stärke und Zucker auf einmal, entstehen schneller Säuren, als der Pansen puffern und aufnehmen kann – der pH sinkt.",
+     "Bei der subklinischen Form liegt er über mehrere Stunden am Tag unter etwa 5,8, und das sieht man der Kuh kaum an.",
+     "Typische Folgen sind schwankende Futteraufnahme, niedriger Milchfettgehalt und später oft Klauenprobleme."
+    ]
+   },
+   {
+    "section": "energie",
+    "student": "Warum rechnet man bei der Kuh mit NEL, beim Schwein aber mit ME?",
+    "repeat": "Fürs Mikro: Warum Nettoenergie bei der Milchkuh, aber umsetzbare Energie beim Schwein?",
+    "answer": [
+     "Beim Wiederkäuer schwankt die Verwertung der umsetzbaren Energie stark je nach Futter, deshalb geht man eine Stufe weiter bis zur Nettoenergie.",
+     "Beim Schwein sind diese Unterschiede kleiner, und bei uns arbeitet man nach GfE mit ME.",
+     "In Frankreich oder den Niederlanden rechnet man übrigens auch beim Schwein mit Nettoenergie – vertretbar ist beides."
+    ]
+   },
+   {
+    "section": "energie",
+    "student": "Haben Stroh und Getreide wirklich ungefähr die gleiche Bruttoenergie?",
+    "repeat": "Die Frage ist, ob Stroh und Getreide wirklich ähnlich viel Bruttoenergie haben.",
+    "answer": [
+     "Ja, beide liegen bei rund 18 Megajoule pro Kilo Trockenmasse, weil beide großteils aus Kohlenhydraten bestehen.",
+     "Deutlich mehr hat nur Fett, mit knapp 40 Megajoule.",
+     "Der Unterschied liegt in der Verdaulichkeit – genau deshalb sagt die Bruttoenergie allein über den Futterwert fast nichts aus."
+    ]
+   },
+   {
+    "section": "protein_wdk",
+    "student": "Was sagt mir der Harnstoffgehalt in der Milch?",
+    "repeat": "Ich wiederhol's: Was kann man aus dem Milchharnstoff ablesen?",
+    "answer": [
+     "Er zeigt, wie gut Stickstoff und Energie im Pansen zusammenpassen – im Grunde ein Spiegel der RNB.",
+     "Als günstig gelten ungefähr 15 bis 25 Milligramm pro 100 Milliliter.",
+     "Hohe Werte deuten auf zu viel abbaubares Protein oder zu wenig Energie, niedrige auf Proteinmangel – darum immer zusammen mit dem Milcheiweiß anschauen."
+    ]
+   },
+   {
+    "section": "protein_wdk",
+    "student": "Kann man einer Kuh wirklich Harnstoff füttern?",
+    "repeat": "Gefragt ist, ob man Kühen tatsächlich Harnstoff füttern kann.",
+    "answer": [
+     "Ja, die Pansenmikroben bauen aus dem Ammoniak Mikrobenprotein auf, vorausgesetzt, es ist genug Energie da.",
+     "Sinnvoll ist das nur bei negativer RNB, etwa in maisbetonten Rationen, und nur bei Tieren mit voll entwickeltem Pansen.",
+     "Die Mengen sind begrenzt und müssen gut in der Ration verteilt sein, sonst droht eine Ammoniakvergiftung."
+    ]
+   },
+   {
+    "section": "protein_mono",
+    "student": "Warum ist beim Schwein immer Lysin das große Thema?",
+    "repeat": "Die Frage war, warum beim Schwein gerade Lysin so im Vordergrund steht.",
+    "answer": [
+     "Weil Getreide wenig Lysin enthält – in typischen Getreide-Soja-Rationen ist es die erstlimitierende Aminosäure.",
+     "Beim Idealprotein drückt man deshalb alle anderen essenziellen Aminosäuren als Verhältnis zu Lysin aus.",
+     "Beim Geflügel ist es meistens Methionin, auch weil für die Federn viel schwefelhaltige Aminosäuren gebraucht werden."
+    ]
+   },
+   {
+    "section": "protein_mono",
+    "student": "Bringt Phasenfütterung wirklich so viel?",
+    "repeat": "Fürs Mikro: Wie viel bringt Phasenfütterung tatsächlich?",
+    "answer": [
+     "Der Proteinbedarf pro Kilo Futter sinkt im Lauf der Mast – wer die ganze Mast mit einem Futter fährt, füttert gegen Ende zu viel.",
+     "Mit zwei, drei Phasen und ergänzten freien Aminosäuren kann man den Rohproteingehalt senken, ohne Leistung zu verlieren.",
+     "Das spart Eiweißfutter und senkt die Stickstoffausscheidung spürbar – genau das meint man mit N-reduzierter Fütterung."
+    ]
+   },
+   {
+    "section": "futtermittel",
+    "student": "Kann Rapsextraktionsschrot Soja komplett ersetzen?",
+    "repeat": "Kurz für alle: Kann Rapsextraktionsschrot das Sojaextraktionsschrot ganz ersetzen?",
+    "answer": [
+     "Bei der Milchkuh weitgehend ja – in Österreich wird die Milch ja gentechnikfrei erzeugt, und Raps ist dort ein wichtiger Eiweißträger.",
+     "Beim Schwein und beim Geflügel ist es schwieriger: weniger Lysin, mehr Faser und, je nach Sorte, Glucosinolate.",
+     "Dort ersetzt man meist nur einen Teil, und man achtet auf 00-Sorten."
+    ]
+   },
+   {
+    "section": "futtermittel",
+    "student": "Was ist Biertreber eigentlich genau?",
+    "repeat": "Die Frage ist, was Biertreber eigentlich ist.",
+    "answer": [
+     "Das ist der Rückstand vom Malz nach dem Maischen in der Brauerei – die Stärke ist da großteils schon als Zucker in die Würze gegangen.",
+     "Übrig bleiben Spelzen, Faser und Protein, deshalb hat Biertreber etwa ein Viertel Rohprotein in der Trockenmasse.",
+     "Frisch hält er nur ein paar Tage, darum wird er oft siliert."
+    ]
+   },
+   {
+    "section": "konservierung",
+    "student": "Warum soll man das Gras vor dem Silieren anwelken?",
+    "repeat": "Gute Frage: Warum soll man vor dem Silieren anwelken?",
+    "answer": [
+     "Bei etwa 30 bis 40 Prozent Trockenmasse ist der Zucker konzentrierter, und die Clostridien tun sich deutlich schwerer.",
+     "Außerdem fällt viel weniger Sickersaft an.",
+     "Zu trocken darf's aber auch nicht werden, sonst lässt sich das Material schlecht verdichten, und es bleibt Luft drin."
+    ]
+   },
+   {
+    "section": "konservierung",
+    "student": "Woher kommt der Buttersäuregeruch bei schlechter Silage?",
+    "repeat": "Gefragt wurde, woher der Buttersäuregeruch in schlechter Silage kommt.",
+    "answer": [
+     "Von Clostridien – die vermehren sich, wenn das Material zu nass ist, zu wenig Zucker hat oder Erde mit hineingekommen ist.",
+     "Ihre Sporen gelangen über Kot und verschmutzte Zitzen bis in die Milch und überleben sogar das Pasteurisieren.",
+     "Für Hartkäse wie Bergkäse ist das ein echtes Problem, deshalb ist Silage in der Heumilchproduktion gar nicht erlaubt."
+    ]
+   },
+   {
+    "section": "ration_milchkuh",
+    "student": "Wie viel Energie braucht eine Kuh für einen Liter Milch?",
+    "repeat": "Fürs Mikro: Wie viel Energie braucht die Kuh pro Kilo Milch?",
+    "answer": [
+     "Bei 4 Prozent Fett und 3,4 Prozent Eiweiß rechnet man mit rund 3,3 Megajoule NEL pro Kilo Milch.",
+     "Dazu kommt der Erhaltungsbedarf, bei einer 650-Kilo-Kuh etwa 38 Megajoule NEL am Tag.",
+     "Bei 30 Kilo Milch sind wir damit bei ungefähr 135 Megajoule – und die muss sie erst einmal fressen können."
+    ]
+   },
+   {
+    "section": "ration_milchkuh",
+    "student": "Wie viel Trockenmasse frisst so eine Kuh am Tag?",
+    "repeat": "Die Frage war, wie viel Trockenmasse eine Milchkuh am Tag frisst.",
+    "answer": [
+     "Eine 650-Kilo-Kuh mit 30 Kilo Milch frisst grob 20 bis 22 Kilo Trockenmasse.",
+     "Das hängt aber stark von Grundfutterqualität, Laktationsstadium und Leistung ab – in Österreich schätzt man das gern mit der Formel aus Raumberg-Gumpenstein.",
+     "Gleich nach der Abkalbung frisst sie deutlich weniger, und genau dort wird's mit der Energie eng."
+    ]
+   },
+   {
+    "section": "stoffwechsel",
+    "student": "Warum kriegen Kühe gerade nach der Geburt Milchfieber?",
+    "repeat": "Ich wiederhol's kurz: Warum tritt Milchfieber gerade rund um die Abkalbung auf?",
+    "answer": [
+     "Mit dem Kolostrum gibt die Kuh auf einmal ein Vielfaches des Kalziums ab, das in ihrem ganzen Blut zirkuliert.",
+     "Die Mobilisierung aus den Knochen und die stärkere Aufnahme im Darm brauchen aber ein paar Tage, bis sie anlaufen.",
+     "Vorbeugen kann man mit einer kalziumarmen Trockenstehration oder einer negativen DCAB über saure Salze."
+    ]
+   },
+   {
+    "section": "stoffwechsel",
+    "student": "Ist Ketose einfach Energiemangel?",
+    "repeat": "Die Frage ist, ob Ketose einfach dasselbe wie Energiemangel ist.",
+    "answer": [
+     "Der Auslöser ist ein Energiemangel in der Frühlaktation, die Ketose selbst ist aber eigentlich die Folge davon.",
+     "Die Kuh mobilisiert Körperfett, die Leber kommt mit den Fettsäuren nicht nach und bildet Ketonkörper wie Beta-Hydroxybutyrat.",
+     "Ab etwa 1,2 Millimol BHB pro Liter Blut spricht man meist von subklinischer Ketose, und zu fette Kühe beim Trockenstellen sind besonders gefährdet."
+    ]
+   },
+   {
+    "section": "mineralstoffe",
+    "student": "Warum ist Selen in Österreich so ein großes Thema?",
+    "repeat": "Kurz für alle: Warum ist Selen gerade in Österreich so wichtig?",
+    "answer": [
+     "Weil viele Böden bei uns selenarm sind – und damit auch das Grundfutter.",
+     "Ein Mangel zeigt sich etwa als Weißmuskelkrankheit bei Kälbern und Lämmern oder als gehäuftes Nachgeburtsverhalten.",
+     "Deshalb ergänzt man über das Mineralfutter, aber mit Maß: Zwischen Bedarf und Vergiftung ist wenig Spielraum, und es gibt gesetzliche Höchstgehalte."
+    ]
+   },
+   {
+    "section": "mineralstoffe",
+    "student": "Warum darf man Schafen kein Rindermineralfutter geben?",
+    "repeat": "Fürs Mikro: Warum ist Rindermineralfutter für Schafe ungeeignet?",
+    "answer": [
+     "Wegen des Kupfers – Schafe speichern Kupfer in der Leber und scheiden es nur schlecht über die Galle aus.",
+     "Was fürs Rind passt, kann beim Schaf über Wochen bis Monate zu einer chronischen Kupfervergiftung führen.",
+     "Darum gibt's eigenes Schafmineralfutter mit sehr wenig Kupfer."
+    ]
+   },
+   {
+    "section": "umwelt",
+    "student": "Kann man den Methanausstoß über die Fütterung wirklich senken?",
+    "repeat": "Gefragt ist, ob sich Methan über die Fütterung wirklich reduzieren lässt.",
+    "answer": [
+     "Ein Stück weit schon – mehr Stärke, etwas mehr Fett oder besseres Grundfutter senken das Methan pro Kilo Milch, mit Grenzen wegen der Pansengesundheit.",
+     "Seit 2022 ist in der EU auch ein Futterzusatzstoff zugelassen, 3-NOP, der in Versuchen grob 20 bis 30 Prozent weniger Methan gebracht hat.",
+     "Der größte Hebel bleibt aber die Effizienz: Gesunde Kühe mit langer Nutzungsdauer verteilen Erhaltung und Aufzucht auf mehr Milch."
+    ]
+   },
+   {
+    "section": "umwelt",
+    "student": "Warum ist Phosphor beim Schwein ein Umweltthema?",
+    "repeat": "Die Frage war, warum Phosphor in der Schweinefütterung ein Umweltthema ist.",
+    "answer": [
+     "Ein Großteil des Phosphors im Getreide liegt als Phytat vor, und das Schwein hat selbst kaum Phytase, um ihn freizusetzen.",
+     "Früher hat man deshalb reichlich mineralischen Phosphor zugelegt, und der Überschuss ist über die Gülle auf die Felder gegangen.",
+     "Heute setzt man Phytase zu und füttert in Phasen – damit sinkt die Phosphorausscheidung deutlich."
+    ]
+   },
+   {
+    "section": "futtermittelrecht",
+    "student": "Was ist der Unterschied zwischen Alleinfutter und Ergänzungsfutter?",
+    "repeat": "Ich wiederhol's: Was unterscheidet Alleinfuttermittel und Ergänzungsfuttermittel?",
+    "answer": [
+     "Ein Alleinfuttermittel deckt für sich allein den gesamten Tagesbedarf, wie etwa ein Mastfutter beim Schwein.",
+     "Ein Ergänzungsfuttermittel ist nur zusammen mit anderen Futtermitteln vollständig, zum Beispiel das Milchleistungsfutter neben dem Grundfutter.",
+     "Mineralfuttermittel sind rechtlich übrigens Ergänzungsfuttermittel mit mindestens 40 Prozent Rohasche."
+    ]
+   },
+   {
+    "section": "futtermittelrecht",
+    "student": "Welche Mykotoxine sind bei uns eigentlich relevant?",
+    "repeat": "Gute Frage – welche Mykotoxine spielen bei uns praktisch eine Rolle?",
+    "answer": [
+     "Vor allem die Fusarientoxine Deoxynivalenol und Zearalenon in Mais und Weizen, besonders nach feuchtem Wetter zur Blüte.",
+     "Am empfindlichsten sind Schweine: DON drückt die Futteraufnahme, Zearalenon wirkt östrogen und stört die Fruchtbarkeit.",
+     "Für diese beiden gibt's EU-Richtwerte, für Aflatoxin B1 dagegen einen verbindlichen Höchstgehalt."
+    ]
+   },
+   {
+    "section": "ausblick",
+    "student": "Kann man ein Pferd ähnlich füttern wie ein Rind?",
+    "repeat": "Die Frage ist, ob man ein Pferd ähnlich wie ein Rind füttern kann.",
+    "answer": [
+     "Nur bedingt – das Pferd ist ein Dickdarmverdauer, die Mikroben sitzen erst hinter dem Dünndarm.",
+     "Es hat einen kleinen Magen und verträgt große Stärkemengen auf einmal schlecht; da drohen Koliken oder Hufrehe.",
+     "Darum viel Raufutter und das Kraftfutter auf mehrere kleine Mahlzeiten verteilt."
+    ]
+   },
+   {
+    "section": "ausblick",
+    "student": "Stimmt es, dass Katzen unbedingt Taurin im Futter brauchen?",
+    "repeat": "Fürs Mikro: Brauchen Katzen wirklich Taurin im Futter?",
+    "answer": [
+     "Ja, Katzen können Taurin nicht in ausreichender Menge selbst bilden.",
+     "Bei Mangel drohen Netzhautschäden und eine bestimmte Form von Herzmuskelerkrankung.",
+     "Deshalb wird Katzenfutter mit Taurin ergänzt, und deshalb ist Hundefutter für Katzen auf Dauer keine gute Idee."
+    ]
+   }
+  ],
+  "orga_excursion": [
+   "Kurz etwas Organisatorisches: Am Freitag ist die Exkursion zur Versuchswirtschaft nach Groß-Enzersdorf. Die Liste geht nachher herum – maximal vierzig Plätze.",
+   "Bevor wir anfangen: Für die Exkursion am Freitag geht später eine Liste durch die Reihen. Wer mitfahren will, bitte eintragen – die Plätze sind begrenzt.",
+   "Zur Exkursion nach Groß-Enzersdorf: Abfahrt Freitag um acht bei der Dänenstraße. Die Anmeldeliste kommt im Lauf der Stunde zu Ihnen.",
+   "Ein Hinweis noch: Die Exkursion am Freitag ist bald voll. Ich lasse heute die Liste herumgehen, bitte gut leserlich eintragen."
+  ],
+  "knock_thanks": [
+   "Danke, schönen Tag noch!",
+   "Danke Ihnen – bis nächste Woche.",
+   "Wunderbar, danke. Bis Dienstag!"
+  ]
+ },
+ "en": {
+  "mic_check": [
+   "So, can you hear me at the back? Last row, just raise a hand if it's too quiet.",
+   "One, two … is this working? Yes, I see nodding in the back row, very good.",
+   "Is the mic on? Ah, the little light is green. Can you hear me up there?",
+   "Hello – is the volume all right like this? Otherwise we'll turn it up a bit.",
+   "Let me try it with the microphone. If it's crackling or too quiet at the back, just give me a sign."
+  ],
+  "projector_wait": [
+   "The projector needs another moment, it's not quite awake yet either.",
+   "We'll wait a moment until the picture comes up. The thing has to warm up first.",
+   "A little more patience, the projector is starting up. In the meantime you can open BOKUlearn, the slides are there.",
+   "So, everything's plugged in … now it's looking for the signal. That always takes a few seconds.",
+   "The lamp has to warm up first. Meanwhile I'll tell you what we're planning for today."
+  ],
+  "greeting": [
+   "Good morning, ladies and gentlemen. It's quarter past, so let's begin.",
+   "Good morning, everyone. The academic quarter is over, so a warm welcome to you all.",
+   "Good morning and welcome to Animal Nutrition. Nice to see so many of you – on a Tuesday, at this hour.",
+   "Right, good morning. I'd say we start – anyone still coming in will hopefully find a seat quietly.",
+   "Good morning! I'll wait a moment until everyone's seated … good, then let's get going."
+  ],
+  "smalltalk": [
+   "Back in my village we had the harvest festival on Sunday – the harvest crown was particularly nice this year. Did any of you go to one?",
+   "It's pretty chilly outside today. The cows on pasture mind that less than we do – cattle cope with cold much better than with heat.",
+   "There are still a few places left on the excursion to Raumberg-Gumpenstein. You register via BOKUonline.",
+   "The semester's been running for a few weeks now. I hope you've settled in and can find all the lecture halls by now.",
+   "I came by bike today. The climb up to Türkenschanze reminds me every time that I'm not twenty any more.",
+   "Who here comes from a farm? … Quite a few, actually. Then you can bring in some practical experience today.",
+   "By the way, the ÖH is still looking for people for the student representation. The information is on the notice board outside."
+  ],
+  "recap": [
+   "Just a quick reminder: last week we laid the foundations that we're building on today.",
+   "Before we carry on, very briefly, where we left off last time.",
+   "Last week we already saw that an animal can never use everything that's in the feed. That's the thread running through this whole course.",
+   "For those who weren't here last week: the slides are on BOKUlearn, please have a look before the next session.",
+   "Any questions left over from last time? … No? You can always write to me via BOKUlearn as well."
+  ],
+  "agenda": [
+   "Today we'll start with {section} and then see how far we get.",
+   "First on the programme today: {section}. After that we'll take it step by step.",
+   "We'll begin with {section} today – that's a good basis for the rest of the session.",
+   "I've planned quite a lot for today. Let's start with {section}.",
+   "Let's have a look at {section} first. If time allows, we'll cover quite a bit more after that."
+  ],
+  "transition": [
+   "Good. That brings us to the next topic: {section}.",
+   "That should do for now. Let's move on to {section}.",
+   "Right, and now a change of topic – {section}.",
+   "If there are no questions on that, we'll move on to {section}.",
+   "Keep that in the back of your mind, we'll need it again later. Next point: {section}.",
+   "So much for that. Now let's have a look at {section}.",
+   "Let me change the slide … exactly, we're now at {section}.",
+   "Moving on. Next on the plan is {section}.",
+   "Let's stop there. The next chapter is {section}."
+  ],
+  "latecomer_enter": [
+   "Sorry …",
+   "Sorry, the tram didn't come …",
+   "Can I just squeeze past? Thanks …",
+   "Excuse me, is this seat free?",
+   "Sorry, I couldn't find the lecture hall at first."
+  ],
+  "latecomer_prof": [
+   "Good morning. Do sit down, there's still room at the back.",
+   "Come on in, you haven't missed much – only the most important part.",
+   "Good morning. You'll find the beginning in the slides on BOKUlearn.",
+   "No problem. Over there, at the end of the row, there's still a free seat.",
+   "Please close the door quietly – otherwise it tends to slam."
+  ],
+  "phone_ring_prof": [
+   "That's not mine, is it? … No. Good.",
+   "Someone urgently wants to talk to you. I'll wait a moment.",
+   "I don't know that ringtone yet. Please switch it to silent, thank you.",
+   "If that's the student office, do give them my regards.",
+   "A short interruption – please put your phones on silent, it bothers the people next to you as well."
+  ],
+  "phone_ring_student": [
+   "Oh – sorry …",
+   "Sorry, sorry, it's off.",
+   "That was my alarm … I'm sorry.",
+   "Sorry, I forgot to put it on silent.",
+   "Oops … sorry, I'm turning it off right now."
+  ],
+  "projector_lost": [
+   "Whoops, the picture's gone.",
+   "And black. One moment, we'll sort that out.",
+   "“No signal” – it's been telling me that a lot lately.",
+   "Can you still see anything? Because I can't.",
+   "The cable again. Stay seated for a moment, I'll have a look."
+  ],
+  "projector_fixing": [
+   "This one at the back … no, that's the power.",
+   "Out and back in … come on.",
+   "Maybe it's the adapter …",
+   "It should be this button … no, it isn't.",
+   "Just a moment, almost got it."
+  ],
+  "projector_back": [
+   "There we go, it's back. Where were we?",
+   "There you are. The technology and I still get along after all.",
+   "The picture's back. Let me briefly repeat the last point.",
+   "Thanks for your patience. Let's carry on.",
+   "It's working again. And if it isn't, I'll simply carry on without slides."
+  ],
+  "long_calc_intro": [
+   "Let's work through this once, step by step – feel free to write along.",
+   "Let's look at this on the board now. It takes a few minutes, but it's worth it.",
+   "I'll calculate this for you once, the way you'll have to do it in the exam.",
+   "Numbers say more than any slide. I'll write it up now.",
+   "Let's do a concrete example with realistic values, then it becomes tangible."
+  ],
+  "long_calc_step": [
+   "Right, and this is what we plug in here.",
+   "Watch the units – that's where most mistakes happen in the exam.",
+   "Clear so far? Good, then the next step.",
+   "We'll round that, the table values aren't that precise anyway.",
+   "Don't be alarmed, it looks more complicated than it is.",
+   "Feel free to follow along on your calculator. I'm doing it in my head and hoping it's right."
+  ],
+  "long_calc_end": [
+   "And that's the result. Is it plausible? Yes, the order of magnitude is right.",
+   "Remember the method rather than the number.",
+   "If you get something completely different in practice, check the units first.",
+   "That's how it's done on the farm too – except there a ration programme usually helps.",
+   "That's not a law of nature, it's a planning figure. The cow doesn't always stick to the table."
+  ],
+  "aisle_walk": [
+   "I'll come up towards you a bit, then you can hear me better at the back.",
+   "Stay seated, I'm just walking through the rows for a moment.",
+   "I want to see whether you can read this in the back rows too.",
+   "I can tell you this just as well from up here.",
+   "I'll stretch my legs a little – standing at the lectern all morning isn't great either."
+  ],
+  "aisle_return": [
+   "Right, back down to the board.",
+   "I'll go back down, otherwise you can't see the slide.",
+   "Good, back to the lectern then.",
+   "And back down again. Thanks for listening up there.",
+   "I need the board, so back to the front."
+  ],
+  "attendance_start": [
+   "I'm sending the attendance list round now. Please sign legibly and pass it on.",
+   "The list is going through the rows again – please, everyone sign only for themselves.",
+   "The attendance list starts at the front left. Please don't let it disappear into your backpack.",
+   "I'm handing the list to the front row. At the end I'd like it back complete.",
+   "The list, as every week: name, student ID number, signature."
+  ],
+  "attendance_neighbor": [
+   "Here, the list.",
+   "Here, for you.",
+   "Can you sign quickly? Then pass it to the right.",
+   "List. The pen's attached.",
+   "Can you pass it on after?"
+  ],
+  "attendance_collect": [
+   "Where's the list right now? … Ah, at the back. Please pass it forward.",
+   "I'd like the attendance list back – just leave it on the lectern on your way out.",
+   "Has anyone not signed yet? Then please do it now.",
+   "Thank you, the list is back. Looks complete.",
+   "Please pass the list to the front before everyone packs up."
+  ],
+  "direct_question_intro": [
+   "Let me ask in row {row} – yes, you.",
+   "A question for you, in row {row}:",
+   "Let's see if that's sunk in. Row {row}, yes, you – what do you say?",
+   "I'd like an answer from row {row}. You look as if you know it.",
+   "May I ask you, in row {row}? Don't worry, it doesn't count towards any grade."
+  ],
+  "quiz_right": [
+   "Correct, very good.",
+   "Exactly right. Thank you.",
+   "Yes, that's right. Nice to see that it stuck.",
+   "Correct – and that wasn't an easy question.",
+   "Spot on. Did everyone catch that?"
+  ],
+  "quiz_wrong": [
+   "Not quite – but it's a common line of thought. Let's look at it again.",
+   "That's not right, unfortunately. Let me explain it again briefly, it probably concerns several of you.",
+   "Close, but no. The correct answer is a different one, I'll show you in a second.",
+   "No, but good that you tried – that's exactly why we ask.",
+   "That's easy to mix up. The other option is correct – I'll explain why in a moment."
+  ],
+  "quiz_timeout": [
+   "No idea? No problem, I'll give you the answer.",
+   "I'll wait a moment … all right, then I'll tell you.",
+   "I can see that needs a moment longer. I'll let you in on it.",
+   "No answer is an answer too. Then I'll explain it myself.",
+   "Then I'll help out – we had that on the slide a few minutes ago."
+  ],
+  "neighbor_warn": [
+   "Psst, he's looking.",
+   "Careful, he's looking over.",
+   "Watch out, he's coming up.",
+   "Close it, quick.",
+   "He's looking our way."
+  ],
+  "neighbor_betray": [
+   "[clears throat loudly and looks pointedly at you] Um …",
+   "[shifts audibly away from you] Well, I'm taking notes.",
+   "[looks at you, then at the professor, then back at you] Hm.",
+   "[coughs deliberately just as the professor looks over] Sorry.",
+   "[points discreetly at your screen with a pen] Well …",
+   "[sighs audibly and shakes head] Seriously?"
+  ],
+  "neighbor_smalltalk": [
+   "Did you get that down? I couldn't keep up.",
+   "Do you think that's on the exam?",
+   "He really likes talking about the rumen.",
+   "I think that's in the lecture notes anyway.",
+   "How many more slides today?",
+   "I didn't quite get the calculation from before.",
+   "That was on last year's exam, someone told me."
+  ],
+  "joke": [
+   "The cow is a fermentation vat on four legs. A single millilitre of rumen fluid holds more bacteria than there are people on Earth.",
+   "The cow herself, by the way, doesn't have a single enzyme that breaks down cellulose. She's really just the landlady – the tenants in the rumen do the work.",
+   "In a cereal-based pig ration, Liebig's barrel is almost always built the same way: the shortest stave is called lysine. You can top up everything else – it still leaks out there.",
+   "Grass silage is basically sauerkraut in a bunker silo. Same lactic acid bacteria, same idea – just bigger portions.",
+   "When it comes to methane, everyone always looks at the wrong end of the cow. Over ninety percent comes out the front, by belching and breathing out.",
+   "The horse has no gallbladder. It doesn't need one – if you naturally eat for up to sixteen hours a day, there's no point storing bile.",
+   "The chicken has no teeth, but it has a gizzard with little stones in it. Self-refilling dentures, so to speak.",
+   "Nobody has ever actually measured the nitrogen-free extract. It's simply what's left over – like your budget at the end of the month.",
+   "By the formula N times 6.25, feed urea would have almost 290 percent crude protein. That's why it's called crude protein and not protein.",
+   "In older literature the omasum is also called the psalterium, because inside it looks like an open book. Which makes it the best-read part of the cow.",
+   "Some cows carry a magnet in their reticulum – not for the fridge door, but so that swallowed bits of wire stay put and don't pierce anything.",
+   "Austria is rich in many things, but selenium in the soil isn't one of them. That's why it's on practically every label of cattle mineral feed.",
+   "The cow eats grass that we can't digest and turns it into milk that we can. That's really the whole lecture in one sentence – the rest is detail."
+  ],
+  "drink": [
+   "One moment … There.",
+   "Excuse me, just a sip of water.",
+   "Talking makes you thirsty – just a second.",
+   "I need a quick drink, the air in here is very dry.",
+   "One second … Water, by the way, is also the feed people most easily forget about with dairy cows."
+  ],
+  "clock_check": [
+   "Oh, time's running. I'll speed up a little.",
+   "We've still got a good {minutes} minutes, that should work out.",
+   "I'm just looking at the clock – I'll have to step on it a bit.",
+   "{minutes} minutes left. Then I'll keep the rest a bit shorter.",
+   "Hm, already this late. I'll skip a few details, they're in the lecture notes anyway."
+  ],
+  "break_announce": [
+   "Let's take a five-minute break here. Feel free to let some fresh air in.",
+   "Right, five minutes' break. Please be back on time.",
+   "We'll take a short break – five minutes, not fifteen.",
+   "I think we could all use a break. Five minutes, then we'll continue.",
+   "Short break, five minutes. If you still want a coffee, you'll have to hurry."
+  ],
+  "break_end": [
+   "Right, the five minutes are up. If you'd please take your seats again.",
+   "If I may? Let's continue.",
+   "Everyone back? Please close the door, thank you.",
+   "Good, let's go on – where did we leave off?",
+   "I'm starting again. Whoever's still outside will hopefully follow shortly."
+  ],
+  "board_wipe": [
+   "Let me make some room on the board.",
+   "We don't need this any more – has everyone copied it? Good.",
+   "One moment, I'll wipe this off.",
+   "The board's full. If you still need it, please take a photo now.",
+   "There, clean. Fresh board, fresh start."
+  ],
+  "board_slide": [
+   "I'll slide the board up, then you can see it at the back too.",
+   "This goes up top, we'll need it again shortly.",
+   "One moment, I'll get the lower board.",
+   "Up it goes – that way it stays visible.",
+   "We'll push this one up, then I've got space at the bottom again."
+  ],
+  "mic_feedback": [
+   "Ooh, sorry. That was the mic.",
+   "Pardon me – I'll step away from the speaker.",
+   "That hurt everyone's ears, mine included.",
+   "I'll turn it down a little. Can you still hear me?",
+   "Whoops. The technology wants to have its say too."
+  ],
+  "blinds": [
+   "The sun's glaring on the screen – could someone by the window please lower the blinds?",
+   "Can you still see anything on the slide at the back? I don't think so. The blinds, please, thank you.",
+   "May I ask you by the window to lower the blinds a little? Thanks very much.",
+   "With this much sun, you can't see the diagram any more. Could someone work the blinds?",
+   "Lovely weather, but bad for the projector. Blinds down, please."
+  ],
+  "rain_start": [
+   "Now it's starting to rain. Good for the meadows, bad for everyone on a bike.",
+   "Can you hear that? Rain. That's when you're glad the hay is already in.",
+   "It's raining. Then you'll probably prefer to stay inside during the break.",
+   "Well, the weather forecast was right for once.",
+   "That sounds like a proper downpour. Hopefully everyone brought an umbrella."
+  ],
+  "door_bang": [
+   "Oh. The door.",
+   "That was just the door – unfortunately it always slams like that.",
+   "Whoa – I think they heard that all the way to the Mensa.",
+   "That door has a character all of its own.",
+   "No problem, it just closes with some force."
+  ],
+  "leaves_early": [
+   "Goodbye – the slides will be online.",
+   "Go ahead, but quietly, please.",
+   "Have a nice day. You'll find the rest in the lecture notes.",
+   "No problem. Please close the door gently.",
+   "Someone must have an appointment. That's fine, let's carry on."
+  ],
+  "cough_fit": [
+   "Bless you. Are you all right? I'm happy to wait a moment.",
+   "Do you need some water? I've got another bottle up here.",
+   "Take your time. If you'd like to step out for a moment, that's perfectly fine.",
+   "I'll pause for a moment until it's better.",
+   "Everything OK? Can someone pass some water over?"
+  ],
+  "light_flicker": [
+   "The light's flickering. I hope that's not a bad omen for the exam.",
+   "Hm, the ceiling lights. I'll report that to building services afterwards.",
+   "As long as the projector works, I don't mind the light that much.",
+   "If it goes out completely, we'll just carry on with the board.",
+   "It's been flickering since last week. Let's just ignore it."
+  ],
+  "bottle_drop": [
+   "Something fell down there – nothing broken?",
+   "Is that a bottle rolling down to the front? Leave it, I'll pick it up later.",
+   "No problem, that happens to everyone.",
+   "Hopefully that one had its lid on.",
+   "Well, that's woken everyone up."
+  ],
+  "exam_hint": [
+   "Please remember this point on {section} – it'll come up in the exam in some form, for sure.",
+   "If you take away only one thing from {section}, let it be this.",
+   "I'll be quite open with you: on {section}, I like to ask this in the exam.",
+   "That's the core of {section}. You should be able to explain it, not just recite it.",
+   "Underline that in your lecture notes – for {section}, this is exam-relevant.",
+   "By the exam, you should be able to derive the principle behind {section} yourself.",
+   "In {section}, experience shows this is exactly what gets mixed up most often in the exam. So please pay attention here."
+  ],
+  "slides_online": [
+   "As always, you'll find the slides on BOKUlearn.",
+   "You don't need to copy everything – I'll put the slides on BOKUlearn later today.",
+   "It's all on BOKUlearn, including the lecture notes as a PDF.",
+   "I'll upload today's slides this afternoon.",
+   "If you want the board notes: I'll take photos and put them with the slides on BOKUlearn."
+  ],
+  "attention_hm": [
+   "Hm.",
+   "All right back there?",
+   "Is everyone keeping up?",
+   "Hm … right, moving on.",
+   "Everything all right in row {row}?"
+  ],
+  "attention_lock": [
+   "I'll wait a moment until everyone's with me again.",
+   "Hm … I'm just checking whether that's got through to everyone.",
+   "Back there … all right.",
+   "I'll pause for a moment. Not for my sake.",
+   "Is everything all right up there? … Good."
+  ],
+  "caught_1": [
+   "You in row {row} – please use the laptop only for the lecture now. Thank you.",
+   "I can see something else is running on your screen. Please close it.",
+   "May I ask you to stay with us? The game won't run away.",
+   "Please close whatever you have open there. We're in the middle of the material.",
+   "Just a word to you: I'd like your attention here at the front, not on the screen."
+  ],
+  "caught_2": [
+   "That's the second time now. Please close the laptop.",
+   "I've already asked you once. If you don't want to listen, please at least don't distract the others.",
+   "Row {row}, once more: laptop closed, please. I'd rather not say it a third time.",
+   "I assume that's not a ration programme you've got open there. Please close it – now.",
+   "I don't want to keep interrupting the lecture for this. Please put it away."
+  ],
+  "caught_3_kick": [
+   "I have to ask you to leave the lecture hall now. You'll find the slides on BOKUlearn.",
+   "That was the third time. Please pack up and leave – we'll see each other next week.",
+   "Please leave the lecture for today. It's nothing personal, but it can't go on like this.",
+   "I've asked you twice. That's it for you today – please go.",
+   "I won't interrupt a fourth time. Please leave the lecture hall, thank you."
+  ],
+  "caught_3_move": [
+   "Please move to the front, to the first row. There's plenty of room.",
+   "Please pack up and come to the front row. Then I can keep an eye on you.",
+   "You were thinking along well earlier, so I won't send you out. Front row, please.",
+   "Here's my suggestion: first row, laptop closed, and we'll forget about it.",
+   "Please sit at the front. Anyone who answers that well belongs in the first row anyway."
+  ],
+  "opponent_caught": [
+   "You in row {row}, that goes for you too: laptop only for the lecture, please.",
+   "Someone in row {row} is playing too, I see. Please close it.",
+   "Row {row}, please. I can see the screen from here.",
+   "And row {row} – I'd like you with us as well.",
+   "Row {row}: whatever that is, it can wait until the break."
+  ],
+  "tutor_pass": [
+   "Psst – he's already looked at you twice.",
+   "Tip: turn your screen down a bit.",
+   "The list's coming your way in a sec.",
+   "Laptop down for a sec, he's looking.",
+   "The slides are online anyway, you don't have to type everything."
+  ],
+  "closing": [
+   "Good, that's it for today. Next week we'll pick up where we left off.",
+   "Thank you for your attention. Next week will be more practical, we'll be calculating more rations.",
+   "That brings us to the end. Please have another look at the slides before next week.",
+   "That's all for today. Have a nice day, see you next Tuesday.",
+   "That's it for today. If you have questions, feel free to come to the front – I'll be here a few more minutes."
+  ],
+  "exam_info": [
+   "Quickly about the exam: registration is via BOKUonline, please don't forget the deadline.",
+   "The first exam date is at the end of the semester. The dates are already in BOKUonline.",
+   "About the exam: it's written, and it covers the slides and the lecture notes. Please register in BOKUonline in good time.",
+   "The exam includes calculation problems as well. Bring a calculator – the phone stays in your bag.",
+   "If you haven't registered yet: you do that in BOKUonline, and the deadline is a few days before the exam."
+  ],
+  "chat_opponent_wait": [
+   "wait he's looking at me",
+   "hang on",
+   "sec, he's walking up",
+   "not now, my neighbour's watching",
+   "short break, he keeps looking over here"
+  ],
+  "chat_opponent_move": [
+   "ur turn",
+   "your move",
+   "ok. you",
+   "done",
+   "there you go",
+   "you now, quick"
+  ],
+  "chat_opponent_win": [
+   "gg",
+   "haha, diagonal",
+   "sry, that was too easy",
+   "point to me",
+   "again? i'm on a roll"
+  ],
+  "chat_opponent_lose": [
+   "ok, fair enough",
+   "didn't see the corner",
+   "great. rematch",
+   "got distracted, he was looking at me",
+   "gg, i'll take the next one"
+  ],
+  "chat_opponent_draw": [
+   "draw, obviously",
+   "tie. again?",
+   "nothing again lol",
+   "stalemate. we're too good",
+   "ok this is going nowhere, new round"
+  ],
+  "chat_opponent_idle": [
+   "you going to the mensa after?",
+   "do you know when the first exam date is yet?",
+   "tüwi on thursday?",
+   "do you have last week's slides?",
+   "i've got soil science practical at 2",
+   "coffee after the lecture?",
+   "i understood zero of the weende analysis stuff",
+   "he's talking really fast today",
+   "have you registered for the exam yet?"
+  ],
+  "chat_opponent_caught": [
+   "damn. caught",
+   "oops, he saw me",
+   "sry, gotta behave for a bit",
+   "going invisible for 5 min",
+   "embarrassing. later"
+  ],
+  "chat_you_caught": [
+   "ouch",
+   "oof. you ok?",
+   "sorry but it was really obvious lol",
+   "take a break, i'll wait",
+   "he's def gonna watch you more now"
+  ],
+  "audience_questions": [
+   {
+    "section": "einfuehrung",
+    "student": "Don't farm animals compete with us for food?",
+    "repeat": "The question is whether livestock compete with us for food.",
+    "answer": [
+     "That depends very much on the production system.",
+     "According to an FAO study, around 86 percent of the feed eaten by livestock worldwide isn't directly edible for humans – grass, straw, by-products.",
+     "A cow on grassland turns land we can't use for crops into milk and meat; with a lot of grain in the trough, the calculation looks quite different."
+    ]
+   },
+   {
+    "section": "analytik",
+    "student": "Why do we actually multiply by 6.25 for crude protein?",
+    "repeat": "For the mic: why do we multiply by 6.25 for crude protein?",
+    "answer": [
+     "Because proteins contain about 16 percent nitrogen on average, and 100 divided by 16 is 6.25.",
+     "It's an average – for milk protein you'd rather use 6.38, for wheat about 5.7.",
+     "And because Kjeldahl also picks up non-protein nitrogen such as urea, the result is honestly called crude protein."
+    ]
+   },
+   {
+    "section": "analytik",
+    "student": "What's the difference between crude fibre and NDF?",
+    "repeat": "The question was how crude fibre and NDF differ.",
+    "answer": [
+     "With Weende crude fibre, part of the hemicellulose and lignin is lost in the acid and alkali – and by calculation it ends up in the NFE.",
+     "Van Soest's NDF, on the other hand, captures the whole cell wall: hemicellulose, cellulose and lignin.",
+     "ADF is then cellulose plus lignin, and ADL is essentially the lignin alone."
+    ]
+   },
+   {
+    "section": "verdauung_mono",
+    "student": "What does a chicken have a crop for?",
+    "repeat": "Let me repeat that: what does a chicken need a crop for?",
+    "answer": [
+     "The crop is a widening of the oesophagus and mainly a storage organ – the chicken can take in a lot quickly and digest it at leisure.",
+     "The feed is softened there; actual digestion begins in the proventriculus with hydrochloric acid and pepsin.",
+     "Grinding then happens in the gizzard, since the chicken has no teeth."
+    ]
+   },
+   {
+    "section": "verdauung_mono",
+    "student": "Can pigs make any use of crude fibre at all?",
+    "repeat": "The question was whether the pig can do anything with crude fibre at all.",
+    "answer": [
+     "Hardly in the small intestine, but in the large intestine part of it is fermented by microbes, and the pig absorbs the volatile fatty acids.",
+     "In fattening pigs that energy contribution is small; in sows it's much larger, because their hindgut is bigger and the feed stays there longer.",
+     "For pregnant sows, fibre also matters for satiety and against constipation."
+    ]
+   },
+   {
+    "section": "verdauung_wdk",
+    "student": "Why does the cow need to chew the cud at all?",
+    "repeat": "Good question – namely, why the cow ruminates in the first place.",
+    "answer": [
+     "For one thing, the feed gets finer, and the microbes get more surface to work on.",
+     "For another, she produces a lot of saliva while doing it, often over a hundred litres a day, and the bicarbonate in it buffers the rumen.",
+     "A dairy cow ruminates seven to nine hours a day – if that drops noticeably, the ration is usually lacking structure."
+    ]
+   },
+   {
+    "section": "verdauung_wdk",
+    "student": "What exactly happens in ruminal acidosis?",
+    "repeat": "Briefly for everyone: what happens in the rumen during acidosis?",
+    "answer": [
+     "If a lot of starch and sugar arrives at once, acids are produced faster than the rumen can buffer and absorb them – the pH drops.",
+     "In the subclinical form, it stays below about 5.8 for several hours a day, and you can hardly tell by looking at the cow.",
+     "Typical consequences are fluctuating feed intake, low milk fat and, later on, often hoof problems."
+    ]
+   },
+   {
+    "section": "energie",
+    "student": "Why do we use NEL for cows but ME for pigs?",
+    "repeat": "For the mic: why net energy for dairy cows but metabolisable energy for pigs?",
+    "answer": [
+     "In ruminants, the efficiency of using metabolisable energy varies a lot with the feed, so we go one step further to net energy.",
+     "In pigs these differences are smaller, and here we work with ME according to the GfE.",
+     "In France or the Netherlands, by the way, they use net energy for pigs as well – both approaches are defensible."
+    ]
+   },
+   {
+    "section": "energie",
+    "student": "Do straw and grain really have roughly the same gross energy?",
+    "repeat": "The question is whether straw and grain really have similar gross energy.",
+    "answer": [
+     "Yes, both are around 18 megajoules per kilo of dry matter, because both consist mainly of carbohydrates.",
+     "Only fat has considerably more, at nearly 40 megajoules.",
+     "The difference lies in digestibility – which is exactly why gross energy alone tells you almost nothing about feeding value."
+    ]
+   },
+   {
+    "section": "protein_wdk",
+    "student": "What does the urea content in milk tell me?",
+    "repeat": "Let me repeat: what can you read from milk urea?",
+    "answer": [
+     "It shows how well nitrogen and energy match in the rumen – basically a mirror of the RNB.",
+     "Roughly 15 to 25 milligrams per 100 millilitres is considered favourable.",
+     "High values point to too much degradable protein or too little energy, low values to protein shortage – so always look at it together with milk protein."
+    ]
+   },
+   {
+    "section": "protein_wdk",
+    "student": "Can you really feed urea to a cow?",
+    "repeat": "The question is whether you can actually feed urea to cows.",
+    "answer": [
+     "Yes, the rumen microbes build microbial protein from the ammonia, provided there's enough energy available.",
+     "It only makes sense with a negative RNB, for example in maize-based rations, and only in animals with a fully developed rumen.",
+     "The amounts are limited and have to be well mixed into the ration, otherwise there's a risk of ammonia poisoning."
+    ]
+   },
+   {
+    "section": "protein_mono",
+    "student": "Why is lysine always the big issue with pigs?",
+    "repeat": "The question was why lysine in particular is so prominent with pigs.",
+    "answer": [
+     "Because cereals contain little lysine – in typical cereal-soy rations it's the first limiting amino acid.",
+     "In the ideal protein concept, all other essential amino acids are therefore expressed as a ratio to lysine.",
+     "In poultry it's usually methionine, partly because feathers need a lot of sulphur-containing amino acids."
+    ]
+   },
+   {
+    "section": "protein_mono",
+    "student": "Does phase feeding really make that much difference?",
+    "repeat": "For the mic: how much does phase feeding actually achieve?",
+    "answer": [
+     "Protein requirement per kilo of feed falls over the fattening period – if you use one feed throughout, you overfeed towards the end.",
+     "With two or three phases and supplemented free amino acids you can lower crude protein without losing performance.",
+     "That saves protein feed and noticeably reduces nitrogen excretion – exactly what we mean by N-reduced feeding."
+    ]
+   },
+   {
+    "section": "futtermittel",
+    "student": "Can rapeseed meal replace soy completely?",
+    "repeat": "Briefly for everyone: can rapeseed meal fully replace soybean meal?",
+    "answer": [
+     "For dairy cows, largely yes – milk in Austria is produced GMO-free, and rapeseed meal is an important protein source there.",
+     "For pigs and poultry it's harder: less lysine, more fibre and, depending on the variety, glucosinolates.",
+     "There you usually replace only part of it, and you make sure to use double-zero varieties."
+    ]
+   },
+   {
+    "section": "futtermittel",
+    "student": "What exactly are brewers' grains?",
+    "repeat": "The question is what brewers' grains actually are.",
+    "answer": [
+     "It's the malt residue left after mashing in the brewery – most of the starch has already gone into the wort as sugar.",
+     "What remains are husks, fibre and protein, which is why brewers' grains have about a quarter crude protein in the dry matter.",
+     "Fresh, they only keep for a few days, so they're often ensiled."
+    ]
+   },
+   {
+    "section": "konservierung",
+    "student": "Why should grass be wilted before ensiling?",
+    "repeat": "Good question: why should you wilt before ensiling?",
+    "answer": [
+     "At around 30 to 40 percent dry matter, the sugar is more concentrated and clostridia have a much harder time.",
+     "You also get far less effluent.",
+     "But it mustn't get too dry either, otherwise the material is hard to compact and air stays trapped inside."
+    ]
+   },
+   {
+    "section": "konservierung",
+    "student": "Where does the butyric acid smell in bad silage come from?",
+    "repeat": "The question was where the butyric acid smell in poor silage comes from.",
+    "answer": [
+     "From clostridia – they multiply when the material is too wet, has too little sugar, or when soil got in.",
+     "Their spores get into the milk via faeces and dirty teats, and they even survive pasteurisation.",
+     "For hard cheeses like Bergkäse that's a real problem, which is why silage isn't allowed at all in hay milk production."
+    ]
+   },
+   {
+    "section": "ration_milchkuh",
+    "student": "How much energy does a cow need for one litre of milk?",
+    "repeat": "For the mic: how much energy does the cow need per kilo of milk?",
+    "answer": [
+     "At 4 percent fat and 3.4 percent protein, we calculate with about 3.3 megajoules NEL per kilo of milk.",
+     "On top of that comes maintenance, for a 650-kilo cow about 38 megajoules NEL a day.",
+     "At 30 kilos of milk that brings us to roughly 135 megajoules – and she has to be able to eat that first."
+    ]
+   },
+   {
+    "section": "ration_milchkuh",
+    "student": "How much dry matter does a cow like that eat per day?",
+    "repeat": "The question was how much dry matter a dairy cow eats per day.",
+    "answer": [
+     "A 650-kilo cow giving 30 kilos of milk eats roughly 20 to 22 kilos of dry matter.",
+     "But that depends heavily on forage quality, stage of lactation and yield – in Austria it's commonly estimated with the Raumberg-Gumpenstein equation.",
+     "Right after calving she eats considerably less, and that's exactly where energy gets tight."
+    ]
+   },
+   {
+    "section": "stoffwechsel",
+    "student": "Why do cows get milk fever right after calving?",
+    "repeat": "Let me repeat that briefly: why does milk fever occur right around calving?",
+    "answer": [
+     "With the colostrum, the cow suddenly gives off several times the amount of calcium circulating in her entire blood.",
+     "But mobilisation from bone and increased absorption in the gut take a few days to get going.",
+     "You can prevent it with a low-calcium dry cow ration or a negative DCAB using anionic salts."
+    ]
+   },
+   {
+    "section": "stoffwechsel",
+    "student": "Is ketosis simply an energy deficit?",
+    "repeat": "The question is whether ketosis is simply the same as energy deficiency.",
+    "answer": [
+     "The trigger is an energy deficit in early lactation, but the ketosis itself is really the consequence of it.",
+     "The cow mobilises body fat, the liver can't keep up with the fatty acids and forms ketone bodies such as beta-hydroxybutyrate.",
+     "From about 1.2 millimoles of BHB per litre of blood we usually speak of subclinical ketosis, and cows too fat at drying-off are particularly at risk."
+    ]
+   },
+   {
+    "section": "mineralstoffe",
+    "student": "Why is selenium such a big issue in Austria?",
+    "repeat": "Briefly for everyone: why is selenium so important in Austria in particular?",
+    "answer": [
+     "Because many of our soils are low in selenium – and so is the forage grown on them.",
+     "Deficiency shows up, for example, as white muscle disease in calves and lambs or as more frequent retained placentas.",
+     "That's why it's supplemented via mineral feed, but in moderation: the margin between requirement and toxicity is narrow, and there are legal maximum levels."
+    ]
+   },
+   {
+    "section": "mineralstoffe",
+    "student": "Why shouldn't you give sheep cattle mineral feed?",
+    "repeat": "For the mic: why is cattle mineral feed unsuitable for sheep?",
+    "answer": [
+     "Because of the copper – sheep store copper in the liver and excrete it only poorly via the bile.",
+     "What's fine for cattle can lead to chronic copper poisoning in sheep over weeks to months.",
+     "That's why there's dedicated sheep mineral feed with very little copper."
+    ]
+   },
+   {
+    "section": "umwelt",
+    "student": "Can you really reduce methane emissions through feeding?",
+    "repeat": "The question is whether methane can really be reduced through feeding.",
+    "answer": [
+     "To some extent, yes – more starch, a bit more fat or better forage lower methane per kilo of milk, within limits set by rumen health.",
+     "Since 2022 there's also a feed additive approved in the EU, 3-NOP, which in trials reduced methane by roughly 20 to 30 percent.",
+     "But the biggest lever remains efficiency: healthy cows with a long productive life spread maintenance and rearing over more milk."
+    ]
+   },
+   {
+    "section": "umwelt",
+    "student": "Why is phosphorus an environmental issue with pigs?",
+    "repeat": "The question was why phosphorus in pig feeding is an environmental issue.",
+    "answer": [
+     "A large share of the phosphorus in cereals is bound as phytate, and the pig itself has hardly any phytase to release it.",
+     "So in the past a lot of mineral phosphorus was added, and the surplus ended up on the fields via the slurry.",
+     "Today phytase is added to the feed and pigs are fed in phases – that lowers phosphorus excretion considerably."
+    ]
+   },
+   {
+    "section": "futtermittelrecht",
+    "student": "What's the difference between complete feed and complementary feed?",
+    "repeat": "Let me repeat: what's the difference between complete and complementary feedingstuffs?",
+    "answer": [
+     "A complete feed covers the entire daily requirement on its own, like a fattening feed for pigs.",
+     "A complementary feed is only complete in combination with other feeds, for example dairy concentrate alongside forage.",
+     "Legally, by the way, mineral feeds are complementary feeds with at least 40 percent crude ash."
+    ]
+   },
+   {
+    "section": "futtermittelrecht",
+    "student": "Which mycotoxins are actually relevant here?",
+    "repeat": "Good question – which mycotoxins actually matter in practice here?",
+    "answer": [
+     "Mainly the Fusarium toxins deoxynivalenol and zearalenone in maize and wheat, especially after wet weather at flowering.",
+     "Pigs are the most sensitive: DON depresses feed intake, zearalenone acts like oestrogen and disrupts fertility.",
+     "For these two there are EU guidance values, whereas aflatoxin B1 has a binding maximum level."
+    ]
+   },
+   {
+    "section": "ausblick",
+    "student": "Can you feed a horse much like cattle?",
+    "repeat": "The question is whether you can feed a horse much like cattle.",
+    "answer": [
+     "Only to a limited extent – the horse is a hindgut fermenter, its microbes only come after the small intestine.",
+     "It has a small stomach and copes badly with large amounts of starch at once; that risks colic or laminitis.",
+     "So: plenty of roughage, and the concentrate split into several small meals."
+    ]
+   },
+   {
+    "section": "ausblick",
+    "student": "Is it true that cats absolutely need taurine in their food?",
+    "repeat": "For the mic: do cats really need taurine in their food?",
+    "answer": [
+     "Yes, cats can't synthesise enough taurine themselves.",
+     "Deficiency can lead to retinal damage and a particular form of heart muscle disease.",
+     "That's why cat food is supplemented with taurine, and why dog food isn't a good long-term option for cats."
+    ]
+   }
+  ],
+  "orga_excursion": [
+   "Quick bit of admin first: on Friday we have the field trip to the research farm in Groß-Enzersdorf. The list will go round later – forty places at most.",
+   "Before we start: a sign-up list for Friday's field trip will go through the rows later. If you'd like to come, please put your name down – places are limited.",
+   "About the field trip to Groß-Enzersdorf: we leave on Friday at eight from Dänenstraße. The sign-up list will reach you during the lecture.",
+   "One more note: Friday's field trip is filling up. I'll pass the list round today – please write legibly."
+  ],
+  "knock_thanks": [
+   "Thank you, have a nice day!",
+   "Thank you – see you next week.",
+   "Wonderful, thanks. See you on Tuesday!"
+  ]
+ }
 }
