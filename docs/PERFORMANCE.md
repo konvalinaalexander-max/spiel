@@ -27,6 +27,10 @@ Hauptbild und Post-Stack.
 \* CPU-Rasterizer, nur relativ vergleichbar. Gemessen am 2026-10-28.
 <!--/PERF-TABLE-->
 
+Verlauf auf „Mittel“ (Sitzplatz, alle Passes): 273 Draw Calls → **246** (Außenwelt ohne Schatten −19, Fahrzeuge ohne Schatten und
+Rollokästen gebatcht −4, Bloom-Stufen −4). Zusammensetzung danach: 2 Schattenkaskaden 96, Hauptbild 110, Post-Stack 40.
+Vorher hatte schon das Zusammenführen der Figuren (53 → 2 SkinnedMeshes) auf „Niedrig“ 213 → 165 gebracht.
+
 ## Budgets und Maßnahmen
 
 | Bereich | Maßnahme |
@@ -34,8 +38,9 @@ Hauptbild und Post-Stack.
 | Statische Geometrie | `Batcher` verschmilzt Bänke, Pulte, Wände, Requisiten **je Material** zu wenigen Meshes (Blöcke ≤ 65 k Vertices, damit Frustum-Culling greift). Ein ganzer Hörsaal mit 110 Plätzen und ≈ 1 000 Requisiten-Teilen kostet so nur einige Dutzend Draw Calls. |
 | Figuren | Alle Studierenden werden zu **zwei** SkinnedMeshes zusammengeführt (eines wirft Schatten – die Umgebung des eigenen Platzes –, eines nicht). Jede Figur behält ihr eigenes Skelett (Knochen-Offset im `skinIndex`, gemeinsame Knochentextur mit ≈ 1 550 Knochen); unsichtbare Figuren werden auf einen Punkt zusammengezogen. Ein Material für alle 53 Figuren (49 Studierende, Spätkommer:in, Tutorin, Prof, eigener Körper) → ein Shader-Programm. Vorher: 51 Draw Calls im Hauptbild + je Kaskade bis zu 51 weitere. Weit entfernte Figuren werden nur mit 20 Hz animiert. |
 | Texturen | GPU-erzeugt (keine Downloads), Größe je Stufe 512–2048 px, gemeinsame Atlanten für Bildschirme, Sticker, Notizen, Etiketten, Futter, Plakate. |
+| Schatten | Nur was man im Saal sieht, wirft Schatten: Außenwelt (Gebäude, Straße, Fahrzeuge) nicht (−27 Draw Calls auf „Mittel“, kein sichtbarer Unterschied), Studierende nur rund um den eigenen Platz (Ultra: alle), Rollokästen zu einem Mesh zusammengefasst. |
 | Licht | Deckenlicht: Flächenlichter erst ab „Hoch“, sonst wenige Spots; Beamer-Spot mit Schatten erst ab „Hoch“; CSM-Kaskaden 1/2/3/3. |
-| Post | N8AO in halber Auflösung bis „Hoch“, Tiefenschärfe nur im Laptop-/Heft-Blick aktiv, chromatische Aberration nur bei Stress (eigener Pass, sonst abgeschaltet). |
+| Post | Bloom mit 6 statt 8 Mip-Stufen, N8AO in halber Auflösung bis „Hoch“, Tiefenschärfe nur im Laptop-/Heft-Blick aktiv, chromatische Aberration nur bei Stress (eigener Pass, sonst abgeschaltet). |
 | Canvas-Texturen | Tafel ≤ 20 Uploads/s, Laptop nur bei Änderung, Hybrid-Monitor 1/s, Mitschrift ≤ 15/s. |
 | Laden | Startseite erscheint sofort (Vorlader im HTML, Bundle startet nach dem ersten Bild); Hörsaal wird schrittweise aufgebaut, Shader werden – wo der Treiber `KHR_parallel_shader_compile` kann – parallel kompiliert. |
 

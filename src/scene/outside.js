@@ -125,7 +125,8 @@ export function buildOutside(gfx, weatherId, quality) {
   B.add(cyl(3.9, 3.9, 4, 20), gfx.pbr({ name: 'fachwerk', recipe: 'plaster', texOpts: { c1: '#f2ede2', seed: 9, size: 256 } }), mat(warteX, warteY + 19, warteZ), { tile: 2 });
   for (let k = 0; k < 16; k++) { const a = k / 16 * Math.PI * 2; B.add(box(0.25, 4, 0.25), gfx.pbr({ name: 'beam', color: 0x4a3326, roughness: 0.8 }), mat(warteX + Math.cos(a) * 3.95, warteY + 19, warteZ + Math.sin(a) * 3.95), { cast: false }); }
   B.add(new THREE.ConeGeometry(4.6, 4, 20), roofRed, mat(warteX, warteY + 23, warteZ), { tile: 2 });
-  B.build(scene, 'outside');
+  // Gebäude und Straße werfen keine Schatten: vom Saal aus nicht sichtbar, kostet aber je Kaskade ≈ 10 Draw Calls
+  for (const m of B.build(scene, 'outside')) m.castShadow = false;
 
   // ---------------------------------------------------------------- Bäume (Laubkarten mit Wind)
   out.windU = { value: 0 };
@@ -195,7 +196,6 @@ export function buildOutside(gfx, weatherId, quality) {
     // vier Räder als ein Mesh (ein Draw Call)
     const wg = []; for (const zz of [-3.8, 3.8]) for (const sx of [-1, 1]) { const w = cyl(0.5, 0.5, 0.3, 16); w.rotateZ(Math.PI / 2); w.translate(sx * 1.15, 0.5, zz); wg.push(w); }
     g.add(new THREE.Mesh(mergeGeometries(wg, false), lampMat));
-    body.castShadow = true;
     return g;
   };
   const carCols = [0x2f4a6b, 0xb8bcc0, 0x1f1f1f, 0x8a2a24, 0xe8e6e0, 0x3e5a3a];
@@ -203,7 +203,7 @@ export function buildOutside(gfx, weatherId, quality) {
     const g = new THREE.Group();
     const body = new THREE.Mesh(rbox(1.8, 0.75, 4.3, 0.25, 2), gfx.pbr({ name: 'car' + i, color: carCols[i % 6], roughness: 0.25, metalness: 0.6 })); body.position.y = 0.6;
     const cab = new THREE.Mesh(rbox(1.6, 0.6, 2.2, 0.2, 2), winDark); cab.position.set(0, 1.2, -0.2);
-    g.add(body, cab); body.castShadow = true; return g;
+    g.add(body, cab); return g;
   };
   const lanes = [-12.0, -15.2];
   for (let i = 0; i < 2; i++) { const b = makeBus(i ? '37A' : '40A'); b.position.set(lanes[i % 2], GROUND, 200); b.userData = { bus: true, lane: i % 2, speed: 0, wait: rng.range(5, 40), stop: false }; scene.add(b); out.vehicles.push(b); }
@@ -257,12 +257,14 @@ export function buildBlinds(gfx, initial = [0.45, 0, 0]) {
   const fab = gfx.pbr({ name: 'rollo', recipe: 'fabric', color: 0x8f9297, texOpts: { p: [300, 0, 0, 0], size: 256, seed: 6 }, side: THREE.DoubleSide });
   fab.transparent = true; fab.opacity = 0.93;
   const housing = gfx.pbr({ name: 'rolloBox', recipe: 'plastic', texOpts: { c1: '#e8e7e2', size: 256 } });
+  // Rollokästen sind statisch → ein gemeinsames Mesh
+  const boxes = new THREE.Mesh(mergeGeometries(WN.list.map(c => rbox(0.12, 0.12, WN.w + 0.1, 0.02).translate(ROOM.x0 - 0.06, WN.y1 + 0.12, c)), false), housing);
+  boxes.castShadow = true; gfx.scene.add(boxes);
   const items = WN.list.map((c, i) => {
     const x = ROOM.x0 - 0.06;
-    const box2 = new THREE.Mesh(rbox(0.12, 0.12, WN.w + 0.1, 0.02), housing); box2.position.set(x, WN.y1 + 0.12, c); box2.castShadow = true;
     const cloth = new THREE.Mesh(new THREE.PlaneGeometry(WN.w - 0.02, 1), fab); cloth.rotation.y = Math.PI / 2; cloth.castShadow = true; cloth.receiveShadow = true;
     const bar = new THREE.Mesh(rbox(0.03, 0.03, WN.w - 0.01, 0.008), housing); bar.castShadow = true;
-    gfx.scene.add(box2, cloth, bar);
+    gfx.scene.add(cloth, bar);
     return { cloth, bar, c, x, state: initial[i] ?? 0, target: initial[i] ?? 0 };
   });
   const apply = it => {
