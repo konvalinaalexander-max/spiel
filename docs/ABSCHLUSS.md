@@ -103,7 +103,7 @@ Legende: ✅ umgesetzt · ◐ teilweise / mit dokumentierter Abweichung · ✗ n
 | 6 | Note 1–5, Zeugnis, Rangliste, Erfolge | ✅ | 14 Erfolge |
 | 6 | Tutorial in den ersten 90 s, abschaltbar | ✅ | |
 | 6 | 4 Stufen + Custom | ✅ | |
-| Abnahme | Bot 20 Läufe je Stufe, Bachelor ~50 % | ✅ | `docs/BALANCING.md` (40 Läufe je Stufe) |
+| Abnahme | Bot 20 Läufe je Stufe, Bachelor ~50 % | ✅ | `docs/BALANCING.md` (80 Läufe je Stufe: Bachelor 54 %, monoton 95 → 54 → 35 → 11 %) |
 
 ## 7. UI/UX
 

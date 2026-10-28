@@ -38,7 +38,7 @@ Komplette Neuentwicklung nach `AUFTRAG_V2.md`. Version 1 liegt unverändert in `
   Deckelwinkel, Helligkeit, Kopfhörer, Alt-Tab, Stummschaltung.
 - Mitschreiben, Prüfungsfragen mit Blick in die Mitschrift, Exkursionsliste (Unterschrift per Mausgeste), Konsequenzen über drei Stufen,
   Note 1–5, Zeugnis, 14 Erfolge, lokale Bestenliste, Tutorial-Hinweise, vier Schwierigkeiten + benutzerdefiniert.
-- Headless-Bot und Balancing über 40 Durchläufe je Stufe.
+- Headless-Bot und Balancing über 80 Durchläufe je Stufe.
 
 ### UI, Audio, Qualität
 - Startseite im Stil von boku.ac.at mit Live-Hero, LV-Seite im BOKUonline-Stil mit Sitzplan, Einstellungen, Mensa-Pause, Zeugnis.

@@ -83,7 +83,7 @@ Verdeckung durch Köpfe/Oberkörper der Vorderleute, Pultfronten, Pult und Tisch
 2. Strengerer Prof (Multiplikator 1,15 → 1,5, Schulterblick alle 8–19 s, kürzere Vorwarnung): Bachelor 65 %. Auffällig: Mehr Wachsamkeit
    senkt die Erwischt-Quote teils sogar, weil der Bot auf frühe „Hm?“-Reaktionen vorsichtiger reagiert – der Prof wirkt also fair.
 3. Mit 40 Läufen gemessen (20 streuen um ±11 Prozentpunkte): Bachelor 75 % → Siegziel 6 → 7: 60 %.
-4. Stärkere Gegner:in im Hörsaal (0,42 → 0,48): **Bachelor 55 %**, Prüfungswoche 35 %, Diplom 23 %, Erstsemester 90 %.\n5. Mehr Kleidungsvarianten (anderer Besetzungs-Zufall) verschoben „Diplom“ auf 35 % – zu nah an „Prüfungswoche“.\n   → Siegziel 7 → 8, Multiplikator 2,1 → 2,2: Diplom 18 %. Endstand siehe Tabelle oben.
+4. Stärkere Gegner:in im Hörsaal (0,42 → 0,48): **Bachelor 55 %**, Prüfungswoche 35 %, Diplom 23 %, Erstsemester 90 %.\n5. Mehr Kleidungsvarianten (anderer Besetzungs-Zufall) verschoben „Diplom“ auf 35 % – zu nah an „Prüfungswoche“.\n   → Siegziel 7 → 8, Multiplikator 2,1 → 2,2: Diplom 18 %.\n6. Endkontrolle mit **80 Läufen** je Stufe (40 Läufe streuen bei den schweren Stufen noch um ±8 Prozentpunkte, kleine Parameteränderungen\n   mischen die Zufallsfolge neu). „Blick auf Spieler:in“ ist jetzt monoton (Prüfungswoche 0,19 → 0,24, Diplom 0,22 → 0,24) – damit lag\n   Prüfungswoche mit 46–51 % zu nah an Bachelor, und der Verdachts-Multiplikator wirkte kaum (1,95/2,05: 47 %/49 %, nur mehr Rauswürfe).\n   Entscheidend ist, ob das Siegziel erreicht wird → Gegner:in in Prüfungswoche stärker (0,50 → 0,56): 35 %. Diplom mit gleicher Gegner-Stärke\n   (0,60 → 0,56): 11 %. Endstand siehe Tabelle oben.
 `;
     fs.writeFileSync(path.resolve(root, args.md), md);
     console.log('Bericht:', args.md);
