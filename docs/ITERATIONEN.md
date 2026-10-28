@@ -142,3 +142,20 @@ Offen (bewusst stilisiert): Gesichter ohne Texturdetails – aus Spielerposition
 **Sequenz Gehen → Tafel → Schreiben** (`phase4_seq_01.jpg` … `phase4_seq_10.jpg`, alle 0,45 s, feste Kamera) und Schulterblick
 (`phase4_shoulder_check.jpg`). Geprüft: Füße bleiben beim Gehen auf dem Boden stehen (Schrittplaner setzt Füße fest, Hüfte folgt),
 Arme durchdringen den Körper nicht (Ellbogen-Pol nach außen-hinten), Kopfdrehung auf ±1,45 rad (Prof) bzw. ±1,25 rad (Studierende) begrenzt.
+
+## Phase 9 – Endkontrolle
+
+Vor der Auslieferung wurden alle Dokumentationsbilder mit dem fertigen Build neu erzeugt (`node tools/phaseshots.mjs`) und kritisch
+durchgesehen. Gefunden und behoben:
+
+| Befund | Ursache | Maßnahme |
+|---|---|---|
+| Leinwand auf „Hoch“/„Ultra“ milchig, Doppelbild (`phase2_iter1b_beamer_doppelbild_before.jpg`) | Folie in der Beamer-Spot-Textur zu groß, verschoben, nicht trapezentzerrt | Projektion über die Spot-Schattenkamera berechnet, Gitter-Warp (siehe Iteration 1b) |
+| Laptop-Bildschirm im Laptop-Blick unscharf (`phase9_dof_laptop_before.jpg`) | Tiefenschärfe fest auf 0,48 m, die Kamera sitzt seit Iteration 2 aber 0,33 m vor dem Bildschirm | Fokus = gemessener Abstand Kamera → Bildschirm bzw. Heftseite, Fokusbereich 0,45 m (`phase3_player2_laptop.jpg`) |
+| 16 Draw Calls für die Balken der Paulinenwarte | `gfx.pbr()` in der Schleife → 16 Materialien, 16 Batch-Gruppen | ein Material |
+| „Mittel“ 273 Draw Calls (Budget 250) | Außenwelt und Fahrzeuge warfen Schatten in beide Kaskaden | Außenwelt/Fahrzeuge ohne Schatten, Rollokästen gebatcht, Bloom 6 Stufen (`docs/PERFORMANCE.md`) |
+| 53 Figuren = 53 Draw Calls (+ je Kaskade) | ein SkinnedMesh pro Figur | zwei gemeinsame SkinnedMeshes mit Knochen-Offset; Sichtprüfung aus allen Orbit-Winkeln |
+| Balancing „Prüfungswoche“ zu nah an „Bachelor“ | nur 40 Läufe, Parameter nicht monoton | 80 Läufe, Gegner-Stärke 0,56 (`docs/BALANCING.md`, Schritt 6) |
+
+Geprüft ohne Befund: Nachbarin sitzt links (Platz 6), rechts daneben frei (Platz 8, Rucksack); Figuren aus allen sechs Orbit-Winkeln
+vollständig, keine fehlenden Körperteile nach dem Zusammenführen; Folien in allen Stufen lesbar.
