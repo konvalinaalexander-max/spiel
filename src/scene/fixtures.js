@@ -47,10 +47,15 @@ export function buildFixtures(gfx, hall, opts = {}) {
 
   // ------------------------------------------------------------------ Leinwand + Beamer
   const SC = LY.SCREEN;
-  const sr = new SlideRenderer(q.texSize >= 1024 ? 1920 : 1280, q.texSize >= 1024 ? 1080 : 720);
+  // Folien immer in voller Auflösung (8 MB Textur, auch auf „Niedrig“ vertretbar) – Schrift ist das Wichtigste am Bild
+  const sr = new SlideRenderer(1920, 1080);
   const slideTex = new THREE.CanvasTexture(sr.canvas); slideTex.colorSpace = THREE.SRGBColorSpace; slideTex.anisotropy = gfx.renderer.capabilities.getMaxAnisotropy();
   const weave = gfx.tex.make('screenWeave', { size: 512 });
-  const screenMat = gfx.pbr({ name: 'screen', color: 0xd8d8d6, roughness: 1 });
+  // Folie leicht geschärft abtasten (Mip-Bias −0,7): aus 6–9 m Entfernung wird die Textur 4–6-fach verkleinert,
+  // trilineare Filterung allein lässt die Schrift verschwimmen
+  const sharpSlide = s => { s.fragmentShader = s.fragmentShader.replace('#include <emissivemap_fragment>', '#ifdef USE_EMISSIVEMAP\n\ttotalEmissiveRadiance *= texture2D( emissiveMap, vEmissiveMapUv, -0.7 ).rgb;\n#endif'); };
+  const screenMat = gfx.pbr({ name: 'screen', color: 0xd8d8d6, roughness: 1, patches: [sharpSlide], patchKey: 'screenSharp' });
+  const screenCol = screenMat.color.clone();
   screenMat.roughnessMap = weave.ormMap; screenMat.normalMap = weave.normalMap; screenMat.normalScale = new THREE.Vector2(0.3, 0.3);
   screenMat.emissive = new THREE.Color(0xffffff); screenMat.emissiveMap = slideTex; screenMat.emissiveIntensity = 0.0;
   const screen = new THREE.Mesh(new THREE.PlaneGeometry(SC.w, SC.h), screenMat);
@@ -58,8 +63,8 @@ export function buildFixtures(gfx, hall, opts = {}) {
   scene.add(screen);
   out.screen = screen; out.slides = sr; out.slideTex = slideTex;
   // Beamer-Spot mit Projektionstextur – ab "hoch" mit Schatten (Prof wirft Schatten auf die Leinwand)
-  const sq = document.createElement('canvas'); sq.width = sq.height = q.texSize >= 1024 ? 1024 : 512;
-  const sqTex = new THREE.CanvasTexture(sq); sqTex.colorSpace = THREE.SRGBColorSpace;
+  const sq = document.createElement('canvas'); sq.width = sq.height = q.texSize >= 2048 ? 2048 : 1024;
+  const sqTex = new THREE.CanvasTexture(sq); sqTex.colorSpace = THREE.SRGBColorSpace; sqTex.anisotropy = slideTex.anisotropy;
   const PJ = LY.PROJECTOR;
   const useSpot = q.spotShadow;
   let toMap = null;
@@ -104,8 +109,11 @@ export function buildFixtures(gfx, hall, opts = {}) {
   out.setBeamer = on => { out.beamer.target = on ? 1 : 0; };
   out.updateBeamer = dt => {
     const b = out.beamer; b.level = damp(b.level, b.target, 3, dt);
-    screenMat.emissiveIntensity = b.level * (useSpot ? 0.34 : 0.62);
-    if (out.spot) out.spot.intensity = b.level * 14;
+    // Läuft der Beamer, kommt das Bild vom Projektor: die Leinwand reagiert dann kaum noch auf das Raumlicht,
+    // sonst legt die Deckenbeleuchtung einen Grauschleier über die Schrift (unten stärker als oben)
+    screenMat.color.copy(screenCol).multiplyScalar(1 - b.level * (useSpot ? 0.7 : 0.78));
+    screenMat.emissiveIntensity = b.level * (useSpot ? 0.55 : 0.9);
+    if (out.spot) out.spot.intensity = b.level * 30;
     spill.intensity = b.level * 0.9;
   };
 
@@ -320,28 +328,46 @@ export function makePosters() {
 
 // ------------------------------------------------------------------ Hybrid-Monitor (Online-Teilnehmende, Aufzeichnung)
 const REMOTE = ['Anna W.', 'Tobias K.', 'Selin A.', 'Markus H.', 'Leonie P.', 'Jonas G.', 'Mira S.', 'Felix B.'];
-export function buildHybridMonitor(gfx, lang = 'de') {
+/**
+ * Hybrid-Monitor an der Wand (Videokonferenz). share: { canvas, active() } – läuft der Beamer, zeigt das Hauptbild
+ * die geteilte Folie (wie in echten Hybridvorlesungen), die Hörsaalkamera rückt ins kleine Fenster.
+ */
+export function buildHybridMonitor(gfx, lang = 'de', share = null) {
   const MO = LY.MONITOR;
   const cv = document.createElement('canvas'); cv.width = 960; cv.height = 544;
   const tex = new THREE.CanvasTexture(cv); tex.colorSpace = THREE.SRGBColorSpace;
-  const mat = new THREE.MeshBasicMaterial({ map: tex, color: 0x9a9a9a });
+  tex.anisotropy = gfx.renderer.capabilities.getMaxAnisotropy();
+  const mat = new THREE.MeshBasicMaterial({ map: tex, color: 0xcfcfcf });
   const m = new THREE.Mesh(new THREE.PlaneGeometry(MO.w - 0.03, MO.h - 0.03), mat);
   m.position.set(MO.x + 0.037, MO.y, MO.z); m.rotation.y = Math.PI / 2;
   gfx.scene.add(m);
   const c = cv.getContext('2d');
   const tileCol = ['#5a7d9a', '#8a6a4a', '#4a8a6a', '#7a5a8a', '#9a7a4a', '#4a6a8a', '#8a4a5a', '#5a8a8a'];
   let speaking = -1, t = 0, blink = 0;
+  const drawCam = () => {
+    c.fillStyle = '#3a3e44'; c.fillRect(16, 54, 600, 338);
+    c.fillStyle = '#2a4a3a'; c.fillRect(40, 110, 250, 120); c.fillStyle = '#d8d8d6'; c.fillRect(320, 96, 260, 150);
+    c.fillStyle = '#6b4a31'; c.fillRect(30, 290, 560, 40); c.fillStyle = '#4b5a48'; c.fillRect(200 + Math.sin(t * 0.3) * 120, 220, 26, 70); c.fillStyle = '#e6b897'; c.beginPath(); c.arc(213 + Math.sin(t * 0.3) * 120, 210, 12, 0, 7); c.fill();
+    c.fillStyle = 'rgba(0,0,0,.55)'; c.fillRect(16, 362, 230, 30); c.fillStyle = '#fff'; c.font = '16px Arial'; c.fillText(lang === 'en' ? 'Lecture hall camera' : 'Hörsaalkamera', 26, 383);
+  };
+  let wasSharing = false;
   const draw = () => {
     c.fillStyle = '#1e2126'; c.fillRect(0, 0, 960, 544);
     c.fillStyle = '#2b2f36'; c.fillRect(0, 0, 960, 40);
     c.fillStyle = '#e8eaed'; c.font = 'bold 20px Arial'; c.fillText(lang === 'en' ? 'Hybrid lecture hall HS 31 · Animal Nutrition' : 'Hybridhörsaal HS 31 · Tierernährung VO', 16, 27);
     c.fillStyle = blink ? '#e0453a' : '#6b2a26'; c.beginPath(); c.arc(860, 20, 8, 0, 7); c.fill();
     c.fillStyle = '#e8eaed'; c.font = 'bold 18px Arial'; c.fillText('REC', 875, 27);
-    // Hauptbild: Hörsaalkamera (stilisiert: Podium, Tafel, Leinwand)
-    c.fillStyle = '#3a3e44'; c.fillRect(16, 54, 600, 338);
-    c.fillStyle = '#2a4a3a'; c.fillRect(40, 110, 250, 120); c.fillStyle = '#d8d8d6'; c.fillRect(320, 96, 260, 150);
-    c.fillStyle = '#6b4a31'; c.fillRect(30, 290, 560, 40); c.fillStyle = '#4b5a48'; c.fillRect(200 + Math.sin(t * 0.3) * 120, 220, 26, 70); c.fillStyle = '#e6b897'; c.beginPath(); c.arc(213 + Math.sin(t * 0.3) * 120, 210, 12, 0, 7); c.fill();
-    c.fillStyle = 'rgba(0,0,0,.55)'; c.fillRect(16, 362, 230, 30); c.fillStyle = '#fff'; c.font = '16px Arial'; c.fillText(lang === 'en' ? 'Lecture hall camera' : 'Hörsaalkamera', 26, 383);
+    // Hauptbild: geteilte Folie, sonst Hörsaalkamera (stilisiert: Podium, Tafel, Leinwand)
+    const sharing = share && share.active();
+    if (sharing) {
+      c.fillStyle = '#ffffff'; c.fillRect(16, 54, 600, 338);
+      c.imageSmoothingQuality = 'high'; c.drawImage(share.canvas, 16, 54, 600, 338);
+      c.fillStyle = 'rgba(0,0,0,.6)'; c.fillRect(16, 54, 250, 24); c.fillStyle = '#fff'; c.font = '14px Arial';
+      c.fillText(lang === 'en' ? 'Prof. Haferkorn is sharing the screen' : 'Prof. Haferkorn teilt den Bildschirm', 24, 71);
+      // Kamera klein unten rechts im Hauptbild
+      c.save(); c.translate(456, 292); c.scale(160 / 600, 100 / 338); c.translate(-16, -54); drawCam(); c.restore();
+      c.strokeStyle = '#1e2126'; c.lineWidth = 2; c.strokeRect(456, 292, 160, 100);
+    } else drawCam();
     // Galerie
     REMOTE.forEach((n, i) => {
       const x = 632 + (i % 2) * 160, y = 54 + Math.floor(i / 2) * 84;
@@ -359,7 +385,14 @@ export function buildHybridMonitor(gfx, lang = 'de') {
     tex.needsUpdate = true;
   };
   draw();
-  return { mesh: m, update(dt) { t += dt; const b = Math.floor(t) % 2; if (b !== blink || Math.random() < dt * 0.05) { blink = b; if (Math.random() < 0.25) speaking = Math.random() < 0.5 ? -1 : Math.floor(Math.random() * REMOTE.length); draw(); } } };
+  return {
+    mesh: m,
+    update(dt) {
+      t += dt; const b = Math.floor(t) % 2;
+      const sh = !!(share && share.active()); if (sh !== wasSharing) { wasSharing = sh; draw(); }
+      if (b !== blink || Math.random() < dt * 0.05) { blink = b; if (Math.random() < 0.25) speaking = Math.random() < 0.5 ? -1 : Math.floor(Math.random() * REMOTE.length); draw(); }
+    }
+  };;
 }
 
 /** Dreieck aus `img` (Quellpixel p.s) affin auf Zielpixel p.d zeichnen; Clip leicht aufgeweitet gegen Haarrisse */

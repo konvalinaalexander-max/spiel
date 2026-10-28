@@ -26,7 +26,7 @@ export async function buildWorld(gfx, params, progress = () => {}) {
   W.hall = buildHall(gfx);
   await step(0.25, 'load.fixtures');
   W.fx = buildFixtures(gfx, W.hall, { posters: makePosters() });
-  W.monitor = buildHybridMonitor(gfx, params.lang || 'de');
+  W.monitor = buildHybridMonitor(gfx, params.lang || 'de', { canvas: W.fx.slides.canvas, active: () => W.fx.beamer.level > 0.5 });
   await step(0.35, 'load.light');
   W.light = buildLighting(gfx, W.hall, params.weather);
   await step(0.42, 'load.outside');

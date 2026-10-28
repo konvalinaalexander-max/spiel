@@ -351,6 +351,7 @@ export class Session {
     H('chalk', this.prof.activity === 'write' && this.t > 20);
     H('suspicion', this.susp.attention > 40);
     H('notes', ph === 'part1' && this.t > 60);
+    H('zoom', ph === 'part1' && this.t > 95 && this.player.mode === 'listen');
     H('lid', this.player.laptopTime > 45);
     H('alttab', this.susp.suspicion > 30 && this.player.blend > 0.5);
     H('list', this.list && this.list.holder === 'player');

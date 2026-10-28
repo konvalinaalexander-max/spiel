@@ -3,7 +3,7 @@ import { storage, clamp } from './util.js';
 import { bus } from './util.js';
 
 export const DEFAULT_KEYS = {
-  toggleLaptop: ['Space'], notes: ['KeyN'], altTab: ['Tab'], lid: ['KeyL'], brightUp: ['Equal', 'NumpadAdd', 'BracketRight'], brightDown: ['Minus', 'NumpadSubtract', 'Slash'],
+  toggleLaptop: ['Space'], notes: ['KeyN'], zoom: ['KeyF'], altTab: ['Tab'], lid: ['KeyL'], brightUp: ['Equal', 'NumpadAdd', 'BracketRight'], brightDown: ['Minus', 'NumpadSubtract', 'Slash'],
   headphones: ['KeyH'], mute: ['KeyM'], nextRound: ['Enter', 'NumpadEnter'], sign: ['KeyE'], pause: ['Escape', 'KeyP'], help: ['F1'], profView: ['F3'],
   lookLeft: ['ArrowLeft', 'KeyA'], lookRight: ['ArrowRight', 'KeyD'], lookUp: ['ArrowUp', 'KeyW'], lookDown: ['ArrowDown', 'KeyS'], snakeUp: ['ArrowUp', 'KeyW'], snakeDown: ['ArrowDown', 'KeyS'], snakeLeft: ['ArrowLeft', 'KeyA'], snakeRight: ['ArrowRight', 'KeyD'],
   answer1: ['Digit1', 'Numpad1'], answer2: ['Digit2', 'Numpad2'], answer3: ['Digit3', 'Numpad3'], answer4: ['Digit4', 'Numpad4'], peek: ['KeyR']

@@ -58,9 +58,10 @@ export class PlayerView {
     const blend = smoothstep(0, 1, p.blend), notes = p.mode === 'notes' ? 1 : 0;
     this.notesBlend = damp(this.notesBlend || 0, notes, 6, dt);
     const nbB = this.notesBlend;
+    this.zoom = damp(this.zoom || 0, inp?.zoom || 0, 7, dt);
     // Kopf: freie Blicksteuerung im Zuhör-Modus, eingeschränkt am Laptop/Heft
     if (inp && !inp.frozen) {
-      const k = 0.0022;
+      const k = 0.0022 * lerp(1, 0.42, this.zoom); // eingezoomt feiner zielen
       if (blend < 0.5 && nbB < 0.5) { this.yaw = clamp(this.yaw - inp.dx * k, -1.45, 1.45); this.pitch = clamp(this.pitch - inp.dy * k, -0.95, 0.55); }
       else { this.lookOff.x = clamp(this.lookOff.x - inp.dx * k * 0.25, -0.25, 0.25); this.lookOff.y = clamp(this.lookOff.y - inp.dy * k * 0.25, -0.15, 0.2); }
     }
@@ -148,7 +149,8 @@ export class PlayerView {
     cam.up.set(0, 1, 0);
     cam.lookAt(camPos.clone().add(this.camDir));
     // FOV: am Laptop eingezoomt (Lesbarkeit), beim Heft etwas enger
-    const fovT = lerp(lerp(this.fovBase, 40, blend), 46, nbB);
+    // „Genau hinschauen“ zoomt beim Zuhören auf etwa das 2,4-Fache (Tafel und Folien lesbar auch aus den hinteren Reihen)
+    const fovT = lerp(lerp(this.fovBase * lerp(1, 0.42, this.zoom), 40, blend), 46, nbB);
     this.fov = damp(this.fov, fovT, 8, dt);
     if (Math.abs(cam.fov - this.fov) > 0.01) { cam.fov = this.fov; cam.updateProjectionMatrix(); }
     // für die Spiellogik: tatsächliche Kopfrotation relativ zur Sitzrichtung

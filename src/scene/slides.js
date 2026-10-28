@@ -223,15 +223,26 @@ export class SlideRenderer {
   content(meta, slide, num, total, lang) {
     this._frame(meta, num, total);
     const c = this.ctx;
-    const ts = fitFont(c, slide.title, 1740, 62, 'bold');
+    const ts = fitFont(c, slide.title, 1740, 66, 'bold');
     c.fillStyle = D; c.font = `bold ${ts}px ${FONT}`; c.fillText(slide.title, 90, 250);
-    if (slide.subtitle) { c.fillStyle = G; c.font = `32px ${FONT}`; c.fillText(slide.subtitle, 90, 302); }
-    let y = 400; c.font = `40px ${FONT}`;
-    for (const b of slide.bullets || []) {
-      const lines = wrap(c, b, 900);
-      c.fillStyle = G; c.fillRect(96, y - 26, 18, 18);
-      c.fillStyle = T; lines.forEach((l, i) => c.fillText(l, 140, y + i * 50));
-      y += lines.length * 50 + 26;
+    if (slide.subtitle) { c.fillStyle = G; c.font = `34px ${FONT}`; c.fillText(slide.subtitle, 90, 302); }
+    // Aufzählung so groß wie möglich (aus den hinteren Reihen lesbar), aber immer oberhalb der Quellenzeile
+    const bullets = slide.bullets || [], colW = slide.diagram ? 930 : 1680, top = 400, bottom = slide.source ? 955 : 990;
+    let size = 52, lh = 0, gap = 0, lay = [];
+    for (; size >= 30; size -= 2) {
+      c.font = `${size}px ${FONT}`; lh = Math.round(size * 1.2); gap = Math.round(size * 0.5);
+      lay = bullets.map(b => wrap(c, b, colW));
+      const lastBase = top + lay.reduce((a, l) => a + l.length * lh + gap, 0) - gap - lh;
+      if (lastBase + size * 0.25 <= bottom) break;
+    }
+    if (size < 30) size = 30; // sehr volle Folie: kleinste Stufe (Zeilenmaße stammen aus diesem letzten Durchlauf)
+    let y = top; const sq = Math.round(size * 0.42);
+    // dunkler als der Fließtext im Folienmaster und leicht verstärkte Striche: dünne Schrift zerfällt beim Verkleinern
+    c.lineWidth = Math.max(1, size * 0.03); c.lineJoin = 'round'; c.strokeStyle = D;
+    for (const lines of lay) {
+      c.fillStyle = G; c.fillRect(96, y - Math.round(size * 0.62), sq, sq);
+      c.fillStyle = D; lines.forEach((l, i) => { c.strokeText(l, 140, y + i * lh); c.fillText(l, 140, y + i * lh); });
+      y += lines.length * lh + gap;
     }
     if (slide.diagram) diagram(c, slide.diagram, 1090, 360, 740, 560, lang);
     if (slide.source) { c.fillStyle = MID; c.font = `italic 20px ${FONT}`; c.fillText(slide.source, 90, 995); }

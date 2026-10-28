@@ -124,7 +124,7 @@ export class Graphics {
       composer.addPass(this.dofPass);
     }
     const fx = [];
-    if (p.bloom) { this.bloom = new BloomEffect({ intensity: 0.55, luminanceThreshold: 0.82, luminanceSmoothing: 0.18, mipmapBlur: true, radius: 0.72, levels: 6 }); fx.push(this.bloom); }
+    if (p.bloom) { this.bloom = new BloomEffect({ intensity: 0.55, luminanceThreshold: 1.0, luminanceSmoothing: 0.18, mipmapBlur: true, radius: 0.72, levels: 6 }); fx.push(this.bloom); }
     this.hueSat = new HueSaturationEffect({ saturation: -0.08, hue: 0 });
     this.bc = new BrightnessContrastEffect({ brightness: 0.0, contrast: 0.06 });
     this.vignette = new VignetteEffect({ eskil: false, offset: 0.32, darkness: 0.42 });

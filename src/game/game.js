@@ -156,7 +156,9 @@ export class Game {
     if (I.hit('help')) this.hooks.help?.();
     if (I.hit('pause') || gp?.start && !S.ttt.over) this.hooks.pause?.();
     I.endFrame();
-    return { dx, dy };
+    // Genau hinschauen (halten): nur beim Zuhören, nicht beim Mitschreiben oder während man erwischt wird
+    const zoomIn = p.blend < 0.5 && p.mode !== 'notes' && S.caughtSeq == null ? Math.max(I.is('zoom') ? 1 : 0, gp ? clamp((gp.lt - 0.15) / 0.7, 0, 1) : 0) : 0;
+    return { dx, dy, zoom: zoomIn };
   }
   _gpCell(gp) { const c = this._gpSel ?? 4; const r = Math.floor(c / 3), k = c % 3; const nr = clamp(r + (gp.down ? 1 : 0) - (gp.up ? 1 : 0), 0, 2), nk = clamp(k + (gp.right ? 1 : 0) - (gp.left ? 1 : 0), 0, 2); this._gpSel = nr * 3 + nk; this._place(this._gpSel); }
   _tapLaptop(tap) {
@@ -194,7 +196,7 @@ export class Game {
       case 'tutorDone': W.crowd.tutorShow(false); this._tutorPos = null; break;
       case 'listMove': this._listMove(d); break;
       case 'listSigned': H.toast(t('hud.signed'), 'good'); break;
-      case 'hint': if (this.hintsOn) H.hint(d.id, { key: this._keyName('toggleLaptop'), notes: this._keyName('notes'), tab: this._keyName('altTab'), lid: this._keyName('lid'), sign: this._keyName('sign') }); break;
+      case 'hint': if (this.hintsOn) H.hint(d.id, { key: this._keyName('toggleLaptop'), notes: this._keyName('notes'), zoom: this._keyName('zoom'), tab: this._keyName('altTab'), lid: this._keyName('lid'), sign: this._keyName('sign') }); break;
       case 'opponentCaught': W.crowd.lookAll(W.crowd.byId.get(W.plan.opponent.id)?.c.headWorld(V()) || V(), 3, 0.7); H.toast(t('hud.oppCaught'), 'warn'); break;
       case 'prof:chalkStop': this.board.paused = true; break;
       case 'prof:chalkResume': case 'prof:bluff': this.board.paused = false; break;
@@ -401,7 +403,7 @@ export class Game {
     if (!this.ended) S.step(dt);
     // Spieler (Kamera)
     const frozen = S.caughtSeq != null;
-    const pv = this.player.update(dt, time, { dx: look.dx, dy: look.dy, frozen, cursor: this.cursor, clicked: this.clicked, typing: this.typingT > 0, mouseMoving: this.mouseMoveT > 0, lidMoving: this.lidMoveT > 0, stress: this.settings.reducedMotion ? 0 : S.susp.stress });
+    const pv = this.player.update(dt, time, { dx: look.dx, dy: look.dy, zoom: look.zoom || 0, frozen, cursor: this.cursor, clicked: this.clicked, typing: this.typingT > 0, mouseMoving: this.mouseMoveT > 0, lidMoving: this.lidMoveT > 0, stress: this.settings.reducedMotion ? 0 : S.susp.stress });
     this.clicked = false;
     if (this.bot) { this.player.yaw = S.player.headYaw; this.player.pitch = clamp(S.player.headPitch, -0.9, 0.5); } // Autopilot bewegt den Kopf
     else S.setHead(this.player.headYaw, this.player.headPitch, dt);
@@ -458,7 +460,7 @@ export class Game {
     // HUD
     H.setClock(this._hm(), S.director.phase, this._secTitle);
     H.setSuspicion(S.susp.attention, S.susp.suspicion, S.susp.evidence, S.lastVis.vis > 0.3);
-    H.setMode(p.mode, { key: this._keyName('toggleLaptop'), notes: this._keyName('notes') });
+    H.setMode(p.mode, { key: this._keyName('toggleLaptop'), notes: this._keyName('notes'), zoom: this._keyName('zoom') });
     // Untertitel: am Laptop/mit Kopfhörern verwaschen, hinten etwas undeutlicher; Linsenstaub bei Stress
     H.setMuffle(clamp(p.blend * 0.55 + (p.headphones ? 0.45 : 0) + Math.max(0, S.seat.row - 6) * 0.06, 0, 1));
     H.setDirt(this.settings.photosensitive || this.settings.reducedMotion ? 0 : Math.max(0, stress - 0.5) * 0.8);

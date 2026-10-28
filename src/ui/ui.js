@@ -309,7 +309,7 @@ export class UI {
   _renderKeys() {
     const inp = this.hooks.input; if (!inp) return;
     const box = $('#s-keys'); box.innerHTML = '';
-    const acts = ['toggleLaptop', 'notes', 'altTab', 'lid', 'brightUp', 'brightDown', 'headphones', 'mute', 'nextRound', 'sign', 'peek', 'pause', 'help'];
+    const acts = ['toggleLaptop', 'notes', 'zoom', 'altTab', 'lid', 'brightUp', 'brightDown', 'headphones', 'mute', 'nextRound', 'sign', 'peek', 'pause', 'help'];
     for (const a of acts) {
       const row = document.createElement('div'); row.className = 'keyrow';
       const lab = document.createElement('span'); lab.textContent = t('act.' + a);
@@ -324,7 +324,7 @@ export class UI {
   _saveSettings(live) { storage.set('settings', this.settings); if (live) this.hooks.applySettings?.(this.settings); }
   // ------------------------------------------------------------------ Hilfe
   _buildHelp() {
-    const rows = [['help.k.look', 'help.v.look'], ['help.k.laptop', 'help.v.laptop'], ['help.k.play', 'help.v.play'], ['help.k.notes', 'help.v.notes'], ['help.k.alttab', 'help.v.alttab'], ['help.k.lid', 'help.v.lid'], ['help.k.bright', 'help.v.bright'], ['help.k.phones', 'help.v.phones'], ['help.k.sign', 'help.v.sign'], ['help.k.quiz', 'help.v.quiz'], ['help.k.pause', 'help.v.pause'], ['help.k.pad', 'help.v.pad'], ['help.k.touch', 'help.v.touch']];
+    const rows = [['help.k.look', 'help.v.look'], ['help.k.laptop', 'help.v.laptop'], ['help.k.play', 'help.v.play'], ['help.k.notes', 'help.v.notes'], ['help.k.zoom', 'help.v.zoom'], ['help.k.alttab', 'help.v.alttab'], ['help.k.lid', 'help.v.lid'], ['help.k.bright', 'help.v.bright'], ['help.k.phones', 'help.v.phones'], ['help.k.sign', 'help.v.sign'], ['help.k.quiz', 'help.v.quiz'], ['help.k.pause', 'help.v.pause'], ['help.k.pad', 'help.v.pad'], ['help.k.touch', 'help.v.touch']];
     $('#help').innerHTML = `<p class="lead" data-i18n="help.lead"></p><table class="lv-table"><tbody>${rows.map(([k, v]) => `<tr><th data-i18n="${k}"></th><td data-i18n="${v}"></td></tr>`).join('')}</tbody></table>
       <h2 class="h2bar" data-i18n="help.rulesTitle"></h2><div data-i18n-html="help.rules"></div>`;
   }
