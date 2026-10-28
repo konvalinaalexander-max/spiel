@@ -57,23 +57,29 @@ export function buildFixtures(gfx, hall, opts = {}) {
   screen.position.set(SC.x, SC.y, SC.z); screen.receiveShadow = true;
   scene.add(screen);
   out.screen = screen; out.slides = sr; out.slideTex = slideTex;
-  // Beamer-Spot mit Projektionstextur (quadratisch, Folie mittig) – ab "hoch" mit Schatten (Prof wirft Schatten auf die Leinwand)
+  // Beamer-Spot mit Projektionstextur – ab "hoch" mit Schatten (Prof wirft Schatten auf die Leinwand)
   const sq = document.createElement('canvas'); sq.width = sq.height = q.texSize >= 1024 ? 1024 : 512;
   const sqTex = new THREE.CanvasTexture(sq); sqTex.colorSpace = THREE.SRGBColorSpace;
   const PJ = LY.PROJECTOR;
   const useSpot = q.spotShadow;
+  let toMap = null;
   if (useSpot) {
-    const spot = new THREE.SpotLight(0xffffff, 0, 30, 0.5, 0.15, 1.6);
+    const spot = new THREE.SpotLight(0xffffff, 0, 30, 0.5, 0.02, 1.6);
     spot.position.set(PJ.x, PJ.y - 0.02, PJ.z - 0.22);
     spot.target.position.set(SC.x, SC.y, SC.z);
-    // Öffnungswinkel so, dass die Leinwandbreite genau ins Quadrat passt
-    const dist = spot.position.distanceTo(spot.target.position);
-    spot.angle = Math.atan((SC.w / 2) * 1.02 / dist) * Math.SQRT2;
-    spot.penumbra = 0.02;
+    // Öffnungswinkel: alle vier Leinwandecken liegen knapp innerhalb des (runden) Kegels
+    const axis = spot.target.position.clone().sub(spot.position).normalize();
+    const corners = [[-1, 1], [1, 1], [1, -1], [-1, -1]].map(([sx, sy]) => new THREE.Vector3(SC.x + sx * SC.w / 2, SC.y + sy * SC.h / 2, SC.z));
+    spot.angle = Math.max(...corners.map(c => c.clone().sub(spot.position).angleTo(axis))) * 1.04;
     spot.map = sqTex; spot.castShadow = true;
     spot.shadow.mapSize.set(1024, 1024); spot.shadow.bias = -0.0004; spot.shadow.camera.near = 1; spot.shadow.camera.far = 12;
     scene.add(spot, spot.target);
     out.spot = spot;
+    // Projektionskamera wie in SpotLightShadow (fov = 2·angle, quadratisch): Leinwandpunkt → Pixel in der Spot-Textur
+    const pcam = new THREE.PerspectiveCamera(THREE.MathUtils.RAD2DEG * 2 * spot.angle, 1, 0.5, 30);
+    pcam.position.copy(spot.position); pcam.lookAt(spot.target.position); pcam.updateMatrixWorld(); pcam.updateProjectionMatrix();
+    const pt = new THREE.Vector3();
+    toMap = (u, v) => { pt.set(SC.x + (u - 0.5) * SC.w, SC.y + (0.5 - v) * SC.h, SC.z).project(pcam); return [(pt.x * 0.5 + 0.5) * sq.width, (0.5 - pt.y * 0.5) * sq.height]; };
   }
   // Leinwand strahlt leicht in den Raum zurück (Podest, Prof, vordere Reihen)
   const spill = new THREE.PointLight(0xdfe6ee, 0, 5.5, 2); spill.position.set(SC.x, SC.y - 0.2, SC.z + 0.9); scene.add(spill); out.screenSpill = spill;
@@ -81,11 +87,17 @@ export function buildFixtures(gfx, hall, opts = {}) {
   out.updateSlideTextures = () => {
     slideTex.needsUpdate = true;
     if (useSpot) {
-      const c = sq.getContext('2d'); c.fillStyle = '#000'; c.fillRect(0, 0, sq.width, sq.height);
-      // Spot-Kegel ist quadratisch: Folie (16:9) füllt die Breite → gleiche Proportion in der Mitte
-      const w = sq.width / 1.02 / Math.SQRT2 * 2 / 2 * Math.SQRT2 / Math.SQRT2; // = Breite, die SC.w entspricht
-      const h = w * SC.h / SC.w;
-      c.drawImage(sr.canvas, (sq.width - w) / 2, (sq.height - h) / 2, w, h);
+      // Folie perspektivisch korrekt in die Spot-Textur zeichnen (Gitter aus affinen Dreiecken), damit das
+      // projizierte Bild deckungsgleich mit dem Leinwandbild liegt – sonst entsteht ein heller Doppelschleier
+      const c = sq.getContext('2d'); c.setTransform(1, 0, 0, 1, 0, 0); c.fillStyle = '#000'; c.fillRect(0, 0, sq.width, sq.height);
+      const img = sr.canvas, W = img.width, H = img.height, n = 6;
+      const G = []; for (let j = 0; j <= n; j++) for (let i = 0; i <= n; i++) G.push({ s: [i / n * W, j / n * H], d: toMap(i / n, j / n) });
+      const at = (i, j) => G[j * (n + 1) + i];
+      for (let j = 0; j < n; j++) for (let i = 0; i < n; i++) {
+        warpTri(c, img, at(i, j), at(i + 1, j), at(i + 1, j + 1));
+        warpTri(c, img, at(i, j), at(i + 1, j + 1), at(i, j + 1));
+      }
+      c.setTransform(1, 0, 0, 1, 0, 0);
       sqTex.needsUpdate = true;
     }
   };
@@ -348,4 +360,20 @@ export function buildHybridMonitor(gfx, lang = 'de') {
   };
   draw();
   return { mesh: m, update(dt) { t += dt; const b = Math.floor(t) % 2; if (b !== blink || Math.random() < dt * 0.05) { blink = b; if (Math.random() < 0.25) speaking = Math.random() < 0.5 ? -1 : Math.floor(Math.random() * REMOTE.length); draw(); } } };
+}
+
+/** Dreieck aus `img` (Quellpixel p.s) affin auf Zielpixel p.d zeichnen; Clip leicht aufgeweitet gegen Haarrisse */
+function warpTri(c, img, p0, p1, p2) {
+  const [x0, y0] = p0.s, [x1, y1] = p1.s, [x2, y2] = p2.s, [u0, v0] = p0.d, [u1, v1] = p1.d, [u2, v2] = p2.d;
+  const den = (x1 - x0) * (y2 - y0) - (x2 - x0) * (y1 - y0);
+  if (!den) return;
+  const a = ((u1 - u0) * (y2 - y0) - (u2 - u0) * (y1 - y0)) / den, b = ((u2 - u0) * (x1 - x0) - (u1 - u0) * (x2 - x0)) / den;
+  const cc = ((v1 - v0) * (y2 - y0) - (v2 - v0) * (y1 - y0)) / den, d = ((v2 - v0) * (x1 - x0) - (v1 - v0) * (x2 - x0)) / den;
+  const mx = (u0 + u1 + u2) / 3, my = (v0 + v1 + v2) / 3;
+  const grow = ([u, v]) => { const l = Math.hypot(u - mx, v - my) || 1; return [u + (u - mx) / l * 0.8, v + (v - my) / l * 0.8]; };
+  c.save(); c.setTransform(1, 0, 0, 1, 0, 0);
+  c.beginPath(); c.moveTo(...grow(p0.d)); c.lineTo(...grow(p1.d)); c.lineTo(...grow(p2.d)); c.closePath(); c.clip();
+  c.setTransform(a, cc, b, d, u0 - a * x0 - b * y0, v0 - cc * x0 - d * y0);
+  c.drawImage(img, 0, 0);
+  c.restore();
 }
