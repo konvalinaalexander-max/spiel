@@ -44,7 +44,7 @@ if (import.meta.url === 'file://' + process.argv[1]) {
   if (args.md) {
     const { DIFFICULTIES } = await import('../src/game/config.js');
     const pc = v => Math.round(v * 100) + ' %', f1 = v => (Math.round(v * 100) / 100).toString().replace('.', ',');
-    const mm = v => `${Math.floor(v / 60)}:${String(Math.round(v % 60)).padStart(2, '0')}`;
+    const mm = v => { const s = Math.round(v); return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`; };
     const rows = diffs.map(d => { const r = summary[d]; return `| ${d} | ${DIFFICULTIES[d].target} | ${pc(r.success)} | ${f1(r.caughtPerRun)} | ${pc(r.kicked)} | ${f1(r.wins)} / ${f1(r.losses)} / ${f1(r.draws)} | ${f1(r.quizRight)} / ${f1(r.quizAsked)} | ${f1(r.grade)} | ${mm(r.duration)} | ${Math.round(r.laptop)} s |`; }).join('\n');
     const par = diffs.map(d => { const D = DIFFICULTIES[d], P = D.prof, de = v => String(v).replace('.', ','); return `| ${d} | ${de(D.mul)} | ${P.shoulderEvery.join('–')} s | ${de(P.telegraph)} s | ${pc(P.bluffChance)} | ${pc(P.playerFixChance)} | ${P.fixation.map(de).join('–')} s | ${de(P.turnRate)} | ${de(D.oppSkill)} | ${D.neighbor} |`; }).join('\n');
     const md = `# Balancing

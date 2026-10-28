@@ -1,8 +1,8 @@
 # Balancing
 
-Automatisierter Test: `node tools/sim.mjs --runs 40 --difficulty all --md docs/BALANCING.md` (läuft ohne Rendering, 217 s).
+Automatisierter Test: `node tools/sim.mjs --runs 40 --difficulty all --md docs/BALANCING.md` (läuft ohne Rendering, 228 s).
 Der Bot (`src/game/bot.js`, Geschick 0.5) spielt **nur mit Hinweisen, die auch ein Mensch hat**: grobe, verzögerte und verrauschte
-Blickrichtung des Profs, das Ende des Kreidekratzens, Warnungen der Nachbarin, Reaktionszeit 0.40 s ± 0,1 s; er sieht
+Blickrichtung des Profs, das Ende des Kreidekratzens, Warnungen der Nachbarin, Reaktionszeit 0,40 s ± 0,1 s; er sieht
 keine internen Werte (Verdacht/Beweis). Er schaltet über dieselbe API wie die Eingabe (`setMode`, `tttPlay`, `answerQuiz`, `signList`),
 schreibt in ruhigen Momenten mit und beantwortet Prüfungsfragen umso besser, je länger er im jeweiligen Abschnitt zugehört hat.
 Vorlesungslänge „normal“ (720 s ≙ 90 Spielminuten), Sitzplatz Reihe 5 / Platz 8, Gegner:in im Hörsaal,
@@ -14,8 +14,8 @@ Vorlesungslänge „normal“ (720 s ≙ 90 Spielminuten), Sitzplatz Reihe 5 / P
 |---|---|---|---|---|---|---|---|---|---|
 | erstsemester | 6 | 95 % | 0,13 | 3 % | 10,1 / 4,05 / 8,82 | 2,23 / 2,55 | 1,3 | 12:04 | 317 s |
 | bachelor | 7 | 57 % | 0,45 | 8 % | 7,1 / 3,78 / 9,75 | 2,23 / 2,9 | 2,65 | 11:42 | 291 s |
-| pruefungswoche | 7 | 40 % | 0,73 | 8 % | 6,1 / 3,95 / 9,75 | 3,03 / 3,88 | 3,35 | 12:01 | 286 s |
-| diplom | 8 | 18 % | 1,35 | 13 % | 5,25 / 3,6 / 8,32 | 3,15 / 4,08 | 4,28 | 11:26 | 249 s |
+| pruefungswoche | 7 | 38 % | 0,5 | 5 % | 6 / 4,33 / 9,73 | 3,1 / 3,88 | 3,35 | 11:60 | 282 s |
+| diplom | 8 | 3 % | 1,3 | 18 % | 4,43 / 3,95 / 9,15 | 3,08 / 4,22 | 4,8 | 11:34 | 253 s |
 
 Zielband laut Auftrag: **„Bachelor“ ≈ 50 %** Erfolgsquote eines mittelguten Bots. Die Stufen sind monoton gestaffelt
 (leicht → sehr schwer), „Erstsemester“ ist für den Einstieg bewusst gutmütig, „Diplomand:in“ eine echte Herausforderung.
@@ -25,10 +25,10 @@ Zielband laut Auftrag: **„Bachelor“ ≈ 50 %** Erfolgsquote eines mittelgute
 
 | Stufe | Verdachts-Multiplikator | Schulterblick alle | Vorwarnung (Kreide stoppt) | Bluff | Blick auf Spieler:in | Fixationsdauer | Drehrate | Gegner-Stärke | Nachbarin |
 |---|---|---|---|---|---|---|---|---|---|
-| erstsemester | 0.7 | 14–30 s | 0.65 s | 12 % | 6 % | 0.9–2.4 s | 2.6 | 0.28 | helpful |
-| bachelor | 1.65 | 8–18 s | 0.31 s | 28 % | 22 % | 0.7–2.3 s | 3.8 | 0.48 | helpful |
-| pruefungswoche | 1.8 | 6–15 s | 0.26 s | 33 % | 19 % | 0.5–1.7 s | 4.4 | 0.5 | neutral |
-| diplom | 2.2 | 5–12 s | 0.2 s | 38 % | 22 % | 0.45–1.5 s | 5 | 0.6 | betrayer |
+| erstsemester | 0,7 | 14–30 s | 0,65 s | 12 % | 6 % | 0,9–2,4 s | 2,6 | 0,28 | helpful |
+| bachelor | 1,65 | 8–18 s | 0,31 s | 28 % | 22 % | 0,7–2,3 s | 3,8 | 0,48 | helpful |
+| pruefungswoche | 1,8 | 6–15 s | 0,26 s | 33 % | 24 % | 0,5–1,7 s | 4,4 | 0,5 | neutral |
+| diplom | 2,2 | 5–12 s | 0,2 s | 38 % | 26 % | 0,45–1,5 s | 5 | 0,6 | betrayer |
 
 Weitere Größen (alle Stufen): Verdachtsmodell `src/game/suspicion.js` (Aufmerksamkeit steigt 70/s × Sichtbarkeit × Auffälligkeit, fällt 28/s;
 Verdacht ab Aufmerksamkeit 20; Beweis nur foveal und ab Verdacht 12), Sichtkegel `src/game/vision.js` (Fovea ±5°, Peripherie bis 60°,
