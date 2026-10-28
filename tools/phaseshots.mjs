@@ -55,7 +55,7 @@ if (only.includes('presets')) for (const q of ['low', 'medium', 'high', 'ultra']
 }
 writePerf(); // sofort sichern, falls ein späterer Teil abstürzt
 if (only.includes('orbit') || only.includes('player') || only.includes('seq')) {
-  const page = await openGame(browser, 'medium');
+  let page = await openGame(browser, 'medium');
   if (only.includes('orbit')) {
     await page.evaluate(() => window.__step(30));
     const cams = {
@@ -63,7 +63,16 @@ if (only.includes('orbit') || only.includes('player') || only.includes('seq')) {
       orbit3_back_left: [-4.0, 3.4, 5.6, 1.0, 1.0, -5.0, 62], orbit4_back_right: [4.0, 3.4, 5.6, -1.2, 1.2, -5.0, 62],
       orbit5_window_side: [-4.2, 2.4, 0.5, 3.0, 1.3, -1.5, 66], orbit6_podium: [0.0, 1.85, -5.6, 0.0, 1.4, 4.0, 70]
     };
-    for (const [n, c] of Object.entries(cams)) save(`phase3_${n}.jpg`, await page.evaluate(cc => window.__render(cc), c));
+    // Einzelbilder aus diesen Totalen dauern im CPU-Rasterizer 30–45 s; stürzt die Seite dabei ab (GPU-Watchdog),
+    // wird sie neu geöffnet und das Bild einmal wiederholt
+    for (const [n, c] of Object.entries(cams)) {
+      try { save(`phase3_${n}.jpg`, await page.evaluate(cc => window.__render(cc), c)); }
+      catch (e) {
+        lap(`${n}: ${e.message.split('\n')[0]} – neuer Versuch`);
+        await page.close().catch(() => {}); page = await openGame(browser, 'medium'); await page.evaluate(() => window.__step(30));
+        save(`phase3_${n}.jpg`, await page.evaluate(cc => window.__render(cc), c));
+      }
+    }
   }
   if (only.includes('player')) {
     await page.evaluate(() => { window.__step(150); window.__game().player.yaw = 0.2; window.__step(0.6); });
