@@ -1,0 +1,122 @@
+[
+ {
+  "view": "seat",
+  "preset": "low",
+  "ms": 10.6,
+  "calls": 167,
+  "triangles": 1151518,
+  "geometries": 142,
+  "textures": 172,
+  "programs": 90,
+  "dpr": 0.8,
+  "size": [
+   1280,
+   720
+  ]
+ },
+ {
+  "view": "laptop",
+  "preset": "low",
+  "ms": 24.8,
+  "calls": 153,
+  "triangles": 1145994,
+  "geometries": 142,
+  "textures": 172,
+  "programs": 90,
+  "dpr": 0.8,
+  "size": [
+   1280,
+   720
+  ]
+ },
+ {
+  "view": "seat",
+  "preset": "medium",
+  "ms": 16,
+  "calls": 278,
+  "triangles": 1858071,
+  "geometries": 149,
+  "textures": 209,
+  "programs": 106,
+  "dpr": 1,
+  "size": [
+   1280,
+   720
+  ]
+ },
+ {
+  "view": "laptop",
+  "preset": "medium",
+  "ms": 151.6,
+  "calls": 273,
+  "triangles": 1852851,
+  "geometries": 149,
+  "textures": 217,
+  "programs": 115,
+  "dpr": 1,
+  "size": [
+   1280,
+   720
+  ]
+ },
+ {
+  "view": "seat",
+  "preset": "high",
+  "ms": 13.4,
+  "calls": 371,
+  "triangles": 2730107,
+  "geometries": 149,
+  "textures": 216,
+  "programs": 108,
+  "dpr": 1,
+  "size": [
+   1280,
+   720
+  ]
+ },
+ {
+  "view": "laptop",
+  "preset": "high",
+  "ms": 55.2,
+  "calls": 366,
+  "triangles": 2724887,
+  "geometries": 149,
+  "textures": 224,
+  "programs": 117,
+  "dpr": 1,
+  "size": [
+   1280,
+   720
+  ]
+ },
+ {
+  "view": "seat",
+  "preset": "ultra",
+  "ms": 25.4,
+  "calls": 373,
+  "triangles": 4783452,
+  "geometries": 151,
+  "textures": 214,
+  "programs": 107,
+  "dpr": 1,
+  "size": [
+   1280,
+   720
+  ]
+ },
+ {
+  "view": "laptop",
+  "preset": "ultra",
+  "ms": 57,
+  "calls": 363,
+  "triangles": 4777554,
+  "geometries": 151,
+  "textures": 222,
+  "programs": 116,
+  "dpr": 1,
+  "size": [
+   1280,
+   720
+  ]
+ }
+]

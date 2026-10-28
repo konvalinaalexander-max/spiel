@@ -13,6 +13,18 @@ Prof schreibt an die Tafel, 1280 × 720; zusätzlich Laptop-Blick). „Calls“ 
 Hauptbild und Post-Stack.
 
 <!--PERF-TABLE-->
+| Stufe | Blick | Draw Calls | Dreiecke | Geometrien | Texturen | Shader-Programme | Bildzeit SwiftShader* |
+|---|---|---|---|---|---|---|---|
+| Niedrig | Sitzplatz | 167 | 1 151 518 | 142 | 172 | 90 | 10,6 ms |
+| Niedrig | Laptop | 153 | 1 145 994 | 142 | 172 | 90 | 24,8 ms |
+| Mittel | Sitzplatz | 278 | 1 858 071 | 149 | 209 | 106 | 16 ms |
+| Mittel | Laptop | 273 | 1 852 851 | 149 | 217 | 115 | 151,6 ms |
+| Hoch | Sitzplatz | 371 | 2 730 107 | 149 | 216 | 108 | 13,4 ms |
+| Hoch | Laptop | 366 | 2 724 887 | 149 | 224 | 117 | 55,2 ms |
+| Ultra | Sitzplatz | 373 | 4 783 452 | 151 | 214 | 107 | 25,4 ms |
+| Ultra | Laptop | 363 | 4 777 554 | 151 | 222 | 116 | 57 ms |
+
+\* CPU-Rasterizer, nur relativ vergleichbar. Gemessen am 2026-10-28.
 <!--/PERF-TABLE-->
 
 ## Budgets und Maßnahmen
