@@ -20,17 +20,17 @@ export class Game {
     const W = this.world, lang = getLang();
     this.lang = lang;
     const cfg = this.cfg;
-    this.session = new Session({ difficulty: cfg.difficulty, length: cfg.length, seat: cfg.seat, mode: cfg.mode, opponent: cfg.opponent, seed: cfg.seed || (Date.now() % 100000), popSeed: 4711, lang, weather: cfg.weather }, this.content, (type, d) => { this._on(type, d); if (this.bot) this.bot.onEvent(type, d); });
+    this.session = new Session({ difficulty: cfg.difficulty, length: cfg.length, seat: cfg.seat, mode: cfg.mode, opponent: cfg.opponent, oppSkill: cfg.opponent === 'online' ? cfg.oppSkill : undefined, seed: cfg.seed || (Date.now() % 100000), popSeed: 4711, lang, weather: cfg.weather }, this.content, (type, d) => { this._on(type, d); if (this.bot) this.bot.onEvent(type, d); });
     const S = this.session;
     // Autopilot (Demo/Test): ?bot=0.6
     if (this.botSkill != null) this.bot = new Bot(S, this.botSkill, 99);
     this.sections = this.content.sections;
     // Prof
     this.profView = new ProfView(this.gfx, W.charMat, S.prof, W.fx, this.audio);
-    this.profView.onStep = (f, c) => this.audio.play('stepParquet', { pos: c.pos.clone().add(V(0, 0.05, 0)), gain: 0.5, vary: 0.15 });
+    this.profView.onStep = (f, c) => this.audio.play(c.pos.z > LY.ROW0_Z ? 'stepStair' : 'stepParquet', { pos: c.pos.clone().add(V(0, 0.05, 0)), gain: 0.5, vary: 0.15 });
     // eigener Körper
     this.player = new PlayerView(this.gfx, W.charMat, S, W.props, cfg.avatar || 'a');
-    this.player.fovBase = this.settings.fov || 60;
+    this.player.fovBase = this.settings.fov || 60; this.player.reducedMotion = !!this.settings.reducedMotion;
     // Laptop
     const lap = W.props.player.laptop;
     this.os = new LaptopOS({
@@ -122,7 +122,7 @@ export class Game {
       for (const tap of inp.taps) this._tapLaptop(tap);
       const cell = I.cellHit(); if (cell >= 0) { this._place(cell); }
       for (const c of I.pressed) { if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'KeyW', 'KeyA', 'KeyS', 'KeyD', 'PageUp', 'PageDown'].includes(c) && os.key(c)) { this.typingT = 0.2; S.handActivity(0.15); } }
-      if (I.hit('altTab') || gp?.y) { os.altTab(); S.appSwitched(); this.typingT = 0.2; }
+      if ((I.hit('altTab') || gp?.y) && !(this.altTabT > 0)) { this.altTabT = 0.3; this.typingT = 0.2; this.audio.play('keyClick', { bus: 'player', gain: 0.3 }); }
       if (I.hit('nextRound') || (gp?.start && S.ttt.over)) S.nextRound();
       if (gp?.up || gp?.down || gp?.left || gp?.right) this._gpCell(gp);
     } else {
@@ -137,7 +137,15 @@ export class Game {
     if (I.hit('brightDown')) { this.brightness = clamp(this.brightness - 0.1, 0.15, 1); this.audio.play('keyClick', { bus: 'player', gain: 0.25 }); this.hud.toast(t('hud.brightness', { v: Math.round(this.brightness * 100) })); }
     if (I.hit('headphones')) { p.headphones = !p.headphones; this.audio.play('cloth', { bus: 'player', gain: 0.4 }); this.hud.toast(t(p.headphones ? 'hud.phonesOn' : 'hud.phonesOff')); }
     if (I.hit('mute')) { p.muted = !p.muted; os.muted = p.muted; os.dirty = true; this.hud.toast(t(p.muted ? 'hud.muteOn' : 'hud.muteOff')); }
-    if (I.hit('sign') && S.signList()) this.audio.play('penWrite', { bus: 'player', gain: 0.6 });
+    if (I.hit('sign') && !this.sign && p.blend < 0.5 && S.list && S.list.holder === 'player' && !S.list.signed && !S.list.signing) { this.sign = { len: 0 }; this.hud.signOpen(); }
+    if (this.sign) {
+      // Unterschreiben: kurze Mausgeste (Linienzug), dabei kein Umschauen
+      const m = Math.hypot(inp.dx, inp.dy);
+      if (m > 0) { this.sign.len += m; this.hud.signDraw(inp.dx, inp.dy); if (Math.random() < 0.3) this.audio.play('penWrite', { bus: 'player', gain: 0.35 }); }
+      dx = 0; dy = 0;
+      if (this.sign.len > 700 || (gp && gp.a)) { this.hud.signClose(true); this.sign = null; if (S.signList()) S.list.signing = 0.35; }
+      else if (I.hit('pause') || !S.list || S.list.holder !== 'player') { this.hud.signClose(false); this.sign = null; }
+    }
     // Quiz
     if (S.quiz && !S.quiz.answered) {
       for (let k = 0; k < 4; k++) if (I.hit('answer' + (k + 1)) && k < S.quiz.answers.length) S.answerQuiz(k);
@@ -169,7 +177,7 @@ export class Game {
       case 'clicker': this.profView.clickerPress(); A.play('clicker', { pos: this.profView.head, gain: 0.35 }); break;
       case 'fx': this._fx(d); break;
       case 'phase': H.setClock(this._hm(), PHASE_KEYS[d.phase] || d.phase, this._secTitle); if (d.phase === 'break') A.loop('murmur', { gain: 0.95, bus: 'room' }); else if (d.phase === 'part2') A.loop('murmur', { gain: 0.45, bus: 'room' }); break;
-      case 'section': this._secTitle = d.title; this.notesLines.set(d.id, (d.notes || []).slice()); this.os.dirty = true; break;
+      case 'section': if (Math.random() < 0.35) A.play('throatClear', { pos: this.profView.head, gain: 0.5 }); this._secTitle = d.title; this.notesLines.set(d.id, (d.notes || []).slice()); this.os.dirty = true; break;
       case 'quizIntro': A.play('quizSting', { bus: 'ui', gain: 0.4 }); break;
       case 'quizOpen': this._quizOpen(d); break;
       case 'quizResult': H.quizResult(d, this._quizData || {}); A.play(d.result === 'right' ? 'good' : 'sting', { bus: 'ui', gain: 0.35 }); break;
@@ -228,19 +236,20 @@ export class Game {
       default: ok = false;
     }
     if (d.kind !== 'nosignal' && d.kind !== 'restore' && ok) this.lastSlide = d;
+    if (ok && d.kind === 'content') W.fx.beamer.level *= 0.55; // kurzer Blend beim Folienwechsel
     if (this._bootT !== undefined && this._bootT < 2.5) return; // Beamer fährt noch hoch – Folie erscheint danach
     if (ok) W.fx.updateSlideTextures();
   }
   _board(d) {
     const W = this.world, B = this.board;
     if (d.action === 'slide') {
-      W.fx.slideBoards();
+      W.fx.slideBoards(); this.profView.boardPush(2.2);
       this.audio.play('boardSlide', { pos: V(LY.BOARD.x, 1.8, LY.ROOM.z0 + 0.1), gain: 0.8 });
       // eingehender Flügel noch beschrieben? → wischen
       const inc = W.fx.lowPanel(); if (inc.chalk.cursorY > 0.3) inc.chalk.startWipe(3);
       return;
     }
-    if (d.action === 'wipe') { W.fx.lowPanel().chalk.startWipe(3); this.audio.play('sponge', { pos: V(LY.BOARD.x, 1.5, LY.ROOM.z0 + 0.1), gain: 0.6 }); return; }
+    if (d.action === 'wipe') { W.fx.lowPanel().chalk.startWipe(3); this.profView.wipe(3); this.audio.play('sponge', { pos: V(LY.BOARD.x, 1.5, LY.ROOM.z0 + 0.1), gain: 0.6 }); return; }
     if (d.action === 'write') {
       const panel = W.fx.lowPanel();
       const job = panel.chalk.write(d.lines, {});
@@ -262,6 +271,7 @@ export class Game {
         }
       } else if (p.chalk.wipe) pen = p.chalk.update(dt, 600);
       else p.chalk.update(0, 0);
+      if (pen && p.chalk.wipe) B.wipePen = W.fx.penWorld(p, pen, B.wipePen || V());
       if (pen && writingHere) {
         B.penWorld = W.fx.penWorld(p, pen, B.penWorld || V());
         L.penOverride = B.penWorld;
@@ -285,7 +295,7 @@ export class Game {
       case 'phoneRing': if (spos) { A.play('phoneRing', { pos: spos, gain: 0.7 }); C.lookAll(spos, 3, 0.8, st); } break;
       case 'attendanceStart': break;
       case 'attendanceCollect': W.props.listTo('table'); break;
-      case 'laugh': for (let i = 0; i < 5; i++) A.play('laughSoft', { pos: V(-3 + Math.random() * 6, 1.4, -1 + Math.random() * 6), gain: 0.35, delay: Math.random() * 0.5 }); break;
+      case 'laugh': C.laugh(); for (let i = 0; i < 5; i++) A.play('laughSoft', { pos: V(-3 + Math.random() * 6, 1.4, -1 + Math.random() * 6), gain: 0.35, delay: Math.random() * 0.5 }); break;
       case 'drink': W.props.table.glass.visible = false; setTimeout(() => { W.props.table.glass.visible = true; }, 6500); A.play('glass', { pos: this.profView.head, gain: 0.4, delay: 1 }); break;
       case 'blinds': W.blinds.set(d.window ?? 0, d.value ?? 0.85); A.play('boardSlide', { pos: V(LY.ROOM.x0, 3.5, LY.WINDOWS.list[d.window || 0]), gain: 0.25, rate: 1.6 }); break;
       case 'rain': W.outside.startRain?.(); A.loop('rain', { pos: V(LY.ROOM.x0 - 1, 2.5, 0), gain: 0.4, bus: 'room', fade: 6 }); C.lookAll(V(LY.ROOM.x0 - 4, 2.5, 0), 2, 0.4); break;
@@ -295,7 +305,7 @@ export class Game {
       case 'flicker': W.light.setFlickerBurst(); break;
       case 'bottleDrop': if (spos) { A.play('bottleDrop', { pos: spos.clone().setY(spos.y - 1), gain: 0.8 }); C.lookAll(spos, 2, 0.7, st); } break;
       case 'tutorPass': A.play('doorOpen', { pos: V(LY.BACK_DOOR.x, LY.BACK_FLOOR + 1, LY.BACK_DOOR.z), gain: 0.4 }); break;
-      case 'phoneVibratePlayer': A.play('phoneVibrate', { bus: 'player', gain: 0.6 }); this.hud.toast(t('hud.vibrate')); break;
+      case 'phoneVibratePlayer': A.play('phoneVibrate', { bus: 'player', gain: 0.6 }); this.hud.toast(t('hud.vibrate')); this.phoneBuzz = 1.6; break;
       case 'breakStart': C.breakStart(W.plan.students.filter((s, i) => i % 3 === 0 && !s.role).map(s => s.id)); this.os.deliverMail('exkursion'); break;
       case 'breakEnd': C.breakEnd(); break;
       case 'knock': A.play('doorOpen', { pos: V(LY.FRONT_DOOR.x, 1.2, LY.FRONT_DOOR.z), gain: 0.3, rate: 1.8 }); for (let i = 0; i < 3; i++) A.play('chalkTap', { pos: V(LY.FRONT_DOOR.x, 1.3, LY.FRONT_DOOR.z), gain: 0.9, rate: 0.5, delay: i * 0.22 }); C.lookAll(V(LY.FRONT_DOOR.x, 1.6, LY.FRONT_DOOR.z), 2, 0.6); break;
@@ -346,13 +356,38 @@ export class Game {
     setTimeout(() => this.onEnd?.(res), res.reason === 'kicked' ? 2600 : 1800);
   }
   abort() { this.ended = true; this.audio.stopSpeech(); this.audio.stopLoops(0.3); }
+  /** Zufällige Raumgeräusche aus dem Saal (positioniert): Husten, Knarzen, Blättern, Kuli, Reißverschluss */
+  _ambience(dt, pv) {
+    const W = this.world, A = this.audio, S = this.session;
+    this._ambT = (this._ambT ?? 2) - dt;
+    if (this._ambT <= 0) {
+      this._ambT = 1.2 + Math.random() * (S.director.phase === 'break' ? 1.5 : 3.5);
+      const list = W.crowd.list.filter(x => x.present && x.c.visible); if (!list.length) return;
+      const st = list[Math.floor(Math.random() * list.length)], pos = st.c.headWorld(V());
+      const r = Math.random();
+      const name = r < 0.12 ? (Math.random() < 0.5 ? 'cough' : 'throatClear') : r < 0.35 ? 'chairCreak' : r < 0.55 ? 'pageTurn' : r < 0.7 ? 'penClick' : r < 0.78 ? 'zipper' : r < 0.9 ? 'cloth' : 'seatFlip';
+      A.play(name, { pos: name === 'chairCreak' || name === 'seatFlip' ? pos.clone().setY(pos.y - 0.6) : pos, gain: 0.35 + Math.random() * 0.25 });
+    }
+    // eigener Sitz knarzt bei schnellen Kopfbewegungen; Stoff raschelt beim Umdrehen
+    const v = Math.abs((this.player.yaw - (this._lastYaw ?? this.player.yaw)) / Math.max(dt, 1e-3)); this._lastYaw = this.player.yaw;
+    this._clothT = (this._clothT || 0) - dt;
+    if (v > 2.2 && this._clothT <= 0) { this._clothT = 1.2; A.play(Math.random() < 0.4 ? 'chairCreak' : 'cloth', { bus: 'player', gain: 0.25 }); }
+    // draußen: Vögel bei Sonne
+    this._birdT = (this._birdT ?? 8) - dt;
+    if (this._birdT <= 0) { this._birdT = 10 + Math.random() * 25; if (this.cfg.weather === 'sunny') A.play('bird', { pos: V(LY.ROOM.x0 - 8, 3, -4 + Math.random() * 10), gain: 0.18 }); }
+    void pv;
+  }
   // ------------------------------------------------------------------ Frame
   update(dt, time) {
     const S = this.session, W = this.world, A = this.audio, H = this.hud, p = S.player;
     const look = this.handleInput(dt);
     if (this.paused) return;
     this.t += dt;
+    // verzögertes Alt-Tab (Reflex dauert)
+    if (this.altTabT > 0 && (this.altTabT -= dt) <= 0) { this.os.altTab(); S.appSwitched(); }
     // Laptop-Zustand an die Logik
+    if (Math.abs(this.lidTarget - this.lid) > 4 && !this._hingeOn) { this._hingeOn = true; A.play('hinge', { bus: 'player', gain: 0.35, rate: this.lidTarget > this.lid ? 1 : 0.85 }); }
+    if (Math.abs(this.lidTarget - this.lid) < 1) this._hingeOn = false;
     this.lid = damp(this.lid, this.lidTarget, 9, dt);
     W.props.player.laptop.setLid(this.lid);
     this.lidMoveT -= dt; this.mouseMoveT -= dt; this.typingT -= dt;
@@ -362,15 +397,17 @@ export class Game {
     if (!this.ended) S.step(dt);
     // Spieler (Kamera)
     const frozen = S.caughtSeq != null;
-    const pv = this.player.update(dt, time, { dx: look.dx, dy: look.dy, frozen, cursor: this.cursor, clicked: this.clicked, typing: this.typingT > 0, mouseMoving: this.mouseMoveT > 0, lidMoving: this.lidMoveT > 0 });
+    const pv = this.player.update(dt, time, { dx: look.dx, dy: look.dy, frozen, cursor: this.cursor, clicked: this.clicked, typing: this.typingT > 0, mouseMoving: this.mouseMoveT > 0, lidMoving: this.lidMoveT > 0, stress: this.settings.reducedMotion ? 0 : S.susp.stress });
     this.clicked = false;
     if (this.bot) { this.player.yaw = S.player.headYaw; this.player.pitch = clamp(S.player.headPitch, -0.9, 0.5); } // Autopilot bewegt den Kopf
     else S.setHead(this.player.headYaw, this.player.headPitch, dt);
     // Tafel, Prof, Studierende
     this._updateBoard(dt);
-    this.profView.update(dt, time, this.board.penWorld);
+    this.profView.update(dt, time, this.board.penWorld, this.board.wipePen);
     W.crowd.update(dt, time, { profHead: this.profView.head, playerHead: pv.eye, camPos: pv.eye, oppTyping: S.opp.typing, oppWaiting: S.opp.waiting, playerLaptop: W.props.player.laptop.screenWorld(0.5, 0.5), tutorPos: this._tutorPos });
     W.props.update(dt, time);
+    this._ambience(dt, pv);
+    if (this.phoneBuzz > 0) { this.phoneBuzz -= dt; const ph = W.props.player.phone; if (!ph.userData.m0) ph.userData.m0 = ph.matrix.clone(); ph.matrix.copy(ph.userData.m0).multiply(new THREE.Matrix4().makeRotationY(Math.sin(time * 90) * 0.04 * Math.max(0, this.phoneBuzz))); ph.matrixWorldNeedsUpdate = true; }
     // Mitschrift: beim Schreiben füllt sich das Heft mit den Notizen des Abschnitts
     const nb = W.props.player.notebook;
     if (p.mode === 'notes' && p.blend < 0.2 && nb.queue.length === 0 && !nb.job) {
@@ -390,7 +427,7 @@ export class Game {
     W.light.laptopGlow.position.copy(W.props.player.laptop.screenWorld(0.5, 0.5)).addScaledVector(W.props.player.laptop.screenNormal(V()), 0.35);
     // Welt
     W.light.update(dt, time); W.outside.update(dt, time, (ev) => { if (ev === 'stop') A.play('tramBell', { pos: V(LY.ROOM.x0 - 18, -10, 10), gain: 0.2, rate: 0.7 }); });
-    W.blinds.update(dt); W.fx.updateBeamer(dt); W.monitor.update(dt);
+    W.blinds.update(dt); W.fx.updateBeamer(dt); W.monitor.update(dt); W.details.update(dt);
     if (this._bootT !== undefined && this._bootT < 2.5) {
       this._bootT += dt;
       if (this._bootT < 2.5) { W.fx.slides.boot(t('slide.boot'), this._bootT); W.fx.updateSlideTextures(); }
@@ -408,7 +445,9 @@ export class Game {
     A.setMuffle(p.blend * 0.6, p.headphones);
     const stress = S.susp.stress;
     this._heartT = (this._heartT || 0) - dt;
-    if (stress > 0.45 && this._heartT <= 0 && !this.ended) { this._heartT = lerp(0.95, 0.5, (stress - 0.45) / 0.55); A.play('heart', { bus: 'player', gain: (stress - 0.4) * 0.9 }); }
+    if (stress > 0.45 && this._heartT <= 0 && !this.ended) { this._heartT = lerp(0.95, 0.5, (stress - 0.45) / 0.55); A.play('heart', { bus: 'player', gain: (stress - 0.4) * 0.9 }); if (!this.settings.reducedMotion && !this.settings.photosensitive) this.gfx.pulse = Math.min(1, stress); }
+    this._breathT = (this._breathT || 4) - dt;
+    if (stress > 0.7 && this._breathT <= 0 && !this.ended) { this._breathT = 3.5 + Math.random() * 2; A.play('breath', { bus: 'player', gain: 0.35 }); }
     this.gfx.setStress(this.settings.reducedMotion ? stress * 0.5 : stress);
     // Tiefenschärfe: am Laptop nah, sonst Prof
     if (this.settings.dof) this.gfx.setFocus(p.blend > 0.5 || p.mode === 'notes', 0.48, 0.3); else this.gfx.setFocus(false);
@@ -416,6 +455,9 @@ export class Game {
     H.setClock(this._hm(), S.director.phase, this._secTitle);
     H.setSuspicion(S.susp.attention, S.susp.suspicion, S.susp.evidence, S.lastVis.vis > 0.3);
     H.setMode(p.mode, { key: this._keyName('toggleLaptop'), notes: this._keyName('notes') });
+    // Untertitel: am Laptop/mit Kopfhörern verwaschen, hinten etwas undeutlicher; Linsenstaub bei Stress
+    H.setMuffle(clamp(p.blend * 0.55 + (p.headphones ? 0.45 : 0) + Math.max(0, S.seat.row - 6) * 0.06, 0, 1));
+    H.setDirt(this.settings.photosensitive || this.settings.reducedMotion ? 0 : Math.max(0, stress - 0.5) * 0.8);
     H.setStrikes(Math.min(3, S.stats.strikes));
     if (S.quiz && !S.quiz.answered) H.quizTimer(S.quiz.time / S.quiz.total);
     if (this._quizUnlocked && !S.quiz) { this._quizUnlocked = false; }
@@ -435,7 +477,9 @@ export class Game {
     const w = Math.round(r.domElement.width * 0.28), h = Math.round(w * 9 / 16);
     r.setScissorTest(true); r.setScissor(16, 16, w, h); r.setViewport(16, 16, w, h);
     const vis = this.profView.rig.mesh.visible; this.profView.rig.mesh.visible = false;
+    const head = this.player.rig.bones.head; head.scale.setScalar(1);
     r.render(this.gfx.scene, cam);
+    head.scale.setScalar(0.001);
     this.profView.rig.mesh.visible = vis;
     r.setScissorTest(false); r.setViewport(0, 0, r.domElement.width, r.domElement.height);
   }

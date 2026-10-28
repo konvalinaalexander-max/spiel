@@ -369,6 +369,11 @@ export function buildProps(gfx, hall, plan, opts = {}) {
     player.phone = phoneMesh;
     if (plan.player.k < LY.SEATS - 1) { const rs = LY.seatX(plan.player.k + 1); backpack(mat(rs, LY.rowFloor(prow) + LY.SEAT_H + 0.02, LY.seatZ(prow) - 0.02, -0.15, Math.PI + 0.2, 0), 0x1b4f72, 0x154360); }
     pencilCase(onDesk(prow, ps.x + 0.5, pzc + 0.06, 0.2), 0x7d3c98);
+    stackPaper(onDesk(prow, ps.x + 0.62, pzc - 0.02, -0.25), 8, 6); // Folienskript (Ausdruck)
+    B.add(new THREE.ConeGeometry(0.03, 0.002, 3), PM.paper, M4(onDesk(prow, ps.x + 0.69, pzc - 0.14, -0.25), mat(0, 0.016, 0, 0, 0.5, 0)), { ...C(0xf2f0e8), keepUV: true, cast: false }); // Eselsohr
+    highlighter(onDesk(prow, ps.x + 0.18, pzc + 0.1, 0.9), 0xf7dc1f);
+    apple(onDesk(prow, ps.x - 0.33, pzc - 0.06));
+    bottlePET(onLedge(prow, ps.x - 0.36));
   }
 
   // ----------------------------------------------------- Vortragstisch
@@ -559,4 +564,95 @@ export class InkPage {
   }
   /** Weltposition der Stiftspitze (für Hand-IK des Spielers) */
   tipWorld(out = V()) { this.pen.updateWorldMatrix(true, false); return out.set(-0.07, 0, 0).applyMatrix4(this.pen.matrixWorld); }
+  topWorld(out = V()) { this.pen.updateWorldMatrix(true, false); return out.set(0.07, 0, 0).applyMatrix4(this.pen.matrixWorld); }
+}
+
+// ------------------------------------------------------------------ Details: Kontaktschatten, Kaffeeränder, Stufenlicht, Türglas mit Gang
+/** Weiche, gebackene Kontaktschatten (AO-Streifen) unter Pulten und Bänken – wirkt in allen Qualitätsstufen */
+export function buildDetails(gfx, hall, plan) {
+  const scene = gfx.scene, B = new Batcher();
+  // Verlaufstextur (dunkel → transparent)
+  const ao = document.createElement('canvas'); ao.width = 16; ao.height = 128;
+  const ac = ao.getContext('2d'); const g = ac.createLinearGradient(0, 0, 0, 128);
+  g.addColorStop(0, 'rgba(0,0,0,0.55)'); g.addColorStop(0.35, 'rgba(0,0,0,0.25)'); g.addColorStop(1, 'rgba(0,0,0,0)');
+  ac.fillStyle = g; ac.fillRect(0, 0, 16, 128);
+  const aoTex = new THREE.CanvasTexture(ao);
+  // Shader: schwarze Fläche, Deckkraft aus dem Verlauf (abdunkelnd, ohne Beleuchtung)
+  const aoShader = new THREE.ShaderMaterial({
+    transparent: true, depthWrite: false, polygonOffset: true, polygonOffsetFactor: -2, polygonOffsetUnits: -2,
+    uniforms: { map: { value: aoTex }, strength: { value: 0.8 } },
+    vertexShader: 'varying vec2 vUv; void main(){ vUv = uv; gl_Position = projectionMatrix * modelViewMatrix * vec4(position,1.0); }',
+    fragmentShader: 'uniform sampler2D map; uniform float strength; varying vec2 vUv; void main(){ float a = texture2D(map, vUv).a * strength; gl_FragColor = vec4(0.0,0.0,0.0,a); }'
+  });
+  const W = LY.BLOCK.x1 - LY.BLOCK.x0, cx = (LY.BLOCK.x0 + LY.BLOCK.x1) / 2;
+  const strip = (w, d, x, y, z, flip) => { const p = new THREE.PlaneGeometry(w, d); p.rotateX(-Math.PI / 2); if (flip) p.rotateY(Math.PI); p.translate(x, y, z); return p; };
+  const geos = [];
+  for (let i = 0; i < LY.ROWS; i++) {
+    const f = LY.rowFloor(i) + 0.003, z0 = LY.rowFront(i);
+    geos.push(strip(W, 0.34, cx, f, z0 + 0.17, false));                         // unter der Pultfront (Fußraum)
+    geos.push(strip(W, 0.3, cx, f, z0 + LY.ROW_DEPTH - 0.15, true));            // unter der Sitzbank
+  }
+  const merged = mergeAll(geos);
+  const aoMesh = new THREE.Mesh(merged, aoShader); aoMesh.renderOrder = 1; scene.add(aoMesh);
+  // Kaffeeränder auf einzelnen Pulten (dezente Decals)
+  const ring = document.createElement('canvas'); ring.width = ring.height = 128;
+  const rc = ring.getContext('2d'); rc.strokeStyle = 'rgba(70,40,15,0.5)'; rc.lineWidth = 5; rc.beginPath(); rc.arc(64, 64, 44, 0.3, Math.PI * 1.85); rc.stroke();
+  rc.lineWidth = 2; rc.strokeStyle = 'rgba(70,40,15,0.3)'; rc.beginPath(); rc.arc(66, 63, 40, 0, Math.PI * 2); rc.stroke();
+  const ringMat = new THREE.MeshBasicMaterial({ map: new THREE.CanvasTexture(ring), transparent: true, depthWrite: false, polygonOffset: true, polygonOffsetFactor: -2, polygonOffsetUnits: -2 });
+  const rng = makeRng(77);
+  const ringGeos = [];
+  for (const s of LY.allSeats()) if (rng.chance(0.07)) {
+    const zc = LY.rowFront(s.row) + 0.21 + rng.range(-0.06, 0.06), x = s.x + rng.range(-0.22, 0.22);
+    const p = new THREE.PlaneGeometry(0.09, 0.09); p.rotateX(-Math.PI / 2); p.rotateY(rng.range(0, 6)); p.applyMatrix4(onDesk(s.row, x, zc, 0, 0.0015)); ringGeos.push(p);
+  }
+  if (ringGeos.length) scene.add(new THREE.Mesh(mergeAll(ringGeos), ringMat));
+  // LED-Stufenlicht im Seitengang (rechts, wo der Handlauf ist) und links an den Stufenkanten
+  const led = new THREE.MeshStandardMaterial({ color: 0x222222, emissive: 0xfff2dd, emissiveIntensity: 1.4 }); gfx.register(led);
+  for (const a of LY.AISLES) for (let i = 1; i < LY.ROWS + 1; i++) {
+    const f = LY.rowFloor(Math.min(i, LY.ROWS)), z = (i < LY.ROWS ? LY.rowFront(i) : LY.BACK_Z) + 0.03, ax = (a.x0 + a.x1) / 2;
+    B.add(box(0.12, 0.012, 0.012), led, mat(ax, f - 0.035, z - 0.01), { cast: false, receive: false, keepUV: true });
+  }
+  // Thermostat an der Rückwand, Hörsaalschild mit Belegungsplan neben der Hintertür
+  const plastic = hall.M.whitePlastic;
+  B.add(rbox(0.09, 0.12, 0.025, 0.01), plastic, mat(LY.BACK_DOOR.x - 1.0, LY.BACK_FLOOR + 1.45, LY.ROOM.z1 - 0.02), { cast: false });
+  B.add(box(0.05, 0.025, 0.004), hall.M.screenBlack, mat(LY.BACK_DOOR.x - 1.0, LY.BACK_FLOOR + 1.47, LY.ROOM.z1 - 0.034), { cast: false });
+  // Kaugummi unter dem eigenen Pult (Realismus durch Imperfektion)
+  const ps = LY.allSeats().find(x => x.row === plan.player.row && x.k === plan.player.k);
+  const gum = gfx.pbr({ name: 'gum', color: 0xe58fb0, roughness: 0.5 });
+  B.add(new THREE.SphereGeometry(0.012, 8, 6), gum, mat(ps.x + 0.18, LY.rowFloor(ps.row) + LY.DESK_H - 0.155, LY.rowFront(ps.row) + 0.14, 0, 0, 0, 1, 0.4, 1), { cast: false, keepUV: true });
+  B.build(scene, 'details');
+  // Glasausschnitt in der Hintertür + beleuchteter Gang mit vorbeigehenden Silhouetten
+  const door = hall.backDoor; door.updateMatrixWorld(true);
+  const glass = new THREE.Mesh(new THREE.PlaneGeometry(0.32, 0.55), new THREE.MeshPhysicalMaterial({ color: 0xe6edf0, roughness: 0.55, transmission: 0, transparent: true, opacity: 0.55, depthWrite: false }));
+  glass.position.set(0.12, 1.55, 0.068); door.add(glass);
+  gfx.register(glass.material);
+  const corrCv = document.createElement('canvas'); corrCv.width = 128; corrCv.height = 256;
+  const corrTex = new THREE.CanvasTexture(corrCv); corrTex.colorSpace = THREE.SRGBColorSpace;
+  const corr = new THREE.Mesh(new THREE.PlaneGeometry(0.34, 0.58), new THREE.MeshBasicMaterial({ map: corrTex }));
+  corr.position.set(0.12, 1.55, 0.03); door.add(corr);
+  const walkers = [];
+  const drawCorr = () => {
+    const c = corrCv.getContext('2d'); const gr = c.createLinearGradient(0, 0, 0, 256); gr.addColorStop(0, '#f3efe4'); gr.addColorStop(1, '#d9d2c2'); c.fillStyle = gr; c.fillRect(0, 0, 128, 256);
+    for (const w of walkers) { c.fillStyle = `rgba(60,55,50,${w.a})`; const x = w.x * 128; c.beginPath(); c.ellipse(x, 70, 14, 17, 0, 0, 7); c.fill(); c.beginPath(); c.roundRect(x - 26, 88, 52, 170, 14); c.fill(); }
+    corrTex.needsUpdate = true;
+  };
+  drawCorr();
+  let wt = 4;
+  return {
+    update(dt) {
+      wt -= dt;
+      if (wt <= 0) { wt = 6 + Math.random() * 18; const fromLeft = Math.random() < 0.5; walkers.push({ x: fromLeft ? -0.3 : 1.3, v: (fromLeft ? 1 : -1) * (0.35 + Math.random() * 0.2), a: 0.45 + Math.random() * 0.25 }); }
+      if (!walkers.length) return;
+      for (const w of walkers) w.x += w.v * dt;
+      for (let i = walkers.length - 1; i >= 0; i--) if (walkers[i].x < -0.5 || walkers[i].x > 1.5) walkers.splice(i, 1);
+      drawCorr();
+    }
+  };
+}
+function mergeAll(geos) {
+  let n = 0, ni = 0; for (const g of geos) { n += g.attributes.position.count; ni += g.index.count; }
+  const pos = new Float32Array(n * 3), uv = new Float32Array(n * 2), idx = new Uint32Array(ni); let o = 0, io = 0;
+  for (const g of geos) { pos.set(g.attributes.position.array, o * 3); uv.set(g.attributes.uv.array, o * 2); for (let i = 0; i < g.index.count; i++) idx[io++] = g.index.array[i] + o; o += g.attributes.position.count; }
+  const out = new THREE.BufferGeometry(); out.setAttribute('position', new THREE.BufferAttribute(pos, 3)); out.setAttribute('uv', new THREE.BufferAttribute(uv, 2)); out.setIndex(new THREE.BufferAttribute(idx, 1)); out.computeBoundingSphere();
+  return out;
 }

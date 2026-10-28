@@ -21,6 +21,7 @@ export class PlayerView {
     this.rig = buildCharacter(AVATARS[avatarId] || AVATARS.a, mat);
     this.char = new Character(this.rig, { floorAt: LY.floorAt, seed: 3 });
     this.rig.mesh.castShadow = true;
+    this.rig.mesh.receiveShadow = false; // keine Eigenschatten-Akne an Händen/Ärmeln direkt vor der Kamera
     gfx.scene.add(this.rig.mesh);
     // Augenposition relativ zum Kopf-Bone (vor dem Ausblenden des Kopfes)
     const b = this.rig.bones;
@@ -97,12 +98,19 @@ export class PlayerView {
     this.lidReach = damp(this.lidReach, inp?.lidMoving ? 1 : 0, 8, dt);
     const lidTop = lap.lid.localToWorld(V(0.06, 0.004, 0.2));
     // Notizen: rechte Hand an der Stiftspitze, linke hält den Block
-    const tip = nb.tipWorld(V()).add(V(0.015, 0.03, 0.04));
+    // Griff: Handgelenk liegt entlang des Stifts hinter der Griffstelle, Finger zeigen zur Spitze
+    const tipW = nb.tipWorld(V()), topW = nb.topWorld(V()), axis = topW.clone().sub(tipW).normalize();
+    const tip = tipW.clone().addScaledVector(axis, 0.1).add(V(0.012, 0.012, 0));
     const nbHold = nb.group.localToWorld(V(-0.1, 0.03, 0.06));
     // Mischung
     const R = rest(1).lerp(kbR.clone().add(V(0, tw, 0)).lerp(padPt, this._pad * 0.85), blend).lerp(tip, nbB).lerp(lidTop, this.lidReach);
     const Lh = rest(-1).lerp(kbL.clone().add(V(0, -tw, 0)), blend).lerp(nbHold, nbB);
-    c.setArm('R', 1, R, poleR, { dir: V(-0.15, -0.6, -1).normalize(), palm: V(0, -1, 0.1).normalize() });
+    // Zittern bei hohem Stress
+    const tr = Math.max(0, (inp?.stress || 0) - 0.55) * 0.012;
+    if (tr > 0) { R.x += Math.sin(t * 37) * tr; R.y += Math.sin(t * 41 + 1) * tr; Lh.x += Math.sin(t * 33 + 2) * tr; Lh.y += Math.sin(t * 39) * tr; }
+    const dirR = V(-0.15, -0.6, -1).normalize().lerp(axis.clone().negate(), nbB * 0.9).normalize();
+    const palmR = V(0, -1, 0.1).normalize().lerp(V(-1, -0.35, 0).normalize(), nbB).normalize();
+    c.setArm('R', 1, R, poleR, { dir: dirR, palm: palmR });
     c.setArm('L', 1, Lh, poleL, { dir: V(0.15, -0.6, -1).normalize(), palm: handDown.palm });
     c.update(dt, t);
     // ------------------------------------------------- Kamera
@@ -110,14 +118,17 @@ export class PlayerView {
     // (Kopf beugt sich vor; die Kamera wird dafür auf eine ruhige Leseposition geführt).
     const cam = this.gfx.camera;
     const e2 = this.eyeWorld(V());
-    e2.y += Math.sin(t * 1.5) * 0.002 + this.startle * 0.03;
+    e2.y += Math.sin(t * 1.5) * 0.002 + this.startle * 0.03 - (this.notesBlend || 0) * Math.max(0, Math.sin(t * 2.1)) * 0.012;
     const scrC = lap.screenWorld(0.5, 0.5, V()), scrN = lap.screenNormal(V());
     const lapEye = scrC.clone().addScaledVector(scrN, 0.33).add(V(0, 0.015, 0));
     const pageC = nb.group.localToWorld(V(0.0, 0.007, 0.01));
     const pageEye = pageC.clone().add(V(-0.04, 0.4, 0.2));
     const camPos = e2.clone().lerp(lapEye, blend * 0.92).lerp(pageEye, nbB * 0.9);
     if (this.shake > 0) { camPos.x += (Math.random() - 0.5) * 0.01 * this.shake; camPos.y += (Math.random() - 0.5) * 0.01 * this.shake; }
-    let camDirT = fwdListen.clone();
+    // Mikro-Sakkaden beim Umschauen (abschaltbar über „Weniger Bewegung“)
+    this._sacT = (this._sacT || 0) - dt;
+    if (this._sacT <= 0) { this._sacT = 0.6 + Math.random() * 1.8; this._sac = this.reducedMotion ? V() : V((Math.random() - 0.5) * 0.006, (Math.random() - 0.5) * 0.004, 0); }
+    let camDirT = fwdListen.clone().add(this._sac || V()).normalize();
     if (blend > 0.001) camDirT.lerp(scrC.clone().sub(camPos).normalize(), blend);
     if (nbB > 0.001) camDirT.lerp(pageC.clone().sub(camPos).normalize(), nbB);
     camDirT.normalize();

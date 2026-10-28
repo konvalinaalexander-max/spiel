@@ -16,7 +16,7 @@ const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
 const WORDMARK = `<span class="wordmark" aria-hidden="true"><span class="wm-bars"><i></i><i></i><i></i></span><span class="wm-text">BOKU</span></span>`;
 
 export const DEFAULT_CFG = { difficulty: 'bachelor', mode: 'tournament', length: 'normal', opponent: 'hall', weather: 'sunny', seat: { row: 4, k: 7 }, avatar: 'a', hints: true, custom: { vigilance: 1, target: 5, oppSkill: 0.5, neighbor: 'helpful' } };
-export const DEFAULT_SETTINGS = { quality: 'auto', dprScale: 1, fov: 60, dof: true, grain: true, ca: true, vignette: true, subtitles: true, subSize: 'm', colorblind: false, photosensitive: false, reducedMotion: false, highContrast: false, susIndicator: true, sens: 1, invertY: false, cellKeys: true, name: '' };
+export const DEFAULT_SETTINGS = { quality: 'auto', dprScale: 1, fov: 60, dof: true, grain: true, ca: true, vignette: true, subtitles: true, subSize: 'm', colorblind: false, photosensitive: false, reducedMotion: false, highContrast: false, susIndicator: true, minimalHud: false, pointerLock: true, sens: 1, invertY: false, cellKeys: true, name: '' };
 
 export class UI {
   constructor(root, hooks) {
@@ -102,7 +102,8 @@ export class UI {
               </div></fieldset>
             <fieldset class="opt"><legend data-i18n="lv.mode"></legend><div class="seg" id="opt-mode"></div><p class="opt-desc" id="mode-desc"></p></fieldset>
             <fieldset class="opt"><legend data-i18n="lv.length"></legend><div class="seg" id="opt-length"></div></fieldset>
-            <fieldset class="opt"><legend data-i18n="lv.opponent"></legend><div class="seg" id="opt-opp"></div></fieldset>
+            <fieldset class="opt"><legend data-i18n="lv.opponent"></legend><div class="seg" id="opt-opp"></div>
+              <div class="seg sub-seg" id="opt-oppskill" hidden></div></fieldset>
             <fieldset class="opt"><legend data-i18n="lv.weather"></legend><div class="seg" id="opt-weather"></div></fieldset>
             <fieldset class="opt"><legend data-i18n="lv.avatar"></legend><div class="seg" id="opt-avatar"></div></fieldset>
             <label class="check"><input type="checkbox" id="opt-hints"> <span data-i18n="lv.hints"></span></label>
@@ -141,6 +142,7 @@ export class UI {
       <div class="tabpanel" data-panel="controls" hidden>
         <label class="row"><span data-i18n="set.sens"></span><input type="range" id="s-sens" min="0.3" max="2.5" step="0.05"><output id="s-sens-o"></output></label>
         <label class="row check"><input type="checkbox" id="s-invert"> <span data-i18n="set.invert"></span></label>
+        <label class="row check"><input type="checkbox" id="s-plock"> <span data-i18n="set.pointerLock"></span></label>
         <label class="row check"><input type="checkbox" id="s-cellkeys"> <span data-i18n="set.cellKeys"></span></label>
         <h2 class="h2bar" data-i18n="set.keys"></h2><div class="keys" id="s-keys"></div><button class="btn btn-small" id="s-keys-reset" data-i18n="set.keysReset"></button>
         <p class="opt-desc" data-i18n="set.gamepad"></p>
@@ -153,6 +155,7 @@ export class UI {
         <label class="row check"><input type="checkbox" id="s-motion"> <span data-i18n="set.motion"></span></label>
         <label class="row check"><input type="checkbox" id="s-contrast"> <span data-i18n="set.contrast"></span></label>
         <label class="row check"><input type="checkbox" id="s-sus"> <span data-i18n="set.susIndicator"></span></label>
+        <label class="row check"><input type="checkbox" id="s-minhud"> <span data-i18n="set.minimalHud"></span></label>
       </div>
       <div class="tabpanel" data-panel="lang" hidden>
         <div class="seg"><button data-lang="de" class="btn">Deutsch (Österreich)</button><button data-lang="en" class="btn">English</button></div>
@@ -230,7 +233,9 @@ export class UI {
     this._seg($('#opt-diff'), [...DIFFICULTY_ORDER.map(v => ({ v, k: 'diff.' + v })), { v: 'custom', k: 'diff.custom' }], typeof c.difficulty === 'object' ? 'custom' : c.difficulty, v => { c.difficultyId = v; c.difficulty = v === 'custom' ? 'custom' : v; this._refreshLV(); });
     this._seg($('#opt-mode'), ['tournament', 'bo5', 'blitz'].map(v => ({ v, k: 'mode.' + v })), c.mode, v => { c.mode = v; this._refreshLV(); });
     this._seg($('#opt-length'), Object.keys(LENGTHS).map(v => ({ v, k: 'len.' + v })), c.length, v => { c.length = v; });
-    this._seg($('#opt-opp'), ['hall', 'online'].map(v => ({ v, k: 'opp.' + v })), c.opponent, v => { c.opponent = v; });
+    this._seg($('#opt-opp'), ['hall', 'online'].map(v => ({ v, k: 'opp.' + v })), c.opponent, v => { c.opponent = v; this._refreshLV(); });
+    c.oppSkill = c.oppSkill ?? 0.5;
+    this._seg($('#opt-oppskill'), [[0.25, 'opp.easy'], [0.5, 'opp.mid'], [0.85, 'opp.hard']].map(([v, k]) => ({ v: String(v), k })), String(c.oppSkill), v => { c.oppSkill = +v; this._refreshLV(); });
     this._seg($('#opt-weather'), ['sunny', 'cloudy', 'rain'].map(v => ({ v, k: 'weather.' + v })), c.weather, v => { c.weather = v; });
     this._seg($('#opt-avatar'), ['a', 'b', 'c'].map(v => ({ v, k: 'avatar.' + v })), c.avatar, v => { c.avatar = v; });
     $('#opt-hints').checked = c.hints !== false; $('#opt-hints').addEventListener('change', e => { c.hints = e.target.checked; });
@@ -256,6 +261,8 @@ export class UI {
   _refreshLV() {
     const c = this.cfg, id = c.difficulty === 'custom' || typeof c.difficulty === 'object' ? 'custom' : c.difficulty;
     $('#custom-box').hidden = id !== 'custom';
+    $('#opt-oppskill').hidden = c.opponent !== 'online';
+    for (const b of $('#opt-oppskill').children) b.setAttribute('aria-pressed', String(+b.dataset.v === c.oppSkill));
     $('#diff-desc').textContent = t('diffDesc.' + id, { target: id === 'custom' ? c.custom.target : DIFFICULTIES[id].target });
     $('#mode-desc').textContent = t('modeDesc.' + c.mode);
     for (const b of $$('.seat', this.root)) b.setAttribute('aria-pressed', String(+b.dataset.r === c.seat.row && +b.dataset.k === c.seat.k));
@@ -285,10 +292,10 @@ export class UI {
     $('#s-rate').addEventListener('input', e => { A.ttsRate = +e.target.value; storage.set('ttsRate', A.ttsRate); $('#s-rate-o').textContent = '×' + A.ttsRate.toFixed(2); });
     $('#s-test').addEventListener('click', () => this.hooks.testVoice?.());
     // Steuerung
-    rng('#s-sens', 'sens', v => '×' + (+v).toFixed(2)); chk('#s-invert', 'invertY'); chk('#s-cellkeys', 'cellKeys');
+    rng('#s-sens', 'sens', v => '×' + (+v).toFixed(2)); chk('#s-invert', 'invertY'); chk('#s-plock', 'pointerLock'); chk('#s-cellkeys', 'cellKeys');
     $('#s-keys-reset').addEventListener('click', () => { this.hooks.input?.setKeys({}); this._renderKeys(); });
     // A11y
-    chk('#s-subs', 'subtitles'); chk('#s-cb', 'colorblind'); chk('#s-photo', 'photosensitive'); chk('#s-motion', 'reducedMotion'); chk('#s-contrast', 'highContrast'); chk('#s-sus', 'susIndicator');
+    chk('#s-subs', 'subtitles'); chk('#s-cb', 'colorblind'); chk('#s-photo', 'photosensitive'); chk('#s-motion', 'reducedMotion'); chk('#s-contrast', 'highContrast'); chk('#s-sus', 'susIndicator'); chk('#s-minhud', 'minimalHud');
     $('#s-subsize').value = S.subSize; $('#s-subsize').addEventListener('change', e => { S.subSize = e.target.value; this._saveSettings(true); });
     $('#s-name').value = S.name; $('#s-name').addEventListener('input', e => { S.name = e.target.value.slice(0, 24); this._saveSettings(false); });
   }

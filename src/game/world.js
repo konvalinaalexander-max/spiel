@@ -5,7 +5,7 @@ import { buildHall } from '../scene/hall.js';
 import { buildFixtures, makePosters, buildHybridMonitor } from '../scene/fixtures.js';
 import { buildLighting, bakeEnvironment } from '../scene/lighting.js';
 import { buildOutside, buildBlinds } from '../scene/outside.js';
-import { buildProps } from '../scene/props.js';
+import { buildProps, buildDetails } from '../scene/props.js';
 import { characterMaterial } from '../chars/rig.js';
 import { Crowd } from '../chars/crowd.js';
 import { planPopulation } from './population.js';
@@ -34,7 +34,8 @@ export async function buildWorld(gfx, params, progress = () => {}) {
   W.blinds = buildBlinds(gfx, params.weather === 'sunny' ? [0.45, 0, 0] : [0, 0, 0]);
   await step(0.52, 'load.props');
   W.plan = planPopulation(POP_SEED, params.seat);
-  W.props = buildProps(gfx, W.hall, W.plan, { weather: params.weather });
+  W.props = buildProps(gfx, W.hall, W.plan, { weather: params.weather, notesHeader: params.lang === 'en' ? 'Animal Nutrition – 27 Oct' : 'Tierernährung VO – 27.10.' });
+  W.details = buildDetails(gfx, W.hall, W.plan);
   await step(0.62, 'load.people');
   W.charMat = characterMaterial(gfx);
   W.crowd = new Crowd(gfx, W.charMat, { ...W.plan, students: [] }, { shadows: gfx.preset.studentShadows });

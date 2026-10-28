@@ -20,6 +20,8 @@ export class HUD {
       <div class="hud-caught" id="h-caught" hidden><div class="caught-card"><div class="caught-title" id="h-caught-t"></div><div class="caught-text" id="h-caught-x"></div></div></div>
       <div class="hud-quiz" id="h-quiz" hidden role="dialog" aria-modal="false" aria-labelledby="h-quiz-q"></div>
       <div class="hud-cross" id="h-cross"></div>
+      <div class="hud-dirt" id="h-dirt" aria-hidden="true"></div>
+      <div class="hud-sign" id="h-sign" hidden><div class="sign-card"><div class="sign-head" id="h-sign-t"></div><canvas id="h-sign-c" width="420" height="140"></canvas><div class="sign-foot" id="h-sign-f"></div></div></div>
       <div class="hud-debug" id="h-debug" hidden></div>
       <div class="hud-touch" id="h-touch" hidden><button data-act="toggleLaptop" data-i18n="touch.laptop"></button><button data-act="notes" data-i18n="touch.notes"></button><button data-act="altTab" data-i18n="touch.alttab"></button><button data-act="pause" data-i18n="touch.pause"></button></div>`;
     this.el = id => root.querySelector('#' + id);
@@ -31,6 +33,7 @@ export class HUD {
     this.root.style.setProperty('--subtitle-size', { s: '15px', m: '18px', l: '23px', xl: '29px' }[s.subSize] || '18px');
     this.root.classList.toggle('hc', !!s.highContrast);
     this.root.classList.toggle('cb', !!s.colorblind);
+    this.root.classList.toggle('minimal', !!s.minimalHud);
     this.el('h-sus').hidden = !s.susIndicator;
     this.el('h-subs').hidden = !s.subtitles;
   }
@@ -123,6 +126,25 @@ export class HUD {
     clearTimeout(this._qT); this._qT = setTimeout(() => { el.hidden = true; }, r.result === 'right' ? 4200 : 6500);
   }
   quizClose() { this.quizEl.hidden = true; }
+  // ------------------------------------------------------------------ Gedämpfte Untertitel, Linsenstaub
+  setMuffle(m) { const k = Math.round(m * 20) / 20; if (k === this._muf) return; this._muf = k; const el = this.el('h-subs'); el.style.setProperty('--sub-blur', (k * 1.6).toFixed(2) + 'px'); el.style.setProperty('--sub-op', (1 - k * 0.45).toFixed(2)); }
+  setDirt(a) { const k = Math.round(a * 50) / 50; if (k === this._dirt) return; this._dirt = k; this.el('h-dirt').style.opacity = k; }
+  // ------------------------------------------------------------------ Unterschrift (Exkursionsliste)
+  signOpen() {
+    const el = this.el('h-sign'); el.hidden = false;
+    this.el('h-sign-t').textContent = t('hud.signTitle'); this.el('h-sign-f').textContent = t('hud.signHint');
+    const c = this.el('h-sign-c').getContext('2d');
+    c.fillStyle = '#fff'; c.fillRect(0, 0, 420, 140); c.strokeStyle = '#c9c9c9'; c.beginPath(); c.moveTo(20, 110); c.lineTo(400, 110); c.stroke();
+    c.fillStyle = '#929191'; c.font = '12px Arial'; c.fillText('✕', 22, 104);
+    this._sp = { x: 40, y: 95 };
+  }
+  signDraw(dx, dy) {
+    const c = this.el('h-sign-c').getContext('2d'), p = this._sp; if (!p) return;
+    const nx = Math.min(400, Math.max(30, p.x + dx * 0.35 + 0.8)), ny = Math.min(125, Math.max(30, p.y + dy * 0.35));
+    c.strokeStyle = '#1f3d8a'; c.lineWidth = 2.2; c.lineCap = 'round'; c.beginPath(); c.moveTo(p.x, p.y); c.lineTo(nx, ny); c.stroke();
+    p.x = nx > 390 ? 60 : nx; p.y = ny;
+  }
+  signClose(done) { this.el('h-sign').hidden = true; this._sp = null; if (done) this.toast(t('hud.signed'), 'good'); }
   // ------------------------------------------------------------------ Debug
   debug(on, text) { const el = this.el('h-debug'); el.hidden = !on; if (on) el.textContent = text; }
   touch(on) { this.el('h-touch').hidden = !on; }

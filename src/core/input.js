@@ -35,16 +35,18 @@ export class Input {
     addEventListener('blur', () => { this.down.clear(); });
     canvas.addEventListener('mousedown', e => {
       if (!this.enabled) return;
-      if (!this.locked && !this.touch.active) { this.requestLock(); }
+      if (!this.locked && !this.touch.active && this.usePointerLock !== false) { this.requestLock(); }
       if (e.button === 0) this.mouse.clicks++; if (e.button === 2) this.mouse.rclicks++;
     });
     canvas.addEventListener('contextmenu', e => e.preventDefault());
     addEventListener('mousemove', e => {
       this.mouse.x = e.clientX; this.mouse.y = e.clientY;
       if (!this.enabled) return;
-      if (this.locked) { this.mouse.dx += e.movementX; this.mouse.dy += e.movementY; }
+      // mit Pointer Lock unbegrenzt; ohne (Fallback/abgeschaltet) zählen die Bewegungen des sichtbaren Mauszeigers
+      if (this.locked || this.usePointerLock === false || this.lockFailed) { this.mouse.dx += e.movementX || 0; this.mouse.dy += e.movementY || 0; }
     });
     canvas.addEventListener('wheel', e => { if (this.enabled) { this.mouse.wheel += Math.sign(e.deltaY); e.preventDefault(); } }, { passive: false });
+    document.addEventListener('pointerlockerror', () => { this.lockFailed = true; });
     document.addEventListener('pointerlockchange', () => {
       const was = this.locked; this.locked = document.pointerLockElement === canvas;
       if (was && !this.locked && this.enabled) bus.emit('input:unlock');
@@ -70,7 +72,11 @@ export class Input {
     addEventListener('gamepadconnected', () => { this.gp.connected = true; bus.emit('input:gamepad', true); });
     addEventListener('gamepaddisconnected', () => { this.gp.connected = false; bus.emit('input:gamepad', false); });
   }
-  requestLock() { try { const p = this.canvas.requestPointerLock({ unadjustedMovement: true }); if (p && p.catch) p.catch(() => { try { this.canvas.requestPointerLock(); } catch (e) { /* kein Pointer Lock */ } }); } catch (e) { /* kein Pointer Lock */ } }
+  requestLock() {
+    if (this.usePointerLock === false) return;
+    const fail = () => { this.lockFailed = true; };
+    try { const p = this.canvas.requestPointerLock({ unadjustedMovement: true }); if (p && p.catch) p.catch(() => { try { const q = this.canvas.requestPointerLock(); if (q && q.catch) q.catch(fail); } catch (e) { fail(); } }); } catch (e) { fail(); }
+  }
   exitLock() { if (document.pointerLockElement) document.exitPointerLock(); }
   setKeys(k) { this.keys = { ...DEFAULT_KEYS, ...k }; storage.set('keys', k); }
   is(action) { return (this.keys[action] || []).some(c => this.down.has(c)); }

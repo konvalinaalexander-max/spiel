@@ -36,6 +36,20 @@ async function render(seconds, build, channels = 1) {
   build(ctx, ctx.destination);
   return ctx.startRendering();
 }
+/**
+ * Pegel-Normalisierung der Einzelklänge: Spitzenpegel in das Fenster −12 … −1 dBFS bringen.
+ * Das Klangdesign (laut/leise) bleibt innerhalb des Fensters erhalten; nichts übersteuert, nichts verschwindet.
+ */
+const PEAK_MAX = 0.891, PEAK_MIN = 0.251;
+function normalize(buf) {
+  if (!buf) return buf;
+  let pk = 0;
+  for (let ch = 0; ch < buf.numberOfChannels; ch++) { const d = buf.getChannelData(ch); for (let i = 0; i < d.length; i++) { const v = Math.abs(d[i]); if (v > pk) pk = v; } }
+  if (pk < 1e-6) return buf;
+  const target = Math.min(PEAK_MAX, Math.max(PEAK_MIN, pk)), g = target / pk;
+  if (Math.abs(g - 1) > 1e-3) for (let ch = 0; ch < buf.numberOfChannels; ch++) { const d = buf.getChannelData(ch); for (let i = 0; i < d.length; i++) d[i] *= g; }
+  return buf;
+}
 /** nahtloser Loop: rendert len+xf, blendet Ende in Anfang über */
 async function renderLoop(len, xf, build, channels = 1) {
   const buf = await render(len + xf, build, channels);
@@ -157,7 +171,7 @@ export async function synthesizeAll(progress) {
     const [dur, fn] = SOUNDS[n];
     const k = variants[n] || 1;
     out[n] = [];
-    for (let v = 0; v < k; v++) { rngState = (rngState + 7919 * (v + 1)) >>> 0; out[n].push(await render(dur, fn)); }
+    for (let v = 0; v < k; v++) { rngState = (rngState + 7919 * (v + 1)) >>> 0; out[n].push(normalize(await render(dur, fn))); }
     tick();
   }
   for (const n of loops) { const [len, xf, fn] = LOOPS[n]; out[n] = [await renderLoop(len, xf, fn)]; tick(); }

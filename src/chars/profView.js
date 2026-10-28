@@ -55,11 +55,20 @@ export class ProfView {
     this.clickT = 0; this.glassesT = 0;
     this.char.onStep = f => this.onStep && this.onStep(f, this.char);
     this.caughtT = 0;
+    // Tafelschwamm (beim Wischen statt Kreide)
+    const spMat = new THREE.MeshStandardMaterial({ color: 0xe8c547, roughness: 1 }); gfx.register(spMat);
+    this.sponge = new THREE.Mesh(new THREE.BoxGeometry(0.11, 0.05, 0.07), spMat); this.sponge.position.set(0, -0.05, 0.03);
+    this.rig.bones.fingersR.add(this.sponge); this.sponge.visible = false;
+    this.pushT = 0; this.pushDur = 1; this.wipeT = 0;
   }
+  /** Schiebetafel hochschieben: beide Hände an die Unterkante */
+  boardPush(dur = 2) { this.pushT = dur; this.pushDur = dur; }
+  /** Tafel wischen (Schwamm in der rechten Hand) */
+  wipe(dur = 3) { this.wipeT = dur + 0.4; }
   say(dur) { this.talkT = Math.max(this.talkT, dur); }
   clickerPress() { this.clickT = 0.45; }
   caught(dur = 4) { this.caughtT = dur; }
-  update(dt, t, pen) {
+  update(dt, t, pen, wipePen) {
     const L = this.logic, c = this.char, b = this.rig.bones;
     this.t += dt;
     // Position/Ausrichtung aus der Logik (Füße stellt die Schrittsteuerung)
@@ -77,7 +86,9 @@ export class ProfView {
     this.caughtT -= dt;
     // Tätigkeiten → Arme
     const act = L.activity;
-    this.chalk.visible = act === 'write' || (act === 'board' && L.face.mode === 'board');
+    this.wipeT = Math.max(0, this.wipeT - dt); this.pushT = Math.max(0, this.pushT - dt);
+    this.sponge.visible = this.wipeT > 0;
+    this.chalk.visible = !this.sponge.visible && (act === 'write' || (act === 'board' && L.face.mode === 'board'));
     this.laser.visible = L.face.mode === 'screen' && !L.walking;
     this.dot.visible = false;
     c.setArm('L', 0); c.setArm('R', 0);
@@ -113,6 +124,20 @@ export class ProfView {
       c.setArm('R', 0.9, pr, c.local(-0.5, 0.8, -0.2), { dir: fw.clone().multiplyScalar(-1).add(V(0, -0.3, 0)).normalize(), palm: V(0, -1, 0) });
       c.setArm('L', 0.9, plft, c.local(0.5, 0.8, -0.2), { dir: fw.clone().multiplyScalar(-1).add(V(0, -0.3, 0)).normalize(), palm: V(0, -1, 0) });
       gname = 'none';
+    }
+    if (this.wipeT > 0 && wipePen && !L.walking) {
+      // Wischen: rechte Hand folgt dem Schwamm, Oberkörper leicht mitgedreht
+      const tgt = wipePen.clone(); tgt.z += 0.06;
+      c.setArm('R', 1, tgt, c.local(-0.5, 0.9, 0.3), { dir: V(0, 0.2, -1).normalize(), palm: V(0, 0, -1) });
+      gname = 'none';
+    }
+    if (this.pushT > 0 && !L.walking) {
+      // Hochschieben: beide Hände an der Unterkante des unteren Flügels, die Bewegung geht nach oben
+      const k = 1 - this.pushT / this.pushDur, y = LY.BOARD.lowY + 0.12 + Math.min(1, k * 1.3) * 0.55, z = LY.BOARD.zFront + 0.06;
+      const bx = clamp(c.pos.x, LY.BOARD.x - LY.BOARD.w / 2 + 0.3, LY.BOARD.x + LY.BOARD.w / 2 - 0.3);
+      c.setArm('R', 1, V(bx - 0.22, y, z), c.local(-0.5, 0.9, 0.2), { dir: V(0, 1, -0.3).normalize(), palm: V(0, 0, -1) });
+      c.setArm('L', 1, V(bx + 0.22, y, z), c.local(0.5, 0.9, 0.2), { dir: V(0, 1, -0.3).normalize(), palm: V(0, 0, -1) });
+      this.chalk.visible = false; gname = 'none';
     }
     if (L.gesture === 'drink' && !L.walking) {
       this.glass.visible = true;

@@ -37,9 +37,9 @@ function applyGfxSettings(s) {
   gfx.applyLive(next);
   gfx.caDisabled = s.ca === false || s.photosensitive;
   if (gfx.vignette) gfx.vignette.offset = s.vignette === false ? 0.9 : 0.32;
-  if (game) { game.settings = s; game.player.fovBase = s.fov || 60; game.os.opts.colorblind = s.colorblind; game.os.dirty = true; }
+  if (game) { game.settings = s; game.player.fovBase = s.fov || 60; game.player.reducedMotion = !!s.reducedMotion; game.os.opts.colorblind = s.colorblind; game.os.dirty = true; }
   hud?.applySettings(s);
-  input.sens = s.sens ?? 1; input.invertY = !!s.invertY; input.cellKeys = s.cellKeys !== false;
+  input.sens = s.sens ?? 1; input.invertY = !!s.invertY; input.cellKeys = s.cellKeys !== false; input.usePointerLock = s.pointerLock !== false;
   document.documentElement.classList.toggle('reduced-motion', !!s.reducedMotion);
 }
 
@@ -54,7 +54,7 @@ async function boot() {
     applySettings: s => applyGfxSettings(s), reloadQuality: () => { sessionStorage.setItem('boku-ttt-v2:menu', 'settings'); location.reload(); },
     gate: () => enterGate(), inGame: () => !!game && !game.ended, click: () => audio.play('uiClick', { bus: 'ui', gain: 0.3 }),
     lang: l => { audio.setLang(l); }, testVoice: () => { audio.start(); audio.speak(t('set.testLine')); },
-    gpuInfo: () => gfx ? t('set.gpuInfo', { gpu: gfx.gpuName || '?', preset: t('set.q.' + gfx.presetId) }) : '',
+    gpuInfo: () => gfx ? t('set.gpuInfo', { gpu: gfx.gpuName || '?', preset: t('set.q.' + gfx.presetId) }) + (gfx.measured ? ' · ' + t('set.measured', { ms: gfx.measured.ms.toFixed(1), preset: t('set.q.' + gfx.measured.suggestion) }) : '') : '',
     screen: name => { document.body.dataset.screen = name || 'none'; }
   });
   hud.applySettings(ui.settings);
@@ -108,6 +108,9 @@ async function boot() {
     return [n, { seconds: +(d.length / b.sampleRate).toFixed(2), rms: +rms.toFixed(4), meanStep: +md.toFixed(5), seamStep: +seam.toFixed(5), ratio: +(seam / (md || 1e-9)).toFixed(2) }];
   }));
   window.__soundList = () => Object.keys(audio.buffers || {});
+  window.__soundLevels = () => Object.fromEntries(Object.entries(audio.buffers || {}).map(([n, arr]) => { const b = arr[0]; if (!b) return [n, null]; let pk = 0, rms = 0; const d = b.getChannelData(0); for (let i = 0; i < d.length; i++) { const v = Math.abs(d[i]); if (v > pk) pk = v; rms += v * v; } return [n, { peakDb: +(20 * Math.log10(pk || 1e-9)).toFixed(1), rmsDb: +(10 * Math.log10(rms / d.length || 1e-12)).toFixed(1) }]; }));
+  // Leistungsmessung: n Bilder rendern, mittlere Bildzeit + Renderer-Statistik
+  window.__perf = (n = 10) => { const t0 = performance.now(); for (let i = 0; i < n; i++) { if (game) game.update(1 / 60, clock += 1 / 60); gfx.render(1 / 60); } const ms = (performance.now() - t0) / n; return { preset: gfx.presetId, ms: +ms.toFixed(1), ...gfx.stats(), dpr: gfx.renderer.getPixelRatio(), size: [gfx.size.x, gfx.size.y] }; };
   requestAnimationFrame(frame);
   ui.setWorldLoading(null);
   if (pending) { state = 'gate'; ui.show('gate'); ui._pendingCfg = pending; }
@@ -177,7 +180,11 @@ function frame(now) {
   const dtRaw = (now - last) / 1000; last = now;
   const dt = Math.min(0.05, Math.max(0, dtRaw));
   clock += dt;
-  frameTimer.push(dtRaw * 1000);
+  // automatische Qualitätsstufe: Bildzeiten der ersten 60 ruhigen Menü-Bilder messen, Empfehlung für den nächsten Start
+  if (world && state === 'menu' && ui.settings.quality === 'auto' && !frameTimer.done) {
+    frameTimer.push(dtRaw * 1000);
+    if (frameTimer.ready()) { const sug = frameTimer.suggest(gfx.presetId); gfx.measured = { ms: frameTimer.median(), suggestion: sug }; if (sug !== gfx.presetId) saveDetected(sug); }
+  }
   if (state === 'game' && game) {
     game.update(dt, clock);
     gfx.render(dt);

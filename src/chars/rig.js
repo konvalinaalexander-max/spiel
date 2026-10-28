@@ -117,7 +117,7 @@ export function buildCharacter(spec, material) {
   const top = spec.top || { type: 'tshirt', color: 0x777777 };
   const topC = top.color, top2 = top.color2 ?? topC;
   const legC = spec.legs?.color ?? 0x2c3e58, shoeC = spec.shoes?.color ?? 0x222222;
-  const longSleeve = top.type !== 'tshirt' && top.type !== 'vest';
+  const longSleeve = top.type !== 'tshirt' && top.type !== 'vest' && top.type !== 'polo';
 
   // --- Kopf -----------------------------------------------------------------
   const hc = P('head').add(new THREE.Vector3(0, 0.07 * H, 0.012));
@@ -228,6 +228,18 @@ export function buildCharacter(spec, material) {
     for (const sx of [1, -1]) add(rbox(sx * 0.07, ch.y + 0.08, ch.z + 0.115, 0.08, 0.3, 0.012, 0.006), 'chest', top2, 0.8, 1);
     add(rbox(0, ch.y + 0.21 * H, ch.z - 0.005, 0.16, 0.05, 0.09, 0.02), 'chest', top2, 0.8, 1);
   }
+  if (top.type === 'polo') { // Polokragen + kurze Knopfleiste
+    add(rbox(0, ch.y + 0.2 * H, ch.z + 0.05, 0.12, 0.028, 0.04, 0.01, -0.3), 'chest', top2, 0.9, 1);
+    add(rbox(0, ch.y + 0.16 * H, ch.z + 0.12, 0.022, 0.07, 0.005, 0.002), 'chest', top2, 0.9, 1);
+  }
+  if (top.type === 'cardigan') { // offene Strickjacke über T-Shirt, Knöpfe
+    add(rbox(0, ch.y + 0.1, ch.z + 0.118, 0.06, 0.24, 0.008, 0.004), 'chest', top2, 0.9, 1);
+    for (let i = 0; i < 4; i++) add(ellipsoid(0.034, ch.y + 0.03 + i * 0.05, ch.z + 0.124, 0.006, 0.006, 0.003, 6), 'chest', 0x3a2a1e, 0.5, 0);
+  }
+  if (top.type === 'turtleneck') { // Rollkragen
+    const tn = new THREE.CylinderGeometry(0.056, 0.064, 0.075, 14, 1, true); tn.translate(0, n.y + 0.01, n.z + 0.004);
+    add(ni(tn), 'neck', topC, 0.95, 1);
+  }
   if (spec.scarf) {
     const sc = new THREE.TorusGeometry(0.065, 0.024, 8, 16); sc.rotateX(Math.PI / 2); sc.translate(0, n.y - 0.005, n.z + 0.005);
     add(ni(sc), 'neck', spec.scarf, 0.95, 1);
@@ -237,7 +249,7 @@ export function buildCharacter(spec, material) {
   for (const [side, sx] of [['L', 1], ['R', -1]]) {
     const ua = P('upperArm' + side), fa = P('foreArm' + side), ha = P('hand' + side), fi = P('fingers' + side), th = P('thumb' + side);
     const sleeve = top.type === 'vest' ? (top.shirt ?? 0xdde6ee) : topC;
-    const bulk = ['sweater', 'hoodie', 'jacket', 'flannel'].includes(top.type) ? 0.007 : 0;
+    const bulk = ['sweater', 'hoodie', 'jacket', 'flannel', 'cardigan', 'turtleneck'].includes(top.type) ? 0.007 : 0;
     add(ellipsoid(ua.x - sx * 0.01, ua.y + 0.005, ua.z, 0.064 * W + bulk, 0.058, 0.064 + bulk, 10), 'upperArm' + side, sleeve, 0.9, 1); // Schulterkappe
     add(capsuleBetween(ua, fa, 0.054 * W + bulk, 0.047 * W + bulk, 10), 'upperArm' + side, sleeve, 0.9, 1);
     if (longSleeve || top.type === 'vest') {
@@ -251,16 +263,18 @@ export function buildCharacter(spec, material) {
     // Hand: Handfläche, Finger, Daumen
     // Handfläche (leicht gewölbt: Handrücken dicker als Fingeransatz), vier Finger mit Gelenkknick, zweigliedriger Daumen
     const Hv = (x, y, z) => new THREE.Vector3(x, y, z);
-    add(rbox(ha.x - sx * 0.002, ha.y - 0.046, ha.z + 0.002, 0.028, 0.088, 0.078, 0.012), 'hand' + side, skin, 0.55, 0);
+    add(rbox(ha.x - sx * 0.002, ha.y - 0.046, ha.z + 0.002, 0.024, 0.086, 0.074, 0.011), 'hand' + side, skin, 0.55, 0);
     add(ellipsoid(ha.x - sx * 0.008, ha.y - 0.05, ha.z - 0.012, 0.012, 0.035, 0.022, 8), 'hand' + side, skin, 0.55, 0); // Handballen
-    const FL = [0.072, 0.08, 0.075, 0.06], FR = [0.0088, 0.0092, 0.0088, 0.0076];
+    const FL = [0.072, 0.08, 0.075, 0.06], FR = [0.0078, 0.0082, 0.0078, 0.0068];
     for (let i = 0; i < 4; i++) {
       const z = fi.z + 0.027 - i * 0.018, len = FL[i] * (spec.female ? 0.94 : 1), r = FR[i] * (spec.female ? 0.9 : 1);
-      const k = Hv(fi.x, fi.y + 0.006, z);                          // Fingergrundgelenk
-      const m = Hv(fi.x - sx * 0.016, fi.y - len * 0.46, z - (i - 1.5) * 0.0015); // Mittelgelenk (entspannt zur Handfläche gekrümmt)
-      const e = Hv(fi.x - sx * 0.043, fi.y - len * 0.66, z - (i - 1.5) * 0.002);  // Fingerspitze
+      const fan = (1.5 - i) * 0.007;                                  // Finger leicht gefächert
+      const k = Hv(fi.x, fi.y + 0.006, z);                           // Fingergrundgelenk
+      const m = Hv(fi.x - sx * 0.014, fi.y - len * 0.47, z + fan * 0.6); // Mittelgelenk (entspannt zur Handfläche gekrümmt)
+      const e = Hv(fi.x - sx * 0.038, fi.y - len * 0.7, z + fan);        // Fingerspitze
+      add(ellipsoid(k.x + sx * 0.003, k.y + 0.002, k.z, 0.011, 0.01, r * 1.05, 7), 'hand' + side, skin, 0.55, 0); // Knöchel
       add(capsuleBetween(k, m, r, r * 0.95, 7), 'fingers' + side, skin, 0.55, 0);
-      add(capsuleBetween(m, e, r * 0.95, r * 0.82, 7), 'fingers' + side, skin, 0.55, 0);
+      add(capsuleBetween(m, e, r * 0.95, r * 0.8, 7), 'fingers' + side, skin, 0.55, 0);
     }
     const t1 = th.clone().add(Hv(-sx * 0.004, -0.026, 0.01)), t2 = t1.clone().add(Hv(-sx * 0.01, -0.024, 0.006));
     add(capsuleBetween(th, t1, 0.0115, 0.0105, 7), 'thumb' + side, skin, 0.55, 0);
@@ -342,7 +356,8 @@ export function characterMaterial(gfx) {
     shader.fragmentShader = shader.fragmentShader
       .replace('#include <common>', '#include <common>\nvarying vec2 vSurf;')
       .replace('#include <roughnessmap_fragment>', 'float roughnessFactor = vSurf.x;')
-      .replace('mapN.xy *= normalScale;', 'mapN.xy *= normalScale * vSurf.y;');
+      // Chunk vorab auflösen: die Zeile steckt im Include und ist im Rohtext nicht sichtbar
+      .replace('#include <normal_fragment_maps>', THREE.ShaderChunk.normal_fragment_maps.replace('mapN.xy *= normalScale;', 'mapN.xy *= normalScale * vSurf.y;'));
   };
   const m = new THREE.MeshStandardMaterial({ vertexColors: true, roughness: 0.85, metalness: 0, normalMap: t.normalMap, normalScale: new THREE.Vector2(0.9, 0.9) });
   m.name = 'character';

@@ -44,7 +44,8 @@ try {
     else if (st.startsWith('canvas:')) { await shotCanvas(st.slice(7)); }
     else if (st.startsWith('cam:')) { const p = st.split(':'); await shotCanvas(p[1], p[2].split('/').map(Number)); }
     else if (st.startsWith('wait:')) { await page.waitForTimeout(+st.slice(5)); }
-    else if (st === 'audiotest') { const r = await page.evaluate(() => ({ loops: window.__loopTest(), sounds: window.__soundList() })); fs.writeFileSync(path.join(outDir, 'audiotest.json'), JSON.stringify(r, null, 1)); lap('audiotest: ' + Object.keys(r.loops).length + ' Loops, ' + r.sounds.length + ' Klänge'); }
+    else if (st.startsWith('perf:')) { const name = st.slice(5); const r = await page.evaluate(() => window.__perf(6)); lap('perf ' + name + ' ' + JSON.stringify(r)); fs.appendFileSync(path.join(outDir, 'perf.jsonl'), JSON.stringify({ view: name, ...r }) + '\n'); }
+    else if (st === 'audiotest') { const r = await page.evaluate(() => ({ loops: window.__loopTest(), sounds: window.__soundList(), levels: window.__soundLevels() })); fs.writeFileSync(path.join(outDir, 'audiotest.json'), JSON.stringify(r, null, 1)); lap('audiotest: ' + Object.keys(r.loops).length + ' Loops, ' + r.sounds.length + ' Klänge'); }
     else if (st === 'state') { console.log(await page.evaluate(() => { const g = window.__game(), S = g.session; return JSON.stringify({ t: S.t.toFixed(1), phase: S.director.phase, prof: S.prof.activity, face: S.prof.face.mode, pos: [S.prof.pos.x.toFixed(2), S.prof.pos.z.toFixed(2)], wins: S.ttt.stats.wins, susp: [S.susp.attention | 0, S.susp.suspicion | 0, S.susp.evidence | 0], stats: window.__gfx.stats() }); })); }
   }
 } catch (e) { console.log('FEHLER:', e.message); }

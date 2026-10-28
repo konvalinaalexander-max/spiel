@@ -53,6 +53,8 @@ export class Crowd {
       st.react = { point: point.clone(), t: -this.rng.range(0.1, 0.7), dur: dur * this.rng.range(0.7, 1.2) };
     }
   }
+  /** Pointe: ein Teil lacht kurz (Kopf zurück, Schultern beben) */
+  laugh(share = 0.45) { for (const st of this.list) if (st.present && st.s.profile !== 'sleeper' && this.rng.chance(share)) st.laugh = this.rng.range(0.8, 1.6); }
   handRaise(id, on) { const st = this.byId.get(id); if (st) st.handUp = on; }
   /** Pause: einige stehen auf / gehen hinaus */
   breakStart(leavers) {
@@ -175,6 +177,13 @@ export class Crowd {
       c.setArm('L', 1, deskPt(-0.07, 0.03), poleL, { dir: V(0.6, -0.2, -1).normalize(), palm });
     }
     if (p !== 'sleeper') c.lean = damp(c.lean, st.look === 'desk' ? 0.12 : 0.03, 2, dt);
+    // Nicken (Zuhörer:innen, Mitschreibende bei Kernaussagen) und Lachen über eine Pointe
+    st.nodT = (st.nodT ?? this.rng.range(4, 16)) - dt;
+    if (st.nodT <= 0 && (p === 'listener' || p === 'asker' || (p === 'writer' && this.rng.chance(0.3)))) { st.nodT = this.rng.range(8, 22); st.nod = 0.9; }
+    const g = {};
+    if (st.nod > 0) { st.nod -= dt; g.head = [Math.sin((0.9 - st.nod) * 14) * 0.13, 0, 0]; }
+    if (st.laugh > 0) { st.laugh -= dt; const k = Math.min(1, st.laugh); g.chest = [Math.sin(st.laugh * 26) * 0.025 * k - 0.04 * k, 0, 0]; g.head = [-0.12 * k, 0, 0.04 * k]; }
+    c.setGesture(g, 9);
     // Flüstern: zur Partnerin lehnen
     if (p === 'whisper') {
       st.whisperT -= dt;

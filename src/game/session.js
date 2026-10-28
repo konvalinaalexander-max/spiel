@@ -260,7 +260,9 @@ export class Session {
     const startled = p.blend > 0.4;
     if (startled) { this.susp.attention = clamp(this.susp.attention + 35, 0, 100); this.susp.suspicion = clamp(this.susp.suspicion + 18, 0, 100); }
     p.mode = 'listen';
-    this.quiz = { ...d, time: d.timeLimit, total: d.timeLimit, startled, answered: false };
+    // hinten versteht man schlechter → etwas weniger Zeit
+    const tl = Math.max(8, d.timeLimit - (this.seat.row >= 7 ? 2 : 0));
+    this.quiz = { ...d, timeLimit: tl, time: tl, total: tl, startled, answered: false };
     this.emit('quizOpen', this.quiz);
   }
   _updateQuiz(dt) {

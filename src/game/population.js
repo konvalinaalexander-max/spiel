@@ -13,8 +13,11 @@ const TOPS = [
   ['hoodie', 0x00aa5a], ['hoodie', 0x4a4f57], ['hoodie', 0x2d4a6b], ['hoodie', 0x7a2f3a], ['hoodie', 0xd8d2c4],
   ['flannel', 0x8a2a24], ['flannel', 0x3c5a3a], ['flannel', 0x2d4a6b],
   ['tshirt', 0xf2f2f0], ['tshirt', 0x3e3e42], ['tshirt', 0x5f7f9a],
-  ['jacket', 0x2f3b2f], ['jacket', 0x5b4632], ['jacket', 0x1f2a3a], ['shirt', 0xdfe8f0], ['shirt', 0xe9e2d0]
+  ['jacket', 0x2f3b2f], ['jacket', 0x5b4632], ['jacket', 0x1f2a3a], ['shirt', 0xdfe8f0], ['shirt', 0xe9e2d0],
+  ['polo', 0x1f3b5a], ['polo', 0xa8323a], ['cardigan', 0x7a6a58], ['cardigan', 0x3d4a3a], ['turtleneck', 0x2b2b30], ['turtleneck', 0xb8a58a],
+  ['vest', 0x5a5f4a]
 ];
+export const TOP_TYPES = [...new Set(TOPS.map(t => t[0]))];
 const LEGS = [0x2c3e58, 0x3a4f6e, 0x1f2328, 0x4a4f57, 0x6b5a45, 0x3c4a35, 0x2a3440];
 const SHOES = [0xe9e7e2, 0x2a2420, 0x5b3a26, 0x3b3f46, 0x9a8a72];
 const HAIRSTYLES_F = ['long', 'ponytail', 'bun', 'long', 'curly', 'short', 'sidepart'];
@@ -40,7 +43,7 @@ export function makeSpec(rng, female, opts = {}) {
   return {
     female, height: female ? rng.range(0.93, 1.0) : rng.range(0.98, 1.06), build: female ? rng.range(0.9, 1.0) : rng.range(0.95, 1.1),
     skin, hair, hairStyle, eyeColor: rng.pick([0x3d2b1f, 0x4a6b8a, 0x5b6b3a, 0x2a1d14]),
-    top: { type: topType, color: topColor, color2: topType === 'hoodie' ? topColor : (topType === 'jacket' ? rng.pick([0x2f3b2f, 0x1f1f22, 0x5b4632]) : rng.pick([0xf0f0ea, 0x222222, topColor])) },
+    top: { type: topType, color: topColor, color2: topType === 'hoodie' ? topColor : (topType === 'jacket' ? rng.pick([0x2f3b2f, 0x1f1f22, 0x5b4632]) : topType === 'cardigan' ? rng.pick([0xf0f0ea, 0x2f2f33, 0x9ab0c4]) : rng.pick([0xf0f0ea, 0x222222, topColor])), shirt: topType === 'vest' ? rng.pick([0xdfe8f0, 0xf2f2f0, 0xd8cfc0]) : undefined },
     legs: { color: rng.pick(LEGS) }, shoes: { color: rng.pick(SHOES) },
     glasses: rng.chance(0.3), glassesColor: rng.pick([0x1c1c1c, 0x5a3b22, 0x8a8a8a]),
     beard: !female && rng.chance(0.28), beardColor: hair,

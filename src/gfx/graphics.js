@@ -89,7 +89,7 @@ export class Graphics {
       lightIntensity: 2.6, lightNear: 1, lightFar: 120, lightMargin: 40, shadowBias: -0.00018
     });
     this.csm.fade = true;
-    for (const l of this.csm.lights) { l.shadow.normalBias = 0.025; l.color.set(0xfff0d8); }
+    for (const l of this.csm.lights) { l.shadow.normalBias = 0.035; l.color.set(0xfff0d8); }
     for (const m of this.materials) this._finalize(m), (m.needsUpdate = true);
   }
   setSun(dir, intensity, color) {
@@ -177,7 +177,8 @@ export class Graphics {
       this.caPass.enabled = amt > 0.0004;
       this.ca.offset.set(amt, amt * 0.6);
     }
-    if (this.vignette) this.vignette.darkness = damp(this.vignette.darkness, 0.42 + s * 0.35, 4, dt);
+    this.pulse = Math.max(0, (this.pulse || 0) - dt * 3.2);
+    if (this.vignette) this.vignette.darkness = damp(this.vignette.darkness, 0.42 + s * 0.35, 4, dt) + this.pulse * 0.1 * s;
     this.csm.update();
     this.renderer.info.reset();
     if (this.composer) this.composer.render(dt);

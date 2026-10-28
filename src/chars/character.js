@@ -13,7 +13,7 @@ export const POSE_STAND = {
   hips: [0, 0, 0], spine: [0.02, 0, 0], chest: [0.02, 0, 0], neck: [0.04, 0, 0], head: [-0.03, 0, 0],
   clavL: [0, 0, 0], clavR: [0, 0, 0],
   upperArmL: [0.06, 0, 0.09], upperArmR: [0.06, 0, -0.09], foreArmL: [-0.22, 0, 0], foreArmR: [-0.22, 0, 0],
-  handL: [0, 0.1, 0], handR: [0, -0.1, 0], fingersL: [0, 0, -0.35], fingersR: [0, 0, 0.35], thumbL: [0, 0, -0.2], thumbR: [0, 0, 0.2],
+  handL: [0, 0.1, 0], handR: [0, -0.1, 0], fingersL: [0, 0, -0.12], fingersR: [0, 0, 0.12], thumbL: [0, 0, -0.2], thumbR: [0, 0, 0.2],
   thighL: [0, 0, 0], thighR: [0, 0, 0], shinL: [0, 0, 0], shinR: [0, 0, 0], footL: [0, 0, 0], footR: [0, 0, 0]
 };
 export const POSE_SIT = {
