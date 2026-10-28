@@ -123,7 +123,8 @@ export function buildOutside(gfx, weatherId, quality) {
   const stoneMat = gfx.pbr({ name: 'warteStone', recipe: 'concrete', texOpts: { c1: '#d8d0bf', seed: 14, size: 256 } });
   B.add(cyl(3.2, 3.6, 17, 20), stoneMat, mat(warteX, warteY + 8.5, warteZ), { tile: 3 });
   B.add(cyl(3.9, 3.9, 4, 20), gfx.pbr({ name: 'fachwerk', recipe: 'plaster', texOpts: { c1: '#f2ede2', seed: 9, size: 256 } }), mat(warteX, warteY + 19, warteZ), { tile: 2 });
-  for (let k = 0; k < 16; k++) { const a = k / 16 * Math.PI * 2; B.add(box(0.25, 4, 0.25), gfx.pbr({ name: 'beam', color: 0x4a3326, roughness: 0.8 }), mat(warteX + Math.cos(a) * 3.95, warteY + 19, warteZ + Math.sin(a) * 3.95), { cast: false }); }
+  const beam = gfx.pbr({ name: 'beam', color: 0x4a3326, roughness: 0.8 }); // ein Material für alle Balken → ein Draw Call
+  for (let k = 0; k < 16; k++) { const a = k / 16 * Math.PI * 2; B.add(box(0.25, 4, 0.25), beam, mat(warteX + Math.cos(a) * 3.95, warteY + 19, warteZ + Math.sin(a) * 3.95), { cast: false }); }
   B.add(new THREE.ConeGeometry(4.6, 4, 20), roofRed, mat(warteX, warteY + 23, warteZ), { tile: 2 });
   // Gebäude und Straße werfen keine Schatten: vom Saal aus nicht sichtbar, kostet aber je Kaskade ≈ 10 Draw Calls
   for (const m of B.build(scene, 'outside')) m.castShadow = false;
