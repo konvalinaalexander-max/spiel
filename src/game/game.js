@@ -454,7 +454,7 @@ export class Game {
     if (stress > 0.7 && this._breathT <= 0 && !this.ended) { this._breathT = 3.5 + Math.random() * 2; A.play('breath', { bus: 'player', gain: 0.35 }); }
     this.gfx.setStress(this.settings.reducedMotion ? stress * 0.5 : stress);
     // Tiefenschärfe: am Laptop nah, sonst Prof
-    if (this.settings.dof) this.gfx.setFocus(p.blend > 0.5 || p.mode === 'notes', 0.48, 0.3); else this.gfx.setFocus(false);
+    if (this.settings.dof) this.gfx.setFocus(p.blend > 0.5 || this.player.notesBlend > 0.5, this.player.focusDist || 0.4, 0.45); else this.gfx.setFocus(false);
     // HUD
     H.setClock(this._hm(), S.director.phase, this._secTitle);
     H.setSuspicion(S.susp.attention, S.susp.suspicion, S.susp.evidence, S.lastVis.vis > 0.3);

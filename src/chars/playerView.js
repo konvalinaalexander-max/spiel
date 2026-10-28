@@ -132,6 +132,8 @@ export class PlayerView {
     const pageC = nb.group.localToWorld(V(0.0, 0.007, 0.01));
     const pageEye = pageC.clone().add(V(-0.04, 0.4, 0.2));
     const camPos = e2.clone().lerp(lapEye, blend * 0.92).lerp(pageEye, nbB * 0.9);
+    // Fokus der Tiefenschärfe: tatsächlicher Abstand zu Bildschirm bzw. Heftseite
+    this.focusDist = nbB > blend ? camPos.distanceTo(pageC) : camPos.distanceTo(scrC);
     if (this.shake > 0) { camPos.x += (Math.random() - 0.5) * 0.01 * this.shake; camPos.y += (Math.random() - 0.5) * 0.01 * this.shake; }
     // Mikro-Sakkaden beim Umschauen (abschaltbar über „Weniger Bewegung“)
     this._sacT = (this._sacT || 0) - dt;
