@@ -97,7 +97,7 @@ export class AudioEngine {
     s.connect(g);
     let out = g;
     if (o.pos) { const p = this._panner(o.pos, o.hrtf ? 'HRTF' : 'equalpower', o.ref ?? 1.2); g.connect(p); out = p; }
-    const bus = o.bus === 'ui' ? this.bus.ui : o.bus === 'amb' ? this.bus.amb : o.bus === 'player' ? this.bus.sfx : this.roomBus;
+    const bus = o.bus === 'ui' ? this.bus.ui : o.bus === 'amb' ? this.bus.amb : o.bus === 'music' ? this.bus.music : o.bus === 'player' ? this.bus.sfx : o.bus === 'voice' ? this.voiceLP : this.roomBus;
     out.connect(bus);
     const rv = o.reverb ?? (o.pos ? 0.6 : 0);
     if (rv > 0) { const sg = ctx.createGain(); sg.gain.value = rv; out.connect(sg); sg.connect(this.reverbIn); }
@@ -206,6 +206,41 @@ export class AudioEngine {
     src.start(t0); src.stop(t + 0.3);
     this._murmurNodes = [src]; this._murmurEnd = t;
     if (o.onEnd) setTimeout(() => o.onEnd(), (t - ctx.currentTime) * 1000 + 50);
+  }
+
+  /**
+   * Nebenstimmen (Sitznachbarin, Tutorin, Studierende): leises, räumliches Flüstern/Murmeln aus
+   * gefiltertem Rauschen bzw. Stimmton – läuft parallel zur Sprachausgabe des Profs.
+   * o: { pos, gain, f0 (Grundton), whisper (bool), dur }
+   */
+  voice(text, o = {}) {
+    if (!this.ready || this.voiceMode === 'off') return 0;
+    const ctx = this.ctx, t0 = ctx.currentTime + 0.03;
+    const dur = o.dur ?? (0.6 + text.length * 0.055);
+    const syl = Math.max(2, (text.match(/[aeiouäöüy]+/gi) || []).length), sd = dur / syl;
+    let src;
+    if (o.whisper) { src = ctx.createBufferSource(); src.buffer = this._noiseBuf || (this._noiseBuf = (() => { const b = ctx.createBuffer(1, ctx.sampleRate, ctx.sampleRate), d = b.getChannelData(0); for (let i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1; return b; })()); src.loop = true; }
+    else { src = ctx.createOscillator(); src.type = 'sawtooth'; src.frequency.value = o.f0 || 190; }
+    const f1 = ctx.createBiquadFilter(); f1.type = 'bandpass'; f1.Q.value = o.whisper ? 3 : 6;
+    const f2 = ctx.createBiquadFilter(); f2.type = 'bandpass'; f2.Q.value = o.whisper ? 4 : 8;
+    const env = ctx.createGain(); env.gain.value = 0.0001;
+    src.connect(f1); src.connect(f2); f1.connect(env); f2.connect(env);
+    const F = [[730, 1090], [530, 1840], [270, 2290], [570, 840], [300, 870], [660, 1720], [440, 1020]];
+    let t = t0;
+    for (let i = 0; i < syl; i++) {
+      const [a, b] = F[Math.floor(Math.random() * F.length)], k = o.whisper ? 1.25 : (o.f0 > 160 ? 1.15 : 1);
+      f1.frequency.setValueAtTime(a * k, t); f2.frequency.setValueAtTime(b * k, t);
+      if (!o.whisper) src.frequency.setValueAtTime((o.f0 || 190) * (1 + 0.1 * Math.sin(i * 0.9)), t);
+      env.gain.setTargetAtTime((o.whisper ? 0.5 : 0.22) * (0.8 + Math.random() * 0.4), t, 0.02);
+      env.gain.setTargetAtTime(0.01, t + sd * 0.6, 0.03);
+      t += sd;
+    }
+    env.gain.setTargetAtTime(0.0001, t, 0.04);
+    let out = env;
+    if (o.pos) { const p = this._panner(o.pos, 'HRTF', 0.8); env.connect(p); out = p; }
+    const g = ctx.createGain(); g.gain.value = (o.gain ?? 0.6); out.connect(g); g.connect(this.voiceLP);
+    src.start(t0); src.stop(t + 0.2);
+    return dur;
   }
 
   // ---------------------------------------------------------------- Menü-Musik

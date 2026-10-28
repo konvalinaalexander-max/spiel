@@ -1,0 +1,64 @@
+// Die 3D-Welt einer Sitzung: Hörsaal, Technik, Licht, Außenwelt, Requisiten, Studierende, Prof, eigener Körper.
+// Wird pro Kombination aus Wetter + Sitzplatz + Qualität einmal aufgebaut (Neustart = Seite neu laden).
+import * as THREE from 'three';
+import { buildHall } from '../scene/hall.js';
+import { buildFixtures, makePosters } from '../scene/fixtures.js';
+import { buildLighting, bakeEnvironment } from '../scene/lighting.js';
+import { buildOutside, buildBlinds } from '../scene/outside.js';
+import { buildProps } from '../scene/props.js';
+import { characterMaterial } from '../chars/rig.js';
+import { Crowd } from '../chars/crowd.js';
+import { planPopulation } from './population.js';
+import { damp } from '../core/util.js';
+import * as LY from '../scene/layout.js';
+
+export const POP_SEED = 4711;
+export const SLIDE_META = {
+  de: { university: 'Universität für Bodenkultur Wien', institute: 'Institut für Tierernährung, Tierische Lebensmittel und Ernährungsphysiologie', courseShort: 'Tierernährung VO', footer: 'Tierernährung VO · WS 2026/27 · HS 31' },
+  en: { university: 'University of Natural Resources and Life Sciences, Vienna', institute: 'Institute of Animal Nutrition, Animal Products and Nutrition Physiology', courseShort: 'Animal Nutrition (lecture)', footer: 'Animal Nutrition · Winter term 2026/27 · HS 31' }
+};
+
+/** progress(fraction, labelKey) */
+export async function buildWorld(gfx, params, progress = () => {}) {
+  const step = async (f, key) => { progress(f, key); await new Promise(r => setTimeout(r, 0)); };
+  const W = { params, gfx };
+  await step(0.05, 'load.hall');
+  W.hall = buildHall(gfx);
+  await step(0.25, 'load.fixtures');
+  W.fx = buildFixtures(gfx, W.hall, { posters: makePosters() });
+  await step(0.35, 'load.light');
+  W.light = buildLighting(gfx, W.hall, params.weather);
+  await step(0.42, 'load.outside');
+  W.outside = buildOutside(gfx, params.weather, gfx.preset);
+  W.blinds = buildBlinds(gfx, params.weather === 'sunny' ? [0.45, 0, 0] : [0, 0, 0]);
+  await step(0.52, 'load.props');
+  W.plan = planPopulation(POP_SEED, params.seat);
+  W.props = buildProps(gfx, W.hall, W.plan, { weather: params.weather });
+  await step(0.62, 'load.people');
+  W.charMat = characterMaterial(gfx);
+  W.crowd = new Crowd(gfx, W.charMat, W.plan, { shadows: gfx.preset.studentShadows });
+  // Handys in der Hand
+  for (const st of W.crowd.list) if (st.s.profile === 'phone') W.props.table.handPhone(st.rig.bones.handR, st.s.id);
+  await step(0.78, 'load.env');
+  bakeEnvironment(gfx);
+  await step(0.86, 'load.post');
+  gfx.buildPost();
+  // Schiebetafeln bewegen sich weich
+  W.updateBoards = dt => {
+    for (const p of W.fx.panels) { const y = p.group.position.y; if (Math.abs(y - p.targetY) > 1e-4) { p.group.position.y = damp(y, p.targetY, 2.2, dt); W.boardMoving = true; } }
+  };
+  // Shader vorkompilieren (vermeidet Ruckler beim ersten Blick in eine Richtung)
+  try { gfx.renderer.compile(gfx.scene, gfx.camera); } catch (e) { /* optional */ }
+  await step(0.95, 'load.compile');
+  return W;
+}
+
+/** Kamerafahrt für die Startseite (Live-Hero): ruhiger Schwenk durch den leeren Saal */
+export function heroCamera(cam, t) {
+  const k = (Math.sin(t * 0.05) + 1) / 2;
+  const x = -3.6 + k * 2.2, y = 2.75 + Math.sin(t * 0.07) * 0.15, z = 5.3 - k * 0.6;
+  cam.position.set(x, y, z);
+  cam.lookAt(-0.2 + k * 1.2, 1.55, -5.2);
+  if (cam.fov !== 52) { cam.fov = 52; cam.updateProjectionMatrix(); }
+}
+export { LY };

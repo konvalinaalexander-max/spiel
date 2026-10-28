@@ -245,7 +245,9 @@ export class Session {
     if (c.kick) { this._finish('kicked'); return; }
     if (c.move) {
       this.stats.movedFront = true; this.stats.strikes = 2;
-      const k = Math.min(LY.SEATS - 2, Math.max(1, this.seat.k));
+      // freier Platz in der ersten Reihe, möglichst nah an der bisherigen Spalte
+      const free = this.pop.emptySeats.filter(s => s.row === 0).sort((a, b) => Math.abs(a.k - this.seat.k) - Math.abs(b.k - this.seat.k));
+      const k = free.length ? free[0].k : Math.min(LY.SEATS - 2, Math.max(1, this.seat.k));
       this.seat = { row: 0, k }; this._placePlayer();
       this.emit('moveSeat', { seat: this.seat });
     }

@@ -2,13 +2,20 @@
 <html lang="de">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Tic Tac Tierernährung – 3D-Browserspiel: heimlich Tic Tac Toe in der Tierernährungs-Vorlesung (Fan-Projekt, kein offizielles Angebot der BOKU).">
+<meta name="theme-color" content="#00aa5a">
 <title>Tic Tac Tierernährung</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%2300aa5a'/%3E%3Cpath d='M7 9h18M7 16h13M7 23h8' stroke='%23fff' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
 <!--LICENSES-->
 <!--STYLE-->
 </head>
-<body>
-<canvas id="c"></canvas>
+<body data-screen="loading">
+<canvas id="c" aria-label="3D-Ansicht des Hörsaals" tabindex="-1"></canvas>
+<div id="hud" hidden></div>
+<div id="ui" role="application"></div>
+<noscript><p style="padding:20px;font-family:Arial">Dieses Spiel braucht JavaScript und WebGL. / This game requires JavaScript and WebGL.</p></noscript>
+<script type="text/plain" id="third-party"><!--THIRDTEXT--></script>
 <!--SCRIPT-->
 </body>
 </html>

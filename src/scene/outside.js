@@ -208,20 +208,22 @@ export function buildOutside(gfx, weatherId, quality) {
   // geparkte Autos auf der Hausseite
   for (let i = 0; i < 6; i++) { const c = makeCar(i + 3); c.position.set(-10.4, GROUND, -40 + i * 13 + rng.range(-2, 2)); scene.add(c); }
   // ---------------------------------------------------------------- Regen
-  if (weatherId === 'rain') {
+  if (weatherId === 'rain' || weatherId === 'cloudy') {
     const N = 3000, pos = new Float32Array(N * 3);
     for (let i = 0; i < N; i++) { pos[i * 3] = rng.range(-40, -5); pos[i * 3 + 1] = rng.range(GROUND, 16); pos[i * 3 + 2] = rng.range(-30, 25); }
     const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.BufferAttribute(pos, 3));
     const rm = new THREE.ShaderMaterial({
-      transparent: true, depthWrite: false, uniforms: { uTime: { value: 0 } },
+      transparent: true, depthWrite: false, uniforms: { uTime: { value: 0 }, uAmt: { value: weatherId === 'rain' ? 1 : 0 } },
       vertexShader: `uniform float uTime; void main(){ vec3 p = position; p.y = ${GROUND.toFixed(1)} + mod(p.y - ${GROUND.toFixed(1)} - uTime*9.0, 29.0); vec4 mv = modelViewMatrix*vec4(p,1.0); gl_Position = projectionMatrix*mv; gl_PointSize = 70.0/(-mv.z); }`,
-      fragmentShader: `void main(){ vec2 d = gl_PointCoord - 0.5; float a = smoothstep(0.07, 0.0, abs(d.x)) * smoothstep(0.5, 0.0, abs(d.y)); gl_FragColor = vec4(0.78,0.82,0.88, a*0.35); }`
+      fragmentShader: `uniform float uAmt; void main(){ vec2 d = gl_PointCoord - 0.5; float a = smoothstep(0.07, 0.0, abs(d.x)) * smoothstep(0.5, 0.0, abs(d.y)); gl_FragColor = vec4(0.78,0.82,0.88, a*0.35*uAmt); }`
     });
     const rain = new THREE.Points(g, rm); rain.frustumCulled = false; scene.add(rain); out.rain = rm;
   }
+  /** Regen setzt ein (Ereignis bei bewölktem Wetter) */
+  out.startRain = () => { if (out.rain) out.rainTarget = 1; };
   out.update = (dt, t, onBus) => {
     out.t = t; skyMat.uniforms.uTime.value = t; out.windU.value = t * (weatherId === 'rain' ? 1.6 : 1);
-    if (out.rain) out.rain.uniforms.uTime.value = t;
+    if (out.rain) { out.rain.uniforms.uTime.value = t; if (out.rainTarget) out.rain.uniforms.uAmt.value = Math.min(1, out.rain.uniforms.uAmt.value + dt * 0.08); }
     for (const v of out.vehicles) {
       const u = v.userData, dir = u.lane === 0 ? 1 : -1;
       if (u.speed === 0 && !u.stopping) { u.wait -= dt; if (u.wait <= 0) { u.speed = u.bus ? 9 : 11 + Math.random() * 4; v.position.z = -95 * dir; u.stopped = false; if (onBus && u.bus) onBus('approach', v); } continue; }

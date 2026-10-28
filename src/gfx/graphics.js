@@ -173,7 +173,7 @@ export class Graphics {
   render(dt) {
     const s = this.stress;
     if (this.ca) {
-      const amt = this.photosensitive ? 0 : Math.max(0, s - 0.55) * 0.006;
+      const amt = this.photosensitive || this.caDisabled ? 0 : Math.max(0, s - 0.55) * 0.006;
       this.caPass.enabled = amt > 0.0004;
       this.ca.offset.set(amt, amt * 0.6);
     }

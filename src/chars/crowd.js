@@ -188,7 +188,7 @@ export class Crowd {
   _walk(st, dt) {
     const c = st.c, w = st.walk;
     const tgt = w.pts[w.i];
-    if (!tgt) { st.walk = null; this._sit(st, false); this.sfx('benchCreak', st.s.seat ? V(st.s.seat.x, st.s.seat.floor + 0.5, st.s.seat.z) : c.pos, 0.6); return; }
+    if (!tgt) { st.walk = null; this._sit(st, false); this.sfx('chairCreak', st.s.seat ? V(st.s.seat.x, st.s.seat.floor + 0.5, st.s.seat.z) : c.pos, 0.6); return; }
     const d = Math.hypot(tgt.x - c.pos.x, tgt.z - c.pos.z);
     if (d < 0.08) { w.i++; return; }
     const sp = Math.min(d, 0.95 * dt);
