@@ -14,6 +14,15 @@ und Bloom ist die Leinwand **massiv überbelichtet**: weißer Schleier, Foliente
 Ursache: Spot-Intensität 55 zusätzlich zur Emission der Leinwand. → Spot auf 14, Emission 0,34; Bloom-Schwelle 0,82 bleibt.
 Ergebnis in `phase2_preset_high.jpg`: Folie lesbar, leichter Hotspot, Prof wirft einen Schatten auf die Leinwand, wenn er davorsteht.
 
+**Iteration 1b – Beamer-Projektion deckungsgleich** (`phase2_iter1b_beamer_doppelbild_before.jpg`): Bei der Endkontrolle waren „Hoch“ und
+„Ultra“ wieder milchig. Diagnose mit getrennten Bildern (nur Spot / nur Leinwand-Emission): Die Folie in der Spot-Textur war **zu groß,
+nach links verschoben und nicht trapezentzerrt** – der Beamer hängt über der Leinwand, die Texturgröße war nur geschätzt. Spot-Bild und
+Leinwandbild lagen versetzt übereinander → heller Doppelschleier. → Leinwandpunkte werden mit einer Kamera, die exakt der
+Spot-Schattenkamera entspricht (fov = 2·Winkel, quadratisch), in Texturkoordinaten projiziert; die Folie wird als Gitter aus 6 × 6
+affin verzerrten Dreiecken gezeichnet; der Öffnungswinkel ergibt sich aus den vier Leinwandecken. Ergebnis
+`phase2_iter1b_beamer_spot_only_after.jpg` (nur Spot): Projektion sitzt genau auf der Leinwand, kein Licht daneben; im Gesamtbild
+(`phase2_preset_high.jpg`) ist die Folie scharf.
+
 **Iteration 2 – Laptop-Kamera** (`phase2_iter2_laptop_camera_before.png`): Erster Versuch, die Kamera für den Laptop-Blick auf eine
 ruhige Leseposition 43 cm vor dem Bildschirm zu führen. Kritik: Die Kamera landet **in der Kapuze des eigenen Hoodies** (grüne Flächen),
 weil die Augen der Figur näher am Bildschirm sind. Außerdem spiegelte sich das eigene Laptop-Licht (Punktlicht) als heller Fleck im Display.
