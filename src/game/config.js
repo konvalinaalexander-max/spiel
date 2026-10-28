@@ -14,7 +14,7 @@ export const DIFFICULTIES = {
     prof: { shoulderEvery: [6, 15], telegraph: 0.26, bluffChance: 0.33, playerFixChance: 0.19, fixation: [0.5, 1.7], turnRate: 4.4 }
   },
   diplom: {
-    id: 'diplom', target: 7, mul: 2.1, quizEvery: 0.17, quizTime: 12, oppSkill: 0.6, neighbor: 'betrayer', aisle: 1.8,
+    id: 'diplom', target: 8, mul: 2.2, quizEvery: 0.17, quizTime: 12, oppSkill: 0.6, neighbor: 'betrayer', aisle: 1.8,
     prof: { shoulderEvery: [5, 12], telegraph: 0.2, bluffChance: 0.38, playerFixChance: 0.22, fixation: [0.45, 1.5], turnRate: 5.0 }
   }
 };
@@ -36,3 +36,6 @@ export const WEATHERS = ['sunny', 'cloudy', 'rain'];
 export const DEFAULT_SEAT = { row: 4, k: 7 };
 /** Punkte-Multiplikator nach Reihe: vorne riskanter, aber mehr Punkte */
 export const seatMultiplier = row => Math.round((1.35 - row * 0.06) * 100) / 100;
+
+/** Siegziel skaliert mit der Vorlesungslänge (Referenz: 12 Minuten ≙ „normal“); gilt auch für benutzerdefinierte Ziele */
+export const scaledTarget = (target, seconds) => Math.max(2, Math.round(target * Math.min(6, Math.max(0.55, seconds / 720))));

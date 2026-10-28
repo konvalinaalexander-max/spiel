@@ -75,6 +75,8 @@ export function buildFixtures(gfx, hall, opts = {}) {
     scene.add(spot, spot.target);
     out.spot = spot;
   }
+  // Leinwand strahlt leicht in den Raum zurück (Podest, Prof, vordere Reihen)
+  const spill = new THREE.PointLight(0xdfe6ee, 0, 5.5, 2); spill.position.set(SC.x, SC.y - 0.2, SC.z + 0.9); scene.add(spill); out.screenSpill = spill;
   out.beamer = { on: false, level: 0, target: 0 };
   out.updateSlideTextures = () => {
     slideTex.needsUpdate = true;
@@ -92,6 +94,7 @@ export function buildFixtures(gfx, hall, opts = {}) {
     const b = out.beamer; b.level = damp(b.level, b.target, 3, dt);
     screenMat.emissiveIntensity = b.level * (useSpot ? 0.34 : 0.62);
     if (out.spot) out.spot.intensity = b.level * 14;
+    spill.intensity = b.level * 0.9;
   };
 
   // ------------------------------------------------------------------ Wanduhr (läuft mit Spielzeit)

@@ -2,7 +2,7 @@
 // Einstellungen, Mensa-Pause, Zeugnis, Erfolge, Bestenliste, Hilfe, Impressum/Lizenzen.
 import { t, getLang, setLang, translateDom } from './i18n.js';
 import { bus, storage, clamp } from '../core/util.js';
-import { DIFFICULTIES, DIFFICULTY_ORDER, LENGTHS, seatMultiplier } from '../game/config.js';
+import { DIFFICULTIES, DIFFICULTY_ORDER, LENGTHS, seatMultiplier, scaledTarget } from '../game/config.js';
 import { DEFAULT_KEYS, keyLabel } from '../core/input.js';
 import * as LY from '../scene/layout.js';
 
@@ -232,7 +232,7 @@ export class UI {
     const c = this.cfg;
     this._seg($('#opt-diff'), [...DIFFICULTY_ORDER.map(v => ({ v, k: 'diff.' + v })), { v: 'custom', k: 'diff.custom' }], typeof c.difficulty === 'object' ? 'custom' : c.difficulty, v => { c.difficultyId = v; c.difficulty = v === 'custom' ? 'custom' : v; this._refreshLV(); });
     this._seg($('#opt-mode'), ['tournament', 'bo5', 'blitz'].map(v => ({ v, k: 'mode.' + v })), c.mode, v => { c.mode = v; this._refreshLV(); });
-    this._seg($('#opt-length'), Object.keys(LENGTHS).map(v => ({ v, k: 'len.' + v })), c.length, v => { c.length = v; });
+    this._seg($('#opt-length'), Object.keys(LENGTHS).map(v => ({ v, k: 'len.' + v })), c.length, v => { c.length = v; this._refreshLV(); });
     this._seg($('#opt-opp'), ['hall', 'online'].map(v => ({ v, k: 'opp.' + v })), c.opponent, v => { c.opponent = v; this._refreshLV(); });
     c.oppSkill = c.oppSkill ?? 0.5;
     this._seg($('#opt-oppskill'), [[0.25, 'opp.easy'], [0.5, 'opp.mid'], [0.85, 'opp.hard']].map(([v, k]) => ({ v: String(v), k })), String(c.oppSkill), v => { c.oppSkill = +v; this._refreshLV(); });
@@ -263,7 +263,7 @@ export class UI {
     $('#custom-box').hidden = id !== 'custom';
     $('#opt-oppskill').hidden = c.opponent !== 'online';
     for (const b of $('#opt-oppskill').children) b.setAttribute('aria-pressed', String(+b.dataset.v === c.oppSkill));
-    $('#diff-desc').textContent = t('diffDesc.' + id, { target: id === 'custom' ? c.custom.target : DIFFICULTIES[id].target });
+    $('#diff-desc').textContent = t('diffDesc.' + id, { target: scaledTarget(id === 'custom' ? c.custom.target : DIFFICULTIES[id].target, LENGTHS[c.length] || 720) });
     $('#mode-desc').textContent = t('modeDesc.' + c.mode);
     for (const b of $$('.seat', this.root)) b.setAttribute('aria-pressed', String(+b.dataset.r === c.seat.row && +b.dataset.k === c.seat.k));
     $('#seat-desc').textContent = t('lv.seatDesc', { r: c.seat.row + 1, k: c.seat.k + 1, m: seatMultiplier(c.seat.row).toFixed(2) });

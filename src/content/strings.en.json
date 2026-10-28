@@ -432,5 +432,6 @@
   "opp.hard": "strong",
   "set.minimalHud": "Minimal HUD (subtitles, hints and quiz only)",
   "set.pointerLock": "Capture the mouse (pointer lock) – off: view follows the visible cursor",
-  "set.measured": "measured {ms} ms/frame → recommended {preset} (from the next start)"
+  "set.measured": "measured {ms} ms/frame → recommended {preset} (from the next start)",
+  "hud.winToast": "Round won: +{p} points ({w}/{target})"
 }

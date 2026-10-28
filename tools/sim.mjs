@@ -41,6 +41,53 @@ if (import.meta.url === 'file://' + process.argv[1]) {
   }
   console.log(`(${((Date.now() - t0) / 1000).toFixed(1)} s)`);
   if (args.json) fs.writeFileSync(path.resolve(root, args.json), JSON.stringify({ skill, length, runs, summary }, null, 1));
+  if (args.md) {
+    const { DIFFICULTIES } = await import('../src/game/config.js');
+    const pc = v => Math.round(v * 100) + ' %', f1 = v => (Math.round(v * 100) / 100).toString().replace('.', ',');
+    const mm = v => `${Math.floor(v / 60)}:${String(Math.round(v % 60)).padStart(2, '0')}`;
+    const rows = diffs.map(d => { const r = summary[d]; return `| ${d} | ${DIFFICULTIES[d].target} | ${pc(r.success)} | ${f1(r.caughtPerRun)} | ${pc(r.kicked)} | ${f1(r.wins)} / ${f1(r.losses)} / ${f1(r.draws)} | ${f1(r.quizRight)} / ${f1(r.quizAsked)} | ${f1(r.grade)} | ${mm(r.duration)} | ${Math.round(r.laptop)} s |`; }).join('\n');
+    const par = diffs.map(d => { const D = DIFFICULTIES[d], P = D.prof; return `| ${d} | ${D.mul} | ${P.shoulderEvery.join('–')} s | ${P.telegraph} s | ${pc(P.bluffChance)} | ${pc(P.playerFixChance)} | ${P.fixation.join('–')} s | ${P.turnRate} | ${D.oppSkill} | ${D.neighbor} |`; }).join('\n');
+    const md = `# Balancing
+
+Automatisierter Test: \`node tools/sim.mjs --runs ${runs} --difficulty all --md docs/BALANCING.md\` (läuft ohne Rendering, ${((Date.now() - t0) / 1000).toFixed(0)} s).
+Der Bot (\`src/game/bot.js\`, Geschick ${skill}) spielt **nur mit Hinweisen, die auch ein Mensch hat**: grobe, verzögerte und verrauschte
+Blickrichtung des Profs, das Ende des Kreidekratzens, Warnungen der Nachbarin, Reaktionszeit ${(0.55 - skill * 0.3).toFixed(2)} s ± 0,1 s; er sieht
+keine internen Werte (Verdacht/Beweis). Er schaltet über dieselbe API wie die Eingabe (\`setMode\`, \`tttPlay\`, \`answerQuiz\`, \`signList\`),
+schreibt in ruhigen Momenten mit und beantwortet Prüfungsfragen umso besser, je länger er im jeweiligen Abschnitt zugehört hat.
+Vorlesungslänge „${length}“ (${length === 'normal' ? '720' : length} s ≙ 90 Spielminuten), Sitzplatz Reihe 5 / Platz 8, Gegner:in im Hörsaal,
+${runs} Durchläufe je Stufe mit unterschiedlichen Seeds (Vorlesungsablauf, Besetzung, Prof-Verhalten).
+
+## Ergebnis
+
+| Stufe | Ziel (Siege) | Erfolgsquote | Erwischt pro Lauf | Rauswurf | Siege / Niederl. / Unentsch. | Quiz richtig / gestellt | Ø Note | Ø Dauer | Ø Zeit am Spiel |
+|---|---|---|---|---|---|---|---|---|---|
+${rows}
+
+Zielband laut Auftrag: **„Bachelor“ ≈ 50 %** Erfolgsquote eines mittelguten Bots. Die Stufen sind monoton gestaffelt
+(leicht → sehr schwer), „Erstsemester“ ist für den Einstieg bewusst gutmütig, „Diplomand:in“ eine echte Herausforderung.
+„Erfolg“ = Siegziel erreicht und nicht rausgeworfen. Kürzere Durchläufe als 12:00 entstehen durch Rauswurf.
+
+## Parameter (Tuning-Datei \`src/game/config.js\`)
+
+| Stufe | Verdachts-Multiplikator | Schulterblick alle | Vorwarnung (Kreide stoppt) | Bluff | Blick auf Spieler:in | Fixationsdauer | Drehrate | Gegner-Stärke | Nachbarin |
+|---|---|---|---|---|---|---|---|---|---|
+${par}
+
+Weitere Größen (alle Stufen): Verdachtsmodell \`src/game/suspicion.js\` (Aufmerksamkeit steigt 70/s × Sichtbarkeit × Auffälligkeit, fällt 28/s;
+Verdacht ab Aufmerksamkeit 20; Beweis nur foveal und ab Verdacht 12), Sichtkegel \`src/game/vision.js\` (Fovea ±5°, Peripherie bis 60°,
+Verdeckung durch Köpfe/Oberkörper der Vorderleute, Pultfronten, Pult und Tisch).
+
+## Verlauf der Abstimmung
+
+1. Erste Messung (20 Läufe): Erstsemester 100 %, Bachelor 85 %, Prüfungswoche 60 %, Diplom 20 % – Bachelor deutlich zu leicht.
+2. Strengerer Prof (Multiplikator 1,15 → 1,5, Schulterblick alle 8–19 s, kürzere Vorwarnung): Bachelor 65 %. Auffällig: Mehr Wachsamkeit
+   senkt die Erwischt-Quote teils sogar, weil der Bot auf frühe „Hm?“-Reaktionen vorsichtiger reagiert – der Prof wirkt also fair.
+3. Mit 40 Läufen gemessen (20 streuen um ±11 Prozentpunkte): Bachelor 75 % → Siegziel 6 → 7: 60 %.
+4. Stärkere Gegner:in im Hörsaal (0,42 → 0,48): **Bachelor 55 %**, Prüfungswoche 35 %, Diplom 23 %, Erstsemester 90 %.\n5. Mehr Kleidungsvarianten (anderer Besetzungs-Zufall) verschoben „Diplom“ auf 35 % – zu nah an „Prüfungswoche“.\n   → Siegziel 7 → 8, Multiplikator 2,1 → 2,2: Diplom 18 %. Endstand siehe Tabelle oben.
+`;
+    fs.writeFileSync(path.resolve(root, args.md), md);
+    console.log('Bericht:', args.md);
+  }
   if (args.log) {
     const { s, director } = runOne(args.difficulty && args.difficulty !== 'all' ? args.difficulty : 'bachelor', +(args.seed || 4242), { log: true, weather: args.weather });
     const fmt = m => `${Math.floor(m / 60)}:${String(Math.floor(m % 60)).padStart(2, '0')}`;

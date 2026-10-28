@@ -10,7 +10,7 @@ import { Suspicion } from './suspicion.js';
 import { Director } from './director.js';
 import { TicTacToe } from './tictactoe.js';
 import { Opponent } from './opponent.js';
-import { DIFFICULTIES, LENGTHS, seatMultiplier, customDifficulty } from './config.js';
+import { DIFFICULTIES, LENGTHS, seatMultiplier, customDifficulty, scaledTarget } from './config.js';
 import { clamp, damp, makeRng, smoothstep } from '../core/util.js';
 
 const V = (x = 0, y = 0, z = 0) => new THREE.Vector3(x, y, z);
@@ -26,6 +26,7 @@ export class Session {
     this.rng = makeRng(cfg.seed || 20261027);
     this.diff = typeof cfg.difficulty === 'object' ? customDifficulty(cfg.difficulty) : (DIFFICULTIES[cfg.difficulty] || DIFFICULTIES.bachelor);
     this.seconds = typeof cfg.length === 'number' ? cfg.length : LENGTHS[cfg.length || 'normal'];
+    this.target = scaledTarget(this.diff.target, this.seconds);
     this.seat = { ...(cfg.seat || { row: 4, k: 7 }) };
     this.pop = planPopulation(cfg.popSeed || 4711, this.seat);
     this.vision = new Vision(this.pop);
@@ -363,8 +364,8 @@ export class Session {
   success() {
     const g = this.ttt, m = this.ttt.mode.id;
     if (m === 'bo5') return g.series.done && g.series.winner === 'you';
-    if (m === 'blitz') return g.stats.wins >= Math.max(1, this.diff.target - 1);
-    return g.stats.wins >= this.diff.target;
+    if (m === 'blitz') return g.stats.wins >= Math.max(1, this.target - 1);
+    return g.stats.wins >= this.target;
   }
   _finish(reason) {
     if (this.state === 'ended') return;
@@ -387,7 +388,7 @@ export class Session {
     if (this.endReason === 'kicked') grade = 5;
     else if (honest && fleiss >= 0.6 && st.quizWrong === 0) grade = 1;
     else if (success) grade = 3 - (st.strikes <= 1 ? 1 : 0) - (fleiss >= 0.45 || st.quizRight >= 2 ? 1 : 0);
-    else grade = g.wins >= this.diff.target - 1 ? 4 : 5;
+    else grade = g.wins >= this.target - 1 ? 4 : 5;
     grade = clamp(grade, 1, 5);
     // Erfolge
     const A = this.achievements;

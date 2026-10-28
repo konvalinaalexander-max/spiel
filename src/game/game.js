@@ -2,6 +2,7 @@
 import * as THREE from 'three';
 import { Session } from './session.js';
 import { Bot } from './bot.js';
+import { seatMultiplier } from './config.js';
 import { ProfView } from '../chars/profView.js';
 import { PlayerView } from '../chars/playerView.js';
 import { LaptopOS, LAPTOP_SIZE } from '../laptop/os.js';
@@ -42,7 +43,7 @@ export class Game {
       onNotify: (kind, muted) => S.notifyRaised(muted || S.player.muted),
       onCell: i => this._place(i), onNextRound: () => S.nextRound(),
       onSnake: score => { S.stats.snake = Math.max(S.stats.snake, score); },
-      target: () => S.diff.target, colorblind: this.settings.colorblind
+      target: () => S.target, colorblind: this.settings.colorblind
     });
     this.osTex = new THREE.CanvasTexture(this.os.canvas); this.osTex.colorSpace = THREE.SRGBColorSpace; this.osTex.anisotropy = this.gfx.renderer.capabilities.getMaxAnisotropy();
     lap.screenMat.map = this.osTex; lap.screenMat.needsUpdate = true;
@@ -61,7 +62,7 @@ export class Game {
     W.fx.slides.desktop(SLIDE_META[lang], '09:57'); W.fx.updateSlideTextures(); W.fx.setBeamer(false);
     // Profs Kopfposition für Studierende
     this.hud.show(true); this.hud.setStrikes(0); this.hud.touch(matchMedia('(pointer: coarse)').matches);
-    this.hud.setScore(S.ttt, S.diff.target);
+    this.hud.setScore(S.ttt, S.target);
     this._prompt = null;
     // Ambiente
     this._startAmbience();
@@ -184,8 +185,8 @@ export class Game {
       case 'caught': this._caught(d); break;
       case 'moveSeat': this._moveSeat(d); break;
       case 'tttMove': this.os.dirty = true; if (d.who === 'O') A.play('ttPlace', { bus: 'player', gain: 0.18, rate: 0.8 }); break;
-      case 'tttOver': this.os.dirty = true; if (d.winner === 'X') A.play('ttWin', { bus: 'player', gain: 0.3 }); else if (d.winner === 'O') A.play('ttLose', { bus: 'player', gain: 0.3 }); H.setScore(S.ttt, S.diff.target); break;
-      case 'tttRound': this.os.dirty = true; H.setScore(S.ttt, S.diff.target); break;
+      case 'tttOver': this.os.dirty = true; if (d.winner === 'X') { A.play('ttWin', { bus: 'player', gain: 0.3 }); H.toast(t('hud.winToast', { p: Math.round(100 * seatMultiplier(S.seat.row)), w: S.ttt.stats.wins, target: S.target }), 'good'); } else if (d.winner === 'O') A.play('ttLose', { bus: 'player', gain: 0.3 }); H.setScore(S.ttt, S.target); break;
+      case 'tttRound': this.os.dirty = true; H.setScore(S.ttt, S.target); break;
       case 'chat': this.os.addChat(d.from, d.text); break;
       case 'neighborGlance': W.crowd.neighborGlance(); break;
       case 'neighborWarn': W.crowd.neighborWhisper(); break;
@@ -325,6 +326,8 @@ export class Game {
   _quizOpen(q) {
     this._quizData = q;
     this.player.startle = 1;
+    this.player.lookAtPoint(this.profView.head, 1.6);
+    this.world.crowd.lookAll(this.session.player.head.clone(), 2.6, 0.45); // einige drehen sich zu dir um
     const notes = this.session.player.notes[q.section] || 0;
     this.hud.quiz(q, { canPeek: notes >= 0.25, answer: i => this.session.answerQuiz(i), peek: () => this._peek() });
     this.input.exitLock(); this._quizUnlocked = true;
@@ -333,6 +336,7 @@ export class Game {
     this.hud.caught(d.strike, d.text, d.kick, d.move);
     this.hud.setStrikes(Math.min(3, d.strike));
     this.player.startle = 1; this.player.shake = 1.2;
+    this.player.lookAtPoint(this.profView.head, 3.2); // erschrocken aufschauen
     this.audio.play('sting', { bus: 'ui', gain: 0.5 });
     this.world.crowd.lookAll(this.session.player.head.clone(), 3.5, 0.75);
     this.profView.caught(4);

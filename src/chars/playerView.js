@@ -39,6 +39,8 @@ export class PlayerView {
     this.char.sitOn({ pos: V(s.x, s.floor, s.z - 0.04), yaw: Math.PI, seatH: LY.SEAT_H + 0.02 }, true);
     this.char.placeAt(s.x, s.z - 0.04, Math.PI); this.char.sitOn({ pos: V(s.x, s.floor, s.z - 0.04), yaw: Math.PI, seatH: LY.SEAT_H + 0.02 }, true);
   }
+  /** Blick für eine Weile auf einen Punkt ziehen (Erwischt, Frage an dich) */
+  lookAtPoint(p, dur = 2) { this.forceLook = { p: p.clone(), t: dur }; }
   /** Weltpunkt relativ zum Sitz (Blick −z, rechts = +x) */
   L(x, y, z, out = V()) { const s = this.seatInfo; return out.set(s.x + x, s.floor + y, s.z + z); }
   eyeWorld(out = V()) {
@@ -62,6 +64,12 @@ export class PlayerView {
       if (blend < 0.5 && nbB < 0.5) { this.yaw = clamp(this.yaw - inp.dx * k, -1.45, 1.45); this.pitch = clamp(this.pitch - inp.dy * k, -0.95, 0.55); }
       else { this.lookOff.x = clamp(this.lookOff.x - inp.dx * k * 0.25, -0.25, 0.25); this.lookOff.y = clamp(this.lookOff.y - inp.dy * k * 0.25, -0.15, 0.2); }
     }
+    if (this.forceLook && (this.forceLook.t -= dt) > 0) {
+      const e = this.eyeWorld(V()), d = this.forceLook.p.clone().sub(e);
+      const ty = Math.atan2(-d.x, -d.z), tp = Math.atan2(d.y, Math.hypot(d.x, d.z));
+      const k = 1 - Math.exp(-dt * 5);
+      this.yaw += (clamp(ty, -1.45, 1.45) - this.yaw) * k; this.pitch += (clamp(tp, -0.95, 0.55) - this.pitch) * k;
+    } else this.forceLook = null;
     this.lookOff.multiplyScalar(Math.exp(-dt * 1.2));
     if (blend < 0.05 && nbB < 0.05) this.lookOff.set(0, 0, 0);
     // Körperhaltung: am Laptop nach vorne gebeugt, beim Schreiben tiefer
