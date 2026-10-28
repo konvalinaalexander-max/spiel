@@ -77,11 +77,13 @@ if (only.includes('orbit') || only.includes('player') || only.includes('seq')) {
   if (only.includes('player')) {
     await page.evaluate(() => { window.__step(150); window.__game().player.yaw = 0.2; window.__step(0.6); });
     save('phase3_player1_listen.jpg', await page.evaluate(() => window.__render()));
-    await page.evaluate(() => { window.__game().session.setMode('laptop'); window.__step(1.4); });
-    save('phase3_player2_laptop.jpg', await page.evaluate(() => window.__render()));
-    await page.evaluate(() => { const g = window.__game(); g.session.setMode('listen'); window.__step(0.8); g.input.down.add('KeyN'); window.__step(6); });
+    // Heft vor dem Laptop: nach dem Laptop-Blick stellt der Prof oft eine Frage, währenddessen ist Mitschreiben gesperrt
+    await page.evaluate(() => { const g = window.__game(); g.input.down.add('KeyN'); window.__step(6); });
+    lap('Heft: ' + JSON.stringify(await page.evaluate(() => { const S = window.__game().session; return { mode: S.player.mode, quiz: !!S.quiz }; })));
     save('phase3_player3_notes.jpg', await page.evaluate(() => window.__render()));
     await page.evaluate(() => { window.__game().input.down.delete('KeyN'); window.__step(1); });
+    await page.evaluate(() => { window.__game().session.setMode('laptop'); window.__step(1.4); });
+    save('phase3_player2_laptop.jpg', await page.evaluate(() => window.__render()));
   }
   if (only.includes('seq')) {
     // Sequenz: bis der Prof zur Tafel geht, dann 10 Bilder im Abstand von 0,45 s (feste Kamera seitlich vorne)
