@@ -301,9 +301,10 @@ export function buildHall(gfx) {
   for (let k = 0; k < 4; k++) add(box(0.008, 0.05, 0.04), M.whitePlastic, mat(ROOM.x1 - 0.018, P.h + 1.13 - (k % 2) * 0.06, FD.z + 0.74 + Math.floor(k / 2) * 0.12), { cast: false });
   add(cyl(0.07, 0.07, 0.5, 16), M.red, mat(ROOM.x0 + 0.12, P.h + 0.25, ROOM.z0 + 0.35), { tile: 0.4 });
   add(cyl(0.028, 0.035, 0.06, 10), M.black, mat(ROOM.x0 + 0.12, P.h + 0.53, ROOM.z0 + 0.35), { cast: false });
-  [[0x6a6d70, 0], [0xc0392b, 0.4], [0xe2b400, 0.8]].forEach(([col, off], k) => {
-    const m = gfx.pbr({ name: 'bin' + k, recipe: 'plastic', color: col, texOpts: { c1: '#ffffff', size: 256, seed: k } });
-    add(rbox(0.34, 0.6, 0.34, 0.04), m, mat(ROOM.x1 - 0.3, P.h + 0.3, -4.3 + off), { tile: 0.4 });
+  // ein Material mit Vertexfarben für alle drei Behälter (ein Draw Call statt drei, auch in jeder Schattenkaskade)
+  const binMat = gfx.pbr({ name: 'bins', recipe: 'plastic', color: 0xffffff, vertexColors: true, texOpts: { c1: '#ffffff', size: 256, seed: 1 } });
+  [[0x6a6d70, 0], [0xc0392b, 0.4], [0xe2b400, 0.8]].forEach(([col, off]) => {
+    add(rbox(0.34, 0.6, 0.34, 0.04), binMat, mat(ROOM.x1 - 0.3, P.h + 0.3, -4.3 + off), { tile: 0.4, color: col });
     add(rbox(0.36, 0.03, 0.36, 0.015), M.darkGrey, mat(ROOM.x1 - 0.3, P.h + 0.615, -4.3 + off), { cast: false });
   });
   // Garderobe hinten

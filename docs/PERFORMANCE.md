@@ -15,14 +15,14 @@ Hauptbild und Post-Stack.
 <!--PERF-TABLE-->
 | Stufe | Blick | Draw Calls | Dreiecke | Geometrien | Texturen | Shader-Programme | Bildzeit SwiftShader* |
 |---|---|---|---|---|---|---|---|
-| Niedrig | Sitzplatz | 156 | 1 149 382 | 141 | 172 | 90 | 6,3 ms |
-| Niedrig | Laptop | 142 | 1 143 666 | 141 | 172 | 90 | 6,5 ms |
-| Mittel | Sitzplatz | 252 | 1 852 573 | 149 | 206 | 106 | 14,1 ms |
-| Mittel | Laptop | 248 | 1 847 461 | 149 | 214 | 115 | 43,6 ms |
-| Hoch | Sitzplatz | 328 | 2 721 203 | 148 | 212 | 108 | 15,2 ms |
-| Hoch | Laptop | 321 | 2 715 671 | 148 | 220 | 117 | 44,5 ms |
-| Ultra | Sitzplatz | 326 | 4 774 842 | 146 | 209 | 107 | 14 ms |
-| Ultra | Laptop | 322 | 4 769 730 | 146 | 217 | 116 | 34,5 ms |
+| Niedrig | Sitzplatz | 161 | 1 149 878 | 146 | 172 | 90 | 5,6 ms |
+| Niedrig | Laptop | 146 | 1 144 866 | 150 | 172 | 90 | 12,6 ms |
+| Mittel | Sitzplatz | 252 | 1 852 915 | 149 | 205 | 106 | 16 ms |
+| Mittel | Laptop | 243 | 1 846 783 | 149 | 213 | 115 | 43,2 ms |
+| Hoch | Sitzplatz | 325 | 2 720 783 | 145 | 212 | 108 | 15,4 ms |
+| Hoch | Laptop | 324 | 2 716 571 | 148 | 220 | 117 | 52,2 ms |
+| Ultra | Sitzplatz | 329 | 4 774 920 | 149 | 210 | 107 | 24,5 ms |
+| Ultra | Laptop | 327 | 4 770 408 | 151 | 218 | 116 | 85 ms |
 
 \* CPU-Rasterizer, nur relativ vergleichbar. Gemessen am 2026-10-28.
 <!--/PERF-TABLE-->
