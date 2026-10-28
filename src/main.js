@@ -58,12 +58,16 @@ async function boot() {
     screen: name => { document.body.dataset.screen = name || 'none'; }
   });
   hud.applySettings(ui.settings);
-  ui.show('loading');
   // Startparameter: anstehende Vorlesung (nach Neuladen) oder letzte Konfiguration
   let pending = null;
   try { pending = JSON.parse(sessionStorage.getItem('boku-ttt-v2:pending') || 'null'); } catch (e) { pending = null; }
   sessionStorage.removeItem('boku-ttt-v2:pending');
   const cfg = pending || ui.cfg;
+  // Menüs sofort zeigen; der Hörsaal lädt im Hintergrund (bei direktem Start: Ladebildschirm)
+  const direct = pending || qs.has('autostart');
+  if (direct) ui.show('loading');
+  else { state = 'menu'; const m = sessionStorage.getItem('boku-ttt-v2:menu'); sessionStorage.removeItem('boku-ttt-v2:menu'); ui.show(m || 'start'); ui.setWorldLoading(0); }
+  await new Promise(r => requestAnimationFrame(() => setTimeout(r, 0)));
   // Grafik: Stufe aus Einstellungen oder einmalig aus der GPU geschätzt
   let preset = pickQuality(ui.settings);
   const gpu = probeGPU();
@@ -73,9 +77,9 @@ async function boot() {
   gfx.photosensitive = !!ui.settings.photosensitive;
   // Audio vorbereiten (Synthese) und Welt bauen
   const steps = { w: 0, a: 0 };
-  const prog = () => ui.loading(steps.w * 0.8 + steps.a * 0.2, steps.key);
+  const prog = () => { const f = steps.w * 0.8 + steps.a * 0.2; ui.loading(f, steps.key); ui.setWorldLoading(f); };
   const audioP = audio.prepare(f => { steps.a = f; prog(); });
-  world = await buildWorld(gfx, { weather: cfg.weather || 'sunny', seat: cfg.seat || { row: 4, k: 7 } }, (f, key) => { steps.w = f; steps.key = key; prog(); });
+  world = await buildWorld(gfx, { weather: cfg.weather || 'sunny', seat: cfg.seat || { row: 4, k: 7 }, lang: getLang() }, (f, key) => { steps.w = f; steps.key = key; prog(); });
   await audioP;
   steps.w = 1; steps.a = 1; steps.key = 'load.done'; prog();
   applyGfxSettings(ui.settings);
@@ -88,19 +92,35 @@ async function boot() {
   document.addEventListener('visibilitychange', () => { if (document.hidden && state === 'game') pause(); });
   window.__game = () => game; window.__gfx = gfx; window.__world = world; window.__ui = ui;
   // Test-Hilfen (headless): Spielzeit vorspulen, Einzelbild rendern
-  window.__step = (sec, dt = 0.05) => { if (!game) return 0; const n = Math.round(sec / dt); for (let i = 0; i < n; i++) { clock += dt; game.update(dt, clock); } return game.session.t; };
-  window.__render = () => { gfx.render(0.016); if (game) game.renderPiP(); return canvas.toDataURL('image/jpeg', 0.9); };
+  window.__step = (sec, dt = 0.05) => { if (!game) return 0; if (state === 'pause') resume(); const n = Math.round(sec / dt); for (let i = 0; i < n; i++) { clock += dt; game.update(dt, clock); } return game.session.t; };
+  window.__render = (cam) => {
+    if (cam) { gfx.camera.position.set(cam[0], cam[1], cam[2]); gfx.camera.lookAt(cam[3], cam[4], cam[5]); if (cam[6]) { gfx.camera.fov = cam[6]; gfx.camera.updateProjectionMatrix(); } }
+    gfx.render(0.016); if (game) game.renderPiP(); return canvas.toDataURL('image/jpeg', 0.9);
+  };
   window.__state = () => state;
+  window.__audio = audio;
+  // Loop-Nahtprüfung: Sprung an der Nahtstelle im Verhältnis zur typischen Sample-Differenz
+  window.__loopTest = () => Object.fromEntries(['ventilation', 'projectorFan', 'roomTone', 'murmur', 'rain', 'wind', 'traffic'].map(n => {
+    const b = audio.buffers?.[n]?.[0]; if (!b) return [n, null];
+    const d = b.getChannelData(0); let md = 0, rms = 0; for (let i = 1; i < d.length; i++) { md += Math.abs(d[i] - d[i - 1]); rms += d[i] * d[i]; }
+    md /= d.length - 1; rms = Math.sqrt(rms / d.length);
+    const seam = Math.abs(d[0] - d[d.length - 1]);
+    return [n, { seconds: +(d.length / b.sampleRate).toFixed(2), rms: +rms.toFixed(4), meanStep: +md.toFixed(5), seamStep: +seam.toFixed(5), ratio: +(seam / (md || 1e-9)).toFixed(2) }];
+  }));
+  window.__soundList = () => Object.keys(audio.buffers || {});
   requestAnimationFrame(frame);
+  ui.setWorldLoading(null);
   if (pending) { state = 'gate'; ui.show('gate'); ui._pendingCfg = pending; }
   else if (qs.has('autostart')) { state = 'gate'; ui._pendingCfg = ui.sessionCfg(); ui.show('gate'); }
-  else { state = 'menu'; const m = sessionStorage.getItem('boku-ttt-v2:menu'); sessionStorage.removeItem('boku-ttt-v2:menu'); ui.show(m || 'start'); }
+  else if (queuedStart) { const q = queuedStart; queuedStart = null; startLecture(q.cfg, q.again); }
 }
 const world_meta = () => ({ ...(getLang() === 'en' ? { university: 'University of Natural Resources and Life Sciences, Vienna', institute: 'Institute of Animal Nutrition, Animal Products and Nutrition Physiology', courseShort: 'Animal Nutrition (lecture)', footer: 'Animal Nutrition · Winter term 2026/27 · HS 31' } : { university: 'Universität für Bodenkultur Wien', institute: 'Institut für Tierernährung, Tierische Lebensmittel und Ernährungsphysiologie', courseShort: 'Tierernährung VO', footer: 'Tierernährung VO · WS 2026/27 · HS 31' }) });
 const cfgKey = c => JSON.stringify({ w: c.weather, s: c.seat });
 
+let queuedStart = null;
 function startLecture(cfg, again) {
   audio.start();
+  if (!world) { queuedStart = { cfg, again }; ui.show('loading'); return; } // Hörsaal lädt noch
   const sc = ui.sessionCfg();
   if (!world.fresh || cfgKey(cfg) !== world.cfgKey || again) {
     // Welt passt nicht (anderer Platz/Wetter) oder wurde schon benutzt → neu laden und direkt starten

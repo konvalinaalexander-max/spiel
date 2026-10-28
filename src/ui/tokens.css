@@ -4,6 +4,9 @@
   /* Farben */
   --boku-green: #00aa5a;          /* Links, aktive Navigation, h2-Kante, Buttons, Fokus */
   --boku-green-dark: #008a49;     /* Hover/aktiv (abgedunkelt, eigene Ableitung) */
+  --boku-green-text: #007a41;     /* Barrierefreiheit: Grün für Text bzw. Flächen hinter weißem Text (Kontrast ≥ 4,5:1, WCAG AA);
+                                     das Original-Grün #00aa5a erreicht mit Weiß nur 3,0:1 und bleibt Kanten/Balken vorbehalten */
+  --muted-text: #666666;          /* statt #929191 für kleine Texte (Brotkrumen, Untertitel): ≥ 4,9:1 auf #efefef */
   --boku-purple: #4b288c;         /* Key-Fact-Kachel 2 */
   --boku-orange: #e6641e;         /* Key-Fact-Kachel 3 */
   --text: #474747;                /* Fließtext */

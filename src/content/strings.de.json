@@ -5,7 +5,6 @@
   "brand.disclaimer": "Fan-Projekt, kein offizielles Angebot der BOKU.",
   "brand.fanTitle": "Hinweis:",
   "brand.disclaimerLong": "Dieses Spiel ist ein privates Fan-Projekt und kein offizielles Angebot der Universität für Bodenkultur Wien. Logos und Fotos der BOKU werden nicht verwendet; Gestaltung und Räume sind nachempfunden. Prof. Haferkorn und alle Studierenden sind frei erfunden. Die Fachinhalte sind sorgfältig recherchiert, ersetzen aber keine Lehrveranstaltung.",
-
   "load.title": "Der Hörsaal wird vorbereitet …",
   "load.hall": "Hörsaal 31 im Gregor-Mendel-Haus wird aufgebaut",
   "load.fixtures": "Tafeln, Leinwand und Beamer werden montiert",
@@ -17,12 +16,18 @@
   "load.post": "Kamera wird scharfgestellt",
   "load.compile": "Shader werden vorbereitet",
   "load.done": "Fertig.",
-  "load.tips": ["Tipp: Wenn das Kreidekratzen aufhört, dreht er sich gleich um.", "Tipp: Mitschreiben (N halten) senkt den Verdacht – und hilft bei der Prüfungsfrage.", "Tipp: Ein halb zugeklappter Laptop leuchtet weniger.", "Tipp: Deine Sitznachbarin warnt dich manchmal – aber nicht in jeder Schwierigkeit.", "Tipp: Hektisches Wegschauen fällt mehr auf als ruhiges Zuhören.", "Tipp: Vorne sitzen ist riskanter, bringt aber mehr Punkte.", "Tipp: Kopfhörer dämpfen den Saal – du hörst ihn dann aber auch schlechter kommen."],
-
+  "load.tips": [
+    "Tipp: Wenn das Kreidekratzen aufhört, dreht er sich gleich um.",
+    "Tipp: Mitschreiben (N halten) senkt den Verdacht – und hilft bei der Prüfungsfrage.",
+    "Tipp: Ein halb zugeklappter Laptop leuchtet weniger.",
+    "Tipp: Deine Sitznachbarin warnt dich manchmal – aber nicht in jeder Schwierigkeit.",
+    "Tipp: Hektisches Wegschauen fällt mehr auf als ruhiges Zuhören.",
+    "Tipp: Vorne sitzen ist riskanter, bringt aber mehr Punkte.",
+    "Tipp: Kopfhörer dämpfen den Saal – du hörst ihn dann aber auch schlechter kommen."
+  ],
   "gate.title": "Bereit für die Vorlesung?",
   "gate.text": "Klick, um den Hörsaal zu betreten. Die Maus steuert dann deinen Blick (Esc = Pause).",
   "gate.go": "Hörsaal betreten",
-
   "site.topbar": "Studieren · Forschen · Mitgestalten – für eine lebenswerte Zukunft",
   "nav.course": "Lehrveranstaltung",
   "nav.settings": "Einstellungen",
@@ -50,7 +55,6 @@
   "foot.address": "Gregor-Mendel-Straße 33, 1180 Wien (Hörsaal-Nachbau)",
   "foot.credits": "Impressum, Quellen & Lizenzen",
   "foot.controls": "Steuerung",
-
   "ui.back": "Zurück",
   "lv.path": "Lehrveranstaltungen › Tierernährung",
   "lv.title": "Tierernährung",
@@ -112,7 +116,6 @@
   "avatar.a": "Hoodie",
   "avatar.b": "Pullover",
   "avatar.c": "Flanellhemd",
-
   "set.title": "Einstellungen",
   "set.tab.gfx": "Grafik",
   "set.tab.audio": "Ton",
@@ -179,12 +182,10 @@
   "act.pause": "Pause",
   "act.help": "Hilfe",
   "key.space": "Leertaste",
-
   "pause.title": "Mensa-Pause",
   "pause.text": "Die Vorlesung wartet. (Im echten Leben würde sie das nicht tun.)",
   "pause.resume": "Weiter zuhören",
   "pause.quit": "Vorlesung verlassen",
-
   "help.title": "Steuerung & Regeln",
   "help.lead": "Du sitzt in der Tierernährungs-Vorlesung und spielst heimlich Tic Tac Toe. Prof. Haferkorn sieht nicht alles – aber mehr, als du denkst.",
   "help.k.look": "Maus / Pfeiltasten",
@@ -215,10 +216,8 @@
   "help.v.touch": "Wischen = Blick/Cursor, Tippen = Klick, Schaltflächen unten",
   "help.rulesTitle": "Wie er dich erwischt",
   "help.rules": "<ul><li><b>Aufmerksamkeit:</b> Bewegung, Leuchten und Kopf-unten fallen ihm auf – auch aus dem Augenwinkel.</li><li><b>Verdacht:</b> Schaut er bewusst hin, wächst der Verdacht. Mitschreiben und richtige Antworten bauen ihn ab.</li><li><b>Beweis:</b> Nur bei direktem Blick auf deinen Laptop mit offenem Spiel. Bei 100 % bist du erwischt.</li><li>Sitzende vor dir verdecken dich. Hinter einem breiten Rücken sitzt es sich sicherer.</li><li>Hört das Kreidekratzen auf, dreht er sich meist um – manchmal blufft er nur.</li><li>Drei Mal erwischt: Rauswurf – oder, wenn du fleißig warst, Umsetzen in die erste Reihe.</li></ul>",
-
   "credits.title": "Impressum, Quellen & Lizenzen",
   "credits.body": "<p><b>Tic Tac Tierernährung</b> ist ein nicht-kommerzielles Fan-Projekt. Es ist kein offizielles Angebot der Universität für Bodenkultur Wien. Alle Personen sind frei erfunden.</p><p>Die Fachinhalte (Weender Analyse, van-Soest-Fraktionen, Energie- und Proteinbewertung, Pansenphysiologie, Mineralstoffe, Rationsberechnung) wurden aus Lehrbüchern und frei zugänglichen Quellen zusammengetragen; die Quellenliste liegt in <code>docs/RECHERCHE.md</code>.</p><p>Hörsaal, Website- und BOKUonline-Optik sind nachempfunden; es werden keine Logos oder Fotos der BOKU verwendet.</p><h2 class=\"h2bar\">Verwendete Bibliotheken</h2>",
-
   "cert.kind": "Leistungsnachweis (inoffiziell)",
   "cert.title": "Zeugnis",
   "cert.name": "Name",
@@ -250,7 +249,6 @@
   "grade.3": "Befriedigend",
   "grade.4": "Genügend",
   "grade.5": "Nicht genügend",
-
   "lb.name": "Name",
   "lb.score": "Punkte",
   "lb.grade": "Note",
@@ -258,7 +256,6 @@
   "lb.date": "Datum",
   "lb.empty": "Noch keine Einträge – spiel eine Vorlesung!",
   "lb.note": "Die Bestenliste wird nur lokal in diesem Browser gespeichert.",
-
   "ach.unlocked": "freigeschaltet",
   "ach.locked": "gesperrt",
   "ach.pansenProfi.t": "Pansen-Profi",
@@ -303,7 +300,6 @@
   "ach.excursion.t": "Ab aufs Feld",
   "ach.excursion.d": "Für die Exkursion eingetragen.",
   "ach.excursion.hint": "Die Liste geht herum.",
-
   "phase.arrival": "Ankommen",
   "phase.intro": "Einleitung",
   "phase.part1": "Teil 1",
@@ -356,7 +352,6 @@
   "touch.notes": "Mitschreiben",
   "touch.alttab": "Fenster",
   "touch.pause": "Pause",
-
   "slide.title": "Tierernährung",
   "slide.sub": "Vorlesung · Bachelor Agrarwissenschaften",
   "slide.when": "Dienstag, 10:00 Uhr c. t. · Hörsaal 31",
@@ -367,10 +362,8 @@
   "slide.endSub": "Folien auf BOKUlearn · nächste Woche: Rationsgestaltung beim Schwein",
   "slide.nosignal": "Kein Signal",
   "slide.boot": "Bitte warten …",
-
   "err.title": "Das hat leider nicht geklappt",
   "err.text": "Beim Starten ist ein Fehler aufgetreten. Bitte einen aktuellen Browser mit WebGL 2 verwenden (Chrome, Edge, Firefox, Safari).",
-
   "os.date": "Di., 27.10.2026",
   "os.app.ttt": "Tic Tac Toe",
   "os.app.snake": "Snake",
@@ -430,5 +423,6 @@
   "os.mail.peer.from": "Jakob (Lerngruppe)",
   "os.mail.peer.subject": "Hast du die Formel für die RNB?",
   "os.mail.peer.body": "Hey, schreibst du mit? Ich check die Proteinbewertung nicht. Schick mir bitte nachher deine Mitschrift, ich zahl dir einen Kaffee im TÜWI!",
-  "os.mail.peer.time": "10:31"
+  "os.mail.peer.time": "10:31",
+  "load.chip": "Hörsaal wird im Hintergrund geladen … {p} %"
 }

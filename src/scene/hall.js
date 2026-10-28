@@ -17,7 +17,7 @@ export function buildHall(gfx) {
   M.plaster = gfx.pbr({ name: 'plaster', recipe: 'plaster', texOpts: { c1: '#f1eee6', size: 512 }, normalScale: 0.25 });
   M.ceiling = gfx.pbr({ name: 'ceilingPlaster', recipe: 'plaster', texOpts: { c1: '#f8f7f3', size: 512, seed: 4 }, normalScale: 0.12, aoIntensity: 0.3 });
   M.bench = gfx.pbr({ name: 'benchWood', recipe: 'woodStained', texOpts: { c1: '#5a3d29', c2: '#432d1d', seed: 2 }, envMapIntensity: 0.8 });
-  M.benchTop = gfx.pbr({ name: 'benchTop', recipe: 'woodStained', texOpts: { c1: '#654630', c2: '#4b3322', seed: 3 }, envMapIntensity: 0.9 });
+  M.benchTop = gfx.pbr({ name: 'benchTop', recipe: 'woodStained', texOpts: { c1: '#654630', c2: '#4b3322', seed: 3 }, envMapIntensity: 0.9, normalScale: 0.35 });
   M.beadboard = gfx.pbr({ name: 'beadboard', recipe: 'woodSlats', texOpts: { p: [10, 0.05, 0, 0], c1: '#5a3c28', c2: '#3f2a1b', seed: 5 } });
   M.panel = gfx.pbr({ name: 'paneling', recipe: 'woodStained', texOpts: { c1: '#5f402a', c2: '#48321f', seed: 7 }, envMapIntensity: 0.7 });
   M.parquet = gfx.pbr({ name: 'parquet', recipe: 'parquet', texOpts: { c1: '#cfa970', c2: '#ad8650' } });

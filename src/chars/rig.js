@@ -249,9 +249,22 @@ export function buildCharacter(spec, material) {
     }
     if (spec.watch && side === 'L') add(rbox(ha.x, ha.y + 0.025, ha.z, 0.06, 0.02, 0.058, 0.008), 'foreArm' + side, spec.watch, 0.3, 0);
     // Hand: Handfläche, Finger, Daumen
-    add(rbox(ha.x, ha.y - 0.047, ha.z + 0.002, 0.03, 0.09, 0.082, 0.013), 'hand' + side, skin, 0.55, 0);
-    add(rbox(fi.x, fi.y - 0.034, fi.z, 0.025, 0.075, 0.076, 0.011), 'fingers' + side, skin, 0.55, 0);
-    add(capsuleBetween(th, th.clone().add(new THREE.Vector3(0, -0.04, 0.012)), 0.011, 0.009, 6), 'thumb' + side, skin, 0.55, 0);
+    // Handfläche (leicht gewölbt: Handrücken dicker als Fingeransatz), vier Finger mit Gelenkknick, zweigliedriger Daumen
+    const Hv = (x, y, z) => new THREE.Vector3(x, y, z);
+    add(rbox(ha.x - sx * 0.002, ha.y - 0.046, ha.z + 0.002, 0.028, 0.088, 0.078, 0.012), 'hand' + side, skin, 0.55, 0);
+    add(ellipsoid(ha.x - sx * 0.008, ha.y - 0.05, ha.z - 0.012, 0.012, 0.035, 0.022, 8), 'hand' + side, skin, 0.55, 0); // Handballen
+    const FL = [0.072, 0.08, 0.075, 0.06], FR = [0.0088, 0.0092, 0.0088, 0.0076];
+    for (let i = 0; i < 4; i++) {
+      const z = fi.z + 0.027 - i * 0.018, len = FL[i] * (spec.female ? 0.94 : 1), r = FR[i] * (spec.female ? 0.9 : 1);
+      const k = Hv(fi.x, fi.y + 0.006, z);                          // Fingergrundgelenk
+      const m = Hv(fi.x - sx * 0.016, fi.y - len * 0.46, z - (i - 1.5) * 0.0015); // Mittelgelenk (entspannt zur Handfläche gekrümmt)
+      const e = Hv(fi.x - sx * 0.043, fi.y - len * 0.66, z - (i - 1.5) * 0.002);  // Fingerspitze
+      add(capsuleBetween(k, m, r, r * 0.95, 7), 'fingers' + side, skin, 0.55, 0);
+      add(capsuleBetween(m, e, r * 0.95, r * 0.82, 7), 'fingers' + side, skin, 0.55, 0);
+    }
+    const t1 = th.clone().add(Hv(-sx * 0.004, -0.026, 0.01)), t2 = t1.clone().add(Hv(-sx * 0.01, -0.024, 0.006));
+    add(capsuleBetween(th, t1, 0.0115, 0.0105, 7), 'thumb' + side, skin, 0.55, 0);
+    add(capsuleBetween(t1, t2, 0.0105, 0.009, 7), 'thumb' + side, skin, 0.55, 0);
   }
 
   // --- Beine ------------------------------------------------------------------

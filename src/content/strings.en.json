@@ -5,7 +5,6 @@
   "brand.disclaimer": "Fan project, not an official BOKU offering.",
   "brand.fanTitle": "Please note:",
   "brand.disclaimerLong": "This game is a private fan project and not an official offering of BOKU University (University of Natural Resources and Life Sciences, Vienna). No BOKU logos or photos are used; design and rooms are recreated. Prof. Haferkorn and all students are fictional. The subject matter has been carefully researched but is no substitute for an actual course.",
-
   "load.title": "Preparing the lecture hall …",
   "load.hall": "Building lecture hall 31 in the Gregor-Mendel-Haus",
   "load.fixtures": "Mounting blackboards, screen and projector",
@@ -17,12 +16,18 @@
   "load.post": "Focusing the camera",
   "load.compile": "Preparing shaders",
   "load.done": "Done.",
-  "load.tips": ["Tip: when the chalk stops scratching, he is about to turn around.", "Tip: taking notes (hold N) lowers suspicion – and helps with the exam question.", "Tip: a half-closed laptop glows less.", "Tip: your neighbour sometimes warns you – but not on every difficulty.", "Tip: looking away in a hurry is more suspicious than calmly listening.", "Tip: sitting in the front is riskier but earns more points.", "Tip: headphones muffle the room – but you also hear him coming less well."],
-
+  "load.tips": [
+    "Tip: when the chalk stops scratching, he is about to turn around.",
+    "Tip: taking notes (hold N) lowers suspicion – and helps with the exam question.",
+    "Tip: a half-closed laptop glows less.",
+    "Tip: your neighbour sometimes warns you – but not on every difficulty.",
+    "Tip: looking away in a hurry is more suspicious than calmly listening.",
+    "Tip: sitting in the front is riskier but earns more points.",
+    "Tip: headphones muffle the room – but you also hear him coming less well."
+  ],
   "gate.title": "Ready for the lecture?",
   "gate.text": "Click to enter the lecture hall. The mouse then controls your view (Esc = pause).",
   "gate.go": "Enter the lecture hall",
-
   "site.topbar": "Study · Research · Shape – for a future worth living",
   "nav.course": "Course",
   "nav.settings": "Settings",
@@ -50,7 +55,6 @@
   "foot.address": "Gregor-Mendel-Straße 33, 1180 Vienna (lecture hall recreation)",
   "foot.credits": "Imprint, sources & licences",
   "foot.controls": "Controls",
-
   "ui.back": "Back",
   "lv.path": "Courses › Animal Nutrition",
   "lv.title": "Animal Nutrition",
@@ -112,7 +116,6 @@
   "avatar.a": "Hoodie",
   "avatar.b": "Jumper",
   "avatar.c": "Flannel shirt",
-
   "set.title": "Settings",
   "set.tab.gfx": "Graphics",
   "set.tab.audio": "Sound",
@@ -179,12 +182,10 @@
   "act.pause": "Pause",
   "act.help": "Help",
   "key.space": "Space",
-
   "pause.title": "Canteen break",
   "pause.text": "The lecture waits for you. (In real life it wouldn't.)",
   "pause.resume": "Keep listening",
   "pause.quit": "Leave the lecture",
-
   "help.title": "Controls & rules",
   "help.lead": "You're sitting in the Animal Nutrition lecture, secretly playing tic-tac-toe. Prof. Haferkorn doesn't see everything – but more than you think.",
   "help.k.look": "Mouse / arrow keys",
@@ -215,10 +216,8 @@
   "help.v.touch": "Swipe = view/cursor, tap = click, buttons at the bottom",
   "help.rulesTitle": "How he catches you",
   "help.rules": "<ul><li><b>Attention:</b> movement, glow and keeping your head down catch his eye – even from the corner of his eye.</li><li><b>Suspicion:</b> when he looks on purpose, suspicion grows. Taking notes and correct answers reduce it.</li><li><b>Evidence:</b> only from a direct look at your laptop with the game open. At 100 % you are caught.</li><li>People sitting in front of you hide you. Behind a broad back you're safer.</li><li>When the chalk stops scratching, he usually turns around – sometimes he only bluffs.</li><li>Caught three times: you're thrown out – or, if you were diligent, moved to the front row.</li></ul>",
-
   "credits.title": "Imprint, sources & licences",
   "credits.body": "<p><b>Tic Tac Tierernährung</b> is a non-commercial fan project. It is not an official offering of BOKU University (University of Natural Resources and Life Sciences, Vienna). All persons are fictional.</p><p>The subject matter (proximate analysis, van Soest fractions, energy and protein evaluation, rumen physiology, minerals, ration calculation) was compiled from textbooks and freely accessible sources; the source list is in <code>docs/RECHERCHE.md</code>.</p><p>The lecture hall, website and BOKUonline look are recreated; no BOKU logos or photos are used.</p><h2 class=\"h2bar\">Libraries used</h2>",
-
   "cert.kind": "Record of achievement (unofficial)",
   "cert.title": "Certificate",
   "cert.name": "Name",
@@ -250,7 +249,6 @@
   "grade.3": "Satisfactory",
   "grade.4": "Sufficient",
   "grade.5": "Fail",
-
   "lb.name": "Name",
   "lb.score": "Points",
   "lb.grade": "Grade",
@@ -258,7 +256,6 @@
   "lb.date": "Date",
   "lb.empty": "No entries yet – play a lecture!",
   "lb.note": "The leaderboard is only stored locally in this browser.",
-
   "ach.unlocked": "unlocked",
   "ach.locked": "locked",
   "ach.pansenProfi.t": "Rumen pro",
@@ -303,7 +300,6 @@
   "ach.excursion.t": "Off to the field",
   "ach.excursion.d": "Signed up for the field trip.",
   "ach.excursion.hint": "The list is passed around.",
-
   "phase.arrival": "Arrival",
   "phase.intro": "Introduction",
   "phase.part1": "Part 1",
@@ -356,7 +352,6 @@
   "touch.notes": "Notes",
   "touch.alttab": "Window",
   "touch.pause": "Pause",
-
   "slide.title": "Animal Nutrition",
   "slide.sub": "Lecture · Bachelor Agricultural Sciences",
   "slide.when": "Tuesday, 10:00 (academic quarter) · lecture hall 31",
@@ -367,10 +362,8 @@
   "slide.endSub": "Slides on BOKUlearn · next week: ration formulation for pigs",
   "slide.nosignal": "No signal",
   "slide.boot": "Please wait …",
-
   "err.title": "Something went wrong",
   "err.text": "An error occurred during start-up. Please use an up-to-date browser with WebGL 2 (Chrome, Edge, Firefox, Safari).",
-
   "os.date": "Tue, 27 Oct 2026",
   "os.app.ttt": "Tic-tac-toe",
   "os.app.snake": "Snake",
@@ -430,5 +423,6 @@
   "os.mail.peer.from": "Jakob (study group)",
   "os.mail.peer.subject": "Do you have the formula for the RNB?",
   "os.mail.peer.body": "Hey, are you taking notes? I don't get protein evaluation. Please send me your notes later, I'll buy you a coffee at the TÜWI!",
-  "os.mail.peer.time": "10:31"
+  "os.mail.peer.time": "10:31",
+  "load.chip": "Loading the lecture hall in the background … {p} %"
 }

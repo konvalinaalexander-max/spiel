@@ -18,6 +18,7 @@ export class Crowd {
     this.byId = new Map();
     this.t = 0;
     this.sfx = opts.sfx || (() => {});
+    this.mat = mat;
     for (const s of plan.students) this._add(s, mat);
     // Spätkommer:in (zunächst draußen)
     this.late = this._add(plan.latecomer, mat, true);
@@ -39,6 +40,8 @@ export class Crowd {
     this.list.push(st); this.byId.set(s.id, st);
     return st;
   }
+  /** Studierende:n nachträglich hinzufügen (schrittweises Laden) */
+  addStudent(s) { return this._add(s, this.mat); }
   _seatPose(seat) { return { pos: V(seat.x, seat.floor, seat.z - 0.04), yaw: Math.PI, seatH: LY.SEAT_H + 0.02 }; }
   _sit(st, instant = true) { st.c.sitOn(this._seatPose(st.s.seat), instant); }
   // ------------------------------------------------------------------ Ereignisse
@@ -183,7 +186,7 @@ export class Crowd {
     if (s.role === 'neighbor' && st.lean2Target !== undefined) { c.lean2 = damp(c.lean2, st.lean2Target, 4, dt); st.lean2T -= dt; if (st.lean2T <= 0) st.lean2Target = 0; }
     if (st.stretch > 0) { st.stretch -= dt; c.setArm('R', 1, L(0.3, 1.7, 0.05), L(0.6, 1.1, 0.2), { dir: V(0, 1, 0), palm: V(0, 0, -1) }); c.setArm('L', 1, L(-0.3, 1.7, 0.05), L(-0.6, 1.1, 0.2), { dir: V(0, 1, 0), palm: V(0, 0, -1) }); }
   }
-  neighborWhisper() { const st = this.byId.get(this.plan.neighbor.id); if (!st) return; st.lean2Target = (this.plan.neighbor.seat.x < this.plan.player.x ? 1 : -1) * 0.18; st.lean2T = 1.6; st.react = { point: this.focus.player.clone(), t: 0, dur: 1.5 }; }
+  neighborWhisper() { const st = this.byId.get(this.plan.neighbor.id); if (!st) return; st.lean2Target = (this.plan.neighbor.seat.x < LY.seatX(this.plan.player.k) ? -1 : 1) * 0.18; st.lean2T = 1.6; st.react = { point: this.focus.player.clone(), t: 0, dur: 1.5 }; }
   neighborGlance() { const st = this.byId.get(this.plan.neighbor.id); if (st) st.glance = 1.3; }
   _walk(st, dt) {
     const c = st.c, w = st.walk;

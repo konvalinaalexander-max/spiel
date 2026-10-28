@@ -20,11 +20,11 @@ const t0 = Date.now();
 const lap = m => console.log(`[${((Date.now() - t0) / 1000).toFixed(1)}s] ${m}`);
 await page.addInitScript(l => { try { if (l) localStorage.setItem('boku-ttt-v2:lang', JSON.stringify(l)); } catch (e) {} }, args.lang || null);
 await page.goto('file://' + path.join(root, 'dist/BOKU_TicTacTierernaehrung_v2.html') + '?' + qs);
-const shotCanvas = async name => { const d = await page.evaluate(() => window.__render()); fs.writeFileSync(path.join(outDir, name + '.jpg'), Buffer.from(d.split(',')[1], 'base64')); lap('canvas ' + name); };
+const shotCanvas = async (name, cam) => { const d = await page.evaluate(c => window.__render(c), cam || null); fs.writeFileSync(path.join(outDir, name + '.jpg'), Buffer.from(d.split(',')[1], 'base64')); lap('canvas ' + name); };
 const shotPage = async name => { await page.evaluate(() => { window.__hold = true; window.__render(); }); await page.screenshot({ path: path.join(outDir, name + '.jpg'), type: 'jpeg', quality: 85, timeout: 180000 }); lap('page ' + name); };
 try {
   if (args.loading) { await page.waitForTimeout(1500); await page.screenshot({ path: path.join(outDir, 'loading.png'), timeout: 180000 }); lap('loading'); }
-  await page.waitForFunction(() => window.__state && window.__state() === 'menu', null, { timeout: 300000, polling: 500 });
+  await page.waitForFunction(() => window.__state && window.__world && window.__state() === 'menu', null, { timeout: 300000, polling: 500 });
   lap('menu ready');
   const steps = String(args.steps || 'start,lv,game,listen,laptop').split(',');
   for (const st of steps) {
@@ -42,7 +42,9 @@ try {
     else if (st.startsWith('until:')) { const [, what, max] = st.split(':'); const r = await page.evaluate(([w, m]) => { const g = window.__game(); let n = 0; const cond = () => w === 'quiz' ? !!g.session.quiz : w === 'caught' ? !!g.session.caughtSeq : w === 'end' ? g.ended : w === 'write' ? g.session.prof.activity === 'write' : w === 'break' ? g.session.director.phase === 'break' : false; while (!cond() && n++ < (+m || 900) * 20) window.__step(0.05); return [g.session.t.toFixed(1), cond()]; }, [what, max]); lap(`until ${what}: t=${r[0]} ok=${r[1]}`); }
     else if (st.startsWith('page:')) { await shotPage(st.slice(5)); await page.evaluate(() => { window.__hold = true; }); }
     else if (st.startsWith('canvas:')) { await shotCanvas(st.slice(7)); }
+    else if (st.startsWith('cam:')) { const p = st.split(':'); await shotCanvas(p[1], p[2].split('/').map(Number)); }
     else if (st.startsWith('wait:')) { await page.waitForTimeout(+st.slice(5)); }
+    else if (st === 'audiotest') { const r = await page.evaluate(() => ({ loops: window.__loopTest(), sounds: window.__soundList() })); fs.writeFileSync(path.join(outDir, 'audiotest.json'), JSON.stringify(r, null, 1)); lap('audiotest: ' + Object.keys(r.loops).length + ' Loops, ' + r.sounds.length + ' Klänge'); }
     else if (st === 'state') { console.log(await page.evaluate(() => { const g = window.__game(), S = g.session; return JSON.stringify({ t: S.t.toFixed(1), phase: S.director.phase, prof: S.prof.activity, face: S.prof.face.mode, pos: [S.prof.pos.x.toFixed(2), S.prof.pos.z.toFixed(2)], wins: S.ttt.stats.wins, susp: [S.susp.attention | 0, S.susp.suspicion | 0, S.susp.evidence | 0], stats: window.__gfx.stats() }); })); }
   }
 } catch (e) { console.log('FEHLER:', e.message); }

@@ -2,7 +2,7 @@
 // Wird pro Kombination aus Wetter + Sitzplatz + Qualität einmal aufgebaut (Neustart = Seite neu laden).
 import * as THREE from 'three';
 import { buildHall } from '../scene/hall.js';
-import { buildFixtures, makePosters } from '../scene/fixtures.js';
+import { buildFixtures, makePosters, buildHybridMonitor } from '../scene/fixtures.js';
 import { buildLighting, bakeEnvironment } from '../scene/lighting.js';
 import { buildOutside, buildBlinds } from '../scene/outside.js';
 import { buildProps } from '../scene/props.js';
@@ -26,6 +26,7 @@ export async function buildWorld(gfx, params, progress = () => {}) {
   W.hall = buildHall(gfx);
   await step(0.25, 'load.fixtures');
   W.fx = buildFixtures(gfx, W.hall, { posters: makePosters() });
+  W.monitor = buildHybridMonitor(gfx, params.lang || 'de');
   await step(0.35, 'load.light');
   W.light = buildLighting(gfx, W.hall, params.weather);
   await step(0.42, 'load.outside');
@@ -36,7 +37,13 @@ export async function buildWorld(gfx, params, progress = () => {}) {
   W.props = buildProps(gfx, W.hall, W.plan, { weather: params.weather });
   await step(0.62, 'load.people');
   W.charMat = characterMaterial(gfx);
-  W.crowd = new Crowd(gfx, W.charMat, W.plan, { shadows: gfx.preset.studentShadows });
+  W.crowd = new Crowd(gfx, W.charMat, { ...W.plan, students: [] }, { shadows: gfx.preset.studentShadows });
+  // Figuren einzeln anlegen und zwischendurch dem Browser Luft lassen (Menü bleibt bedienbar)
+  for (let i = 0; i < W.plan.students.length; i++) {
+    W.crowd.addStudent(W.plan.students[i]);
+    if (i % 4 === 3) await step(0.62 + 0.14 * i / W.plan.students.length, 'load.people');
+  }
+  W.crowd.plan = W.plan;
   // Handys in der Hand
   for (const st of W.crowd.list) if (st.s.profile === 'phone') W.props.table.handPhone(st.rig.bones.handR, st.s.id);
   await step(0.78, 'load.env');
@@ -47,8 +54,8 @@ export async function buildWorld(gfx, params, progress = () => {}) {
   W.updateBoards = dt => {
     for (const p of W.fx.panels) { const y = p.group.position.y; if (Math.abs(y - p.targetY) > 1e-4) { p.group.position.y = damp(y, p.targetY, 2.2, dt); W.boardMoving = true; } }
   };
-  // Shader vorkompilieren (vermeidet Ruckler beim ersten Blick in eine Richtung)
-  try { gfx.renderer.compile(gfx.scene, gfx.camera); } catch (e) { /* optional */ }
+  // Shader vorkompilieren (vermeidet Ruckler beim ersten Blick in eine Richtung); parallel, wo der Treiber es kann
+  try { if (gfx.renderer.compileAsync && gfx.renderer.extensions.has('KHR_parallel_shader_compile')) await gfx.renderer.compileAsync(gfx.scene, gfx.camera); else gfx.renderer.compile(gfx.scene, gfx.camera); } catch (e) { /* optional */ }
   await step(0.95, 'load.compile');
   return W;
 }

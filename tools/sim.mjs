@@ -42,11 +42,11 @@ if (import.meta.url === 'file://' + process.argv[1]) {
   console.log(`(${((Date.now() - t0) / 1000).toFixed(1)} s)`);
   if (args.json) fs.writeFileSync(path.resolve(root, args.json), JSON.stringify({ skill, length, runs, summary }, null, 1));
   if (args.log) {
-    const { s, director } = runOne(args.difficulty && args.difficulty !== 'all' ? args.difficulty : 'bachelor', 4242, { log: true });
+    const { s, director } = runOne(args.difficulty && args.difficulty !== 'all' ? args.difficulty : 'bachelor', +(args.seed || 4242), { log: true, weather: args.weather });
     const fmt = m => `${Math.floor(m / 60)}:${String(Math.floor(m % 60)).padStart(2, '0')}`;
     const lines = director.log.map(e => `[${String(e.t.toFixed(1)).padStart(6)} s | ${fmt(e.clock)}] ${e.type.padEnd(8)} ${Object.entries(e).filter(([k]) => !['t', 'clock', 'type'].includes(k)).map(([k, v]) => `${k}=${v}`).join('  ')}`);
     const types = new Set(director.log.filter(e => e.type === 'event').map(e => e.name));
-    const header = `Ablauf-Log eines kompletten Durchlaufs (Bot, Schwierigkeit ${s.diff.id}, Länge ${s.seconds} s, Seed 4242)\nErgebnis: ${JSON.stringify(s.result)}\nVerschiedene Ereignistypen: ${types.size} → ${[...types].join(', ')}\n\n`;
+    const header = `Ablauf-Log eines kompletten Durchlaufs (Bot, Schwierigkeit ${s.diff.id}, Länge ${s.seconds} s, Seed ${args.seed || 4242}, Wetter ${args.weather || "sunny"})\nErgebnis: ${JSON.stringify(s.result)}\nVerschiedene Ereignistypen: ${types.size} → ${[...types].join(', ')}\n\n`;
     fs.writeFileSync(path.resolve(root, args.log), header + lines.join('\n') + '\n');
     console.log('Log:', args.log, lines.length, 'Zeilen,', types.size, 'Ereignistypen');
   }

@@ -57,7 +57,8 @@ if (!html.includes('<!--STYLE-->') || !html.includes('<!--SCRIPT-->')) throw new
 const safeJs = js.replace(/<\/script/gi, '<\\/script');
 html = html
   .replace('<!--STYLE-->', () => `<style>\n${css}\n</style>`)
-  .replace('<!--SCRIPT-->', () => `<script>\n${safeJs}\n</script>`)
+  // Bundle erst nach dem ersten Bild ausführen (schneller erster Paint: Vorlader sichtbar, bevor 2 MB JS laufen)
+  .replace('<!--SCRIPT-->', () => `<script type="text/plain" id="bundle">\n${safeJs}\n</script>\n<script>(function(){function run(){var t=document.getElementById('bundle').textContent,s=document.createElement('script');try{s.src=URL.createObjectURL(new Blob([t],{type:'text/javascript'}));}catch(e){s.text=t;}document.body.appendChild(s);}requestAnimationFrame(function(){setTimeout(run,30);});})();</script>`)
   .replace('<!--LICENSES-->', () => `<!--\n${third.replace(/--/g, '- -')}\n-->`)
   .replace('<!--THIRDTEXT-->', () => third.replace(/<\//g, '<\\/'));
 

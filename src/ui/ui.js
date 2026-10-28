@@ -56,6 +56,7 @@ export class UI {
       <div class="hero"><div class="hero-shade"></div><div class="container hero-inner">
         <p class="hero-kicker" data-i18n="hero.kicker"></p><h1 class="hero-title" data-i18n="hero.title"></h1><p class="hero-lead" data-i18n="hero.lead"></p>
         <div class="hero-cta"><button class="btn btn-primary btn-lg" data-go="lv" data-i18n="hero.cta"></button><button class="btn btn-ghost btn-lg" data-go="help" data-i18n="hero.how"></button></div>
+        <p class="hero-load" id="hero-load" hidden></p>
       </div></div>
       <div class="site-body"><main class="container site-main">
         <nav class="breadcrumb" aria-label="Breadcrumb"><span data-i18n="crumb.home"></span> › <span data-i18n="crumb.study"></span> › <span data-i18n="crumb.course"></span></nav>
@@ -196,6 +197,7 @@ export class UI {
     const scr = name && $('#scr-' + name);
     if (scr) { const f = scr.querySelector('.btn-primary') || scr.querySelector('button, a, input'); if (f && !o.noFocus) setTimeout(() => f.focus({ preventScroll: true }), 30); scr.scrollTop = 0; }
     this.hooks.screen?.(name);
+    const pre = document.getElementById('preload'); if (pre) pre.remove();
   }
   hide() { this.show(null); }
   back() { const p = this._prev && this._prev !== this.screen ? this._prev : (this.hooks.inGame?.() ? 'pause' : 'start'); this._prev = null; this.show(p); }
@@ -205,6 +207,13 @@ export class UI {
     $('#scr-loading .progress').setAttribute('aria-valuenow', Math.round(f * 100));
     if (key) $('#load-step').textContent = t(key);
     if (!this._tipSet) { this._tipSet = true; $('#load-tip').textContent = t('load.tips'); }
+  }
+  /** Fortschritt des Hintergrund-Ladens auf Startseite/LV-Seite (null = fertig) */
+  setWorldLoading(f) {
+    this.root.classList.toggle('world-loading', f !== null);
+    const chip = $('#hero-load');
+    if (f === null) { if (chip) chip.hidden = true; return; }
+    if (chip) { chip.hidden = false; chip.textContent = t('load.chip', { p: Math.round(f * 100) }); }
   }
   // ------------------------------------------------------------------ LV-Seite
   _seg(el, items, current, onPick) {

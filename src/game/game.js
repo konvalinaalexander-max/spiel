@@ -390,7 +390,7 @@ export class Game {
     W.light.laptopGlow.position.copy(W.props.player.laptop.screenWorld(0.5, 0.5)).addScaledVector(W.props.player.laptop.screenNormal(V()), 0.35);
     // Welt
     W.light.update(dt, time); W.outside.update(dt, time, (ev) => { if (ev === 'stop') A.play('tramBell', { pos: V(LY.ROOM.x0 - 18, -10, 10), gain: 0.2, rate: 0.7 }); });
-    W.blinds.update(dt); W.fx.updateBeamer(dt);
+    W.blinds.update(dt); W.fx.updateBeamer(dt); W.monitor.update(dt);
     if (this._bootT !== undefined && this._bootT < 2.5) {
       this._bootT += dt;
       if (this._bootT < 2.5) { W.fx.slides.boot(t('slide.boot'), this._bootT); W.fx.updateSlideTextures(); }

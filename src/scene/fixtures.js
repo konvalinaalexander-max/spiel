@@ -90,8 +90,8 @@ export function buildFixtures(gfx, hall, opts = {}) {
   out.setBeamer = on => { out.beamer.target = on ? 1 : 0; };
   out.updateBeamer = dt => {
     const b = out.beamer; b.level = damp(b.level, b.target, 3, dt);
-    screenMat.emissiveIntensity = b.level * (useSpot ? 0.3 : 0.62);
-    if (out.spot) out.spot.intensity = b.level * 55;
+    screenMat.emissiveIntensity = b.level * (useSpot ? 0.34 : 0.62);
+    if (out.spot) out.spot.intensity = b.level * 14;
   };
 
   // ------------------------------------------------------------------ Wanduhr (läuft mit Spielzeit)
@@ -301,4 +301,48 @@ export function makePosters() {
     });
   }, { x: 0.6, y: LY.BACK_FLOOR + 1.85, z: ROOM.z1 - 0.025, w: 0.8, rotY: Math.PI });
   return list;
+}
+
+// ------------------------------------------------------------------ Hybrid-Monitor (Online-Teilnehmende, Aufzeichnung)
+const REMOTE = ['Anna W.', 'Tobias K.', 'Selin A.', 'Markus H.', 'Leonie P.', 'Jonas G.', 'Mira S.', 'Felix B.'];
+export function buildHybridMonitor(gfx, lang = 'de') {
+  const MO = LY.MONITOR;
+  const cv = document.createElement('canvas'); cv.width = 960; cv.height = 544;
+  const tex = new THREE.CanvasTexture(cv); tex.colorSpace = THREE.SRGBColorSpace;
+  const mat = new THREE.MeshBasicMaterial({ map: tex, color: 0x9a9a9a });
+  const m = new THREE.Mesh(new THREE.PlaneGeometry(MO.w - 0.03, MO.h - 0.03), mat);
+  m.position.set(MO.x + 0.037, MO.y, MO.z); m.rotation.y = Math.PI / 2;
+  gfx.scene.add(m);
+  const c = cv.getContext('2d');
+  const tileCol = ['#5a7d9a', '#8a6a4a', '#4a8a6a', '#7a5a8a', '#9a7a4a', '#4a6a8a', '#8a4a5a', '#5a8a8a'];
+  let speaking = -1, t = 0, blink = 0;
+  const draw = () => {
+    c.fillStyle = '#1e2126'; c.fillRect(0, 0, 960, 544);
+    c.fillStyle = '#2b2f36'; c.fillRect(0, 0, 960, 40);
+    c.fillStyle = '#e8eaed'; c.font = 'bold 20px Arial'; c.fillText(lang === 'en' ? 'Hybrid lecture hall HS 31 · Animal Nutrition' : 'Hybridhörsaal HS 31 · Tierernährung VO', 16, 27);
+    c.fillStyle = blink ? '#e0453a' : '#6b2a26'; c.beginPath(); c.arc(860, 20, 8, 0, 7); c.fill();
+    c.fillStyle = '#e8eaed'; c.font = 'bold 18px Arial'; c.fillText('REC', 875, 27);
+    // Hauptbild: Hörsaalkamera (stilisiert: Podium, Tafel, Leinwand)
+    c.fillStyle = '#3a3e44'; c.fillRect(16, 54, 600, 338);
+    c.fillStyle = '#2a4a3a'; c.fillRect(40, 110, 250, 120); c.fillStyle = '#d8d8d6'; c.fillRect(320, 96, 260, 150);
+    c.fillStyle = '#6b4a31'; c.fillRect(30, 290, 560, 40); c.fillStyle = '#4b5a48'; c.fillRect(200 + Math.sin(t * 0.3) * 120, 220, 26, 70); c.fillStyle = '#e6b897'; c.beginPath(); c.arc(213 + Math.sin(t * 0.3) * 120, 210, 12, 0, 7); c.fill();
+    c.fillStyle = 'rgba(0,0,0,.55)'; c.fillRect(16, 362, 230, 30); c.fillStyle = '#fff'; c.font = '16px Arial'; c.fillText(lang === 'en' ? 'Lecture hall camera' : 'Hörsaalkamera', 26, 383);
+    // Galerie
+    REMOTE.forEach((n, i) => {
+      const x = 632 + (i % 2) * 160, y = 54 + Math.floor(i / 2) * 84;
+      c.fillStyle = '#2b2f36'; c.fillRect(x, y, 152, 78);
+      c.fillStyle = tileCol[i]; c.beginPath(); c.arc(x + 76, y + 34, 22, 0, 7); c.fill();
+      c.fillStyle = '#fff'; c.font = 'bold 18px Arial'; c.textAlign = 'center'; c.fillText(n.split(' ').map(w => w[0]).join(''), x + 76, y + 41); c.textAlign = 'left';
+      c.fillStyle = '#c9cdd3'; c.font = '13px Arial'; c.fillText(n, x + 8, y + 72);
+      if (i === speaking) { c.strokeStyle = '#00aa5a'; c.lineWidth = 3; c.strokeRect(x + 1.5, y + 1.5, 149, 75); }
+    });
+    c.fillStyle = '#c9cdd3'; c.font = '15px Arial'; c.fillText(lang === 'en' ? `${REMOTE.length + 3} participants online · chat: 2 new` : `${REMOTE.length + 3} Teilnehmende online · Chat: 2 neue Nachrichten`, 16, 420);
+    c.fillStyle = '#2b2f36'; c.fillRect(16, 436, 928, 92);
+    c.fillStyle = '#9aa1ab'; c.font = '14px Arial';
+    c.fillText(lang === 'en' ? 'Leonie P.: Is the audio okay in the room?' : 'Leonie P.: Hört man im Saal alles gut?', 28, 466);
+    c.fillText(lang === 'en' ? 'Jonas G.: Slides are on BOKUlearn 👍' : 'Jonas G.: Folien sind auf BOKUlearn 👍', 28, 492);
+    tex.needsUpdate = true;
+  };
+  draw();
+  return { mesh: m, update(dt) { t += dt; const b = Math.floor(t) % 2; if (b !== blink || Math.random() < dt * 0.05) { blink = b; if (Math.random() < 0.25) speaking = Math.random() < 0.5 ? -1 : Math.floor(Math.random() * REMOTE.length); draw(); } } };
 }
