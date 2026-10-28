@@ -63,7 +63,7 @@ Alle Tasten sind in den Einstellungen frei belegbar.
 npm install          # three, postprocessing, n8ao, hersheytext, @fontsource/work-sans, esbuild
 npm run build        # → dist/BOKU_TicTacTierernaehrung_v2.html + dist/SHA256.txt
 npm test             # Unit- und Integrationstests (+ --e2e für den Headless-Browserlauf)
-node tools/sim.mjs --runs 40 --difficulty all --md docs/BALANCING.md   # Bot-Balancing
+node tools/sim.mjs --runs 80 --difficulty all --md docs/BALANCING.md   # Bot-Balancing
 node tools/e2e.mjs --steps game,sim60,listen,laptop                    # Headless-Durchlauf mit Screenshots
 ```
 
