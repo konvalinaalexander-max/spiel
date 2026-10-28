@@ -28,6 +28,20 @@ async function openGame(browser, q, seed = 4242) {
 // feste Kameraposition: Sitzplatz Reihe 5, Platz 8, Blick auf Tafel und Leinwand
 const SEAT_CAM = [1.1, 1.92, 0.75, -0.6, 1.75, -6, 60];
 
+function writePerf() {
+  if (!perf.length) return;
+  fs.writeFileSync(path.join(root, 'docs/perf_presets.json'), JSON.stringify(perf, null, 1));
+  // Tabelle in docs/PERFORMANCE.md zwischen den Markierungen ersetzen
+  const names = { low: 'Niedrig', medium: 'Mittel', high: 'Hoch', ultra: 'Ultra' };
+  const de = n => n.toLocaleString('de-AT');
+  const rows = perf.map(p => `| ${names[p.preset] || p.preset} | ${p.view === 'seat' ? 'Sitzplatz' : 'Laptop'} | ${de(p.calls)} | ${de(p.triangles)} | ${p.geometries} | ${p.textures} | ${p.programs} | ${de(p.ms)} ms |`);
+  const table = ['| Stufe | Blick | Draw Calls | Dreiecke | Geometrien | Texturen | Shader-Programme | Bildzeit SwiftShader* |', '|---|---|---|---|---|---|---|---|', ...rows,
+    '', `\\* CPU-Rasterizer, nur relativ vergleichbar. Gemessen am ${new Date().toISOString().slice(0, 10)}.`].join('\n');
+  const f = path.join(root, 'docs/PERFORMANCE.md');
+  const md = fs.readFileSync(f, 'utf8').replace(/<!--PERF-TABLE-->[\s\S]*?<!--\/PERF-TABLE-->/, `<!--PERF-TABLE-->\n${table}\n<!--/PERF-TABLE-->`);
+  fs.writeFileSync(f, md);
+}
+
 const browser = await chromium.launch({ args: flags });
 if (only.includes('presets')) for (const q of ['low', 'medium', 'high', 'ultra']) {
   const page = await openGame(browser, q);
@@ -39,6 +53,7 @@ if (only.includes('presets')) for (const q of ['low', 'medium', 'high', 'ultra']
   perf.push({ view: 'laptop', ...(await page.evaluate(() => window.__perf(4))) });
   await page.close();
 }
+writePerf(); // sofort sichern, falls ein späterer Teil abstürzt
 if (only.includes('orbit') || only.includes('player') || only.includes('seq')) {
   const page = await openGame(browser, 'medium');
   if (only.includes('orbit')) {
@@ -82,17 +97,5 @@ if (only.includes('v1')) {
   await p2.evaluate(() => { window.__step(150); window.__game().player.yaw = 0.15; window.__step(0.6); });
   save('compare_v2_seat.jpg', await p2.evaluate(() => window.__render()));
   await p2.close();
-}
-if (perf.length) {
-  fs.writeFileSync(path.join(root, 'docs/perf_presets.json'), JSON.stringify(perf, null, 1));
-  // Tabelle in docs/PERFORMANCE.md zwischen den Markierungen ersetzen
-  const names = { low: 'Niedrig', medium: 'Mittel', high: 'Hoch', ultra: 'Ultra' };
-  const de = n => n.toLocaleString('de-AT');
-  const rows = perf.map(p => `| ${names[p.preset] || p.preset} | ${p.view === 'seat' ? 'Sitzplatz' : 'Laptop'} | ${de(p.calls)} | ${de(p.triangles)} | ${p.geometries} | ${p.textures} | ${p.programs} | ${de(p.ms)} ms |`);
-  const table = ['| Stufe | Blick | Draw Calls | Dreiecke | Geometrien | Texturen | Shader-Programme | Bildzeit SwiftShader* |', '|---|---|---|---|---|---|---|---|', ...rows,
-    '', `\\* CPU-Rasterizer, nur relativ vergleichbar. Gemessen am ${new Date().toISOString().slice(0, 10)}.`].join('\n');
-  const f = path.join(root, 'docs/PERFORMANCE.md');
-  const md = fs.readFileSync(f, 'utf8').replace(/<!--PERF-TABLE-->[\s\S]*?<!--\/PERF-TABLE-->/, `<!--PERF-TABLE-->\n${table}\n<!--/PERF-TABLE-->`);
-  fs.writeFileSync(f, md);
 }
 await browser.close();
