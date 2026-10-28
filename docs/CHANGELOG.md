@@ -46,3 +46,10 @@ Komplette Neuentwicklung nach `AUFTRAG_V2.md`. Version 1 liegt unverändert in `
   weniger Bewegung, hoher Kontrast, minimales HUD), Gamepad und Touch.
 - Prozedurales Audio (55 Klänge, 7 Loops), Mixer, Hall, räumliche Quellen, Sprachausgabe mit Murmel-Alternative, Menü-Musik.
 - `npm test` (Minimax, Sichtmodell, Verdacht, Regie, Übersetzungen, Inhalte, Build), Headless-E2E, Lighthouse.
+
+### Endkontrolle (vor Auslieferung)
+- Beamer-Projektion ab „Hoch“ deckungsgleich mit der Leinwand (perspektivischer Gitter-Warp statt geschätzter Texturgröße).
+- Tiefenschärfe im Laptop-/Heftblick auf den gemessenen Abstand fokussiert (Bildschirm war unscharf).
+- Draw Calls „Mittel“ 278 → 249 (Außenwelt/Fahrzeuge ohne Schatten, Materialien zusammengelegt, Bloom 6 Stufen).
+- Balancing mit 80 Läufen je Stufe: 95 / 54 / 35 / 11 % Erfolgsquote.
+- Alle Dokumentationsbilder mit dem fertigen Build neu erzeugt; Screenshot-Werkzeug robust gegen Abstürze des CPU-Rasterizers.
