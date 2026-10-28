@@ -13,13 +13,14 @@ Prof schreibt an die Tafel, 1280 × 720; zusätzlich Laptop-Blick). „Calls“ 
 Hauptbild und Post-Stack.
 
 <!--PERF-TABLE-->
+<!--/PERF-TABLE-->
 
 ## Budgets und Maßnahmen
 
 | Bereich | Maßnahme |
 |---|---|
 | Statische Geometrie | `Batcher` verschmilzt Bänke, Pulte, Wände, Requisiten **je Material** zu wenigen Meshes (Blöcke ≤ 65 k Vertices, damit Frustum-Culling greift). Ein ganzer Hörsaal mit 110 Plätzen und ≈ 1 000 Requisiten-Teilen kostet so nur einige Dutzend Draw Calls. |
-| Figuren | Jede Figur ist **ein** SkinnedMesh mit Vertexfarben (ein Material für alle 53 Figuren – 49 Studierende, Spätkommer:in, Tutorin, Prof, eigener Körper – → ein Shader-Programm). Weit entfernte Figuren werden nur mit 20 Hz animiert. Schatten der Studierenden ab „Mittel“. |
+| Figuren | Alle Studierenden werden zu **zwei** SkinnedMeshes zusammengeführt (eines wirft Schatten – die Umgebung des eigenen Platzes –, eines nicht). Jede Figur behält ihr eigenes Skelett (Knochen-Offset im `skinIndex`, gemeinsame Knochentextur mit ≈ 1 550 Knochen); unsichtbare Figuren werden auf einen Punkt zusammengezogen. Ein Material für alle 53 Figuren (49 Studierende, Spätkommer:in, Tutorin, Prof, eigener Körper) → ein Shader-Programm. Vorher: 51 Draw Calls im Hauptbild + je Kaskade bis zu 51 weitere. Weit entfernte Figuren werden nur mit 20 Hz animiert. |
 | Texturen | GPU-erzeugt (keine Downloads), Größe je Stufe 512–2048 px, gemeinsame Atlanten für Bildschirme, Sticker, Notizen, Etiketten, Futter, Plakate. |
 | Licht | Deckenlicht: Flächenlichter erst ab „Hoch“, sonst wenige Spots; Beamer-Spot mit Schatten erst ab „Hoch“; CSM-Kaskaden 1/2/3/3. |
 | Post | N8AO in halber Auflösung bis „Hoch“, Tiefenschärfe nur im Laptop-/Heft-Blick aktiv, chromatische Aberration nur bei Stress (eigener Pass, sonst abgeschaltet). |

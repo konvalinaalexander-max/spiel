@@ -206,7 +206,7 @@ export class UI {
   back() { const p = this._prev && this._prev !== this.screen ? this._prev : (this.hooks.inGame?.() ? 'pause' : 'start'); this._prev = null; this.show(p); }
   // ------------------------------------------------------------------ Laden
   loading(f, key) {
-    const bar = $('#scr-loading .bar'); bar.style.width = Math.round(f * 100) + '%';
+    const bar = $('#scr-loading .bar'); if (!bar) return; bar.style.width = Math.round(f * 100) + '%';
     $('#scr-loading .progress').setAttribute('aria-valuenow', Math.round(f * 100));
     if (key) $('#load-step').textContent = t(key);
     if (!this._tipSet) { this._tipSet = true; $('#load-tip').textContent = t('load.tips'); }

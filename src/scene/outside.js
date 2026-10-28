@@ -3,7 +3,7 @@
 // Außerdem: elektrische Verdunkelungsrollos.
 import * as THREE from 'three';
 import * as LY from './layout.js';
-import { Batcher, rbox, box, cyl, mat } from '../gfx/geom.js';
+import { Batcher, mergeGeometries, rbox, box, cyl, mat } from '../gfx/geom.js';
 import { makeRng, damp } from '../core/util.js';
 
 const { ROOM } = LY;
@@ -180,6 +180,7 @@ export function buildOutside(gfx, weatherId, quality) {
 
   // ---------------------------------------------------------------- Verkehr: Busse 40A/37A (rot), Autos
   out.vehicles = [];
+  const B2 = new Batcher();
   const makeBus = line => {
     const g = new THREE.Group();
     const red = gfx.pbr({ name: 'busRed', color: 0xd7141a, roughness: 0.35, metalness: 0.2 });
@@ -191,7 +192,9 @@ export function buildOutside(gfx, weatherId, quality) {
     const lt = new THREE.CanvasTexture(lcv); lt.colorSpace = THREE.SRGBColorSpace;
     const disp = new THREE.Mesh(new THREE.PlaneGeometry(1.2, 0.4), new THREE.MeshBasicMaterial({ map: lt })); disp.position.set(0, 2.65, 6.02);
     g.add(body, roof, win, disp);
-    for (const zz of [-3.8, 3.8]) for (const sx of [-1, 1]) { const w = new THREE.Mesh(cyl(0.5, 0.5, 0.3, 16), lampMat); w.rotation.z = Math.PI / 2; w.position.set(sx * 1.15, 0.5, zz); g.add(w); }
+    // vier Räder als ein Mesh (ein Draw Call)
+    const wg = []; for (const zz of [-3.8, 3.8]) for (const sx of [-1, 1]) { const w = cyl(0.5, 0.5, 0.3, 16); w.rotateZ(Math.PI / 2); w.translate(sx * 1.15, 0.5, zz); wg.push(w); }
+    g.add(new THREE.Mesh(mergeGeometries(wg, false), lampMat));
     body.castShadow = true;
     return g;
   };
@@ -205,8 +208,14 @@ export function buildOutside(gfx, weatherId, quality) {
   const lanes = [-12.0, -15.2];
   for (let i = 0; i < 2; i++) { const b = makeBus(i ? '37A' : '40A'); b.position.set(lanes[i % 2], GROUND, 200); b.userData = { bus: true, lane: i % 2, speed: 0, wait: rng.range(5, 40), stop: false }; scene.add(b); out.vehicles.push(b); }
   for (let i = 0; i < 5; i++) { const c = makeCar(i); c.position.set(lanes[i % 2], GROUND, 200); c.userData = { lane: i % 2, speed: 0, wait: rng.range(1, 30) }; scene.add(c); out.vehicles.push(c); }
-  // geparkte Autos auf der Hausseite
-  for (let i = 0; i < 6; i++) { const c = makeCar(i + 3); c.position.set(-10.4, GROUND, -40 + i * 13 + rng.range(-2, 2)); scene.add(c); }
+  // geparkte Autos auf der Hausseite: statisch gebatcht (Vertexfarben) statt 12 Einzel-Meshes
+  const parked = gfx.pbr({ name: 'parkedCars', color: 0xffffff, roughness: 0.25, metalness: 0.6, vertexColors: true });
+  for (let i = 0; i < 6; i++) {
+    const z = -40 + i * 13 + rng.range(-2, 2);
+    B2.add(rbox(1.8, 0.75, 4.3, 0.25, 2), parked, mat(-10.4, GROUND + 0.6, z), { color: carCols[(i + 3) % 6], keepUV: true, cast: false });
+    B2.add(rbox(1.6, 0.6, 2.2, 0.2, 2), winDark, mat(-10.4, GROUND + 1.2, z - 0.2), { keepUV: true, cast: false });
+  }
+  B2.build(scene, 'parked');
   // ---------------------------------------------------------------- Regen
   if (weatherId === 'rain' || weatherId === 'cloudy') {
     const N = 3000, pos = new Float32Array(N * 3);

@@ -1,6 +1,7 @@
 // Studierende im Saal: Figuren aus dem Besetzungsplan, Verhaltensprofile, Reaktionen auf Ereignisse,
 // Spätkommer:in, Pause (Aufstehen/Hinausgehen), Tutorin.
 import * as THREE from 'three';
+import { mergeGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils.js';
 import { buildCharacter } from './rig.js';
 import { Character } from './character.js';
 import { TUTOR_SPEC } from '../game/population.js';
@@ -31,14 +32,50 @@ export class Crowd {
   }
   _add(s, mat, outside = false) {
     const rig = buildCharacter(s.spec, mat);
+    // Die Figur wird nicht einzeln gezeichnet: Knochen hängen an einem leeren Container, die Geometrie
+    // kommt später in ein gemeinsames SkinnedMesh (ein Draw Call für viele Figuren, siehe mergeMeshes)
+    const container = new THREE.Object3D();
+    container.add(rig.bones.root);
+    rig.skinned = rig.mesh; rig.mesh = container;
     const c = new Character(rig, { floorAt: LY.floorAt, seed: s.seed });
-    this.gfx.scene.add(rig.mesh);
-    rig.mesh.castShadow = !!this.opts.shadows;
+    this.gfx.scene.add(container);
+    // Schatten nur dort, wo man sie sieht (Umgebung des eigenen Platzes) – spart je Kaskade einen Draw Call pro Figur
+    const pl = this.plan.player;
+    const near = !pl || !s.seat || (Math.abs(s.seat.row - pl.row) <= 2 && Math.abs(s.seat.k - pl.k) <= 4);
+    rig.castShadow = this.opts.shadows === 'all' || (!!this.opts.shadows && near);
     const st = { s, c, rig, state: 'idle', t: this.rng.range(0, 6), look: 'prof', lookT: this.rng.range(1, 5), react: null, handUp: false, leaving: null, phase: s.phase || 0, writeT: 0, drinkT: this.rng.range(8, 30), whisperT: this.rng.range(15, 40), present: !outside, lod: 0 };
     if (!outside) this._sit(st);
-    else { rig.mesh.visible = false; c.visible = false; }
+    else { this._show(rig, false); c.visible = false; }
     this.list.push(st); this.byId.set(s.id, st);
     return st;
+  }
+  /** sichtbar/unsichtbar: im gemeinsamen Mesh wird die Figur auf einen Punkt zusammengezogen */
+  _show(rig, on) { rig.mesh.visible = on; rig.mesh.scale.setScalar(on ? 1 : 1e-4); rig.mesh.updateMatrixWorld(true); }
+  /**
+   * Alle Figuren zu zwei SkinnedMeshes zusammenführen: schattenwerfende (Umgebung des Spielerplatzes) und übrige.
+   * Jede Figur behält ihr eigenes Skelett (Knochen-Offset im skinIndex); Animation läuft unverändert über die Knochen.
+   */
+  mergeMeshes(material) {
+    const groups = { cast: [], rest: [] };
+    for (const st of this.list) groups[st.rig.castShadow ? 'cast' : 'rest'].push(st.rig);
+    this.merged = [];
+    for (const [key, rigs] of Object.entries(groups)) {
+      if (!rigs.length) continue;
+      const geos = [], bones = [], inverses = [];
+      for (const rig of rigs) {
+        const g = rig.skinned.geometry.clone();
+        const off = bones.length, si = g.attributes.skinIndex;
+        for (let i = 0; i < si.count; i++) si.setXYZW(i, si.getX(i) + off, si.getY(i) + off, si.getZ(i) + off, si.getW(i) + off);
+        geos.push(g);
+        bones.push(...rig.skeleton.bones); inverses.push(...rig.skeleton.boneInverses.map(m => m.clone()));
+        rig.skinned.geometry.dispose();
+      }
+      const geo = mergeGeometries(geos, false); geos.forEach(g => g.dispose());
+      const mesh = new THREE.SkinnedMesh(geo, material);
+      mesh.bind(new THREE.Skeleton(bones, inverses), new THREE.Matrix4());
+      mesh.frustumCulled = false; mesh.castShadow = key === 'cast'; mesh.receiveShadow = true; mesh.name = 'crowd-' + key;
+      this.gfx.scene.add(mesh); this.merged.push(mesh);
+    }
   }
   /** Studierende:n nachträglich hinzufügen (schrittweises Laden) */
   addStudent(s) { return this._add(s, this.mat); }
@@ -65,7 +102,7 @@ export class Crowd {
     }
   }
   breakEnd() { for (const st of this.list) if (st.leaving) st.leaving.returning = true; }
-  latecomerEnter() { const st = this.late; st.present = true; st.rig.mesh.visible = true; st.c.visible = true; st.c.mode = 'stand'; st.c.sitBlend = 0; st.c.placeAt(LY.BACK_DOOR.x, LY.BACK_DOOR.z - 0.35, Math.PI); st.walk = this._pathToSeat(st.s.seat); st.c.standUp(); }
+  latecomerEnter() { const st = this.late; st.present = true; this._show(st.rig, true); st.c.visible = true; st.c.mode = 'stand'; st.c.sitBlend = 0; st.c.placeAt(LY.BACK_DOOR.x, LY.BACK_DOOR.z - 0.35, Math.PI); st.walk = this._pathToSeat(st.s.seat); st.c.standUp(); }
   studentLeave(id) { const st = this.byId.get(id); if (st && st.present) st.leaving = { stage: 'stand', t: 0, forever: true }; }
   tutorShow(on) { this.tutor.visible = on; this.tutor.rig.mesh.visible = on; }
   _pathToSeat(seat) {
@@ -215,14 +252,14 @@ export class Crowd {
     if (L.stage === 'standing') { if (L.t > 1.2) { L.stage = 'out'; L.path = this._pathOut(st.s.seat); } return; }
     if (L.stage === 'out') {
       const tgt = L.path.pts[L.path.i];
-      if (!tgt) { L.stage = 'gone'; c.visible = false; st.rig.mesh.visible = false; st.present = false; if (L.forever) st.leaving = null; return; }
+      if (!tgt) { L.stage = 'gone'; c.visible = false; this._show(st.rig, false); st.present = false; if (L.forever) st.leaving = null; return; }
       const d = Math.hypot(tgt.x - c.pos.x, tgt.z - c.pos.z);
       if (d < 0.1) { L.path.i++; return; }
       const sp = Math.min(d, 0.9 * dt); c.pos.x += (tgt.x - c.pos.x) / d * sp; c.pos.z += (tgt.z - c.pos.z) / d * sp;
       c.yaw = Math.atan2(tgt.x - c.pos.x, tgt.z - c.pos.z); c.walkSpeed = 0.9; c.setArm('L', 0); c.setArm('R', 0); c.setLook(null, 0);
       return;
     }
-    if (L.stage === 'gone' && L.returning) { st.leaving = null; st.present = true; c.visible = true; st.rig.mesh.visible = true; c.mode = 'stand'; c.sitBlend = 0; c.placeAt(LY.BACK_DOOR.x, LY.BACK_DOOR.z - 0.35, Math.PI); st.walk = this._pathToSeat(st.s.seat); }
+    if (L.stage === 'gone' && L.returning) { st.leaving = null; st.present = true; c.visible = true; this._show(st.rig, true); c.mode = 'stand'; c.sitBlend = 0; c.placeAt(LY.BACK_DOOR.x, LY.BACK_DOOR.z - 0.35, Math.PI); st.walk = this._pathToSeat(st.s.seat); }
   }
   _tutor(dt, t, ctx) {
     const tp = ctx.tutorPos; const c = this.tutor;

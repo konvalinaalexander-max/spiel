@@ -38,13 +38,14 @@ export async function buildWorld(gfx, params, progress = () => {}) {
   W.details = buildDetails(gfx, W.hall, W.plan);
   await step(0.62, 'load.people');
   W.charMat = characterMaterial(gfx);
-  W.crowd = new Crowd(gfx, W.charMat, { ...W.plan, students: [] }, { shadows: gfx.preset.studentShadows });
+  W.crowd = new Crowd(gfx, W.charMat, { ...W.plan, students: [] }, { shadows: gfx.preset.id === 'ultra' ? 'all' : gfx.preset.studentShadows });
   // Figuren einzeln anlegen und zwischendurch dem Browser Luft lassen (Menü bleibt bedienbar)
   for (let i = 0; i < W.plan.students.length; i++) {
     W.crowd.addStudent(W.plan.students[i]);
     if (i % 4 === 3) await step(0.62 + 0.14 * i / W.plan.students.length, 'load.people');
   }
   W.crowd.plan = W.plan;
+  W.crowd.mergeMeshes(W.charMat);
   // Handys in der Hand
   for (const st of W.crowd.list) if (st.s.profile === 'phone') W.props.table.handPhone(st.rig.bones.handR, st.s.id);
   await step(0.78, 'load.env');

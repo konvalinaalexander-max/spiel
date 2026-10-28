@@ -25,7 +25,8 @@ Komplette Neuentwicklung nach `AUFTRAG_V2.md`. Version 1 liegt unverändert in `
 - 70 Requisitentypen (Laptops, Collegeblöcke mit Handschrift, Futtermittel-Probengläser, Pansen-Modell, Mensa-Becher, Rucksäcke, Jacken …).
 
 ### Figuren & Animation
-- Eigenes Skelett-Rig, ein Draw Call pro Figur: Prof. Haferkorn (fiktiv), 49 Studierende in 8 Verhaltensprofilen, Tutorin, Spätkommer:in.
+- Eigenes Skelett-Rig für Prof. Haferkorn (fiktiv), 49 Studierende in 8 Verhaltensprofilen, Tutorin, Spätkommer:in; alle Figuren
+  teilen sich ein Material und werden zu zwei SkinnedMeshes zusammengeführt (mit/ohne Schatten), jede mit eigenem Skelett.
 - Gehen mit festen Füßen, Zwei-Knochen-IK, Schreiben an der Tafel mit der Hand am Kreidestrich, Laserpointer, Wischen, Tafel schieben,
   Trinken, Gesten, Blick mit Sakkaden, Blinzeln, Mundbewegung; Studierende tippen, schreiben, scrollen, schlafen, flüstern, nicken, lachen.
 - Eigener Körper in der Ich-Perspektive (Hände am Laptop, am Kuli, am Deckel).

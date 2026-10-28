@@ -46,12 +46,12 @@ if (import.meta.url === 'file://' + process.argv[1]) {
     const pc = v => Math.round(v * 100) + ' %', f1 = v => (Math.round(v * 100) / 100).toString().replace('.', ',');
     const mm = v => `${Math.floor(v / 60)}:${String(Math.round(v % 60)).padStart(2, '0')}`;
     const rows = diffs.map(d => { const r = summary[d]; return `| ${d} | ${DIFFICULTIES[d].target} | ${pc(r.success)} | ${f1(r.caughtPerRun)} | ${pc(r.kicked)} | ${f1(r.wins)} / ${f1(r.losses)} / ${f1(r.draws)} | ${f1(r.quizRight)} / ${f1(r.quizAsked)} | ${f1(r.grade)} | ${mm(r.duration)} | ${Math.round(r.laptop)} s |`; }).join('\n');
-    const par = diffs.map(d => { const D = DIFFICULTIES[d], P = D.prof; return `| ${d} | ${D.mul} | ${P.shoulderEvery.join('–')} s | ${P.telegraph} s | ${pc(P.bluffChance)} | ${pc(P.playerFixChance)} | ${P.fixation.join('–')} s | ${P.turnRate} | ${D.oppSkill} | ${D.neighbor} |`; }).join('\n');
+    const par = diffs.map(d => { const D = DIFFICULTIES[d], P = D.prof, de = v => String(v).replace('.', ','); return `| ${d} | ${de(D.mul)} | ${P.shoulderEvery.join('–')} s | ${de(P.telegraph)} s | ${pc(P.bluffChance)} | ${pc(P.playerFixChance)} | ${P.fixation.map(de).join('–')} s | ${de(P.turnRate)} | ${de(D.oppSkill)} | ${D.neighbor} |`; }).join('\n');
     const md = `# Balancing
 
 Automatisierter Test: \`node tools/sim.mjs --runs ${runs} --difficulty all --md docs/BALANCING.md\` (läuft ohne Rendering, ${((Date.now() - t0) / 1000).toFixed(0)} s).
 Der Bot (\`src/game/bot.js\`, Geschick ${skill}) spielt **nur mit Hinweisen, die auch ein Mensch hat**: grobe, verzögerte und verrauschte
-Blickrichtung des Profs, das Ende des Kreidekratzens, Warnungen der Nachbarin, Reaktionszeit ${(0.55 - skill * 0.3).toFixed(2)} s ± 0,1 s; er sieht
+Blickrichtung des Profs, das Ende des Kreidekratzens, Warnungen der Nachbarin, Reaktionszeit ${(0.55 - skill * 0.3).toFixed(2).replace('.', ',')} s ± 0,1 s; er sieht
 keine internen Werte (Verdacht/Beweis). Er schaltet über dieselbe API wie die Eingabe (\`setMode\`, \`tttPlay\`, \`answerQuiz\`, \`signList\`),
 schreibt in ruhigen Momenten mit und beantwortet Prüfungsfragen umso besser, je länger er im jeweiligen Abschnitt zugehört hat.
 Vorlesungslänge „${length}“ (${length === 'normal' ? '720' : length} s ≙ 90 Spielminuten), Sitzplatz Reihe 5 / Platz 8, Gegner:in im Hörsaal,

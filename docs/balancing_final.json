@@ -56,20 +56,20 @@
   },
   "diplom": {
    "runs": 40,
-   "success": 0.35,
+   "success": 0.175,
    "kicked": 0.125,
-   "caughtPerRun": 1.25,
-   "wins": 5.375,
-   "losses": 3.8,
-   "draws": 8.725,
-   "rounds": 17.9,
-   "quizRight": 3.325,
-   "quizAsked": 4.125,
-   "grade": 3.575,
-   "duration": 689.3758333333394,
-   "laptop": 251.175,
-   "score": 1020.625,
-   "closeCalls": 0.15
+   "caughtPerRun": 1.35,
+   "wins": 5.25,
+   "losses": 3.6,
+   "draws": 8.325,
+   "rounds": 17.175,
+   "quizRight": 3.15,
+   "quizAsked": 4.075,
+   "grade": 4.275,
+   "duration": 685.7391666666701,
+   "laptop": 248.5,
+   "score": 999.15,
+   "closeCalls": 0.1
   }
  }
 }
