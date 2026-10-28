@@ -34,7 +34,7 @@ Legende: ✅ umgesetzt · ◐ teilweise / mit dokumentierter Abweichung · ✗ n
 |---|---|---|---|
 | 2.1 | Modulare Struktur, Build in eine HTML-Datei | ✅ | `src/*`, `tools/build.mjs` |
 | 2.1 | Qualitätsstufen + automatische Erkennung | ✅ | GPU-Erkennung beim ersten Start, Bildzeitmessung im Menü (Empfehlung für den nächsten Start), manuelle Wahl |
-| 2.1 | 60 fps Iris Xe „Mittel“, Draw Calls ≤ 250 | ◐ | Draw Calls „Mittel“ 249 (Sitzplatz) / 244 (Laptop), alle Passes inkl. Schatten und Post (`docs/PERFORMANCE.md`); fps auf echter GPU in dieser Umgebung nicht messbar (nur CPU-Rasterizer) |
+| 2.1 | 60 fps Iris Xe „Mittel“, Draw Calls ≤ 250 | ◐ | Draw Calls „Mittel“ 244 (Sitzplatz) / 241 (Laptop), alle Passes inkl. Schatten und Post (`docs/PERFORMANCE.md`); fps auf echter GPU in dieser Umgebung nicht messbar (nur CPU-Rasterizer) |
 | 2.1 | Pointer Lock (Standard an, Fallback), Gamepad | ✅ | `src/core/input.js`, Einstellung „Mauszeiger einfangen“ |
 | 2.2 | Tageslicht + God Rays, Deckenlicht als Flächen, Beamer als Spot mit Projektion | ✅ | `lighting.js`, `fixtures.js` (Spot mit Folie ab „Hoch“) |
 | 2.2 | Indirektes Licht (PMREM aus der Raumszene), AO ab „Mittel“ | ✅ | `bakeEnvironment`, N8AO |

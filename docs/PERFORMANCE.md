@@ -15,19 +15,19 @@ Hauptbild und Post-Stack.
 <!--PERF-TABLE-->
 | Stufe | Blick | Draw Calls | Dreiecke | Geometrien | Texturen | Shader-Programme | Bildzeit SwiftShader* |
 |---|---|---|---|---|---|---|---|
-| Niedrig | Sitzplatz | 151 | 1 148 890 | 137 | 166 | 93 | 7,9 ms |
-| Niedrig | Laptop | 140 | 1 143 882 | 137 | 166 | 93 | 34,3 ms |
-| Mittel | Sitzplatz | 249 | 1 853 281 | 149 | 200 | 109 | 11,6 ms |
-| Mittel | Laptop | 244 | 1 847 677 | 149 | 208 | 118 | 61,7 ms |
-| Hoch | Sitzplatz | 318 | 2 720 891 | 143 | 206 | 111 | 16,4 ms |
-| Hoch | Laptop | 315 | 2 715 887 | 143 | 214 | 120 | 46 ms |
-| Ultra | Sitzplatz | 320 | 4 774 770 | 145 | 203 | 110 | 14 ms |
-| Ultra | Laptop | 314 | 4 769 346 | 145 | 211 | 119 | 42,2 ms |
+| Niedrig | Sitzplatz | 160 | 1 151 110 | 146 | 166 | 93 | 5,5 ms |
+| Niedrig | Laptop | 146 | 1 145 682 | 146 | 166 | 93 | 11,7 ms |
+| Mittel | Sitzplatz | 244 | 1 852 603 | 144 | 199 | 109 | 15,8 ms |
+| Mittel | Laptop | 241 | 1 847 599 | 144 | 207 | 118 | 60,7 ms |
+| Hoch | Sitzplatz | 321 | 2 721 311 | 146 | 206 | 111 | 15,9 ms |
+| Hoch | Laptop | 315 | 2 715 887 | 146 | 214 | 120 | 66,8 ms |
+| Ultra | Sitzplatz | 320 | 4 775 250 | 145 | 203 | 110 | 17,4 ms |
+| Ultra | Laptop | 316 | 4 769 946 | 145 | 211 | 119 | 53,2 ms |
 
 \* CPU-Rasterizer, nur relativ vergleichbar. Gemessen am 2026-10-28.
 <!--/PERF-TABLE-->
 
-Verlauf auf „Mittel“ in der Messszene der Tabelle: **278 → 249** Draw Calls (Laptop-Blick 273 → 244), Budget ≤ 250 eingehalten.
+Verlauf auf „Mittel“ in der Messszene der Tabelle: **278 → 244** Draw Calls (Laptop-Blick 273 → 241), Budget ≤ 250 eingehalten.
 Maßnahmen: Außenwelt und Fahrzeuge werfen keine Schatten, Rollokästen gebatcht, Bloom mit 6 statt 8 Mip-Stufen, Paulinenwarte und
 Mülltrennung mit je einem Material. Zusammensetzung (Messung in Ruhe): 2 Schattenkaskaden ≈ 96, Hauptbild ≈ 110, Post-Stack 40.
 Vorher hatte das Zusammenführen der Figuren (53 → 2 SkinnedMeshes) auf „Niedrig“ schon 213 → 165 gebracht (jetzt 151).

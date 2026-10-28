@@ -50,7 +50,7 @@ Komplette Neuentwicklung nach `AUFTRAG_V2.md`. Version 1 liegt unverändert in `
 ### Endkontrolle (vor Auslieferung)
 - Beamer-Projektion ab „Hoch“ deckungsgleich mit der Leinwand (perspektivischer Gitter-Warp statt geschätzter Texturgröße).
 - Tiefenschärfe im Laptop-/Heftblick auf den gemessenen Abstand fokussiert (Bildschirm war unscharf).
-- Draw Calls „Mittel“ 278 → 249 (Außenwelt/Fahrzeuge ohne Schatten, Materialien zusammengelegt, Bloom 6 Stufen).
+- Draw Calls „Mittel“ 278 → unter 250 (Außenwelt/Fahrzeuge ohne Schatten, Materialien zusammengelegt, Bloom 6 Stufen).
 - Balancing mit 80 Läufen je Stufe: 95 / 54 / 35 / 11 % Erfolgsquote.
 - Alle Dokumentationsbilder mit dem fertigen Build neu erzeugt; Screenshot-Werkzeug robust gegen Abstürze des CPU-Rasterizers.
 
