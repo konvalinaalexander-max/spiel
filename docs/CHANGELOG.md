@@ -53,3 +53,9 @@ Komplette Neuentwicklung nach `AUFTRAG_V2.md`. Version 1 liegt unverändert in `
 - Draw Calls „Mittel“ 278 → 249 (Außenwelt/Fahrzeuge ohne Schatten, Materialien zusammengelegt, Bloom 6 Stufen).
 - Balancing mit 80 Läufen je Stufe: 95 / 54 / 35 / 11 % Erfolgsquote.
 - Alle Dokumentationsbilder mit dem fertigen Build neu erzeugt; Screenshot-Werkzeug robust gegen Abstürze des CPU-Rasterizers.
+
+### Nachbesserung: Lesbarkeit der Folien
+- Leinwand ohne Grauschleier durch Raumlicht, kein Bloom-Glühen über der Schrift, geschärfte Texturabtastung, Folien immer in 1920 × 1080.
+- Aufzählungen größer (36–52 px), dunkler und automatisch eingepasst (vorher liefen volle Folien in die Quellenzeile).
+- Neu: „Genau hinschauen“ – `F` / linker Trigger halten zoomt auf Tafel und Folien (Hilfe, Tastenbelegung, HUD, Tutorial).
+- Hybrid-Monitor zeigt die geteilte Folie.

@@ -362,8 +362,8 @@ export function buildHybridMonitor(gfx, lang = 'de', share = null) {
     if (sharing) {
       c.fillStyle = '#ffffff'; c.fillRect(16, 54, 600, 338);
       c.imageSmoothingQuality = 'high'; c.drawImage(share.canvas, 16, 54, 600, 338);
-      c.fillStyle = 'rgba(0,0,0,.6)'; c.fillRect(16, 54, 250, 24); c.fillStyle = '#fff'; c.font = '14px Arial';
-      c.fillText(lang === 'en' ? 'Prof. Haferkorn is sharing the screen' : 'Prof. Haferkorn teilt den Bildschirm', 24, 71);
+      c.fillStyle = 'rgba(0,0,0,.6)'; c.fillRect(16, 368, 250, 24); c.fillStyle = '#fff'; c.font = '14px Arial';
+      c.fillText(lang === 'en' ? 'Prof. Haferkorn is sharing the screen' : 'Prof. Haferkorn teilt den Bildschirm', 24, 385);
       // Kamera klein unten rechts im Hauptbild
       c.save(); c.translate(456, 292); c.scale(160 / 600, 100 / 338); c.translate(-16, -54); drawCam(); c.restore();
       c.strokeStyle = '#1e2126'; c.lineWidth = 2; c.strokeRect(456, 292, 160, 100);

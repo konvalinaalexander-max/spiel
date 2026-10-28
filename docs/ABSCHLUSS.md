@@ -86,7 +86,7 @@ Legende: ✅ umgesetzt · ◐ teilweise / mit dokumentierter Abweichung · ✗ n
 | 5 | Ereignispool mit Wahrscheinlichkeiten/Abklingzeiten (alle im Auftrag genannten) | ✅ | 28 Ereignistypen |
 | 5 | Dialog-Engine mit Varianten, natürliche Sprache, Rückbezüge | ✅ | 3 Varianten je Satz |
 | 5 | Sprachausgabe (de-AT bevorzugt), Untertitel immer, Murmeln als Ersatz, räumlich, am Laptop gedämpft | ◐ | Browser-TTS ist technisch nicht räumlich (API-Grenze) – Lautstärke wird nachgeführt; Murmeln ist räumlich |
-| 5 | Folien per Clicker mit Blend, Tafel Strich für Strich, Herleitungen, Wischen, Hochschieben | ✅ | |
+| 5 | Folien per Clicker mit Blend, Tafel Strich für Strich, Herleitungen, Wischen, Hochschieben | ✅ | Folien auch aus hinteren Reihen lesbar: kontrastreiche Leinwand, „Genau hinschauen“ (`F`), Folie auf dem Hybrid-Monitor (`docs/ITERATIONEN.md`, Nachbesserung) |
 | 5 | Mitschrift-Mechanik mit Quiz-Hilfe | ✅ | `N`, „Blick in die Mitschrift“ (`R`) |
 | Abnahme | RUN_LOG, ≥ 25 Ereignistypen, ≥ 400 Sätze DE + EN | ✅ | `docs/RUN_LOG.txt` (26 Typen in einem Durchlauf), 1 079 Sätze DE / 1 083 EN in den Abschnitten + 553 Dialogsätze |
 

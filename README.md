@@ -27,6 +27,7 @@ Prüfsumme: `dist/SHA256.txt`.
 | `Leertaste` / rechte Maustaste | zum Laptop beugen ↔ aufschauen |
 | Maus + Klick, Ziffernblock `1`–`9` | am Laptop: Feld setzen, Fenster bedienen |
 | `N` (halten) | mitschreiben |
+| `F` (halten) | genau hinschauen: zoomt auf Tafel und Folien (≈ 2,4-fach), damit man den Stoff auch aus den hinteren Reihen lesen kann |
 | `Tab` | zwischen Spiel und Skriptum wechseln (Reflexzeit 0,3 s) |
 | Mausrad / `L` | Deckelwinkel (flacher = weniger Leuchten, schwerer lesbar) |
 | `+` / `−` | Bildschirmhelligkeit |
@@ -34,7 +35,7 @@ Prüfsumme: `dist/SHA256.txt`.
 | `E` | Exkursionsliste unterschreiben (Mausgeste) |
 | `1`–`4`, `R` | Prüfungsfrage beantworten · Blick in die Mitschrift |
 | `Esc` / `P`, `F1`, `F3` | Pause („Mensa-Pause“), Hilfe, Sicht des Profs (Debug) |
-| Gamepad | Stick: Blick/Cursor · A: Klick · B: Laptop · X halten: mitschreiben · Y: Fenster · LB/RB: Deckel · Steuerkreuz: Feld |
+| Gamepad | Stick: Blick/Cursor · A: Klick · B: Laptop · X halten: mitschreiben · LT: genau hinschauen · Y: Fenster · LB/RB: Deckel · Steuerkreuz: Feld |
 | Touch | Wischen: Blick/Cursor · Tippen: Klick · Schaltflächen unten rechts |
 
 Alle Tasten sind in den Einstellungen frei belegbar.

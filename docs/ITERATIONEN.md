@@ -159,3 +159,23 @@ durchgesehen. Gefunden und behoben:
 
 Geprüft ohne Befund: Nachbarin sitzt links (Platz 6), rechts daneben frei (Platz 8, Rucksack); Figuren aus allen sechs Orbit-Winkeln
 vollständig, keine fehlenden Körperteile nach dem Zusammenführen; Folien in allen Stufen lesbar.
+
+## Nachbesserung – Lesbarkeit der Folien
+
+Rückmeldung nach der Auslieferung: Die Folien auf der Leinwand wirken verschwommen, der Vorlesungsstoff ist schwer zu lesen.
+Diagnose mit Ausschnitten vom Sitzplatz (Reihe 5, 1280 × 720, Stufe „Mittel“), jeweils eine Ursache abgeschaltet:
+
+| Ursache | Wirkung | Maßnahme |
+|---|---|---|
+| Raumlicht auf der Leinwand: die Folie war nur Emission, das Deckenlicht beleuchtete die weiße Leinwand zusätzlich gleichmäßig | grauer Schleier auch über der Schrift, nach unten stärker (die unteren Punkte waren fast unsichtbar) | bei laufendem Beamer reagiert die Leinwand kaum noch auf Raumlicht (Albedo × 0,22 bzw. × 0,3 mit Spot), Emission angehoben |
+| Bloom-Schwelle 0,82 lag unter dem Folienweiß | Glühen legt sich über die Buchstaben | Schwelle 1,0 – Lampen, Fenster und Notausgangsschilder glühen weiter |
+| trilineare Filterung bei 4–6-facher Verkleinerung | weiche, verwaschene Schrift | Folie mit Mip-Bias −0,7 abgetastet, immer in 1920 × 1080; Spot-Projektion 2048² ab „Ultra“ |
+| feste 40-px-Schrift in Grau `#474747`, sechs Punkte liefen in die Quellenzeile | dünn und kontrastarm, Überlappung | Aufzählung passt sich ein (36–52 px statt fest 40 px, 30 Folien geprüft, keine läuft über), dunkler, leicht verstärkte Striche |
+
+Vorher `phase10_folie_vorher.png` → nachher `phase10_folie_nachher.png` (gleicher Ausschnitt, 2× vergrößert).
+
+Aus Reihe 5 ist die Leinwand bei 1280 × 720 trotzdem nur etwa 340 Pixel breit – Fließtext bleibt dort klein. Deshalb neu:
+**„Genau hinschauen“** (`F` bzw. linker Trigger halten) zoomt beim Zuhören auf etwa das 2,4-Fache (Sichtfeld 60° → 25°), die
+Blickempfindlichkeit sinkt entsprechend (`phase10_genau_hinschauen.png`). Erklärt in Hilfe, Tastenbelegung, HUD-Zeile und als
+Tutorial-Hinweis. Außerdem zeigt der **Hybrid-Monitor** bei laufendem Beamer die geteilte Folie mit der Hörsaalkamera als kleinem
+Fenster, wie in echten Hybridvorlesungen (`phase10_hybridmonitor_folie.jpg`) – eine zweite, näher gelegene Quelle für den Stoff.
