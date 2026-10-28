@@ -2,12 +2,12 @@
  {
   "view": "seat",
   "preset": "low",
-  "ms": 5.6,
-  "calls": 161,
-  "triangles": 1149878,
-  "geometries": 146,
-  "textures": 172,
-  "programs": 90,
+  "ms": 7.9,
+  "calls": 151,
+  "triangles": 1148890,
+  "geometries": 137,
+  "textures": 166,
+  "programs": 93,
   "dpr": 0.8,
   "size": [
    1280,
@@ -17,12 +17,12 @@
  {
   "view": "laptop",
   "preset": "low",
-  "ms": 12.6,
-  "calls": 146,
-  "triangles": 1144866,
-  "geometries": 150,
-  "textures": 172,
-  "programs": 90,
+  "ms": 34.3,
+  "calls": 140,
+  "triangles": 1143882,
+  "geometries": 137,
+  "textures": 166,
+  "programs": 93,
   "dpr": 0.8,
   "size": [
    1280,
@@ -32,12 +32,12 @@
  {
   "view": "seat",
   "preset": "medium",
-  "ms": 16,
-  "calls": 252,
-  "triangles": 1852915,
+  "ms": 11.6,
+  "calls": 249,
+  "triangles": 1853281,
   "geometries": 149,
-  "textures": 205,
-  "programs": 106,
+  "textures": 200,
+  "programs": 109,
   "dpr": 1,
   "size": [
    1280,
@@ -47,12 +47,12 @@
  {
   "view": "laptop",
   "preset": "medium",
-  "ms": 43.2,
-  "calls": 243,
-  "triangles": 1846783,
+  "ms": 61.7,
+  "calls": 244,
+  "triangles": 1847677,
   "geometries": 149,
-  "textures": 213,
-  "programs": 115,
+  "textures": 208,
+  "programs": 118,
   "dpr": 1,
   "size": [
    1280,
@@ -62,42 +62,42 @@
  {
   "view": "seat",
   "preset": "high",
-  "ms": 15.4,
-  "calls": 325,
-  "triangles": 2720783,
+  "ms": 16.4,
+  "calls": 318,
+  "triangles": 2720891,
+  "geometries": 143,
+  "textures": 206,
+  "programs": 111,
+  "dpr": 1,
+  "size": [
+   1280,
+   720
+  ]
+ },
+ {
+  "view": "laptop",
+  "preset": "high",
+  "ms": 46,
+  "calls": 315,
+  "triangles": 2715887,
+  "geometries": 143,
+  "textures": 214,
+  "programs": 120,
+  "dpr": 1,
+  "size": [
+   1280,
+   720
+  ]
+ },
+ {
+  "view": "seat",
+  "preset": "ultra",
+  "ms": 14,
+  "calls": 320,
+  "triangles": 4774770,
   "geometries": 145,
-  "textures": 212,
-  "programs": 108,
-  "dpr": 1,
-  "size": [
-   1280,
-   720
-  ]
- },
- {
-  "view": "laptop",
-  "preset": "high",
-  "ms": 52.2,
-  "calls": 324,
-  "triangles": 2716571,
-  "geometries": 148,
-  "textures": 220,
-  "programs": 117,
-  "dpr": 1,
-  "size": [
-   1280,
-   720
-  ]
- },
- {
-  "view": "seat",
-  "preset": "ultra",
-  "ms": 24.5,
-  "calls": 329,
-  "triangles": 4774920,
-  "geometries": 149,
-  "textures": 210,
-  "programs": 107,
+  "textures": 203,
+  "programs": 110,
   "dpr": 1,
   "size": [
    1280,
@@ -107,12 +107,12 @@
  {
   "view": "laptop",
   "preset": "ultra",
-  "ms": 85,
-  "calls": 327,
-  "triangles": 4770408,
-  "geometries": 151,
-  "textures": 218,
-  "programs": 116,
+  "ms": 42.2,
+  "calls": 314,
+  "triangles": 4769346,
+  "geometries": 145,
+  "textures": 211,
+  "programs": 119,
   "dpr": 1,
   "size": [
    1280,

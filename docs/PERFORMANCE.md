@@ -15,21 +15,22 @@ Hauptbild und Post-Stack.
 <!--PERF-TABLE-->
 | Stufe | Blick | Draw Calls | Dreiecke | Geometrien | Texturen | Shader-Programme | Bildzeit SwiftShader* |
 |---|---|---|---|---|---|---|---|
-| Niedrig | Sitzplatz | 161 | 1 149 878 | 146 | 172 | 90 | 5,6 ms |
-| Niedrig | Laptop | 146 | 1 144 866 | 150 | 172 | 90 | 12,6 ms |
-| Mittel | Sitzplatz | 252 | 1 852 915 | 149 | 205 | 106 | 16 ms |
-| Mittel | Laptop | 243 | 1 846 783 | 149 | 213 | 115 | 43,2 ms |
-| Hoch | Sitzplatz | 325 | 2 720 783 | 145 | 212 | 108 | 15,4 ms |
-| Hoch | Laptop | 324 | 2 716 571 | 148 | 220 | 117 | 52,2 ms |
-| Ultra | Sitzplatz | 329 | 4 774 920 | 149 | 210 | 107 | 24,5 ms |
-| Ultra | Laptop | 327 | 4 770 408 | 151 | 218 | 116 | 85 ms |
+| Niedrig | Sitzplatz | 151 | 1 148 890 | 137 | 166 | 93 | 7,9 ms |
+| Niedrig | Laptop | 140 | 1 143 882 | 137 | 166 | 93 | 34,3 ms |
+| Mittel | Sitzplatz | 249 | 1 853 281 | 149 | 200 | 109 | 11,6 ms |
+| Mittel | Laptop | 244 | 1 847 677 | 149 | 208 | 118 | 61,7 ms |
+| Hoch | Sitzplatz | 318 | 2 720 891 | 143 | 206 | 111 | 16,4 ms |
+| Hoch | Laptop | 315 | 2 715 887 | 143 | 214 | 120 | 46 ms |
+| Ultra | Sitzplatz | 320 | 4 774 770 | 145 | 203 | 110 | 14 ms |
+| Ultra | Laptop | 314 | 4 769 346 | 145 | 211 | 119 | 42,2 ms |
 
 \* CPU-Rasterizer, nur relativ vergleichbar. Gemessen am 2026-10-28.
 <!--/PERF-TABLE-->
 
-Verlauf auf „Mittel“ (Sitzplatz, alle Passes): 273 Draw Calls → **246** (Außenwelt ohne Schatten −19, Fahrzeuge ohne Schatten und
-Rollokästen gebatcht −4, Bloom-Stufen −4). Zusammensetzung danach: 2 Schattenkaskaden 96, Hauptbild 110, Post-Stack 40.
-Vorher hatte schon das Zusammenführen der Figuren (53 → 2 SkinnedMeshes) auf „Niedrig“ 213 → 165 gebracht.
+Verlauf auf „Mittel“ in der Messszene der Tabelle: **278 → 249** Draw Calls (Laptop-Blick 273 → 244), Budget ≤ 250 eingehalten.
+Maßnahmen: Außenwelt und Fahrzeuge werfen keine Schatten, Rollokästen gebatcht, Bloom mit 6 statt 8 Mip-Stufen, Paulinenwarte und
+Mülltrennung mit je einem Material. Zusammensetzung (Messung in Ruhe): 2 Schattenkaskaden ≈ 96, Hauptbild ≈ 110, Post-Stack 40.
+Vorher hatte das Zusammenführen der Figuren (53 → 2 SkinnedMeshes) auf „Niedrig“ schon 213 → 165 gebracht (jetzt 151).
 
 ## Budgets und Maßnahmen
 

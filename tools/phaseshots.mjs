@@ -82,7 +82,9 @@ if (only.includes('orbit') || only.includes('player') || only.includes('seq')) {
     lap('Heft: ' + JSON.stringify(await page.evaluate(() => { const S = window.__game().session; return { mode: S.player.mode, quiz: !!S.quiz }; })));
     save('phase3_player3_notes.jpg', await page.evaluate(() => window.__render()));
     await page.evaluate(() => { window.__game().input.down.delete('KeyN'); window.__step(1); });
-    await page.evaluate(() => { window.__game().session.setMode('laptop'); window.__step(1.4); });
+    // läuft gerade eine Prüfungsfrage, wird sie beantwortet (währenddessen bleibt der Laptop zu)
+    await page.evaluate(() => { const S = window.__game().session; let n = 0; while ((S.quiz || S.player.forcedT > 0) && n++ < 60) { if (S.quiz) S.answerQuiz(S.quiz.correctIndex); window.__step(0.5); } S.setMode('laptop'); window.__step(1.4); });
+    lap('Laptop: ' + JSON.stringify(await page.evaluate(() => { const S = window.__game().session; return { mode: S.player.mode, blend: +S.player.blend.toFixed(2) }; })));
     save('phase3_player2_laptop.jpg', await page.evaluate(() => window.__render()));
   }
   if (only.includes('seq')) {

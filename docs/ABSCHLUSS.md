@@ -34,7 +34,7 @@ Legende: ✅ umgesetzt · ◐ teilweise / mit dokumentierter Abweichung · ✗ n
 |---|---|---|---|
 | 2.1 | Modulare Struktur, Build in eine HTML-Datei | ✅ | `src/*`, `tools/build.mjs` |
 | 2.1 | Qualitätsstufen + automatische Erkennung | ✅ | GPU-Erkennung beim ersten Start, Bildzeitmessung im Menü (Empfehlung für den nächsten Start), manuelle Wahl |
-| 2.1 | 60 fps Iris Xe „Mittel“, Draw Calls ≤ 250 | ◐ | Draw Calls gemessen (`docs/PERFORMANCE.md`); fps auf echter GPU in dieser Umgebung nicht messbar (nur CPU-Rasterizer) |
+| 2.1 | 60 fps Iris Xe „Mittel“, Draw Calls ≤ 250 | ◐ | Draw Calls „Mittel“ 249 (Sitzplatz) / 244 (Laptop), alle Passes inkl. Schatten und Post (`docs/PERFORMANCE.md`); fps auf echter GPU in dieser Umgebung nicht messbar (nur CPU-Rasterizer) |
 | 2.1 | Pointer Lock (Standard an, Fallback), Gamepad | ✅ | `src/core/input.js`, Einstellung „Mauszeiger einfangen“ |
 | 2.2 | Tageslicht + God Rays, Deckenlicht als Flächen, Beamer als Spot mit Projektion | ✅ | `lighting.js`, `fixtures.js` (Spot mit Folie ab „Hoch“) |
 | 2.2 | Indirektes Licht (PMREM aus der Raumszene), AO ab „Mittel“ | ✅ | `bakeEnvironment`, N8AO |
@@ -135,7 +135,7 @@ Legende: ✅ umgesetzt · ◐ teilweise / mit dokumentierter Abweichung · ✗ n
 | 9 | Doku | ✅ | `docs/` |
 | 9 | Tests: Headless ohne Konsolenfehler, Minimax, Sichtmodell, Übersetzungen, Build-Größe | ✅ | `npm test` (+ `--e2e`) |
 | 9 | Browser-Matrix Chrome/Edge/Firefox/Safari | ◐ | getestet: Chromium (Headless, SwiftShader). Keine browserspezifischen APIs (WebGL 2, Web Audio, Speech optional); kein `OES_texture_float`-Zwang (Half-Float), keine WebGPU-Pflicht. Firefox/Safari/Edge konnten hier nicht ausgeführt werden. |
-| 9 | Endprodukt + SHA256 | ✅ | `dist/` |
+| 9 | Endprodukt + SHA256 | ✅ | `dist/`; Endkontrolle aller Dokumentationsbilder mit dem fertigen Build (Befunde und Korrekturen in `docs/ITERATIONEN.md`, Phase 9) |
 
 ## Messwerte
 
@@ -147,6 +147,8 @@ Lighthouse (Startseite, ohne Netzwerkdrosselung): Barrierefreiheit 100, Best Pra
 
 - **Echte GPU-Leistung nicht messbar:** Die Arbeitsumgebung hat keine GPU; alle Bilder wurden mit SwiftShader (CPU) gerendert.
   Bildzeiten dort sind 20–100× langsamer als auf echter Hardware und taugen nur für relative Vergleiche.
+- **Headless-Screenshots:** Totalen des ganzen Saals brauchen im CPU-Rasterizer 30–45 s pro Bild; dabei stürzt Chromium gelegentlich ab
+  (GPU-Watchdog). `tools/phaseshots.mjs` öffnet die Seite dann neu und wiederholt das Bild. Auf echter Hardware tritt das nicht auf.
 - **Browser-Sprachausgabe** nicht räumlich; Stimmenauswahl hängt vom Betriebssystem ab.
 - **Gesichter** stilisiert ohne Texturdetails (aus Spielerposition sieht man vor allem Hinterköpfe).
 - **Neue Vorlesung mit anderem Platz/Wetter** lädt die Seite neu (sauberer GPU-Speicher statt Teil-Neuaufbau).
