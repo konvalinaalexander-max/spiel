@@ -166,9 +166,56 @@ test(`${DIST} existiert, ≤ 120 MB, Prüfsummen stimmen`, () => {
   eq(crypto.createHash('sha256').update(buf).digest('hex'), sums[DIST_NAME], 'SHA256 v3');
   for (const v of ['BOKU_TicTacTierernaehrung_v2.html', 'BOKU_TicTacTierernaehrung_v1.html']) if (sums[v]) eq(crypto.createHash('sha256').update(fs.readFileSync(path.join(root, 'dist', v))).digest('hex'), sums[v], 'SHA256 ' + v);
   const html = buf.toString('utf8');
-  ok(!/<script[^>]+src=/.test(html) && !/<link[^>]+stylesheet/.test(html), 'externe Ressourcen gefunden');
+  // erlaubt: die Stimmen-Begleitdateien im selben Ordner (offline per Doppelklick ladbar)
+  const srcs = [...html.matchAll(/<script[^>]+src="([^"]+)"/g)].map(m => m[1]);
+  ok(srcs.every(u => /^BOKU_TicTacTierernaehrung_v3_stimme_(de|en)\.js$/.test(u)), 'externe Skripte gefunden: ' + srcs.join(', '));
+  for (const u of srcs) { ok(fs.existsSync(path.join(root, 'dist', u)), 'Begleitdatei fehlt: ' + u); eq(crypto.createHash('sha256').update(fs.readFileSync(path.join(root, 'dist', u))).digest('hex'), sums[u], 'SHA256 ' + u); }
+  ok(!/<link[^>]+stylesheet/.test(html), 'externe Stylesheets gefunden');
   ok(!/type="module"/.test(html), 'ES-Module funktionieren nicht über file://');
   ok(html.includes('kein offizielles Angebot der BOKU'), 'Hinweis fehlt');
+});
+
+console.log('Assets (Version 3)');
+const readJ = f => JSON.parse(fs.readFileSync(path.join(root, f), 'utf8'));
+const has = f => fs.existsSync(path.join(root, f));
+test('Figuren: alle Dateien des Verzeichnisses vorhanden (Desktop, Mobil)', () => {
+  for (const prof of ['desktop', 'mobile']) {
+    const idx = readJ(`assets/build/${prof}/humans/index.json`);
+    ok(Object.keys(idx.humans).length >= 22, prof + ': zu wenige Figuren');
+    for (const id of Object.keys(idx.humans)) ok(has(`assets/build/${prof}/humans/${id}.hpk`), `${prof}/${id}.hpk fehlt`);
+    for (const k of ['crowd_f', 'crowd_m']) ok(has(`assets/build/${prof}/humans/${k}_c.ktx2`), `${prof}/${k}_c.ktx2 fehlt`);
+  }
+});
+test('Materialien und Requisiten: Dateien vorhanden, Lizenz und Quelle je Eintrag', () => {
+  for (const prof of ['desktop', 'mobile']) {
+    const tx = readJ(`assets/build/${prof}/textures.json`);
+    for (const [id, t] of Object.entries(tx)) { ok(t.license === 'CC0-1.0' && t.source, id + ': Lizenz/Quelle'); for (const k of ['color', 'normal', 'orm']) ok(has(`assets/build/${prof}/textures/${id}_${k}.ktx2`), `${prof}/${id}_${k}.ktx2`); }
+    const pr = readJ(`assets/build/${prof}/props/index.json`);
+    ok(Object.keys(pr).length >= 25, prof + ': zu wenige Requisiten');
+    for (const [id, p] of Object.entries(pr)) { ok(p.license === 'CC0-1.0' && p.source && (p.authors || []).length, id + ': Lizenz/Quelle/Urheber'); ok(has(`assets/build/${prof}/props/${id}.glb`), `${prof}/${id}.glb`); }
+  }
+});
+test('Geräusche: Dateien vorhanden, jede CC-BY-Aufnahme steht in den Credits', () => {
+  const man = readJ('assets/build/sfx/manifest.json'), credits = readJ('assets/build/credits.json');
+  const lines = new Set(credits.sounds.map(c => c.line));
+  for (const [name, m] of Object.entries(man)) {
+    for (const f of m.files) ok(has(`assets/build/sfx/${f}`), f + ' fehlt');
+    for (const o of m.origin || []) { ok(o.license, name + ': Lizenz fehlt'); if (/^CC-BY/.test(o.license)) ok(lines.has(o.attribution), name + ': CC-BY-Nennung fehlt in den Credits'); }
+  }
+});
+test('Audio-Prüfung (Spitzen, Übersteuerung, ≤ 5 synthetische UI-Töne)', () => {
+  try { execFileSync(process.execPath, [path.join(root, 'tools/audio-check.mjs')], { encoding: 'utf8' }); } catch (e) { throw new Error((e.stdout || '').split('\n').filter(l => /FEHLER/.test(l)).join('; ')); }
+});
+test('Stimmen: jede Aufnahme im Verzeichnis existiert', () => {
+  for (const lang of ['de', 'en']) { if (!has(`assets/build/voice/${lang}/manifest.json`)) continue; const m = readJ(`assets/build/voice/${lang}/manifest.json`); for (const id of Object.keys(m)) ok(has(`assets/build/voice/${lang}/${id}.ogg`), `${lang}/${id}.ogg fehlt`); }
+});
+if (has('dist/mobile/index.html')) test('Mobil-Build: Kern ≤ 30 MB, Web-App-Manifest gültig', () => {
+  const sw = fs.readFileSync(path.join(root, 'dist/mobile/sw.js'), 'utf8'); const core = JSON.parse(/const CORE = (\[.*?\]);/s.exec(sw)[1]);
+  const bytes = core.filter(f => f !== './').reduce((a, f) => a + fs.statSync(path.join(root, 'dist/mobile', f)).size, 0);
+  ok(bytes <= 30 * 1048576, `Kern ${(bytes / 1048576).toFixed(1)} MB`);
+  const wm = readJ('dist/mobile/manifest.webmanifest');
+  ok(wm.name && wm.start_url && wm.display === 'standalone', 'Pflichtfelder');
+  for (const s2 of ['192x192', '512x512']) ok(wm.icons.some(i => i.sizes === s2 && has('dist/mobile/' + i.src)), 'Symbol ' + s2);
 });
 
 if (args.includes('--e2e')) {

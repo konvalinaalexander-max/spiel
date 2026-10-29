@@ -1,5 +1,32 @@
 # Changelog
 
+## 3.0.0 (in Arbeit) – Version 3: scharf, echt, mobil
+
+**Schärfe und Lesbarkeit**
+- Render- = Bildschirmpixel bis DPR 2 auf allen Stufen, MSAA statt FXAA, Nachschärfung (CAS), entgiftete Nachbearbeitung.
+- Folie aus Reihe 5: Texterkennung 88,9 % statt 62,2 %, Kantenschärfe 4,3-fach; Laptop 98,1 % statt 62,1 % (`docs/SCHAERFE.md`).
+- Laptop-Blick: Teile der eigenen Figur direkt vor der Kamera werden ausgeblendet (vorher verdeckte der Unterarm Text).
+
+**Menschen**
+- Alle Figuren aus MakeHuman/MPFB (CC0): 16 Typen für die Menge, Prof, Nachbarin, Tutorin, drei Spielfiguren mit echten,
+  voll gegliederten Händen. Verdeckte Haut per Strahltest entfernt, Detailstufen für die Menge, Atlanten als KTX2.
+
+**Hörsaal und Requisiten**
+- Echte PBR-Materialien (ambientCG, CC0): Parkett, Pultholz, Vertäfelung, Putz, Metall, Stein.
+- 30 echte Modelle (Poly Haven, CC0): Obst, Thermosflaschen, Mikroskop, Bücher, Krug, Pflanzen, Regal mit Büste u. a.
+
+**Prof. Haferkorn, Stimme, Klang**
+- Neue Texte: Anekdoten, Running Gags, Zwischenfragen, akademisches Viertel; Wiederholungen innerhalb einer Vorlesung vermieden.
+- Echte Stimmen statt Browser-Sprachausgabe: Deutsch mit Coqui XTTS v2, Englisch mit Kokoro-82M, gemastert (−16 LUFS),
+  räumlich am Kopf der Figur, Kiefer folgt der Lautstärke. Desktop: Stimmen als Begleitdatei je Sprache.
+- Echte Geräusche (51 Klänge, CC0/CC BY/PD) statt Synthese; synthetisch bleiben nur fünf Laptop-Signaltöne. Menü-Musik von Kevin MacLeod.
+
+**Handy**
+- Mobil-Build als PWA (offline nach erstem Start), Touch-Steuerung mit Tastenleiste, Pinch-Zoom, Wake Lock, Pages-Workflow.
+
+**Balance**
+- Neu abgestimmt auf die gesprächigeren Prof-Texte: 93 / 50 / 31 / 15 % Erfolg (80 Läufe je Stufe).
+
 ## 2.0.0 – Tic Tac Tierernährung v2 (2026-10-28)
 
 Komplette Neuentwicklung nach `AUFTRAG_V2.md`. Version 1 liegt unverändert in `legacy/v1/` bzw. `dist/BOKU_TicTacTierernaehrung_v1.html`.
