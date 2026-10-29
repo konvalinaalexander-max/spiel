@@ -5,7 +5,7 @@ import { build } from 'esbuild';
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
-import { DIST, writeSums } from './dist.mjs';
+import { DIST, DIST_NAME, writeSums } from './dist.mjs';
 
 const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
 const dev = process.argv.includes('--dev');
@@ -73,6 +73,11 @@ if (!mobile && fs.existsSync(path.join(humDir, 'index.json')) && !process.argv.i
 }
 // Vorgerenderte Stimmen (Phase 6): assets/build/voice/<sprache>/manifest.json + <id>.ogg (Opus) → eingebetteter Block
 let voiceBlock = '';
+// Desktop: Stimmen als Begleitdateien je Sprache (dist/BOKU_TicTacTierernaehrung_v3_stimme_<l>.js, per <script src> auch offline
+// ladbar). So bleibt die HTML-Datei unter der 100-MB-Grenze von GitHub; fehlt eine Begleitdatei, bleibt es beim Untertitel.
+// --voice-inline bettet die Stimmen wie bisher direkt ein.
+const voiceSidecar = !process.argv.includes('--voice-inline');
+let voiceScripts = '';
 if (!mobile && !process.argv.includes('--no-voice')) {
   const vb = {}; let n = 0, bytes = 0;
   for (const lang of ['de', 'en']) {
@@ -86,7 +91,15 @@ if (!mobile && !process.argv.includes('--no-voice')) {
     }
     vb[lang] = { clips };
   }
-  if (n) { voiceBlock = JSON.stringify(vb); console.log(`Stimmen: ${n} Aufnahmen, ${(bytes / 1048576).toFixed(1)} MB`); }
+  if (n && voiceSidecar) {
+    fs.mkdirSync(path.join(root, 'dist'), { recursive: true });
+    for (const [lang, data] of Object.entries(vb)) {
+      const name = DIST_NAME.replace('.html', `_stimme_${lang}.js`);
+      fs.writeFileSync(path.join(root, 'dist', name), `/* Stimmen (${lang}) für ${DIST_NAME} – gehört in denselben Ordner */\n(window.__voicePacks=window.__voicePacks||{})[${JSON.stringify(lang)}]=${JSON.stringify(data)};\n`);
+      voiceScripts += `<script src="${name}"></script>\n`;
+    }
+    console.log(`Stimmen: ${n} Aufnahmen, ${(bytes / 1048576).toFixed(1)} MB in Begleitdateien`);
+  } else if (n) { voiceBlock = JSON.stringify(vb); console.log(`Stimmen: ${n} Aufnahmen, ${(bytes / 1048576).toFixed(1)} MB`); }
 }
 // Echte Geräusche (Phase 6b): assets/build/sfx/manifest.json + <name>_<n>.ogg → eingebetteter Block
 let sfxBlock = '';
@@ -132,7 +145,7 @@ html = html
   .replace('<!--HEADEXTRA-->', () => headExtra)
   .replace('<!--STYLE-->', () => `<style>\n${css}\n</style>`)
   // Bundle erst nach dem ersten Bild ausführen (schneller erster Paint: Vorlader sichtbar, bevor 2 MB JS laufen)
-  .replace('<!--SCRIPT-->', () => `${remoteBlock}<script type="text/plain" id="assets-humans">${humansBlock}</script>\n<script type="text/plain" id="assets-voice">${voiceBlock}</script>\n<script type="text/plain" id="assets-sfx">${sfxBlock}</script>\n<script type="text/plain" id="assets-textures">${texBlock}</script>\n<script type="text/plain" id="assets-props">${propsBlock}</script>\n<script type="application/json" id="credits-data">${creditsBlock}</script>\n<script type="text/plain" id="bundle">\n${safeJs}\n</script>\n<script>(function(){function run(){var t=document.getElementById('bundle').textContent,s=document.createElement('script');try{s.src=URL.createObjectURL(new Blob([t],{type:'text/javascript'}));}catch(e){s.text=t;}document.body.appendChild(s);}requestAnimationFrame(function(){setTimeout(run,30);});})();</script>`)
+  .replace('<!--SCRIPT-->', () => `${remoteBlock}${voiceScripts}<script type="text/plain" id="assets-humans">${humansBlock}</script>\n<script type="text/plain" id="assets-voice">${voiceBlock}</script>\n<script type="text/plain" id="assets-sfx">${sfxBlock}</script>\n<script type="text/plain" id="assets-textures">${texBlock}</script>\n<script type="text/plain" id="assets-props">${propsBlock}</script>\n<script type="application/json" id="credits-data">${creditsBlock}</script>\n<script type="text/plain" id="bundle">\n${safeJs}\n</script>\n<script>(function(){function run(){var t=document.getElementById('bundle').textContent,s=document.createElement('script');try{s.src=URL.createObjectURL(new Blob([t],{type:'text/javascript'}));}catch(e){s.text=t;}document.body.appendChild(s);}requestAnimationFrame(function(){setTimeout(run,30);});})();</script>`)
   .replace('<!--LICENSES-->', () => `<!--\n${third.replace(/--/g, '- -')}\n-->`)
   .replace('<!--THIRDTEXT-->', () => third.replace(/<\//g, '<\\/'));
 

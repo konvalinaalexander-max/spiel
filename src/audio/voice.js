@@ -13,7 +13,9 @@ const GAP = 0.06; // Pause zwischen zusammengesetzten Stücken (s)
 export class VoiceBank {
   constructor() {
     const t = embedded('assets-voice');
-    this.data = t ? JSON.parse(t) : null;
+    // Desktop: Begleitdateien je Sprache (window.__voicePacks), sonst eingebetteter Block
+    const packs = typeof window !== 'undefined' && window.__voicePacks;
+    this.data = t ? JSON.parse(t) : (packs && Object.keys(packs).length ? packs : null);
     this.cache = new Map();   // id → Promise<AudioBuffer>
     this.titles = {};         // Abschnittstitel → Text (für {section})
     // Mobil-Build: nur die Verzeichnisse (Dauer, Lautstärkekurve) laden; die Aufnahmen selbst holt buffer() bei Bedarf
