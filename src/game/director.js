@@ -46,6 +46,9 @@ export class Director {
     this.quizPending = null; this.nextQuizAt = this._quizInterval() * 0.8;
     this.paused = false; this.ended = false;
     this.speedUp = 1;
+    // Erzähl-Gedächtnis (V3): Running Gags mit Steigerung, Rückbezüge auf Ereignisse, Anekdoten je Abschnitt
+    this.mem = { gags: {}, asked: null, latecomer: false, phone: false, caught: null, rightStreak: 0, lastAside: -999, callbacks: new Set(), told: new Set() };
+    this.usedAsides = new Set();
     this._enqueuePhase();
   }
   // ------------------------------------------------------------------ Hilfen
@@ -128,8 +131,11 @@ export class Director {
       q.push({ type: 'fill', until: 'phaseEnd' });
     } else if (ph === 'intro') {
       q.push({ type: 'goto', spot: 'front', then: 'class' });
+      if (this.rng.chance(0.5)) q.push({ type: 'say', key: 'time_quarter', look: 'clock' });
       q.push({ type: 'say', key: 'greeting', look: 'class', gesture: 'open' });
-      q.push({ type: 'say', key: 'smalltalk', look: 'class', gesture: 'explain' });
+      // Wetter vor dem Fenster (mit Bezug zu Tier und Futter), sonst Smalltalk
+      if (this.D()['weather_' + this.ctx.weather] && this.rng.chance(0.75)) q.push({ type: 'say', key: 'weather_' + this.ctx.weather, look: 'window', gesture: 'explain' });
+      if (this.rng.chance(0.45)) q.push({ type: 'say', key: 'smalltalk', look: 'class', gesture: 'explain' });
       q.push({ type: 'event', name: 'excursion_announce' });
       q.push({ type: 'say', key: 'recap', look: 'class', gesture: 'count' });
       q.push({ type: 'slide', kind: 'agenda' });
@@ -140,6 +146,7 @@ export class Director {
       else { q.unshift({ type: 'say', key: 'break_end', look: 'class' }); q.unshift({ type: 'goto', spot: 'frontR', then: 'class' }); q.unshift({ type: 'event', name: 'break_end' }); }
     } else if (ph === 'break') {
       q.push({ type: 'say', key: 'break_announce', look: 'class', gesture: 'open' });
+      if (this.rng.chance(0.6)) q.push({ type: 'say', key: 'gag_mensa_break', look: 'class', after: () => this._gagDone('mensa') });
       q.push({ type: 'event', name: 'break_start' });
       q.push({ type: 'slide', kind: 'break' });
       q.push({ type: 'goto', spot: 'lectern', then: 'lectern' });
@@ -150,6 +157,9 @@ export class Director {
       q.push({ type: 'goto', spot: 'front', then: 'class' });
       q.push({ type: 'slide', kind: 'end' });
       q.push({ type: 'say', key: 'closing', look: 'class', gesture: 'open' });
+      if (this.mem.gags.rudi && this.rng.chance(0.6)) q.push({ type: 'say', key: 'gag_rudi_bye', look: 'class' });
+      if (this.mem.gags.mensa && this.rng.chance(0.5)) q.push({ type: 'say', key: 'gag_mensa_end', look: 'class' });
+      else if (this.mem.gags.bus40a && this.rng.chance(0.5)) q.push({ type: 'say', key: 'gag_bus40a_end', look: 'class' });
       q.push({ type: 'say', key: 'exam_info', look: 'class', gesture: 'count' });
       q.push({ type: 'say', key: 'slides_online', look: 'class' });
       q.push({ type: 'event', name: 'attendance_collect' });
@@ -199,7 +209,9 @@ export class Director {
       case 'say': {
         const vars = typeof s.vars === 'function' ? s.vars() : s.vars;
         const text = s.text || this.pick(s.key, vars);
+        if (!text) { s.done = true; break; }
         s.dur = this._say(text, { speaker: s.speaker || 'prof', who: s.who, kind: s.kind || 'event', key: s.key });
+        if (s.after) s.after();
         if (s.look) this._look(s.look);
         if (s.gesture) pl.gesture = s.gesture;
         break;
@@ -259,6 +271,8 @@ export class Director {
   // ------------------------------------------------------------------ Beats
   _nextBeat() {
     let cs = this.currentSection;
+    // Anekdote/Pointe nach dem eben gesprochenen Lehrsatz (einmal je Satzgrenze geprüft)
+    if (cs && cs.pos > 0 && cs.asideAt !== cs.pos) { cs.asideAt = cs.pos; if (this._maybeAside(cs, cs.beats[cs.pos - 1])) return true; }
     if (!cs || cs.pos >= cs.beats.length) {
       this.sectionIdx++;
       if (this.sectionIdx >= this.sectionPlan.length) return false;
@@ -266,6 +280,7 @@ export class Director {
       cs = this.currentSection = { sec: p.sec, beats: p.beats, pos: 0, slidesShown: new Set() };
       this.presented.push({ id: p.sec.id, beats: [] });
       if (this.sectionIdx > 0) this.queue.unshift({ type: 'say', key: 'transition', vars: { section: this.L(p.sec).title }, look: 'class', gesture: 'open', kind: 'transition' });
+      this._sectionHooks(p.sec.id);
       this.out('section', { id: p.sec.id, title: this.L(p.sec).title, notes: this.L(p.sec).notes });
       return true;
     }
@@ -366,6 +381,38 @@ export class Director {
   }
 
   // ------------------------------------------------------------------ Füllen (Arrival/Pause)
+  // ------------------------------------------------------------------ Erzählen (V3)
+  _gagDone(id) { this.mem.gags[id] = (this.mem.gags[id] || 0) + 1; }
+  /** nächste Stufe eines gesteigerten Running Gags (beamer: 1–3) */
+  _gagKey(id) { const n = Math.min(3, (this.mem.gags[id] || 0) + 1); return `gag_${id}_${n}`; }
+  /** Anekdote aus dem Abschnitt nach Lehrsatz bi – mit Abstand zur letzten Pointe, nie während Rechnung/Frage */
+  _maybeAside(cs, bi) {
+    const list = (cs.sec.asides || []).filter((a, i) => a.after === bi && !this.usedAsides.has(cs.sec.id + i));
+    if (!list.length || this.t - this.mem.lastAside < 40 || this.quizPending || !this.rng.chance(0.6)) return false;
+    const a = list[0], idx = cs.sec.asides.indexOf(a);
+    this.usedAsides.add(cs.sec.id + idx); this.mem.lastAside = this.t;
+    if (a.gag) this._gagDone(a.gag);
+    this.step = { type: 'event', name: 'aside', aside: a }; this.stepT = 0; this._runEvent('aside', this.step);
+    return true;
+  }
+  /** Abschnittsbezogene Running Gags und Rückbezüge beim Themenwechsel */
+  _sectionHooks(id) {
+    const q = this.queue, g = this.mem.gags, m = this.mem, once = k => (m.told.has(k) ? false : (m.told.add(k), true));
+    const push = (key, o = {}) => q.splice(1, 0, { type: 'say', key, look: 'class', kind: 'joke', ...o });
+    if (id === 'energie' && !g.mensa && this.rng.chance(0.65) && once('mensa_energy')) push('gag_mensa_energy', { after: () => this._gagDone('mensa') });
+    if ((id === 'protein_wdk' || id === 'umwelt') && g.rudi && this.rng.chance(0.55) && once('rudi_cb')) push('gag_rudi_callback');
+    if ((id === 'einfuehrung' || id === 'ration_milchkuh') && this.rng.chance(0.45) && once('rosi')) push('gag_rosi', { after: () => this._gagDone('rosi') });
+    if ((id === 'futtermittel' || id === 'konservierung') && this.rng.chance(0.6) && once('gras')) q.splice(1, 0, { type: 'event', name: 'gras_callout' });
+    // Rückbezüge: höchstens einer je Themenwechsel
+    const cands = [];
+    if (m.asked && !m.callbacks.has('question')) cands.push(['question', 'callback_question', { row: m.asked }]);
+    if (m.latecomer && !m.callbacks.has('late')) cands.push(['late', 'callback_latecomer']);
+    if (m.phone && !m.callbacks.has('phone')) cands.push(['phone', 'callback_phone']);
+    if (m.caught && this.t - m.caught.t > 60 && !m.callbacks.has('caught')) cands.push(['caught', 'callback_caught', { row: m.caught.row }]);
+    if (cands.length && this.rng.chance(0.4)) { const [k, key, vars] = this.rng.pick(cands); m.callbacks.add(k); push(key, { vars }); }
+  }
+  /** vom Spiel gemeldet: Spieler:in wurde ermahnt (für einen späteren, freundlichen Rückbezug) */
+  noteCaught(row) { this.mem.caught = { row, t: this.t }; }
   _filler() {
     const ph = this.phase, pl = this.ctx.prof;
     if (ph === 'arrival') { this.step = { type: 'wait', t: 1.5, soft: true }; this.stepT = 0; pl.setFace('lectern'); return; }
@@ -407,6 +454,7 @@ export class Director {
       ['bottle_drop', 9999, 0.1, 0.95, 1, 0.006],
       ['long_calc', 9999, 0.25, 0.85, 1, this.currentSection?.sec.id === 'ration_milchkuh' ? 0.5 : 0.008],
       ['tutor_pass', 240, 0.2, 0.9, 2, 0.01],
+      ['clicker_fail', 200, 0.15, 0.9, 2, 0.01],
       ['phone_vibrate', 240, 0.1, 0.9, 2, 0.008],
       ['student_laugh', 9999, 0, 0, 0, 0]
     ];
@@ -420,7 +468,7 @@ export class Director {
     const pl = this.ctx.prof, pop = this.ctx.population, D = this.D();
     this._count(name);
     this.out('event', { name });
-    const say = (key, o = {}) => this._say(this.pick(key, o.vars), { speaker: o.speaker || 'prof', who: o.who, kind: o.kind || 'event', key });
+    const say = (key, o = {}) => { const tx = o.text || this.pick(key, o.vars); return tx ? this._say(tx, { speaker: o.speaker || 'prof', who: o.who, kind: o.kind || 'event', key }) : 0; };
     const seq = (steps) => { // kleine Schrittfolge innerhalb des Ereignisses
       let i = -1, tt = 0, cur = null;
       s.update = (dt) => {
@@ -433,6 +481,8 @@ export class Director {
     const wait = d => ({ done: t => t >= d });
     const act = fn => ({ start: fn, done: () => true });
     const until = (fn, max = 20) => ({ done: t => fn() || t > max });
+    // Reaktion des Saals auf eine Pointe: meist Lachen (manchmal mit Antwort des Profs), selten betretene Stille
+    const react = () => { const r = this.rng.next(); if (r < 0.72) return [act(() => this.out('fx', { kind: 'laugh' })), wait(0.9), ...(this.rng.chance(0.3) ? [sayStep('laugh_response')] : [])]; if (r < 0.85) return [wait(1.4), sayStep('joke_flop')]; return [wait(0.6)]; };
     switch (name) {
       case 'mic_check':
         seq([act(() => this.out('fx', { kind: 'micThump' })), sayStep('mic_check', { look: 'class' }), wait(0.6), act(() => { if (this.rng.chance(0.35)) { this.out('fx', { kind: 'micFeedback' }); this._count('mic_feedback'); } }), wait(0.5)]);
@@ -452,7 +502,7 @@ export class Director {
           sayStep('direct_question_intro', { vars: { row } }),
           act(() => { this._say(q.q, { speaker: 'prof', kind: 'question' }); this.quizPending = { ...q, askedAt: this.t }; this.out('quiz', { q: q.q, answers: q.answers, correctIndex: q.correctIndex, explain: q.explain, section: q.section, calc: q.calc, timeLimit: this.ctx.difficulty.quizTime || 16 }); }),
           until(() => this.quizPending && this.quizPending.result !== undefined, 60),
-          { start: () => { const r = this.quizPending.result; const k = r === 'right' ? 'quiz_right' : r === 'timeout' ? 'quiz_timeout' : 'quiz_wrong'; this._qd = say(k); if (r !== 'right') this._qd2 = this.quizPending.explain; }, done: t => t >= (this._qd || 1) && !this.ctx.busy() },
+          { start: () => { const r = this.quizPending.result; this.mem.rightStreak = r === 'right' ? this.mem.rightStreak + 1 : 0; const k = r === 'right' ? (this.mem.rightStreak >= 2 && this.D().quiz_right_streak ? 'quiz_right_streak' : 'quiz_right') : r === 'timeout' ? 'quiz_timeout' : 'quiz_wrong'; this._qd = say(k); if (r !== 'right') this._qd2 = this.quizPending.explain; }, done: t => t >= (this._qd || 1) && !this.ctx.busy() },
           { start: () => { if (this._qd2) { this._qd = this._say(this._qd2, { speaker: 'prof', kind: 'event' }); } else this._qd = 0; this._qd2 = null; }, done: t => t >= (this._qd || 0) && !this.ctx.busy() },
           act(() => { pl.gaze.overrideT = 0; this.quizPending = null; })
         ]);
@@ -462,7 +512,7 @@ export class Director {
         seq([
           act(() => this.out('fx', { kind: 'latecomer' })), act(() => pl.lookAt(V(LY.BACK_DOOR.x, LY.BACK_FLOOR + 1.6, LY.BACK_DOOR.z), 3, 'door')),
           wait(2.2), sayStep('latecomer_enter', { speaker: 'student', who: 'late', kind: 'whisper' }),
-          act(() => { if (this.rng.chance(0.6)) this.queue.unshift({ type: 'say', key: 'latecomer_prof', look: 'class' }); })
+          act(() => { this.mem.latecomer = true; if (this.rng.chance(0.6)) { if (this.rng.chance(0.5) && this.D().gag_bus40a_late) { this.queue.unshift({ type: 'say', key: 'gag_bus40a_late', look: 'class', kind: 'joke' }); this._gagDone('bus40a'); } this.queue.unshift({ type: 'say', key: 'latecomer_prof', look: 'class' }); } })
         ]);
         break;
       }
@@ -475,6 +525,7 @@ export class Director {
         (this.usedAQ = this.usedAQ || new Set()).add(qa.student);
         const asker = pop.students.find(x => x.profile === 'asker' && x.seat) || this.rng.pick(pop.students);
         const askerHead = V(asker.seat.x, asker.seat.floor + 1.25, asker.seat.z);
+        this.mem.asked = asker.seat.row + 1;
         seq([
           act(() => this.out('fx', { kind: 'handRaise', who: asker.id })), wait(1.6 + this.rng.next()),
           act(() => { pl.lookAt(askerHead, 12, 'student'); pl.setFace('class'); }),
@@ -487,7 +538,9 @@ export class Director {
       }
       case 'phone_ring': {
         const who = this.rng.pick(pop.students);
-        seq([act(() => this.out('fx', { kind: 'phoneRing', who: who.id })), wait(1.8), act(() => pl.lookAt(V(who.seat.x, who.seat.floor + 1.1, who.seat.z), 3, 'student')), sayStep('phone_ring_prof'), sayStep('phone_ring_student', { speaker: 'student', who: who.id, kind: 'whisper' })]);
+        this.mem.phone = true;
+        const resume = this.currentSection && this.rng.chance(0.4) ? [wait(0.4), sayStep('resume_after_interrupt', { vars: { section: this.L(this.currentSection.sec).title } })] : [];
+        seq([act(() => this.out('fx', { kind: 'phoneRing', who: who.id })), wait(1.8), act(() => pl.lookAt(V(who.seat.x, who.seat.floor + 1.1, who.seat.z), 3, 'student')), sayStep('phone_ring_prof'), sayStep('phone_ring_student', { speaker: 'student', who: who.id, kind: 'whisper' }), ...resume]);
         break;
       }
       case 'projector_lost':
@@ -495,7 +548,9 @@ export class Director {
           act(() => { this.out('slide', { kind: 'nosignal' }); }), wait(1.2), sayStep('projector_lost'),
           act(() => pl.goTo('lectern', 'lectern')), until(() => !pl.walking, 12),
           sayStep('projector_fixing', { look: 'notes' }), wait(4 + this.rng.next() * 5), sayStep('projector_fixing', { look: 'notes' }), wait(2 + this.rng.next() * 3),
-          act(() => this.out('slide', { kind: 'restore' })), sayStep('projector_back')
+          act(() => this.out('slide', { kind: 'restore' })), sayStep('projector_back'),
+          { start: () => { this._qd = say(this._gagKey('beamer'), { kind: 'joke' }); this._gagDone('beamer'); }, done: t => t >= (this._qd || 0) && !this.ctx.busy() },
+          ...(this.currentSection ? [sayStep('resume_after_interrupt', { vars: { section: this.L(this.currentSection.sec).title } })] : [])
         ]);
         break;
       case 'aisle_walk': {
@@ -510,7 +565,7 @@ export class Director {
         seq([sayStep('attendance_collect', { look: 'class' }), act(() => this.out('fx', { kind: 'attendanceCollect' }))]);
         break;
       case 'joke':
-        seq([sayStep('joke', { look: 'class', kind: 'joke' }), act(() => this.out('fx', { kind: 'laugh' })), wait(0.8)]);
+        seq([sayStep('joke', { look: 'class', kind: 'joke' }), ...react()]);
         break;
       case 'drink':
         seq([sayStep('drink'), act(() => { pl.gesture = 'drink'; this.out('fx', { kind: 'drink' }); }), wait(5.5), act(() => { pl.gesture = 'none'; })]);
@@ -519,13 +574,13 @@ export class Director {
         seq([act(() => this._look('clock')), wait(1.2), sayStep('clock_check', { vars: { minutes: Math.round(11 * 60 + 30 - this.clockMinutes()) } }), act(() => { this.speedUp = 1.25; })]);
         break;
       case 'exam_hint':
-        seq([sayStep('exam_hint', { vars: { section: this.currentSection ? this.L(this.currentSection.sec).title : '' }, look: 'class' })]);
+        seq([this.rng.chance(0.4) && this.D().gag_pruefung ? sayStep('gag_pruefung', { look: 'class', kind: 'joke' }) : sayStep('exam_hint', { vars: { section: this.currentSection ? this.L(this.currentSection.sec).title : '' }, look: 'class' })]);
         break;
       case 'blinds':
         seq([act(() => pl.lookAt(V(LY.SCREEN.x, LY.SCREEN.y, LY.SCREEN.z), 2, 'screen')), sayStep('blinds'), act(() => { pl.goTo('lectern', 'lectern'); }), until(() => !pl.walking, 10), act(() => this.out('fx', { kind: 'blinds', window: 0, value: 0.85 })), wait(2)]);
         break;
       case 'rain_start':
-        seq([act(() => this.out('fx', { kind: 'rain' })), wait(3), act(() => this._look('window')), sayStep('rain_start')]);
+        seq([act(() => this.out('fx', { kind: 'rain' })), wait(3), act(() => this._look('window')), sayStep('rain_start'), ...(this.rng.chance(0.5) ? [sayStep('gag_bus40a_weather', { kind: 'joke' }), act(() => this._gagDone('bus40a'))] : [])]);
         break;
       case 'door_bang':
         seq([act(() => this.out('fx', { kind: 'doorBang' })), act(() => pl.lookAt(V(LY.BACK_DOOR.x, LY.BACK_FLOOR + 1.6, LY.BACK_DOOR.z), 2.2, 'door')), wait(1.2), sayStep('door_bang')]);
@@ -566,6 +621,21 @@ export class Director {
       case 'tutor_pass':
         seq([act(() => this.out('fx', { kind: 'tutorPass' })), wait(6)]);
         break;
+      case 'aside': {
+        const a = s.aside, text = a[this.lang] || a.de;
+        const lookAt = a.kind === 'frage' ? 'student' : 'class';
+        seq([act(() => { pl.setFace('class'); pl.gesture = 'explain'; }), { start: () => { this._qd = say(null, { text, kind: a.kind === 'frage' ? 'question' : 'joke' }); this._look(lookAt); }, done: t => t >= this._qd && !this.ctx.busy() }, ...(a.kind === 'frage' ? [wait(0.8)] : react())]);
+        break;
+      }
+      case 'clicker_fail':
+        seq([act(() => this.out('clicker', {})), wait(1.1), act(() => this.out('clicker', {})), wait(0.8), act(() => this._look('screen')),
+          { start: () => { this._qd = say(this._gagKey('beamer'), { kind: 'joke' }); this._gagDone('beamer'); }, done: t => t >= (this._qd || 0) && !this.ctx.busy() }, act(() => this.out('clicker', {})), wait(0.5)]);
+        break;
+      case 'gras_callout': {
+        const who = this.rng.pick(pop.students);
+        seq([act(() => pl.lookAt(V(who.seat.x, who.seat.floor + 1.2, who.seat.z), 3, 'student')), sayStep('student_gras', { speaker: 'student', who: who.id, kind: 'whisper' }), wait(0.5), sayStep('gag_gras', { look: 'class', kind: 'joke' }), ...react()]);
+        break;
+      }
       case 'phone_vibrate':
         seq([act(() => this.out('fx', { kind: 'phoneVibratePlayer' })), wait(1.5)]);
         break;

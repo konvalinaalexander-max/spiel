@@ -2,26 +2,26 @@ QUELLTEXT:
 Tierernaehrung_Skriptum_WS2627.pdf BOKU Einführung in die Tierernährung Die Tierernährung verbindet Pflanzenbau, Tierhaltung und Lebensmittelerzeugung. Im Tier wird Futter zu Milch, Fleisch und Eiern umgewandelt; wie gut das gelingt, hängt von der bedarfsgerechten Versorgung mit Energie, Protein, Mineralstoffen und Vitaminen ab. Die Fütterung beeinflusst Tiergesundheit, Leistung, Produktqualität und Umweltwirkungen gleichermaßen. Ökonomisch ist das Futter der größte Kostenblock der Tierhaltung: In der Milchproduktion entfällt grob die Hälfte der Produktionskosten auf Grund- und Kraftfutter, in der Schweinemast meist mehr als die Hälfte. Eine zentrale Kennzahl ist daher die Futterverwertung, also der Futteraufwand je Kilogramm Zuwachs. Praxisübliche Werte liegen beim Mastschwein bei etwa 1 : 2,8 bis 1 : 2,9, beim Masthuhn bei rund 1 : 1,6. Bei Milchkühen wird die Futtereffizienz als Kilogramm energiekorrigierte Milch je Kilogramm Futtertrockenmasse angegeben; Werte von etwa 1,4 bis 1,6 gelten als gut. Tierhaltung ist Teil eines Nährstoffkreislaufs aus Boden, Pflanze, Tier und Wirtschaftsdünger. Nur ein Teil der aufgenommenen Nährstoffe wird im Produkt festgelegt – bei der Milchkuh findet sich nur rund ein Viertel des Futterstickstoffs in der Milch. Der Rest gelangt über Kot und Harn in Gülle und Mist; er kann als Dünger genutzt werden, ist aber auch Quelle von Ammoniak- und Nitratverlusten. In Österreich ist knapp die Hälfte der landwirtschaftlich genutzten Fläche Dauergrünland, dazu kommen rund 8 000 Almen. Dieses Grünland ist für die menschliche Ernährung vor allem über Wiederkäuer nutzbar. 10:11
 
 OCR:
-Tierernaehrung_Skriptum_WS2627.pdf                                                                                      — O0 X
-Tieremaehrung_Skriptum_WS2627.pdf                                                                                                                                                                          Lr
-Einführung in die Tierernahrung                                                        i
-Die Tierernahrung verbindet Pflanzenbau, Tierhaltung und Lebensmittelerzeugung. Im
-ier wird Futter zu Milch, Fleisch und Eiern umgewandelt; wie gut das gelingt, hangt von
-der bedarfsgerechten Versorgung mit Energie, Protein, Mineralstoften und Vitaminen al
-Die Futterung beeintlusst Tiergesundheit, |   tung, Produktqualität und
-Tierhaltung: In der Milchproduktion entfällt grob die Hälfte der Produktionskosten aut
-Grund- und Kraftfutter, in der Schweinemast meist mehr als die Hälfte. Eine zentrale
-Kennzahl ist   er die Futterverwertu    ılso der |  tte fw ind je Kilogramm Zuwachs
-Praxisubliche Werte liegen    ı Mastschwein bei etwa    ) 8 bis 1: 2,9, beim Masthuhn
-bei rund     1.6. Bei Milchkühen wird «   Futtereffizienz als Kilogramm
-ergiekorrigierte Milch je K   ramm Futtertrockenmasse angegeben; Werte von etwi
-1,4 bis |     [te    s gut. Tierhaltung ist 1    ines Nährstoffkreislaufs aus Boden,
-Pflanze, Tier und Wirtschaftsdünger. Nur ein Teil der aufgenommenen Nährstoffe wird
-n Produkt festgelegt — bei der Milchkuh findet sich nur rund ein Viertel des
-Futterstickstoffs in der Milch. Der Rest    ıngt über Kot und Ham in G    und Mist; er
-kann als Dünger genutzt werde   ist aber au   Juelle von Ammoniak- und
-Nitratverlusten. Inf   srreich ist knapp die Hälfte der landwirtschaftlich genutzten Flache
-Dauvergrunland, dazu kommen    i 8 000 Almen. Dieses Grünland ist für die
-menschliche Ernährung vor allem uber Wiederkauer nutzbar
-D        a                                                                                                   —                .
-©  X   =  = |  ~                                                          em DT  Di., 27 qin
+|
+Tierernaehrung_Skriptum_WS2627 pdf                                                                                      - 0 X
+Tierernaehrung _Skriptum_WS2627.pdf                                                                                                                                                         1/1
+Einführung in die Tierernährung
+Die Tierernährung verbindet Pflanzenbau, Tierhaltung und Lebensmittelerzeugung. Ii
+ier wird Futter zu Milch, Fleisch und I    ı umgewandelt; wıe gut das gelıngt, hangt von
+ler bedarfsgerechten Versorgung mit Li    ie, Protein, Mineralstoffen und Vitaminen a
+Die Futterung b   flusst Tiergesundheit, Leistung, Produktqualität und
+Tierhaltung: In der Milchproduktion entfällt grob die Hälfte der Produktionskosten auf
+Grund- und Kraftfutter, in der Schweinemast meist   hr als die Hälfte. Eine zentrale
+Kennzahl ist    er die Futterverwertung, also der |  tte fw  nd je Kilogramm Zuwachs
+raxisubliche Werte liegen beim Mastschwein bei etwa    » 8 bis 1: 2,9, beim Masthuhn
+bei rund 1 : 1.6. Bei Milchkuhen wird «   Futtereftizienz als Kilogram
+giekorrigierte Milch je K    ramm Futtertrockenmasse    epeben; Werte von etwa
+1,4 bis 1,4    {    s gut. Tierhaltung ist |    ines Nährstoffkreislaufs aus Boden
+|                                             Pflanze, Tier und Wırt   ıftsdünger. Nur ein Teil der aufgenommenen Nährstoffe wird
+Produkt festgelegt — bei der M   kuh findet sich nur rus   in Viertel des
+Futterst   toffs in der Milch. Der Rest gelangt uber Kot und Ham in (    und M    |
+kann als Dungs   enut   verd   ist aber auch Quelle von Amm«   K- und
+N    erlust   In Osterr    tl     die Halfte d   indwirtschaftli     witzten |
+i      d, d   K    en ru     X A  en. Dieses (   il     |   i
+      he |   rung    11    er W    |     utzbar
+(25)   Fo   -—  =]  a  NA                                                       ND) = c2 BY  = 20

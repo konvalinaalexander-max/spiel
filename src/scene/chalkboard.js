@@ -31,6 +31,11 @@ export class ChalkPanel {
     this.tex = new THREE.CanvasTexture(this.canvas);
     this.tex.colorSpace = THREE.SRGBColorSpace;
     this.tex.anisotropy = gfx.renderer.capabilities.getMaxAnisotropy();
+    // Teil-Uploads: beim Schreiben wird nur das Rechteck der neuen Kreidetupfer übertragen (texSubImage2D aus dem Canvas),
+    // sonst müsste die 4096er-Textur 20-mal pro Sekunde komplett hochgeladen werden. flipY aus, die Tafelfläche hat gespiegelte UVs.
+    this.tex.flipY = false;
+    this.srcTex = new THREE.Texture(this.canvas); // nie in einem Material – Quelle für copyTextureToTexture
+    this.renderer = gfx.renderer; this.box = null;
     this.jobs = []; this.job = null; this.dirty = true; this.uploadT = 0;
     this.pen = null; this.penDown = false; this.chalkPressure = 0;
     this.written = 0; this.cursorY = 0.16; // nächste freie Zeile (m von oben)
@@ -118,7 +123,9 @@ export class ChalkPanel {
         if (al < 0.12) continue;
         c.fillStyle = `rgba(243,243,236,${(al * 0.55).toFixed(3)})`;
         const s2 = w * (0.65 + 0.5 * this.rng.next());
-        c.fillRect(x - s2 / 2 + (this.rng.next() - 0.5) * w * 0.35, y - s2 / 2 + (this.rng.next() - 0.5) * w * 0.35, s2, s2);
+        const rx = x - s2 / 2 + (this.rng.next() - 0.5) * w * 0.35, ry = y - s2 / 2 + (this.rng.next() - 0.5) * w * 0.35;
+        c.fillRect(rx, ry, s2, s2);
+        this._grow(rx, ry, s2);
       }
       job.carry += take; budget -= take; job.done += take;
       this.pen = [a[0] + (b[0] - a[0]) * (job.carry / (segLen || 1)), a[1] + (b[1] - a[1]) * (job.carry / (segLen || 1))];
@@ -130,9 +137,20 @@ export class ChalkPanel {
     this._upload(dt);
     return this.pen;
   }
+  _grow(x, y, s) {
+    const b = this.box || (this.box = { x0: Infinity, y0: Infinity, x1: -Infinity, y1: -Infinity });
+    b.x0 = Math.min(b.x0, x); b.y0 = Math.min(b.y0, y); b.x1 = Math.max(b.x1, x + s); b.y1 = Math.max(b.y1, y + s);
+  }
   _upload(dt) {
     this.uploadT -= dt;
-    if (this.dirty && this.uploadT <= 0) { this.tex.needsUpdate = true; this.dirty = false; this.uploadT = 1 / 20; }
+    if (!this.dirty || this.uploadT > 0) return;
+    this.uploadT = 1 / 30; this.dirty = false;
+    const b = this.box; this.box = null;
+    const ready = this.renderer.properties.get(this.tex).__webglInit && !this.tex.needsUpdate;
+    if (!b || !ready || this._full) { this._full = false; this.tex.needsUpdate = true; return; }
+    const x0 = Math.max(0, Math.floor(b.x0) - 2), y0 = Math.max(0, Math.floor(b.y0) - 2), x1 = Math.min(this.W, Math.ceil(b.x1) + 2), y1 = Math.min(this.H, Math.ceil(b.y1) + 2);
+    if (x1 <= x0 || y1 <= y0) return;
+    this.renderer.copyTextureToTexture(this.srcTex, this.tex, new THREE.Box2(new THREE.Vector2(x0, y0), new THREE.Vector2(x1, y1)), new THREE.Vector2(x0, y0));
   }
   /** Wischen: Schwamm-Bahnen von links nach rechts */
   startWipe(duration = 5) {
@@ -155,7 +173,7 @@ export class ChalkPanel {
       c.fillRect(xx, 0, 8, this.H);
     }
     wp.lastX = x;
-    this.dirty = true; this._upload(dt);
+    this.dirty = true; this._full = true; this._upload(dt);
     const penY = (0.5 + 0.38 * Math.sin(wp.t * 5.5)) * this.H;
     this.pen = [x, penY];
     if (k >= 1) {

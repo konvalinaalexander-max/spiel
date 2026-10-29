@@ -14,7 +14,8 @@ export function buildFixtures(gfx, hall, opts = {}) {
   // ------------------------------------------------------------------ Schiebetafeln
   const BD = LY.BOARD;
   const base = gfx.tex.make('chalkboardBase', { c1: '#2b3a31', size: 1024 });
-  const px = q.texSize >= 2048 ? 2048 : q.texSize >= 1024 ? 1536 : 1024;
+  // Tafel in 4096 px Breite (≈ 1000 px/m): aus Reihe 5 bei Gerätepixelverhältnis 2 sonst vergrößert und weich; mobil kleiner
+  const px = opts.boardPx || 4096;
   const ghosts = [
     [{ text: 'ΔG = ΔH − T·ΔS', x: 0.3, y: 0.35, size: 0.1 }, { text: 'k = A·e^{−Ea/RT}', x: 2.3, y: 0.75, size: 0.09 }, { text: 'Bodenart: sL', x: 0.6, y: 0.95, size: 0.08, alpha: 0.05 }],
     [{ text: 'pH = pK_{s} + log([A]/[HA])', x: 0.4, y: 0.4, size: 0.09 }, { text: 'NPK 15-15-15', x: 2.6, y: 0.9, size: 0.09, alpha: 0.05 }]
@@ -25,7 +26,8 @@ export function buildFixtures(gfx, hall, opts = {}) {
     const m = gfx.pbr({ name: 'chalkboard' + k, roughness: 1 });
     m.map = cp.tex; m.normalMap = base.normalMap; m.roughnessMap = base.ormMap; m.normalScale = new THREE.Vector2(0.6, 0.6);
     const g = new THREE.Group();
-    const surf = new THREE.Mesh(new THREE.PlaneGeometry(BD.w, BD.panelH), m); surf.receiveShadow = true;
+    const pg = new THREE.PlaneGeometry(BD.w, BD.panelH); const uv = pg.attributes.uv; for (let i = 0; i < uv.count; i++) uv.setY(i, 1 - uv.getY(i)); // Textur ohne flipY
+    const surf = new THREE.Mesh(pg, m); surf.receiveShadow = true;
     g.add(surf);
     const frame = new THREE.Mesh(rbox(BD.w + 0.06, BD.panelH + 0.06, 0.03, 0.008), hall.M.alu); frame.position.z = -0.018; frame.castShadow = true; frame.receiveShadow = true;
     g.add(frame);

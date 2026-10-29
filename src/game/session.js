@@ -240,6 +240,7 @@ export class Session {
     const dur = this.director._say(text, { speaker: 'prof', kind: 'alert', key });
     this.caughtSeq = { t: 0, dur: Math.max(4.5, dur + 1), move, kick: key === 'caught_3_kick', strike };
     this.director.paused = true;
+    this.director.noteCaught(this.seat.row + 1);
     this.emit('caught', { strike, move, kick: this.caughtSeq.kick, text });
     this._chatDelayed = { t: 8, key: 'chat_you_caught' };
   }

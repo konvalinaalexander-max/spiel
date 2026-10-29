@@ -87,7 +87,7 @@ for (const dpr of dprs) {
       } else if (view === 'K3') {
         if (g.session.player.mode !== 'listen') { g.session.setMode('listen'); window.__step(1.5); }
         const pn = fx.lowPanel ? fx.lowPanel() : fx.panels[0], ch = pn.chalk, V = cam.position.constructor;
-        const wc = (x, y) => { const t = new V(); ch.pxToLocal({ x, y }, t); t.z = 0.01; pn.group.updateMatrixWorld(true); return pn.group.localToWorld(t); };
+        const wc = (x, y) => { const t = new V(); ch.pxToLocal([x, y], t); t.z = 0.01; pn.group.updateMatrixWorld(true); return pn.group.localToWorld(t); };
         const pts = [wc(0, 0), wc(ch.W, 0), wc(ch.W, ch.H), wc(0, ch.H)];
         const c = pts.reduce((a, b) => a.add(b), new V()).multiplyScalar(0.25);
         cam.position.set(1.1, 1.92, 0.75); cam.lookAt(c.x, c.y, c.z); cam.fov = 60; cam.updateProjectionMatrix(); cam.updateMatrixWorld();
