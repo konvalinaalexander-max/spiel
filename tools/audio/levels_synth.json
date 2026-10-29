@@ -1,0 +1,277 @@
+{
+ "chalkTap": {
+  "peakDb": -12,
+  "rmsDb": -34.8,
+  "dur": 0.12
+ },
+ "chalkScratch": {
+  "peakDb": -12,
+  "rmsDb": -34,
+  "dur": 0.35
+ },
+ "stepParquet": {
+  "peakDb": -6.5,
+  "rmsDb": -26,
+  "dur": 0.25
+ },
+ "stepCarpet": {
+  "peakDb": -10,
+  "rmsDb": -27.6,
+  "dur": 0.25
+ },
+ "stepStair": {
+  "peakDb": -4.5,
+  "rmsDb": -23.1,
+  "dur": 0.3
+ },
+ "chairCreak": {
+  "peakDb": -12,
+  "rmsDb": -31,
+  "dur": 0.6
+ },
+ "seatFlip": {
+  "peakDb": -5.2,
+  "rmsDb": -27.4,
+  "dur": 0.4
+ },
+ "cough": {
+  "peakDb": -7.8,
+  "rmsDb": -33,
+  "dur": 0.9
+ },
+ "coughHigh": {
+  "peakDb": -9.8,
+  "rmsDb": -34.3,
+  "dur": 0.8
+ },
+ "throatClear": {
+  "peakDb": -7.1,
+  "rmsDb": -28.4,
+  "dur": 0.7
+ },
+ "pageTurn": {
+  "peakDb": -9.5,
+  "rmsDb": -31.1,
+  "dur": 0.6
+ },
+ "penClick": {
+  "peakDb": -11.8,
+  "rmsDb": -35.2,
+  "dur": 0.12
+ },
+ "penWrite": {
+  "peakDb": -12,
+  "rmsDb": -32.6,
+  "dur": 0.5
+ },
+ "keyClick": {
+  "peakDb": -11.8,
+  "rmsDb": -34.5,
+  "dur": 0.08
+ },
+ "touchpad": {
+  "peakDb": -12,
+  "rmsDb": -34.8,
+  "dur": 0.06
+ },
+ "hinge": {
+  "peakDb": -12,
+  "rmsDb": -30.7,
+  "dur": 0.5
+ },
+ "lidClose": {
+  "peakDb": -3.2,
+  "rmsDb": -26.5,
+  "dur": 0.4
+ },
+ "notify": {
+  "peakDb": -8.7,
+  "rmsDb": -23.6,
+  "dur": 0.7
+ },
+ "heart": {
+  "peakDb": -1,
+  "rmsDb": -20.7,
+  "dur": 0.6
+ },
+ "breath": {
+  "peakDb": -12,
+  "rmsDb": -33.3,
+  "dur": 1.4
+ },
+ "clicker": {
+  "peakDb": -12,
+  "rmsDb": -38.8,
+  "dur": 0.08
+ },
+ "micFeedback": {
+  "peakDb": -12,
+  "rmsDb": -27.7,
+  "dur": 1.6
+ },
+ "micThump": {
+  "peakDb": -1,
+  "rmsDb": -18.1,
+  "dur": 0.4
+ },
+ "glass": {
+  "peakDb": -6.1,
+  "rmsDb": -29.1,
+  "dur": 0.8
+ },
+ "pour": {
+  "peakDb": -12,
+  "rmsDb": -33.9,
+  "dur": 1.6
+ },
+ "bottleDrop": {
+  "peakDb": -10.8,
+  "rmsDb": -37.1,
+  "dur": 1.5
+ },
+ "doorOpen": {
+  "peakDb": -12,
+  "rmsDb": -43,
+  "dur": 1.2
+ },
+ "doorClose": {
+  "peakDb": -1,
+  "rmsDb": -20.9,
+  "dur": 1
+ },
+ "doorBang": {
+  "peakDb": -1,
+  "rmsDb": -22.4,
+  "dur": 1.4
+ },
+ "sponge": {
+  "peakDb": -12,
+  "rmsDb": -33.8,
+  "dur": 1.2
+ },
+ "boardSlide": {
+  "peakDb": -1.6,
+  "rmsDb": -24.6,
+  "dur": 1.8
+ },
+ "phoneRing": {
+  "peakDb": -12,
+  "rmsDb": -30.4,
+  "dur": 3.2
+ },
+ "phoneVibrate": {
+  "peakDb": -6.9,
+  "rmsDb": -26.4,
+  "dur": 1.2
+ },
+ "tramBell": {
+  "peakDb": -7.2,
+  "rmsDb": -24.9,
+  "dur": 1.6
+ },
+ "bird": {
+  "peakDb": -12,
+  "rmsDb": -29.7,
+  "dur": 1.2
+ },
+ "zipper": {
+  "peakDb": -12,
+  "rmsDb": -38.5,
+  "dur": 0.8
+ },
+ "cloth": {
+  "peakDb": -12,
+  "rmsDb": -33.6,
+  "dur": 0.7
+ },
+ "laughSoft": {
+  "peakDb": -12,
+  "rmsDb": -37.7,
+  "dur": 1.4
+ },
+ "ttWin": {
+  "peakDb": -12,
+  "rmsDb": -28.9,
+  "dur": 0.8
+ },
+ "ttLose": {
+  "peakDb": -12,
+  "rmsDb": -29.7,
+  "dur": 0.8
+ },
+ "ttPlace": {
+  "peakDb": -12,
+  "rmsDb": -29.3,
+  "dur": 0.15
+ },
+ "snakeEat": {
+  "peakDb": -12,
+  "rmsDb": -29,
+  "dur": 0.15
+ },
+ "snakeDie": {
+  "peakDb": -12,
+  "rmsDb": -27.8,
+  "dur": 0.5
+ },
+ "sting": {
+  "peakDb": -12,
+  "rmsDb": -29.3,
+  "dur": 1.6
+ },
+ "quizSting": {
+  "peakDb": -12,
+  "rmsDb": -26.8,
+  "dur": 0.6
+ },
+ "good": {
+  "peakDb": -12,
+  "rmsDb": -26.9,
+  "dur": 0.7
+ },
+ "uiClick": {
+  "peakDb": -12,
+  "rmsDb": -29.4,
+  "dur": 0.06
+ },
+ "murmurBurst": {
+  "peakDb": -12,
+  "rmsDb": -33.7,
+  "dur": 2
+ },
+ "ventilation": {
+  "peakDb": -4.1,
+  "rmsDb": -16.1,
+  "dur": 8
+ },
+ "projectorFan": {
+  "peakDb": -12.7,
+  "rmsDb": -24.7,
+  "dur": 6
+ },
+ "roomTone": {
+  "peakDb": -8.3,
+  "rmsDb": -20.8,
+  "dur": 10
+ },
+ "murmur": {
+  "peakDb": -14.8,
+  "rmsDb": -30.5,
+  "dur": 9
+ },
+ "rain": {
+  "peakDb": -5.1,
+  "rmsDb": -16.9,
+  "dur": 8
+ },
+ "wind": {
+  "peakDb": -9.1,
+  "rmsDb": -22.6,
+  "dur": 10
+ },
+ "traffic": {
+  "peakDb": -6.5,
+  "rmsDb": -18.7,
+  "dur": 12
+ }
+}

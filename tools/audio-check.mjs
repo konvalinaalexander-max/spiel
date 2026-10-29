@@ -2,7 +2,8 @@
 // dazu ein Synthese-Scan (welche Klänge im Spiel noch aus dem Klangsynthesizer kommen).
 //   node tools/audio-check.mjs [--strict]
 // Quellen: docs/audio/check.json (tools/audio/build_sfx.py), assets/build/voice/<sprache>/manifest.json, assets/build/sfx/manifest.json.
-// Grenzwerte: Stimme −16 LUFS ±1,5; Atmosphären −20 … −30 LUFS; True Peak ≤ −1 dBFS; Rauschen in Pausen ≤ −60 dBFS (Einmal-Klänge);
+// Grenzwerte: Stimme −16 LUFS ±1,5; Atmosphären −18 … −40 LUFS; Spitze ≤ −1 dBFS; Rauschen in Pausen ≤ −60 dBFS (Einmal-Klänge,
+// Pause = 50-ms-Fenster mindestens 30 dB unter dem lautesten);
 // 0 übersteuerte Samples; höchstens 5 synthetische UI-Signaltöne.
 import fs from 'node:fs';
 import path from 'node:path';
@@ -20,7 +21,7 @@ for (const [f, c] of Object.entries(check)) {
   n++;
   if (c.peakDb > -1.0) errors.push(`${f}: Spitzenpegel ${c.peakDb} dBFS > −1`);
   if (c.clip > 0) errors.push(`${f}: ${c.clip} übersteuerte Samples`);
-  if (!c.loop && c.floorDb > -60) warns.push(`${f}: Grundrauschen ${c.floorDb} dBFS > −60`);
+  if (!c.loop && c.floorDb != null && c.floorDb > -60) warns.push(`${f}: Rauschen in Pausen ${c.floorDb} dBFS > −60`);
   if (c.loop && c.lufs != null && (c.lufs > -18 || c.lufs < -40)) warns.push(`${f}: Atmosphäre ${c.lufs} LUFS außerhalb −18 … −40`);
 }
 // 2. Synthese-Scan: Klänge, die das Spiel benutzt, aber nicht als Aufnahme vorliegen

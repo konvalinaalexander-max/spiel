@@ -1,0 +1,922 @@
+{
+ "bird_0.ogg": {
+  "dur": 2.45,
+  "lufs": -18.8,
+  "peakDb": -1.5,
+  "floorDb": null,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/oga/ambient-bird-sounds/birds-isaiah658_0.ogg",
+  "license": "CC0-1.0"
+ },
+ "bird_1.ogg": {
+  "dur": 1.1,
+  "lufs": -16.5,
+  "peakDb": -1.5,
+  "floorDb": null,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/oga/crows-singing/Crows.ogg",
+  "license": "CC0-1.0"
+ },
+ "bird_2.ogg": {
+  "dur": 0.174,
+  "lufs": null,
+  "peakDb": -1.5,
+  "floorDb": null,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/archive/aporee_60623_69666/WienJosefStraussParkAmbient.flac",
+  "license": "PDM-1.0"
+ },
+ "bird_3.ogg": {
+  "dur": 0.636,
+  "lufs": -13.6,
+  "peakDb": -1.5,
+  "floorDb": null,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/fsl/birds-singing-in-a-peaceful-park-sound-effect/birds-singing-in-a-peaceful-park-sound-effect.zip",
+  "license": "CC-BY-4.0"
+ },
+ "boardSlide_0.ogg": {
+  "dur": 3.25,
+  "lufs": -20.5,
+  "peakDb": -1.5,
+  "floorDb": null,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/fsl/sliding-door-sounds/sliding-door-sounds.zip",
+  "license": "CC-BY-4.0"
+ },
+ "boardSlide_1.ogg": {
+  "dur": 1.105,
+  "lufs": -15.1,
+  "peakDb": -1.5,
+  "floorDb": null,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/oga/rock-metal-slide/rock_metal_slide_1.wav",
+  "license": "CC-BY-4.0"
+ },
+ "bottleDrop_0.ogg": {
+  "dur": 0.85,
+  "lufs": -20.5,
+  "peakDb": -1.5,
+  "floorDb": -74.2,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/pdsounds/pdsounds/plasticcrunch.flac",
+  "license": "Public-Domain"
+ },
+ "breath_0.ogg": {
+  "dur": 0.75,
+  "lufs": -15.6,
+  "peakDb": -1.5,
+  "floorDb": -67.7,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/oga/sound-effects-pack/Owlish Media Sound Effects.zip",
+  "license": "CC0-1.0"
+ },
+ "breath_1.ogg": {
+  "dur": 0.7,
+  "lufs": -15.9,
+  "peakDb": -1.5,
+  "floorDb": -49.6,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/oga/sound-effects-pack/Owlish Media Sound Effects.zip",
+  "license": "CC0-1.0"
+ },
+ "chairCreak_0.ogg": {
+  "dur": 1.2,
+  "lufs": -29.5,
+  "peakDb": -1.5,
+  "floorDb": -95.9,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/pdsounds/pdsounds/creakywoodenstool.mp3",
+  "license": "Public-Domain"
+ },
+ "chairCreak_1.ogg": {
+  "dur": 1.1,
+  "lufs": -10.2,
+  "peakDb": -1.5,
+  "floorDb": -66.9,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/wws/wws4167-/5d661d9bb83e0.mp3",
+  "license": "CC-BY-4.0"
+ },
+ "chairCreak_2.ogg": {
+  "dur": 0.712,
+  "lufs": -26.6,
+  "peakDb": -1.5,
+  "floorDb": -82.4,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/oga/various-sound-effects-laleksic/sounds_8.zip",
+  "license": "CC0-1.0"
+ },
+ "chalkScratch_0.ogg": {
+  "dur": 1.0,
+  "lufs": -29.7,
+  "peakDb": -1.5,
+  "floorDb": -67.2,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/wws/wws1434-/556ef43d8f7ba.mp3",
+  "license": "CC-BY-4.0"
+ },
+ "chalkScratch_1.ogg": {
+  "dur": 1.0,
+  "lufs": -28.8,
+  "peakDb": -1.5,
+  "floorDb": null,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/wws/wws1434-/556ef43d8f7ba.mp3",
+  "license": "CC-BY-4.0"
+ },
+ "chalkTap_0.ogg": {
+  "dur": 0.5,
+  "lufs": -20.6,
+  "peakDb": -1.5,
+  "floorDb": null,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/wws/wws1434-/556ef43d8f7ba.mp3",
+  "license": "CC-BY-4.0"
+ },
+ "chalkTap_1.ogg": {
+  "dur": 0.5,
+  "lufs": -25.4,
+  "peakDb": -1.5,
+  "floorDb": null,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/wws/wws1434-/556ef43d8f7ba.mp3",
+  "license": "CC-BY-4.0"
+ },
+ "clicker_0.ogg": {
+  "dur": 0.075,
+  "lufs": null,
+  "peakDb": -1.5,
+  "floorDb": null,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/oga/middle-mouse-click/middle-click-press.wav",
+  "license": "CC0-1.0"
+ },
+ "clicker_1.ogg": {
+  "dur": 0.35,
+  "lufs": null,
+  "peakDb": -1.5,
+  "floorDb": null,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/oga/sound-effects-pack/Owlish Media Sound Effects.zip",
+  "license": "CC0-1.0"
+ },
+ "cloth_0.ogg": {
+  "dur": 0.53,
+  "lufs": -22.0,
+  "peakDb": -1.5,
+  "floorDb": -73.2,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/oga/202-more-sound-effects/MoreSounds.zip",
+  "license": "CC0-1.0"
+ },
+ "cloth_1.ogg": {
+  "dur": 0.43,
+  "lufs": null,
+  "peakDb": -1.5,
+  "floorDb": -84.8,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/oga/202-more-sound-effects/MoreSounds.zip",
+  "license": "CC0-1.0"
+ },
+ "cloth_2.ogg": {
+  "dur": 1.1,
+  "lufs": -25.9,
+  "peakDb": -1.5,
+  "floorDb": -124.1,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/oga/sound-effects-pack/Owlish Media Sound Effects.zip",
+  "license": "CC0-1.0"
+ },
+ "cough_0.ogg": {
+  "dur": 0.316,
+  "lufs": null,
+  "peakDb": -1.5,
+  "floorDb": null,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/oga/old-man-cough/old-man-cough.flac",
+  "license": "CC0-1.0"
+ },
+ "cough_1.ogg": {
+  "dur": 1.55,
+  "lufs": -17.9,
+  "peakDb": -1.5,
+  "floorDb": -68.9,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/pdsounds/pdsounds/coughs.flac",
+  "license": "Public-Domain"
+ },
+ "cough_2.ogg": {
+  "dur": 1.6,
+  "lufs": -16.7,
+  "peakDb": -1.5,
+  "floorDb": null,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/oga/sick-noises/sickness.wav",
+  "license": "CC0-1.0"
+ },
+ "cough_3.ogg": {
+  "dur": 0.448,
+  "lufs": null,
+  "peakDb": -1.5,
+  "floorDb": null,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/oga/sound-effects-pack/Owlish Media Sound Effects.zip",
+  "license": "CC0-1.0"
+ },
+ "coughHigh_0.ogg": {
+  "dur": 1.096,
+  "lufs": -18.9,
+  "peakDb": -1.5,
+  "floorDb": -70.2,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/oga/sound-effects-pack/Owlish Media Sound Effects.zip",
+  "license": "CC0-1.0"
+ },
+ "coughHigh_1.ogg": {
+  "dur": 1.3,
+  "lufs": -16.7,
+  "peakDb": -1.5,
+  "floorDb": -76.0,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/fsl/coughing-sound-effect/coughing-sound-effect.zip",
+  "license": "CC-BY-4.0"
+ },
+ "coughHigh_2.ogg": {
+  "dur": 0.858,
+  "lufs": -18.0,
+  "peakDb": -1.5,
+  "floorDb": -60.3,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/oga/sound-effects-pack/Owlish Media Sound Effects.zip",
+  "license": "CC0-1.0"
+ },
+ "doorBang_0.ogg": {
+  "dur": 0.775,
+  "lufs": -19.7,
+  "peakDb": -1.5,
+  "floorDb": -94.1,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/oga/door-open-door-close-set/qubodup-DoorSet.7z",
+  "license": "CC0-1.0"
+ },
+ "doorBang_1.ogg": {
+  "dur": 0.506,
+  "lufs": -21.3,
+  "peakDb": -1.5,
+  "floorDb": -91.0,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/oga/door-open-door-close-set/qubodup-DoorSet.7z",
+  "license": "CC0-1.0"
+ },
+ "doorClose_0.ogg": {
+  "dur": 0.399,
+  "lufs": null,
+  "peakDb": -1.5,
+  "floorDb": null,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/oga/door-open-door-close-set/qubodup-DoorSet.7z",
+  "license": "CC0-1.0"
+ },
+ "doorClose_1.ogg": {
+  "dur": 0.47,
+  "lufs": -21.5,
+  "peakDb": -1.5,
+  "floorDb": -99.3,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/oga/door-open-door-close-set/qubodup-DoorSet.7z",
+  "license": "CC0-1.0"
+ },
+ "doorClose_2.ogg": {
+  "dur": 0.95,
+  "lufs": -21.4,
+  "peakDb": -1.5,
+  "floorDb": -89.0,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/pdsounds/pdsounds/cellar-door-springlocked.mp3",
+  "license": "Public-Domain"
+ },
+ "doorOpen_0.ogg": {
+  "dur": 0.801,
+  "lufs": -26.5,
+  "peakDb": -1.5,
+  "floorDb": -66.4,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/oga/door-open-door-close-set/qubodup-DoorSet.7z",
+  "license": "CC0-1.0"
+ },
+ "doorOpen_1.ogg": {
+  "dur": 1.25,
+  "lufs": -22.1,
+  "peakDb": -1.5,
+  "floorDb": -109.8,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/pdsounds/pdsounds/cellar-door-springlocked.mp3",
+  "license": "Public-Domain"
+ },
+ "glass_0.ogg": {
+  "dur": 0.405,
+  "lufs": null,
+  "peakDb": -1.5,
+  "floorDb": -104.2,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/oga/100-cc0-sfx/100-CC0-SFX_0.zip",
+  "license": "CC0-1.0"
+ },
+ "glass_1.ogg": {
+  "dur": 0.535,
+  "lufs": -19.4,
+  "peakDb": -1.5,
+  "floorDb": -83.6,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/oga/100-cc0-sfx/100-CC0-SFX_0.zip",
+  "license": "CC0-1.0"
+ },
+ "glass_2.ogg": {
+  "dur": 0.388,
+  "lufs": null,
+  "peakDb": -1.5,
+  "floorDb": null,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/oga/cup-on-table/Cup On Table Sfx.wav",
+  "license": "CC-BY-4.0"
+ },
+ "hinge_0.ogg": {
+  "dur": 0.75,
+  "lufs": -23.1,
+  "peakDb": -1.5,
+  "floorDb": null,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/oga/sound-effects-pack/Owlish Media Sound Effects.zip",
+  "license": "CC0-1.0"
+ },
+ "keyClick_0.ogg": {
+  "dur": 0.35,
+  "lufs": null,
+  "peakDb": -1.5,
+  "floorDb": null,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/oga/keyboard-soundpack-1/unicae_games_keyboard_soundpack_1_0.zip",
+  "license": "CC0-1.0"
+ },
+ "keyClick_1.ogg": {
+  "dur": 0.213,
+  "lufs": null,
+  "peakDb": -1.5,
+  "floorDb": null,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/oga/keyboard-soundpack-1/unicae_games_keyboard_soundpack_1_0.zip",
+  "license": "CC0-1.0"
+ },
+ "keyClick_2.ogg": {
+  "dur": 0.294,
+  "lufs": null,
+  "peakDb": -1.5,
+  "floorDb": null,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/wws/wws2657-/5b322c9b47934.mp3",
+  "license": "CC-BY-4.0"
+ },
+ "laughSoft_0.ogg": {
+  "dur": 2.25,
+  "lufs": -16.9,
+  "peakDb": -1.5,
+  "floorDb": -64.8,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/oga/group-giggling/group_giggling.ogg",
+  "license": "CC0-1.0"
+ },
+ "laughSoft_1.ogg": {
+  "dur": 3.0,
+  "lufs": -17.1,
+  "peakDb": -1.5,
+  "floorDb": -53.3,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/oga/group-giggling/group_giggling.ogg",
+  "license": "CC0-1.0"
+ },
+ "laughSoft_2.ogg": {
+  "dur": 1.191,
+  "lufs": -19.7,
+  "peakDb": -1.5,
+  "floorDb": -64.4,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/pdsounds/pdsounds/laughter.mp3",
+  "license": "Public-Domain"
+ },
+ "lidClose_0.ogg": {
+  "dur": 0.4,
+  "lufs": null,
+  "peakDb": -1.5,
+  "floorDb": -113.1,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/oga/sound-effects-pack/Owlish Media Sound Effects.zip",
+  "license": "CC0-1.0"
+ },
+ "micThump_0.ogg": {
+  "dur": 0.95,
+  "lufs": -22.0,
+  "peakDb": -1.5,
+  "floorDb": null,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/pdsounds/pdsounds/fixingmicstand.mp3",
+  "license": "Public-Domain"
+ },
+ "micThump_1.ogg": {
+  "dur": 0.313,
+  "lufs": null,
+  "peakDb": -1.5,
+  "floorDb": null,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/oga/sound-effects-pack/Owlish Media Sound Effects.zip",
+  "license": "CC0-1.0"
+ },
+ "murmur_0.ogg": {
+  "dur": 29.6,
+  "lufs": -22.0,
+  "peakDb": -10.0,
+  "floorDb": null,
+  "clip": 0,
+  "loop": true,
+  "source": "assets/src/audio/fsl/audience-murmur-sound-effect/audience-murmur-sound-effect.zip",
+  "license": "CC-BY-4.0"
+ },
+ "murmurBurst_0.ogg": {
+  "dur": 2.6,
+  "lufs": -15.2,
+  "peakDb": -1.5,
+  "floorDb": null,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/fsl/audience-murmur-sound-effect/audience-murmur-sound-effect.zip",
+  "license": "CC-BY-4.0"
+ },
+ "murmurBurst_1.ogg": {
+  "dur": 2.6,
+  "lufs": -16.4,
+  "peakDb": -1.5,
+  "floorDb": null,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/archive/aporee_36189_41517/Canteen.flac",
+  "license": "PDM-1.0"
+ },
+ "music_0.ogg": {
+  "dur": 160.0,
+  "lufs": -22.0,
+  "peakDb": -8.5,
+  "floorDb": null,
+  "clip": 0,
+  "loop": true,
+  "source": "assets/src/audio/incompetech/almost-bliss/Almost Bliss.mp3",
+  "license": "CC-BY-4.0"
+ },
+ "pageTurn_0.ogg": {
+  "dur": 0.9,
+  "lufs": -24.2,
+  "peakDb": -1.5,
+  "floorDb": -97.0,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/oga/sound-effects-pack/Owlish Media Sound Effects.zip",
+  "license": "CC0-1.0"
+ },
+ "pageTurn_1.ogg": {
+  "dur": 0.838,
+  "lufs": -28.4,
+  "peakDb": -1.5,
+  "floorDb": -68.9,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/oga/page-turning/Page Turning Sfx.wav",
+  "license": "CC-BY-4.0"
+ },
+ "pageTurn_2.ogg": {
+  "dur": 0.822,
+  "lufs": -26.8,
+  "peakDb": -1.5,
+  "floorDb": null,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/oga/various-sound-effects-laleksic/sounds_8.zip",
+  "license": "CC0-1.0"
+ },
+ "penClick_0.ogg": {
+  "dur": 0.234,
+  "lufs": null,
+  "peakDb": -1.5,
+  "floorDb": null,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/oga/pen-click/Pen Click Sfx.wav",
+  "license": "CC-BY-4.0"
+ },
+ "penClick_1.ogg": {
+  "dur": 0.4,
+  "lufs": null,
+  "peakDb": -1.5,
+  "floorDb": -70.2,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/pdsounds/pdsounds/penclicks.flac",
+  "license": "Public-Domain"
+ },
+ "penWrite_0.ogg": {
+  "dur": 1.35,
+  "lufs": -28.4,
+  "peakDb": -1.5,
+  "floorDb": null,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/oga/sound-effects-pack/Owlish Media Sound Effects.zip",
+  "license": "CC0-1.0"
+ },
+ "phoneRing_0.ogg": {
+  "dur": 1.65,
+  "lufs": -6.4,
+  "peakDb": -1.5,
+  "floorDb": -57.7,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/fsl/phone-ring-sound-effect/phone-ring-sound-effect.zip",
+  "license": "CC-BY-4.0"
+ },
+ "phoneRing_1.ogg": {
+  "dur": 1.05,
+  "lufs": -4.9,
+  "peakDb": -1.5,
+  "floorDb": -108.8,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/fsl/old-cell-phone-ringing-sound-effect/old-cell-phone-ringing-sound-effect.zip",
+  "license": "CC-BY-4.0"
+ },
+ "phoneVibrate_0.ogg": {
+  "dur": 1.5,
+  "lufs": -6.9,
+  "peakDb": -1.5,
+  "floorDb": -52.6,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/oga/sound-effects-pack/Owlish Media Sound Effects.zip",
+  "license": "CC0-1.0"
+ },
+ "phoneVibrate_1.ogg": {
+  "dur": 1.8,
+  "lufs": -9.8,
+  "peakDb": -1.5,
+  "floorDb": -80.5,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/fsl/vibrating-sound/vibrating-sound.zip",
+  "license": "CC-BY-4.0"
+ },
+ "pour_0.ogg": {
+  "dur": 0.17,
+  "lufs": null,
+  "peakDb": -1.5,
+  "floorDb": null,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/fsl/pouring-water/pouring-water.zip",
+  "license": "CC-BY-4.0"
+ },
+ "projectorFan_0.ogg": {
+  "dur": 25.0,
+  "lufs": -22.0,
+  "peakDb": -9.7,
+  "floorDb": null,
+  "clip": 0,
+  "loop": true,
+  "source": "assets/src/audio/wws/wws1987-/55fefff03f3a4.mp3",
+  "license": "CC-BY-4.0"
+ },
+ "rain_0.ogg": {
+  "dur": 40.0,
+  "lufs": -24.8,
+  "peakDb": -1.0,
+  "floorDb": null,
+  "clip": 0,
+  "loop": true,
+  "source": "assets/src/audio/wws/wws3636-/5cfe3f4eb0ac1.mp3",
+  "license": "CC-BY-4.0"
+ },
+ "roomTone_0.ogg": {
+  "dur": 25.0,
+  "lufs": -22.0,
+  "peakDb": -4.5,
+  "floorDb": null,
+  "clip": 0,
+  "loop": true,
+  "source": "assets/src/audio/archive/aporee_35419_40679/QueensLibraryMainBranchQuietRoom2.flac",
+  "license": "PDM-1.0"
+ },
+ "seatFlip_0.ogg": {
+  "dur": 0.713,
+  "lufs": -21.8,
+  "peakDb": -1.5,
+  "floorDb": null,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/wws/wws2005-/55ffd5c292538.mp3",
+  "license": "CC-BY-4.0"
+ },
+ "seatFlip_1.ogg": {
+  "dur": 1.2,
+  "lufs": -22.5,
+  "peakDb": -1.5,
+  "floorDb": -55.9,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/wws/wws2005-/55ffd5c292538.mp3",
+  "license": "CC-BY-4.0"
+ },
+ "sponge_0.ogg": {
+  "dur": 2.2,
+  "lufs": -17.4,
+  "peakDb": -1.5,
+  "floorDb": null,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/wws/wws1467-/557e8bca1f8be.mp3",
+  "license": "CC-BY-4.0"
+ },
+ "sponge_1.ogg": {
+  "dur": 1.55,
+  "lufs": -22.7,
+  "peakDb": -1.5,
+  "floorDb": null,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/wws/wws1467-/557e8bca1f8be.mp3",
+  "license": "CC-BY-4.0"
+ },
+ "stepCarpet_0.ogg": {
+  "dur": 0.5,
+  "lufs": -26.8,
+  "peakDb": -1.5,
+  "floorDb": -86.2,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/oga/sound-effects-pack/Owlish Media Sound Effects.zip",
+  "license": "CC0-1.0"
+ },
+ "stepCarpet_1.ogg": {
+  "dur": 0.6,
+  "lufs": -14.3,
+  "peakDb": -1.5,
+  "floorDb": null,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/pdsounds/pdsounds/steps_rubber_soles_on_vinyl.mp3",
+  "license": "Public-Domain"
+ },
+ "stepParquet_0.ogg": {
+  "dur": 0.65,
+  "lufs": -24.4,
+  "peakDb": -1.5,
+  "floorDb": -114.1,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/oga/sound-effects-pack/Owlish Media Sound Effects.zip",
+  "license": "CC0-1.0"
+ },
+ "stepParquet_1.ogg": {
+  "dur": 0.277,
+  "lufs": null,
+  "peakDb": -1.5,
+  "floorDb": null,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/wws/wws1011-/54ca0c36bdc2e.mp3",
+  "license": "CC-BY-4.0"
+ },
+ "stepParquet_2.ogg": {
+  "dur": 0.292,
+  "lufs": null,
+  "peakDb": -1.5,
+  "floorDb": null,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/oga/rpg-audio-kenney/RPGsounds_Kenney.zip",
+  "license": "CC0-1.0"
+ },
+ "stepStair_0.ogg": {
+  "dur": 0.85,
+  "lufs": -13.6,
+  "peakDb": -1.5,
+  "floorDb": null,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/wws/wws1013-/54ca11895ba35.mp3",
+  "license": "CC-BY-4.0"
+ },
+ "stepStair_1.ogg": {
+  "dur": 0.425,
+  "lufs": null,
+  "peakDb": -1.5,
+  "floorDb": null,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/oga/sound-effects-pack/Owlish Media Sound Effects.zip",
+  "license": "CC0-1.0"
+ },
+ "throatClear_0.ogg": {
+  "dur": 0.85,
+  "lufs": -14.9,
+  "peakDb": -1.5,
+  "floorDb": -76.4,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/pdsounds/pdsounds/laughter_clearingvoice.mp3",
+  "license": "Public-Domain"
+ },
+ "touchpad_0.ogg": {
+  "dur": 0.3,
+  "lufs": null,
+  "peakDb": -1.5,
+  "floorDb": -68.0,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/oga/sound-effects-pack/Owlish Media Sound Effects.zip",
+  "license": "CC0-1.0"
+ },
+ "touchpad_1.ogg": {
+  "dur": 0.075,
+  "lufs": null,
+  "peakDb": -1.5,
+  "floorDb": null,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/oga/middle-mouse-click/middle-click-press.wav",
+  "license": "CC0-1.0"
+ },
+ "traffic_0.ogg": {
+  "dur": 40.0,
+  "lufs": -22.0,
+  "peakDb": -5.2,
+  "floorDb": null,
+  "clip": 0,
+  "loop": true,
+  "source": "assets/src/audio/archive/aporee_34806_40011/17012100HotelDaniel1715.mp3",
+  "license": "PDM-1.0"
+ },
+ "tramBell_0.ogg": {
+  "dur": 1.25,
+  "lufs": -17.4,
+  "peakDb": -1.5,
+  "floorDb": -54.3,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/wws/wws4155-/5d652927e2aad.mp3",
+  "license": "CC-BY-4.0"
+ },
+ "tramBell_1.ogg": {
+  "dur": 1.65,
+  "lufs": -18.8,
+  "peakDb": -1.5,
+  "floorDb": null,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/wws/wws4191-/5d663e0c73dd4.mp3",
+  "license": "CC-BY-4.0"
+ },
+ "tramBell_2.ogg": {
+  "dur": 1.337,
+  "lufs": -14.4,
+  "peakDb": -1.5,
+  "floorDb": null,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/wws/wws4146-/5d651f1cc4771.mp3",
+  "license": "CC-BY-4.0"
+ },
+ "ventilation_0.ogg": {
+  "dur": 40.0,
+  "lufs": -22.0,
+  "peakDb": -3.6,
+  "floorDb": null,
+  "clip": 0,
+  "loop": true,
+  "source": "assets/src/audio/wws/wws2634-/5b30edff4511c.mp3",
+  "license": "CC-BY-4.0"
+ },
+ "wind_0.ogg": {
+  "dur": 40.0,
+  "lufs": -23.4,
+  "peakDb": -1.0,
+  "floorDb": null,
+  "clip": 0,
+  "loop": true,
+  "source": "assets/src/audio/oga/park-ambiences/park_ambience_wind.wav",
+  "license": "CC0-1.0"
+ },
+ "zipper_0.ogg": {
+  "dur": 0.7,
+  "lufs": -19.1,
+  "peakDb": -1.5,
+  "floorDb": -87.5,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/oga/sound-effects-pack/Owlish Media Sound Effects.zip",
+  "license": "CC0-1.0"
+ },
+ "good_0.ogg": {
+  "dur": 1.61,
+  "lufs": -16.3,
+  "peakDb": -1.5,
+  "floorDb": null,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/incompetech/clear-waters/Clear Waters.mp3",
+  "license": "CC-BY-4.0"
+ },
+ "quizSting_0.ogg": {
+  "dur": 1.247,
+  "lufs": -15.0,
+  "peakDb": -1.5,
+  "floorDb": null,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/incompetech/clear-waters/Clear Waters.mp3",
+  "license": "CC-BY-4.0"
+ },
+ "sting_0.ogg": {
+  "dur": 2.415,
+  "lufs": -17.2,
+  "peakDb": -1.5,
+  "floorDb": null,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/incompetech/clear-waters/Clear Waters.mp3",
+  "license": "CC-BY-4.0"
+ },
+ "heart_0.ogg": {
+  "dur": 0.75,
+  "lufs": -21.0,
+  "peakDb": -1.5,
+  "floorDb": null,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/pdsounds/pdsounds/fixingmicstand.mp3",
+  "license": "Public-Domain"
+ },
+ "micFeedback_0.ogg": {
+  "dur": 1.45,
+  "lufs": -10.0,
+  "peakDb": -1.5,
+  "floorDb": null,
+  "clip": 0,
+  "loop": false,
+  "source": "assets/src/audio/wws/wws4155-/5d652927e2aad.mp3",
+  "license": "CC-BY-4.0"
+ }
+}

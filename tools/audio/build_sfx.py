@@ -9,8 +9,9 @@ Ausgabe:  assets/build/sfx/<name>_<n>.ogg, assets/build/sfx/manifest.json (Varia
           docs/audio/check.json (Lautheit, Spitzenpegel, Grundrauschen je Clip – siehe tools/audio-check.mjs)
 
 Einmal-Klänge: mono, Hochpass, bei hörbarem Rauschen Entrauschen (FFT), Ereignis automatisch eingrenzen, wenn kein Schnittfenster
-angegeben ist, Expander gegen Rauschen in Pausen (≤ −60 dBFS), Ein-/Ausblenden, Spitzenpegel wie der bisherige Klang (≤ −1 dBFS).
-Schleifen: Stereo, Hochpass, nahtlos (gleichleistungs-Überblendung des Endes in den Anfang), Pegel (RMS) wie der bisherige Klang.
+angegeben ist, Expander gegen Rauschen in Pausen (≤ −60 dBFS), Ein-/Ausblenden, Spitze −1 dBFS.
+Schleifen: Stereo, Hochpass, nahtlos (Überblendung des Endes in den Anfang), −22 LUFS, Spitze ≤ −1 dBFS.
+Pegel im Spiel: „gain“ im Verzeichnis bringt jeden Klang auf den Pegel des bisherigen synthetischen Klangs (Mischung bleibt).
 Opus: Einmal-Klänge 64 kbit/s mono, Schleifen 96 kbit/s stereo, 48 kHz.
 """
 import json, os, sys, subprocess, hashlib
@@ -48,6 +49,7 @@ def decode(path, a=None, b=None, ch=1, af='highpass=f=50'):
 
 
 def rms_env(x, win):
+    win = max(1, min(win, len(x)))
     p = np.convolve(x * x, np.ones(win) / win, mode='same')
     return np.sqrt(np.maximum(p, 1e-12))
 
@@ -72,13 +74,22 @@ def find_event(x, maxlen):
     return x[s:e]
 
 
-def expander(x, thr_db=-52, ratio=3.0):
+def expander(x, thr_db=-45, ratio=4.0):
     """Abwärts-Expander: unter der Schwelle wird leiser geregelt (Rauschen in Pausen ≤ −60 dBFS)."""
     env = rms_env(x if x.ndim == 1 else x.mean(axis=1), int(0.02 * SR))
     thr = 10 ** (thr_db / 20)
     g = np.where(env >= thr, 1.0, (env / thr) ** (ratio - 1))
     # Glätten (Release 80 ms)
-    k = int(0.08 * SR); g = np.convolve(g, np.ones(k) / k, mode='same')
+    k = max(1, min(int(0.08 * SR), len(g))); g = np.convolve(g, np.ones(k) / k, mode='same')
+    return x * (g if x.ndim == 1 else g[:, None])
+
+
+def gate(x, rel_db=-28, range_db=-30):
+    """Pausen-Gate relativ zum lautesten 50-ms-Fenster: darunter fällt die Verstärkung steil (bis −30 dB), weich geregelt."""
+    mono = x if x.ndim == 1 else x.mean(axis=1)
+    env = rms_env(mono, int(0.05 * SR)); thr = env.max() * 10 ** (rel_db / 20)
+    g = np.where(env >= thr, 1.0, np.maximum(10 ** (range_db / 20), (env / max(thr, 1e-9)) ** 4))
+    k = max(1, min(int(0.06 * SR), len(g))); g = np.convolve(g, np.ones(k) / k, mode='same')
     return x * (g if x.ndim == 1 else g[:, None])
 
 
@@ -110,16 +121,82 @@ def encode(x, path, loop):
 
 
 def measure(x):
+    """Lautheit, Spitze, Rauschen in Pausen (Fenster ≥ 30 dB unter dem lautesten 50-ms-Fenster; ohne Pausen: None), Übersteuerung."""
     import pyloudnorm as pyln
-    m = x if x.ndim == 1 else x
-    dur = len(m) / SR
-    lufs = pyln.Meter(SR).integrated_loudness(m) if dur > 0.45 else None
-    pk = float(np.abs(m).max())
-    mono = m if m.ndim == 1 else m.mean(axis=1)
-    win = int(0.3 * SR)
-    r = [np.sqrt(np.mean(mono[i:i + win] ** 2)) for i in range(0, max(1, len(mono) - win), win // 2)] or [np.sqrt(np.mean(mono ** 2))]
+    dur = len(x) / SR
+    lufs = pyln.Meter(SR).integrated_loudness(x) if dur > 0.45 else None
+    pk = float(np.abs(x).max())
+    mono = x if x.ndim == 1 else x.mean(axis=1)
+    win = int(0.05 * SR)
+    r = np.array([np.sqrt(np.mean(mono[i:i + win] ** 2)) for i in range(0, max(1, len(mono) - win), win)] or [np.sqrt(np.mean(mono ** 2))])
+    loud = r.max() if len(r) else 0
+    pauses = r[(r < loud * 10 ** (-30 / 20)) & (r > 1e-7)]
+    floor = round(db(float(np.median(pauses))), 1) if len(pauses) >= 3 else None
     return {'dur': round(dur, 3), 'lufs': round(float(lufs), 1) if lufs is not None and np.isfinite(lufs) else None, 'peakDb': round(db(pk), 1),
-            'floorDb': round(db(min(r)), 1), 'clip': int(np.sum(np.abs(m) >= 0.999))}
+            'floorDb': floor, 'clip': int(np.sum(np.abs(x) >= 0.999))}
+
+
+# Klänge ohne eigene Aufnahme: aus echten Aufnahmen abgeleitet (Alias oder Bearbeitung), nicht synthetisiert
+ALIAS = {'uiClick': 'touchpad', 'ttPlace': 'keyClick'}
+PIANO = 'assets/src/audio/incompetech/clear-waters/Clear Waters.mp3'   # Kevin MacLeod, CC BY 4.0
+BELL = 'tramBell'
+
+
+def onsets(x, n=12, min_gap=0.35):
+    """stärkste Anschläge (Spektralfluss grob über RMS-Anstieg)"""
+    env = rms_env(x, int(0.01 * SR)); d = np.diff(env, prepend=env[0]); d[d < 0] = 0
+    order = np.argsort(-d); out = []
+    for i in order:
+        if all(abs(i - j) > min_gap * SR for j in out): out.append(int(i))
+        if len(out) >= n: break
+    return sorted(out)
+
+
+def derived(name, src_by):
+    """Liefert [(Signal, Herkunftseintrag)] für abgeleitete Klänge."""
+    res = []
+    if name in ('good', 'quizSting', 'sting'):
+        f = os.path.join(ROOT, PIANO)
+        if not os.path.exists(f): return res
+        x = decode(f, 0, 60, ch=1, af='highpass=f=40')
+        ons = onsets(x, 16)
+        # lauteste Anschläge zuerst
+        ons = sorted(ons, key=lambda i: -np.abs(x[i:i + int(0.2 * SR)]).max())
+        pick = {'good': ons[0], 'quizSting': ons[1], 'sting': ons[2]}[name]
+        seg = x[max(0, pick - int(0.01 * SR)): pick + int(1.6 * SR)]
+        if name == 'sting':
+            # tiefer und dunkler: dieselbe Aufnahme um eine Quinte tiefer (Abspielrate 2/3)
+            idx = np.arange(0, len(seg) - 1, 2 / 3); seg = np.interp(idx, np.arange(len(seg)), seg).astype(np.float32)
+        e = {'file': PIANO, 'page': 'https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1100241', 'license': 'CC-BY-4.0', 'author': 'Kevin MacLeod',
+             'attribution': '"Clear Waters" Kevin MacLeod (incompetech.com), Licensed under Creative Commons: By Attribution 4.0 – einzelne Klaviertöne als Signal', 'quality': 'ok'}
+        res.append((fades(seg, 0.002, 0.4), e))
+    elif name == 'heart':
+        # Herzschlag aus einer echten dumpfen Aufnahme (Mikrofon-Stoß), tiefpassgefiltert, „lub-dub“
+        for e in src_by.get('micThump', [])[:1]:
+            f = os.path.join(ROOT, e.get('extractedFile') or e['file']); a, b = e.get('trim') or [None, None]
+            x = decode(f, a, b, ch=1, af='lowpass=f=140,highpass=f=30')
+            x = find_event(x, 0.25); x = x / max(np.abs(x).max(), 1e-6)
+            out = np.zeros(int(0.75 * SR), dtype=np.float32)
+            out[:len(x)] += x[:len(out)]; o2 = int(0.19 * SR); m = min(len(x), len(out) - o2); out[o2:o2 + m] += 0.7 * x[:m]
+            res.append((fades(out, 0.002, 0.1), e))
+    elif name == 'micFeedback':
+        # Rückkopplung: stärkster Teilton einer echten Glocke, schmalbandig herausgefiltert und gehalten
+        for e in src_by.get(BELL, [])[:1]:
+            f = os.path.join(ROOT, e.get('extractedFile') or e['file']); a, b = e.get('trim') or [0, 2]
+            x = decode(f, a, b, ch=1, af='highpass=f=600')
+            spec = np.abs(np.fft.rfft(x * np.hanning(len(x)))); fr = np.fft.rfftfreq(len(x), 1 / SR)
+            band = (fr > 1500) & (fr < 4000); f0 = float(fr[band][np.argmax(spec[band])])
+            y = decode(f, a, b, ch=1, af=f'bandpass=f={f0:.0f}:width_type=q:w=40,bandpass=f={f0:.0f}:width_type=q:w=40')
+            y = y / max(np.abs(y).max(), 1e-6)
+            # gehaltener Ton: kurzer Abschnitt nach dem Anschlag, mehrfach mit Überblendung aneinandergereiht, langsam anschwellend
+            k = int(0.25 * SR); st = int(np.argmax(np.abs(y))) + int(0.05 * SR); piece = y[st:st + k]
+            if len(piece) < k: piece = np.pad(piece, (0, k - len(piece)))
+            reps = 7; xf = int(0.05 * SR); out = np.zeros(reps * (k - xf) + xf, dtype=np.float32); w = np.linspace(0, 1, xf)
+            for r in range(reps):
+                seg = piece.copy(); seg[:xf] *= w; seg[-xf:] *= w[::-1]; o = r * (k - xf); out[o:o + k] += seg
+            env = np.linspace(0.6, 1, len(out)) ** 2; out *= env
+            res.append((fades(out, 0.02, 0.15), {**e, 'attribution': (e.get('attribution') or '') + ' – bearbeitet (Rückkopplungston)'}))
+    return res
 
 
 def main():
@@ -142,7 +219,7 @@ def main():
         cands = [c for c in cands if QUAL.get(c.get('quality'), 3) <= max(best, 1)]
         k = 1 if loop else VARIANTS.get(name, 2)
         cands = cands[:k]
-        files, origin = [], []
+        files, origin, gains = [], [], []
         lv = levels.get(name) or {}
         for i, e in enumerate(cands):
             f = os.path.join(ROOT, e.get('extractedFile') or e['file'])
@@ -151,14 +228,17 @@ def main():
             af = 'highpass=f=40' if loop else ('highpass=f=60,afftdn=nr=14:nf=-48:tn=1' if noisy else 'highpass=f=60')
             try:
                 if loop:
-                    if a is None: a, b = 0, min(40.0, e.get('duration') or 40)
+                    # Musik: 60 Takte bei 90 BPM (160 s) – Schnitt am Taktende; Atmosphären: höchstens 40 s
+                    if a is None: a, b = 0, min(160.0, (e.get('duration') or 40) - LOOP_XF - 0.05) if name == 'music' else min(40.0, e.get('duration') or 40)
                     x = decode(f, a, b + LOOP_XF, ch=2, af=af)
                     x = make_loop(x)
-                    if lv.get('rmsDb') is not None:
-                        cur = db(np.sqrt(np.mean(x ** 2)))
-                        x = x * 10 ** ((lv['rmsDb'] - cur) / 20)
+                    # Datei: −22 LUFS (Atmosphären-Ziel), Spitze ≤ −1 dBFS; Pegel im Spiel wie der bisherige Klang über „gain“
+                    import pyloudnorm as pyln
+                    lu = pyln.Meter(SR).integrated_loudness(x)
+                    if np.isfinite(lu): x = x * 10 ** ((-22 - lu) / 20)
                     pk = np.abs(x).max()
                     if pk > 0.89: x *= 0.89 / pk
+                    if lv.get('rmsDb') is not None: gains.append(10 ** ((lv['rmsDb'] - db(np.sqrt(np.mean(x ** 2)))) / 20))
                 else:
                     pad = 0.0 if a is None else 0.05
                     x = decode(f, None if a is None else max(0, a - pad), None if b is None else b + pad, ch=1, af=af)
@@ -166,9 +246,10 @@ def main():
                     if len(x) < int(0.03 * SR): raise ValueError('zu kurz')
                     x = x / max(np.abs(x).max(), 1e-6) * 10 ** (-3 / 20)
                     x = expander(x)
+                    x = gate(x)
                     x = fades(x)
-                    target = min(-1.0, lv.get('peakDb', -3.0))
-                    x = x / max(np.abs(x).max(), 1e-6) * 10 ** (target / 20)
+                    x = x / max(np.abs(x).max(), 1e-6) * 10 ** (-1.5 / 20)
+                    if lv.get('peakDb') is not None: gains.append(10 ** ((lv['peakDb'] + 1.5) / 20))
             except Exception as ex:
                 print('✗', name, e['file'], ex, flush=True); continue
             fn = f'{name}_{i}.ogg'
@@ -178,8 +259,28 @@ def main():
             origin.append({'file': fn, 'source': e.get('page') or e.get('url'), 'license': e['license'], 'author': e.get('author'),
                            'attribution': e.get('attribution'), 'quality': e.get('quality'), 'sha': hashlib.sha256(open(os.path.join(OUT, fn), 'rb').read()).hexdigest()[:16]})
         if files:
-            man[name] = {'files': files, 'loop': loop, 'origin': origin}
+            man[name] = {'files': files, 'loop': loop, 'gain': round(float(np.mean(gains)), 4) if gains else 1.0, 'origin': origin}
             print(f'✓ {name:14} {len(files)} Variante(n){" (Schleife)" if loop else ""}', flush=True)
+    # Aliasse: Klang nutzt die Aufnahmen eines anderen (z. B. UI-Klick = echter Touchpad-Klick)
+    for name, src in ALIAS.items():
+        if (ONLY and name not in ONLY) or src not in man: continue
+        man[name] = {**man[src], 'alias': src}
+        print(f'✓ {name:14} = {src}', flush=True)
+    # Ableitungen
+    for name in ('good', 'quizSting', 'sting', 'heart', 'micFeedback'):
+        if ONLY and name not in ONLY: continue
+        files, origin, gains = [], [], []
+        lv = levels.get(name) or {}
+        for i, (x, e) in enumerate(derived(name, by)):
+            x = gate(expander(x / max(np.abs(x).max(), 1e-6) * 10 ** (-3 / 20)))
+            x = x / max(np.abs(x).max(), 1e-6) * 10 ** (-1.5 / 20)
+            if lv.get('peakDb') is not None: gains.append(10 ** ((lv['peakDb'] + 1.5) / 20))
+            fn = f'{name}_{i}.ogg'; encode(x, os.path.join(OUT, fn), False)
+            check[fn] = {**measure(x), 'loop': False, 'source': e['file'], 'license': e['license']}
+            files.append(fn); origin.append({'file': fn, 'source': e.get('page') or e.get('url'), 'license': e['license'], 'author': e.get('author'), 'attribution': e.get('attribution'), 'quality': e.get('quality'), 'derived': True})
+        if files:
+            man[name] = {'files': files, 'loop': False, 'gain': round(float(np.mean(gains)), 4) if gains else 1.0, 'origin': origin}
+            print(f'✓ {name:14} abgeleitet', flush=True)
     json.dump(man, open(man_path, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
     os.makedirs(os.path.join(ROOT, 'docs', 'audio'), exist_ok=True)
     cp = os.path.join(ROOT, 'docs', 'audio', 'check.json')

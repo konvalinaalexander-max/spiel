@@ -58,7 +58,7 @@ export async function buildMobile({ root, humDir, noVoice }) {
     for (const [name, m] of Object.entries(man)) {
       const files = m.files.filter(f => fs.existsSync(path.join(sfxDir, f)));
       for (const f of files) core.push(rel(copy(path.join(sfxDir, f), path.join(OUT, 'assets/sfx', f))));
-      if (files.length) slim[name] = { loop: !!m.loop, files };
+      if (files.length) slim[name] = { loop: !!m.loop, gain: m.gain ?? 1, files };
     }
     fs.writeFileSync(path.join(OUT, 'assets/sfx/manifest.json'), JSON.stringify(slim)); core.push('assets/sfx/manifest.json');
     remote.sfx = 'assets/sfx/';

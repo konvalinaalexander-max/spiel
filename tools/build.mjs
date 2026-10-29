@@ -95,7 +95,7 @@ if (!mobile && fs.existsSync(sfxMan) && !process.argv.includes('--no-sfx')) {
   const man = JSON.parse(fs.readFileSync(sfxMan, 'utf8')), out = {}; let n = 0, bytes = 0;
   for (const [name, m] of Object.entries(man)) {
     const files = m.files.filter(f => fs.existsSync(path.join(root, 'assets/build/sfx', f))).map(f => { const b = fs.readFileSync(path.join(root, 'assets/build/sfx', f)); bytes += b.length; n++; return b.toString('base64'); });
-    if (files.length) out[name] = { loop: !!m.loop, files };
+    if (files.length) out[name] = { loop: !!m.loop, gain: m.gain ?? 1, files };
   }
   sfxBlock = JSON.stringify(out); console.log(`Geräusche: ${Object.keys(out).length} Klänge, ${n} Aufnahmen, ${(bytes / 1048576).toFixed(1)} MB`);
 }

@@ -8,7 +8,7 @@ const read = f => (fs.existsSync(path.join(root, f)) ? JSON.parse(fs.readFileSyn
 const fetched = read('assets/src/fetched.json') || {};
 const sources = (read('tools/pipeline/sources.json') || {}).sources || [];
 const roster = read('tools/pipeline/humans.json') || { humans: [] };
-const author = frag => { const a = String(frag).split('/')[0].split('_')[0]; return ['high-poly', 'low-poly', 'short01', 'short02', 'short03', 'short04', 'long01', 'ponytail01', 'bob01', 'bob02', 'afro01', 'braid01', 'shoes01', 'shoes02', 'shoes03', 'shoes04', 'shoes05', 'shoes06', 'male', 'female', 'young', 'middleage', 'old', 'teeth', 'eyebrow001', 'eyelashes01', 'eyelashes02'].some(k => frag.startsWith(k)) ? 'MakeHuman-Team' : a; };
+const author = frag => { const base = String(frag).split('/')[0]; if (!base.includes('_') || /^(eyebrow|eyelashes|short|long|bob|braid|ponytail|afro|shoes|teeth|tongue)\d*/.test(base)) return 'MakeHuman-Team'; const a = base.split('_')[0]; return ['high-poly', 'low-poly', 'short01', 'short02', 'short03', 'short04', 'long01', 'ponytail01', 'bob01', 'bob02', 'afro01', 'braid01', 'shoes01', 'shoes02', 'shoes03', 'shoes04', 'shoes05', 'shoes06', 'male', 'female', 'young', 'middleage', 'old', 'teeth', 'eyebrow001', 'eyelashes01', 'eyelashes02'].some(k => frag.startsWith(k)) ? 'MakeHuman-Team' : a; };
 
 let md = `# Assets, Herkunft und Lizenzen (Version 3)
 
@@ -53,7 +53,7 @@ for (const h of roster.humans) {
   md += `| ${h.id} | ${h.role || 'Studierende'} | ${b(h.skin)} | ${b(h.hair)}${h.hairMaterial ? ' (' + path.dirname(h.hairMaterial) + ')' : ''} | ${(h.clothes || []).map(b).join(', ')} | ${(h.accessories || []).map(b).join(', ') || '–'} |\n`;
 }
 const authors = new Set();
-for (const h of roster.humans) for (const f of [h.skin, h.hair, h.eyebrows, ...(h.clothes || []), ...(h.accessories || [])]) if (f) authors.add(author(f));
+for (const h of roster.humans) for (const f of [h.skin, h.hair, h.hairMaterial, h.eyebrows, ...(h.clothes || []), ...(h.accessories || [])]) if (f) authors.add(author(f));
 md += `\nUrheber:innen der verwendeten Assets (laut Paket): ${[...authors].sort().join(', ')}.\n`;
 md += `
 ## Stimme

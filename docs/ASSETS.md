@@ -91,7 +91,7 @@ Alle Figuren werden mit `node tools/pipeline/humans.mjs` aus `tools/pipeline/hum
 | f07 | Studierende | cutoff3d_indian_female_skin | rehmanpolanski_hair_bun_brown | toigo_wool_pants, toigo_fisherman_sweater, shoes06 | – |
 | f08 | Studierende | darthfurby_caucasian_female | o4saken_long01 | cortu_cargo_pants, joepal_crude_t-shirt_female, shoes05 | – |
 
-Urheber:innen der verwendeten Assets (laut Paket): MakeHuman-Team, cortu, culturalibre, cutoff3d, darthfurby, eyebrow002, eyebrow003, eyebrow004, eyebrow005, eyebrow006, eyebrow007, eyebrow009, eyebrow010, eyebrow011, eyebrow012, frankyaye, joepal, kwnet, mindfront, namuhekam, o4saken, rehmanpolanski, toigo.
+Urheber:innen der verwendeten Assets (laut Paket): MakeHuman-Team, bogdan666, cortu, culturalibre, cutoff3d, darthfurby, frankyaye, joepal, kwnet, mindfront, namuhekam, o4saken, rehmanpolanski, toigo.
 
 ## Stimme
 
@@ -102,3 +102,58 @@ Studierende „Sofia Hellen“ / „Andrew Chipper“; Lizenz der Modellausgabe 
 Prof „bm_daniel“, Nachbarin „bf_emma“, Studierende „af_heart“ / „am_michael“.
 Mit einem Azure-Schlüssel (`AZURE_SPEECH_KEY`, `AZURE_SPEECH_REGION`) kann die Stimme gegen „de-AT-JonasNeural“
 (österreichisches Deutsch) ausgetauscht werden.
+
+## Geräusche und Musik (echte Aufnahmen)
+
+Aufbereitet mit `tools/audio/build_sfx.py` aus den Kandidaten in `tools/pipeline/audio_sources.json`
+(Recherche und Lizenzprüfung: `docs/AUDIO_QUELLEN.md`). CC-BY-Aufnahmen sind im Spiel unter „Impressum, Quellen & Lizenzen“ genannt.
+
+| Klang | Lizenz | Herkunft |
+|---|---|---|
+| bird | CC0-1.0 | https://opengameart.org/content/ambient-bird-sounds (CC0-1.0) |
+| bird | CC0-1.0 | https://opengameart.org/content/crows-singing (CC0-1.0) |
+| bird | PDM-1.0 | https://archive.org/details/aporee_60623_69666 (PDM-1.0) |
+| bird | CC-BY-4.0 | "Birds Singing In A Peaceful Park Sound Effect" – Downloaded from www.freesoundslibrary.com (Free Sounds Library, Spanac), CC BY 4.0 |
+| boardSlide | CC-BY-4.0 | "Sliding Door Sounds" – Downloaded from www.freesoundslibrary.com (Free Sounds Library, Spanac), CC BY 4.0 |
+| boardSlide | CC-BY-4.0 | "Rock/Metal Slide" by Varkalandar – https://opengameart.org/content/rockmetal-slide – CC BY 4.0 |
+| bottleDrop, chairCreak, cough, doorClose, doorOpen, laughSoft, micThump, penClick, stepCarpet, throatClear, heart | Public-Domain | https://pdsounds.tuxfamily.org/list.html (Public-Domain) |
+| breath, clicker, cloth, cough, coughHigh, hinge, lidClose, micThump, pageTurn, penWrite, phoneVibrate, stepCarpet, stepParquet, stepStair, touchpad, zipper, uiClick | CC0-1.0 | https://opengameart.org/content/sound-effects-pack (CC0-1.0) |
+| chairCreak | CC-BY-4.0 | "The Linke Hofman Standard tram – the bench" – recorded by Museum of Municipal Engineering, Work With Sounds (EU-Projekt, http://soundsofchanges.eu/sound/the-linke-hofman-standard-tram-the-bench/) – CC BY 4.0 |
+| chairCreak, pageTurn | CC0-1.0 | https://opengameart.org/content/various-sound-effects (CC0-1.0) |
+| chalkScratch, chalkTap | CC-BY-4.0 | "Chalk" – recorded by La Fonderie, Work With Sounds (EU-Projekt, http://soundsofchanges.eu/sound/chalk/) – CC BY 4.0 |
+| clicker, touchpad, uiClick | CC0-1.0 | https://opengameart.org/content/middle-mouse-click (CC0-1.0) |
+| cloth | CC0-1.0 | https://opengameart.org/content/202-more-sound-effects (CC0-1.0) |
+| cough | CC0-1.0 | https://opengameart.org/content/old-man-cough (CC0-1.0) |
+| cough | CC0-1.0 | https://opengameart.org/content/sick-noises (CC0-1.0) |
+| coughHigh | CC-BY-4.0 | "Coughing Sound Effect" – Downloaded from www.freesoundslibrary.com (Free Sounds Library, Spanac), CC BY 4.0 |
+| doorBang, doorClose, doorOpen | CC0-1.0 | https://opengameart.org/content/door-open-door-close-set (CC0-1.0) |
+| glass | CC0-1.0 | https://opengameart.org/content/100-cc0-sfx (CC0-1.0) |
+| glass | CC-BY-4.0 | "Cup On Table Sfx Sound Effect" – Sound Effect By Nicole Marie T – https://opengameart.org/content/cup-on-table-sfx-sound-effect – CC BY 4.0 |
+| keyClick, ttPlace | CC0-1.0 | https://opengameart.org/content/keyboard-soundpack-1-typing-and-single-keystrokes (CC0-1.0) |
+| keyClick, ttPlace | CC-BY-4.0 | "Computer work at home" – recorded by Erik Pålsson, Work With Sounds (EU-Projekt, http://soundsofchanges.eu/sound/computer-work-at-home/) – CC BY 4.0 |
+| laughSoft | CC0-1.0 | https://opengameart.org/content/group-giggling (CC0-1.0) |
+| murmur, murmurBurst | CC-BY-4.0 | "Audience Murmur Sound Effect" – Downloaded from www.freesoundslibrary.com (Free Sounds Library, Spanac), CC BY 4.0 |
+| murmurBurst | PDM-1.0 | https://archive.org/details/aporee_36189_41517 (PDM-1.0) |
+| music | CC-BY-4.0 | "Almost Bliss" Kevin MacLeod (incompetech.com), Licensed under Creative Commons: By Attribution 4.0 License, http://creativecommons.org/licenses/by/4.0/ |
+| pageTurn | CC-BY-4.0 | "Page Turning Sfx Sound Effect" – Sound Effect By Nicole Marie T – https://opengameart.org/content/page-turning-sfx-sound-effect – CC BY 4.0 |
+| penClick | CC-BY-4.0 | "Pen Click Sfx Sound Effect" – Sound Effect By Nicole Marie T – https://opengameart.org/content/pen-click-sfx-sound-effect – CC BY 4.0 |
+| phoneRing | CC-BY-4.0 | "Phone Ring Sound Effect" – Downloaded from www.freesoundslibrary.com (Free Sounds Library, Spanac), CC BY 4.0 |
+| phoneRing | CC-BY-4.0 | "Old Cell Phone Ringing Sound Effect" – Downloaded from www.freesoundslibrary.com (Free Sounds Library, Spanac), CC BY 4.0 |
+| phoneVibrate | CC-BY-4.0 | "Vibrating Sound" – Downloaded from www.freesoundslibrary.com (Free Sounds Library, Spanac), CC BY 4.0 |
+| pour | CC-BY-4.0 | "Pouring Water" – Downloaded from www.freesoundslibrary.com (Free Sounds Library, Spanac), CC BY 4.0 |
+| projectorFan | CC-BY-4.0 | "Fan - Cinema projector" – recorded by La Fonderie, Work With Sounds (EU-Projekt, http://soundsofchanges.eu/sound/fan-cinema-projector/) – CC BY 4.0 |
+| rain | CC-BY-4.0 | "Rain on a window: A soundscape" – recorded by Fredrik Johansson, Work With Sounds (EU-Projekt, http://soundsofchanges.eu/sound/rain-on-a-window-a-soundscape/) – CC BY 4.0 |
+| roomTone | PDM-1.0 | https://archive.org/details/aporee_35419_40679 (PDM-1.0) |
+| seatFlip | CC-BY-4.0 | "Cinema seat" – recorded by La Fonderie, Work With Sounds (EU-Projekt, http://soundsofchanges.eu/sound/cinema-seat/) – CC BY 4.0 |
+| sponge | CC-BY-4.0 | "Wet sponge" – recorded by La Fonderie, Work With Sounds (EU-Projekt, http://soundsofchanges.eu/sound/wet-sponge-2/) – CC BY 4.0 |
+| stepParquet | CC-BY-4.0 | "Creaking floors" – recorded by Torsten Nilsson, Work With Sounds (EU-Projekt, http://soundsofchanges.eu/sound/creaking-floors/) – CC BY 4.0 |
+| stepParquet | CC0-1.0 | https://opengameart.org/content/50-rpg-sound-effects (CC0-1.0) |
+| stepStair | CC-BY-4.0 | "Stairwell" – recorded by Torsten Nilsson, Work With Sounds (EU-Projekt, http://soundsofchanges.eu/sound/stairwell/) – CC BY 4.0 |
+| traffic | PDM-1.0 | https://archive.org/details/aporee_34806_40011 (PDM-1.0) |
+| tramBell | CC-BY-4.0 | "The Linke Hofman Standard tram – the bell (recorded from the outside)" – recorded by Museum of Municipal Engineering, Work With Sounds (EU-Projekt, http://soundsofchanges.eu/sound/the-linke-hofman-standard-tram-the-bell-recorded-from-the-outside/) – CC BY 4.0 |
+| tramBell | CC-BY-4.0 | "The SN4 type tram – the bell (recorded from the outside)" – recorded by Museum of Municipal Engineering, Work With Sounds (EU-Projekt, http://soundsofchanges.eu/sound/the-sn4-type-tram-the-bell-recorded-from-the-outside/) – CC BY 4.0 |
+| tramBell | CC-BY-4.0 | "The N tram – the bell (recorded from the outside)" – recorded by Museum of Municipal Engineering, Work With Sounds (EU-Projekt, http://soundsofchanges.eu/sound/the-n-tram-the-bell-recorded-from-the-outside/) – CC BY 4.0 |
+| ventilation | CC-BY-4.0 | "Bathroom fan" – recorded by Erik Pålsson, Work With Sounds (EU-Projekt, http://soundsofchanges.eu/sound/bathroom-fan/) – CC BY 4.0 |
+| wind | CC0-1.0 | https://opengameart.org/content/park-ambiences (CC0-1.0) |
+| good, quizSting, sting | CC-BY-4.0 | "Clear Waters" Kevin MacLeod (incompetech.com), Licensed under Creative Commons: By Attribution 4.0 – einzelne Klaviertöne als Signal |
+| micFeedback | CC-BY-4.0 | "The Linke Hofman Standard tram – the bell (recorded from the outside)" – recorded by Museum of Municipal Engineering, Work With Sounds (EU-Projekt, http://soundsofchanges.eu/sound/the-linke-hofman-standard-tram-the-bell-recorded-from-the-outside/) – CC BY 4.0 – bearbeitet (Rückkopplungston) |

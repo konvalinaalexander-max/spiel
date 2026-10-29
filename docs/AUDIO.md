@@ -113,3 +113,30 @@ Mastering je Clip mit ffmpeg (`tools/voice/master.py`, für beide Modelle gleich
 −1,5 dBTP, 48 kHz, Opus 28 kbit/s mono; Lautstärkekurve 20 Hz für die Mundbewegung → `assets/build/voice/<sprache>/`.
 Im Spiel (`src/audio/voice.js`): Aufnahme über ihre Kennung finden, Stücke mit 60 ms Abstand aneinanderreihen, räumlich am Kopf
 der Figur abspielen, Hall aus dem Raum; der Kiefer des Profs folgt der Lautstärkekurve.
+
+## Geräusche in Version 3 (echte Aufnahmen)
+
+**Quellen:** Recherche und Lizenzprüfung in `docs/AUDIO_QUELLEN.md`, maschinenlesbar in `tools/pipeline/audio_sources.json`
+(126 Kandidaten für 45 Klänge: OpenGameArt, Work With Sounds/Europeana, radio aporee, pdsounds, Free Sounds Library, incompetech).
+Nur CC0, Public Domain und CC BY; jede CC-BY-Aufnahme steht im Spiel unter „Impressum, Quellen & Lizenzen“.
+
+**Aufbereitung** (`tools/audio/build_sfx.py`):
+
+- Einmal-Klänge: mono, Hochpass 60 Hz, bei hörbarem Grundrauschen FFT-Entrauschen, Ereignis automatisch eingrenzen, Expander und
+  Pausen-Gate (Rauschen in Pausen nach unten), kurze Ein-/Ausblendung, Spitze −1,5 dBFS.
+- Schleifen: Stereo, Hochpass 40 Hz, nahtlos durch Überblendung des Endes in den Anfang (2 s), −22 LUFS, Spitze ≤ −1 dBFS.
+- Pegel im Spiel: Jeder Klang bekommt einen Faktor, der ihn auf den Pegel des früheren synthetischen Klangs bringt. Die Mischung
+  im Hörsaal bleibt so, wie sie abgestimmt war.
+- Opus 64 kbit/s (Einmal-Klänge) bzw. 96 kbit/s Stereo (Schleifen), 48 kHz.
+- Ohne eigene Aufnahme, aber aus echten Aufnahmen abgeleitet: UI-Klick und Feld setzen (echte Touchpad- bzw. Tastenklicks),
+  Quiz-Signal, „richtig“ und „erwischt“ (einzelne Klaviertöne aus „Clear Waters“ von Kevin MacLeod, „erwischt“ eine Quinte tiefer),
+  Herzschlag (echter dumpfer Stoß, tiefpassgefiltert, doppelt), Mikrofon-Rückkopplung (stärkster Teilton einer echten Glocke,
+  schmalbandig gehalten).
+- Synthetisch bleiben nur die fünf Signaltöne des Laptops: Benachrichtigung, Sieg, Niederlage und die zwei Snake-Töne.
+- Menü-Musik: „Almost Bliss“ von Kevin MacLeod (CC BY 4.0), 160 s als Schleife.
+
+**Prüfung** (`node tools/audio-check.mjs`, Werte je Clip in `docs/audio/check.json`): 0 übersteuerte Samples, alle Spitzen ≤ −1 dBFS,
+Atmosphären −22 LUFS. Rauschen in Pausen (50-ms-Fenster mindestens 30 dB unter dem lautesten): bei 86 von 92 Clips ≤ −60 dBFS,
+6 Clips liegen zwischen −50 und −58 dBFS (Atemzug, Lachen, Handy, Klappsitz, Straßenbahnglocke – Raumklang der Aufnahme).
+
+**Nicht gehört:** Im Container gibt es keine Tonausgabe. Schnitte, Pegel und Rauschen sind gemessen, nicht angehört.

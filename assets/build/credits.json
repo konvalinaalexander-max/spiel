@@ -1,0 +1,390 @@
+{
+ "figures": [
+  "MakeHuman-Team",
+  "bogdan666",
+  "cortu",
+  "culturalibre",
+  "cutoff3d",
+  "darthfurby",
+  "frankyaye",
+  "joepal",
+  "kwnet",
+  "mindfront",
+  "namuhekam",
+  "o4saken",
+  "rehmanpolanski",
+  "toigo"
+ ],
+ "voices": {
+  "de": "Coqui XTTS v2 (CPML, nicht-kommerziell): Damien Black, Daisy Studious, Sofia Hellen, Andrew Chipper – synthetische Studiosprecher",
+  "en": "Kokoro-82M by hexgrad (Apache-2.0): bm_daniel, bf_emma, af_heart, am_michael – synthetic voices"
+ },
+ "sounds": [
+  {
+   "line": "\"Almost Bliss\" Kevin MacLeod (incompetech.com), Licensed under Creative Commons: By Attribution 4.0 License, http://creativecommons.org/licenses/by/4.0/",
+   "license": "CC-BY-4.0",
+   "names": [
+    "music"
+   ]
+  },
+  {
+   "line": "\"Audience Murmur Sound Effect\" – Downloaded from www.freesoundslibrary.com (Free Sounds Library, Spanac), CC BY 4.0",
+   "license": "CC-BY-4.0",
+   "names": [
+    "murmur",
+    "murmurBurst"
+   ]
+  },
+  {
+   "line": "\"Bathroom fan\" – recorded by Erik Pålsson, Work With Sounds (EU-Projekt, http://soundsofchanges.eu/sound/bathroom-fan/) – CC BY 4.0",
+   "license": "CC-BY-4.0",
+   "names": [
+    "ventilation"
+   ]
+  },
+  {
+   "line": "\"Birds Singing In A Peaceful Park Sound Effect\" – Downloaded from www.freesoundslibrary.com (Free Sounds Library, Spanac), CC BY 4.0",
+   "license": "CC-BY-4.0",
+   "names": [
+    "bird"
+   ]
+  },
+  {
+   "line": "\"Chalk\" – recorded by La Fonderie, Work With Sounds (EU-Projekt, http://soundsofchanges.eu/sound/chalk/) – CC BY 4.0",
+   "license": "CC-BY-4.0",
+   "names": [
+    "chalkScratch",
+    "chalkTap"
+   ]
+  },
+  {
+   "line": "\"Cinema seat\" – recorded by La Fonderie, Work With Sounds (EU-Projekt, http://soundsofchanges.eu/sound/cinema-seat/) – CC BY 4.0",
+   "license": "CC-BY-4.0",
+   "names": [
+    "seatFlip"
+   ]
+  },
+  {
+   "line": "\"Clear Waters\" Kevin MacLeod (incompetech.com), Licensed under Creative Commons: By Attribution 4.0 – einzelne Klaviertöne als Signal",
+   "license": "CC-BY-4.0",
+   "names": [
+    "good",
+    "quizSting",
+    "sting"
+   ]
+  },
+  {
+   "line": "\"Computer work at home\" – recorded by Erik Pålsson, Work With Sounds (EU-Projekt, http://soundsofchanges.eu/sound/computer-work-at-home/) – CC BY 4.0",
+   "license": "CC-BY-4.0",
+   "names": [
+    "keyClick",
+    "ttPlace"
+   ]
+  },
+  {
+   "line": "\"Coughing Sound Effect\" – Downloaded from www.freesoundslibrary.com (Free Sounds Library, Spanac), CC BY 4.0",
+   "license": "CC-BY-4.0",
+   "names": [
+    "coughHigh"
+   ]
+  },
+  {
+   "line": "\"Creaking floors\" – recorded by Torsten Nilsson, Work With Sounds (EU-Projekt, http://soundsofchanges.eu/sound/creaking-floors/) – CC BY 4.0",
+   "license": "CC-BY-4.0",
+   "names": [
+    "stepParquet"
+   ]
+  },
+  {
+   "line": "\"Cup On Table Sfx Sound Effect\" – Sound Effect By Nicole Marie T – https://opengameart.org/content/cup-on-table-sfx-sound-effect – CC BY 4.0",
+   "license": "CC-BY-4.0",
+   "names": [
+    "glass"
+   ]
+  },
+  {
+   "line": "\"Fan - Cinema projector\" – recorded by La Fonderie, Work With Sounds (EU-Projekt, http://soundsofchanges.eu/sound/fan-cinema-projector/) – CC BY 4.0",
+   "license": "CC-BY-4.0",
+   "names": [
+    "projectorFan"
+   ]
+  },
+  {
+   "line": "\"Old Cell Phone Ringing Sound Effect\" – Downloaded from www.freesoundslibrary.com (Free Sounds Library, Spanac), CC BY 4.0",
+   "license": "CC-BY-4.0",
+   "names": [
+    "phoneRing"
+   ]
+  },
+  {
+   "line": "\"Page Turning Sfx Sound Effect\" – Sound Effect By Nicole Marie T – https://opengameart.org/content/page-turning-sfx-sound-effect – CC BY 4.0",
+   "license": "CC-BY-4.0",
+   "names": [
+    "pageTurn"
+   ]
+  },
+  {
+   "line": "\"Pen Click Sfx Sound Effect\" – Sound Effect By Nicole Marie T – https://opengameart.org/content/pen-click-sfx-sound-effect – CC BY 4.0",
+   "license": "CC-BY-4.0",
+   "names": [
+    "penClick"
+   ]
+  },
+  {
+   "line": "\"Phone Ring Sound Effect\" – Downloaded from www.freesoundslibrary.com (Free Sounds Library, Spanac), CC BY 4.0",
+   "license": "CC-BY-4.0",
+   "names": [
+    "phoneRing"
+   ]
+  },
+  {
+   "line": "\"Pouring Water\" – Downloaded from www.freesoundslibrary.com (Free Sounds Library, Spanac), CC BY 4.0",
+   "license": "CC-BY-4.0",
+   "names": [
+    "pour"
+   ]
+  },
+  {
+   "line": "\"Rain on a window: A soundscape\" – recorded by Fredrik Johansson, Work With Sounds (EU-Projekt, http://soundsofchanges.eu/sound/rain-on-a-window-a-soundscape/) – CC BY 4.0",
+   "license": "CC-BY-4.0",
+   "names": [
+    "rain"
+   ]
+  },
+  {
+   "line": "\"Rock/Metal Slide\" by Varkalandar – https://opengameart.org/content/rockmetal-slide – CC BY 4.0",
+   "license": "CC-BY-4.0",
+   "names": [
+    "boardSlide"
+   ]
+  },
+  {
+   "line": "\"Sliding Door Sounds\" – Downloaded from www.freesoundslibrary.com (Free Sounds Library, Spanac), CC BY 4.0",
+   "license": "CC-BY-4.0",
+   "names": [
+    "boardSlide"
+   ]
+  },
+  {
+   "line": "\"Stairwell\" – recorded by Torsten Nilsson, Work With Sounds (EU-Projekt, http://soundsofchanges.eu/sound/stairwell/) – CC BY 4.0",
+   "license": "CC-BY-4.0",
+   "names": [
+    "stepStair"
+   ]
+  },
+  {
+   "line": "\"The Linke Hofman Standard tram – the bell (recorded from the outside)\" – recorded by Museum of Municipal Engineering, Work With Sounds (EU-Projekt, http://soundsofchanges.eu/sound/the-linke-hofman-standard-tram-the-bell-recorded-from-the-outside/) – CC BY 4.0",
+   "license": "CC-BY-4.0",
+   "names": [
+    "tramBell"
+   ]
+  },
+  {
+   "line": "\"The Linke Hofman Standard tram – the bell (recorded from the outside)\" – recorded by Museum of Municipal Engineering, Work With Sounds (EU-Projekt, http://soundsofchanges.eu/sound/the-linke-hofman-standard-tram-the-bell-recorded-from-the-outside/) – CC BY 4.0 – bearbeitet (Rückkopplungston)",
+   "license": "CC-BY-4.0",
+   "names": [
+    "micFeedback"
+   ]
+  },
+  {
+   "line": "\"The Linke Hofman Standard tram – the bench\" – recorded by Museum of Municipal Engineering, Work With Sounds (EU-Projekt, http://soundsofchanges.eu/sound/the-linke-hofman-standard-tram-the-bench/) – CC BY 4.0",
+   "license": "CC-BY-4.0",
+   "names": [
+    "chairCreak"
+   ]
+  },
+  {
+   "line": "\"The N tram – the bell (recorded from the outside)\" – recorded by Museum of Municipal Engineering, Work With Sounds (EU-Projekt, http://soundsofchanges.eu/sound/the-n-tram-the-bell-recorded-from-the-outside/) – CC BY 4.0",
+   "license": "CC-BY-4.0",
+   "names": [
+    "tramBell"
+   ]
+  },
+  {
+   "line": "\"The SN4 type tram – the bell (recorded from the outside)\" – recorded by Museum of Municipal Engineering, Work With Sounds (EU-Projekt, http://soundsofchanges.eu/sound/the-sn4-type-tram-the-bell-recorded-from-the-outside/) – CC BY 4.0",
+   "license": "CC-BY-4.0",
+   "names": [
+    "tramBell"
+   ]
+  },
+  {
+   "line": "\"Vibrating Sound\" – Downloaded from www.freesoundslibrary.com (Free Sounds Library, Spanac), CC BY 4.0",
+   "license": "CC-BY-4.0",
+   "names": [
+    "phoneVibrate"
+   ]
+  },
+  {
+   "line": "\"Wet sponge\" – recorded by La Fonderie, Work With Sounds (EU-Projekt, http://soundsofchanges.eu/sound/wet-sponge-2/) – CC BY 4.0",
+   "license": "CC-BY-4.0",
+   "names": [
+    "sponge"
+   ]
+  },
+  {
+   "line": "https://archive.org/details/aporee_34806_40011 (PDM-1.0)",
+   "license": "PDM-1.0",
+   "names": [
+    "traffic"
+   ]
+  },
+  {
+   "line": "https://archive.org/details/aporee_35419_40679 (PDM-1.0)",
+   "license": "PDM-1.0",
+   "names": [
+    "roomTone"
+   ]
+  },
+  {
+   "line": "https://archive.org/details/aporee_36189_41517 (PDM-1.0)",
+   "license": "PDM-1.0",
+   "names": [
+    "murmurBurst"
+   ]
+  },
+  {
+   "line": "https://archive.org/details/aporee_60623_69666 (PDM-1.0)",
+   "license": "PDM-1.0",
+   "names": [
+    "bird"
+   ]
+  },
+  {
+   "line": "https://opengameart.org/content/100-cc0-sfx (CC0-1.0)",
+   "license": "CC0-1.0",
+   "names": [
+    "glass"
+   ]
+  },
+  {
+   "line": "https://opengameart.org/content/202-more-sound-effects (CC0-1.0)",
+   "license": "CC0-1.0",
+   "names": [
+    "cloth"
+   ]
+  },
+  {
+   "line": "https://opengameart.org/content/50-rpg-sound-effects (CC0-1.0)",
+   "license": "CC0-1.0",
+   "names": [
+    "stepParquet"
+   ]
+  },
+  {
+   "line": "https://opengameart.org/content/ambient-bird-sounds (CC0-1.0)",
+   "license": "CC0-1.0",
+   "names": [
+    "bird"
+   ]
+  },
+  {
+   "line": "https://opengameart.org/content/crows-singing (CC0-1.0)",
+   "license": "CC0-1.0",
+   "names": [
+    "bird"
+   ]
+  },
+  {
+   "line": "https://opengameart.org/content/door-open-door-close-set (CC0-1.0)",
+   "license": "CC0-1.0",
+   "names": [
+    "doorBang",
+    "doorClose",
+    "doorOpen"
+   ]
+  },
+  {
+   "line": "https://opengameart.org/content/group-giggling (CC0-1.0)",
+   "license": "CC0-1.0",
+   "names": [
+    "laughSoft"
+   ]
+  },
+  {
+   "line": "https://opengameart.org/content/keyboard-soundpack-1-typing-and-single-keystrokes (CC0-1.0)",
+   "license": "CC0-1.0",
+   "names": [
+    "keyClick",
+    "ttPlace"
+   ]
+  },
+  {
+   "line": "https://opengameart.org/content/middle-mouse-click (CC0-1.0)",
+   "license": "CC0-1.0",
+   "names": [
+    "clicker",
+    "touchpad",
+    "uiClick"
+   ]
+  },
+  {
+   "line": "https://opengameart.org/content/old-man-cough (CC0-1.0)",
+   "license": "CC0-1.0",
+   "names": [
+    "cough"
+   ]
+  },
+  {
+   "line": "https://opengameart.org/content/park-ambiences (CC0-1.0)",
+   "license": "CC0-1.0",
+   "names": [
+    "wind"
+   ]
+  },
+  {
+   "line": "https://opengameart.org/content/sick-noises (CC0-1.0)",
+   "license": "CC0-1.0",
+   "names": [
+    "cough"
+   ]
+  },
+  {
+   "line": "https://opengameart.org/content/sound-effects-pack (CC0-1.0)",
+   "license": "CC0-1.0",
+   "names": [
+    "breath",
+    "clicker",
+    "cloth",
+    "cough",
+    "coughHigh",
+    "hinge",
+    "lidClose",
+    "micThump",
+    "pageTurn",
+    "penWrite",
+    "phoneVibrate",
+    "stepCarpet",
+    "stepParquet",
+    "stepStair",
+    "touchpad",
+    "zipper",
+    "uiClick"
+   ]
+  },
+  {
+   "line": "https://opengameart.org/content/various-sound-effects (CC0-1.0)",
+   "license": "CC0-1.0",
+   "names": [
+    "chairCreak",
+    "pageTurn"
+   ]
+  },
+  {
+   "line": "https://pdsounds.tuxfamily.org/list.html (Public-Domain)",
+   "license": "Public-Domain",
+   "names": [
+    "bottleDrop",
+    "chairCreak",
+    "cough",
+    "doorClose",
+    "doorOpen",
+    "laughSoft",
+    "micThump",
+    "penClick",
+    "stepCarpet",
+    "throatClear",
+    "heart"
+   ]
+  }
+ ]
+}
