@@ -4,14 +4,15 @@ Du bist ein **Senior Game Developer** mit Technical-Art-, Engine- und Produktion
 
 Der Auftraggeber hat Version 2 gespielt und sagt wörtlich:
 
-> „Die PowerPoint vom Beamer und der Screen sind irgendwie blurry. Generell hat das ganze Spiel so ein verschwommenes Feeling, auch der Bildschirm. Die Menschen sind komische Kreise, Würfel und Kugeln. Die Hand in der First Person ist keine Hand. Es soll am Handy wie auch am Computer spielbar sein. Und die Texte des Profs sollen ein bisschen realer und unterhaltsamer sein.“
+> „Die PowerPoint vom Beamer und der Screen sind irgendwie blurry. Generell hat das ganze Spiel so ein verschwommenes Feeling, auch der Bildschirm. Die Menschen sind komische Kreise, Würfel und Kugeln. Die Hand in der First Person ist keine Hand. Es soll am Handy wie auch am Computer spielbar sein. Und die Texte des Profs sollen ein bisschen realer und unterhaltsamer sein. Das Gleiche gilt für Audio: nutze andere Services für bessere Audio – reale Stimmen, kein Rauschen, keine Computerstimme.“
 
-Das ist dein Auftrag. Vier Ziele, alle Pflicht:
+Das ist dein Auftrag. Fünf Ziele, alle Pflicht:
 
 1. **Schärfe.** Kein verschwommenes Bild mehr – nirgends. Folien, Laptop-Bildschirm, Tafel, Kanten, Texturen. Lesbarkeit wird **gemessen** (OCR), nicht behauptet.
 2. **Echte Assets.** Menschen, Hände, Möbel, Requisiten, Materialien kommen aus professionellen, frei lizenzierten Paketen und einer echten Asset-Pipeline (Blender, glTF-Transform, KTX2) – **nicht** aus handgeschriebenen Kugeln und Würfeln. Du modellierst nur, was es nirgends gibt, und dann in Blender, nicht in three.js-Primitiven.
 3. **Mobil und Desktop.** Ein Build für den Desktop (eine herunterladbare Datei) und ein Build für Handys (gehostet, als PWA installierbar, Touch-Steuerung von Grund auf).
-4. **Der Prof.** Dialoge, die sich wie ein echter, witziger, österreichischer Professor anhören – inhaltlich korrekt, mit Anekdoten, Rückbezügen, Reaktionen auf den Saal – und eine **echte Stimme** (neuronale TTS, vorgerendert) statt der Browser-Sprachausgabe.
+4. **Der Prof.** Dialoge, die sich wie ein echter, witziger, österreichischer Professor anhören – inhaltlich korrekt, mit Anekdoten, Rückbezügen, Reaktionen auf den Saal – und eine **menschlich klingende Stimme** mit österreichischer Färbung, erzeugt mit den besten verfügbaren Sprachdiensten, vorgerendert. Browser-Sprachausgabe und einfache Offline-Synthese (Piper & Co.) sind **keine akzeptable Endqualität**.
+5. **Klang.** Jeder Ton im Spiel ist eine **echte Aufnahme** (Kreide, Tür, Stühle, Tippen, Gemurmel, Lüftung, Regen, Verkehr) aus lizenzierten Bibliotheken, sauber gemastert – kein synthetisches Rauschen, keine Oszillator-Pieptöne. Hall aus echten Impulsantworten.
 
 Du arbeitest den Plan **vollständig** ab. Jede Phase hat Abnahmekriterien mit Zahlen. Du bist erst fertig, wenn alle erfüllt und belegt sind.
 
@@ -31,6 +32,7 @@ Lies das zuerst. Die Ursachen sind bekannt; du fängst nicht bei null an.
 | 6 | **Figuren und Hände prozedural** aus Kapseln/Kugeln/Quadern, Requisiten aus Primitiven, Texturen prozedural auf der GPU. | `src/chars/rig.js`, `src/scene/props.js`, `src/gfx/textures.js` | „Baukasten“-Look; keine echten Gesichter, Hände, Kleidung, Materialien. |
 | 7 | **Stimme**: Browser-`speechSynthesis`, je nach System robotisch; 553 Dialogsätze, Humor dünn. | `src/audio/*`, `src/content/dialogue.json` | Prof wirkt nicht wie ein Mensch. |
 | 8 | **Mobil**: Touch rudimentär (Wischen, Tippen, 4 Schaltflächen), kein eigener Build, keine Hosting-Variante. Eine lokale HTML-Datei führt auf iOS (Files/Quick Look) **kein JavaScript** aus. | `src/core/input.js`, `src/ui/hud.js` | Am Handy faktisch nicht spielbar. |
+| 9 | **Audio komplett synthetisch**: alle 55 Klänge und 7 Schleifen werden zur Laufzeit aus Rauschen und Oszillatoren erzeugt (gefiltertes Rauschen als „Lüftung“, „Regen“, „Gemurmel“; Klicks als Hüllkurven), Hall aus einer künstlichen Impulsantwort, Menümusik synthetisiert. | `src/audio/synth.js`, `src/audio/engine.js` | Klingt nach Rauschen und Computer, nicht nach Hörsaal. Der Auftraggeber hört genau das. |
 
 Was in Version 2 **gut** ist und bleibt (nicht neu erfinden, nur ausbauen): Vorlesungs-Director mit 28 Ereignistypen, Sichtkegel mit Verdeckung, dreistufiges Verdachtsmodell, Laptop-OS mit Apps, Tic-Tac-Toe-Gegner:in im Saal, Quiz/Mitschrift, Noten/Erfolge/Rangliste, DE/EN, Audio-Mixer, 26 automatisierte Tests, Headless-Screenshot-Werkzeuge (`tools/e2e.mjs`, `tools/phaseshots.mjs`, `tools/docshots.mjs`), Bot-Balancing (`tools/sim.mjs`). Alles in `docs/` (README, RECHERCHE, ITERATIONEN, PERFORMANCE, BALANCING, AUDIO, ABSCHLUSS) lesen, bevor du etwas anfasst.
 
@@ -50,7 +52,7 @@ Ausgangspunkt: Commit `5a19149` auf `claude/amazing-hamilton-2758i1` (Version 2 
 8. **Bilder ansehen.** Nach jeder Phase Screenshots aus ≥ 4 Perspektiven **bei DPR 2** (Playwright `deviceScaleFactor: 2`, Viewport 1920 × 1080) und zusätzlich mobil emuliert (iPhone 13, Pixel 7, iPad). Du schaust sie dir an (Bild lesen) und bewertest sie kritisch, bevor du eine Phase abschließt. Dokumentiert in `docs/ITERATIONEN.md`.
 9. **Keine Regressionen.** Alle Systeme aus Version 2 bleiben funktionsfähig; `npm test` und `node tools/test.mjs --e2e` bleiben grün und werden um neue Tests ergänzt (siehe Phase 9). Bot-Balancing wird nach Gameplay-Änderungen wiederholt.
 10. **Commits pro Phase** mit aussagekräftigen Nachrichten; nach jeder Phase Push. **Drei Zwischenlieferungen** (siehe Abschnitt 4), damit der Auftraggeber früh prüfen kann – vor allem die Schärfe.
-11. **Blockaden lösen, nicht abwarten.** Netzquelle nicht erreichbar → Alternative aus Anhang A, dokumentieren. Werkzeug fehlt → installieren (pip, npm, Tarball). Du stellst dem Auftraggeber **keine Rückfragen**, du entscheidest und dokumentierst. Einzige Ausnahme: Zugangsdaten (Sketchfab-Token, Hosting-Freischaltung) – dafür schreibst du am Ende eine klare „Das musst du noch tun“-Liste.
+11. **Blockaden lösen, nicht abwarten.** Netzquelle nicht erreichbar → Alternative aus Anhang A, dokumentieren. Werkzeug fehlt → installieren (pip, npm, Tarball). Du stellst dem Auftraggeber **keine Rückfragen**, du entscheidest und dokumentierst. Einzige Ausnahme: Zugangsdaten (API-Schlüssel für Sprachdienste und Freesound, Sketchfab-Token, Hosting-Freischaltung) – die erbittest du **in deiner ersten Nachricht** mit genauer Anleitung (wo man den Schlüssel in fünf Minuten kostenlos bekommt, wie er als Umgebungsvariable gesetzt wird) und arbeitest währenddessen mit der Rückfallebene weiter; was bis zum Ende fehlt, steht in der „Das musst du noch tun“-Liste.
 
 ---
 
@@ -70,7 +72,9 @@ Ausgangspunkt: Commit `5a19149` auf `claude/amazing-hamilton-2758i1` (Version 2 
 | Materialien | PBR-Texturen aus ambientCG/Poly Haven, KTX2-komprimiert | alle Flächen; Desktop 2K, Mobil ≤ 1K |
 | Licht | gebackene Lightmaps + HDRI-Umgebung + CSM-Sonne | Lightmap ≥ 4 × 2048², rauschfrei (Denoiser) |
 | Dialog | Prof-Sätze DE und EN (keine 1:1-Übersetzung, gleich witzig) | **≥ 1 500** je Sprache, ≥ 60 Anekdoten, ≥ 8 Running Gags, ≥ 6 Varianten je Ereignisreaktion, **0 Wiederholungen** innerhalb einer Vorlesung |
-| Stimme | vorgerenderte neuronale TTS für alle Prof-Sätze | 100 % DE + EN, AAC/Opus, Lippensynchronisation aus Hüllkurve |
+| Stimme | vorgerenderte Sprachsynthese mit **menschlicher Qualität** (Anhang E, Stufe 1 oder 2) für alle Prof-Sätze, österreichische Färbung im Deutschen | 100 % DE + EN; Hörprobe 30 Sätze; Lippensynchronisation aus Visem-/Zeitstempeln oder Hüllkurve; **0** Browser-TTS, **0** Piper im Endprodukt |
+| Klang | Geräusche und Atmosphären aus **echten Aufnahmen** (Anhang A, Audio) | **0** synthetische Quellen im Endprodukt (Ausnahme: UI-Signaltöne des Laptop-OS, max. 5); ≥ 120 Clips, ≥ 12 Atmosphären-Schleifen (nahtlos), echte Hall-Impulsantworten |
+| Mastering | Lautheit / Spitzen / Grundrauschen je Clip (`tools/audio-check.mjs`) | −16 LUFS (Stimme), −20 bis −24 LUFS (Atmo), True Peak ≤ −1 dBTP, Grundrauschen in Pausen ≤ −60 dBFS RMS, 0 Clipping |
 | Desktop-Build | eine HTML-Datei, offline per Doppelklick | Ziel ≤ 80 MB, hart ≤ 120 MB; Startseite < 1 s, Hörsaal fertig ≤ 10 s (gemessen headless: Decode + Build ≤ 6 s) |
 | Mobil-Build | gehostet + PWA, offline nach erstem Start | ≤ 30 MB Gesamtdownload, erster Start ≤ 20 s bei 4G, Lighthouse Mobile: Barrierefreiheit ≥ 90, PWA installierbar |
 | Performance Desktop „Mittel“ | Draw Calls / Dreiecke / Texturspeicher | ≤ 250 / ≤ 1,5 Mio / ≤ 600 MB; Budget 16,6 ms auf Iris Xe (nicht messbar → Budgets einhalten + relative SwiftShader-Messung dokumentieren) |
@@ -92,7 +96,7 @@ Reihenfolge ist Pflicht: Schärfe zuerst (das größte Ärgernis), dann Lesbarke
 1. Node-Werkzeuge: `@gltf-transform/cli`, `gltfpack` (meshoptimizer), `three` (aktuell; v2 nutzt r183 – nur mit Grund wechseln), `postprocessing`, `troika-three-text`, `tesseract.js`, `sharp` (Bildvergleich), `playwright` (vorinstalliert – **nicht** `playwright install` ausführen; Chromium liegt unter `/opt/pw-browsers/chromium`).
 2. **Blender** headless: Tarball der aktuellen LTS von `download.blender.org` (erreichbar) nach `tools/blender/` entpacken; `blender -b -P script.py` muss laufen. Falls `pip install bpy` mit der Container-Python-Version (3.13) nicht geht: Tarball bringt eigenes Python mit.
 3. **KTX-Software** (`toktx`/`ktx`) oder `basisu` aus den GitHub-Releases für KTX2-Texturen; `gltf-transform etc1s/uastc` braucht es.
-4. **Piper TTS**: `pip install piper-tts` (PyPI erreichbar), Stimmen von `huggingface.co/rhasspy/piper-voices` (erreichbar): Deutsch `de_DE-thorsten-high` (Fallback `-medium`), Englisch `en_GB-alan-medium` oder `en_US-ryan-high`. `ffmpeg` ist installiert (`/usr/bin/ffmpeg`).
+4. **Sprachdienste und Audio-Werkzeuge**: Als Erstes die Umgebungsvariablen `AZURE_SPEECH_KEY`/`AZURE_SPEECH_REGION`, `ELEVENLABS_API_KEY`, `OPENAI_API_KEY`, `FREESOUND_API_KEY` prüfen und dem Auftraggeber **in der ersten Nachricht** sagen, welche Schlüssel welche Qualität freischalten (Anhang E). Erreichbarkeit der Endpunkte loggen (Stand 29.10.2026: ElevenLabs ✓, Azure ✓, OpenAI ✓, Google ✓ – alle erwarten einen Schlüssel). Offene Modelle als Rückfallebene vorbereiten (Anhang E, Stufe 2): Download von HuggingFace, Testsatz auf CPU erzeugen, Laufzeit je Satz messen. `ffmpeg` ist installiert (`/usr/bin/ffmpeg`): Lautheitsmessung (`ebur128`), Resampling, AAC/Opus. Zusätzlich `pyloudnorm` oder ffmpeg-Filter für die Prüfskripte.
 5. **Tesseract**: `tesseract.js` (WASM) mit `deu` + `eng`-Trainingsdaten, Download beim ersten Lauf in `tools/.cache/`.
 6. **Netzquellen** aus Anhang A prüfen (HTTP-Status loggen). Stand 29.10.2026 aus dieser Umgebung: Poly Haven API ✓, ambientCG API ✓, quaternius.com ✓, kenney.nl ✓ (mit Browser-User-Agent), itch.io ✓, GitHub Raw ✓, HuggingFace ✓, PyPI ✓, download.blender.org ✓; **Ready Player Me ✗ (blockiert)**, Mixamo und Sketchfab brauchen Login/Token → nicht einplanen.
 7. `docs/PIPELINE.md` anlegen: Werkzeugversionen, Befehle, Verzeichnisstruktur (`assets/src/` Rohdaten, `assets/build/` fertige GLB/KTX2/Audio, `tools/pipeline/*.mjs` + `tools/blender/*.py`), alles reproduzierbar mit `npm run assets`.
@@ -182,10 +186,31 @@ Reihenfolge ist Pflicht: Schärfe zuerst (das größte Ärgernis), dann Lesbarke
 2. **Textkorpus** je Sprache ≥ 1 500 Sätze in `src/content/dialogue.de.json` / `dialogue.en.json`, strukturiert nach: Phasen (Ankommen, Einstieg, 15 Abschnitte, Pause, Teil 2, Abschluss), Ereignisreaktionen (alle 28 Ereignistypen von v2, je ≥ 6 Varianten), Anekdoten (≥ 60, je an einen Fachinhalt gebunden), Fragen in den Saal mit Reaktionen auf richtige/falsche/keine Antwort, Rückbezüge („wie die Dame in Reihe 3 vorhin gesagt hat“), Zeit-/Wetter-/Wochentagsbezug, Erwischt-Dialoge in drei Eskalationsstufen, Prüfungswarnungen, Abschiedsformeln. **Englisch ist eine eigene Fassung** (gleicher Witz, britisch-trockene Färbung, gelegentliches „Grüß Gott, ladies and gentlemen“), keine Maschinenübersetzung.
 3. **Dialog-Engine erweitern:** Gedächtnis innerhalb der Vorlesung (Callbacks), Variantenwahl ohne Wiederholung, Pausen/Atmer zwischen Sätzen, Sprechen während des Schreibens (kürzere Sätze), Unterbrechungen (Handy klingelt → Prof reagiert, setzt den Satz fort), Namen fiktiver Studierender aus dem Besetzungsplan.
 4. **Zwei Redaktionsdurchgänge**, dokumentiert: (a) Komik/Timing (jede Pointe: Setup, Pause, Punchline; Streichung von Flachem), (b) Fachlektorat: jede Zahl/Aussage in der Faktentabelle mit Quelle (Kirchgeßner, GfE, DLG, Jeroch).
-5. **Stimme vorrendern** (`tools/voice.mjs`): Piper, deutsche Stimme mit leicht reduziertem Tempo (0,92) und Satzpausen, englische Stimme; Nachbearbeitung mit ffmpeg (Normalisierung −16 LUFS, leichter Hörsaal-Hall bleibt zur Laufzeit per Convolver), Encoding AAC 48 kbit/s mono (`.m4a`, läuft auf iOS) und Opus/WebM als Alternative; Hüllkurve (20 Hz, Uint8) je Clip für die Lippensynchronisation; Clip-Manifest mit Dauer. Budget: Desktop ≤ 35 MB Audio gesamt; Mobil: Signatursätze (Reaktionen, Anekdoten, Pointen, Erwischt-Dialoge) vorgerendert ≤ 12 MB, Lehrinhalt-Sätze per Browser-TTS mit Hüllkurven-Schätzung.
-6. **Räumlichkeit**: vorgerenderte Clips laufen durch den vorhandenen Mixer (Panner, Convolver, Dämpfung am Laptop), Untertitel bleiben immer.
+5. **Stimme vorrendern** (`tools/voice.mjs`) – nach Anhang E, in dieser Reihenfolge:
+   - **Stufe 1 (Ziel): kommerzielle neuronale Dienste mit Schlüssel.** Deutsch bevorzugt **Azure Speech „de-AT-JonasNeural“** (männlich, österreichisches Deutsch – genau der Prof) mit SSML (Tempo 0,92, Pausen, Betonung, `mstts:express-as` wo verfügbar) und **Visem-Zeitstempeln** für die Lippensynchronisation; Alternative **ElevenLabs** (Multilingual-Modell, Voice Design: „männlich, ~58, warm, trocken, österreichischer Akzent“, Stabilität 0,55, Stil 0,25, Zeitstempel aus der Alignment-API) oder **OpenAI TTS** (hochwertig, aber ohne österreichische Färbung – nur Englisch). Englisch: ElevenLabs oder Azure `en-GB-RyanNeural`/`en-IE-ConnorNeural`, OpenAI als Alternative. Kosten im Blick: ≈ 120 000 Zeichen je Sprache; Azure-Gratiskontingent und ElevenLabs-Starter reichen.
+   - **Stufe 2 (Rückfall ohne Schlüssel): offene Modelle mit menschlicher Qualität**, auf CPU im Batch (mehrere Stunden sind in Ordnung, im Hintergrund laufen lassen): **Chatterbox Multilingual** (MIT), **Zonos** (Apache 2.0), **XTTS v2** (CPML, nicht-kommerziell – für ein Fan-Projekt zulässig, in `docs/ASSETS.md` vermerken), **Fish Speech/OpenAudio** (CC-BY-NC-SA). Jedes Modell mit 10 Prüfsätzen anhören, das natürlichste wählen; Stimme nur aus eingebauten/synthetischen Sprecherprofilen – **kein Klonen realer Personen** (auch nicht aus CC0-Datensätzen wie Common Voice).
+   - **Nicht als Endprodukt zulässig:** Browser-`speechSynthesis`, Piper, eSpeak, Festival und alles, was nach Computer klingt. Piper darf nur als Platzhalter während der Entwicklung dienen und muss vor Lieferung B ersetzt sein.
+   - Nachbearbeitung mit ffmpeg: Stille trimmen (≤ 80 ms Vor-/Nachlauf), Lautheit −16 LUFS, True Peak −1 dBTP, Hochpass 80 Hz, leichte De-Esser-Absenkung; **kein** zusätzlicher Hall im Clip (kommt zur Laufzeit aus der echten Impulsantwort, Phase 6b). Encoding AAC 64 kbit/s mono (`.m4a`, iOS) + Opus 32 kbit/s (`.webm`, Chrome/Android). Visem- oder Wortzeitstempel je Clip speichern (JSON), sonst Hüllkurve 20 Hz.
+   - Budget: Desktop ≤ 50 MB Sprache; Mobil: Signatursätze vorgerendert ≤ 15 MB, Lehrinhalt-Sätze bei Bedarf nachgeladen (gehostet, Service-Worker-Cache), **nie** Browser-TTS.
+6. **Räumlichkeit**: Clips laufen durch den Mixer (Panner, Convolver mit echter Hörsaal-Impulsantwort, Dämpfung am Laptop/mit Kopfhörern), Untertitel bleiben immer. Lippensynchronisation: Viseme → Mundformen des Prof-Modells (Phase 4), Koartikulation geglättet (60 ms).
 
-**Abnahme:** Zähltests (≥ 1 500/Sprache, Varianten, keine Wiederholung in 10 simulierten Vorlesungen), Faktentabelle vollständig, Hörprobe: 20 zufällige Clips als `docs/audio/beispiele/*.m4a` plus Transkript; Lippensynchronisation im Screenshot-Video (10 Bilder) sichtbar; Bot-Balancing wiederholt (Dialoglängen ändern das Timing).
+**Abnahme:** Zähltests (≥ 1 500/Sprache, Varianten, keine Wiederholung in 10 simulierten Vorlesungen), Faktentabelle vollständig, **Hörprobe: 30 zufällige Clips je Sprache** als `docs/audio/beispiele/*.m4a` plus Transkript und Angabe des verwendeten Dienstes/Modells; `tools/audio-check.mjs` grün für alle Clips (Lautheit, Spitzen, Grundrauschen); Lippensynchronisation im Screenshot-Video (10 Bilder) sichtbar; Bot-Balancing wiederholt (Dialoglängen ändern das Timing).
+
+### Phase 6b – Klangwelt aus echten Aufnahmen
+
+**Ziel:** Kein einziger synthetischer Ton mehr. Der Hörsaal klingt wie ein Hörsaal.
+
+**Aufgaben**
+1. **Bestandsaufnahme**: alle 55 Klänge und 7 Schleifen aus `src/audio/synth.js` als Liste (Name, Verwendung, Bus) in `docs/AUDIO.md` – jede Zeile bekommt eine echte Aufnahme als Ersatz.
+2. **Quellen** (Anhang A, Audio): **Freesound** (CC0-Filter über die API, Schlüssel kostenlos in 2 Minuten – anfordern), **OpenGameArt** (CC0-Filter), **Sonniss GDC-Bundles** (royalty-free, auch kommerziell; große Archive, gezielt entpacken), **Kenney Audio** (CC0), **FreePD/Incompetech** (Musik, CC0/CC-BY). Pixabay und Zapsplat sind aus der Umgebung blockiert – nicht einplanen.
+3. **Atmosphären** (nahtlose Schleifen ≥ 20 s, Kreuzblende ≥ 2 s, Nahtprüfung wie in v2 `docs/AUDIO.md`): Hörsaal-Raumton mit Lüftung, Beamerlüfter, Gemurmel (3 Dichten: vor Beginn, Pause, leise während der Vorlesung), Tastaturen aus mehreren Reihen, Regen am Fenster (2 Stärken), Wind, Vögel (Herbst, Wien), Straßenverkehr mit Bus und Straßenbahn in der Ferne, Gang vor der Tür.
+4. **Foley** (jeweils ≥ 3 Varianten, zufällige Tonhöhe ±3 %, Lautstärke ±2 dB): Kreide auf Schiefer (kurz/lang/Punkt), Schwamm, Tafel schieben (Rollen + Anschlag), Clicker, Laserpointer-Klick, Mikrofon-Rückkopplung, Glas abstellen/trinken, Räuspern/Husten/Niesen (mehrere Stimmen, keine realen Personen erkennbar), Blättern, Kuli-Klick/Schreiben, Textmarker, Reißverschluss, Rucksack, Stuhl/Bank knarzen, Schritte auf Parkett/Stufen (Lederschuh, Sneaker), Tür mit Schließer, Laptop-Deckel, Tastatur (mechanisch/flach), Touchpad, Handy-Vibration, Kaffeebecher, Flasche, Apfelbiss, Mensa-Besteck (Pause), Zettel reißen, Lachen (Gruppe, 3 Stärken), Gähnen, Flüstern (unverständlich, 2 Sprachen).
+5. **Hall** aus **echten Impulsantworten**: Hörsaal/Vorlesungssaal (OpenAIR, falls erreichbar – war aus dieser Umgebung blockiert –, sonst Freesound-IRs oder Sonniss), zwei Positionen (vorne/hinten), Convolver mit Vorverzögerung nach Entfernung; Dämpfung am Laptop und mit Kopfhörern bleibt.
+6. **Musik**: Menüthema als echte Produktion aus FreePD/Incompetech (ruhig, akustisch, 90–100 BPM, loopbar), Lizenznennung; im Spiel weiterhin keine Musik.
+7. **Mastering-Pipeline** (`tools/audio-build.mjs`): Trim, Hochpass, Lautheit je Kategorie, True Peak, Fade-Ins/Outs, Resampling 48 kHz, Encoding AAC + Opus, Manifest mit Dauer/Loop-Punkten/Lizenzverweis; `tools/audio-check.mjs` prüft jede Datei (Anhang E) und zählt synthetische Quellen im Build (muss 0 sein, Ausnahme UI-Töne).
+8. **Mixer** (v2 übernehmen): Busse Stimme/Saal/Außen/Spieler/UI, Ducking von Atmosphären unter der Stimme (−6 dB, 200 ms), räumliche Quellen je Figur (Tippen aus der Richtung der Nachbarn), Entfernungsdämpfung, Okklusion durch Bänke (Tiefpass).
+
+**Abnahme:** `src/audio/synth.js` entfernt oder auf UI-Töne reduziert; Clipliste in `docs/AUDIO.md` vollständig mit Quelle/Lizenz; `tools/audio-check.mjs` grün; Nahtprüfung aller Schleifen; Hörprobe: 60-Sekunden-Mitschnitt des Spiels (Headless-Audio-Rendering oder Offline-Mischung) als `docs/audio/hoersaal_mix.m4a`; Audio-Budget Desktop ≤ 25 MB Geräusche + ≤ 50 MB Sprache, Mobil ≤ 10 MB Geräusche + ≤ 15 MB Sprache.
 
 ### Phase 7 – Mobil: Touch, Build, Hosting, PWA
 
@@ -210,9 +235,9 @@ Reihenfolge ist Pflicht: Schärfe zuerst (das größte Ärgernis), dann Lesbarke
 ### Phase 9 – Qualitätssicherung, Dokumentation, Auslieferung
 
 **Aufgaben**
-1. **Tests** (`npm test`): v2-Tests + neu: Schärfe-KPIs (OCR/Laplace mit Schwellwerten), Primitiven-Verbot, Asset-Manifest-Integrität (SHA256), Lizenzliste vollständig (jedes Asset im Manifest hat Lizenzeintrag), Dialog-Zähltests, Keine-Wiederholung-Test, Folien-Überlauf-Test, Mobil-Build-Größe, PWA-Manifest valide, Touch-Durchlauf, Desktop-Build-Größe, SHA256.
+1. **Tests** (`npm test`): v2-Tests + neu: Schärfe-KPIs (OCR/Laplace mit Schwellwerten), Primitiven-Verbot, Asset-Manifest-Integrität (SHA256), Lizenzliste vollständig (jedes Asset im Manifest hat Lizenzeintrag), Dialog-Zähltests, Keine-Wiederholung-Test, Folien-Überlauf-Test, Audio-Prüfskript (Lautheit/Spitzen/Rauschen/Synthese-Scan), Mobil-Build-Größe, PWA-Manifest valide, Touch-Durchlauf, Desktop-Build-Größe, SHA256.
 2. **Screenshots** DPR 2: Qualitätsstufen, 6 Orbit, 3 Spielerperspektiven, Sequenz, Gesichter nah, Hände nah, 3 Wetter, UI DE/EN in 1920 × 1080 / 1366 × 768 / 1024 × 768, mobile Matrix.
-3. **Dokumente:** `README.md` (Spielen am Desktop/Handy, Steuerung, Build, Pipeline), `docs/SCHAERFE.md`, `docs/ASSETS.md`, `docs/PIPELINE.md`, `docs/MOBILE.md`, `docs/DIALOG.md`, `docs/PERFORMANCE.md`, `docs/AUDIO.md` (Stimme), `docs/BALANCING.md`, `docs/ITERATIONEN.md` (jede Optik-Iteration mit Bild), `docs/CHANGELOG.md`, `docs/ABSCHLUSS_V3.md` (Checkliste aller Punkte dieses Auftrags mit Status und Nachweis, ehrliche Grenzen, „Das musst du noch tun“-Liste).
+3. **Dokumente:** `README.md` (Spielen am Desktop/Handy, Steuerung, Build, Pipeline), `docs/SCHAERFE.md`, `docs/ASSETS.md`, `docs/PIPELINE.md`, `docs/MOBILE.md`, `docs/DIALOG.md`, `docs/PERFORMANCE.md`, `docs/AUDIO.md` (Stimme, Klangquellen, Mastering, Hörproben), `docs/BALANCING.md`, `docs/ITERATIONEN.md` (jede Optik-Iteration mit Bild), `docs/CHANGELOG.md`, `docs/ABSCHLUSS_V3.md` (Checkliste aller Punkte dieses Auftrags mit Status und Nachweis, ehrliche Grenzen, „Das musst du noch tun“-Liste).
 4. **Credits-Seite im Spiel** (Asset-Autor:innen, Lizenzen, Stimmen, Schriften) im BOKU-Stil.
 5. **Auslieferung:** `dist/BOKU_TicTacTierernaehrung_v3.html` (Desktop), `dist/mobile/` + `dist/BOKU_TicTacTierernaehrung_v3_mobile.zip`, `dist/SHA256.txt`, Pages-Workflow; Version 2 bleibt als `dist/BOKU_TicTacTierernaehrung_v2.html` liegen.
 
@@ -227,7 +252,7 @@ Desktop-Pakete mit **Tauri** (Windows/macOS/Linux) aus dem Desktop-Build, Gamepa
 Der Auftraggeber will schnell sehen, dass das Verschwommene weg ist. Deshalb:
 
 - **Lieferung A – nach Phase 2:** Desktop-Datei `dist/BOKU_TicTacTierernaehrung_v3-alpha.html` mit Schärfe-Fundament und lesbaren Folien/Laptop, noch mit v2-Figuren. Dazu `docs/SCHAERFE.md` (Vorher/Nachher-Bilder bei DPR 2) und eine kurze Nachricht, was sich geändert hat und was noch kommt.
-- **Lieferung B – nach Phase 5:** `v3-beta.html` mit Hörsaal, Menschen, Händen, Requisiten.
+- **Lieferung B – nach Phase 6b:** `v3-beta.html` mit Hörsaal, Menschen, Händen, Requisiten, echter Stimme und echter Klangwelt; dazu die Hörproben aus `docs/audio/`.
 - **Lieferung C – nach Phase 9:** finale Builds, Hosting-Workflow, Abschlussbericht.
 
 Jede Lieferung: Commit + Push, Datei an den Auftraggeber, Status in `docs/ABSCHLUSS_V3.md`.
@@ -236,7 +261,7 @@ Jede Lieferung: Commit + Push, Datei an den Auftraggeber, Status in `docs/ABSCHL
 
 ## 5. Was du dem Auftraggeber am Ende sagst
 
-Kurz, ehrlich, ohne Werbesprache: Was gemessen wurde (mit Zahlen), was nicht messbar war (echte GPU-fps, echte Geräte) und wie er es selbst prüft, welche Lizenznennungen im Spiel stehen, was er noch tun muss (GitHub Pages freischalten, Handy-Checkliste), und wo die Grenzen liegen.
+Kurz, ehrlich, ohne Werbesprache: Was gemessen wurde (mit Zahlen), was nicht messbar war (echte GPU-fps, echte Geräte) und wie er es selbst prüft, welche Lizenznennungen im Spiel stehen, welcher Sprachdienst und welche Klangquellen verwendet wurden, was er noch tun muss (API-Schlüssel, falls bis dahin keine kamen; GitHub Pages freischalten; Handy-Checkliste), und wo die Grenzen liegen.
 
 ---
 
@@ -251,8 +276,18 @@ Kurz, ehrlich, ohne Werbesprache: Was gemessen wurde (mit Zahlen), was nicht mes
 | **KayKit** – kaylousberg.itch.io | Character-Packs mit Animationen, Props | CC0 | itch-Download (Seite erreichbar; Download-Link ggf. per Browser-Automation) | ✓ |
 | **MakeHuman / MPFB2** – github.com/makehumancommunity | Menschen-Generator in Blender, Kleidung/Haare aus dem Asset-Repo | GPL-Werkzeug; **erzeugte Modelle CC0**; Assets einzeln prüfen | GitHub | ✓ (GitHub Raw) |
 | **Google Fonts (OFL)** | Handschrift (Caveat, Patrick Hand), Work Sans (liegt vor) | OFL | GitHub Raw / fonts.google.com | ✓ |
-| **Piper TTS** – PyPI `piper-tts`; Stimmen `huggingface.co/rhasspy/piper-voices` | `de_DE-thorsten-high/medium`, `en_GB-alan-medium`, `en_US-ryan-high` | MIT (Piper), Stimmen je Modellkarte prüfen (Thorsten: CC-BY/… – nennen) | pip + HTTPS | ✓ |
-| **Freesound / Kenney Audio** | Foley (Kreide, Tür, Stuhl, Husten …) | CC0-Filter | API-Key (Freesound) / Zip (Kenney) | Kenney ✓ |
+| **Azure Speech** – `{region}.tts.speech.microsoft.com` | `de-AT-JonasNeural` (männlich, **österreichisch**), `de-AT-IngridNeural`, `en-GB-RyanNeural`, `en-IE-ConnorNeural`; SSML, Viseme | Nutzung in eigenen Produkten erlaubt (Azure-Bedingungen) | Schlüssel (Gratiskontingent 500 k Zeichen/Monat) | ✓ erreichbar, Schlüssel nötig |
+| **ElevenLabs** – `api.elevenlabs.io` | Multilingual-Stimmen, Voice Design (Akzent steuerbar), Alignment-Zeitstempel | je Tarif; Starter erlaubt Nutzung in Projekten, Nennung prüfen | Schlüssel | ✓ erreichbar, Schlüssel nötig |
+| **OpenAI TTS** – `api.openai.com` | hochwertige englische Stimmen, Deutsch ohne Akzentsteuerung | Nutzung erlaubt | Schlüssel | ✓ erreichbar, Schlüssel nötig |
+| **Offene Sprachmodelle** – HuggingFace: `ResembleAI/chatterbox` (Multilingual, MIT), `Zyphra/Zonos-v0.1-transformer` (Apache 2.0), `coqui/XTTS-v2` (CPML, nicht-kommerziell), Fish Speech/OpenAudio (CC-BY-NC-SA) | menschlich klingende Synthese auf CPU (langsam, Batch) | je Modell | HTTPS | ✓ |
+| **Piper TTS** – nur Entwicklungs-Platzhalter | — | MIT | pip | ✓, **nicht im Endprodukt** |
+| **Freesound** – `freesound.org/apiv2` | Foley, Atmosphären, Impulsantworten; CC0-Filter | CC0 (Filter!), sonst CC-BY mit Nennung | API-Schlüssel (kostenlos, Konto) | ✓ erreichbar, Schlüssel nötig |
+| **OpenGameArt** – opengameart.org | Foley, Atmosphären, Musik; CC0-Filter | CC0/CC-BY je Eintrag | Direktdownload | ✓ |
+| **Sonniss GDC Game Audio Bundles** – sonniss.com/gameaudiogdc | professionelle Foley-/Atmosphären-Bibliotheken | royalty-free, kommerziell erlaubt (Lizenztext ablegen) | Direktdownload (groß, gezielt entpacken) | ✓ |
+| **Kenney Audio** | UI-Klänge, kleine Foley | CC0 | Zip | ✓ |
+| **FreePD / Incompetech** | Menümusik | CC0 / CC-BY (Nennung) | Direktdownload | ✓ |
+| OpenAIR (Impulsantworten) | Hörsaal-Hall | CC-BY | — | ✗ aus der Umgebung blockiert – IRs über Freesound/Sonniss |
+| Pixabay, Zapsplat | Foley | — | — | ✗ blockiert – nicht einplanen |
 | **Blender** – download.blender.org | DCC headless | GPL (Werkzeug) | Tarball | ✓ |
 | **KTX-Software / basisu** – GitHub Releases | KTX2-Encoder | Apache-2.0 | GitHub | ✓ |
 | Ready Player Me | realistische Avatare | — | CDN **blockiert** aus dieser Umgebung | ✗ nicht einplanen |
@@ -282,6 +317,19 @@ Für jede verwendete Datei: `docs/ASSETS.md` mit Quelle, Autor:in, Lizenz, URL, 
 - (Erwischt, Stufe 1) „Herr Kollege in Reihe fünf. Ich hab keine Ahnung, was auf Ihrem Bildschirm so spannend ist, aber ich wette, es hat keinen Pansen.“
 
 Englisch gleichwertig eigenständig schreiben, nicht übersetzen.
+
+## Anhang E – Audio-Qualität (Definition)
+
+**Stimme, Stufen (die erste erreichbare gewinnt; Entscheidung dokumentieren):**
+1. Kommerzieller neuronaler Dienst mit Schlüssel – Deutsch: Azure `de-AT-JonasNeural` (bevorzugt, echtes Österreichisch) oder ElevenLabs mit Akzent-Voice-Design; Englisch: ElevenLabs oder Azure/OpenAI.
+2. Offenes Modell mit menschlicher Qualität auf CPU (Chatterbox Multilingual, Zonos, XTTS v2, Fish Speech), ausgewählt nach Hörtest mit 10 Prüfsätzen je Modell (Verständlichkeit, Natürlichkeit, Pausen, Betonung von Fachwörtern wie „Rohfaser“, „Pansenprotozoen“, „Weender Analyse“).
+3. **Nicht zulässig im Endprodukt:** Browser-TTS, Piper, eSpeak, Festival, MaryTTS.
+
+**Prüfskript `tools/audio-check.mjs`** (läuft in `npm test`): je Datei integrierte Lautheit (Stimme −16 ± 1 LUFS, Foley −18 ± 2, Atmosphären −22 ± 2), True Peak ≤ −1 dBTP, Grundrauschen in den leisesten 300 ms ≤ −60 dBFS RMS, kein Clipping, Abtastrate 48 kHz, Stille an Anfang/Ende ≤ 80 ms (Clips) bzw. Loop-Nahtverhältnis < 2 (Schleifen); Build-Scan: Anzahl synthetischer Klangquellen (`OscillatorNode`, Rausch-Buffer) im Endprodukt = 0 außer den ≤ 5 UI-Tönen des Laptop-OS.
+
+**Hörproben** (Pflichtlieferung in `docs/audio/`): 30 Prof-Sätze je Sprache, 20 Foley-Clips, 5 Atmosphären, 60-s-Spielmix. Der Auftraggeber hört sie an – das ist die eigentliche Abnahme.
+
+**Schlüssel in 5 Minuten (für die erste Nachricht an den Auftraggeber):** Azure: Konto auf portal.azure.com → Ressource „Speech“ (F0, kostenlos) → Schlüssel + Region kopieren → `AZURE_SPEECH_KEY`, `AZURE_SPEECH_REGION`. ElevenLabs: Konto → Profil → API-Key → `ELEVENLABS_API_KEY`. Freesound: Konto → freesound.org/apiv2/apply → `FREESOUND_API_KEY`. Als Umgebungsvariablen der Cloud-Umgebung hinterlegen.
 
 ## Anhang D – Mobile Touch-Spezifikation (Kurzfassung)
 
