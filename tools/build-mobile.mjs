@@ -69,6 +69,13 @@ export async function buildMobile({ root, humDir, noVoice }) {
     fs.mkdirSync(path.join(OUT, 'assets/props'), { recursive: true }); fs.writeFileSync(path.join(OUT, 'assets/props/index.json'), JSON.stringify(index)); core.push('assets/props/index.json');
     remote.props = 'assets/props/';
   }
+  // gebackenes Licht: Verzeichnis, UVs und Atlanten (Kern, offline nötig)
+  const lmDir = path.join(root, 'assets/build/mobile/lightmap');
+  if (fs.existsSync(path.join(lmDir, 'index.json'))) {
+    const index = JSON.parse(fs.readFileSync(path.join(lmDir, 'index.json'), 'utf8'));
+    for (const f of ['index.json', 'uv.bin.gz', ...index.files]) core.push(rel(copy(path.join(lmDir, f), path.join(OUT, 'assets/lightmap', f))));
+    remote.lightmap = 'assets/lightmap/';
+  }
   // Geräusche (gehören zum Kern: ohne sie fehlt die Klangwelt)
   const sfxDir = path.join(root, 'assets/build/sfx');
   if (fs.existsSync(path.join(sfxDir, 'manifest.json'))) {

@@ -11,6 +11,7 @@ import { Crowd } from '../chars/crowd.js';
 import { loadHumans } from '../chars/humans.js';
 import { loadPBR } from '../gfx/pbrTextures.js';
 import { loadPropModels } from '../scene/realProps.js';
+import { loadLightmaps, applyLightmaps } from '../gfx/lightmap.js';
 import { planPopulation } from './population.js';
 import { damp } from '../core/util.js';
 import * as LY from '../scene/layout.js';
@@ -29,6 +30,11 @@ export async function buildWorld(gfx, params, progress = () => {}) {
   // echte Materialien (ambientCG) vor dem Saal laden; ohne Daten bleibt es bei den prozeduralen Texturen
   if (gfx.pbrSets === undefined) { try { gfx.pbrSets = await loadPBR(gfx, f => progress(0.05 + f * 0.05, 'load.hall')); } catch (e) { console.warn('Materialien: Rückfall auf prozedurale Texturen', e); gfx.pbrSets = null; } }
   W.hall = buildHall(gfx);
+  // gebackenes Licht (Cycles): indirektes Licht + Verdeckung auf den Saalflächen; ohne Daten bleibt es beim Echtzeitlicht
+  try {
+    const lm = await loadLightmaps(gfx, params.weather === 'sunny' ? 'sunny' : 'cloudy');
+    W.lightmapped = applyLightmaps(gfx, W.hall.meshes, lm, { intensity: params.weather === 'rain' ? 0.75 : 1 });
+  } catch (e) { console.warn('Lightmaps: ohne gebackenes Licht', e); W.lightmapped = 0; }
   await step(0.25, 'load.fixtures');
   W.fx = buildFixtures(gfx, W.hall, { posters: makePosters() });
   W.monitor = buildHybridMonitor(gfx, params.lang || 'de', { canvas: W.fx.slides.canvas, active: () => W.fx.beamer.level > 0.5 });
