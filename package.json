@@ -5,12 +5,14 @@
   "description": "3D-Browserspiel: heimlich Tic Tac Toe in der Tierernährungs-Vorlesung an der BOKU (Fan-Projekt)",
   "type": "module",
   "scripts": {
-    "build": "node tools/build.mjs",
+    "build": "node tools/build.mjs && node tools/build.mjs --target mobile",
     "test": "node tools/test.mjs",
     "assets": "node tools/pipeline/fetch.mjs && node tools/pipeline/textures.mjs --profile desktop && node tools/pipeline/textures.mjs --profile mobile",
     "assets:fetch": "node tools/pipeline/fetch.mjs",
     "assets:check": "node tools/pipeline/fetch.mjs --check",
-    "sharpness": "node tools/sharpness.mjs && node tools/sharpness-report.mjs"
+    "sharpness": "node tools/sharpness.mjs && node tools/sharpness-report.mjs",
+    "build:desktop": "node tools/build.mjs",
+    "build:mobile": "node tools/build.mjs --target mobile"
   },
   "license": "MIT",
   "dependencies": {

@@ -5,29 +5,44 @@ import * as THREE from 'three';
 import { KTX2Loader } from 'three/examples/jsm/loaders/KTX2Loader.js';
 import { decodeHPK, rigFromHPK, humanMaterial } from './humanPack.js';
 import { makeRng } from '../core/util.js';
-
-const b64 = s => { const bin = atob(s); const u = new Uint8Array(bin.length); for (let i = 0; i < bin.length; i++) u[i] = bin.charCodeAt(i); return u; };
+import { b64, embedded, remote, fetchBytes, fetchJSON } from '../core/assets.js';
 // Hautfarben/Haarfarben der Besetzungsliste (population.js) → grobe Klassen für die Zuordnung zu den Figurtypen
 const SKIN = [0xf3d2b9, 0xeec3a2, 0xe0ac86, 0xc98f67, 0xa46d4b, 0x7a4a31];
 const hairTone = hex => { const c = new THREE.Color(hex), hsl = {}; c.getHSL(hsl); if (hsl.l < 0.12) return 'black'; if (hsl.s < 0.12 && hsl.l > 0.4) return 'gray'; if (hsl.h < 0.06 && hsl.s > 0.5) return 'red'; if (hsl.l > 0.42) return 'blond'; return 'brown'; };
 const TINT_GRAY = 1 / 0.4793; // Oberteil-Atlas ist entsättigt mit Mittelwert 0,72 (sRGB) ≈ 0,4793 linear
 
+/**
+ * Quelle der Figurdaten: eingebettet (Desktop-Datei: Base64 im Block #assets-humans) oder gehostet (Mobil-Build: Dateien unter
+ * remote.humans, per fetch). Liefert { index, get(name) → Promise<Uint8Array|null>, basis: { js, wasm } als URLs }.
+ */
+async function humanSource(onBytes) {
+  const t = embedded('assets-humans');
+  if (t) {
+    const data = JSON.parse(t);
+    const blob = (b, type) => URL.createObjectURL(new Blob([b64(b)], { type }));
+    return { index: data.index, get: async n => (data.files[n] ? b64(data.files[n]) : null),
+      basis: { js: blob(data.basis.js, 'text/javascript'), wasm: blob(data.basis.wasm, 'application/wasm') } };
+  }
+  if (!remote || !remote.humans) return null;
+  const base = remote.humans, index = await fetchJSON(base + 'index.json');
+  const sizes = remote.humansFiles || {}, total = Object.values(sizes).reduce((a, b) => a + b, 0) || 1; let done = 0;
+  return { index, basis: { js: remote.basis + 'basis_transcoder.js', wasm: remote.basis + 'basis_transcoder.wasm' },
+    get: async n => { if (remote.humansFiles && !(n in sizes)) return null; let last = 0; const u = await fetchBytes(base + n, g => { done += g - last; last = g; onBytes(done / total); }); return u; } };
+}
+
 export async function loadHumans(gfx, onProgress = () => {}) {
-  const el = typeof document !== 'undefined' && document.getElementById('assets-humans');
-  if (!el || !el.textContent.trim()) return null;
-  const data = JSON.parse(el.textContent);
-  const files = data.files, index = data.index;
-  // KTX2-Transkodierer aus eingebetteten Dateien (kein Netz nötig)
+  const src = await humanSource(f => onProgress(Math.min(1, f)));
+  if (!src) return null;
+  const index = src.index;
+  // KTX2-Transkodierer (Desktop: aus eingebetteten Dateien, kein Netz nötig)
   const manager = new THREE.LoadingManager();
-  const urls = {
-    'basis/basis_transcoder.js': URL.createObjectURL(new Blob([b64(data.basis.js)], { type: 'text/javascript' })),
-    'basis/basis_transcoder.wasm': URL.createObjectURL(new Blob([b64(data.basis.wasm)], { type: 'application/wasm' }))
-  };
+  const urls = { 'basis/basis_transcoder.js': src.basis.js, 'basis/basis_transcoder.wasm': src.basis.wasm };
   manager.setURLModifier(u => urls[u] || u);
   const ktx2 = new KTX2Loader(manager).setTranscoderPath('basis/').detectSupport(gfx.renderer);
   const tex = async (name, srgb) => {
-    if (!files[name]) return null;
-    const t = await new Promise((res, rej) => ktx2.parse(b64(files[name]).buffer, res, rej));
+    const bytes = await src.get(name);
+    if (!bytes) return null;
+    const t = await new Promise((res, rej) => ktx2.parse(bytes.buffer, res, rej));
     t.colorSpace = srgb ? THREE.SRGBColorSpace : THREE.NoColorSpace;
     t.anisotropy = Math.min(8, gfx.renderer.capabilities.getMaxAnisotropy());
     t.flipY = false; t.needsUpdate = true;
@@ -37,8 +52,8 @@ export async function loadHumans(gfx, onProgress = () => {}) {
   const ids = Object.keys(index.humans);
   for (let i = 0; i < ids.length; i++) {
     const id = ids[i];
-    H.designs[id] = await decodeHPK(b64(files[id + '.hpk']));
-    onProgress(i / ids.length);
+    H.designs[id] = await decodeHPK(await src.get(id + '.hpk'));
+    if (!remote) onProgress(i / ids.length);
   }
   for (const key of new Set(Object.values(H.designs).map(d => d.head.atlas))) {
     H.atlases[key] = await tex(key + '_c.ktx2', true);

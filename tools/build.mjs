@@ -5,10 +5,13 @@ import { build } from 'esbuild';
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
-import { DIST, DIST_NAME } from './dist.mjs';
+import { DIST, writeSums } from './dist.mjs';
 
 const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
 const dev = process.argv.includes('--dev');
+// Ziel: desktop (eine HTML-Datei, alles eingebettet) oder mobile (gehosteter Ordner dist/mobile/ + PWA + ZIP)
+const target = process.argv.includes('--target') ? process.argv[process.argv.indexOf('--target') + 1] : 'desktop';
+const mobile = target === 'mobile';
 const t0 = Date.now();
 
 // Inhaltsdateien zu einem Modul bündeln (Abschnitte werden nach `order` sortiert)
@@ -31,7 +34,7 @@ const result = await build({
   write: false,
   charset: 'utf8',
   loader: { '.glsl': 'text', '.css': 'text', '.svg': 'text' },
-  define: { __BUILD_TIME__: JSON.stringify(new Date().toISOString()), __DEV__: String(dev) },
+  define: { __BUILD_TIME__: JSON.stringify(new Date().toISOString()), __DEV__: String(dev), __MOBILE__: String(mobile) },
   plugins: [{
     name: 'content',
     setup(b) {
@@ -58,10 +61,10 @@ if (!html.includes('<!--STYLE-->') || !html.includes('<!--SCRIPT-->')) throw new
 const safeJs = js.replace(/<\/script/gi, '<\\/script');
 // Echte Figuren (Phase 4): verpackte Geometrie (HPK) + Atlanten (KTX2) + Basis-Transkodierer als eingebetteter Datenblock.
 // Liegt kein verpacktes Profil vor, bleibt der Block leer und das Spiel nutzt die prozeduralen Figuren.
-const profile = process.argv.includes('--profile') ? process.argv[process.argv.indexOf('--profile') + 1] : 'desktop';
+const profile = process.argv.includes('--profile') ? process.argv[process.argv.indexOf('--profile') + 1] : (mobile ? 'mobile' : 'desktop');
 const humDir = path.join(root, 'assets/build', profile, 'humans');
 let humansBlock = '';
-if (fs.existsSync(path.join(humDir, 'index.json')) && !process.argv.includes('--no-humans')) {
+if (!mobile && fs.existsSync(path.join(humDir, 'index.json')) && !process.argv.includes('--no-humans')) {
   const index = JSON.parse(fs.readFileSync(path.join(humDir, 'index.json'), 'utf8'));
   const files = {};
   for (const f of fs.readdirSync(humDir)) if (/\.(hpk|ktx2)$/.test(f)) files[f] = fs.readFileSync(path.join(humDir, f)).toString('base64');
@@ -70,7 +73,7 @@ if (fs.existsSync(path.join(humDir, 'index.json')) && !process.argv.includes('--
 }
 // Vorgerenderte Stimmen (Phase 6): assets/build/voice/<sprache>/manifest.json + <id>.ogg (Opus) → eingebetteter Block
 let voiceBlock = '';
-if (!process.argv.includes('--no-voice')) {
+if (!mobile && !process.argv.includes('--no-voice')) {
   const vb = {}; let n = 0, bytes = 0;
   for (const lang of ['de', 'en']) {
     const dir = path.join(root, 'assets/build/voice', lang), mf = path.join(dir, 'manifest.json');
@@ -85,21 +88,28 @@ if (!process.argv.includes('--no-voice')) {
   }
   if (n) { voiceBlock = JSON.stringify(vb); console.log(`Stimmen: ${n} Aufnahmen, ${(bytes / 1048576).toFixed(1)} MB`); }
 }
+let remoteBlock = '', headExtra = '';
+if (mobile) {
+  const { buildMobile } = await import('./build-mobile.mjs');
+  ({ remoteBlock, headExtra } = await buildMobile({ root, humDir, profile, noVoice: process.argv.includes('--no-voice') }));
+}
 html = html
+  .replace('<!--HEADEXTRA-->', () => headExtra)
   .replace('<!--STYLE-->', () => `<style>\n${css}\n</style>`)
   // Bundle erst nach dem ersten Bild ausführen (schneller erster Paint: Vorlader sichtbar, bevor 2 MB JS laufen)
-  .replace('<!--SCRIPT-->', () => `<script type="text/plain" id="assets-humans">${humansBlock}</script>\n<script type="text/plain" id="assets-voice">${voiceBlock}</script>\n<script type="text/plain" id="bundle">\n${safeJs}\n</script>\n<script>(function(){function run(){var t=document.getElementById('bundle').textContent,s=document.createElement('script');try{s.src=URL.createObjectURL(new Blob([t],{type:'text/javascript'}));}catch(e){s.text=t;}document.body.appendChild(s);}requestAnimationFrame(function(){setTimeout(run,30);});})();</script>`)
+  .replace('<!--SCRIPT-->', () => `${remoteBlock}<script type="text/plain" id="assets-humans">${humansBlock}</script>\n<script type="text/plain" id="assets-voice">${voiceBlock}</script>\n<script type="text/plain" id="bundle">\n${safeJs}\n</script>\n<script>(function(){function run(){var t=document.getElementById('bundle').textContent,s=document.createElement('script');try{s.src=URL.createObjectURL(new Blob([t],{type:'text/javascript'}));}catch(e){s.text=t;}document.body.appendChild(s);}requestAnimationFrame(function(){setTimeout(run,30);});})();</script>`)
   .replace('<!--LICENSES-->', () => `<!--\n${third.replace(/--/g, '- -')}\n-->`)
   .replace('<!--THIRDTEXT-->', () => third.replace(/<\//g, '<\\/'));
 
 fs.mkdirSync(path.join(root, 'dist'), { recursive: true });
+if (mobile) {
+  const { finishMobile } = await import('./build-mobile.mjs');
+  await finishMobile({ root, html, t0 });
+  process.exit(0);
+}
 const out = path.join(root, DIST);
 fs.writeFileSync(out, html);
-const hash = crypto.createHash('sha256').update(html).digest('hex');
-// Prüfsummen: v3 + unveränderte Vorversionen
-const sums = [`${hash}  ${DIST_NAME}`];
-for (const f of ['BOKU_TicTacTierernaehrung_v2.html', 'BOKU_TicTacTierernaehrung_v1.html']) { const fp = path.join(root, 'dist', f); if (fs.existsSync(fp)) sums.push(`${crypto.createHash('sha256').update(fs.readFileSync(fp)).digest('hex')}  ${f}`); }
-fs.writeFileSync(path.join(root, 'dist/SHA256.txt'), sums.join('\n') + '\n');
+writeSums(root);
 const kb = (Buffer.byteLength(html) / 1024).toFixed(0);
 console.log(`${DIST}  ${kb} KB  (${Date.now() - t0} ms)`);
 if (Buffer.byteLength(html) > 60 * 1024 * 1024) { console.error('Build größer als 60 MB!'); process.exit(1); }

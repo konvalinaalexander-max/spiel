@@ -5,18 +5,27 @@
 // Zu jeder Aufnahme gibt es eine Lautstärkekurve (20 Hz) für die Mundbewegung.
 // Fehlt eine Aufnahme, bleibt es beim Untertitel – es gibt keine Computerstimme als Ersatz.
 
+import { b64, embedded, remote, fetchBytes, fetchJSON } from '../core/assets.js';
+
 export function fnv(s) { let h = 0x811c9dc5; for (const ch of s) { const c = ch.codePointAt(0); h ^= c & 0xff; h = Math.imul(h, 0x01000193) >>> 0; if (c > 0xff) { h ^= c >>> 8; h = Math.imul(h, 0x01000193) >>> 0; } } return h.toString(16).padStart(8, '0'); }
-const b64 = s => { const bin = atob(s); const u = new Uint8Array(bin.length); for (let i = 0; i < bin.length; i++) u[i] = bin.charCodeAt(i); return u; };
 const GAP = 0.06; // Pause zwischen zusammengesetzten Stücken (s)
 
 export class VoiceBank {
   constructor() {
-    const el = typeof document !== 'undefined' && document.getElementById('assets-voice');
-    this.data = el && el.textContent.trim() ? JSON.parse(el.textContent) : null;
+    const t = embedded('assets-voice');
+    this.data = t ? JSON.parse(t) : null;
     this.cache = new Map();   // id → Promise<AudioBuffer>
     this.titles = {};         // Abschnittstitel → Text (für {section})
+    // Mobil-Build: nur die Verzeichnisse (Dauer, Lautstärkekurve) laden; die Aufnahmen selbst holt buffer() bei Bedarf
+    this.remote = !this.data && remote && remote.voice ? remote.voice : null;
+    this.ready = this.remote ? this._loadRemote() : Promise.resolve();
   }
-  get available() { return !!this.data; }
+  async _loadRemote() {
+    const data = {};
+    for (const lang of ['de', 'en']) { try { data[lang] = { clips: await fetchJSON(`${this.remote}${lang}/manifest.json`) }; } catch (e) { /* Sprache fehlt */ } }
+    this.data = data;
+  }
+  get available() { return !!(this.data || this.remote); }
   has(lang, id) { return !!(this.data && this.data[lang] && this.data[lang].clips[id]); }
   meta(lang, id) { return this.data?.[lang]?.clips[id] || null; }
   /** Kennungen der Stücke eines Satzes; null, wenn ein Stück fehlt */
@@ -39,8 +48,8 @@ export class VoiceBank {
     const key = lang + id;
     if (!this.cache.has(key)) {
       const c = this.data[lang].clips[id];
-      const bytes = b64(c.a);
-      this.cache.set(key, ctx.decodeAudioData(bytes.buffer).catch(() => null));
+      const bytes = c.a ? Promise.resolve(b64(c.a)) : fetchBytes(`${this.remote}${lang}/${id}.ogg`);
+      this.cache.set(key, bytes.then(b => ctx.decodeAudioData(b.buffer)).catch(() => null));
     }
     return this.cache.get(key);
   }
