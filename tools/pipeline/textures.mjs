@@ -63,7 +63,9 @@ for (const [id, m] of Object.entries(MATERIALS)) {
   const ormPng = await sharp(orm, { raw: { width: nsize, height: nsize, channels: 3 } }).png().toBuffer();
   const ormK = await quiet(() => enc(ormPng, { isUASTC: false, isSetKTX2SRGBTransferFunc: false }));
   for (const [k, b] of [['color', colorK], ['normal', normalK], ['orm', ormK]]) fs.writeFileSync(path.join(out, `${id}_${k}.ktx2`), b);
-  manifest[id] = { meters: m.meters, metal: !!m.metal, use: m.use, size, nsize, bytes: colorK.length + normalK.length + ormK.length, license: 'CC0-1.0', source: `https://ambientcg.com/view?id=${id}` };
+  // mittlere Farbe (sRGB 0–1): das Spiel färbt damit auf den gewünschten Ton um (Materialfarbe = Wunsch / Mittel)
+  const st = await sharp(color).stats(); const avg = st.channels.slice(0, 3).map(c => +(c.mean / 255).toFixed(4));
+  manifest[id] = { meters: m.meters, metal: !!m.metal, use: m.use, size, nsize, avg, bytes: colorK.length + normalK.length + ormK.length, license: 'CC0-1.0', source: `https://ambientcg.com/view?id=${id}` };
   console.log(`✓ ${id}  ${size}/${nsize} px  ${(manifest[id].bytes / 1024).toFixed(0)} KB  ${((Date.now() - t0) / 1000).toFixed(0)} s`);
   fs.writeFileSync(path.join(root, 'assets/build', profile, 'textures.json'), JSON.stringify(manifest, null, 1));
 }

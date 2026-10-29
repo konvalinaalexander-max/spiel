@@ -1,0 +1,257 @@
+{
+ "WoodFloor052": {
+  "meters": 1.6,
+  "metal": false,
+  "use": "Fischgrätparkett",
+  "size": 2048,
+  "nsize": 1024,
+  "bytes": 1883640,
+  "license": "CC0-1.0",
+  "source": "https://ambientcg.com/view?id=WoodFloor052",
+  "avg": [
+   0.5995,
+   0.4736,
+   0.3599
+  ]
+ },
+ "Wood066": {
+  "meters": 1.2,
+  "metal": false,
+  "use": "Pultbänke, Tische",
+  "size": 2048,
+  "nsize": 1024,
+  "bytes": 1871048,
+  "license": "CC0-1.0",
+  "source": "https://ambientcg.com/view?id=Wood066",
+  "avg": [
+   0.3497,
+   0.2022,
+   0.0749
+  ]
+ },
+ "Wood060": {
+  "meters": 1.5,
+  "metal": false,
+  "use": "Vertäfelung",
+  "size": 1024,
+  "nsize": 512,
+  "bytes": 593282,
+  "license": "CC0-1.0",
+  "source": "https://ambientcg.com/view?id=Wood060",
+  "avg": [
+   0.3986,
+   0.2663,
+   0.1911
+  ]
+ },
+ "Plaster001": {
+  "meters": 2,
+  "metal": false,
+  "use": "Wände",
+  "size": 1024,
+  "nsize": 512,
+  "bytes": 541318,
+  "license": "CC0-1.0",
+  "source": "https://ambientcg.com/view?id=Plaster001",
+  "avg": [
+   0.8429,
+   0.8281,
+   0.8149
+  ]
+ },
+ "Plaster002": {
+  "meters": 2.5,
+  "metal": false,
+  "use": "Decke",
+  "size": 1024,
+  "nsize": 512,
+  "bytes": 569569,
+  "license": "CC0-1.0",
+  "source": "https://ambientcg.com/view?id=Plaster002",
+  "avg": [
+   0.8503,
+   0.8368,
+   0.8234
+  ]
+ },
+ "Fabric030": {
+  "meters": 0.6,
+  "metal": false,
+  "use": "Rollos",
+  "size": 1024,
+  "nsize": 512,
+  "bytes": 548041,
+  "license": "CC0-1.0",
+  "source": "https://ambientcg.com/view?id=Fabric030",
+  "avg": [
+   0.3581,
+   0.3559,
+   0.3587
+  ]
+ },
+ "Fabric066": {
+  "meters": 0.5,
+  "metal": false,
+  "use": "Stoffe",
+  "size": 1024,
+  "nsize": 512,
+  "bytes": 546153,
+  "license": "CC0-1.0",
+  "source": "https://ambientcg.com/view?id=Fabric066",
+  "avg": [
+   0.5165,
+   0.5094,
+   0.4538
+  ]
+ },
+ "Metal032": {
+  "meters": 1,
+  "metal": true,
+  "use": "Aluminium",
+  "size": 1024,
+  "nsize": 512,
+  "bytes": 207627,
+  "license": "CC0-1.0",
+  "source": "https://ambientcg.com/view?id=Metal032",
+  "avg": [
+   0.4899,
+   0.5353,
+   0.5781
+  ]
+ },
+ "Metal048A": {
+  "meters": 0.5,
+  "metal": true,
+  "use": "Messing",
+  "size": 512,
+  "nsize": 256,
+  "bytes": 42901,
+  "license": "CC0-1.0",
+  "source": "https://ambientcg.com/view?id=Metal048A",
+  "avg": [
+   0.9968,
+   0.8911,
+   0.6138
+  ]
+ },
+ "Metal055A": {
+  "meters": 1,
+  "metal": true,
+  "use": "Stahl",
+  "size": 512,
+  "nsize": 256,
+  "bytes": 108534,
+  "license": "CC0-1.0",
+  "source": "https://ambientcg.com/view?id=Metal055A",
+  "avg": [
+   0.744,
+   0.7454,
+   0.7443
+  ]
+ },
+ "Leather030": {
+  "meters": 0.5,
+  "metal": false,
+  "use": "Leder braun",
+  "size": 512,
+  "nsize": 256,
+  "bytes": 134131,
+  "license": "CC0-1.0",
+  "source": "https://ambientcg.com/view?id=Leather030",
+  "avg": [
+   0.2273,
+   0.1542,
+   0.1291
+  ]
+ },
+ "Leather026": {
+  "meters": 0.5,
+  "metal": false,
+  "use": "Leder schwarz",
+  "size": 512,
+  "nsize": 256,
+  "bytes": 120867,
+  "license": "CC0-1.0",
+  "source": "https://ambientcg.com/view?id=Leather026",
+  "avg": [
+   0.1001,
+   0.0964,
+   0.0955
+  ]
+ },
+ "Marble021": {
+  "meters": 1,
+  "metal": false,
+  "use": "Fensterbank",
+  "size": 1024,
+  "nsize": 512,
+  "bytes": 305105,
+  "license": "CC0-1.0",
+  "source": "https://ambientcg.com/view?id=Marble021",
+  "avg": [
+   0.9549,
+   0.9496,
+   0.9427
+  ]
+ },
+ "Asphalt031": {
+  "meters": 4,
+  "metal": false,
+  "use": "Straße",
+  "size": 1024,
+  "nsize": 512,
+  "bytes": 576754,
+  "license": "CC0-1.0",
+  "source": "https://ambientcg.com/view?id=Asphalt031",
+  "avg": [
+   0.4713,
+   0.4712,
+   0.4711
+  ]
+ },
+ "PavingStones128": {
+  "meters": 2,
+  "metal": false,
+  "use": "Gehsteig",
+  "size": 1024,
+  "nsize": 512,
+  "bytes": 566998,
+  "license": "CC0-1.0",
+  "source": "https://ambientcg.com/view?id=PavingStones128",
+  "avg": [
+   0.627,
+   0.6074,
+   0.5556
+  ]
+ },
+ "PavingStones150": {
+  "meters": 2,
+  "metal": false,
+  "use": "Kopfsteinpflaster",
+  "size": 1024,
+  "nsize": 512,
+  "bytes": 607191,
+  "license": "CC0-1.0",
+  "source": "https://ambientcg.com/view?id=PavingStones150",
+  "avg": [
+   0.4878,
+   0.4448,
+   0.366
+  ]
+ },
+ "Grass001": {
+  "meters": 3,
+  "metal": false,
+  "use": "Wiese",
+  "size": 1024,
+  "nsize": 512,
+  "bytes": 614266,
+  "license": "CC0-1.0",
+  "source": "https://ambientcg.com/view?id=Grass001",
+  "avg": [
+   0.2672,
+   0.3589,
+   0.1582
+  ]
+ }
+}

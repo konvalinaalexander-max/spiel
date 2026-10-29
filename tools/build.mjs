@@ -99,6 +99,19 @@ if (!mobile && fs.existsSync(sfxMan) && !process.argv.includes('--no-sfx')) {
   }
   sfxBlock = JSON.stringify(out); console.log(`Geräusche: ${Object.keys(out).length} Klänge, ${n} Aufnahmen, ${(bytes / 1048576).toFixed(1)} MB`);
 }
+// Echte Materialien (Phase 3): assets/build/<profil>/textures.json + KTX2 → eingebetteter Block (Transkodierer kommt aus dem Figurenblock)
+let texBlock = '';
+const texMan = path.join(root, 'assets/build', profile, 'textures.json');
+if (!mobile && fs.existsSync(texMan) && !process.argv.includes('--no-textures')) {
+  const index = JSON.parse(fs.readFileSync(texMan, 'utf8')), files = {}; let bytes = 0;
+  for (const id of Object.keys(index)) for (const k of ['color', 'normal', 'orm']) {
+    const f = path.join(root, 'assets/build', profile, 'textures', `${id}_${k}.ktx2`); if (!fs.existsSync(f)) continue;
+    const b = fs.readFileSync(f); bytes += b.length; files[`${id}_${k}.ktx2`] = b.toString('base64');
+  }
+  const basis = path.join(root, 'node_modules/three/examples/jsm/libs/basis');
+  texBlock = JSON.stringify({ index, files, basis: humansBlock ? null : { js: fs.readFileSync(path.join(basis, 'basis_transcoder.js')).toString('base64'), wasm: fs.readFileSync(path.join(basis, 'basis_transcoder.wasm')).toString('base64') } });
+  console.log(`Materialien: ${Object.keys(index).length}, ${(bytes / 1048576).toFixed(1)} MB`);
+}
 const creditsFile = path.join(root, 'assets/build/credits.json');
 const creditsBlock = fs.existsSync(creditsFile) ? fs.readFileSync(creditsFile, 'utf8').replace(/<\//g, '<\\/') : '';
 let remoteBlock = '', headExtra = '';
@@ -110,7 +123,7 @@ html = html
   .replace('<!--HEADEXTRA-->', () => headExtra)
   .replace('<!--STYLE-->', () => `<style>\n${css}\n</style>`)
   // Bundle erst nach dem ersten Bild ausführen (schneller erster Paint: Vorlader sichtbar, bevor 2 MB JS laufen)
-  .replace('<!--SCRIPT-->', () => `${remoteBlock}<script type="text/plain" id="assets-humans">${humansBlock}</script>\n<script type="text/plain" id="assets-voice">${voiceBlock}</script>\n<script type="text/plain" id="assets-sfx">${sfxBlock}</script>\n<script type="application/json" id="credits-data">${creditsBlock}</script>\n<script type="text/plain" id="bundle">\n${safeJs}\n</script>\n<script>(function(){function run(){var t=document.getElementById('bundle').textContent,s=document.createElement('script');try{s.src=URL.createObjectURL(new Blob([t],{type:'text/javascript'}));}catch(e){s.text=t;}document.body.appendChild(s);}requestAnimationFrame(function(){setTimeout(run,30);});})();</script>`)
+  .replace('<!--SCRIPT-->', () => `${remoteBlock}<script type="text/plain" id="assets-humans">${humansBlock}</script>\n<script type="text/plain" id="assets-voice">${voiceBlock}</script>\n<script type="text/plain" id="assets-sfx">${sfxBlock}</script>\n<script type="text/plain" id="assets-textures">${texBlock}</script>\n<script type="application/json" id="credits-data">${creditsBlock}</script>\n<script type="text/plain" id="bundle">\n${safeJs}\n</script>\n<script>(function(){function run(){var t=document.getElementById('bundle').textContent,s=document.createElement('script');try{s.src=URL.createObjectURL(new Blob([t],{type:'text/javascript'}));}catch(e){s.text=t;}document.body.appendChild(s);}requestAnimationFrame(function(){setTimeout(run,30);});})();</script>`)
   .replace('<!--LICENSES-->', () => `<!--\n${third.replace(/--/g, '- -')}\n-->`)
   .replace('<!--THIRDTEXT-->', () => third.replace(/<\//g, '<\\/'));
 

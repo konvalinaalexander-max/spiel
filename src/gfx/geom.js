@@ -51,7 +51,8 @@ export class Batcher {
   add(geo, material, matrix, opts = {}) {
     const g = geo.index ? geo.clone() : geo.clone();
     if (matrix) g.applyMatrix4(matrix);
-    if (!opts.keepUV) worldUV(g, opts.tile ?? 1, opts.offset || [0, 0], opts.grain || 'x');
+    // echte Materialien: UV in Texturkacheln der physischen Größe (1 UV-Einheit = eine Kachel), sonst die Kachelgröße des Aufrufs
+    if (!opts.keepUV) worldUV(g, material.userData?.uvMeters ?? opts.tile ?? 1, opts.offset || [0, 0], opts.grain || 'x');
     for (const k of Object.keys(g.attributes)) if (!['position', 'normal', 'uv', 'color'].includes(k)) g.deleteAttribute(k);
     if (material.vertexColors) {
       const c = new THREE.Color(opts.color ?? 0xffffff);

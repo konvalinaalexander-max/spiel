@@ -9,6 +9,7 @@ import { buildProps, buildDetails } from '../scene/props.js';
 import { characterMaterial } from '../chars/rig.js';
 import { Crowd } from '../chars/crowd.js';
 import { loadHumans } from '../chars/humans.js';
+import { loadPBR } from '../gfx/pbrTextures.js';
 import { planPopulation } from './population.js';
 import { damp } from '../core/util.js';
 import * as LY from '../scene/layout.js';
@@ -24,6 +25,8 @@ export async function buildWorld(gfx, params, progress = () => {}) {
   const step = async (f, key) => { progress(f, key); await new Promise(r => setTimeout(r, 0)); };
   const W = { params, gfx };
   await step(0.05, 'load.hall');
+  // echte Materialien (ambientCG) vor dem Saal laden; ohne Daten bleibt es bei den prozeduralen Texturen
+  if (gfx.pbrSets === undefined) { try { gfx.pbrSets = await loadPBR(gfx, f => progress(0.05 + f * 0.05, 'load.hall')); } catch (e) { console.warn('Materialien: Rückfall auf prozedurale Texturen', e); gfx.pbrSets = null; } }
   W.hall = buildHall(gfx);
   await step(0.25, 'load.fixtures');
   W.fx = buildFixtures(gfx, W.hall, { posters: makePosters() });

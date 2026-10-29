@@ -51,6 +51,16 @@ export async function buildMobile({ root, humDir, noVoice }) {
     }
     if (Object.keys(voiceFiles).length) remote.voice = 'assets/voice/';
   }
+  // Materialien (Profil mobile, ≤ 1K)
+  const texDir = path.join(root, 'assets/build', 'mobile');
+  if (fs.existsSync(path.join(texDir, 'textures.json'))) {
+    const index = JSON.parse(fs.readFileSync(path.join(texDir, 'textures.json'), 'utf8'));
+    for (const id of Object.keys(index)) for (const k of ['color', 'normal', 'orm']) {
+      const f = path.join(texDir, 'textures', `${id}_${k}.ktx2`); if (fs.existsSync(f)) core.push(rel(copy(f, path.join(OUT, 'assets/textures', `${id}_${k}.ktx2`))));
+    }
+    core.push(rel(copy(path.join(texDir, 'textures.json'), path.join(OUT, 'assets/textures/textures.json'))));
+    remote.textures = 'assets/textures/';
+  }
   // Geräusche (gehören zum Kern: ohne sie fehlt die Klangwelt)
   const sfxDir = path.join(root, 'assets/build/sfx');
   if (fs.existsSync(path.join(sfxDir, 'manifest.json'))) {

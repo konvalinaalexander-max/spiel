@@ -66,7 +66,19 @@ export class Graphics {
       color: o.color ?? 0xffffff, roughness: o.roughness ?? 1, metalness: o.metalness ?? 0,
       envMapIntensity: o.envMapIntensity ?? 1, side: o.side ?? THREE.FrontSide
     };
-    if (o.recipe) {
+    const real = o.pbr && this.pbrSets && this.pbrSets[o.pbr];
+    if (real) {
+      // echtes Material (ambientCG, KTX2): Farbe auf den gewünschten Ton umfärben (Wunsch / Mittelwert der Textur, linear)
+      params.map = o.noMap ? null : real.map; params.normalMap = real.normalMap;
+      params.roughnessMap = real.orm; params.metalnessMap = real.orm; params.aoMap = real.orm;
+      params.aoMapIntensity = o.aoIntensity ?? 1;
+      params.roughness = o.roughness ?? 1; params.metalness = real.metal ? 1 : (o.metalness ?? 0);
+      params.normalScale = new THREE.Vector2(o.normalScale ?? 1, o.normalScale ?? 1);
+      if (o.tint && real.avg) {
+        const want = new THREE.Color(o.tint), avg = new THREE.Color().setRGB(real.avg[0], real.avg[1], real.avg[2], THREE.SRGBColorSpace);
+        params.color = new THREE.Color(Math.min(3, want.r / Math.max(avg.r, 0.02)), Math.min(3, want.g / Math.max(avg.g, 0.02)), Math.min(3, want.b / Math.max(avg.b, 0.02)));
+      }
+    } else if (o.recipe) {
       const t = this.tex.make(o.recipe, { size: Math.min(o.texOpts?.size || this.preset.texSize, this.preset.texSize), ...(o.texOpts || {}) });
       params.map = o.noMap ? null : t.map;
       params.normalMap = t.normalMap;
@@ -78,6 +90,7 @@ export class Graphics {
       if (o[k] !== undefined) params[k] = o[k];
     const m = new THREE.MeshStandardMaterial(params);
     if (o.name) m.name = o.name;
+    if (real) { m.userData.uvMeters = (o.meters ?? real.meters) / (o.scale ?? 1); m.userData.pbr = o.pbr; }
     if (o.patches) { m.userData.patches = o.patches; m.userData.patchKey = o.patchKey || o.name || 'patched'; }
     return this.register(m);
   }
