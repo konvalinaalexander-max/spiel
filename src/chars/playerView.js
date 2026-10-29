@@ -3,6 +3,7 @@
 import * as THREE from 'three';
 import { buildCharacter } from './rig.js';
 import { Character } from './character.js';
+import { stripHead } from './humanPack.js';
 import * as LY from '../scene/layout.js';
 import { clamp, damp, lerp, smoothstep } from '../core/util.js';
 
@@ -26,7 +27,7 @@ export class PlayerView {
     // Augenposition relativ zum Kopf-Bone (vor dem Ausblenden des Kopfes)
     const b = this.rig.bones;
     this.eyeLocal = b.eyeL.position.clone().add(b.eyeR.position).multiplyScalar(0.5).add(V(0, 0.005, 0.02));
-    b.head.scale.setScalar(0.001);
+    if (this.rig.human) stripHead(this.rig); else b.head.scale.setScalar(0.001);
     this.yaw = 0; this.pitch = -0.09; // Kopf relativ zur Blickrichtung nach vorne (−z)
     this.camYaw = 0; this.camPitch = 0;
     this.lookOff = V(); this.shake = 0; this.startle = 0; this.t = 0;

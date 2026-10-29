@@ -136,7 +136,7 @@ export class UI {
       </div>
       <div class="tabpanel" data-panel="audio" hidden>
         ${['master', 'voice', 'sfx', 'amb', 'music'].map(k => `<label class="row"><span data-i18n="set.vol.${k}"></span><input type="range" min="0" max="1" step="0.05" data-vol="${k}"><output></output></label>`).join('')}
-        <label class="row"><span data-i18n="set.voice"></span><select id="s-voice"><option value="tts" data-i18n="set.voice.tts"></option><option value="murmur" data-i18n="set.voice.murmur"></option><option value="off" data-i18n="set.voice.off"></option></select></label>
+        <label class="row"><span data-i18n="set.voice"></span><select id="s-voice"><option value="voice" data-i18n="set.voice.voice"></option><option value="tts" data-i18n="set.voice.tts"></option><option value="murmur" data-i18n="set.voice.murmur"></option><option value="off" data-i18n="set.voice.off"></option></select></label>
         <label class="row"><span data-i18n="set.ttsRate"></span><input type="range" id="s-rate" min="0.7" max="1.4" step="0.05"><output id="s-rate-o"></output></label>
         <p class="opt-desc" id="s-voiceinfo"></p>
         <button class="btn" id="s-test" data-i18n="set.test"></button>

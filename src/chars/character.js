@@ -276,7 +276,8 @@ export class Character {
     // Sprechen: Kiefer folgt einer silbenartigen Hüllkurve
     this.talk = damp(this.talk, this.talkTarget, 10, dt);
     this.talkPhase += dt * (9 + Math.sin(time * 1.3) * 2);
-    const syll = Math.max(0, Math.sin(this.talkPhase) * 0.7 + Math.sin(this.talkPhase * 2.3 + 1) * 0.3);
+    let syll = Math.max(0, Math.sin(this.talkPhase) * 0.7 + Math.sin(this.talkPhase * 2.3 + 1) * 0.3);
+    if (this.talkEnvValue != null) { this.envSmooth = damp(this.envSmooth || 0, Math.min(1, this.talkEnvValue * 1.8), 18, dt); syll = this.envSmooth; }
     b.jaw.rotation.x = (0.03 + this.talk * syll * 0.16) * (F ? F.jawScale : 1);
     // Brauen
     this.brow = damp(this.brow, this.browTarget, 5, dt);

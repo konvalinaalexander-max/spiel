@@ -31,10 +31,13 @@ export class ChalkPanel {
     this.tex = new THREE.CanvasTexture(this.canvas);
     this.tex.colorSpace = THREE.SRGBColorSpace;
     this.tex.anisotropy = gfx.renderer.capabilities.getMaxAnisotropy();
-    // Teil-Uploads: beim Schreiben wird nur das Rechteck der neuen Kreidetupfer übertragen (texSubImage2D aus dem Canvas),
-    // sonst müsste die 4096er-Textur 20-mal pro Sekunde komplett hochgeladen werden. flipY aus, die Tafelfläche hat gespiegelte UVs.
+    // Teil-Uploads: beim Schreiben wird nur das Rechteck der neuen Kreidetupfer übertragen. Das Rechteck wird erst in einen kleinen
+    // Zwischen-Canvas kopiert und von dort ohne Unterrechteck-Parameter hochgeladen (ein texSubImage2D direkt aus der 4096er-Leinwand
+    // mit UNPACK_SKIP_* liest im Browser die ganze Leinwand zurück). Mipmaps werden höchstens zweimal pro Sekunde neu berechnet.
+    // flipY aus, die Tafelfläche hat gespiegelte UVs.
     this.tex.flipY = false;
-    this.srcTex = new THREE.Texture(this.canvas); // nie in einem Material – Quelle für copyTextureToTexture
+    this.patch = document.createElement('canvas'); this.patchCtx = this.patch.getContext('2d');
+    this.mipDirty = false; this.mipT = 0;
     this.renderer = gfx.renderer; this.box = null;
     this.jobs = []; this.job = null; this.dirty = true; this.uploadT = 0;
     this.pen = null; this.penDown = false; this.chalkPressure = 0;
@@ -142,15 +145,31 @@ export class ChalkPanel {
     b.x0 = Math.min(b.x0, x); b.y0 = Math.min(b.y0, y); b.x1 = Math.max(b.x1, x + s); b.y1 = Math.max(b.y1, y + s);
   }
   _upload(dt) {
-    this.uploadT -= dt;
+    this.uploadT -= dt; this.mipT -= dt;
+    if (this.mipDirty && this.mipT <= 0) this._mips();
     if (!this.dirty || this.uploadT > 0) return;
     this.uploadT = 1 / 30; this.dirty = false;
     const b = this.box; this.box = null;
-    const ready = this.renderer.properties.get(this.tex).__webglInit && !this.tex.needsUpdate;
-    if (!b || !ready || this._full) { this._full = false; this.tex.needsUpdate = true; return; }
+    const props = this.renderer.properties.get(this.tex), ready = props.__webglTexture && !this.tex.needsUpdate;
+    if (!b || !ready || this._full) { this._full = false; this.mipDirty = false; this.tex.needsUpdate = true; return; }
     const x0 = Math.max(0, Math.floor(b.x0) - 2), y0 = Math.max(0, Math.floor(b.y0) - 2), x1 = Math.min(this.W, Math.ceil(b.x1) + 2), y1 = Math.min(this.H, Math.ceil(b.y1) + 2);
-    if (x1 <= x0 || y1 <= y0) return;
-    this.renderer.copyTextureToTexture(this.srcTex, this.tex, new THREE.Box2(new THREE.Vector2(x0, y0), new THREE.Vector2(x1, y1)), new THREE.Vector2(x0, y0));
+    const w = x1 - x0, h = y1 - y0;
+    if (w <= 0 || h <= 0) return;
+    this.patch.width = w; this.patch.height = h; // setzt den Inhalt zurück
+    this.patchCtx.drawImage(this.canvas, x0, y0, w, h, 0, 0, w, h);
+    const gl = this.renderer.getContext(), st = this.renderer.state;
+    st.bindTexture(gl.TEXTURE_2D, props.__webglTexture);
+    gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, false); gl.pixelStorei(gl.UNPACK_PREMULTIPLY_ALPHA_WEBGL, false); gl.pixelStorei(gl.UNPACK_ALIGNMENT, 4);
+    gl.texSubImage2D(gl.TEXTURE_2D, 0, x0, y0, gl.RGBA, gl.UNSIGNED_BYTE, this.patch);
+    st.unbindTexture();
+    this.mipDirty = true;
+  }
+  /** Mipmaps der Tafeltextur nachziehen (nach Teil-Uploads, höchstens alle 0,5 s) */
+  _mips() {
+    this.mipDirty = false; this.mipT = 0.5;
+    const props = this.renderer.properties.get(this.tex); if (!props.__webglTexture) return;
+    const gl = this.renderer.getContext(), st = this.renderer.state;
+    st.bindTexture(gl.TEXTURE_2D, props.__webglTexture); gl.generateMipmap(gl.TEXTURE_2D); st.unbindTexture();
   }
   /** Wischen: Schwamm-Bahnen von links nach rechts */
   startWipe(duration = 5) {

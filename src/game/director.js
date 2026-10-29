@@ -64,7 +64,10 @@ export class Director {
     const idx = free.length ? free[Math.floor(this.rng.next() * free.length)] : Math.floor(this.rng.next() * list.length);
     used.add(idx); if (used.size >= list.length) used.clear(); this.used.set(k, used);
     let s = list[idx];
+    const tpl = s;
     if (vars) s = s.replace(/\{(\w+)\}/g, (m, v) => (vars[v] !== undefined ? vars[v] : m));
+    // für die Stimme: Vorlage und Werte des zuletzt gewählten Satzes (Aufnahmen werden aus Stücken zusammengesetzt)
+    this._last = { text: s, tpl, vars: vars || null };
     return s;
   }
   clockMinutes() {
@@ -243,7 +246,8 @@ export class Director {
     const dur = estimateSpeech(text) * (o.speaker === 'prof' ? 1 : 0.85);
     const pl = this.ctx.prof;
     if (o.speaker === 'prof') pl.talking = true;
-    this.out('say', { text, dur, speaker: o.speaker || 'prof', who: o.who, kind: o.kind || 'lecture', key: o.key, section: this.currentSection?.sec.id });
+    const lp = this._last && this._last.text === text ? this._last : null;
+    this.out('say', { text, dur, speaker: o.speaker || 'prof', who: o.who, kind: o.kind || 'lecture', key: o.key, section: this.currentSection?.sec.id, tpl: lp ? lp.tpl : text, vars: lp ? lp.vars : null });
     return dur;
   }
   _look(look, who) {
@@ -573,7 +577,7 @@ export class Director {
         seq([sayStep('drink'), act(() => { pl.gesture = 'drink'; this.out('fx', { kind: 'drink' }); }), wait(5.5), act(() => { pl.gesture = 'none'; })]);
         break;
       case 'clock_check':
-        seq([act(() => this._look('clock')), wait(1.2), sayStep('clock_check', { vars: { minutes: Math.round(11 * 60 + 45 - this.clockMinutes()) } }), act(() => { this.speedUp = 1.25; })]);
+        seq([act(() => this._look('clock')), wait(1.2), sayStep('clock_check', { vars: { minutes: (m => (m >= 10 ? Math.round(m / 5) * 5 : Math.max(1, m)))(Math.round(11 * 60 + 45 - this.clockMinutes())) } }), act(() => { this.speedUp = 1.25; })]);
         break;
       case 'exam_hint':
         seq([this.rng.chance(0.4) && this.D().gag_pruefung ? sayStep('gag_pruefung', { look: 'class', kind: 'joke' }) : sayStep('exam_hint', { vars: { section: this.currentSection ? this.L(this.currentSection.sec).title : '' }, look: 'class' })]);

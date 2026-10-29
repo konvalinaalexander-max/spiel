@@ -123,6 +123,31 @@ for o in list(meshes):
         bpy.data.objects.remove(o, do_unlink=True)
 assert skin_obj is not None, 'kein Hautobjekt'
 
+def pre_kind(o):
+    if o == skin_obj: return 'body'
+    for part, kind in (('eyes', 'eyes'), ('eyebrows', 'eyebrow'), ('eyelashes', 'eyelash'), ('hair', 'hair'), ('teeth', 'teeth'), ('tongue', 'tongue')):
+        if spec.get(part) and o.name.endswith('.' + os.path.basename(spec[part]).replace('.mhclo', '').replace('.proxy', '').replace(' ', '_')): return kind
+    for f in spec.get('accessories', []):
+        if o.name.endswith('.' + os.path.basename(f).replace('.mhclo', '').replace(' ', '_')): return 'glasses'
+    return 'clothes'
+
+# Polygonbudget je Teilart (Menge: wenige tausend Vertices je Kleidungsstück; Hauptfiguren großzügig)
+budget = spec.get('maxVerts') or {}
+for o in meshes:
+    kind = pre_kind(o)
+    lim = budget.get(kind)
+    if not lim or len(o.data.vertices) <= lim: continue
+    ratio = max(0.08, lim / len(o.data.vertices))
+    d = o.modifiers.new('Reduzieren', 'DECIMATE'); d.ratio = ratio; d.use_collapse_triangulate = True
+    # Reduktion vor dem Skelett-Modifier anwenden
+    bpy.context.view_layer.objects.active = o
+    for s in bpy.context.selected_objects: s.select_set(False)
+    o.select_set(True)
+    bpy.ops.object.modifier_move_to_index(modifier='Reduzieren', index=0)
+    bpy.ops.object.modifier_apply(modifier='Reduzieren')
+    log('reduziert', o.name, kind, f'{ratio:.2f}', len(o.data.vertices))
+
+
 # Kleidungsschichten: innere Schicht (Haut, Hose unter Pullover …) knapp unter die äußere drücken, damit nichts durchstößt.
 # Nur Vertices, die wirklich „unter“ einer Fläche der äußeren Schicht liegen (nicht hinter einem Saum).
 from mathutils.bvhtree import BVHTree
@@ -154,7 +179,7 @@ for i in reversed(range(len(layers))):
     cover = bones_of(outer)
     for zi, inner in layers[:i]:
         if zi >= zo: continue
-        iw = inner.matrix_world; inv = iw.inverted(); margin = 0.003 if inner == skin_obj else 0.004; n = 0
+        iw = inner.matrix_world; inv = iw.inverted(); margin = (0.006 if spec.get('proxy') else 0.003) if inner == skin_obj else (0.006 if spec.get('proxy') else 0.004); n = 0
         gname = {g.index: g.name for g in inner.vertex_groups}
         for v in inner.data.vertices:
             # nur Vertices, deren Hauptknochen auch die äußere Schicht bewegt (Hand neben der Hose bleibt unberührt)
@@ -313,6 +338,8 @@ def classify(o):
     if o == skin_obj: return 'body'
     for part, kind in (('eyes', 'eyes'), ('eyebrows', 'eyebrow'), ('eyelashes', 'eyelash'), ('hair', 'hair'), ('teeth', 'teeth'), ('tongue', 'tongue')):
         if spec.get(part) and o.name.endswith(suffix(spec[part])): return kind
+    for f in spec.get('accessories', []):
+        if o.name.endswith(suffix(f)): return 'glasses'
     return 'clothes'
 
 def mhmat_for(o):
@@ -354,7 +381,7 @@ def tex_nodes(o):
     found['file'] = {k: os.path.relpath(v, os.path.dirname(os.path.dirname(mm['dir']))) for k, v in mm.items() if k.endswith('Texture')} if mm else {}
     return found
 
-ROUGH = {'body': 0.52, 'clothes': 0.82, 'hair': 0.42, 'eyebrow': 0.6, 'eyelash': 0.6, 'eyes': 0.08, 'teeth': 0.3, 'tongue': 0.4}
+ROUGH = {'glasses': 0.25, 'body': 0.52, 'clothes': 0.82, 'hair': 0.42, 'eyebrow': 0.6, 'eyelash': 0.6, 'eyes': 0.08, 'teeth': 0.3, 'tongue': 0.4}
 mats = {}
 for o in meshes:
     kind = classify(o)
@@ -366,7 +393,7 @@ for o in meshes:
         nt = m.node_tree; bsdf = nt.nodes['Principled BSDF']
         bsdf.inputs['Roughness'].default_value = ROUGH.get(kind, 0.7)
         bsdf.inputs['Metallic'].default_value = 0.0
-        alpha = kind in ('hair', 'eyebrow', 'eyelash', 'eyes')
+        alpha = kind in ('hair', 'eyebrow', 'eyelash', 'eyes', 'glasses')
         if 'diffuse' in t:
             im = nt.nodes.new('ShaderNodeTexImage'); im.image = t['diffuse']
             nt.links.new(im.outputs['Color'], bsdf.inputs['Base Color'])
@@ -404,22 +431,6 @@ for o in meshes:
         for l in list(b.inputs['Alpha'].links): nt.links.remove(l)
 
 # --------------------------------------------------------------------------------------------- 5. optional reduzieren, exportieren
-# Polygonbudget je Teilart (Menge: wenige tausend Vertices je Kleidungsstück; Hauptfiguren großzügig)
-budget = spec.get('maxVerts') or {}
-for o in meshes:
-    kind = classify(o)
-    lim = budget.get(kind)
-    if not lim or len(o.data.vertices) <= lim: continue
-    ratio = max(0.08, lim / len(o.data.vertices))
-    d = o.modifiers.new('Reduzieren', 'DECIMATE'); d.ratio = ratio; d.use_collapse_triangulate = True
-    # Reduktion vor dem Skelett-Modifier anwenden
-    bpy.context.view_layer.objects.active = o
-    for s in bpy.context.selected_objects: s.select_set(False)
-    o.select_set(True)
-    bpy.ops.object.modifier_move_to_index(modifier='Reduzieren', index=0)
-    bpy.ops.object.modifier_apply(modifier='Reduzieren')
-    log('reduziert', o.name, kind, f'{ratio:.2f}', len(o.data.vertices))
-
 for s in bpy.context.selected_objects: s.select_set(False)
 ao.select_set(True)
 for o in meshes: o.select_set(True)

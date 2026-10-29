@@ -65,7 +65,8 @@ export class ProfView {
   boardPush(dur = 2) { this.pushT = dur; this.pushDur = dur; }
   /** Tafel wischen (Schwamm in der rechten Hand) */
   wipe(dur = 3) { this.wipeT = dur + 0.4; }
-  say(dur) { this.talkT = Math.max(this.talkT, dur); }
+  /** dur: Sprechdauer; env(t): Lautstärkekurve der Aufnahme (0–1) für die Mundbewegung, sonst Silbenrhythmus */
+  say(dur, env = null) { this.talkT = Math.max(this.talkT, dur); this.env = env; this.envStart = this.t; }
   clickerPress() { this.clickT = 0.45; }
   caught(dur = 4) { this.caughtT = dur; }
   update(dt, t, pen, wipePen) {
@@ -79,6 +80,8 @@ export class ProfView {
     c.setLook(this.lookPt, 1);
     // Sprechen
     this.talkT -= dt; c.talkTarget = (this.talkT > 0 || (this.audio && this.audio.speaking && L.talking)) ? 1 : 0;
+    // Mund folgt der Lautstärke der Aufnahme (Kiefer + Lippen), ohne Aufnahme dem Silbenrhythmus
+    c.talkEnvValue = this.env && this.talkT > 0 ? this.env(this.t - this.envStart) : null;
     // Mimik
     const questioning = L.gesture === 'question' || this.caughtT > 0;
     c.browTarget = questioning ? 1 : 0;

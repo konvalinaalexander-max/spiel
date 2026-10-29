@@ -2,6 +2,7 @@
 // Sprachausgabe (Web Speech API) + synthetisches "Murmeln" (räumlich, wenn keine/keine gewünschte TTS).
 import { synthesizeAll, makeImpulse } from './synth.js';
 import { storage, clamp, lerp } from '../core/util.js';
+import { VoiceBank } from './voice.js';
 
 const AC = typeof AudioContext !== 'undefined' ? AudioContext : (typeof webkitAudioContext !== 'undefined' ? webkitAudioContext : null);
 
@@ -11,7 +12,9 @@ export class AudioEngine {
     this.vol = storage.get('volumes', { master: 0.85, voice: 1, sfx: 0.8, amb: 0.65, music: 0.5 });
     this.loops = {}; this.listenerPos = [0, 1.5, 0];
     this.muffle = 0; this.headphones = false;
-    this.voiceMode = storage.get('voiceMode', 'tts'); // 'tts' | 'murmur' | 'off'
+    // V3: vorgerenderte Stimmen ('voice'); Browser-TTS/Murmeln nur noch als ausdrückliche Wahl, Standard ist die echte Aufnahme
+    this.bank = new VoiceBank();
+    this.voiceMode = storage.get('voiceMode3', this.bank.available ? 'voice' : 'tts'); // 'voice' | 'tts' | 'murmur' | 'off'
     this.ttsRate = storage.get('ttsRate', 1.0); this.ttsPitch = storage.get('ttsPitch', 0.9);
     this.tts = { supported: typeof speechSynthesis !== 'undefined', voice: null, speaking: false, utter: null };
     this.lang = 'de';
@@ -136,7 +139,34 @@ export class AudioEngine {
     this.tts.voice = best;
   }
   setLang(l) { this.lang = l; this.pickVoice(); }
-  setVoiceMode(m) { this.voiceMode = m; storage.set('voiceMode', m); if (m !== 'tts') this.stopSpeech(); }
+  setVoiceMode(m) { this.voiceMode = m; storage.set('voiceMode3', m); if (m !== 'tts') this.stopSpeech(); }
+  /**
+   * Vorgerenderte Aufnahme abspielen. o: { speaker ('prof' | 'student_m' | 'student_f' | 'neighbor'), tpl (Satz mit Platzhaltern),
+   * vars, pos (Vector3), gain }. Rückgabe { dur, env(t) } oder null, wenn (noch) keine Aufnahme vorliegt.
+   */
+  speakClip(o) {
+    if (!this.ready || this.voiceMode !== 'voice' || !this.bank.available) return null;
+    const lang = this.lang || 'de';
+    const ids = this.bank.parts(lang, o.speaker, o.tpl, o.vars); if (!ids) return null;
+    const shape = this.bank.shape(lang, ids);
+    const ctx = this.ctx, token = {};
+    if (o.speaker === 'prof') { this._stopProfClip(); this._profToken = token; }
+    const out = ctx.createGain(); out.gain.value = (o.gain ?? 0.95);
+    if (o.pos) { const p = this._panner(o.pos, 'HRTF', o.speaker === 'prof' ? 3 : 0.9); out.connect(p); p.connect(this.voiceLP); }
+    else out.connect(this.voiceLP);
+    // Raumanteil über den Hall (Hörsaal), beim Prof etwas mehr
+    const send = ctx.createGain(); send.gain.value = o.speaker === 'prof' ? 0.2 : 0.1; out.connect(send); send.connect(this.reverbIn);
+    const start = ctx.currentTime + 0.04;
+    this._clipEnd = Math.max(this._clipEnd || 0, start + shape.dur);
+    Promise.all(ids.map(id => this.bank.buffer(ctx, lang, id))).then(bufs => {
+      if (o.speaker === 'prof' && this._profToken !== token) return;
+      let t = Math.max(ctx.currentTime + 0.01, start); const srcs = [];
+      for (const b of bufs) { if (!b) continue; const sN = ctx.createBufferSource(); sN.buffer = b; sN.connect(out); sN.start(t); srcs.push(sN); t += b.duration + 0.06; }
+      if (o.speaker === 'prof') this._profSrcs = srcs;
+    });
+    return shape;
+  }
+  _stopProfClip() { if (this._profSrcs) { for (const sN of this._profSrcs) { try { sN.stop(); } catch (e) { /* schon zu Ende */ } } this._profSrcs = null; } this._profToken = null; }
   get ttsAvailable() { return this.tts.supported; }
   /**
    * Prof spricht einen Satz. o: { pos (Vector3 Kopf), gain (0–1 Lautheit), onEnd, onStart }
@@ -160,17 +190,18 @@ export class AudioEngine {
         u.onend = u.onerror = () => { if (this.tts.utter === u) this.tts.speaking = false; o.onEnd && o.onEnd(); };
         speechSynthesis.speak(u);
       } catch (e) { this.tts.speaking = false; }
-    } else if (this.voiceMode !== 'off' && this.ready) {
+    } else if (this.voiceMode === 'murmur' && this.ready) {
       this._murmur(text, est, o);
     }
     return est;
   }
   stopSpeech() {
+    this._stopProfClip(); this._clipEnd = 0;
     if (this.tts.supported) { try { speechSynthesis.cancel(); } catch (e) { /* egal */ } }
     this.tts.speaking = false;
     if (this._murmurNodes) { try { this._murmurNodes.forEach(n => n.stop && n.stop()); } catch (e) { /* schon gestoppt */ } this._murmurNodes = null; }
   }
-  get speaking() { return this.tts.speaking || (this._murmurEnd && this.ctx && this.ctx.currentTime < this._murmurEnd); }
+  get speaking() { return this.tts.speaking || (this._murmurEnd && this.ctx && this.ctx.currentTime < this._murmurEnd) || (this._clipEnd && this.ctx && this.ctx.currentTime < this._clipEnd); }
   /** Synthetische, sprachähnliche Silbenfolge (Formantfilter), räumlich am Kopf des Profs */
   _murmur(text, dur, o) {
     const ctx = this.ctx; const t0 = ctx.currentTime + 0.02;

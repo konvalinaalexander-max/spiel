@@ -31,15 +31,15 @@ const M = profile === 'mobile' ? 0.5 : 1; // Atlasgröße
 const io = new NodeIO().registerExtensions(ALL_EXTENSIONS);
 
 // Teilarten: 0 Haut, 1 Kleidung, 2 einfärbbares Oberteil, 3 Haar/Brauen/Wimpern, 4 Augen, 5 Zähne
-const PART = { body: 0, clothes: 1, top: 2, hair: 3, eyebrow: 3, eyelash: 3, eyes: 4, teeth: 5, tongue: 5 };
-const ALPHA = new Set(['hair', 'eyebrow', 'eyelash']);
-const ROUGH = { body: 0.58, clothes: 0.86, top: 0.86, hair: 0.5, eyebrow: 0.7, eyelash: 0.7, eyes: 0.12, teeth: 0.35, tongue: 0.45 };
+const PART = { body: 0, clothes: 1, top: 2, hair: 3, eyebrow: 3, eyelash: 3, glasses: 3, eyes: 4, teeth: 5, tongue: 5 };
+const ALPHA = new Set(['hair', 'eyebrow', 'eyelash', 'glasses']);
+const ROUGH = { glasses: 0.25, body: 0.58, clothes: 0.86, top: 0.86, hair: 0.5, eyebrow: 0.7, eyelash: 0.7, eyes: 0.12, teeth: 0.35, tongue: 0.45 };
 // Kachelgrößen (Pixel) je Teilart; Spielfigur braucht die Hände scharf aus nächster Nähe
 // (Der Basis-Kodierer verarbeitet höchstens ~12 Mpx je Bild → Spielfigur 4096×2048, Menge in zwei Atlanten zu 4096×2048.)
 const TILES = {
-  player: { w: 4096, h: 2048, body: 2048, clothes: 1024, hair: 512, eyes: 128, eyebrow: 128, eyelash: 128, teeth: 128 },
-  hero: { w: 2048, h: 2048, body: 1024, clothes: 1024, hair: 512, eyes: 128, eyebrow: 128, eyelash: 128, teeth: 128 },
-  crowd: { w: 1024, h: 1024, body: 512, clothes: 256, hair: 256, eyes: 64, eyebrow: 64, eyelash: 64, teeth: 64 }
+  player: { w: 4096, h: 2048, body: 2048, clothes: 1024, hair: 512, glasses: 128, eyes: 128, eyebrow: 128, eyelash: 128, teeth: 128 },
+  hero: { w: 2048, h: 2048, body: 1024, clothes: 1024, hair: 512, glasses: 256, eyes: 128, eyebrow: 128, eyelash: 128, teeth: 128 },
+  crowd: { w: 1024, h: 1024, body: 512, clothes: 256, hair: 256, glasses: 64, eyes: 64, eyebrow: 64, eyelash: 64, teeth: 64 }
 };
 const PAD = 4;
 
@@ -85,7 +85,7 @@ async function packFigure(h, region, atlasC, atlasN, atlasKey) {
     const joints = node.getSkin() ? node.getSkin().listJoints().map(j => jIndex[j.getName()] ?? 0) : null;
     const obj = node.getName().split('.').pop();
     for (const prim of mesh.listPrimitives()) {
-      const mat = prim.getMaterial(); const kindRaw = (mat.getName().match(/_(body|clothes|hair|eyebrow|eyelash|eyes|teeth|tongue)_/) || [, 'clothes'])[1];
+      const mat = prim.getMaterial(); const kindRaw = (mat.getName().match(/_(body|clothes|hair|eyebrow|eyelash|eyes|teeth|tongue|glasses)_/) || [, 'clothes'])[1];
       const top = h.tintTop && obj.endsWith(h.tintTop);
       const kind = top ? 'top' : kindRaw;
       parts.push({ prim, joints, obj, kind, mat, color: mat.getBaseColorTexture()?.getImage(), normal: mat.getNormalTexture()?.getImage(), factor: mat.getBaseColorFactor() });
@@ -164,8 +164,9 @@ async function packFigure(h, region, atlasC, atlasN, atlasKey) {
 const enc = (png, o) => encodeToKTX2(new Uint8Array(png), { generateMipmap: true, qualityLevel: 200, compressionLevel: 2, needSupercompression: true, isKTX2File: true,
   imageDecoder: async b => { const { data, info } = await sharp(b).ensureAlpha().raw().toBuffer({ resolveWithObject: true }); return { data: new Uint8Array(data), width: info.width, height: info.height }; }, ...o });
 const quiet = async fn => { const l = console.log; console.log = () => {}; try { return await fn(); } finally { console.log = l; } };
+// Farbatlas mit durchsichtigem Hintergrund: deckende Kacheln werden deckend, Haar-Kacheln behalten ihren Alphakanal
 async function writeAtlas(file, a, normal) {
-  const png = await sharp({ create: { width: a.w, height: a.h, channels: 4, background: normal ? { r: 128, g: 128, b: 255, alpha: 1 } : { r: 128, g: 110, b: 100, alpha: 1 } } })
+  const png = await sharp({ create: { width: a.w, height: a.h, channels: 4, background: normal ? { r: 128, g: 128, b: 255, alpha: 1 } : { r: 128, g: 110, b: 100, alpha: 0 } } })
     .composite(a.composites).png().toBuffer();
   if (args.includes('--png')) fs.writeFileSync(file.replace('.ktx2', '.png'), png);
   const k = await quiet(() => enc(png, normal ? { isUASTC: true, isNormalMap: true, isSetKTX2SRGBTransferFunc: false } : { isUASTC: false, isSetKTX2SRGBTransferFunc: true }));

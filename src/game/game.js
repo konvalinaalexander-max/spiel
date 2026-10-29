@@ -222,17 +222,23 @@ export class Game {
     const S = this.session, W = this.world, A = this.audio;
     const sp = d.speaker || 'prof';
     let pos = null;
+    // Vorlage + Werte für die vorgerenderte Aufnahme (Sätze aus der Regie; Nachbarin/Session über die zuletzt gewählte Zeile)
+    const last = S.director._last;
+    const tpl = d.tpl || (last && last.text === d.text ? last.tpl : d.text), vars = d.vars || (last && last.text === d.text ? last.vars : null);
     if (sp === 'prof') {
-      const dur = A.speak(d.text, { gain: d.kind === 'whisper' ? 0.5 : 0.95 });
+      const clip = A.speakClip({ speaker: 'prof', tpl, vars, pos: this.profView.char.headWorld(V()), gain: d.kind === 'whisper' ? 0.5 : 0.95 });
+      const dur = clip ? clip.dur : A.speak(d.text, { gain: d.kind === 'whisper' ? 0.5 : 0.95 });
       this.speech = { start: this.t, est: dur };
-      this.profView.say(d.dur || dur);
+      this.profView.say(clip ? clip.dur : (d.dur || dur), clip ? clip.env : null);
       if (d.kind === 'alert') this.player.startle = 1;
     } else {
       if (sp === 'neighbor') pos = W.crowd.byId.get(W.plan.neighbor.id)?.c.headWorld(V());
       else if (sp === 'student' && d.who) pos = W.crowd.byId.get(d.who)?.c.headWorld(V());
       else if (sp === 'tutor') pos = W.crowd.tutor.headWorld(V());
       const female = sp === 'neighbor' || sp === 'tutor' || (d.who && W.crowd.byId.get(d.who)?.s.female);
-      A.voice(d.text, { pos, gain: d.kind === 'whisper' ? 0.55 : 0.7, whisper: d.kind === 'whisper', f0: female ? 205 : 125, dur: d.dur });
+      const who = sp === 'neighbor' ? 'neighbor' : 'student_' + (female ? 'f' : 'm');
+      const clip = A.speakClip({ speaker: who, tpl, vars, pos, gain: d.kind === 'whisper' ? 0.6 : 0.8 });
+      if (!clip && A.voiceMode === 'murmur') A.voice(d.text, { pos, gain: d.kind === 'whisper' ? 0.55 : 0.7, whisper: d.kind === 'whisper', f0: female ? 205 : 125, dur: d.dur });
     }
     this.hud.say(sp, d.text, d.dur || 2, d.kind);
   }
@@ -543,9 +549,9 @@ export class Game {
     const w = Math.round(r.domElement.width * 0.28), h = Math.round(w * 9 / 16);
     r.setScissorTest(true); r.setScissor(16, 16, w, h); r.setViewport(16, 16, w, h);
     const vis = this.profView.rig.mesh.visible; this.profView.rig.mesh.visible = false;
-    const head = this.player.rig.bones.head; head.scale.setScalar(1);
+    const head = this.player.rig.bones.head; if (!this.player.rig.human) head.scale.setScalar(1);
     r.render(this.gfx.scene, cam);
-    head.scale.setScalar(0.001);
+    if (!this.player.rig.human) head.scale.setScalar(0.001);
     this.profView.rig.mesh.visible = vis;
     r.setScissorTest(false); r.setViewport(0, 0, r.domElement.width, r.domElement.height);
   }

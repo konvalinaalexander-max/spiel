@@ -33,7 +33,7 @@ EN = [
     "That will be on the exam. I'm not saying it because I have to. I'm saying it because I enjoy it.",
     "The gentleman in row five – I don't know what's on your screen, but I bet it doesn't have a rumen.",
 ]
-XTTS_SPEAKERS = ['Viktor Menelaos', 'Damien Black', 'Craig Gutsy', 'Baldur Sanjin', 'Ludvig Milivoj', 'Torcull Diarmuid', 'Dionisio Schuyler', 'Aaron Dreschner']
+XTTS_SPEAKERS = ['Viktor Menelaos', 'Baldur Sanjin', 'Damien Black', 'Ludvig Milivoj', 'Craig Gutsy', 'Torcull Diarmuid', 'Dionisio Schuyler', 'Aaron Dreschner']
 
 
 def save(path, wav, sr):
@@ -48,8 +48,9 @@ def run_xtts():
     from TTS.api import TTS
     tts = TTS('tts_models/multilingual/multi-dataset/xtts_v2').to('cpu')
     meta = []
-    for spk in XTTS_SPEAKERS:
-        for lang, sents in (('de', DE), ('en', EN[:2])):
+    nspk = int(os.environ.get('EVAL_SPEAKERS', len(XTTS_SPEAKERS))); nde = int(os.environ.get('EVAL_DE', len(DE)))
+    for spk in XTTS_SPEAKERS[:nspk]:
+        for lang, sents in (('de', DE[:nde]), ('en', EN[:2])):
             for i, s in enumerate(sents):
                 f = os.path.join(OUT, f"xtts_{spk.replace(' ', '_')}_{lang}{i}.wav")
                 if os.path.exists(f):
