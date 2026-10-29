@@ -96,7 +96,9 @@ export class Crowd {
   /** Echte Figuren eines Atlas zu einem SkinnedMesh mit zwei Gruppen (deckend, Haar mit Alphatest) zusammenführen */
   _mergeHumans(rigs) {
     let nv = 0, no = 0, na = 0;
-    const lod = r => { const g = r.skinned.geometry, l = r.lod === 1 && g.userData.lod1; return l ? { idx: l.index, groups: l.groups } : { idx: g.index.array, groups: g.groups }; };
+    // ohne Gruppen (ein gemeinsames Material, Rocketbox): das ganze Indexfeld zählt als „deckend“
+    const all = (idx, groups) => (groups.length ? groups : [{ start: 0, count: idx.length, materialIndex: 0 }]);
+    const lod = r => { const g = r.skinned.geometry, l = r.lod === 1 && g.userData.lod1; return l ? { idx: l.index, groups: all(l.index, l.groups) } : { idx: g.index.array, groups: all(g.index.array, g.groups) }; };
     for (const r of rigs) { const g = r.skinned.geometry; nv += g.attributes.position.count; for (const gr of lod(r).groups) { if (gr.materialIndex) na += gr.count; else no += gr.count; } }
     const A = (name, size, C, norm = false) => ({ name, size, arr: new C(nv * size), norm });
     const attrs = [A('position', 3, Float32Array), A('normal', 3, Float32Array), A('uv', 2, Uint16Array, true), A('skinIndex', 4, Uint16Array), A('skinWeight', 4, Uint8Array, true), A('aSurf', 4, Uint8Array), A('aTint', 3, Float32Array)];
@@ -119,7 +121,7 @@ export class Crowd {
     const geo = new THREE.BufferGeometry();
     for (const a of attrs) geo.setAttribute(a.name, a.name === 'skinIndex' ? new THREE.Uint16BufferAttribute(a.arr, 4) : new THREE.BufferAttribute(a.arr, a.size, a.norm));
     geo.setIndex(new THREE.BufferAttribute(index, 1));
-    geo.addGroup(0, no, 0); geo.addGroup(no, na, 1);
+    if (Array.isArray(rigs[0].skinned.material)) { geo.addGroup(0, no, 0); geo.addGroup(no, na, 1); }
     geo.computeBoundingSphere();
     const mesh = new THREE.SkinnedMesh(geo, rigs[0].skinned.material);
     mesh.bind(new THREE.Skeleton(bones, inverses), new THREE.Matrix4());

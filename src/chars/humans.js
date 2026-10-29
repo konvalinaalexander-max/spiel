@@ -70,11 +70,11 @@ export async function loadHumans(gfx, onProgress = () => {}) {
     const g = rig.spec.female ? 'f' : 'm', clips = new Map([...(H.clips[g] || new Map()), ...((set && H.clips[set]) || new Map())]);
     return new ClipCharacter(rig, clips, opts);
   };
-  /** Materialpaar [deckend, Alpha] je Atlas (geteilt von allen Figuren dieses Atlas) */
-  H.materials = key => H.mats[key] || (H.mats[key] = [
-    humanMaterial(gfx, { map: H.atlases[key], normalMap: H.normals[key], tint: key.startsWith('crowd'), name: 'human-' + key }),
-    humanMaterial(gfx, { map: H.atlases[key], alpha: true, tint: false, name: 'human-' + key + '-a' })
-  ]);
+  /** Material je Atlas (geteilt von allen Figuren dieses Atlas): Rocketbox ein gemeinsames, ältere Figuren [deckend, Alpha] */
+  H.materials = key => H.mats[key] || (H.mats[key] = H.rocketbox
+    ? humanMaterial(gfx, { map: H.atlases[key], normalMap: H.normals[key], tint: key.startsWith('crowd'), unified: true, name: 'human-' + key })
+    : [humanMaterial(gfx, { map: H.atlases[key], normalMap: H.normals[key], tint: key.startsWith('crowd'), name: 'human-' + key }),
+      humanMaterial(gfx, { map: H.atlases[key], alpha: true, tint: false, name: 'human-' + key + '-a' })]);
   /** Hauptfigur (eigener Atlas): prof, player_a/b/c, neighbor, tutor */
   H.hero = id => {
     const d = H.designs[id]; if (!d) return null;
