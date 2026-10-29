@@ -58,6 +58,7 @@ export class Game {
     lap.screenMat.map = this.osTex; lap.screenMat.needsUpdate = true;
     // Mauszeiger als eigenes kleines Objekt über dem Bildschirm: Zeigerbewegung lädt keine 2560er-Textur hoch
     this.os.externalCursor = true;
+    this._fitLaptopScale();
     this.cursorMesh = this._makeCursor(lap);
     this.os.draw(); this.osTex.needsUpdate = true;
     // Zustand
@@ -448,6 +449,7 @@ export class Game {
     if (writing && Math.random() < dt * 5) A.play('penWrite', { bus: 'player', gain: 0.25 });
     // Laptop-Bildschirm
     this.os.brightness = this.brightness; this.os.muted = p.muted;
+    if ((this._fitT = (this._fitT || 0) - dt) <= 0) { this._fitT = 1; this._fitLaptopScale(); }
     const visible = this.lid > 40;
     if (this.os.update(dt, visible)) this.osTex.needsUpdate = true;
     const scrMat = W.props.player.laptop.screenMat;
@@ -499,6 +501,16 @@ export class Game {
     else H.debug(false);
   }
   /** Bild-in-Bild aus Sicht des Profs (F3, Debug) */
+  /** Laptop-Textur ≈ so viele Pixel, wie der Bildschirm im Laptop-Blick belegt (≈ 71 % der Bildbreite), +10 % Reserve:
+   *  nie hochskaliert, kaum verkleinert → Schrift bleibt scharf (Full HD ≈ 1,2×, 4K/Retina ≈ 2,4× der logischen 1280 px) */
+  _fitLaptopScale() {
+    const bw = this.gfx.renderer.domElement.width || 1920;
+    const s = Math.min(3, Math.max(1, Math.round(bw * 0.71 * 1.1 / LAPTOP_SIZE.W * 10) / 10));
+    if (this.os.setScale(s) || this._osScale !== s) {
+      this._osScale = s;
+      this.osTex.dispose(); this.osTex.image = this.os.canvas; this.osTex.needsUpdate = true;
+    }
+  }
   _makeCursor(lap) {
     const K = 4, px = 24, tex = {};
     for (const shape of ['arrow', 'hand']) {

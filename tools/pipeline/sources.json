@@ -1,0 +1,310 @@
+{
+ "note": "Quellen der Asset-Pipeline. fetch.mjs lädt nach assets/src/<file> (Cache), prüft/protokolliert SHA256 in assets/src/fetched.json und docs/ASSETS.md.",
+ "sources": [
+  {
+   "id": "mpfb",
+   "url": "https://extensions.blender.org/download/sha256:c075b3e9b94b8e5556a5f03f4653602d02ea306de08126e8f55ed6dee28a2dad/add-on-mpfb-v2.0.18.zip",
+   "file": "tools/mpfb-2.0.18.zip",
+   "sha256": "c075b3e9b94b8e5556a5f03f4653602d02ea306de08126e8f55ed6dee28a2dad",
+   "license": "GPL-3.0-or-later (Werkzeug; erzeugte Modelle CC0)",
+   "author": "MakeHuman Community (Joel Palmius)",
+   "use": "Menschen-Generator in Blender"
+  },
+  {
+   "id": "mh_makehuman_system_assets",
+   "url": "https://files2.makehumancommunity.org/asset_packs/makehuman_system_assets/makehuman_system_assets_cc0.zip",
+   "file": "makehuman/makehuman_system_assets_cc0.zip",
+   "license": "CC0-1.0",
+   "author": "MakeHuman Community",
+   "use": "Figuren (Körper, Haut, Haare, Kleidung)"
+  },
+  {
+   "id": "mh_hair01",
+   "url": "https://files2.makehumancommunity.org/asset_packs/hair01/hair01_cc0.zip",
+   "file": "makehuman/hair01_cc0.zip",
+   "license": "CC0-1.0",
+   "author": "MakeHuman Community",
+   "use": "Figuren (Körper, Haut, Haare, Kleidung)"
+  },
+  {
+   "id": "mh_shirts01",
+   "url": "https://files2.makehumancommunity.org/asset_packs/shirts01/shirts01_cc0.zip",
+   "file": "makehuman/shirts01_cc0.zip",
+   "license": "CC0-1.0",
+   "author": "MakeHuman Community",
+   "use": "Figuren (Körper, Haut, Haare, Kleidung)"
+  },
+  {
+   "id": "mh_pants01",
+   "url": "https://files2.makehumancommunity.org/asset_packs/pants01/pants01_cc0.zip",
+   "file": "makehuman/pants01_cc0.zip",
+   "license": "CC0-1.0",
+   "author": "MakeHuman Community",
+   "use": "Figuren (Körper, Haut, Haare, Kleidung)"
+  },
+  {
+   "id": "mh_shoes01",
+   "url": "https://files2.makehumancommunity.org/asset_packs/shoes01/shoes01_cc0.zip",
+   "file": "makehuman/shoes01_cc0.zip",
+   "license": "CC0-1.0",
+   "author": "MakeHuman Community",
+   "use": "Figuren (Körper, Haut, Haare, Kleidung)"
+  },
+  {
+   "id": "mh_suits01",
+   "url": "https://files2.makehumancommunity.org/asset_packs/suits01/suits01_cc0.zip",
+   "file": "makehuman/suits01_cc0.zip",
+   "license": "CC0-1.0",
+   "author": "MakeHuman Community",
+   "use": "Figuren (Körper, Haut, Haare, Kleidung)"
+  },
+  {
+   "id": "mh_suits02",
+   "url": "https://files2.makehumancommunity.org/asset_packs/suits02/suits02_cc0.zip",
+   "file": "makehuman/suits02_cc0.zip",
+   "license": "CC0-1.0",
+   "author": "MakeHuman Community",
+   "use": "Figuren (Körper, Haut, Haare, Kleidung)"
+  },
+  {
+   "id": "mh_suits05",
+   "url": "https://files2.makehumancommunity.org/asset_packs/suits05/suits05_cc0.zip",
+   "file": "makehuman/suits05_cc0.zip",
+   "license": "CC0-1.0",
+   "author": "MakeHuman Community",
+   "use": "Figuren (Körper, Haut, Haare, Kleidung)"
+  },
+  {
+   "id": "mh_skins01",
+   "url": "https://files2.makehumancommunity.org/asset_packs/skins01/skins01_cc0.zip",
+   "file": "makehuman/skins01_cc0.zip",
+   "license": "CC0-1.0",
+   "author": "MakeHuman Community",
+   "use": "Figuren (Körper, Haut, Haare, Kleidung)"
+  },
+  {
+   "id": "mh_skins02",
+   "url": "https://files2.makehumancommunity.org/asset_packs/skins02/skins02_cc0.zip",
+   "file": "makehuman/skins02_cc0.zip",
+   "license": "CC0-1.0",
+   "author": "MakeHuman Community",
+   "use": "Figuren (Körper, Haut, Haare, Kleidung)"
+  },
+  {
+   "id": "mh_skins03",
+   "url": "https://files2.makehumancommunity.org/asset_packs/skins03/skins03_cc0.zip",
+   "file": "makehuman/skins03_cc0.zip",
+   "license": "CC0-1.0",
+   "author": "MakeHuman Community",
+   "use": "Figuren (Körper, Haut, Haare, Kleidung)"
+  },
+  {
+   "id": "mh_eyebrows01",
+   "url": "https://files2.makehumancommunity.org/asset_packs/eyebrows01/eyebrows01_cc0.zip",
+   "file": "makehuman/eyebrows01_cc0.zip",
+   "license": "CC0-1.0",
+   "author": "MakeHuman Community",
+   "use": "Figuren (Körper, Haut, Haare, Kleidung)"
+  },
+  {
+   "id": "mh_eyelashes01",
+   "url": "https://files2.makehumancommunity.org/asset_packs/eyelashes01/eyelashes01_cc0.zip",
+   "file": "makehuman/eyelashes01_cc0.zip",
+   "license": "CC0-1.0",
+   "author": "MakeHuman Community",
+   "use": "Figuren (Körper, Haut, Haare, Kleidung)"
+  },
+  {
+   "id": "mh_glasses01",
+   "url": "https://files2.makehumancommunity.org/asset_packs/glasses01/glasses01_cc0.zip",
+   "file": "makehuman/glasses01_cc0.zip",
+   "license": "CC0-1.0",
+   "author": "MakeHuman Community",
+   "use": "Figuren (Körper, Haut, Haare, Kleidung)"
+  },
+  {
+   "id": "mh_dress01",
+   "url": "https://files2.makehumancommunity.org/asset_packs/dress01/dress01_cc0.zip",
+   "file": "makehuman/dress01_cc0.zip",
+   "license": "CC0-1.0",
+   "author": "MakeHuman Community",
+   "use": "Figuren (Körper, Haut, Haare, Kleidung)"
+  },
+  {
+   "id": "mh_skirts01",
+   "url": "https://files2.makehumancommunity.org/asset_packs/skirts01/skirts01_cc0.zip",
+   "file": "makehuman/skirts01_cc0.zip",
+   "license": "CC0-1.0",
+   "author": "MakeHuman Community",
+   "use": "Figuren (Körper, Haut, Haare, Kleidung)"
+  },
+  {
+   "id": "mh_system_clothes_materials01",
+   "url": "https://files2.makehumancommunity.org/asset_packs/system_clothes_materials01/system_clothes_materials01_cc0.zip",
+   "file": "makehuman/system_clothes_materials01_cc0.zip",
+   "license": "CC0-1.0",
+   "author": "MakeHuman Community",
+   "use": "Figuren (Körper, Haut, Haare, Kleidung)"
+  },
+  {
+   "id": "mh_system_hair_materials01",
+   "url": "https://files2.makehumancommunity.org/asset_packs/system_hair_materials01/system_hair_materials01_cc0.zip",
+   "file": "makehuman/system_hair_materials01_cc0.zip",
+   "license": "CC0-1.0",
+   "author": "MakeHuman Community",
+   "use": "Figuren (Körper, Haut, Haare, Kleidung)"
+  },
+  {
+   "id": "mh_system_eye_materials01",
+   "url": "https://files2.makehumancommunity.org/asset_packs/system_eye_materials01/system_eye_materials01_cc0.zip",
+   "file": "makehuman/system_eye_materials01_cc0.zip",
+   "license": "CC0-1.0",
+   "author": "MakeHuman Community",
+   "use": "Figuren (Körper, Haut, Haare, Kleidung)"
+  },
+  {
+   "id": "mh_clothes_materials01",
+   "url": "https://files2.makehumancommunity.org/asset_packs/clothes_materials01/clothes_materials01_cc0.zip",
+   "file": "makehuman/clothes_materials01_cc0.zip",
+   "license": "CC0-1.0",
+   "author": "MakeHuman Community",
+   "use": "Figuren (Körper, Haut, Haare, Kleidung)"
+  },
+  {
+   "id": "acg_WoodFloor052",
+   "url": "https://ambientcg.com/get?file=WoodFloor052_2K-JPG.zip",
+   "file": "ambientcg/WoodFloor052_2K-JPG.zip",
+   "license": "CC0-1.0",
+   "author": "ambientCG (Lennart Demes)",
+   "use": "Fischgrätparkett (Hörsaalboden)"
+  },
+  {
+   "id": "acg_Wood066",
+   "url": "https://ambientcg.com/get?file=Wood066_2K-JPG.zip",
+   "file": "ambientcg/Wood066_2K-JPG.zip",
+   "license": "CC0-1.0",
+   "author": "ambientCG (Lennart Demes)",
+   "use": "gebeiztes Eichenholz (Pultbänke, Tische)"
+  },
+  {
+   "id": "acg_Wood060",
+   "url": "https://ambientcg.com/get?file=Wood060_2K-JPG.zip",
+   "file": "ambientcg/Wood060_2K-JPG.zip",
+   "license": "CC0-1.0",
+   "author": "ambientCG (Lennart Demes)",
+   "use": "dunkle Wandvertäfelung"
+  },
+  {
+   "id": "acg_Plaster001",
+   "url": "https://ambientcg.com/get?file=Plaster001_2K-JPG.zip",
+   "file": "ambientcg/Plaster001_2K-JPG.zip",
+   "license": "CC0-1.0",
+   "author": "ambientCG (Lennart Demes)",
+   "use": "Wandputz"
+  },
+  {
+   "id": "acg_Plaster002",
+   "url": "https://ambientcg.com/get?file=Plaster002_2K-JPG.zip",
+   "file": "ambientcg/Plaster002_2K-JPG.zip",
+   "license": "CC0-1.0",
+   "author": "ambientCG (Lennart Demes)",
+   "use": "Deckenputz"
+  },
+  {
+   "id": "acg_Fabric030",
+   "url": "https://ambientcg.com/get?file=Fabric030_2K-JPG.zip",
+   "file": "ambientcg/Fabric030_2K-JPG.zip",
+   "license": "CC0-1.0",
+   "author": "ambientCG (Lennart Demes)",
+   "use": "Rollo-Stoff"
+  },
+  {
+   "id": "acg_Fabric066",
+   "url": "https://ambientcg.com/get?file=Fabric066_2K-JPG.zip",
+   "file": "ambientcg/Fabric066_2K-JPG.zip",
+   "license": "CC0-1.0",
+   "author": "ambientCG (Lennart Demes)",
+   "use": "Stoffe (Jacken, Taschen)"
+  },
+  {
+   "id": "acg_Metal032",
+   "url": "https://ambientcg.com/get?file=Metal032_2K-JPG.zip",
+   "file": "ambientcg/Metal032_2K-JPG.zip",
+   "license": "CC0-1.0",
+   "author": "ambientCG (Lennart Demes)",
+   "use": "gebürstetes Aluminium (Rahmen, Laptop)"
+  },
+  {
+   "id": "acg_Metal048A",
+   "url": "https://ambientcg.com/get?file=Metal048A_2K-JPG.zip",
+   "file": "ambientcg/Metal048A_2K-JPG.zip",
+   "license": "CC0-1.0",
+   "author": "ambientCG (Lennart Demes)",
+   "use": "Messing (Nummernschilder, Haken)"
+  },
+  {
+   "id": "acg_Metal055A",
+   "url": "https://ambientcg.com/get?file=Metal055A_2K-JPG.zip",
+   "file": "ambientcg/Metal055A_2K-JPG.zip",
+   "license": "CC0-1.0",
+   "author": "ambientCG (Lennart Demes)",
+   "use": "Stahl (Heizkörper, Halterungen)"
+  },
+  {
+   "id": "acg_Leather030",
+   "url": "https://ambientcg.com/get?file=Leather030_2K-JPG.zip",
+   "file": "ambientcg/Leather030_2K-JPG.zip",
+   "license": "CC0-1.0",
+   "author": "ambientCG (Lennart Demes)",
+   "use": "braunes Leder (Taschen)"
+  },
+  {
+   "id": "acg_Leather026",
+   "url": "https://ambientcg.com/get?file=Leather026_2K-JPG.zip",
+   "file": "ambientcg/Leather026_2K-JPG.zip",
+   "license": "CC0-1.0",
+   "author": "ambientCG (Lennart Demes)",
+   "use": "schwarzes Leder (Schuhe, Stuhl)"
+  },
+  {
+   "id": "acg_Marble021",
+   "url": "https://ambientcg.com/get?file=Marble021_2K-JPG.zip",
+   "file": "ambientcg/Marble021_2K-JPG.zip",
+   "license": "CC0-1.0",
+   "author": "ambientCG (Lennart Demes)",
+   "use": "Fensterbank"
+  },
+  {
+   "id": "acg_Asphalt031",
+   "url": "https://ambientcg.com/get?file=Asphalt031_2K-JPG.zip",
+   "file": "ambientcg/Asphalt031_2K-JPG.zip",
+   "license": "CC0-1.0",
+   "author": "ambientCG (Lennart Demes)",
+   "use": "Straße"
+  },
+  {
+   "id": "acg_PavingStones128",
+   "url": "https://ambientcg.com/get?file=PavingStones128_2K-JPG.zip",
+   "file": "ambientcg/PavingStones128_2K-JPG.zip",
+   "license": "CC0-1.0",
+   "author": "ambientCG (Lennart Demes)",
+   "use": "Gehsteig"
+  },
+  {
+   "id": "acg_PavingStones150",
+   "url": "https://ambientcg.com/get?file=PavingStones150_2K-JPG.zip",
+   "file": "ambientcg/PavingStones150_2K-JPG.zip",
+   "license": "CC0-1.0",
+   "author": "ambientCG (Lennart Demes)",
+   "use": "Kopfsteinpflaster"
+  },
+  {
+   "id": "acg_Grass001",
+   "url": "https://ambientcg.com/get?file=Grass001_2K-JPG.zip",
+   "file": "ambientcg/Grass001_2K-JPG.zip",
+   "license": "CC0-1.0",
+   "author": "ambientCG (Lennart Demes)",
+   "use": "Wiese Türkenschanzpark"
+  }
+ ]
+}

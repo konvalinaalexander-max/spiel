@@ -48,6 +48,15 @@ export class LaptopOS {
     this.mails = null;
   }
   // ------------------------------------------------------------------ API
+  /** Zeichenmaßstab ändern (Bildschirmgröße/DPR geändert): Canvas und Hintergrund neu anlegen */
+  setScale(s) {
+    if (Math.abs(s - this.scale) < 0.05) return false;
+    this.scale = s;
+    this.canvas.width = Math.round(W * s); this.canvas.height = Math.round(H * s);
+    this.ctx = this.canvas.getContext('2d');
+    this._wallpaper = this._makeWallpaper(); this.dirty = true;
+    return true;
+  }
   get gameVisible() { return this.app === 'ttt' || this.app === 'snake'; }
   focus(app) { if (app === this.app) return; if (app === 'ttt' || app === 'snake') this.lastGame = app; this.app = app; this.switchAnim = 1; this.dirty = true; this.flicker = 1; this.opts.sfx?.('click'); }
   altTab() { this.focus(this.gameVisible ? 'pdf' : this.lastGame); }
