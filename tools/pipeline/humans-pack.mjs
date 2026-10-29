@@ -14,6 +14,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import zlib from 'node:zlib';
+import { MeshoptSimplifier } from 'meshoptimizer';
 import sharp from 'sharp';
 import { NodeIO } from '@gltf-transform/core';
 import { ALL_EXTENSIONS } from '@gltf-transform/extensions';
@@ -72,6 +73,8 @@ async function tileImage(bytes, size, { recolor, mean = 0.72, solid } = {}) {
   return sharp(data, { raw: { width: inner, height: inner, channels: 4 } }).extend({ top: PAD, bottom: PAD, left: PAD, right: PAD, extendWith: 'copy' }).raw().toBuffer();
 }
 
+// Anteil der Dreiecke in Detailstufe 1 (Menge)
+const LOD1 = { opaque: 0.3, alpha: 0.5 };
 async function packFigure(h, region, atlasC, atlasN, atlasKey) {
   const doc = await io.read(path.join(src, h.id + '.glb'));
   const meta = JSON.parse(fs.readFileSync(path.join(src, h.id + '.meta.json'), 'utf8'));
@@ -139,6 +142,19 @@ async function packFigure(h, region, atlasC, atlasN, atlasKey) {
     if (last && last.alpha === alpha) last.count += ia.length; else groups.push({ start, count: ia.length, alpha });
     base += n;
   }
+  // Detailstufe 1 (Menge, ab einigen Metern Abstand): gleiche Vertices, vereinfachtes Indexfeld je Gruppe (meshoptimizer).
+  // Nähte (gleiche Position, andere UV) erkennt der Vereinfacher selbst; Haarkarten werden schonender reduziert.
+  let idx1 = null, groups1 = null;
+  if (cls === 'crowd') {
+    await MeshoptSimplifier.ready;
+    const P32 = new Float32Array(pos); idx1 = []; groups1 = [];
+    for (const gr of groups) {
+      const sub = Uint32Array.from(idx.slice(gr.start, gr.start + gr.count));
+      const target = Math.floor(gr.count * (gr.alpha ? LOD1.alpha : LOD1.opaque) / 3) * 3;
+      const [r] = MeshoptSimplifier.simplify(sub, P32, 3, target, gr.alpha ? 0.025 : 0.015, []);
+      groups1.push({ start: idx1.length, count: r.length, alpha: gr.alpha }); for (const i of r) idx1.push(i);
+    }
+  }
   // Binär kodieren
   const nv = pos.length / 3, big = nv > 65535;
   const bufs = [
@@ -150,8 +166,9 @@ async function packFigure(h, region, atlasC, atlasN, atlasKey) {
     ['surf', Uint8Array.from(surf.map((x, i) => (i % 4 === 2 ? x : Math.round(x * 255))))],
     ['index', big ? Uint32Array.from(idx) : Uint16Array.from(idx)]
   ];
+  if (idx1) bufs.push(['index1', big ? Uint32Array.from(idx1) : Uint16Array.from(idx1)]);
   const head = { id: h.id, role: h.role || 'student', class: cls, female: !!h.female, skinTone: h.skinTone, hairTone: h.hairTone, top: h.top, tint: !!h.tintTop,
-    joints: meta.joints, parents: meta.parents, fingers: meta.fingers, height: meta.height, vertices: nv, groups,
+    joints: meta.joints, parents: meta.parents, fingers: meta.fingers, height: meta.height, vertices: nv, groups, groups1,
     atlas: atlasKey || h.id, normalMap: !!atlasN, buffers: [] };
   let off = 0; for (const [name, a] of bufs) { head.buffers.push({ name, type: a.constructor.name, offset: off, length: a.length }); off += Math.ceil(a.byteLength / 4) * 4; }
   const json = Buffer.from(JSON.stringify(head)); const jl = Math.ceil(json.length / 4) * 4;
@@ -159,7 +176,7 @@ async function packFigure(h, region, atlasC, atlasN, atlasKey) {
   for (const [i, [, a]] of bufs.entries()) Buffer.from(a.buffer, a.byteOffset, a.byteLength).copy(file, 8 + jl + head.buffers[i].offset);
   const gz = zlib.gzipSync(file, { level: 9 });
   fs.writeFileSync(path.join(out, h.id + '.hpk'), gz);
-  return { id: h.id, class: cls, verts: nv, tris: idx.length / 3, kb: Math.round(gz.length / 1024), wrapped, tiles: Object.fromEntries(parts.map(p => [p.obj + ":" + p.kind, p.size])) };
+  return { id: h.id, class: cls, verts: nv, tris: idx.length / 3, tris1: idx1 ? idx1.length / 3 : undefined, kb: Math.round(gz.length / 1024), wrapped, tiles: Object.fromEntries(parts.map(p => [p.obj + ":" + p.kind, p.size])) };
 }
 
 const enc = (png, o) => encodeToKTX2(new Uint8Array(png), { generateMipmap: true, qualityLevel: 200, compressionLevel: 2, needSupercompression: true, isKTX2File: true,
@@ -205,7 +222,7 @@ if (crowd.length && (!only || only.includes('crowd'))) {
     for (const [i, h] of list.entries()) {
       const r = await packFigure(h, { x: (i % cols) * tile, y: Math.floor(i / cols) * tile }, aC, null, key);
       index.humans[h.id] = { ...r, atlas: key, role: 'student', female: !!h.female, skinTone: h.skinTone, hairTone: h.hairTone, top: h.top, tint: !!h.tintTop };
-      console.log(`✓ ${h.id.padEnd(9)} ${r.verts} Vertices, ${r.tris} Dreiecke, Geometrie ${r.kb} KB${r.wrapped ? `, ${r.wrapped} UVs am Rand begrenzt` : ''}`);
+      console.log(`✓ ${h.id.padEnd(9)} ${r.verts} Vertices, ${r.tris} Dreiecke (LOD1 ${r.tris1}), Geometrie ${r.kb} KB${r.wrapped ? `, ${r.wrapped} UVs am Rand begrenzt` : ''}`);
     }
     const kc = await writeAtlas(path.join(out, key + '_c.ktx2'), aC);
     index.crowdAtlas[key] = { w: aC.w, h: aC.h, kb: kc };

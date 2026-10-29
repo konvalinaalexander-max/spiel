@@ -64,6 +64,28 @@ def run_xtts():
                 json.dump(meta, open(os.path.join(OUT, 'meta_xtts.json'), 'w'), ensure_ascii=False, indent=1)
 
 
+KOKORO_VOICES = ['bm_george', 'bm_lewis', 'bm_daniel', 'bm_fable', 'am_michael', 'am_onyx']
+
+
+def run_kokoro():
+    """Kokoro-82M (Apache-2.0), nur Englisch; eingebaute synthetische Stimmen. Läuft in tools/.venv-kokoro."""
+    import numpy as np, torch
+    from kokoro import KPipeline
+    torch.set_num_threads(int(os.environ.get('THREADS', '2')))
+    voices = os.environ.get('EVAL_VOICES', ','.join(KOKORO_VOICES)).split(',')
+    pipes = {'b': KPipeline(lang_code='b', repo_id='hexgrad/Kokoro-82M'), 'a': KPipeline(lang_code='a', repo_id='hexgrad/Kokoro-82M')}
+    meta = []
+    for v in voices:
+        for i, t in enumerate(EN):
+            t0 = time.time()
+            y = np.concatenate([a.numpy() for _, _, a in pipes[v[0]](t, voice=v, speed=0.95)])
+            secs = time.time() - t0
+            f = f'kokoro_{v}_en{i}.wav'; save(os.path.join(OUT, f), y, 24000)
+            meta.append({'engine': 'kokoro', 'voice': v, 'lang': 'en', 'text': t, 'file': f, 'secs': round(secs, 2)})
+            print(f, f'{secs:.1f}s', flush=True)
+    json.dump(meta, open(os.path.join(OUT, 'meta_kokoro.json'), 'w'), ensure_ascii=False, indent=1)
+
+
 def run_chatterbox(ref):
     import torch, torchaudio
     torch.set_num_threads(4)
@@ -113,6 +135,8 @@ def score():
     meta = []
     for m in glob.glob(os.path.join(OUT, 'meta_*.json')):
         meta += json.load(open(m))
+    only = os.environ.get('EVAL_ENGINE')
+    if only: meta = [e for e in meta if e['engine'] == only]
     res = []
     for e in meta:
         f = os.path.join(OUT, e['file'])
@@ -134,7 +158,7 @@ def score():
              'stoi': round(stoi, 3), 'pesq': round(pesq, 2), 'sisdr': round(sisdr, 1)}
         res.append(r)
         print(f"{e['file']}: WER {r['wer']:.2f} PESQ~{r['pesq']} STOI~{r['stoi']} SI-SDR~{r['sisdr']} RTF {r['rtf']}", flush=True)
-    json.dump(res, open(os.path.join(OUT, 'results.json'), 'w'), ensure_ascii=False, indent=1)
+    json.dump(res, open(os.path.join(OUT, f'results_{only}.json' if only else 'results.json'), 'w'), ensure_ascii=False, indent=1)
     # Zusammenfassung je Stimme
     by = {}
     for r in res:
@@ -149,6 +173,8 @@ if __name__ == '__main__':
     cmd = sys.argv[1]
     if cmd == 'xtts':
         run_xtts()
+    elif cmd == 'kokoro':
+        run_kokoro()
     elif cmd == 'chatterbox':
         ref = sys.argv[sys.argv.index('--ref') + 1] if '--ref' in sys.argv else None
         run_chatterbox(ref)

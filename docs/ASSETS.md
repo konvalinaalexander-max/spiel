@@ -12,7 +12,9 @@ Keine Logos oder Fotos der BOKU, keine realen Personen; Prof. Haferkorn und alle
 | Blender 4.5 LTS | Figuren erzeugen, posieren, exportieren (ohne Oberfläche, per Skript) | GPL-3.0 (Werkzeug; erzeugte Dateien sind frei) |
 | MPFB 2 (MakeHuman-Erweiterung für Blender) | parametrische Menschen, Skelett, Gewichte | GPL-3.0 (Werkzeug); erzeugte Modelle CC0 |
 | Basis Universal (über `ktx2-encoder`) | Texturkompression KTX2 | Apache-2.0 |
-| Coqui XTTS v2 | Sprachsynthese der Stimmen (vorgerendert) | Coqui Public Model License (CPML): nur nicht-kommerzielle Nutzung – dieses Fan-Projekt ist nicht kommerziell |
+| Coqui XTTS v2 | Sprachsynthese Deutsch (vorgerendert) | Coqui Public Model License (CPML): nur nicht-kommerzielle Nutzung – dieses Fan-Projekt ist nicht kommerziell |
+| Kokoro-82M (hexgrad) | Sprachsynthese Englisch (vorgerendert) | Apache-2.0 |
+| meshoptimizer | Detailstufen der Figuren | MIT |
 | ffmpeg / libopus | Mastering, Opus-Kodierung | LGPL / BSD |
 
 ## Heruntergeladene Quellen
@@ -66,7 +68,7 @@ Alle Figuren werden mit `node tools/pipeline/humans.mjs` aus `tools/pipeline/hum
 
 | Figur | Rolle | Haut | Haar | Kleidung | Zubehör |
 |---|---|---|---|---|---|
-| prof | prof | middleage_caucasian_male | short04 (toigo_short_04_gray) | toigo_wool_pants, toigo_fisherman_sweater, shoes01 | kwnet_at_optical_glasses |
+| prof | prof | middleage_caucasian_male | short02 (bogdan666_short_02_gray) | toigo_wool_pants, toigo_fisherman_sweater, shoes01 | kwnet_at_optical_glasses |
 | player_a | player | young_caucasian_male | short02 (bogdan666_short_02_brown) | male_casualsuit01, shoes05 | – |
 | player_b | player | cutoff3d_indian_female_skin | long01 (toigo_long_01_black) | toigo_wool_pants, toigo_fisherman_sweater, toigo_ankle_boots_female | – |
 | player_c | player | young_african_male | short01 | male_casualsuit01, shoes04 | – |
@@ -95,7 +97,8 @@ Urheber:innen der verwendeten Assets (laut Paket): MakeHuman-Team, cortu, cultur
 
 Stufe 2 laut Auftrag (offenes Modell, kein API-Schlüssel vorhanden): **Coqui XTTS v2** mit eingebauten, synthetischen
 Studiosprechern – keine geklonte reale Person. Auswahl nach Prüfsätzen (Rückerkennung mit Whisper, Signalqualität mit SQUIM),
-Details in `docs/AUDIO.md`. Prof. Haferkorn: Sprecher „Damien Black“ (Deutsch und Englisch); Nachbarin „Daisy Studious“;
-Studierende „Sofia Hellen“ / „Andrew Chipper“. Lizenz der Modellausgabe: CPML, nicht-kommerziell.
+Details in `docs/AUDIO.md`. Deutsch (XTTS): Prof. Haferkorn „Damien Black“, Nachbarin „Daisy Studious“,
+Studierende „Sofia Hellen“ / „Andrew Chipper“; Lizenz der Modellausgabe CPML, nicht-kommerziell. Englisch (Kokoro-82M, Apache-2.0):
+Prof „bm_daniel“, Nachbarin „bf_emma“, Studierende „af_heart“ / „am_michael“.
 Mit einem Azure-Schlüssel (`AZURE_SPEECH_KEY`, `AZURE_SPEECH_REGION`) kann die Stimme gegen „de-AT-JonasNeural“
 (österreichisches Deutsch) ausgetauscht werden.

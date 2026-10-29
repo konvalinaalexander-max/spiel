@@ -43,6 +43,9 @@ export class Crowd {
     const pl = this.plan.player;
     const near = !pl || !s.seat || (Math.abs(s.seat.row - pl.row) <= 2 && Math.abs(s.seat.k - pl.k) <= 4);
     rig.castShadow = this.opts.shadows === 'all' || (!!this.opts.shadows && near);
+    // Detailstufe: volle Geometrie nur in der Nähe des eigenen Platzes, sonst die vereinfachte (≈ ⅓ der Dreiecke)
+    const lodNear = !pl || !s.seat || (Math.abs(s.seat.row - pl.row) <= 2 && Math.abs(s.seat.k - pl.k) <= 5);
+    rig.lod = lodNear || this.opts.lod === false ? 0 : 1;
     const st = { s, c, rig, state: 'idle', t: this.rng.range(0, 6), look: 'prof', lookT: this.rng.range(1, 5), react: null, handUp: false, leaving: null, phase: s.phase || 0, writeT: 0, drinkT: this.rng.range(8, 30), whisperT: this.rng.range(15, 40), present: !outside, lod: 0 };
     if (!outside) this._sit(st);
     else { this._show(rig, false); c.visible = false; }
@@ -85,7 +88,8 @@ export class Crowd {
   /** Echte Figuren eines Atlas zu einem SkinnedMesh mit zwei Gruppen (deckend, Haar mit Alphatest) zusammenführen */
   _mergeHumans(rigs) {
     let nv = 0, no = 0, na = 0;
-    for (const r of rigs) { const g = r.skinned.geometry; nv += g.attributes.position.count; for (const gr of g.groups) { if (gr.materialIndex) na += gr.count; else no += gr.count; } }
+    const lod = r => { const g = r.skinned.geometry, l = r.lod === 1 && g.userData.lod1; return l ? { idx: l.index, groups: l.groups } : { idx: g.index.array, groups: g.groups }; };
+    for (const r of rigs) { const g = r.skinned.geometry; nv += g.attributes.position.count; for (const gr of lod(r).groups) { if (gr.materialIndex) na += gr.count; else no += gr.count; } }
     const A = (name, size, C, norm = false) => ({ name, size, arr: new C(nv * size), norm });
     const attrs = [A('position', 3, Float32Array), A('normal', 3, Float32Array), A('uv', 2, Uint16Array, true), A('skinIndex', 4, Uint16Array), A('skinWeight', 4, Uint8Array, true), A('aSurf', 4, Uint8Array), A('aTint', 3, Float32Array)];
     const index = new (nv > 65535 ? Uint32Array : Uint16Array)(no + na);
@@ -99,8 +103,8 @@ export class Crowd {
         if (a.name === 'skinIndex') for (let i = 0; i < n * 4; i++) a.arr[vo * 4 + i] = src.array[i] + boff;
         else a.arr.set(src.array.subarray(0, n * a.size), vo * a.size);
       }
-      const idx = g.index.array;
-      for (const gr of g.groups) for (let i = gr.start; i < gr.start + gr.count; i++) { if (gr.materialIndex) index[ia++] = idx[i] + vo; else index[io++] = idx[i] + vo; }
+      const L = lod(r), idx = L.idx;
+      for (const gr of L.groups) for (let i = gr.start; i < gr.start + gr.count; i++) { if (gr.materialIndex) index[ia++] = idx[i] + vo; else index[io++] = idx[i] + vo; }
       bones.push(...r.skeleton.bones); inverses.push(...r.skeleton.boneInverses.map(m => m.clone()));
       vo += n; g.dispose();
     }

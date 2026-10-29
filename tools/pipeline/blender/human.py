@@ -75,6 +75,12 @@ import bmesh
 def apply_masks(o):
     """MASK-Modifier exakt nachbilden (Gruppe, Umkehrung, Schwelle) und die ausgeblendeten Vertices löschen."""
     masks = [m for m in o.modifiers if m.type == 'MASK' and m.vertex_group]
+    pn0 = os.path.basename(spec.get('proxy') or '').replace('.proxy', '').replace('.mhclo', '')
+    is_skin = (o == body and not pn0) or (pn0 and o != body and pn0 in o.name)
+    if is_skin:
+        # Kleidungsmasken von MPFB löschen oft mehr als verdeckt ist (Lücke am Kragen) → verdeckte Haut entfernt später der Strahltest
+        for m in masks: o.modifiers.remove(m)
+        masks = []
     helpers = [g.index for g in o.vertex_groups if g.name.startswith(('helper-', 'joint-')) or g.name in ('HelperGeometry', 'JointCubes')] if o == body else []
     if not masks and not helpers: return
     me = o.data; bm = bmesh.new(); bm.from_mesh(me)
@@ -155,6 +161,7 @@ def zdepth(o):
     """Schichtreihenfolge: Haut 0, Kleidung in der Reihenfolge der Spezifikation (innen → außen).
     (Die z_depth-Werte der Pakete sind fast überall 50 und taugen dafür nicht.)"""
     if o == skin_obj: return 0
+    if any(k in o.name.lower() for k in ('shoe', 'boot', 'sneaker')): return 0.5  # Schuhe unter dem Hosensaum
     for i, f in enumerate(spec.get('clothes', [])):
         if o.name.endswith('.' + os.path.basename(f).replace('.mhclo', '').replace(' ', '_')): return i + 1
     return None
@@ -210,6 +217,43 @@ for i in reversed(range(len(layers))):
             if not moved: break
         if n: pushed[f'{inner.name}<{outer.name}'] = n
 log('Schichten korrigiert:', pushed)
+
+# Verdeckte Flächen entfernen: Haut bzw. innere Kleidung, die ganz unter einer äußeren Schicht liegt, sieht man nie – sie kann
+# aber in Bewegung durchstechen. Eine Fläche gilt als verdeckt, wenn von ihrer Mitte und allen Ecken aus entlang der Normalen
+# eine äußere Schicht „von innen“ getroffen wird (≤ 10 cm) oder die Stelle knapp (≤ 2 cm) außerhalb einer äußeren Schicht liegt.
+# Die Prüfung der Trefferrichtung (Normale der Kleidung zeigt in Strahlrichtung) schützt Kinn, Hände und Säume.
+outer_bvh = []
+for z, o in layers:
+    if o == skin_obj: continue
+    mw = o.matrix_world
+    outer_bvh.append((z, BVHTree.FromPolygons([mw @ v.co for v in o.data.vertices], [list(p.vertices) for p in o.data.polygons])))
+def covered(p, n, z):
+    for zo, bvh in outer_bvh:
+        if zo <= z: continue
+        h = bvh.ray_cast(p + n * 0.0005, n, 0.10)
+        if h[0] is not None and h[1].dot(n) > 0.15: return True
+        h = bvh.ray_cast(p + n * 0.0005, -n, 0.02)
+        if h[0] is not None and h[1].dot(n) > 0.15: return True
+    return False
+culled = {}
+for z, inner in layers:
+    if not any(zo > z for zo, _ in outer_bvh): continue
+    iw = inner.matrix_world; nm = iw.to_3x3()
+    bm = bmesh.new(); bm.from_mesh(inner.data); bm.normal_update(); bm.verts.ensure_lookup_table()
+    cv = {}
+    def vcov(v):
+        r = cv.get(v.index)
+        if r is None: r = cv[v.index] = covered(iw @ v.co, (nm @ v.normal).normalized(), z)
+        return r
+    kill = [f for f in bm.faces if all(vcov(v) for v in f.verts) and covered(iw @ f.calc_center_median(), (nm @ f.normal).normalized(), z)]
+    if kill:
+        bmesh.ops.delete(bm, geom=kill, context='FACES_ONLY')
+        loose = [v for v in bm.verts if not v.link_faces]
+        if loose: bmesh.ops.delete(bm, geom=loose, context='VERTS')
+        bm.to_mesh(inner.data); inner.data.update()
+        culled[inner.name] = len(kill)
+    bm.free()
+log('verdeckte Flächen entfernt:', culled)
 
 # --------------------------------------------------------------------------------------------- 2. Ruhepose anpassen
 bpy.context.view_layer.objects.active = rig

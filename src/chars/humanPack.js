@@ -38,6 +38,8 @@ export function hpkGeometry({ head, arr }) {
   g.setAttribute('aSurf', new THREE.BufferAttribute(arr.surf, 4, false));
   g.setIndex(new THREE.BufferAttribute(arr.index, 1));
   head.groups.forEach((gr, i) => g.addGroup(gr.start, gr.count, gr.alpha ? 1 : 0));
+  // Detailstufe 1 (nur Menge): anderes Indexfeld auf denselben Vertices – crowd.js wählt je Figur nach Abstand
+  if (arr.index1 && head.groups1) g.userData.lod1 = { index: arr.index1, groups: head.groups1.map(gr => ({ start: gr.start, count: gr.count, materialIndex: gr.alpha ? 1 : 0 })) };
   g.computeBoundingSphere();
   return g;
 }

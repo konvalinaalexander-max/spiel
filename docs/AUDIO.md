@@ -88,14 +88,28 @@ Grundfrequenz (Stimmlage).
 | Viktor Menelaos | de | 0,292 | 3,91 | 0,997 | 25,7 dB | ≈ 117 Hz | – |
 | Damien Black | en | 0,088 | 3,82 | 0,996 | 24,6 dB | – | 1,78 |
 
-Nebenstimmen: Nachbarin „Daisy Studious“, Studierende „Sofia Hellen“ / „Andrew Chipper“ (je nach Figur).
+**Englisch: Kokoro-82M** (Apache-2.0, eingebaute synthetische Stimmen). Gleiche Prüfsätze, gleiche Bewertung. Kokoro klingt im
+Englischen natürlicher und rechnet rund zehnmal schneller als XTTS (Echtzeitfaktor ≈ 0,2 ohne Last, ≈ 0,9 bei voll belasteter CPU).
+Deutsch kann Kokoro nicht; dafür bleibt XTTS.
+
+| Stimme (Kokoro) | WER | PESQ (geschätzt) | STOI | SI-SDR |
+|---|---|---|---|---|
+| **bm_daniel** (gewählt: Prof, britisch) | **0,042** | **3,97** | 0,997 | 27,7 dB |
+| am_michael (gewählt: Student, amerikanisch) | 0,054 | 3,87 | 0,996 | 26,1 dB |
+| bm_lewis | 0,054 | 3,61 | 0,996 | 23,4 dB |
+| bm_george | 0,042 | 3,42 | 0,993 | 26,4 dB |
+| am_onyx | 0,042 | 2,90 | 0,963 | 15,5 dB |
+| bm_fable | 0,042 | 2,79 | 0,962 | 13,6 dB |
+
+Nebenstimmen Deutsch (XTTS): Nachbarin „Daisy Studious“, Studierende „Sofia Hellen“ / „Andrew Chipper“ (je nach Figur).
+Nebenstimmen Englisch (Kokoro): Nachbarin „bf_emma“, Studentin „af_heart“, Student „am_michael“.
 Grenze: XTTS spricht Standarddeutsch, keine österreichische Färbung. Mit `AZURE_SPEECH_KEY` + `AZURE_SPEECH_REGION`
 (Umgebungsvariablen der Cloud-Umgebung) kann `tools/voice/render.py` auf Azure „de-AT-JonasNeural“ umgestellt werden.
 
 **Ablauf:** `node tools/voice/corpus.mjs` (alle gesprochenen Sätze, Platzhalter-Sätze in Stücke geteilt) →
-`tools/.venv/bin/python tools/voice/render.py --lang de` (Sprechfassung über `tools/voice/normalize.py`: Zahlen, Einheiten und
+`tools/.venv/bin/python tools/voice/render.py --lang de` bzw. `tools/.venv-kokoro/bin/python tools/voice/render_kokoro.py` (Sprechfassung über `tools/voice/normalize.py`: Zahlen, Einheiten und
 Fachabkürzungen ausgeschrieben, z. B. „6,2 MJ NEL je kg TM“ → „sechs Komma zwei Megajoule en-e-el je Kilogramm Trockenmasse“) →
-Mastering je Clip mit ffmpeg: Hochpass 80 Hz, De-Esser-Absenkung, Stille ≤ 80 ms, Lautheit −16 LUFS (zweistufig), True Peak
+Mastering je Clip mit ffmpeg (`tools/voice/master.py`, für beide Modelle gleich): Hochpass 80 Hz, De-Esser-Absenkung, Stille ≤ 80 ms, Lautheit −16 LUFS (zweistufig), True Peak
 −1,5 dBTP, 48 kHz, Opus 28 kbit/s mono; Lautstärkekurve 20 Hz für die Mundbewegung → `assets/build/voice/<sprache>/`.
 Im Spiel (`src/audio/voice.js`): Aufnahme über ihre Kennung finden, Stücke mit 60 ms Abstand aneinanderreihen, räumlich am Kopf
 der Figur abspielen, Hall aus dem Raum; der Kiefer des Profs folgt der Lautstärkekurve.
