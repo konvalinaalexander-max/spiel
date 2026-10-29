@@ -12,3 +12,5 @@ assets/src/
 assets/build/humans/
 # Mobil-Build: Ordner wird aus Quellen gebaut (npm run build:mobile, Pages-Workflow); ausgeliefert wird das ZIP
 dist/mobile/
+__pycache__/
+assets/build/voice/**/*.wav
