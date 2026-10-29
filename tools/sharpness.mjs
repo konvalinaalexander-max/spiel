@@ -136,5 +136,9 @@ for (const dpr of dprs) {
   await browser.close();
 }
 await worker.terminate();
-fs.writeFileSync(path.join(outDir, `${label}.json`), JSON.stringify({ label, html: path.relative(root, html), q, viewport: [W, H], date: new Date().toISOString().slice(0, 10), results }, null, 1));
+// Teilmessungen (--views/--dpr) mit einer bestehenden Messung desselben Labels zusammenführen
+const jf = path.join(outDir, `${label}.json`);
+const prev = fs.existsSync(jf) ? JSON.parse(fs.readFileSync(jf, 'utf8')).results.filter(o => !results.some(r => r.view === o.view && r.dpr === o.dpr)) : [];
+const all = [...prev, ...results].sort((a, b) => a.dpr - b.dpr || a.view.localeCompare(b.view));
+fs.writeFileSync(jf, JSON.stringify({ label, html: path.relative(root, html), q, viewport: [W, H], date: new Date().toISOString().slice(0, 10), results: all }, null, 1));
 lap(`fertig → docs/schaerfe/${label}.json`);

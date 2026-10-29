@@ -1,0 +1,84 @@
+{
+ "label": "v2",
+ "html": "tools/.cache/baseline_v2.html",
+ "q": "medium",
+ "viewport": [
+  1920,
+  1080
+ ],
+ "date": "2026-10-29",
+ "results": [
+  {
+   "label": "v2",
+   "view": "K1",
+   "dpr": 1,
+   "canvasDpr": 1,
+   "pxW": 508,
+   "pxH": 338,
+   "laplace": 992.8,
+   "ocr": 62.2,
+   "words": 45,
+   "file": "v2_K1_dpr1.png"
+  },
+  {
+   "label": "v2",
+   "view": "K2",
+   "dpr": 1,
+   "canvasDpr": 1,
+   "pxW": 1361,
+   "pxH": 845,
+   "laplace": 345.6,
+   "ocr": 62.1,
+   "words": 206,
+   "file": "v2_K2_dpr1.png"
+  },
+  {
+   "label": "v2",
+   "view": "K4",
+   "dpr": 1,
+   "canvasDpr": 1,
+   "pxW": 1304,
+   "pxH": 862,
+   "laplace": 414.1,
+   "ocr": 97.8,
+   "words": 45,
+   "file": "v2_K4_dpr1.png"
+  },
+  {
+   "label": "v2",
+   "view": "K1",
+   "dpr": 2,
+   "canvasDpr": 1,
+   "pxW": 1016,
+   "pxH": 676,
+   "laplace": 107.1,
+   "ocr": 55.6,
+   "words": 45,
+   "file": "v2_K1_dpr2.png"
+  },
+  {
+   "label": "v2",
+   "view": "K2",
+   "dpr": 2,
+   "canvasDpr": 1,
+   "pxW": 2724,
+   "pxH": 1687,
+   "laplace": 55.9,
+   "ocr": 55.8,
+   "words": 206,
+   "file": "v2_K2_dpr2.png"
+  },
+  {
+   "label": "v2",
+   "view": "K4",
+   "dpr": 2,
+   "canvasDpr": 1,
+   "pxW": 2608,
+   "pxH": 1723,
+   "laplace": 46.2,
+   "ocr": 95.6,
+   "words": 45,
+   "file": "v2_K4_dpr2.png"
+  }
+ ]
+}

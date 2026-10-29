@@ -527,7 +527,7 @@ export class Game {
   }
   _updateCursor(scrMat) {
     const m = this.cursorMesh; if (!m) return;
-    const lap = W.props.player.laptop, os = this.os, K = 3 / 24, s = lap.sw * 24 / LAPTOP_SIZE.W;
+    const lap = this.world.props.player.laptop, os = this.os, K = 3 / 24, s = lap.sw * 24 / LAPTOP_SIZE.W;
     m.visible = os.cursor.visible && this.lid > 40;
     // Zeichnung beginnt bei (3, 1) im 24-px-Feld → Hotspot ausgleichen
     m.position.set((os.cursor.x / LAPTOP_SIZE.W - 0.5) * lap.sw - K * s, (0.5 - os.cursor.y / LAPTOP_SIZE.H) * lap.sh + s / 24, 0.0003);
