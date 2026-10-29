@@ -38,7 +38,9 @@ export class ChalkPanel {
     this.tex.flipY = false;
     this.patch = document.createElement('canvas'); this.patchCtx = this.patch.getContext('2d');
     this.mipDirty = false; this.mipT = 0;
-    this.renderer = gfx.renderer; this.box = null;
+    this.renderer = gfx.renderer; this.box = null; this.needFlush = false;
+    // GL-Arbeit erst direkt vor dem Rendern (nicht in jedem Simulationsschritt): ohne gezeichnetes Bild keine Uploads
+    if (gfx.preRender) gfx.preRender.push(() => this.flush());
     this.jobs = []; this.job = null; this.dirty = true; this.uploadT = 0;
     this.pen = null; this.penDown = false; this.chalkPressure = 0;
     this.written = 0; this.cursorY = 0.16; // nächste freie Zeile (m von oben)
@@ -146,9 +148,15 @@ export class ChalkPanel {
   }
   _upload(dt) {
     this.uploadT -= dt; this.mipT -= dt;
-    if (this.mipDirty && this.mipT <= 0) this._mips();
     if (!this.dirty || this.uploadT > 0) return;
-    this.uploadT = 1 / 30; this.dirty = false;
+    this.uploadT = 1 / 30; this.dirty = false; this.needFlush = true;
+  }
+  /** vor dem Rendern: gesammeltes Rechteck hochladen, Mipmaps höchstens alle 0,5 s */
+  flush() {
+    if (this.needFlush) { this.needFlush = false; this._gl(); }
+    if (this.mipDirty && this.mipT <= 0) this._mips();
+  }
+  _gl() {
     const b = this.box; this.box = null;
     const props = this.renderer.properties.get(this.tex), ready = props.__webglTexture && !this.tex.needsUpdate;
     if (!b || !ready || this._full) { this._full = false; this.mipDirty = false; this.tex.needsUpdate = true; return; }

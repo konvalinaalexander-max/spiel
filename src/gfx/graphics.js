@@ -14,6 +14,7 @@ import { clamp, damp } from '../core/util.js';
 
 export class Graphics {
   constructor(canvas, presetId) {
+    this.preRender = []; // Arbeit, die nur vor einem gezeichneten Bild nötig ist (z. B. Textur-Teil-Uploads der Tafel)
     this.canvas = canvas;
     this.preset = { ...PRESETS[presetId] };
     const renderer = new THREE.WebGLRenderer({ canvas, antialias: false, stencil: false, depth: true, powerPreference: 'high-performance', preserveDrawingBuffer: false });
@@ -210,6 +211,7 @@ export class Graphics {
     this.pulse = Math.max(0, (this.pulse || 0) - dt * 3.2);
     if (this.vignette) this.vignette.darkness = damp(this.vignette.darkness, (this.vignetteBase ?? 0.2) + s * 0.3, 4, dt) + this.pulse * 0.1 * s;
     this.csm.update();
+    for (const f of this.preRender) f();
     this.renderer.info.reset();
     if (this.composer) this.composer.render(dt);
     else this.renderer.render(this.scene, this.camera);

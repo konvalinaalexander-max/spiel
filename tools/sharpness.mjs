@@ -66,10 +66,13 @@ async function openAt(browser, dpr) {
 }
 
 for (const dpr of dprs) {
-  const browser = await chromium.launch({ args: flags });
+  // je Ansicht ein frischer Browser: der CPU-Rasterizer gibt Speicher zwischen Seiten nicht vollständig frei
+  let browser = null;
   for (const v of views) for (let attempt = 0; attempt < 2; attempt++) {
     let page, info;
     try {
+    if (browser) await browser.close().catch(() => {});
+    browser = await chromium.launch({ args: flags });
     ({ page, info } = await openAt(browser, dpr));
     // Kamera setzen, rendern, Bildschirmrechteck des Zielobjekts (CSS-Pixel) und Quelltext bestimmen
     const r = await page.evaluate(view => {
@@ -133,7 +136,7 @@ for (const dpr of dprs) {
       try { await page?.close(); } catch (e2) { /* schon weg */ }
     }
   }
-  await browser.close();
+  if (browser) await browser.close().catch(() => {});
 }
 await worker.terminate();
 // Teilmessungen (--views/--dpr) mit einer bestehenden Messung desselben Labels zusammenführen

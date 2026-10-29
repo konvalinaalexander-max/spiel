@@ -28,6 +28,16 @@ export class PlayerView {
     const b = this.rig.bones;
     this.eyeLocal = b.eyeL.position.clone().add(b.eyeR.position).multiplyScalar(0.5).add(V(0, 0.005, 0.02));
     if (this.rig.human) stripHead(this.rig); else b.head.scale.setScalar(0.001);
+    // Nahbereich ausblenden: Am Laptop rückt die Kamera vor den Kopf; der eigene Unterarm streift dann knapp an ihr vorbei und
+    // füllt als riesiger Keil das Bild. Alles der eigenen Figur, was näher als 16 cm an der Kamera liegt, wird nicht gezeichnet
+    // (Hände am Touchpad liegen bei ≥ 25 cm). Der Schatten bleibt vollständig.
+    const mats = Array.isArray(this.rig.mesh.material) ? this.rig.mesh.material : [this.rig.mesh.material];
+    for (const m of this.rig.human ? mats : []) {
+      const near = sh => { sh.fragmentShader = sh.fragmentShader.replace('#include <clipping_planes_fragment>', '#include <clipping_planes_fragment>\n\tif (length(vViewPosition) < 0.16) discard;'); };
+      if (m.userData.patches) { m.userData.patches.push(near); m.userData.patchKey = (m.userData.patchKey || 'p') + 'Near'; }
+      else { const prev = m.onBeforeCompile; m.onBeforeCompile = (sh, r) => { if (prev) prev.call(m, sh, r); near(sh); }; m.customProgramCacheKey = () => 'playerNear'; }
+      m.needsUpdate = true;
+    }
     this.yaw = 0; this.pitch = -0.09; // Kopf relativ zur Blickrichtung nach vorne (−z)
     this.camYaw = 0; this.camPitch = 0;
     this.lookOff = V(); this.shake = 0; this.startle = 0; this.t = 0;
