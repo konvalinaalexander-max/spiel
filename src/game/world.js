@@ -35,6 +35,12 @@ export async function buildWorld(gfx, params, progress = () => {}) {
     const lm = await loadLightmaps(gfx, params.weather === 'sunny' ? 'sunny' : 'cloudy');
     W.lightmapped = applyLightmaps(gfx, W.hall.meshes, lm, { intensity: params.weather === 'rain' ? 0.75 : 1 });
   } catch (e) { console.warn('Lightmaps: ohne gebackenes Licht', e); W.lightmapped = 0; }
+  // Echtzeitschatten nur, wo sie das Sonnenlicht im Saal formen: Boden, Fensterbänke, Heizkörper und Kleinteile werfen keine
+  // (ihre Kontaktschatten stecken im gebackenen Licht) – je schattenwerfender Materialgruppe sonst ein Draw Call pro Kaskade
+  for (const m of W.hall.meshes) if (/^(parquet|sillStone|radiator|whitePlastic|darkGrey|red|bins)\b/.test(m.material?.name || '')) m.castShadow = false;
+  W.singlePass = () => {   // durchsichtig + beidseitig zeichnet three.js in zwei Durchgängen (Rück-, dann Vorderseite) – Glas/Folien brauchen das nicht
+    gfx.scene.traverse(o => { if (o.isMesh) for (const m of [].concat(o.material)) if (m.transparent && m.side === THREE.DoubleSide) m.forceSinglePass = true; });
+  };
   await step(0.25, 'load.fixtures');
   W.fx = buildFixtures(gfx, W.hall, { posters: makePosters() });
   W.monitor = buildHybridMonitor(gfx, params.lang || 'de', { canvas: W.fx.slides.canvas, active: () => W.fx.beamer.level > 0.5 });
@@ -62,7 +68,7 @@ export async function buildWorld(gfx, params, progress = () => {}) {
   W.crowd.plan = W.plan;
   W.crowd.mergeMeshes(W.charMat);
   // Handys in der Hand
-  for (const st of W.crowd.list) if (st.s.profile === 'phone') W.props.table.handPhone(st.rig.bones.handR, st.s.id);
+  for (const st of W.crowd.list) if (st.s.profile === 'phone') W.props.table.handPhone(st.rig.bones.palmR || st.rig.bones.handR, st.s.id);
   await step(0.78, 'load.env');
   bakeEnvironment(gfx);
   await step(0.86, 'load.post');
@@ -72,6 +78,7 @@ export async function buildWorld(gfx, params, progress = () => {}) {
     for (const p of W.fx.panels) { const y = p.group.position.y; if (Math.abs(y - p.targetY) > 1e-4) { p.group.position.y = damp(y, p.targetY, 2.2, dt); W.boardMoving = true; } }
   };
   W.textureCount = gfx.finalizeTextures();
+  W.singlePass();
   // Shader vorkompilieren (vermeidet Ruckler beim ersten Blick in eine Richtung); parallel, wo der Treiber es kann
   try { if (gfx.renderer.compileAsync && gfx.renderer.extensions.has('KHR_parallel_shader_compile')) await gfx.renderer.compileAsync(gfx.scene, gfx.camera); else gfx.renderer.compile(gfx.scene, gfx.camera); } catch (e) { /* optional */ }
   await step(0.95, 'load.compile');

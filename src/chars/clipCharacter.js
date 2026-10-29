@@ -375,6 +375,8 @@ export function addGrips(rig) {
     g.quaternion.setFromRotationMatrix(new THREE.Matrix4().makeBasis(x, y, z));
     g.position.copy(f2.position);
     hd.add(g); rig.bones['fingers' + s] = g;
+    // dieselbe Ausrichtung am Handgelenk (für Dinge, die in der Hand liegen, z. B. das Handy)
+    const p = new THREE.Object3D(); p.name = 'palm' + s; p.quaternion.copy(g.quaternion); hd.add(p); rig.bones['palm' + s] = p;
   }
   return rig;
 }

@@ -181,7 +181,8 @@ export function buildOutside(gfx, weatherId, quality, models = null) {
     TB.add(cyl(0.25, 0.35, hgt * 0.7, 8), bark, mat(x, GROUND + hgt * 0.35, zz), { tile: 1.5 });
     addCrown(x, GROUND + hgt * 0.72, zz, 4.2, 3.6, 4.2, 140, leafMat, autumn, 2.0);
   }
-  TB.build(scene, 'trees');
+  // Baumschatten durch die Fenster nur ab „Hoch“ (drei Materialgruppen je Kaskade)
+  for (const m of TB.build(scene, 'trees') || []) m.castShadow = quality.id === 'high' || quality.id === 'ultra';
 
   // ---------------------------------------------------------------- Verkehr: Busse 40A/37A (rot), Autos
   out.vehicles = [];
@@ -263,11 +264,11 @@ export function buildBlinds(gfx, initial = [0.45, 0, 0]) {
   const housing = gfx.pbr({ name: 'rolloBox', recipe: 'plastic', texOpts: { c1: '#e8e7e2', size: 256 } });
   // Rollokästen sind statisch → ein gemeinsames Mesh
   const boxes = new THREE.Mesh(mergeGeometries(WN.list.map(c => rbox(0.12, 0.12, WN.w + 0.1, 0.02).translate(ROOM.x0 - 0.06, WN.y1 + 0.12, c)), false), housing);
-  boxes.castShadow = true; gfx.scene.add(boxes);
+  boxes.castShadow = false; gfx.scene.add(boxes);   // Kasten über dem Fenster: Schatten unerheblich, spart Draw Calls
   const items = WN.list.map((c, i) => {
     const x = ROOM.x0 - 0.06;
     const cloth = new THREE.Mesh(new THREE.PlaneGeometry(WN.w - 0.02, 1), fab); cloth.rotation.y = Math.PI / 2; cloth.castShadow = true; cloth.receiveShadow = true;
-    const bar = new THREE.Mesh(rbox(0.03, 0.03, WN.w - 0.01, 0.008), housing); bar.castShadow = true;
+    const bar = new THREE.Mesh(rbox(0.03, 0.03, WN.w - 0.01, 0.008), housing); bar.castShadow = false;
     gfx.scene.add(cloth, bar);
     return { cloth, bar, c, x, state: initial[i] ?? 0, target: initial[i] ?? 0 };
   });

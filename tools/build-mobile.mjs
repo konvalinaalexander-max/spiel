@@ -67,6 +67,8 @@ export async function buildMobile({ root, humDir, noVoice }) {
     const index = JSON.parse(fs.readFileSync(path.join(propDir, 'index.json'), 'utf8'));
     for (const id of Object.keys(index)) { const f = path.join(propDir, id + '.glb'); if (fs.existsSync(f)) core.push(rel(copy(f, path.join(OUT, 'assets/props', id + '.glb')))); else delete index[id]; }
     fs.mkdirSync(path.join(OUT, 'assets/props'), { recursive: true }); fs.writeFileSync(path.join(OUT, 'assets/props/index.json'), JSON.stringify(index)); core.push('assets/props/index.json');
+    const af = path.join(propDir, 'atlas.json');
+    if (fs.existsSync(af)) { core.push(rel(copy(af, path.join(OUT, 'assets/props/atlas.json')))); for (const pg of JSON.parse(fs.readFileSync(af, 'utf8')).pages) for (const n of Object.values(pg)) core.push(rel(copy(path.join(propDir, n), path.join(OUT, 'assets/props', n)))); }
     remote.props = 'assets/props/';
   }
   // gebackenes Licht: Verzeichnis, UVs und Atlanten (Kern, offline nötig)

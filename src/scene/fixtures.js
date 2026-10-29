@@ -128,7 +128,7 @@ export function buildFixtures(gfx, hall, opts = {}) {
   const clockMat = gfx.pbr({ name: 'clock', roughness: 0.35 }); clockMat.map = clockTex;
   const clock = new THREE.Mesh(new THREE.CircleGeometry(0.17, 48), clockMat); clock.position.set(CK.x, CK.y, CK.z + 0.03);
   const rim = new THREE.Mesh(new THREE.TorusGeometry(0.175, 0.015, 10, 48), hall.M.alu); rim.position.copy(clock.position);
-  clock.castShadow = rim.castShadow = true;
+  clock.castShadow = false; rim.castShadow = true;   // Zifferblatt flach an der Wand: kein Schatten nötig
   scene.add(clock, rim);
   let lastMin = -1;
   out.setClock = minutes => {

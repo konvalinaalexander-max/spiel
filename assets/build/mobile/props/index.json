@@ -7,10 +7,10 @@
   ],
   "license": "CC0-1.0",
   "source": "https://polyhaven.com/a/wall_clock",
-  "use": "Wanduhr \u00fcber der Tafel",
+  "use": "Wanduhr über der Tafel",
   "tris": 2504,
   "trisSrc": 3658,
-  "kb": 95,
+  "kb": 43,
   "size": [
    0.32,
    0.32,
@@ -20,7 +20,8 @@
    -0.16,
    -0.16,
    0
-  ]
+  ],
+  "ownMaterials": 1
  },
  "potted_plant_01": {
   "id": "potted_plant_01",
@@ -33,7 +34,7 @@
   "use": "Pflanze Fensterbank",
   "tris": 9764,
   "trisSrc": 176226,
-  "kb": 261,
+  "kb": 197,
   "size": [
    0.578,
    1.335,
@@ -43,7 +44,8 @@
    -0.338,
    0.001,
    -0.364
-  ]
+  ],
+  "ownMaterials": 1
  },
  "potted_plant_02": {
   "id": "potted_plant_02",
@@ -56,7 +58,7 @@
   "use": "Pflanze neben dem Pult",
   "tris": 8948,
   "trisSrc": 69806,
-  "kb": 223,
+  "kb": 162,
   "size": [
    0.701,
    0.84,
@@ -66,7 +68,8 @@
    -0.396,
    0.001,
    -0.42
-  ]
+  ],
+  "ownMaterials": 1
  },
  "potted_plant_04": {
   "id": "potted_plant_04",
@@ -79,7 +82,7 @@
   "use": "Pflanze hinten",
   "tris": 8929,
   "trisSrc": 8929,
-  "kb": 147,
+  "kb": 78,
   "size": [
    0.168,
    0.267,
@@ -89,7 +92,8 @@
    -0.084,
    0,
    -0.084
-  ]
+  ],
+  "ownMaterials": 0
  },
  "book_encyclopedia_set_01": {
   "id": "book_encyclopedia_set_01",
@@ -99,10 +103,10 @@
   ],
   "license": "CC0-1.0",
   "source": "https://polyhaven.com/a/book_encyclopedia_set_01",
-  "use": "Fachb\u00fccher am Vortragstisch",
+  "use": "Fachbücher am Vortragstisch",
   "tris": 21765,
   "trisSrc": 67306,
-  "kb": 421,
+  "kb": 235,
   "size": [
    0.551,
    0.237,
@@ -112,7 +116,8 @@
    -0.019,
    0,
    -0.062
-  ]
+  ],
+  "ownMaterials": 0
  },
  "food_apple_01": {
   "id": "food_apple_01",
@@ -125,7 +130,7 @@
   "use": "Apfel am Platz",
   "tris": 800,
   "trisSrc": 7012,
-  "kb": 23,
+  "kb": 10,
   "size": [
    0.097,
    0.085,
@@ -135,7 +140,8 @@
    -0.048,
    0,
    -0.046
-  ]
+  ],
+  "ownMaterials": 0
  },
  "croissant": {
   "id": "croissant",
@@ -149,7 +155,7 @@
   "use": "Croissant am Platz",
   "tris": 1198,
   "trisSrc": 1990,
-  "kb": 29,
+  "kb": 10,
   "size": [
    0.199,
    0.062,
@@ -159,7 +165,8 @@
    -0.102,
    -0.001,
    -0.032
-  ]
+  ],
+  "ownMaterials": 0
  },
  "modified_thermos": {
   "id": "modified_thermos",
@@ -172,7 +179,7 @@
   "use": "Thermosflasche",
   "tris": 2388,
   "trisSrc": 11576,
-  "kb": 51,
+  "kb": 27,
   "size": [
    0.141,
    0.306,
@@ -182,7 +189,8 @@
    -0.05,
    0,
    -0.05
-  ]
+  ],
+  "ownMaterials": 0
  },
  "plastic_thermos": {
   "id": "plastic_thermos",
@@ -195,7 +203,7 @@
   "use": "Thermosflasche",
   "tris": 1500,
   "trisSrc": 5514,
-  "kb": 35,
+  "kb": 17,
   "size": [
    0.141,
    0.32,
@@ -205,7 +213,8 @@
    -0.086,
    0,
    -0.054
-  ]
+  ],
+  "ownMaterials": 0
  },
  "jug_01": {
   "id": "jug_01",
@@ -218,7 +227,7 @@
   "use": "Krug am Vortragstisch",
   "tris": 1500,
   "trisSrc": 5770,
-  "kb": 27,
+  "kb": 13,
   "size": [
    0.275,
    0.211,
@@ -228,7 +237,8 @@
    -0.152,
    0,
    -0.084
-  ]
+  ],
+  "ownMaterials": 0
  },
  "cardboard_box_01": {
   "id": "cardboard_box_01",
@@ -241,7 +251,7 @@
   "use": "Karton hinten",
   "tris": 300,
   "trisSrc": 16952,
-  "kb": 21,
+  "kb": 5,
   "size": [
    0.383,
    0.336,
@@ -251,20 +261,21 @@
    -0.19,
    -0.004,
    -0.225
-  ]
+  ],
+  "ownMaterials": 0
  },
  "vintage_microscope": {
   "id": "vintage_microscope",
   "name": "Vintage Microscope",
   "authors": [
-   "Luis Jos\u00e9 Fern\u00e1ndez Rodr\u00edguez"
+   "Luis José Fernández Rodríguez"
   ],
   "license": "CC0-1.0",
   "source": "https://polyhaven.com/a/vintage_microscope",
   "use": "Mikroskop am Vortragstisch",
   "tris": 5057,
   "trisSrc": 20631,
-  "kb": 140,
+  "kb": 120,
   "size": [
    0.107,
    0.4,
@@ -274,20 +285,21 @@
    -0.055,
    0,
    -0.084
-  ]
+  ],
+  "ownMaterials": 1
  },
  "chemistry_set": {
   "id": "chemistry_set",
   "name": "Chemistry Set",
   "authors": [
-   "Ji\u0159\u00ed Pt\u00e1\u010dek"
+   "Jiří Ptáček"
   ],
   "license": "CC0-1.0",
   "source": "https://polyhaven.com/a/chemistry_set",
-  "use": "Glasger\u00e4te am Vortragstisch",
+  "use": "Glasgeräte am Vortragstisch",
   "tris": 7031,
   "trisSrc": 41958,
-  "kb": 218,
+  "kb": 202,
   "size": [
    1.078,
    0.428,
@@ -297,7 +309,8 @@
    -0.525,
    -0.009,
    -0.228
-  ]
+  ],
+  "ownMaterials": 1
  },
  "magnifying_glass_01": {
   "id": "magnifying_glass_01",
@@ -310,7 +323,7 @@
   "use": "Lupe",
   "tris": 997,
   "trisSrc": 7240,
-  "kb": 29,
+  "kb": 19,
   "size": [
    0.132,
    0.271,
@@ -320,7 +333,8 @@
    -0.066,
    0,
    -0.013
-  ]
+  ],
+  "ownMaterials": 1
  },
  "desk_lamp_arm_01": {
   "id": "desk_lamp_arm_01",
@@ -334,7 +348,7 @@
   "use": "Pultlampe",
   "tris": 3148,
   "trisSrc": 24102,
-  "kb": 67,
+  "kb": 57,
   "size": [
    0.202,
    0.893,
@@ -344,7 +358,8 @@
    -0.118,
    -0.088,
    -0.296
-  ]
+  ],
+  "ownMaterials": 1
  },
  "SchoolChair_01": {
   "id": "SchoolChair_01",
@@ -357,7 +372,7 @@
   "use": "Stuhl vorne",
   "tris": 3000,
   "trisSrc": 5072,
-  "kb": 77,
+  "kb": 27,
   "size": [
    0.566,
    1.006,
@@ -367,7 +382,8 @@
    -0.283,
    -0.002,
    -0.338
-  ]
+  ],
+  "ownMaterials": 0
  },
  "hanging_picture_frame_02": {
   "id": "hanging_picture_frame_02",
@@ -380,7 +396,7 @@
   "use": "Bilderrahmen",
   "tris": 601,
   "trisSrc": 3678,
-  "kb": 37,
+  "kb": 23,
   "size": [
    0.751,
    0.499,
@@ -390,7 +406,8 @@
    -0.376,
    -0.278,
    0.002
-  ]
+  ],
+  "ownMaterials": 1
  },
  "marble_bust_01": {
   "id": "marble_bust_01",
@@ -400,10 +417,10 @@
   ],
   "license": "CC0-1.0",
   "source": "https://polyhaven.com/a/marble_bust_01",
-  "use": "B\u00fcste in der Ecke",
+  "use": "Büste in der Ecke",
   "tris": 6000,
   "trisSrc": 17456,
-  "kb": 105,
+  "kb": 47,
   "size": [
    0.272,
    0.515,
@@ -413,7 +430,8 @@
    -0.123,
    0,
    -0.145
-  ]
+  ],
+  "ownMaterials": 0
  },
  "wicker_basket_01": {
   "id": "wicker_basket_01",
@@ -426,7 +444,7 @@
   "use": "Korb mit Heuproben",
   "tris": 2468,
   "trisSrc": 22276,
-  "kb": 57,
+  "kb": 34,
   "size": [
    0.383,
    0.117,
@@ -436,7 +454,8 @@
    -0.192,
    -0.001,
    -0.147
-  ]
+  ],
+  "ownMaterials": 0
  },
  "wooden_crate_01": {
   "id": "wooden_crate_01",
@@ -449,7 +468,7 @@
   "use": "Kiste mit Futterproben",
   "tris": 850,
   "trisSrc": 6576,
-  "kb": 36,
+  "kb": 16,
   "size": [
    0.824,
    0.347,
@@ -459,7 +478,8 @@
    -0.412,
    -0.006,
    -0.193
-  ]
+  ],
+  "ownMaterials": 0
  },
  "plastic_crate_01": {
   "id": "plastic_crate_01",
@@ -472,7 +492,7 @@
   "use": "Kiste",
   "tris": 10350,
   "trisSrc": 18320,
-  "kb": 159,
+  "kb": 101,
   "size": [
    0.298,
    0.264,
@@ -482,7 +502,8 @@
    -0.149,
    0,
    -0.204
-  ]
+  ],
+  "ownMaterials": 0
  },
  "rubber_duck_toy": {
   "id": "rubber_duck_toy",
@@ -495,7 +516,7 @@
   "use": "Gummiente am Pult",
   "tris": 800,
   "trisSrc": 4288,
-  "kb": 22,
+  "kb": 9,
   "size": [
    0.212,
    0.285,
@@ -505,7 +526,8 @@
    -0.107,
    0,
    -0.146
-  ]
+  ],
+  "ownMaterials": 0
  },
  "medical_box": {
   "id": "medical_box",
@@ -518,7 +540,7 @@
   "use": "Erste-Hilfe-Kasten",
   "tris": 676,
   "trisSrc": 3718,
-  "kb": 35,
+  "kb": 15,
   "size": [
    0.525,
    0.097,
@@ -528,7 +550,8 @@
    -0.263,
    0.001,
    -0.172
-  ]
+  ],
+  "ownMaterials": 0
  },
  "dustpan": {
   "id": "dustpan",
@@ -541,7 +564,7 @@
   "use": "Kehrschaufel",
   "tris": 600,
   "trisSrc": 4332,
-  "kb": 26,
+  "kb": 7,
   "size": [
    0.332,
    0.1,
@@ -551,7 +574,8 @@
    -0.166,
    -0.001,
    -0.192
-  ]
+  ],
+  "ownMaterials": 0
  },
  "plastic_broom": {
   "id": "plastic_broom",
@@ -564,7 +588,7 @@
   "use": "Besen",
   "tris": 3915,
   "trisSrc": 18736,
-  "kb": 90,
+  "kb": 88,
   "size": [
    0.416,
    1.197,
@@ -574,7 +598,8 @@
    -0.208,
    0,
    -0.528
-  ]
+  ],
+  "ownMaterials": 1
  },
  "measuring_tape_01": {
   "id": "measuring_tape_01",
@@ -584,10 +609,10 @@
   ],
   "license": "CC0-1.0",
   "source": "https://polyhaven.com/a/measuring_tape_01",
-  "use": "Ma\u00dfband",
+  "use": "Maßband",
   "tris": 800,
   "trisSrc": 2868,
-  "kb": 29,
+  "kb": 10,
   "size": [
    0.041,
    0.073,
@@ -597,7 +622,8 @@
    -0.018,
    0.001,
    -0.127
-  ]
+  ],
+  "ownMaterials": 0
  },
  "vintage_stapler": {
   "id": "vintage_stapler",
@@ -610,7 +636,7 @@
   "use": "Heftmaschine",
   "tris": 1146,
   "trisSrc": 4370,
-  "kb": 42,
+  "kb": 18,
   "size": [
    0.208,
    0.095,
@@ -620,7 +646,8 @@
    -0.098,
    -0.013,
    -0.023
-  ]
+  ],
+  "ownMaterials": 0
  },
  "ceramic_vase_01": {
   "id": "ceramic_vase_01",
@@ -633,7 +660,7 @@
   "use": "Vase",
   "tris": 1222,
   "trisSrc": 10296,
-  "kb": 26,
+  "kb": 14,
   "size": [
    0.202,
    0.4,
@@ -643,7 +670,8 @@
    -0.101,
    0.002,
    -0.101
-  ]
+  ],
+  "ownMaterials": 0
  },
  "lemon": {
   "id": "lemon",
@@ -656,7 +684,7 @@
   "use": "Zitrone",
   "tris": 600,
   "trisSrc": 4012,
-  "kb": 22,
+  "kb": 7,
   "size": [
    0.069,
    0.095,
@@ -666,7 +694,8 @@
    -0.036,
    -0.052,
    -0.035
-  ]
+  ],
+  "ownMaterials": 0
  },
  "wooden_bookshelf_worn": {
   "id": "wooden_bookshelf_worn",
@@ -676,10 +705,10 @@
   ],
   "license": "CC0-1.0",
   "source": "https://polyhaven.com/a/wooden_bookshelf_worn",
-  "use": "B\u00fccherregal",
+  "use": "Bücherregal",
   "tris": 3000,
   "trisSrc": 10106,
-  "kb": 84,
+  "kb": 28,
   "size": [
    1.374,
    2.063,
@@ -689,7 +718,8 @@
    -0.687,
    0,
    -0.291
-  ]
+  ],
+  "ownMaterials": 0
  },
  "seeding_tray_01": {
   "id": "seeding_tray_01",
@@ -702,7 +732,7 @@
   "use": "Anzuchtschale auf der Fensterbank (BOKU)",
   "tris": 2000,
   "trisSrc": 8334,
-  "kb": 48,
+  "kb": 26,
   "size": [
    0.22,
    0.061,
@@ -712,7 +742,8 @@
    -0.11,
    0.001,
    -0.11
-  ]
+  ],
+  "ownMaterials": 0
  },
  "planter_pot_clay": {
   "id": "planter_pot_clay",
@@ -725,7 +756,7 @@
   "use": "Tontopf auf der Fensterbank",
   "tris": 1200,
   "trisSrc": 3080,
-  "kb": 29,
+  "kb": 12,
   "size": [
    0.266,
    0.222,
@@ -735,7 +766,8 @@
    -0.134,
    0,
    -0.12
-  ]
+  ],
+  "ownMaterials": 0
  },
  "watering_can_metal_01": {
   "id": "watering_can_metal_01",
@@ -745,10 +777,10 @@
   ],
   "license": "CC0-1.0",
   "source": "https://polyhaven.com/a/watering_can_metal_01",
-  "use": "Gie\u00dfkanne auf der Fensterbank",
+  "use": "Gießkanne auf der Fensterbank",
   "tris": 2499,
   "trisSrc": 11837,
-  "kb": 52,
+  "kb": 27,
   "size": [
    0.191,
    0.197,
@@ -758,7 +790,8 @@
    -0.095,
    -0.001,
    -0.175
-  ]
+  ],
+  "ownMaterials": 0
  },
  "binoculars": {
   "id": "binoculars",
@@ -781,7 +814,8 @@
    -0.076,
    -0.002,
    -0.229
-  ]
+  ],
+  "ownMaterials": 2
  },
  "anthurium_botany_01": {
   "id": "anthurium_botany_01",
@@ -805,7 +839,8 @@
    -1.418,
    -0.01,
    -1.146
-  ]
+  ],
+  "ownMaterials": 1
  },
  "calathea_orbifolia_01": {
   "id": "calathea_orbifolia_01",
@@ -829,7 +864,8 @@
    -1.294,
    -0.008,
    -0.316
-  ]
+  ],
+  "ownMaterials": 1
  },
  "ceramic_vase_03": {
   "id": "ceramic_vase_03",
@@ -842,7 +878,7 @@
   "use": "Vase auf der Fensterbank",
   "tris": 1500,
   "trisSrc": 11136,
-  "kb": 34,
+  "kb": 16,
   "size": [
    0.112,
    0.414,
@@ -852,7 +888,8 @@
    -0.056,
    0,
    -0.056
-  ]
+  ],
+  "ownMaterials": 0
  },
  "office_notepads": {
   "id": "office_notepads",
@@ -862,10 +899,10 @@
   ],
   "license": "CC0-1.0",
   "source": "https://polyhaven.com/a/office_notepads",
-  "use": "Notizbl\u00f6cke am Vortragstisch",
+  "use": "Notizblöcke am Vortragstisch",
   "tris": 666,
   "trisSrc": 666,
-  "kb": 26,
+  "kb": 10,
   "size": [
    1.103,
    0.022,
@@ -875,7 +912,8 @@
    -0.555,
    0,
    -0.331
-  ]
+  ],
+  "ownMaterials": 0
  },
  "binder_notebook": {
   "id": "binder_notebook",
@@ -888,7 +926,7 @@
   "use": "Ringbuch am Vortragstisch",
   "tris": 2998,
   "trisSrc": 18077,
-  "kb": 88,
+  "kb": 38,
   "size": [
    0.584,
    0.025,
@@ -898,7 +936,8 @@
    -0.157,
    -0.002,
    -0.1
-  ]
+  ],
+  "ownMaterials": 0
  },
  "round_spectacles": {
   "id": "round_spectacles",
@@ -911,7 +950,7 @@
   "use": "Ersatzbrille des Profs",
   "tris": 2498,
   "trisSrc": 11810,
-  "kb": 54,
+  "kb": 46,
   "size": [
    0.158,
    0.046,
@@ -921,7 +960,8 @@
    -0.079,
    -0.023,
    -0.148
-  ]
+  ],
+  "ownMaterials": 1
  },
  "wooden_bowl_01": {
   "id": "wooden_bowl_01",
@@ -934,7 +974,7 @@
   "use": "Holzschale mit Futterprobe",
   "tris": 2000,
   "trisSrc": 14122,
-  "kb": 34,
+  "kb": 17,
   "size": [
    0.313,
    0.093,
@@ -944,7 +984,8 @@
    -0.157,
    0.001,
    -0.154
-  ]
+  ],
+  "ownMaterials": 0
  },
  "alarm_clock_01": {
   "id": "alarm_clock_01",
@@ -958,7 +999,7 @@
   "use": "Wecker am Vortragstisch (Zeitansage)",
   "tris": 2517,
   "trisSrc": 8985,
-  "kb": 60,
+  "kb": 51,
   "size": [
    0.131,
    0.174,
@@ -968,7 +1009,8 @@
    -0.066,
    -0.001,
    -0.024
-  ]
+  ],
+  "ownMaterials": 1
  },
  "bunsen_burner": {
   "id": "bunsen_burner",
@@ -978,10 +1020,10 @@
   ],
   "license": "CC0-1.0",
   "source": "https://polyhaven.com/a/bunsen_burner",
-  "use": "Bunsenbrenner (Vorf\u00fchrung)",
+  "use": "Bunsenbrenner (Vorführung)",
   "tris": 2498,
   "trisSrc": 8434,
-  "kb": 53,
+  "kb": 28,
   "size": [
    0.139,
    0.173,
@@ -991,7 +1033,8 @@
    -0.069,
    0,
    -0.069
-  ]
+  ],
+  "ownMaterials": 0
  },
  "digital_wrist_watch": {
   "id": "digital_wrist_watch",
@@ -1004,7 +1047,7 @@
   "use": "Armbanduhr auf einem Pult",
   "tris": 2997,
   "trisSrc": 10390,
-  "kb": 79,
+  "kb": 63,
   "size": [
    0.036,
    0.008,
@@ -1014,7 +1057,8 @@
    -0.018,
    -0.002,
    -0.089
-  ]
+  ],
+  "ownMaterials": 1
  },
  "hamburger_buns": {
   "id": "hamburger_buns",
@@ -1027,7 +1071,7 @@
   "use": "Weckerl am Pult",
   "tris": 1996,
   "trisSrc": 11588,
-  "kb": 40,
+  "kb": 20,
   "size": [
    0.397,
    0.063,
@@ -1037,7 +1081,8 @@
    -0.198,
    0,
    -0.049
-  ]
+  ],
+  "ownMaterials": 0
  },
  "food_pears_asian_01": {
   "id": "food_pears_asian_01",
@@ -1050,7 +1095,7 @@
   "use": "Birne am Pult",
   "tris": 1198,
   "trisSrc": 12572,
-  "kb": 35,
+  "kb": 18,
   "size": [
    0.126,
    0.071,
@@ -1060,7 +1105,8 @@
    -0.08,
    0,
    -0.1
-  ]
+  ],
+  "ownMaterials": 0
  },
  "food_kiwi_01": {
   "id": "food_kiwi_01",
@@ -1073,7 +1119,7 @@
   "use": "Kiwi am Pult",
   "tris": 800,
   "trisSrc": 7748,
-  "kb": 25,
+  "kb": 10,
   "size": [
    0.069,
    0.09,
@@ -1083,7 +1129,8 @@
    -0.035,
    0,
    -0.035
-  ]
+  ],
+  "ownMaterials": 0
  },
  "gamepad": {
   "id": "gamepad",
@@ -1096,7 +1143,7 @@
   "use": "Controller auf einem Pult",
   "tris": 2500,
   "trisSrc": 9546,
-  "kb": 48,
+  "kb": 28,
   "size": [
    0.404,
    0.019,
@@ -1106,7 +1153,8 @@
    -0.211,
    -0.001,
    -0.214
-  ]
+  ],
+  "ownMaterials": 0
  },
  "fire_alarm": {
   "id": "fire_alarm",
@@ -1119,7 +1167,7 @@
   "use": "Rauchmelder an der Decke",
   "tris": 1275,
   "trisSrc": 2705,
-  "kb": 39,
+  "kb": 17,
   "size": [
    0.099,
    0.144,
@@ -1129,7 +1177,8 @@
    -0.05,
    -0.077,
    0
-  ]
+  ],
+  "ownMaterials": 0
  },
  "korean_fire_extinguisher_01": {
   "id": "korean_fire_extinguisher_01",
@@ -1139,10 +1188,10 @@
   ],
   "license": "CC0-1.0",
   "source": "https://polyhaven.com/a/korean_fire_extinguisher_01",
-  "use": "Feuerl\u00f6scher an der Wand",
+  "use": "Feuerlöscher an der Wand",
   "tris": 3079,
   "trisSrc": 9913,
-  "kb": 163,
+  "kb": 107,
   "size": [
    0.279,
    0.658,
@@ -1152,7 +1201,8 @@
    -0.14,
    0,
    -0.123
-  ]
+  ],
+  "ownMaterials": 2
  },
  "power_box_01": {
   "id": "power_box_01",
@@ -1163,10 +1213,10 @@
   ],
   "license": "CC0-1.0",
   "source": "https://polyhaven.com/a/power_box_01",
-  "use": "Verteilerkasten an der R\u00fcckwand",
+  "use": "Verteilerkasten an der Rückwand",
   "tris": 3993,
   "trisSrc": 21272,
-  "kb": 96,
+  "kb": 61,
   "size": [
    0.461,
    0.503,
@@ -1176,7 +1226,8 @@
    -0.286,
    -0.252,
    -0.047
-  ]
+  ],
+  "ownMaterials": 0
  },
  "utility_box_01": {
   "id": "utility_box_01",
@@ -1186,10 +1237,10 @@
   ],
   "license": "CC0-1.0",
   "source": "https://polyhaven.com/a/utility_box_01",
-  "use": "Wandkasten neben der T\u00fcr",
+  "use": "Wandkasten neben der Tür",
   "tris": 1500,
   "trisSrc": 4404,
-  "kb": 37,
+  "kb": 17,
   "size": [
    0.52,
    1.12,
@@ -1199,7 +1250,8 @@
    -0.26,
    0,
    -0.21
-  ]
+  ],
+  "ownMaterials": 0
  },
  "WetFloorSign_01": {
   "id": "WetFloorSign_01",
@@ -1212,7 +1264,7 @@
   "use": "Warnschild Rutschgefahr (Regentag)",
   "tris": 228,
   "trisSrc": 228,
-  "kb": 18,
+  "kb": 4,
   "size": [
    0.3,
    0.63,
@@ -1222,7 +1274,8 @@
    -0.15,
    0.002,
    -0.193
-  ]
+  ],
+  "ownMaterials": 0
  },
  "drawer_cabinet": {
   "id": "drawer_cabinet",
@@ -1235,7 +1288,7 @@
   "use": "Schubladenschrank auf dem Podium",
   "tris": 4590,
   "trisSrc": 26406,
-  "kb": 106,
+  "kb": 52,
   "size": [
    1.141,
    1.874,
@@ -1245,20 +1298,21 @@
    -0.571,
    0,
    -0.248
-  ]
+  ],
+  "ownMaterials": 0
  },
  "Shelf_01": {
   "id": "Shelf_01",
   "name": "Shelf 01",
   "authors": [
-   "Gabriel Radi\u0107"
+   "Gabriel Radić"
   ],
   "license": "CC0-1.0",
   "source": "https://polyhaven.com/a/Shelf_01",
   "use": "Wandregal hinten",
   "tris": 182,
   "trisSrc": 182,
-  "kb": 20,
+  "kb": 4,
   "size": [
    1.003,
    2.08,
@@ -1268,7 +1322,8 @@
    -0.502,
    0,
    0
-  ]
+  ],
+  "ownMaterials": 0
  },
  "hanging_picture_frame_01": {
   "id": "hanging_picture_frame_01",
@@ -1281,7 +1336,7 @@
   "use": "Bild an der Wand",
   "tris": 1501,
   "trisSrc": 2586,
-  "kb": 38,
+  "kb": 29,
   "size": [
    0.594,
    0.841,
@@ -1291,7 +1346,8 @@
    -0.297,
    -0.42,
    0
-  ]
+  ],
+  "ownMaterials": 1
  },
  "hanging_picture_frame_03": {
   "id": "hanging_picture_frame_03",
@@ -1304,7 +1360,7 @@
   "use": "Bild an der Wand",
   "tris": 2993,
   "trisSrc": 24348,
-  "kb": 70,
+  "kb": 46,
   "size": [
    0.384,
    0.502,
@@ -1314,7 +1370,8 @@
    -0.191,
    -0.255,
    0
-  ]
+  ],
+  "ownMaterials": 1
  },
  "fancy_picture_frame_01": {
   "id": "fancy_picture_frame_01",
@@ -1328,7 +1385,7 @@
   "use": "Bild an der Wand",
   "tris": 938,
   "trisSrc": 938,
-  "kb": 33,
+  "kb": 10,
   "size": [
    0.603,
    0.464,
@@ -1338,7 +1395,8 @@
    -0.302,
    -0.232,
    0.002
-  ]
+  ],
+  "ownMaterials": 0
  },
  "side_table_01": {
   "id": "side_table_01",
@@ -1351,7 +1409,7 @@
   "use": "Beistelltisch neben dem Pult",
   "tris": 1500,
   "trisSrc": 2756,
-  "kb": 38,
+  "kb": 19,
   "size": [
    0.55,
    0.551,
@@ -1361,7 +1419,8 @@
    -0.275,
    -0.002,
    -0.225
-  ]
+  ],
+  "ownMaterials": 0
  },
  "plastic_monobloc_chair_01": {
   "id": "plastic_monobloc_chair_01",
@@ -1371,10 +1430,10 @@
   ],
   "license": "CC0-1.0",
   "source": "https://polyhaven.com/a/plastic_monobloc_chair_01",
-  "use": "Stuhl f\u00fcr G\u00e4ste vorne",
+  "use": "Stuhl für Gäste vorne",
   "tris": 2000,
   "trisSrc": 3356,
-  "kb": 50,
+  "kb": 26,
   "size": [
    0.642,
    0.88,
@@ -1384,7 +1443,8 @@
    -0.321,
    0,
    -0.336
-  ]
+  ],
+  "ownMaterials": 0
  },
  "metal_stool_02": {
   "id": "metal_stool_02",
@@ -1397,7 +1457,7 @@
   "use": "Hocker am Podium",
   "tris": 1999,
   "trisSrc": 6532,
-  "kb": 43,
+  "kb": 22,
   "size": [
    0.448,
    0.458,
@@ -1407,7 +1467,8 @@
    -0.224,
    0,
    -0.235
-  ]
+  ],
+  "ownMaterials": 0
  },
  "wicker_basket_02": {
   "id": "wicker_basket_02",
@@ -1420,7 +1481,7 @@
   "use": "Korb mit Proben",
   "tris": 3998,
   "trisSrc": 17850,
-  "kb": 102,
+  "kb": 38,
   "size": [
    0.347,
    0.2,
@@ -1430,7 +1491,8 @@
    -0.108,
    0,
    -0.145
-  ]
+  ],
+  "ownMaterials": 0
  },
  "plastic_crate_02": {
   "id": "plastic_crate_02",
@@ -1453,7 +1515,8 @@
    -0.253,
    0,
    -0.203
-  ]
+  ],
+  "ownMaterials": 1
  },
  "wooden_crate_02": {
   "id": "wooden_crate_02",
@@ -1467,7 +1530,7 @@
   "use": "Holzkiste hinten",
   "tris": 2499,
   "trisSrc": 5176,
-  "kb": 82,
+  "kb": 27,
   "size": [
    0.529,
    0.464,
@@ -1477,7 +1540,8 @@
    -0.265,
    -0.01,
    -0.583
-  ]
+  ],
+  "ownMaterials": 0
  },
  "all_purpose_cleaner": {
   "id": "all_purpose_cleaner",
@@ -1490,7 +1554,7 @@
   "use": "Reiniger beim Besen",
   "tris": 1500,
   "trisSrc": 4624,
-  "kb": 32,
+  "kb": 15,
   "size": [
    0.156,
    0.319,
@@ -1500,7 +1564,8 @@
    -0.075,
    0,
    -0.059
-  ]
+  ],
+  "ownMaterials": 0
  },
  "mousetrap": {
   "id": "mousetrap",
@@ -1513,7 +1578,7 @@
   "use": "Mausefalle in der Ecke",
   "tris": 1499,
   "trisSrc": 5136,
-  "kb": 40,
+  "kb": 18,
   "size": [
    0.055,
    0.018,
@@ -1523,7 +1588,8 @@
    -0.027,
    0,
    -0.05
-  ]
+  ],
+  "ownMaterials": 0
  },
  "street_lamp_01": {
   "id": "street_lamp_01",
@@ -1533,10 +1599,10 @@
   ],
   "license": "CC0-1.0",
   "source": "https://polyhaven.com/a/street_lamp_01",
-  "use": "Stra\u00dfenlaterne (Au\u00dfenwelt)",
+  "use": "Straßenlaterne (Außenwelt)",
   "tris": 5185,
   "trisSrc": 30610,
-  "kb": 97,
+  "kb": 85,
   "size": [
    0.704,
    3.871,
@@ -1546,7 +1612,8 @@
    -0.352,
    0,
    -0.193
-  ]
+  ],
+  "ownMaterials": 1
  },
  "planter_box_02": {
   "id": "planter_box_02",
@@ -1559,7 +1626,7 @@
   "use": "Pflanztrog am Gehsteig",
   "tris": 3000,
   "trisSrc": 10944,
-  "kb": 98,
+  "kb": 37,
   "size": [
    1.251,
    0.453,
@@ -1569,7 +1636,8 @@
    -0.625,
    0,
    -0.235
-  ]
+  ],
+  "ownMaterials": 0
  },
  "painted_wooden_bench": {
   "id": "painted_wooden_bench",
@@ -1582,7 +1650,7 @@
   "use": "Bank im Park",
   "tris": 630,
   "trisSrc": 630,
-  "kb": 25,
+  "kb": 8,
   "size": [
    1.165,
    0.889,
@@ -1592,7 +1660,8 @@
    -0.576,
    -0.001,
    -0.254
-  ]
+  ],
+  "ownMaterials": 0
  },
  "lightbulb_led": {
   "id": "lightbulb_led",
@@ -1605,7 +1674,7 @@
   "use": "Ersatzlampe am Vortragstisch",
   "tris": 799,
   "trisSrc": 6420,
-  "kb": 27,
+  "kb": 11,
   "size": [
    0.061,
    0.1,
@@ -1615,7 +1684,8 @@
    -0.031,
    -0.016,
    -0.031
-  ]
+  ],
+  "ownMaterials": 0
  },
  "television_02": {
   "id": "television_02",
@@ -1628,7 +1698,7 @@
   "use": "Alter Fernseher auf dem Regal hinten",
   "tris": 2000,
   "trisSrc": 2310,
-  "kb": 39,
+  "kb": 18,
   "size": [
    0.4,
    0.411,
@@ -1638,7 +1708,8 @@
    -0.202,
    0,
    -0.228
-  ]
+  ],
+  "ownMaterials": 0
  },
  "vintage_telephone_wall_clock": {
   "id": "vintage_telephone_wall_clock",
@@ -1648,10 +1719,10 @@
   ],
   "license": "CC0-1.0",
   "source": "https://polyhaven.com/a/vintage_telephone_wall_clock",
-  "use": "Wandtelefon (Hausapparat) neben der T\u00fcr",
+  "use": "Wandtelefon (Hausapparat) neben der Tür",
   "tris": 3999,
   "trisSrc": 15864,
-  "kb": 104,
+  "kb": 92,
   "size": [
    0.343,
    0.501,
@@ -1661,6 +1732,7 @@
    -0.176,
    -0.073,
    0
-  ]
+  ],
+  "ownMaterials": 1
  }
 }

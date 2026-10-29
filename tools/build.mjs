@@ -142,7 +142,10 @@ const propsDir = path.join(root, 'assets/build', profile, 'props');
 if (!mobile && fs.existsSync(path.join(propsDir, 'index.json')) && !process.argv.includes('--no-props')) {
   const index = JSON.parse(fs.readFileSync(path.join(propsDir, 'index.json'), 'utf8')), files = {}; let bytes = 0;
   for (const id of Object.keys(index)) { const f = path.join(propsDir, id + '.glb'); if (!fs.existsSync(f)) { delete index[id]; continue; } const b = fs.readFileSync(f); bytes += b.length; files[id + '.glb'] = b.toString('base64'); }
-  propsBlock = JSON.stringify({ index, files });
+  // Atlasseiten der Requisiten (tools/pipeline/props.mjs)
+  let atlas = null; const af = path.join(propsDir, 'atlas.json');
+  if (fs.existsSync(af)) { atlas = JSON.parse(fs.readFileSync(af, 'utf8')); for (const pg of atlas.pages) for (const n of Object.values(pg)) { const b = fs.readFileSync(path.join(propsDir, n)); bytes += b.length; files[n] = b.toString('base64'); } }
+  propsBlock = JSON.stringify({ index, files, atlas });
   console.log(`Requisiten: ${Object.keys(index).length} Modelle, ${(bytes / 1048576).toFixed(1)} MB`);
 }
 const creditsFile = path.join(root, 'assets/build/credits.json');

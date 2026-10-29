@@ -25,10 +25,10 @@ function toFloat(geo, matrix) {
 }
 
 export async function loadPropModels(gfx, onProgress = () => {}) {
-  let index = null, get = null;
+  let index = null, get = null, atlasInfo = null;
   const t = embedded('assets-props');
-  if (t) { const d = JSON.parse(t); index = d.index; get = async n => (d.files[n] ? b64(d.files[n]) : null); }
-  else if (remote && remote.props) { index = await fetchJSON(remote.props + 'index.json').catch(() => null); get = n => fetchBytes(remote.props + n).catch(() => null); }
+  if (t) { const d = JSON.parse(t); index = d.index; atlasInfo = d.atlas || null; get = async n => (d.files[n] ? b64(d.files[n]) : null); }
+  else if (remote && remote.props) { index = await fetchJSON(remote.props + 'index.json').catch(() => null); atlasInfo = await fetchJSON(remote.props + 'atlas.json').catch(() => null); get = n => fetchBytes(remote.props + n).catch(() => null); }
   if (!index || !Object.keys(index).length) return null;
   // KTX2-Transkodierer aus dem Figurenblock bzw. gehostet
   let basis;
@@ -40,6 +40,17 @@ export async function loadPropModels(gfx, onProgress = () => {}) {
   const ktx2 = new KTX2Loader(manager).setTranscoderPath('basis/').detectSupport(gfx.renderer);
   const loader = new GLTFLoader().setKTX2Loader(ktx2).setMeshoptDecoder(MeshoptDecoder);
   const aniso = gfx.renderer.capabilities.getMaxAnisotropy();
+  // gemeinsame Atlasseiten (tools/pipeline/props.mjs): ein Material je Seite statt eines je Modell
+  const atlasMats = [];
+  if (atlasInfo) for (const pg of atlasInfo.pages) {
+    const tex = async (name, srgb) => { const b = await get(name); if (!b) return null; const tx = await new Promise((res, rej) => ktx2.parse(b.buffer.slice(b.byteOffset, b.byteOffset + b.byteLength), res, rej)); tx.colorSpace = srgb ? THREE.SRGBColorSpace : THREE.NoColorSpace; tx.flipY = false; tx.anisotropy = aniso; tx.needsUpdate = true; return tx; };
+    const c = await tex(pg.col, true), n = await tex(pg.nor, false), o = await tex(pg.orm, false);
+    const m = new THREE.MeshStandardMaterial({ name: 'props-atlas', map: c, normalMap: n, roughnessMap: o, metalnessMap: o, aoMap: o, roughness: 1, metalness: 1 });
+    m.normalScale.set(1, -1);   // glTF-Normalen ohne Tangenten (wie GLTFLoader)
+    const md = m.clone(); md.side = THREE.DoubleSide; md.name = 'props-atlas-d';
+    atlasMats.push({ s: gfx.register(m), d: gfx.register(md) });
+  }
+  const atlasFor = name => { const r = /^atlas:(\d+)(d?)$/.exec(name); const a = r && atlasMats[+r[1]]; return a ? (r[2] ? a.d : a.s) : null; };
   const models = {}; const ids = Object.keys(index); let k = 0;
   for (const id of ids) {
     try {
@@ -49,6 +60,9 @@ export async function loadPropModels(gfx, onProgress = () => {}) {
       gltf.scene.updateMatrixWorld(true);
       gltf.scene.traverse(o => {
         if (!o.isMesh) return;
+        // Platzhalter „atlas:<seite>“ durch das gemeinsame Atlasmaterial ersetzen
+        if (Array.isArray(o.material)) o.material = o.material.map(m => atlasFor(m.name) || m);
+        else o.material = atlasFor(o.material.name) || o.material;
         const mats = Array.isArray(o.material) ? o.material : [o.material];
         for (const m of mats) {
           for (const key of ['map', 'normalMap', 'roughnessMap', 'metalnessMap', 'aoMap', 'emissiveMap']) if (m[key]) m[key].anisotropy = aniso;
@@ -77,9 +91,9 @@ export async function loadPropModels(gfx, onProgress = () => {}) {
     if (opts.node != null) { md = typeof opts.node === 'string' ? md.nodes.find(n => n.name.includes(opts.node)) : md.nodes[opts.node % md.nodes.length]; if (!md) return false; }
     const b = md.box, base = new THREE.Matrix4().makeTranslation(-(b.min.x + b.max.x) / 2, -b.min.y, -(b.min.z + b.max.z) / 2);
     const s = opts.scale ?? 1, full = new THREE.Matrix4().multiplyMatrices(m, new THREE.Matrix4().makeScale(s, s, s)).multiply(base);
-    // Schatten nur für größere Teile: Kontaktschatten kleiner Dinge (Becher, Obst, Stifte) stecken schon im gebackenen Licht,
+    // Schatten nur für Möbel: Kontaktschatten kleinerer Dinge (Becher, Obst, Lampen, Pflanzen) stecken schon im gebackenen Licht,
     // jede schattenwerfende Materialgruppe kostet sonst je Kaskade einen Draw Call
-    const cast = opts.cast ?? (b.max.y - b.min.y) * s > 0.3;
+    const cast = opts.cast ?? (b.max.y - b.min.y) * s > 0.6;   // Möbelgröße (Regale, Schränke, Stühle, Ständer)
     for (const p of md.parts) B.add(p.geometry, p.material, full, { keepUV: true, cast, receive: true });
     return true;
   };

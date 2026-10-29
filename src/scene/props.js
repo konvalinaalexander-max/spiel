@@ -372,7 +372,7 @@ export function buildProps(gfx, hall, plan, opts = {}) {
     // Getränk + Handy + Rucksack am Platz rechts
     mensaCup(onLedge(prow, ps.x + 0.12));
     const phoneMesh = new THREE.Mesh(rbox(0.074, 0.009, 0.155, 0.008), gfx.pbr({ name: 'playerPhone', color: 0x22262b, roughness: 0.3 }));
-    phoneMesh.matrixAutoUpdate = false; phoneMesh.matrix.copy(M4(onDesk(prow, ps.x - 0.27, pzc + 0.04, 0.25), mat(0, 0.0045, 0))); phoneMesh.castShadow = true; scene.add(phoneMesh);
+    phoneMesh.matrixAutoUpdate = false; phoneMesh.matrix.copy(M4(onDesk(prow, ps.x - 0.27, pzc + 0.04, 0.25), mat(0, 0.0045, 0))); phoneMesh.castShadow = false; scene.add(phoneMesh);   // flach: Schatten kaum sichtbar
     player.phone = phoneMesh;
     if (plan.player.k < LY.SEATS - 1) { const rs = LY.seatX(plan.player.k + 1); backpack(mat(rs, LY.rowFloor(prow) + LY.SEAT_H + 0.02, LY.seatZ(prow) - 0.02, -0.15, Math.PI + 0.2, 0), 0x1b4f72, 0x154360); }
     pencilCase(onDesk(prow, ps.x + 0.5, pzc + 0.06, 0.2), 0x7d3c98);
@@ -448,7 +448,7 @@ export function buildProps(gfx, hall, plan, opts = {}) {
   {
     const g = new THREE.Group();
     const boardM = gfx.pbr({ name: 'clipboard', recipe: 'woodDesk', texOpts: { c1: '#a07a4e', c2: '#87643c', size: 256 } });
-    const bd = new THREE.Mesh(rbox(0.23, 0.004, 0.32, 0.004), boardM); bd.position.y = 0.002; bd.castShadow = true; g.add(bd);
+    const bd = new THREE.Mesh(rbox(0.23, 0.004, 0.32, 0.004), boardM); bd.position.y = 0.002; bd.castShadow = false; g.add(bd);
     const sheetM = gfx.pbr({ name: 'listSheet', color: 0xffffff, roughness: 0.9 }); sheetM.map = PM.labels.map;
     const sheetG = atlasUV(new THREE.PlaneGeometry(0.21, 0.29), 10, lab.cols, lab.rows); const sheet = new THREE.Mesh(sheetG, sheetM); sheet.rotation.x = -Math.PI / 2; sheet.position.set(0, 0.0045, 0.01); g.add(sheet);
     const clip = new THREE.Mesh(rbox(0.1, 0.012, 0.03, 0.004), PM.metal.clone()); clip.material.vertexColors = false; clip.material.color.set(0xb0b4ba); gfx.register(clip.material); clip.position.set(0, 0.008, -0.145); g.add(clip);
