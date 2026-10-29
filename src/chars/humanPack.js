@@ -27,7 +27,9 @@ export async function decodeHPK(bytes) {
 /** Geometrie (mit Gruppen 0 = deckend, 1 = Alpha) aus HPK-Daten */
 export function hpkGeometry({ head, arr }) {
   const n = head.vertices, g = new THREE.BufferGeometry();
-  g.setAttribute('position', new THREE.BufferAttribute(arr.position, 3));
+  // Rocketbox-Figuren: Positionen als Int16 (head.posScale), ältere Figuren als Float32
+  const pos = head.posScale ? Float32Array.from(arr.position, v => v * head.posScale) : arr.position;
+  g.setAttribute('position', new THREE.BufferAttribute(pos, 3));
   const nor = new Float32Array(n * 3);
   for (let i = 0; i < n; i++) for (let k = 0; k < 3; k++) nor[i * 3 + k] = arr.normal[i * 4 + k] / 127;
   g.setAttribute('normal', new THREE.BufferAttribute(nor, 3));

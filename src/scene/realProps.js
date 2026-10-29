@@ -77,7 +77,10 @@ export async function loadPropModels(gfx, onProgress = () => {}) {
     if (opts.node != null) { md = typeof opts.node === 'string' ? md.nodes.find(n => n.name.includes(opts.node)) : md.nodes[opts.node % md.nodes.length]; if (!md) return false; }
     const b = md.box, base = new THREE.Matrix4().makeTranslation(-(b.min.x + b.max.x) / 2, -b.min.y, -(b.min.z + b.max.z) / 2);
     const s = opts.scale ?? 1, full = new THREE.Matrix4().multiplyMatrices(m, new THREE.Matrix4().makeScale(s, s, s)).multiply(base);
-    for (const p of md.parts) B.add(p.geometry, p.material, full, { keepUV: true, cast: opts.cast ?? true, receive: true });
+    // Schatten nur für größere Teile: Kontaktschatten kleiner Dinge (Becher, Obst, Stifte) stecken schon im gebackenen Licht,
+    // jede schattenwerfende Materialgruppe kostet sonst je Kaskade einen Draw Call
+    const cast = opts.cast ?? (b.max.y - b.min.y) * s > 0.3;
+    for (const p of md.parts) B.add(p.geometry, p.material, full, { keepUV: true, cast, receive: true });
     return true;
   };
   R.has = id => !!models[id];

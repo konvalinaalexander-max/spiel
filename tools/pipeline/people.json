@@ -40,7 +40,9 @@
   "prof": {
    "avatar": "Male_Adult_03",
    "facial": true,
-   "role": "prof"
+   "role": "prof",
+   "hairTint": "#c9c6bf",
+   "hairTintNote": "Male_Adult_03: Farbkanal der Haartextur ist Kopfhaut statt Haar (Rocketbox „with_opacity_version“) – Farbe aus der Vorschau (hellgrau)"
   },
   "neighbor": {
    "avatar": "Female_Adult_08",
@@ -81,19 +83,12 @@
    "sit_waiting": "sit_table_idle_waiting_01",
    "sit_thoughtful": "sit_table_gestic_thoughtful",
    "sit_shrug": "sit_table_gestic_shrug_01",
-   "sit_down": "xyz:sit_down_table_left",
-   "stand_up": "xyz:sit_stand_up_table_left",
    "idle_1": "idle_neutral_01",
    "idle_2": "idle_neutral_02",
    "idle_look": "idle_look_around_01",
    "walk": "xy:walk_neutral_01",
    "walk_slow": "xy:walk_slow_01",
-   "laugh": "gestic_laugh_low",
-   "clap": "claphands_01",
-   "phone": "cell_phone_textmessage",
-   "sit_nervous": "sit_table_idle_nervous_01",
-   "sit_dust": "sit_table_idle_dust",
-   "wave": "wave_01"
+   "sit_dust": "sit_table_idle_dust"
   },
   "prof": {
    "talk_1": "gestic_talk_neutral_01",
@@ -107,8 +102,6 @@
    "moderate_2": "moderate_02",
    "thoughtful": "gestic_thoughtful_01",
    "shrug": "gestic_shrug_01",
-   "drink": "drink_drinking",
-   "documents": "documents_note",
    "listen": "gestic_listen_neutral_01",
    "idle_3": "idle_neutral_03",
    "idle_scratch": "idle_scratch_head_01",

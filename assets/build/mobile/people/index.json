@@ -1,0 +1,458 @@
+{
+ "people": {
+  "prof": {
+   "verts": 4483,
+   "tris": 7200,
+   "kb": 108,
+   "morphs": 22,
+   "role": "prof",
+   "female": false,
+   "atlas": "prof",
+   "avatar": "Male_Adult_03",
+   "atlasKB": 128,
+   "normalKB": 87
+  },
+  "neighbor": {
+   "verts": 5387,
+   "tris": 8276,
+   "kb": 124,
+   "morphs": 22,
+   "role": "neighbor",
+   "female": true,
+   "atlas": "neighbor",
+   "avatar": "Female_Adult_08",
+   "atlasKB": 129,
+   "normalKB": 92
+  },
+  "tutor": {
+   "verts": 5575,
+   "tris": 8288,
+   "kb": 125,
+   "morphs": 22,
+   "role": "tutor",
+   "female": true,
+   "atlas": "tutor",
+   "avatar": "Female_Adult_05",
+   "atlasKB": 132,
+   "normalKB": 83
+  },
+  "player_a": {
+   "verts": 4577,
+   "tris": 7456,
+   "kb": 97,
+   "morphs": 0,
+   "role": "player",
+   "female": false,
+   "atlas": "player_a",
+   "avatar": "Male_Adult_06",
+   "atlasKB": 222,
+   "normalKB": 59
+  },
+  "player_b": {
+   "verts": 5490,
+   "tris": 8774,
+   "kb": 115,
+   "morphs": 0,
+   "role": "player",
+   "female": true,
+   "atlas": "player_b",
+   "avatar": "Female_Adult_12",
+   "atlasKB": 214,
+   "normalKB": 65
+  },
+  "player_c": {
+   "verts": 4479,
+   "tris": 7428,
+   "kb": 98,
+   "morphs": 0,
+   "role": "player",
+   "female": false,
+   "atlas": "player_c",
+   "avatar": "Male_Adult_09",
+   "atlasKB": 214,
+   "normalKB": 59
+  },
+  "female_adult_01": {
+   "verts": 5436,
+   "tris": 8732,
+   "tris1": 3153,
+   "kb": 127,
+   "morphs": 0,
+   "role": "student",
+   "female": true,
+   "atlas": "crowd_f",
+   "avatar": "Female_Adult_01"
+  },
+  "female_adult_02": {
+   "verts": 5600,
+   "tris": 8940,
+   "tris1": 3171,
+   "kb": 131,
+   "morphs": 0,
+   "role": "student",
+   "female": true,
+   "atlas": "crowd_f",
+   "avatar": "Female_Adult_02"
+  },
+  "female_adult_03": {
+   "verts": 6115,
+   "tris": 9208,
+   "tris1": 3362,
+   "kb": 140,
+   "morphs": 0,
+   "role": "student",
+   "female": true,
+   "atlas": "crowd_f",
+   "avatar": "Female_Adult_03"
+  },
+  "female_adult_04": {
+   "verts": 5845,
+   "tris": 9284,
+   "tris1": 3588,
+   "kb": 135,
+   "morphs": 0,
+   "role": "student",
+   "female": true,
+   "atlas": "crowd_f",
+   "avatar": "Female_Adult_04"
+  },
+  "female_adult_06": {
+   "verts": 4372,
+   "tris": 6992,
+   "tris1": 2545,
+   "kb": 103,
+   "morphs": 0,
+   "role": "student",
+   "female": true,
+   "atlas": "crowd_f",
+   "avatar": "Female_Adult_06"
+  },
+  "female_adult_07": {
+   "verts": 5235,
+   "tris": 8308,
+   "tris1": 3196,
+   "kb": 121,
+   "morphs": 0,
+   "role": "student",
+   "female": true,
+   "atlas": "crowd_f",
+   "avatar": "Female_Adult_07"
+  },
+  "female_adult_09": {
+   "verts": 5712,
+   "tris": 9032,
+   "tris1": 3240,
+   "kb": 130,
+   "morphs": 0,
+   "role": "student",
+   "female": true,
+   "atlas": "crowd_f",
+   "avatar": "Female_Adult_09"
+  },
+  "female_adult_11": {
+   "verts": 6181,
+   "tris": 8896,
+   "tris1": 3197,
+   "kb": 133,
+   "morphs": 0,
+   "role": "student",
+   "female": true,
+   "atlas": "crowd_f",
+   "avatar": "Female_Adult_11"
+  },
+  "female_adult_12": {
+   "verts": 5490,
+   "tris": 8774,
+   "tris1": 3137,
+   "kb": 129,
+   "morphs": 0,
+   "role": "student",
+   "female": true,
+   "atlas": "crowd_f",
+   "avatar": "Female_Adult_12"
+  },
+  "female_adult_13": {
+   "verts": 5661,
+   "tris": 8708,
+   "tris1": 3158,
+   "kb": 130,
+   "morphs": 0,
+   "role": "student",
+   "female": true,
+   "atlas": "crowd_f",
+   "avatar": "Female_Adult_13"
+  },
+  "female_adult_14": {
+   "verts": 5670,
+   "tris": 8724,
+   "tris1": 3171,
+   "kb": 129,
+   "morphs": 0,
+   "role": "student",
+   "female": true,
+   "atlas": "crowd_f",
+   "avatar": "Female_Adult_14"
+  },
+  "female_adult_15": {
+   "verts": 6533,
+   "tris": 9832,
+   "tris1": 3572,
+   "kb": 144,
+   "morphs": 0,
+   "role": "student",
+   "female": true,
+   "atlas": "crowd_f",
+   "avatar": "Female_Adult_15"
+  },
+  "female_adult_17": {
+   "verts": 5211,
+   "tris": 8516,
+   "tris1": 3148,
+   "kb": 124,
+   "morphs": 0,
+   "role": "student",
+   "female": true,
+   "atlas": "crowd_f",
+   "avatar": "Female_Adult_17"
+  },
+  "male_adult_01": {
+   "verts": 4687,
+   "tris": 7440,
+   "tris1": 2668,
+   "kb": 109,
+   "morphs": 0,
+   "role": "student",
+   "female": false,
+   "atlas": "crowd_m",
+   "avatar": "Male_Adult_01"
+  },
+  "male_adult_02": {
+   "verts": 4433,
+   "tris": 7312,
+   "tris1": 2664,
+   "kb": 107,
+   "morphs": 0,
+   "role": "student",
+   "female": false,
+   "atlas": "crowd_m",
+   "avatar": "Male_Adult_02"
+  },
+  "male_adult_04": {
+   "verts": 5448,
+   "tris": 8684,
+   "tris1": 3140,
+   "kb": 127,
+   "morphs": 0,
+   "role": "student",
+   "female": false,
+   "atlas": "crowd_m",
+   "avatar": "Male_Adult_04"
+  },
+  "male_adult_06": {
+   "verts": 4577,
+   "tris": 7456,
+   "tris1": 2705,
+   "kb": 108,
+   "morphs": 0,
+   "role": "student",
+   "female": false,
+   "atlas": "crowd_m",
+   "avatar": "Male_Adult_06"
+  },
+  "male_adult_07": {
+   "verts": 4633,
+   "tris": 7588,
+   "tris1": 2698,
+   "kb": 111,
+   "morphs": 0,
+   "role": "student",
+   "female": false,
+   "atlas": "crowd_m",
+   "avatar": "Male_Adult_07"
+  },
+  "male_adult_08": {
+   "verts": 4482,
+   "tris": 7364,
+   "tris1": 2618,
+   "kb": 106,
+   "morphs": 0,
+   "role": "student",
+   "female": false,
+   "atlas": "crowd_m",
+   "avatar": "Male_Adult_08"
+  },
+  "male_adult_09": {
+   "verts": 4479,
+   "tris": 7428,
+   "tris1": 2639,
+   "kb": 109,
+   "morphs": 0,
+   "role": "student",
+   "female": false,
+   "atlas": "crowd_m",
+   "avatar": "Male_Adult_09"
+  },
+  "male_adult_10": {
+   "verts": 4109,
+   "tris": 6732,
+   "tris1": 2382,
+   "kb": 97,
+   "morphs": 0,
+   "role": "student",
+   "female": false,
+   "atlas": "crowd_m",
+   "avatar": "Male_Adult_10"
+  },
+  "male_adult_11": {
+   "verts": 3997,
+   "tris": 6740,
+   "tris1": 2359,
+   "kb": 100,
+   "morphs": 0,
+   "role": "student",
+   "female": false,
+   "atlas": "crowd_m",
+   "avatar": "Male_Adult_11"
+  },
+  "male_adult_12": {
+   "verts": 4043,
+   "tris": 6722,
+   "tris1": 2352,
+   "kb": 99,
+   "morphs": 0,
+   "role": "student",
+   "female": false,
+   "atlas": "crowd_m",
+   "avatar": "Male_Adult_12"
+  },
+  "male_adult_13": {
+   "verts": 3949,
+   "tris": 6710,
+   "tris1": 2347,
+   "kb": 98,
+   "morphs": 0,
+   "role": "student",
+   "female": false,
+   "atlas": "crowd_m",
+   "avatar": "Male_Adult_13"
+  },
+  "male_adult_14": {
+   "verts": 4090,
+   "tris": 6842,
+   "tris1": 2393,
+   "kb": 100,
+   "morphs": 0,
+   "role": "student",
+   "female": false,
+   "atlas": "crowd_m",
+   "avatar": "Male_Adult_14"
+  },
+  "male_adult_16": {
+   "verts": 4237,
+   "tris": 7064,
+   "tris1": 2472,
+   "kb": 104,
+   "morphs": 0,
+   "role": "student",
+   "female": false,
+   "atlas": "crowd_m",
+   "avatar": "Male_Adult_16"
+  },
+  "male_adult_17": {
+   "verts": 4341,
+   "tris": 7084,
+   "tris1": 2479,
+   "kb": 104,
+   "morphs": 0,
+   "role": "student",
+   "female": false,
+   "atlas": "crowd_m",
+   "avatar": "Male_Adult_17"
+  },
+  "male_adult_18": {
+   "verts": 4043,
+   "tris": 6434,
+   "tris1": 2251,
+   "kb": 97,
+   "morphs": 0,
+   "role": "student",
+   "female": false,
+   "atlas": "crowd_m",
+   "avatar": "Male_Adult_18"
+  },
+  "male_adult_20": {
+   "verts": 4250,
+   "tris": 7120,
+   "tris1": 2490,
+   "kb": 102,
+   "morphs": 0,
+   "role": "student",
+   "female": false,
+   "atlas": "crowd_m",
+   "avatar": "Male_Adult_20"
+  }
+ },
+ "atlases": {
+  "prof": {
+   "w": 1024,
+   "h": 768,
+   "normal": true
+  },
+  "neighbor": {
+   "w": 1024,
+   "h": 768,
+   "normal": true
+  },
+  "tutor": {
+   "w": 1024,
+   "h": 768,
+   "normal": true
+  },
+  "player_a": {
+   "w": 2048,
+   "h": 1024,
+   "normal": true
+  },
+  "player_b": {
+   "w": 2048,
+   "h": 1024,
+   "normal": true
+  },
+  "player_c": {
+   "w": 2048,
+   "h": 1024,
+   "normal": true
+  },
+  "crowd_f": {
+   "w": 2048,
+   "h": 1152,
+   "normal": false,
+   "kb": 421
+  },
+  "crowd_m": {
+   "w": 2048,
+   "h": 1152,
+   "normal": false,
+   "kb": 438
+  }
+ },
+ "clips": {
+  "m": {
+   "file": "clips_m.bin.gz",
+   "clips": 20,
+   "kb": 406
+  },
+  "prof": {
+   "file": "clips_prof.bin.gz",
+   "clips": 18,
+   "kb": 1099
+  },
+  "f": {
+   "file": "clips_f.bin.gz",
+   "clips": 20,
+   "kb": 355
+  }
+ },
+ "profile": "mobile",
+ "license": "Microsoft Rocketbox Avatar Library, MIT License"
+}

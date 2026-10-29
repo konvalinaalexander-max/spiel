@@ -41,7 +41,14 @@ export async function loadLightmaps(gfx, weather) {
 export function applyLightmaps(gfx, hallMeshes, lm, opts = {}) {
   if (!lm) return 0;
   const ao = opts.ao ?? 1, intensity = (opts.intensity ?? 1) * lm.scale;
-  const view = (r, key, T) => new T(lm.uv, r[key][0], r[key][1] / T.BYTES_PER_ELEMENT);
+  // Format 2 (tools/pipeline/lightmap.mjs): Zuordnung/Dreiecke als Uint16-Differenzen, UVs als Uint16; Format 1: Uint32/Float32
+  const f2 = lm.index.uvFormat === 2;
+  const undelta = a => { const out = new Uint32Array(a.length); let v = 0; for (let i = 0; i < a.length; i++) { v = (v + a[i]) & 0xffff; out[i] = v; } return out; };
+  const view = (r, key, T) => {
+    if (!f2) return new T(lm.uv, r[key][0], r[key][1] / T.BYTES_PER_ELEMENT);
+    const a = new Uint16Array(lm.uv, r[key][0], r[key][1]);
+    return key === 'uv' ? Float32Array.from(a, v => v / 65535) : undelta(a);
+  };
   const mats = new Map(); let n = 0;
   for (const r of lm.index.receivers) {
     const mesh = hallMeshes[r.index], map = lm.maps[r.atlas];

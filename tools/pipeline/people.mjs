@@ -33,7 +33,7 @@ const M = profile === 'mobile' ? 0.5 : 1;
 const cfg = JSON.parse(fs.readFileSync(path.join(root, 'tools/pipeline/people.json'), 'utf8'));
 const SRC = path.join(root, 'assets/src/rocketbox');
 const OUT = path.join(root, 'assets/build', profile, 'people'); fs.mkdirSync(OUT, { recursive: true });
-const FPS = 20, MAXLEN = { loop: 24 };
+const FPS_SET = profile === 'mobile' ? { prof: 15, m: 12, f: 12 } : { prof: 20, m: 15, f: 15 }, MAXLEN = { loop: 24 };   // Sitzen/Stehen ruhig genug für 15 (mobil 12) Bilder/s; wird zur Laufzeit interpoliert
 
 const loadFBX = f => { const b = fs.readFileSync(f); return new FBXLoader().parse(b.buffer.slice(b.byteOffset, b.byteOffset + b.byteLength), ''); };
 const FACE = /Eye|Jaw|Lip|Mouth|Cheek|brow|Brow|Nose|Masseter|Caninus|Tongue|Blink/;
@@ -56,14 +56,15 @@ const PAD = 3;
 const quiet = async fn => { const l = console.log; console.log = () => {}; try { return await fn(); } finally { console.log = l; } };
 const enc = (png, o) => quiet(() => encodeToKTX2(new Uint8Array(png), { generateMipmap: true, qualityLevel: 200, compressionLevel: 2, needSupercompression: true, isKTX2File: true,
   imageDecoder: async b => { const { data, info } = await sharp(b).ensureAlpha().raw().toBuffer({ resolveWithObject: true }); return { data: new Uint8Array(data), width: info.width, height: info.height }; }, ...o }));
-async function writeAtlas(file, w, h, composites, normal) {
-  const png = await sharp({ create: { width: w, height: h, channels: 4, background: normal ? { r: 128, g: 128, b: 255, alpha: 1 } : { r: 120, g: 105, b: 95, alpha: 0 } } }).composite(composites).png().toBuffer();
+async function writeAtlas(file, w, h, composites, normal, scale = 1) {
+  let png = await sharp({ create: { width: w, height: h, channels: 4, background: normal ? { r: 128, g: 128, b: 255, alpha: 1 } : { r: 120, g: 105, b: 95, alpha: 0 } } }).composite(composites).png().toBuffer();
+  if (scale !== 1) png = await sharp(png).resize(Math.round(w * scale), Math.round(h * scale), { kernel: 'lanczos3' }).png().toBuffer();   // UVs sind normiert
   if (args.includes('--png')) fs.writeFileSync(file.replace('.ktx2', '.png'), png);
   const k = await enc(png, normal ? { isUASTC: false, isNormalMap: true, isSetKTX2SRGBTransferFunc: false } : { isUASTC: false, isSetKTX2SRGBTransferFunc: true });
   fs.writeFileSync(file, k); return Math.round(k.length / 1024);
 }
 // Kachel aus einer Textur: verkleinert, mit Randverlängerung (Rand = Nachbarpixel, damit Mipmaps nicht ausbluten)
-async function tile(file, s, keepAlpha) {
+async function tile(file, s, keepAlpha, tint = null) {
   const inner = s - 2 * PAD;
   let img;
   if (keepAlpha) {
@@ -73,6 +74,12 @@ async function tile(file, s, keepAlpha) {
     // sonst); (4) durchsichtige Bereiche noch einmal ausbluten (saubere Mipmaps).
     const { data: full, info } = await sharp(file).ensureAlpha().raw().toBuffer({ resolveWithObject: true });
     let cov0 = 0; for (let i = 3; i < full.length; i += 4) if (full[i] >= 128) cov0++; cov0 /= full.length / 4;
+    if (tint) {   // Haarfarbe ersetzen, Helligkeitsverlauf der Strähnen behalten
+      const t = [1, 3, 5].map(k => parseInt(tint.slice(k, k + 2), 16)); let sum = 0, n = 0;
+      for (let i = 0; i < full.length; i += 4) if (full[i + 3] >= 128) { sum += full[i] + full[i + 1] + full[i + 2]; n++; }
+      const mean = sum / Math.max(1, n) || 1;
+      for (let i = 0; i < full.length; i += 4) { const k = Math.min(1.3, Math.max(0.6, (full[i] + full[i + 1] + full[i + 2]) / mean)); for (let c = 0; c < 3; c++) full[i + c] = Math.min(255, Math.round(t[c] * k)); }
+    }
     bleedRGBA(full, info.width, info.height, 128, Math.ceil(Math.max(info.width, info.height) / inner) * 3);
     const small = await sharp(full, { raw: { width: info.width, height: info.height, channels: 4 } }).resize(inner, inner, { kernel: 'lanczos3' }).raw().toBuffer();
     const cover = k => { let n = 0; for (let i = 3; i < small.length; i += 4) if (small[i] * k >= 128) n++; return n / (small.length / 4); };
@@ -219,7 +226,7 @@ async function writeHPK(fig, cls, atlasKey, place, AW, AH, normalMap, opts) {
   }
   const nv = pos.length / 3, big = nv > 65535;
   const bufs = [
-    ['position', new Float32Array(pos)],
+    ['position', Int16Array.from(pos, v => Math.max(-32767, Math.min(32767, Math.round(v * 16384))))],   // 1/16384 m ≈ 0,06 mm, ±2 m
     ['normal', Int8Array.from(Array.from({ length: nv * 4 }, (_, i) => (i % 4 === 3 ? 0 : Math.round(Math.max(-1, Math.min(1, nor[(i >> 2) * 3 + (i % 4)])) * 127))))],
     ['uv', Uint16Array.from(uv.map(x => Math.round(Math.max(0, Math.min(1, x)) * 65535)))],
     ['joints', Uint8Array.from(jn)], ['weights', quantWeights(wt)],
@@ -235,7 +242,7 @@ async function writeHPK(fig, cls, atlasKey, place, AW, AH, normalMap, opts) {
     bufs.push(['m' + k + 'i', vi], ['m' + k + 'd', d]); morphs.push({ name, i: 'm' + k + 'i', d: 'm' + k + 'd', scale: 1e-4 });
   });
   const head = { id: fig.id, role: opts.role || 'student', class: cls, female: !!opts.female, height: +fig.height.toFixed(3), rocketbox: true, avatar: fig.avatar,
-    joints: fig.joints, parents: fig.parents, rest: fig.rest, alias: ALIAS, fingers: 'full', vertices: nv, groups, groups1, atlas: atlasKey, normalMap: !!normalMap, morphs, buffers: [] };
+    joints: fig.joints, parents: fig.parents, rest: fig.rest, alias: ALIAS, fingers: 'full', vertices: nv, posScale: 1 / 16384, groups, groups1, atlas: atlasKey, normalMap: !!normalMap, morphs, buffers: [] };
   let off = 0; for (const [name, a] of bufs) { head.buffers.push({ name, type: a.constructor.name, offset: off, length: a.length }); off += Math.ceil(a.byteLength / 4) * 4; }
   const json = Buffer.from(JSON.stringify(head)); const jl = Math.ceil(json.length / 4) * 4;
   const file = Buffer.alloc(8 + jl + off); file.write('HPK1', 0); file.writeUInt32LE(jl, 4); json.copy(file, 8); file.fill(32, 8 + json.length, 8 + jl);
@@ -249,6 +256,7 @@ async function writeHPK(fig, cls, atlasKey, place, AW, AH, normalMap, opts) {
 // Spuren der Knochen sind lokal (wie im Skelett der Figur). Wurzel „Bip01“: in der FBX-Datei hängt sie unter dem Szenenknoten
 // (Maßstab 0,01, ggf. Achsendrehung) → hier in den Raum des Spiels (Eltern = Container ohne Drehung) umgerechnet.
 function encodeClips(set, list, rootFix, restOf) {
+  const FPS = FPS_SET[set] || 20;
   // CLP2: Spuren als Int16 (Drehung ×32767, Position ×10⁴ m), je Komponente als Differenz zum Vorbild (gzip packt das deutlich besser)
   const delta16 = (a, n) => { const d = new Int16Array(a.length); for (let i = 0; i < a.length; i++) d[i] = i < n ? a[i] : a[i] - a[i - n]; return d; };
   const header = { fps: FPS, clips: [] }; const chunks = []; let off = 0;
@@ -307,12 +315,13 @@ for (const [id, h] of Object.entries(cfg.heroes)) {
   const comp = [], compN = [];
   for (const t of pk.tiles) {
     const tex = k => path.join(fig.dir, 'Textures', `${fig.stem}_${k}.png`);
-    comp.push({ ...(await tile(tex(t.k === 'opacity' ? 'opacity_color' : t.k + '_color'), t.s, t.k === 'opacity')), left: t.x, top: t.y });
+    comp.push({ ...(await tile(tex(t.k === 'opacity' ? 'opacity_color' : t.k + '_color'), t.s, t.k === 'opacity', t.k === 'opacity' ? h.hairTint : null)), left: t.x, top: t.y });
     if (t.k !== 'opacity' && fs.existsSync(tex(t.k + '_normal'))) compN.push({ ...(await tile(tex(t.k + '_normal'), t.s, false)), left: t.x, top: t.y });
   }
   const r = await writeHPK(fig, 'hero', id, place, W, pk.h, compN.length > 0, { role: h.role, female });
   const kc = await writeAtlas(path.join(OUT, id + '_c.ktx2'), W, pk.h, comp, false);
-  const kn = compN.length ? await writeAtlas(path.join(OUT, id + '_n.ktx2'), W, pk.h, compN, true) : 0;
+  // Spielfigur: Normalen in halber Auflösung (Farbe bleibt voll für die Hände direkt vor der Kamera; spart ~0,5 MB je Figur)
+  const kn = compN.length ? await writeAtlas(path.join(OUT, id + '_n.ktx2'), W, pk.h, compN, true, player ? 0.5 : 1) : 0;
   index.people[id] = { ...r, role: h.role, female, atlas: id, avatar: h.avatar, atlasKB: kc, normalKB: kn };
   index.atlases[id] = { w: W, h: pk.h, normal: kn > 0 };
   console.log(`✓ ${id.padEnd(9)} ${h.avatar.padEnd(16)} ${r.verts} Vertices, ${r.tris} Dreiecke, ${r.morphs} Gesichtsformen, ${r.kb} KB, Atlas ${kc} KB, Normalen ${kn} KB`);

@@ -43,7 +43,7 @@ export const SIT_POOLS = {
   sleep: ['sit_relaxed'],
   player: ['sit_breathe']   // eigene Figur (Ich-Perspektive): ruhig, die Kamera hängt an den Augen
 };
-const SIT_FIDGETS = ['sit_look', 'sit_yawn', 'sit_scratch', 'sit_face', 'sit_hair', 'sit_roll_head', 'sit_cough', 'sit_shrug', 'sit_nervous', 'sit_dust', 'sit_thoughtful'];
+const SIT_FIDGETS = ['sit_look', 'sit_yawn', 'sit_scratch', 'sit_face', 'sit_hair', 'sit_roll_head', 'sit_cough', 'sit_shrug', 'sit_dust', 'sit_thoughtful'];
 const STAND_POOL = ['idle_1', 'idle_2', 'idle_look'];
 
 export class ClipCharacter {

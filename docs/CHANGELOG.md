@@ -7,9 +7,19 @@
 - Folie aus Reihe 5: Texterkennung 88,9 % statt 62,2 %, Kantenschärfe 4,3-fach; Laptop 98,1 % statt 62,1 % (`docs/SCHAERFE.md`).
 - Laptop-Blick: Teile der eigenen Figur direkt vor der Kamera werden ausgeblendet (vorher verdeckte der Unterarm Text).
 
-**Menschen**
-- Alle Figuren aus MakeHuman/MPFB (CC0): 16 Typen für die Menge, Prof, Nachbarin, Tutorin, drei Spielfiguren mit echten,
-  voll gegliederten Händen. Verdeckte Haut per Strahltest entfernt, Detailstufen für die Menge, Atlanten als KTX2.
+**Menschen (überarbeitet: Microsoft Rocketbox + Motion Capture)**
+- Rückmeldung „Figuren wirken steif, seltsam, keine echten Animationen, komische Hände“: Alle Menschen stammen jetzt aus der
+  Microsoft Rocketbox Avatar Library (MIT) – 29 Figuren für die Menge, Prof, Nachbarin, Tutorin, drei Spielfiguren – und
+  bewegen sich mit den Motion-Capture-Aufnahmen derselben Bibliothek: Sitzen am Tisch (Atmen, Umschauen, Gähnen, Kopf
+  kratzen, Haare richten, Husten, Achselzucken …), Stehen, Gehen, Sprechgesten und Präsentieren für den Prof.
+  Finger, Handgelenke und Schultern kommen aus echten Aufnahmen statt aus gerechneten Posen.
+- Darüber nur, was das Spiel steuern muss: Blick mit Sakkaden, Hand-IK (Tastatur, Stift, Hand heben, Kreide, Pult),
+  Vorbeugen, Nicken, Lachen; Gesichter von Prof, Nachbarin und Tutorin mit echten Gesichtsformen (Visemes, Blinzeln,
+  Brauen), Studierende blinzeln und sprechen über Lid- und Kieferknochen.
+- Haar: Die Haarkarten einiger Figuren hatten nach innen zeigende Normalen – im Bild ein metallisch glänzender „Schädel“
+  durch die Frisur. Normalen jetzt nach außen gekämmt, Strähnenfarbe in transparente Bereiche ausgeblutet, Deckung beim
+  Verkleinern erhalten, Haar ohne Spiegelglanz an den Kartenkanten.
+- Ältere Fassung: MakeHuman/MPFB (CC0), weiterhin als Rückfallebene im Werkzeug (`--old-humans`).
 - Mundformen beim Sprechen: Prof und Nachbarin haben Lippenknochen (Ober-/Unterlippe, Mundwinkel); acht Mundformen
   (Ruhe, A, E, I, O, U, F/V, M/B/P) werden aus dem gesprochenen Text gebildet und über die Lautstärke der Aufnahme verteilt.
   Auch Nachbarin, Studierende und Tutorin bewegen jetzt beim Sprechen den Mund.
@@ -28,7 +38,7 @@
 
 **Licht**
 - Gebackenes Licht aus Blender/Cycles: indirektes Licht der Deckenleuchten, des Himmels und der Sonne plus
-  Umgebungsverdeckung auf allen Saalflächen (vier Atlanten, entrauscht, Wettervarianten sonnig/bewölkt).
+  Umgebungsverdeckung auf allen Saalflächen (vier Atlanten à 2048², entrauscht, Wettervarianten sonnig/bewölkt).
 
 **Stimme (Entscheidung des Auftraggebers: Deutsch reicht)**
 - Vertont wird vollständig auf Deutsch; Englisch bleibt als Textfassung, nur teilweise vertont.

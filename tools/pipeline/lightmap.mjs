@@ -26,20 +26,38 @@ if (args.includes('--bake')) {
 const meta = JSON.parse(fs.readFileSync(path.join(OUT, 'uv.json'), 'utf8'));
 const quiet = async fn => { const l = console.log; console.log = () => {}; try { return await fn(); } finally { console.log = l; } };
 const enc = png => quiet(() => encodeToKTX2(new Uint8Array(png), {
-  generateMipmap: true, qualityLevel: 230, compressionLevel: 2, needSupercompression: true, isKTX2File: true, isUASTC: false, isSetKTX2SRGBTransferFunc: true,
+  generateMipmap: true, qualityLevel: +(process.env.LMQ || 230), compressionLevel: 2, needSupercompression: true, isKTX2File: true, isUASTC: false, isSetKTX2SRGBTransferFunc: true,
   imageDecoder: async b => { const { data, info } = await sharp(b).ensureAlpha().raw().toBuffer({ resolveWithObject: true }); return { data: new Uint8Array(data), width: info.width, height: info.height }; }
 }));
+// UV-Daten kompakt (Format 2): Vertexzuordnung und Dreiecke als Uint16-Differenzen, Lightmap-UVs als Uint16 (1/65535 Atlas ≈ 0,03 px)
+function compactUV() {
+  const src = fs.readFileSync(path.join(OUT, 'uv.bin')), parts = [], receivers = []; let off = 0;
+  const add = a => { const b = Buffer.from(a.buffer, a.byteOffset, a.byteLength); const o = off; parts.push(b); off += b.length; if (off % 4) { parts.push(Buffer.alloc(4 - (off % 4))); off += 4 - (off % 4); } return [o, a.length]; };
+  const delta = a => { const d = new Uint16Array(a.length); let prev = 0; for (let i = 0; i < a.length; i++) { d[i] = (a[i] - prev) & 0xffff; prev = a[i]; } return d; };
+  for (const r of meta.receivers) {
+    const view = (key, T) => new T(src.buffer.slice(src.byteOffset + r[key][0], src.byteOffset + r[key][0] + r[key][1]));
+    const map = view('map', Uint32Array), uv = view('uv', Float32Array), idx = view('idx', Uint32Array);
+    if (r.verts > 65535 || r.newVerts > 65535) throw new Error('Format 2 braucht < 65536 Vertices je Empfänger');
+    receivers.push({ ...r, map: add(delta(map)), uv: add(Uint16Array.from(uv, v => Math.round(Math.max(0, Math.min(1, v)) * 65535))), idx: add(delta(idx)) });
+  }
+  return { bin: Buffer.concat(parts), receivers };
+}
+const uvData = compactUV();
+const uvOnly = process.argv.includes('--uv-only');   // nur UV-Daten neu schreiben, Atlanten behalten
 for (const profile of ['desktop', 'mobile']) {
-  const dir = path.join(root, 'assets/build', profile, 'lightmap'); fs.rmSync(dir, { recursive: true, force: true }); fs.mkdirSync(dir, { recursive: true });
+  const dir = path.join(root, 'assets/build', profile, 'lightmap');
+  if (!uvOnly) { fs.rmSync(dir, { recursive: true, force: true }); fs.mkdirSync(dir, { recursive: true }); }
   const size = profile === 'mobile' ? meta.size / 2 : meta.size;
   const files = [];
   for (const w of Object.keys(meta.weather)) for (let k = 0; k < meta.atlases; k++) {
     const src = path.join(OUT, `lm_${w}_${k}.png`); if (!fs.existsSync(src)) continue;
+    const name = `lm_${w}_${k}.ktx2`; files.push(name);
+    if (uvOnly) continue;
     const png = await sharp(src).resize(size, size, { kernel: 'lanczos3' }).png().toBuffer();
-    const name = `lm_${w}_${k}.ktx2`; const k2 = await enc(png); fs.writeFileSync(path.join(dir, name), k2); files.push(name);
+    const k2 = await enc(png); fs.writeFileSync(path.join(dir, name), k2);
   }
-  fs.writeFileSync(path.join(dir, 'uv.bin.gz'), zlib.gzipSync(fs.readFileSync(path.join(OUT, 'uv.bin')), { level: 9 }));
-  const index = { size, atlases: meta.atlases, weather: meta.weather, samples: meta.samples, aoSamples: meta.aoSamples, receivers: meta.receivers, files };
+  fs.writeFileSync(path.join(dir, 'uv.bin.gz'), zlib.gzipSync(uvData.bin, { level: 9 }));
+  const index = { size, atlases: meta.atlases, weather: meta.weather, samples: meta.samples, aoSamples: meta.aoSamples, uvFormat: 2, receivers: uvData.receivers, files };
   fs.writeFileSync(path.join(dir, 'index.json'), JSON.stringify(index));
   const kb = files.reduce((a, f) => a + fs.statSync(path.join(dir, f)).size, 0) / 1024;
   console.log(`✓ ${profile}: ${files.length} Lightmaps ${size}², ${kb.toFixed(0)} KB + UVs ${(fs.statSync(path.join(dir, 'uv.bin.gz')).size / 1024).toFixed(0)} KB`);
