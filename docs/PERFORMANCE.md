@@ -1,5 +1,24 @@
 # Performance
 
+## Version 3: Szene, Budgets, Speicher (Stand Lieferung B in Arbeit)
+
+Gemessen headless (SwiftShader, Stufe „Mittel“, Sitzplatz Reihe 5) mit einem Szenen-Zähler über alle sichtbaren Meshes.
+
+| Größe | Wert | Budget „Mittel“ | Maßnahme |
+|---|---|---|---|
+| sichtbare Dreiecke | ≈ 0,66 Mio. | – | Menge mit Detailstufe 1 (≈ 30 % der Dreiecke) außer den direkten Sitznachbar:innen |
+| Schattenwerfer | ≈ 0,41 Mio. | – | Schatten nur für Figuren in der Nähe des eigenen Platzes |
+| Dreiecke je Bild (Hauptpass + 2 Kaskaden) | ≈ 1,5 Mio. | ≤ 1,5 Mio. | vorher ≈ 3,5 Mio.; die Menge allein hatte 0,7 Mio. sichtbar |
+| Requisiten | 30 Modelle, verschmolzen je Material | – | Batcher: gleiches Material = ein Draw Call |
+| Desktop-Datei | ≈ 52 MB + Stimmen-Begleitdateien | ≤ 80 MB (Ziel) | Stimmen ausgelagert (GitHub-Grenze 100 MB je Datei) |
+| Mobil-Kern | ≈ 23 MB | ≤ 30 MB | Profil `mobile`: Atlanten und Texturen halbiert, Stimmen bei Bedarf |
+
+**Speicher im Test-Container:** Bei 3840 × 2160 Pixeln (DPR 2) wird der Software-Renderer wegen Speichermangel beendet. Auf echten
+Grafikchips gilt das nicht; die Grenze betrifft nur die Messung (`docs/SCHAERFE.md`).
+
+**Tafel:** Teil-Uploads der Kreideschrift und das Nachziehen der Mipmaps laufen nur noch direkt vor einem gezeichneten Bild
+(vorher in jedem Simulationsschritt). Das spart im Spiel GPU-Arbeit und verhinderte im Headless-Test ein Speicherleck.
+
 ## Messumgebung – ehrlich vorweg
 
 Die Entwicklungsumgebung hat **keine GPU**. Gerendert und gemessen wurde in Chromium (headless) mit **SwiftShader**

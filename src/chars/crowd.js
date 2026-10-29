@@ -4,6 +4,7 @@ import * as THREE from 'three';
 import { mergeGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils.js';
 import { buildCharacter } from './rig.js';
 import { Character } from './character.js';
+import { makeVisemeTrack } from './visemes.js';
 import { TUTOR_SPEC } from '../game/population.js';
 import * as LY from '../scene/layout.js';
 import { makeRng, damp, clamp } from '../core/util.js';
@@ -144,6 +145,17 @@ export class Crowd {
   breakEnd() { for (const st of this.list) if (st.leaving) st.leaving.returning = true; }
   latecomerEnter() { const st = this.late; st.present = true; this._show(st.rig, true); st.c.visible = true; st.c.mode = 'stand'; st.c.sitBlend = 0; st.c.placeAt(LY.BACK_DOOR.x, LY.BACK_DOOR.z - 0.35, Math.PI); st.walk = this._pathToSeat(st.s.seat); st.c.standUp(); }
   studentLeave(id) { const st = this.byId.get(id); if (st && st.present) st.leaving = { stage: 'stand', t: 0, forever: true }; }
+  /** Sprechen einer Figur (Nachbarin, Studierende, Tutorin): Dauer, Lautstärkekurve der Aufnahme und Text → Mund */
+  say(id, dur, env = null, text = null, lang = 'de') {
+    const c = id === 'tutor' ? this.tutor : this.byId.get(id)?.c; if (!c || !(dur > 0)) return;
+    c.speech = { t0: this.t, dur, env, vis: text && c.rig.bones.lipUp ? makeVisemeTrack(text, lang, dur, env) : null };
+  }
+  _speech(c) {
+    const sp = c.speech; if (!sp) return;
+    const u = this.t - sp.t0;
+    if (u > sp.dur) { c.speech = null; c.talkTarget = 0; c.talkEnvValue = null; c.talkVis = null; return; }
+    c.talkTarget = 1; c.talkEnvValue = sp.env ? sp.env(u) : null; c.talkVis = sp.vis ? sp.vis(u) : null;
+  }
   tutorShow(on) { this.tutor.visible = on; this.tutor.rig.mesh.visible = on; }
   _pathToSeat(seat) {
     const ax = LY.nearestAisleX(seat.x);
@@ -171,9 +183,10 @@ export class Crowd {
       if (st.lod < interval) continue;
       const ddt = st.lod; st.lod = 0;
       this._behave(st, ddt, t, ctx);
+      this._speech(st.c);
       st.c.update(ddt, t);
     }
-    if (this.tutor.visible) { this._tutor(dt, t, ctx); this.tutor.update(dt, t); }
+    if (this.tutor.visible) { this._tutor(dt, t, ctx); this._speech(this.tutor); this.tutor.update(dt, t); }
   }
   _behave(st, dt, t, ctx) {
     const c = st.c, s = st.s, p = s.profile;

@@ -20,6 +20,20 @@ import { NodeIO } from '@gltf-transform/core';
 import { ALL_EXTENSIONS } from '@gltf-transform/extensions';
 import { encodeToKTX2 } from 'ktx2-encoder';
 
+/** Gewichte je Vertex auf u8 so runden, dass die Summe genau 255 ergibt (größte Reste zuerst). three.js normiert beim Skinning
+ *  nicht: Summe 254 statt 255 zieht den Vertex um 1/255 seines Abstands zum Ursprung heran (≈ 4 mm am Kopf) → Zacken im Gesicht. */
+function quantWeights(wt) {
+  const out = new Uint8Array(wt.length);
+  for (let v = 0; v < wt.length; v += 4) {
+    const raw = [0, 1, 2, 3].map(k => wt[v + k] * 255), fl = raw.map(Math.floor);
+    let rest = 255 - fl.reduce((a, b) => a + b, 0);
+    const order = [0, 1, 2, 3].sort((a, b) => (raw[b] - fl[b]) - (raw[a] - fl[a]) || raw[b] - raw[a]);
+    for (const k of order) { if (rest <= 0) break; fl[k]++; rest--; }
+    for (let k = 0; k < 4; k++) out[v + k] = fl[k];
+  }
+  return out;
+}
+
 const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), '../..');
 const args = process.argv.slice(2);
 const opt = k => (args.includes('--' + k) ? args[args.indexOf('--' + k) + 1] : null);
@@ -162,7 +176,7 @@ async function packFigure(h, region, atlasC, atlasN, atlasKey) {
     ['normal', Int8Array.from(Array.from({ length: nv * 4 }, (_, i) => (i % 4 === 3 ? 0 : Math.round(Math.max(-1, Math.min(1, nor[(i >> 2) * 3 + (i % 4)])) * 127))))],
     ['uv', Uint16Array.from(uv.map(x => Math.round(Math.max(0, Math.min(1, x)) * 65535)))],
     ['joints', Uint8Array.from(jn)],
-    ['weights', Uint8Array.from(wt.map(x => Math.round(x * 255)))],
+    ['weights', quantWeights(wt)],
     ['surf', Uint8Array.from(surf.map((x, i) => (i % 4 === 2 ? x : Math.round(x * 255))))],
     ['index', big ? Uint32Array.from(idx) : Uint16Array.from(idx)]
   ];

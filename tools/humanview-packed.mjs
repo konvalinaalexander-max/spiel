@@ -20,7 +20,11 @@ const page = await browser.newPage({ viewport: { width: 900, height: 1200 } });
 page.on('pageerror', e => console.log('pageerror', e.message));
 page.on('console', m => { if (m.type() === 'error') console.log('console', m.text().slice(0, 300)); });
 await page.goto('file://' + html);
+if (process.env.NOSHADOW) await page.evaluate(() => { globalThis.NOSHADOW = true; });
+if (process.env.NOVIS) await page.evaluate(() => { globalThis.NOVIS = true; });
+if (process.env.CPUSKIN) await page.evaluate(() => { globalThis.CPUSKIN = true; });
 const shots = await page.evaluate(i => window.run(i), ids);
+for (const [k, v] of Object.entries(shots)) if (k.startsWith('__debug')) { console.log(k, v); delete shots[k]; }
 for (const [k, v] of Object.entries(shots)) fs.writeFileSync(path.join(out, k.replace(':', '_') + '.png'), Buffer.from(v.split(',')[1], 'base64'));
 console.log('✓', Object.keys(shots).join(', '), '→', out);
 await browser.close();

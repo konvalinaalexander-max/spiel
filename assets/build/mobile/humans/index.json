@@ -5,7 +5,7 @@
    "class": "hero",
    "verts": 26515,
    "tris": 45780,
-   "kb": 661,
+   "kb": 663,
    "wrapped": 0,
    "tiles": {
     "body:body": 512,
@@ -29,7 +29,7 @@
    "class": "player",
    "verts": 22941,
    "tris": 41536,
-   "kb": 624,
+   "kb": 623,
    "wrapped": 0,
    "tiles": {
     "body:body": 1024,
@@ -72,7 +72,7 @@
    "class": "player",
    "verts": 24625,
    "tris": 42700,
-   "kb": 654,
+   "kb": 653,
    "wrapped": 0,
    "tiles": {
     "body:body": 1024,
@@ -93,7 +93,7 @@
    "class": "hero",
    "verts": 33573,
    "tris": 57422,
-   "kb": 851,
+   "kb": 853,
    "wrapped": 0,
    "tiles": {
     "body:body": 512,
@@ -164,7 +164,7 @@
    "verts": 8839,
    "tris": 13442,
    "tris1": 4776,
-   "kb": 243,
+   "kb": 242,
    "wrapped": 0,
    "tiles": {
     "eyebrow011:eyebrow": 32,
@@ -190,7 +190,7 @@
    "verts": 8977,
    "tris": 13488,
    "tris1": 4594,
-   "kb": 218,
+   "kb": 217,
    "wrapped": 0,
    "tiles": {
     "afro01:hair": 128,
@@ -268,7 +268,7 @@
    "verts": 9821,
    "tris": 15934,
    "tris1": 5339,
-   "kb": 277,
+   "kb": 276,
    "wrapped": 0,
    "tiles": {
     "bob02:hair": 128,
@@ -396,7 +396,7 @@
    "verts": 8812,
    "tris": 13084,
    "tris1": 4577,
-   "kb": 238,
+   "kb": 237,
    "wrapped": 0,
    "tiles": {
     "eyebrow001:eyebrow": 32,
@@ -524,7 +524,7 @@
    "verts": 7272,
    "tris": 12455,
    "tris1": 4231,
-   "kb": 207,
+   "kb": 206,
    "wrapped": 0,
    "tiles": {
     "eyebrow003:eyebrow": 32,

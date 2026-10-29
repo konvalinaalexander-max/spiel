@@ -70,7 +70,8 @@
      0.28,
      0.2
     ]
-   }
+   },
+   "face": "full"
   },
   {
    "id": "player_a",
@@ -193,7 +194,8 @@
    "clothes": [
     "female_elegantsuit01/female_elegantsuit01.mhclo",
     "toigo_flats/toigo_flats.mhclo"
-   ]
+   ],
+   "face": "full"
   },
   {
    "id": "tutor",

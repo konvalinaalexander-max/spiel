@@ -232,7 +232,7 @@ export class Game {
       const clip = A.speakClip({ speaker: 'prof', tpl, vars, pos: this.profView.char.headWorld(V()), gain: d.kind === 'whisper' ? 0.5 : 0.95 });
       const dur = clip ? clip.dur : A.speak(d.text, { gain: d.kind === 'whisper' ? 0.5 : 0.95 });
       this.speech = { start: this.t, est: dur };
-      this.profView.say(clip ? clip.dur : (d.dur || dur), clip ? clip.env : null);
+      this.profView.say(clip ? clip.dur : (d.dur || dur), clip ? clip.env : null, d.text, getLang());
       if (d.kind === 'alert') this.player.startle = 1;
     } else {
       if (sp === 'neighbor') pos = W.crowd.byId.get(W.plan.neighbor.id)?.c.headWorld(V());
@@ -242,6 +242,9 @@ export class Game {
       const who = sp === 'neighbor' ? 'neighbor' : 'student_' + (female ? 'f' : 'm');
       const clip = A.speakClip({ speaker: who, tpl, vars, pos, gain: d.kind === 'whisper' ? 0.6 : 0.8 });
       if (!clip && A.voiceMode === 'murmur') A.voice(d.text, { pos, gain: d.kind === 'whisper' ? 0.55 : 0.7, whisper: d.kind === 'whisper', f0: female ? 205 : 125, dur: d.dur });
+      // Mund der sprechenden Figur (Lautstärkekurve der Aufnahme, Mundformen aus dem Text)
+      const speakerId = sp === 'neighbor' ? W.plan.neighbor.id : sp === 'tutor' ? 'tutor' : d.who;
+      if (speakerId) W.crowd.say(speakerId, clip ? clip.dur : (d.dur || 2), clip ? clip.env : null, d.text, getLang());
     }
     this.hud.say(sp, d.text, d.dur || 2, d.kind);
   }

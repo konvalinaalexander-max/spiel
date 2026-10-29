@@ -324,6 +324,11 @@ for s in 'LR':
         for n in (2, 3, 4, 5):
             G += [(f'f{n}a{s}', f'hand{s}', f'finger{n}-1.{s}'), (f'f{n}b{s}', f'f{n}a{s}', f'finger{n}-2.{s}'), (f'f{n}c{s}', f'f{n}b{s}', f'finger{n}-3.{s}')]
 
+# Lippen (nur Hauptfiguren mit "face": "full"): Ober-/Unterlippe und Mundwinkel für Mundformen beim Sprechen
+face_full = spec.get('face') == 'full'
+if face_full:
+    G += [('lipLow', 'jaw', 'oris02'), ('lipUp', 'head', 'oris06'), ('lipCL', 'head', 'levator05.L'), ('lipCR', 'head', 'levator05.R')]
+
 # MakeHuman-Knochen → Spielknochen (Rest über die Vorfahren)
 EXPL = {'root': 'hips', 'pelvis.L': 'hips', 'pelvis.R': 'hips', 'spine05': 'hips', 'spine04': 'spine', 'spine03': 'spine',
         'spine02': 'chest', 'spine01': 'chest', 'neck01': 'neck', 'neck02': 'neck', 'neck03': 'neck', 'head': 'head', 'jaw': 'jaw'}
@@ -341,6 +346,10 @@ for s in 'LR':
     for n in (2, 3, 4, 5):
         for j, seg in ((1, 'a'), (2, 'b'), (3, 'c')):
             EXPL[f'finger{n}-{j}.{s}'] = f'f{n}{seg}{s}' if full else f'fingers{s}'
+if face_full:
+    for n in ('oris01', 'oris02', 'oris06.L', 'oris07.L', 'oris06.R', 'oris07.R'): EXPL[n] = 'lipLow'
+    for n in ('oris03.L', 'oris04.L', 'oris03.R', 'oris04.R', 'oris05', 'oris06'): EXPL[n] = 'lipUp'
+    EXPL['levator05.L'] = 'lipCL'; EXPL['levator05.R'] = 'lipCR'
 MAP = {}
 for b in rig.data.bones:
     x = b
@@ -364,6 +373,7 @@ for name, parent, src in G:
     if parent: eb.parent = arm.edit_bones[parent]
 bpy.ops.object.mode_set(mode='OBJECT')
 
+PARENT = {name: parent for name, parent, _ in G}
 stats = {}
 for o in meshes:
     groups = {g.index: g.name for g in o.vertex_groups}
@@ -375,7 +385,15 @@ for o in meshes:
             nm = groups.get(g.group)
             if nm not in MAP or g.weight <= 0: continue
             for t, f in MAP[nm]: acc[t] = acc.get(t, 0) + g.weight * f
-        top = sorted(acc.items(), key=lambda kv: -kv[1])[:4]
+        # höchstens vier Einflüsse: kleinste Gewichte nicht verwerfen, sondern dem nächsten vorhandenen Elternknochen geben
+        # (mit Lippenknochen haben Mundvertices oft mehr als vier Einflüsse; so bleibt die Bewegung der des Elternknochens gleich)
+        while len(acc) > 4:
+            t_min = min(acc, key=acc.get); w_min = acc.pop(t_min)
+            p_ = PARENT.get(t_min)
+            while p_ is not None and p_ not in acc: p_ = PARENT.get(p_)
+            if p_ is None: p_ = max(acc, key=acc.get)
+            acc[p_] += w_min
+        top = sorted(acc.items(), key=lambda kv: -kv[1])
         tot = sum(w for _, w in top)
         if tot <= 1e-6: lost += 1; top = [('head' if v.co.z > joints['neck'].z else 'hips', 1.0)]; tot = 1.0
         neww.append([(t, w / tot) for t, w in top])

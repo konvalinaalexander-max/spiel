@@ -1,6 +1,7 @@
 // Darstellung des Profs: überträgt die Logik (Position, Blick, Tätigkeit) auf das Rig und erzeugt
 // glaubwürdige Animation: Gehen, Gesten, Schreiben mit Hand-IK am Kreidestrich, Laserpointer, Pult, Trinken.
 import * as THREE from 'three';
+import { makeVisemeTrack } from './visemes.js';
 import { buildCharacter } from './rig.js';
 import { Character } from './character.js';
 import { PROF_SPEC } from '../game/population.js';
@@ -66,7 +67,8 @@ export class ProfView {
   /** Tafel wischen (Schwamm in der rechten Hand) */
   wipe(dur = 3) { this.wipeT = dur + 0.4; }
   /** dur: Sprechdauer; env(t): Lautstärkekurve der Aufnahme (0–1) für die Mundbewegung, sonst Silbenrhythmus */
-  say(dur, env = null) { this.talkT = Math.max(this.talkT, dur); this.env = env; this.envStart = this.t; }
+  /** Sprechen: Dauer, Lautstärkekurve (Aufnahme) und Text → Mundformen-Spur */
+  say(dur, env = null, text = null, lang = 'de') { this.talkT = Math.max(this.talkT, dur); this.env = env; this.envStart = this.t; this.vis = text ? makeVisemeTrack(text, lang, dur, env) : null; }
   clickerPress() { this.clickT = 0.45; }
   caught(dur = 4) { this.caughtT = dur; }
   update(dt, t, pen, wipePen) {
@@ -82,6 +84,7 @@ export class ProfView {
     this.talkT -= dt; c.talkTarget = (this.talkT > 0 || (this.audio && this.audio.speaking && L.talking)) ? 1 : 0;
     // Mund folgt der Lautstärke der Aufnahme (Kiefer + Lippen), ohne Aufnahme dem Silbenrhythmus
     c.talkEnvValue = this.env && this.talkT > 0 ? this.env(this.t - this.envStart) : null;
+    c.talkVis = this.vis && this.talkT > 0 ? this.vis(this.t - this.envStart) : null;
     // Mimik
     const questioning = L.gesture === 'question' || this.caughtT > 0;
     c.browTarget = questioning ? 1 : 0;

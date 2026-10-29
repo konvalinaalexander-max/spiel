@@ -10,6 +10,11 @@
 **Menschen**
 - Alle Figuren aus MakeHuman/MPFB (CC0): 16 Typen für die Menge, Prof, Nachbarin, Tutorin, drei Spielfiguren mit echten,
   voll gegliederten Händen. Verdeckte Haut per Strahltest entfernt, Detailstufen für die Menge, Atlanten als KTX2.
+- Mundformen beim Sprechen: Prof und Nachbarin haben Lippenknochen (Ober-/Unterlippe, Mundwinkel); acht Mundformen
+  (Ruhe, A, E, I, O, U, F/V, M/B/P) werden aus dem gesprochenen Text gebildet und über die Lautstärke der Aufnahme verteilt.
+  Auch Nachbarin, Studierende und Tutorin bewegen jetzt beim Sprechen den Mund.
+- Skin-Gewichte werden so gerundet, dass sie je Vertex genau 255 ergeben. Vorher zog eine Summe von 254 einzelne Vertices
+  um rund 4 mm zum Ursprung (Zacken an den Mundwinkeln, feines Flimmern an Gelenken).
 
 **Hörsaal und Requisiten**
 - Echte PBR-Materialien (ambientCG, CC0): Parkett, Pultholz, Vertäfelung, Putz, Metall, Stein.

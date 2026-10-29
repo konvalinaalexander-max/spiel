@@ -278,7 +278,18 @@ export class Character {
     this.talkPhase += dt * (9 + Math.sin(time * 1.3) * 2);
     let syll = Math.max(0, Math.sin(this.talkPhase) * 0.7 + Math.sin(this.talkPhase * 2.3 + 1) * 0.3);
     if (this.talkEnvValue != null) { this.envSmooth = damp(this.envSmooth || 0, Math.min(1, this.talkEnvValue * 1.8), 18, dt); syll = this.envSmooth; }
-    b.jaw.rotation.x = (0.03 + this.talk * syll * 0.16) * (F ? F.jawScale : 1);
+    // Mundformen (Rig mit Lippenknochen + Visem-Spur): Kieferöffnung je Laut, Lippen breit/rund/vor, Unterlippe bei F/V
+    const vis = this.talkVis;
+    if (vis && b.lipUp && this.talk > 0.05) {
+      b.jaw.rotation.x = (0.03 + this.talk * vis.jaw * 0.2) * (F ? F.jawScale : 1);
+      const bp = this.rig.bindPos, k = this.talk;
+      b.lipUp.position.set(bp.lipUp.x - bp.head.x, bp.lipUp.y - bp.head.y + vis.up * 0.0025 * k, bp.lipUp.z - bp.head.z + vis.fwd * 0.003 * k);
+      b.lipLow.position.set(bp.lipLow.x - bp.jaw.x, bp.lipLow.y - bp.jaw.y - vis.low * 0.0025 * k, bp.lipLow.z - bp.jaw.z + (vis.fwd * 0.003 + Math.min(0, vis.low) * 0.002) * k);
+      for (const [n, sx] of [['lipCL', 1], ['lipCR', -1]]) b[n].position.set(bp[n].x - bp.head.x + sx * vis.wide * 0.0035 * k, bp[n].y - bp.head.y + Math.max(0, vis.wide) * 0.0012 * k, bp[n].z - bp.head.z + vis.fwd * 0.002 * k);
+    } else {
+      b.jaw.rotation.x = (0.03 + this.talk * syll * 0.16) * (F ? F.jawScale : 1);
+      if (b.lipUp) { const bp = this.rig.bindPos; for (const [n, p] of [['lipUp', 'head'], ['lipLow', 'jaw'], ['lipCL', 'head'], ['lipCR', 'head']]) b[n].position.set(bp[n].x - bp[p].x, bp[n].y - bp[p].y, bp[n].z - bp[p].z); }
+    }
     // Brauen
     this.brow = damp(this.brow, this.browTarget, 5, dt);
     for (const s of ['L', 'R']) b['brow' + s].position.y = this.rig.bones['brow' + s].position.y * 0 + (this.rig.bindPos['brow' + s].y - this.rig.bindPos.head.y) + this.brow * 0.006;

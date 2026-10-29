@@ -3,6 +3,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
+import zlib from 'node:zlib';
 import { DIST, DIST_NAME } from './dist.mjs';
 import { execFileSync } from 'node:child_process';
 import * as THREE from 'three';
@@ -184,6 +185,17 @@ test('Figuren: alle Dateien des Verzeichnisses vorhanden (Desktop, Mobil)', () =
     ok(Object.keys(idx.humans).length >= 22, prof + ': zu wenige Figuren');
     for (const id of Object.keys(idx.humans)) ok(has(`assets/build/${prof}/humans/${id}.hpk`), `${prof}/${id}.hpk fehlt`);
     for (const k of ['crowd_f', 'crowd_m']) ok(has(`assets/build/${prof}/humans/${k}_c.ktx2`), `${prof}/${k}_c.ktx2 fehlt`);
+  }
+});
+test('Figuren: Skin-Gewichte je Vertex ergeben genau 255 (sonst wandern Vertices, z. B. Zacken am Mund)', () => {
+  for (const prof of ['desktop', 'mobile']) {
+    for (const id of Object.keys(readJ(`assets/build/${prof}/humans/index.json`).humans)) {
+      const ab = zlib.gunzipSync(fs.readFileSync(path.join(root, `assets/build/${prof}/humans/${id}.hpk`)));
+      const jl = ab.readUInt32LE(4), head = JSON.parse(ab.subarray(8, 8 + jl).toString());
+      const b = head.buffers.find(x => x.name === 'weights'), w = ab.subarray(8 + jl + b.offset, 8 + jl + b.offset + b.length);
+      let bad = 0; for (let i = 0; i < w.length; i += 4) if (w[i] + w[i + 1] + w[i + 2] + w[i + 3] !== 255) bad++;
+      ok(bad === 0, `${prof}/${id}: ${bad} Vertices mit Gewichtssumme ≠ 255`);
+    }
   }
 });
 test('Materialien und Requisiten: Dateien vorhanden, Lizenz und Quelle je Eintrag', () => {
