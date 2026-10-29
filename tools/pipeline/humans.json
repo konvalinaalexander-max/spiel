@@ -1,0 +1,732 @@
+{
+ "note": "Besetzung der echten Figuren (Auftrag V3, Phase 4). Alle Assets aus den CC0-Paketen der MakeHuman Community (MPFB 2). tools/pipeline/humans.mjs erzeugt daraus mit Blender assets/build/humans/<id>.glb (+ .meta.json). Phänotyp: gender 0 = weiblich, 1 = männlich; age 0,5 ≈ 25 Jahre, 1 = 90 Jahre. 'tintTop' = Oberteil, das zur Laufzeit je Person umgefärbt wird (Textur wird dafür entsättigt).",
+ "defaults": {
+  "hero": {
+   "eyes": "high-poly/high-poly.mhclo",
+   "eyelashes": "eyelashes02/eyelashes02.mhclo",
+   "fingers": "full",
+   "maxVerts": {
+    "clothes": 9000,
+    "hair": 7000,
+    "eyebrow": 3000
+   }
+  },
+  "crowd": {
+   "eyes": "low-poly/low-poly.mhclo",
+   "eyelashes": "eyelashes01/eyelashes01.mhclo",
+   "fingers": "merged",
+   "maxVerts": {
+    "clothes": 2400,
+    "hair": 2200,
+    "eyebrow": 400
+   }
+  }
+ },
+ "humans": [
+  {
+   "id": "prof",
+   "role": "prof",
+   "class": "hero",
+   "female": false,
+   "phenotype": {
+    "gender": 1,
+    "age": 0.74,
+    "muscle": 0.45,
+    "weight": 0.62,
+    "height": 0.56,
+    "race": {
+     "caucasian": 1,
+     "african": 0,
+     "asian": 0
+    }
+   },
+   "skin": "middleage_caucasian_male/middleage_caucasian_male.mhmat",
+   "eyeColor": "bluegreen",
+   "eyebrows": "eyebrow001/eyebrow001.mhclo",
+   "hair": "short04/short04.mhclo",
+   "hairMaterial": "toigo_short_04_gray/toigo_short_04_gray.mhmat",
+   "hairColor": [
+    0.55,
+    0.53,
+    0.5
+   ],
+   "teeth": "teeth_base/teeth_base.mhclo",
+   "clothes": [
+    "toigo_wool_pants/toigo_wool_pants.mhclo",
+    "toigo_fisherman_sweater/toigo_fisherman_sweater.mhclo",
+    "shoes01/shoes01.mhclo"
+   ],
+   "accessories": [
+    "kwnet_at_optical_glasses/kwnet_at_optical_glasses.mhclo"
+   ],
+   "recolor": {
+    "toigo_fisherman_sweater": [
+     0.3,
+     0.36,
+     0.25
+    ],
+    "toigo_wool_pants": [
+     0.36,
+     0.28,
+     0.2
+    ]
+   }
+  },
+  {
+   "id": "player_a",
+   "role": "player",
+   "class": "hero",
+   "female": false,
+   "phenotype": {
+    "gender": 1,
+    "age": 0.45,
+    "muscle": 0.52,
+    "weight": 0.5,
+    "height": 0.55,
+    "race": {
+     "caucasian": 1,
+     "african": 0,
+     "asian": 0
+    }
+   },
+   "skin": "young_caucasian_male/young_caucasian_male.mhmat",
+   "eyeColor": "brown",
+   "eyebrows": "eyebrow002/eyebrow002.mhclo",
+   "hair": "short02/short02.mhclo",
+   "hairMaterial": "bogdan666_short_02_brown/bogdan666_short_02_brown.mhmat",
+   "clothes": [
+    "male_casualsuit01/male_casualsuit01.mhclo",
+    "shoes05/shoes05.mhclo"
+   ]
+  },
+  {
+   "id": "player_b",
+   "role": "player",
+   "class": "hero",
+   "female": true,
+   "phenotype": {
+    "gender": 0,
+    "age": 0.44,
+    "muscle": 0.45,
+    "weight": 0.45,
+    "height": 0.62,
+    "race": {
+     "caucasian": 0.4,
+     "african": 0,
+     "asian": 0.6
+    }
+   },
+   "skin": "cutoff3d_indian_female_skin/cutoff3d_indian_female_skin.mhmat",
+   "eyeColor": "brown",
+   "eyebrows": "eyebrow009/eyebrow009.mhclo",
+   "hair": "long01/long01.mhclo",
+   "hairMaterial": "toigo_long_01_black/toigo_long_01_black.mhmat",
+   "clothes": [
+    "toigo_wool_pants/toigo_wool_pants.mhclo",
+    "toigo_fisherman_sweater/toigo_fisherman_sweater.mhclo",
+    "toigo_ankle_boots_female/toigo_ankle_boots_female.mhclo"
+   ],
+   "recolor": {
+    "toigo_wool_pants": [
+     0.13,
+     0.14,
+     0.17
+    ]
+   }
+  },
+  {
+   "id": "player_c",
+   "role": "player",
+   "class": "hero",
+   "female": false,
+   "phenotype": {
+    "gender": 1,
+    "age": 0.46,
+    "muscle": 0.55,
+    "weight": 0.52,
+    "height": 0.55,
+    "race": {
+     "caucasian": 0,
+     "african": 1,
+     "asian": 0
+    }
+   },
+   "skin": "young_african_male/young_african_male.mhmat",
+   "eyeColor": "brown",
+   "eyebrows": "eyebrow001/eyebrow001.mhclo",
+   "hair": "short01/short01.mhclo",
+   "hairColor": [
+    0.08,
+    0.06,
+    0.05
+   ],
+   "clothes": [
+    "male_casualsuit01/male_casualsuit01.mhclo",
+    "shoes04/shoes04.mhclo"
+   ],
+   "clothesMaterial": {
+    "male_casualsuit01": "toigo_male_casual_suit_01_red_shirt_with_black_jeans"
+   }
+  },
+  {
+   "id": "neighbor",
+   "role": "neighbor",
+   "class": "hero",
+   "female": true,
+   "phenotype": {
+    "gender": 0,
+    "age": 0.45,
+    "muscle": 0.45,
+    "weight": 0.47,
+    "height": 0.52,
+    "race": {
+     "caucasian": 1,
+     "african": 0,
+     "asian": 0
+    }
+   },
+   "skin": "young_caucasian_female2/young_caucasian_female2.mhmat",
+   "eyeColor": "green",
+   "eyebrows": "eyebrow010/eyebrow010.mhclo",
+   "hair": "ponytail01/ponytail01.mhclo",
+   "teeth": "teeth_base/teeth_base.mhclo",
+   "clothes": [
+    "female_elegantsuit01/female_elegantsuit01.mhclo",
+    "toigo_flats/toigo_flats.mhclo"
+   ]
+  },
+  {
+   "id": "tutor",
+   "role": "tutor",
+   "class": "hero",
+   "female": true,
+   "phenotype": {
+    "gender": 0,
+    "age": 0.5,
+    "muscle": 0.5,
+    "weight": 0.5,
+    "height": 0.48,
+    "race": {
+     "caucasian": 1,
+     "african": 0,
+     "asian": 0
+    }
+   },
+   "skin": "young_caucasian_female/young_caucasian_female.mhmat",
+   "eyeColor": "brownlight",
+   "eyebrows": "eyebrow003/eyebrow003.mhclo",
+   "hair": "rehmanpolanski_hair_bun_brown/rehmanpolanski_hair_bun_brown.mhclo",
+   "clothes": [
+    "cortu_cargo_pants/cortu_cargo_pants.mhclo",
+    "joepal_crude_t-shirt_female/joepal_crude_t-shirt_female.mhclo",
+    "shoes05/shoes05.mhclo"
+   ],
+   "accessories": [
+    "frankyaye_glasses_library_male/frankyaye_glasses_library_male.mhclo"
+   ],
+   "recolor": {
+    "joepal_crude_t-shirt_female": [
+     0.0,
+     0.62,
+     0.36
+    ]
+   }
+  },
+  {
+   "id": "m01",
+   "class": "crowd",
+   "female": false,
+   "skinTone": 1,
+   "hairTone": "brown",
+   "top": "shirt",
+   "phenotype": {
+    "gender": 1,
+    "age": 0.45,
+    "muscle": 0.5,
+    "weight": 0.5,
+    "height": 0.55,
+    "race": {
+     "caucasian": 1,
+     "african": 0,
+     "asian": 0
+    }
+   },
+   "skin": "young_caucasian_male/young_caucasian_male.mhmat",
+   "eyebrows": "eyebrow001/eyebrow001.mhclo",
+   "proxy": "male1591/male1591.proxy",
+   "hair": "short02/short02.mhclo",
+   "hairMaterial": "bogdan666_short_02_brown/bogdan666_short_02_brown.mhmat",
+   "clothes": [
+    "male_casualsuit01/male_casualsuit01.mhclo",
+    "shoes02/shoes02.mhclo"
+   ]
+  },
+  {
+   "id": "m02",
+   "class": "crowd",
+   "female": false,
+   "skinTone": 0,
+   "hairTone": "blond",
+   "top": "shirt",
+   "phenotype": {
+    "gender": 1,
+    "age": 0.47,
+    "muscle": 0.45,
+    "weight": 0.45,
+    "height": 0.6,
+    "race": {
+     "caucasian": 1,
+     "african": 0,
+     "asian": 0
+    }
+   },
+   "skin": "young_caucasian_male2/young_caucasian_male2.mhmat",
+   "eyebrows": "eyebrow004/eyebrow004.mhclo",
+   "proxy": "male1591/male1591.proxy",
+   "hair": "short04/short04.mhclo",
+   "hairMaterial": "toigo_short_04_blonde/toigo_short_04_blonde.mhmat",
+   "clothes": [
+    "male_casualsuit03/male_casualsuit03.mhclo",
+    "shoes05/shoes05.mhclo"
+   ]
+  },
+  {
+   "id": "m03",
+   "class": "crowd",
+   "female": false,
+   "skinTone": 5,
+   "hairTone": "black",
+   "top": "jacket",
+   "phenotype": {
+    "gender": 1,
+    "age": 0.46,
+    "muscle": 0.55,
+    "weight": 0.5,
+    "height": 0.52,
+    "race": {
+     "caucasian": 0,
+     "african": 1,
+     "asian": 0
+    }
+   },
+   "skin": "young_african_male/young_african_male.mhmat",
+   "eyebrows": "eyebrow001/eyebrow001.mhclo",
+   "proxy": "male1591/male1591.proxy",
+   "hair": "short01/short01.mhclo",
+   "hairColor": [
+    0.07,
+    0.05,
+    0.04
+   ],
+   "clothes": [
+    "male_casualsuit05/male_casualsuit05.mhclo",
+    "shoes04/shoes04.mhclo"
+   ]
+  },
+  {
+   "id": "m04",
+   "class": "crowd",
+   "female": false,
+   "skinTone": 2,
+   "hairTone": "black",
+   "top": "tshirt",
+   "tintTop": "male_casualsuit06",
+   "phenotype": {
+    "gender": 1,
+    "age": 0.44,
+    "muscle": 0.5,
+    "weight": 0.45,
+    "height": 0.48,
+    "race": {
+     "caucasian": 0,
+     "african": 0,
+     "asian": 1
+    }
+   },
+   "skin": "young_asian_male/young_asian_male.mhmat",
+   "eyebrows": "eyebrow006/eyebrow006.mhclo",
+   "proxy": "male1591/male1591.proxy",
+   "hair": "culturalibre_hair_02/culturalibre_hair_02.mhclo",
+   "clothes": [
+    "male_casualsuit06/male_casualsuit06.mhclo",
+    "shoes06/shoes06.mhclo"
+   ]
+  },
+  {
+   "id": "m05",
+   "class": "crowd",
+   "female": false,
+   "skinTone": 0,
+   "hairTone": "red",
+   "top": "sweater",
+   "tintTop": "toigo_fisherman_sweater",
+   "phenotype": {
+    "gender": 1,
+    "age": 0.48,
+    "muscle": 0.5,
+    "weight": 0.58,
+    "height": 0.52,
+    "race": {
+     "caucasian": 1,
+     "african": 0,
+     "asian": 0
+    }
+   },
+   "skin": "toigo_light_skin_male_ginger/toigo_light_skin_male_ginger.mhmat",
+   "eyebrows": "eyebrow002/eyebrow002.mhclo",
+   "proxy": "male1591/male1591.proxy",
+   "hair": "short04/short04.mhclo",
+   "hairMaterial": "toigo_short_04_ginger/toigo_short_04_ginger.mhmat",
+   "clothes": [
+    "cortu_cargo_pants/cortu_cargo_pants.mhclo",
+    "toigo_fisherman_sweater/toigo_fisherman_sweater.mhclo",
+    "shoes01/shoes01.mhclo"
+   ]
+  },
+  {
+   "id": "m06",
+   "class": "crowd",
+   "female": false,
+   "skinTone": 1,
+   "hairTone": "brown",
+   "top": "polo",
+   "tintTop": "namuhekam_male_polo_shirt",
+   "phenotype": {
+    "gender": 1,
+    "age": 0.5,
+    "muscle": 0.55,
+    "weight": 0.55,
+    "height": 0.58,
+    "race": {
+     "caucasian": 1,
+     "african": 0,
+     "asian": 0
+    }
+   },
+   "skin": "young_caucasian_male/young_caucasian_male.mhmat",
+   "eyebrows": "eyebrow005/eyebrow005.mhclo",
+   "proxy": "male1591/male1591.proxy",
+   "hair": "cortu_short_messy_hair/cortu_short_messy_hair.mhclo",
+   "hairColor": [
+    0.24,
+    0.17,
+    0.11
+   ],
+   "clothes": [
+    "toigo_wool_pants/toigo_wool_pants.mhclo",
+    "namuhekam_male_polo_shirt/namuhekam_male_polo_shirt.mhclo",
+    "shoes03/shoes03.mhclo"
+   ]
+  },
+  {
+   "id": "m07",
+   "class": "crowd",
+   "female": false,
+   "skinTone": 3,
+   "hairTone": "black",
+   "top": "tshirt",
+   "tintTop": "toigo_basic_tucked_t-shirt",
+   "phenotype": {
+    "gender": 1,
+    "age": 0.45,
+    "muscle": 0.5,
+    "weight": 0.5,
+    "height": 0.5,
+    "race": {
+     "caucasian": 0.5,
+     "african": 0.25,
+     "asian": 0.25
+    }
+   },
+   "skin": "mindfront_skin_male_african_middleage/mindfront_skin_male_african_middleage.mhmat",
+   "eyebrows": "eyebrow007/eyebrow007.mhclo",
+   "proxy": "male1591/male1591.proxy",
+   "hair": "culturalibre_hair_05/culturalibre_hair_05.mhclo",
+   "hairColor": [
+    0.1,
+    0.07,
+    0.05
+   ],
+   "clothes": [
+    "cortu_cargo_pants/cortu_cargo_pants.mhclo",
+    "toigo_basic_tucked_t-shirt/toigo_basic_tucked_t-shirt.mhclo",
+    "shoes05/shoes05.mhclo"
+   ]
+  },
+  {
+   "id": "m08",
+   "class": "crowd",
+   "female": false,
+   "skinTone": 1,
+   "hairTone": "brown",
+   "top": "flannel",
+   "phenotype": {
+    "gender": 1,
+    "age": 0.49,
+    "muscle": 0.45,
+    "weight": 0.52,
+    "height": 0.56,
+    "race": {
+     "caucasian": 1,
+     "african": 0,
+     "asian": 0
+    }
+   },
+   "skin": "young_caucasian_male2/young_caucasian_male2.mhmat",
+   "eyebrows": "eyebrow003/eyebrow003.mhclo",
+   "proxy": "male1591/male1591.proxy",
+   "hair": "short03/short03.mhclo",
+   "clothes": [
+    "male_casualsuit01/male_casualsuit01.mhclo",
+    "shoes02/shoes02.mhclo"
+   ],
+   "clothesMaterial": {
+    "male_casualsuit01": "toigo_male_casual_suit_01_red_shirt_with_black_jeans"
+   }
+  },
+  {
+   "id": "f01",
+   "class": "crowd",
+   "female": true,
+   "skinTone": 0,
+   "hairTone": "brown",
+   "top": "shirt",
+   "phenotype": {
+    "gender": 0,
+    "age": 0.45,
+    "muscle": 0.45,
+    "weight": 0.45,
+    "height": 0.48,
+    "race": {
+     "caucasian": 1,
+     "african": 0,
+     "asian": 0
+    }
+   },
+   "skin": "young_caucasian_female/young_caucasian_female.mhmat",
+   "eyebrows": "eyebrow010/eyebrow010.mhclo",
+   "proxy": "female1605/female1605.proxy",
+   "hair": "long01/long01.mhclo",
+   "clothes": [
+    "female_elegantsuit01/female_elegantsuit01.mhclo",
+    "toigo_flats/toigo_flats.mhclo"
+   ]
+  },
+  {
+   "id": "f02",
+   "class": "crowd",
+   "female": true,
+   "skinTone": 1,
+   "hairTone": "brown",
+   "top": "tshirt",
+   "tintTop": "joepal_crude_t-shirt_female",
+   "phenotype": {
+    "gender": 0,
+    "age": 0.44,
+    "muscle": 0.45,
+    "weight": 0.5,
+    "height": 0.45,
+    "race": {
+     "caucasian": 1,
+     "african": 0,
+     "asian": 0
+    }
+   },
+   "skin": "young_caucasian_female2/young_caucasian_female2.mhmat",
+   "eyebrows": "eyebrow011/eyebrow011.mhclo",
+   "proxy": "female1605/female1605.proxy",
+   "hair": "ponytail01/ponytail01.mhclo",
+   "clothes": [
+    "toigo_wool_pants/toigo_wool_pants.mhclo",
+    "joepal_crude_t-shirt_female/joepal_crude_t-shirt_female.mhclo",
+    "shoes05/shoes05.mhclo"
+   ]
+  },
+  {
+   "id": "f03",
+   "class": "crowd",
+   "female": true,
+   "skinTone": 5,
+   "hairTone": "black",
+   "top": "sweater",
+   "tintTop": "toigo_fisherman_sweater",
+   "phenotype": {
+    "gender": 0,
+    "age": 0.46,
+    "muscle": 0.5,
+    "weight": 0.5,
+    "height": 0.52,
+    "race": {
+     "caucasian": 0,
+     "african": 1,
+     "asian": 0
+    }
+   },
+   "skin": "young_african_female/young_african_female.mhmat",
+   "eyebrows": "eyebrow009/eyebrow009.mhclo",
+   "proxy": "female1605/female1605.proxy",
+   "hair": "afro01/afro01.mhclo",
+   "clothes": [
+    "cortu_cargo_pants/cortu_cargo_pants.mhclo",
+    "toigo_fisherman_sweater/toigo_fisherman_sweater.mhclo",
+    "toigo_ankle_boots_female/toigo_ankle_boots_female.mhclo"
+   ]
+  },
+  {
+   "id": "f04",
+   "class": "crowd",
+   "female": true,
+   "skinTone": 2,
+   "hairTone": "black",
+   "top": "tshirt",
+   "tintTop": "joepal_crude_t-shirt_female",
+   "phenotype": {
+    "gender": 0,
+    "age": 0.44,
+    "muscle": 0.45,
+    "weight": 0.42,
+    "height": 0.55,
+    "race": {
+     "caucasian": 0,
+     "african": 0,
+     "asian": 1
+    }
+   },
+   "skin": "young_asian_female/young_asian_female.mhmat",
+   "eyebrows": "eyebrow012/eyebrow012.mhclo",
+   "proxy": "female1605/female1605.proxy",
+   "hair": "toigo_blunt_bob/toigo_blunt_bob.mhclo",
+   "hairColor": [
+    0.06,
+    0.05,
+    0.05
+   ],
+   "clothes": [
+    "cortu_cargo_pants/cortu_cargo_pants.mhclo",
+    "joepal_crude_t-shirt_female/joepal_crude_t-shirt_female.mhclo",
+    "shoes06/shoes06.mhclo"
+   ]
+  },
+  {
+   "id": "f05",
+   "class": "crowd",
+   "female": true,
+   "skinTone": 0,
+   "hairTone": "red",
+   "top": "sweater",
+   "tintTop": "toigo_fisherman_sweater",
+   "phenotype": {
+    "gender": 0,
+    "age": 0.47,
+    "muscle": 0.45,
+    "weight": 0.48,
+    "height": 0.5,
+    "race": {
+     "caucasian": 1,
+     "african": 0,
+     "asian": 0
+    }
+   },
+   "skin": "toigo_light_skin_female_ginger/toigo_light_skin_female_ginger.mhmat",
+   "eyebrows": "eyebrow010/eyebrow010.mhclo",
+   "proxy": "female1605/female1605.proxy",
+   "hair": "long01/long01.mhclo",
+   "hairMaterial": "toigo_long_01_ginger/toigo_long_01_ginger.mhmat",
+   "clothes": [
+    "toigo_wool_pants/toigo_wool_pants.mhclo",
+    "toigo_fisherman_sweater/toigo_fisherman_sweater.mhclo",
+    "toigo_ankle_boots_female/toigo_ankle_boots_female.mhclo"
+   ]
+  },
+  {
+   "id": "f06",
+   "class": "crowd",
+   "female": true,
+   "skinTone": 1,
+   "hairTone": "blond",
+   "top": "tshirt",
+   "tintTop": "joepal_crude_t-shirt_female",
+   "phenotype": {
+    "gender": 0,
+    "age": 0.45,
+    "muscle": 0.45,
+    "weight": 0.46,
+    "height": 0.47,
+    "race": {
+     "caucasian": 1,
+     "african": 0,
+     "asian": 0
+    }
+   },
+   "skin": "young_caucasian_female/young_caucasian_female.mhmat",
+   "eyebrows": "eyebrow011/eyebrow011.mhclo",
+   "proxy": "female1605/female1605.proxy",
+   "hair": "bob02/bob02.mhclo",
+   "clothes": [
+    "toigo_long_full_skirt/toigo_long_full_skirt.mhclo",
+    "joepal_crude_t-shirt_female/joepal_crude_t-shirt_female.mhclo",
+    "toigo_flats/toigo_flats.mhclo"
+   ]
+  },
+  {
+   "id": "f07",
+   "class": "crowd",
+   "female": true,
+   "skinTone": 3,
+   "hairTone": "brown",
+   "top": "sweater",
+   "tintTop": "toigo_fisherman_sweater",
+   "phenotype": {
+    "gender": 0,
+    "age": 0.48,
+    "muscle": 0.45,
+    "weight": 0.5,
+    "height": 0.46,
+    "race": {
+     "caucasian": 0.4,
+     "african": 0,
+     "asian": 0.6
+    }
+   },
+   "skin": "cutoff3d_indian_female_skin/cutoff3d_indian_female_skin.mhmat",
+   "eyebrows": "eyebrow012/eyebrow012.mhclo",
+   "proxy": "female1605/female1605.proxy",
+   "hair": "rehmanpolanski_hair_bun_brown/rehmanpolanski_hair_bun_brown.mhclo",
+   "clothes": [
+    "toigo_wool_pants/toigo_wool_pants.mhclo",
+    "toigo_fisherman_sweater/toigo_fisherman_sweater.mhclo",
+    "shoes06/shoes06.mhclo"
+   ]
+  },
+  {
+   "id": "f08",
+   "class": "crowd",
+   "female": true,
+   "skinTone": 1,
+   "hairTone": "brown",
+   "top": "tshirt",
+   "tintTop": "joepal_crude_t-shirt_female",
+   "phenotype": {
+    "gender": 0,
+    "age": 0.46,
+    "muscle": 0.45,
+    "weight": 0.55,
+    "height": 0.52,
+    "race": {
+     "caucasian": 1,
+     "african": 0,
+     "asian": 0
+    }
+   },
+   "skin": "darthfurby_caucasian_female/darthfurby_caucasian_female.mhmat",
+   "eyebrows": "eyebrow003/eyebrow003.mhclo",
+   "proxy": "female1605/female1605.proxy",
+   "hair": "o4saken_long01/o4saken_long01.mhclo",
+   "clothes": [
+    "cortu_cargo_pants/cortu_cargo_pants.mhclo",
+    "joepal_crude_t-shirt_female/joepal_crude_t-shirt_female.mhclo",
+    "shoes05/shoes05.mhclo"
+   ]
+  }
+ ]
+}

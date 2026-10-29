@@ -2,6 +2,7 @@
 // Zwei-Knochen-IK für Arme/Beine, Kopf-/Augenblick mit Sakkaden, Blinzeln, Mundbewegung.
 import * as THREE from 'three';
 import { applyPose, aimBone, twoBoneIK } from './rig.js';
+import { applyFingerCurl } from './humanAsset.js';
 import { clamp, damp, lerp, angleDamp, wrapAngle, makeRng } from '../core/util.js';
 
 const V = (x = 0, y = 0, z = 0) => new THREE.Vector3(x, y, z);
@@ -122,7 +123,9 @@ export class Character {
     const hipBind = this.rig.bindPos.hips.y;
     if (sb > 0.001 && this.seat) {
       const seatH = this.seat.seatH ?? 0.46;
-      const hy = lerp(hipBind, seatH + 0.06, sb);
+      // echte Figuren: Hüftgelenk sitzt eine Gesäßdicke über der Sitzfläche
+      const lift = this.rig.human ? (hipBind - this.rig.bindPos.thighL.y) + 0.085 : 0.06;
+      const hy = lerp(hipBind, seatH + lift, sb);
       b.hips.position.set(0, hy + this.extraHipsY, lerp(0, -0.08, sb));
     } else b.hips.position.set(0, hipBind + this.extraHipsY, 0);
     this.mesh.position.copy(this.pos);
@@ -143,6 +146,8 @@ export class Character {
     }
     // 6) Gesicht
     this._updateFace(dt, time);
+    // 7) echte Hände: Krümmung auf drei Fingerglieder verteilen
+    if (this.rig.fingerBones) applyFingerCurl(this.rig);
   }
 
   _updateLegs(dt, weight) {
@@ -236,7 +241,7 @@ export class Character {
       b.chest.updateWorldMatrix(true, false);
       const inv = _m4.copy(b.chest.matrixWorld).invert();
       const t = _tmp.copy(this.lookTarget).add(this.saccade).applyMatrix4(inv);
-      const h = _tmp2.set(0, 0.32, 0.03); // Kopfmitte relativ zur Brust (ungefähr)
+      const h = this.rig.human ? _tmp2.copy(this.rig.bindPos.head).sub(this.rig.bindPos.chest).add(_hOff) : _tmp2.set(0, 0.32, 0.03); // Kopfmitte relativ zur Brust
       const d = t.sub(h);
       yaw = clamp(Math.atan2(d.x, d.z), -this.lookLimits.yaw, this.lookLimits.yaw);
       pitch = clamp(Math.atan2(d.y, Math.hypot(d.x, d.z)), -this.lookLimits.down, this.lookLimits.up);
@@ -266,15 +271,16 @@ export class Character {
     const closed = Math.sin(this.blink * Math.PI);
     const lidBase = -0.95 + this.eyePitch * 0.6 + (this.sleepy ? 0.75 : 0);
     const lid = lerp(lidBase, 0.12, Math.max(closed, this.sleepy ? 0.85 : 0));
-    b.lidL.rotation.set(lid, this.eyeYaw * 0.3, 0); b.lidR.rotation.set(lid, this.eyeYaw * 0.3, 0);
+    const F = this.rig.face, lidA = F ? (lid - F.lidOpen) * F.lidScale : lid;
+    b.lidL.rotation.set(lidA, this.eyeYaw * 0.3, 0); b.lidR.rotation.set(lidA, this.eyeYaw * 0.3, 0);
     // Sprechen: Kiefer folgt einer silbenartigen Hüllkurve
     this.talk = damp(this.talk, this.talkTarget, 10, dt);
     this.talkPhase += dt * (9 + Math.sin(time * 1.3) * 2);
     const syll = Math.max(0, Math.sin(this.talkPhase) * 0.7 + Math.sin(this.talkPhase * 2.3 + 1) * 0.3);
-    b.jaw.rotation.x = 0.03 + this.talk * syll * 0.16;
+    b.jaw.rotation.x = (0.03 + this.talk * syll * 0.16) * (F ? F.jawScale : 1);
     // Brauen
     this.brow = damp(this.brow, this.browTarget, 5, dt);
     for (const s of ['L', 'R']) b['brow' + s].position.y = this.rig.bones['brow' + s].position.y * 0 + (this.rig.bindPos['brow' + s].y - this.rig.bindPos.head.y) + this.brow * 0.006;
   }
 }
-const _m4 = new THREE.Matrix4();
+const _m4 = new THREE.Matrix4(), _hOff = new THREE.Vector3(0, 0.08, 0.03);
