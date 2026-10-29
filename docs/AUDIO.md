@@ -243,13 +243,17 @@ langem, lautem Einatmen – Pausenpegel −41 dBFS – wurde deshalb aussortiert
 - Die Impulsantworten stammen aus einem realen, aber anderen Hörsaal (TU Berlin, mittelgroß); HS 31 ist kleiner. Der Hallanteil ist
   auf die frühere Lautheit kalibriert.
 - Flüstern als Einzelklang und Wiener Herbstvögel fehlen (siehe oben). Einige Quellen sind nur als MP3 verfügbar (pdsounds, Work With Sounds).
-- Die Stimm-Notlösung „Murmeln“ (Einstellungen) erzeugt Silben mit Oszillatoren; sie ist nur bei ausdrücklicher Wahl aktiv.
+- Browser-Sprachausgabe und die frühere Notlösung „Murmeln“ sind entfernt (Auftraggeber: keine Computerstimme). Fehlt eine
+  Aufnahme, erscheint nur der Untertitel.
 
 ## Stimme in Version 3 (vorgerendert, keine Computerstimme mehr)
 
 **Stufe laut Auftrag (Anhang E):** Ohne API-Schlüssel gilt Stufe 2 – ein offenes Modell mit menschlicher Qualität, im Batch auf
-der CPU vorgerendert. Browser-Sprachausgabe und Murmeln sind nur noch als ausdrücklich gewählte Notlösung in den Einstellungen
-vorhanden; Standard ist „Echte Stimme (vorgerendert)“. Fehlt eine Aufnahme, bleibt es beim Untertitel.
+der CPU vorgerendert. Es gibt keine Browser-Sprachausgabe und kein synthetisches Murmeln mehr; die Einstellung kennt nur
+„Echte Stimme“ und „Aus“. Fehlt eine Aufnahme, bleibt es beim Untertitel.
+
+**Sprache:** Laut Auftraggeber reicht Deutsch – Deutsch wird vollständig vertont, Englisch bleibt als Textfassung mit den
+vorhandenen Kokoro-Aufnahmen (der Großteil der Prof-Sätze, Rest als Untertitel).
 
 **Modell:** Coqui XTTS v2 (CPML, nicht-kommerziell) mit eingebauten, synthetischen Studiosprechern – keine geklonte reale Person.
 
@@ -289,4 +293,11 @@ Fachabkürzungen ausgeschrieben, z. B. „6,2 MJ NEL je kg TM“ → „sechs Ko
 Mastering je Clip mit ffmpeg (`tools/voice/master.py`, für beide Modelle gleich): Hochpass 80 Hz, De-Esser-Absenkung, Stille ≤ 80 ms, Lautheit −16 LUFS (zweistufig), True Peak
 −1,5 dBTP, 48 kHz, Opus 28 kbit/s mono; Lautstärkekurve 20 Hz für die Mundbewegung → `assets/build/voice/<sprache>/`.
 Im Spiel (`src/audio/voice.js`): Aufnahme über ihre Kennung finden, Stücke mit 60 ms Abstand aneinanderreihen, räumlich am Kopf
-der Figur abspielen, Hall aus dem Raum; der Kiefer des Profs folgt der Lautstärkekurve.
+der Figur abspielen, Hall aus dem Raum. Mund: Aus dem gesprochenen Text entsteht eine Lautfolge (`src/chars/visemes.js`), über die
+Lautstärkekurve zeitlich verteilt; Prof, Nachbarin und Tutorin zeigen sie mit den Rocketbox-Visemes (15 Mundformen als
+Gesichtsformen), Studierende über den Kieferknochen. Der Ablauf schätzt Sprechdauern mit dem gemessenen Tempo der Aufnahmen
+(Deutsch 0,081 s/Zeichen, Englisch 0,048) und wartet zusätzlich auf das Ende jeder Aufnahme.
+
+**Arbeitsweise bei langen Läufen:** `VOICE_OUT=tools/.cache/voice/out` lässt `render.py` außerhalb des Repositorys schreiben;
+`python3 -I tools/voice/sync.py` übernimmt die fertigen Aufnahmen gebündelt nach `assets/build/voice/de/`.
+Hörproben: `python3 -I tools/voice/samples.py` → `docs/audio/beispiele/` (30 Prof-Sätze je Sprache als AAC + `TRANSKRIPT.md`).

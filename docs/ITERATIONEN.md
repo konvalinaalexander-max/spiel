@@ -179,3 +179,27 @@ Aus Reihe 5 ist die Leinwand bei 1280 × 720 trotzdem nur etwa 340 Pixel breit �
 Blickempfindlichkeit sinkt entsprechend (`phase10_genau_hinschauen.png`). Erklärt in Hilfe, Tastenbelegung, HUD-Zeile und als
 Tutorial-Hinweis. Außerdem zeigt der **Hybrid-Monitor** bei laufendem Beamer die geteilte Folie mit der Hörsaalkamera als kleinem
 Fenster, wie in echten Hybridvorlesungen (`phase10_hybridmonitor_folie.jpg`) – eine zweite, näher gelegene Quelle für den Stoff.
+
+## Version 3 – Menschen neu (Rocketbox + Motion Capture)
+
+Rückmeldung zu den MakeHuman-Figuren: „schlecht, steif, seltsam, nicht menschlich – echte Animationen, keine komischen Hände“.
+Recherche, wie Spiele das lösen: gerigte Figuren aus einer Bibliothek **plus aufgenommene Bewegung** statt gerechneter Posen.
+Gewählt: Microsoft Rocketbox (MIT, 115 Figuren mit Gesichtsformen, mehrere hundert Motion-Capture-Clips auf demselben Skelett).
+
+| Problem | Ursache | Maßnahme |
+|---|---|---|
+| Steife Posen, Hände wie Klauen | jede Pose aus Winkeln gerechnet, Finger als Ganzes gekrümmt | Grundbewegung aus Clips (Sitzen am Tisch, Gähnen, Kopf kratzen, Haare richten, Gehen, Sprechgesten); IK nur für Ziele (Tastatur, Stift, Kreide) |
+| Clips in Blender: Arme bleiben in der A-Pose | Animationsdateien ohne Bindepose, Blender rechnet relativ zu einer fehlenden Ruhe | Umwandlung mit dem FBXLoader von three.js in Node (absolute lokale Drehungen) |
+| Texturen verrutscht | FBX-UV-Ursprung unten | Bilder senkrecht spiegeln |
+| Frau: „metallener Schädel“ schimmert durchs Haar (`figuren_haar_gesichter.jpg`) | ~12 % der Haarkarten-Normalen gegen die Flächenorientierung → N·V = 0 → Fresnel 1 → Spiegelglanz | Normalen nach außen gekämmt, keine Rückseiten-Umkehr im Haar-Shader, weniger Streiflicht |
+| Prof: rötliche Sprenkel an den Schläfen | Farbkanal seiner Haartextur ist Kopfhaut statt Haar | Haarfarbe aus der Rocketbox-Vorschau (grau), Helligkeitsverlauf der Strähnen behalten |
+| Feine Strähnen verschwinden bzw. Säume | Verkleinern verdünnt Alpha, Untergrund mischt sich ein | Strähnenfarbe in voller Auflösung ausbluten, Alpha so skalieren, dass die Deckung über 0,5 gleich bleibt |
+| Hände beim Beugen zerrissen | Clips enthalten nur bewegte Spuren; Überlagerungen summierten sich auf Knochen ohne Spur | alle Knochen jedes Bild auf Ruhe, dann Clip, dann Überlagerungen |
+| Hände wirken leer (Stift, Handy) | Clip-Finger locker, Requisit „schwebt“ | Griffe (Stift, Tastatur, Halten, Faust) als Beugung der Fingerketten über der Clip-Bewegung |
+| Pause: alle „melden“ sich | Strecken = beide Arme senkrecht | zurücklehnen, Hände hinter dem Kopf, seltener |
+| Prof läuft durch einen Stuhl | Stuhl stand auf dem Weg Pult → Saal | Stuhl in die linke vordere Ecke |
+| Figuren 16 Draw Calls | je Atlas zwei Materialien (deckend, Haar) | ein Material (Alphatest, Haar-Sonderbehandlung per Teilart) → 7 |
+
+Prüfbilder: `figuren_vorher_nachher.jpg`, `figuren_haar_gesichter.jpg`, `figuren_pruefung_*.jpg` (Prof an Pult, Tafel, Leinwand,
+Gehsequenz in 10 Bildern; Studierende vom Podium, Hand heben, Handy, schlafend, Lachen, Flüstern; eigene Hände am Laptop und beim
+Mitschreiben; Spätkommer, Pause, Strecken).

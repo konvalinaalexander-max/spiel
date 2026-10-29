@@ -3,7 +3,7 @@
 name: Pages
 on:
   push:
-    branches: [main]
+    branches: [main, 'claude/**']
   workflow_dispatch:
 permissions:
   contents: read
@@ -14,6 +14,8 @@ concurrency:
   cancel-in-progress: true
 jobs:
   build:
+    # nur vom Standard-Branch veröffentlichen (Pushes auf andere Branches bauen nicht)
+    if: github.ref_name == github.event.repository.default_branch || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -24,11 +26,11 @@ jobs:
       - run: npm ci
       - name: Mobil-Build (Figuren und Stimmen liegen verarbeitet im Repository)
         run: node tools/build.mjs --target mobile
-      - name: Desktop-Datei zum Herunterladen beilegen
+      - name: Desktop-Fassung beilegen (im Browser spielbar unter …/BOKU_TicTacTierernaehrung_v3.html, Stimmen als Begleitdateien)
         run: |
           node tools/build.mjs
-          cp dist/BOKU_TicTacTierernaehrung_v3.html dist/mobile/
-          cp dist/BOKU_TicTacTierernaehrung_v3_mobile.zip dist/mobile/
+          cp dist/BOKU_TicTacTierernaehrung_v3.html dist/BOKU_TicTacTierernaehrung_v3_stimme_*.js dist/mobile/
+          cp dist/BOKU_TicTacTierernaehrung_v3_mobile.zip dist/mobile/ || true
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

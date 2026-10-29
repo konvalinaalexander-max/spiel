@@ -5,10 +5,13 @@ import * as LY from '../scene/layout.js';
 import { clamp, makeRng } from '../core/util.js';
 
 const V = (x = 0, y = 0, z = 0) => new THREE.Vector3(x, y, z);
-const SPEECH_RATE = 0.064;   // s pro Zeichen (ca. 14 Zeichen/s, ruhiger Vortrag)
+// s pro Zeichen, gemessen an den Aufnahmen (Median der Prof-Clips): Deutsch (XTTS, ruhiger Vortrag) 0,081, Englisch (Kokoro) 0,047.
+// Bestimmt Wartezeiten und wie viele Takte in die gewählte Dauer passen; im Spiel wartet der Ablauf zusätzlich auf das Clip-Ende.
+export const SPEECH_RATES = { de: 0.081, en: 0.048 };
+const SPEECH_RATE = SPEECH_RATES.de;
 const CHALK_CPS = 2.6;        // Zeichen pro Sekunde an der Tafel
 
-export function estimateSpeech(text, rate = 1) { return 0.7 + text.length * SPEECH_RATE / rate; }
+export function estimateSpeech(text, rate = 1, lang = 'de') { return 0.7 + text.length * (SPEECH_RATES[lang] || SPEECH_RATE) / rate; }
 const plainLen = s => s.replace(/[\^_]\{([^}]*)\}/g, '$1').length;
 
 /** Phasen-Anteile an der Gesamtzeit; Uhrzeit (Spielminuten) pro Phase */
@@ -86,7 +89,7 @@ export class Director {
   _planSections() {
     const secs = this.ctx.sections.slice().sort((a, b) => a.order - b.order);
     const budget = (this.phases[2].dur + this.phases[4].dur) * 0.8; // 20 % für Ereignisse
-    const estBeat = b => estimateSpeech(b.variants[0]) + b.pause + 0.5;
+    const estBeat = b => estimateSpeech(b.variants[0], 1, this.lang) + b.pause + 0.5;
     const estSec = (s, beats) => beats.reduce((a, b) => a + estBeat(b) + (b.board ? 6 : 0), 0) + 6;
     // Kern zuerst, dann optionale in Lehrplanreihenfolge, solange Budget reicht
     const L = s => this.L(s);
@@ -243,7 +246,7 @@ export class Director {
     }
   }
   _say(text, o = {}) {
-    const dur = estimateSpeech(text) * (o.speaker === 'prof' ? 1 : 0.85);
+    const dur = estimateSpeech(text, 1, this.lang) * (o.speaker === 'prof' ? 1 : 0.85);
     const pl = this.ctx.prof;
     if (o.speaker === 'prof') pl.talking = true;
     const lp = this._last && this._last.text === text ? this._last : null;

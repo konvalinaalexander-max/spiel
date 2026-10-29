@@ -1,6 +1,6 @@
 # Balancing
 
-Automatisierter Test: `node tools/sim.mjs --runs 80 --difficulty all --md docs/BALANCING.md` (läuft ohne Rendering, 456 s).
+Automatisierter Test: `node tools/sim.mjs --runs 80 --difficulty all --md docs/BALANCING.md` (läuft ohne Rendering, 381 s).
 Der Bot (`src/game/bot.js`, Geschick 0.5) spielt **nur mit Hinweisen, die auch ein Mensch hat**: grobe, verzögerte und verrauschte
 Blickrichtung des Profs, das Ende des Kreidekratzens, Warnungen der Nachbarin, Reaktionszeit 0,40 s ± 0,1 s; er sieht
 keine internen Werte (Verdacht/Beweis). Er schaltet über dieselbe API wie die Eingabe (`setMode`, `tttPlay`, `answerQuiz`, `signList`),
@@ -12,11 +12,13 @@ Vorlesungslänge „normal“ (720 s ≙ 90 Spielminuten), Sitzplatz Reihe 5 / P
 
 | Stufe | Ziel (Siege) | Erfolgsquote | Erwischt pro Lauf | Rauswurf | Siege / Niederl. / Unentsch. | Quiz richtig / gestellt | Ø Note | Ø Dauer | Ø Zeit am Spiel |
 |---|---|---|---|---|---|---|---|---|---|
-| erstsemester | 5 | 92 % | 0,09 | 1 % | 7,33 / 3,09 / 7,25 | 2,11 / 2,49 | 1,4 | 12:19 | 245 s |
-| bachelor | 6 | 50 % | 0,42 | 10 % | 6,03 / 2,98 / 6,74 | 2,39 / 2,99 | 2,9 | 11:57 | 219 s |
-| pruefungswoche | 6 | 31 % | 0,55 | 9 % | 4,62 / 3,02 / 7,00 | 3,05 / 3,81 | 3,6 | 12:01 | 211 s |
-| diplom | 6 | 15 % | 1,51 | 28 % | 3,49 / 2,38 / 6,11 | 2,95 / 3,90 | 4,3 | 11:05 | 179 s |
+| erstsemester | 5 | 86 % | 0,11 | 3 % | 6,90 / 2,93 / 6,64 | 2,15 / 2,59 | 1,6 | 12:28 | 230 s |
+| bachelor | 6 | 54 % | 0,31 | 6 % | 5,64 / 2,98 / 6,18 | 2,51 / 3,13 | 2,8 | 12:19 | 206 s |
+| pruefungswoche | 6 | 28 % | 0,64 | 10 % | 4,44 / 2,85 / 6,13 | 3,16 / 3,75 | 3,7 | 12:06 | 194 s |
+| diplom | 6 | 16 % | 1,16 | 20 % | 3,66 / 2,69 / 5,15 | 2,88 / 3,83 | 4,2 | 11:27 | 168 s |
 
+Gemessen nach der Umstellung auf das **echte Sprechtempo** der Aufnahmen (Deutsch 0,081 s/Zeichen statt geschätzt 0,064; der
+Prof spricht länger, es passen weniger Takte in die Vorlesung, Pausen fallen anders). Vorher (Schätzung): 92 / 50 / 31 / 15 %.
 Rohdaten: `docs/balancing_v3.json`. Version 2 zum Vergleich: Erstsemester 95 %, Bachelor 54 %, Prüfungswoche 35 %, Diplom 11 %
 (`docs/balancing_final.json`).
 

@@ -316,7 +316,7 @@ export class AudioEngine {
   /**
    * Geschätzte Sprechdauer (s) eines Satzes ohne Aufnahme – für Untertitel und Mundbewegung; es wird nichts abgespielt.
    */
-  speak(text) { return 0.9 + text.length * 0.062; }
+  speak(text) { return 0.9 + text.length * (this.lang === 'en' ? 0.048 : 0.081); }   // ohne Aufnahme: Untertiteldauer wie gemessenes Sprechtempo
   stopSpeech() { this._stopProfClip(); this._clipEnd = 0; }
   get speaking() { return !!(this._clipEnd && this.ctx && this.ctx.currentTime < this._clipEnd); }
 
