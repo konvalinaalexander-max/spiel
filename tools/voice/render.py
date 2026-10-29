@@ -27,7 +27,8 @@ ORDER = (opt('order') or 'part,event,question,var-row,var-minutes,title,aside,le
 # Stimmen: eingebaute XTTS-Studiosprecher (synthetisch). Auswahl siehe docs/AUDIO.md (Prüfsätze, WER/SQUIM).
 VOICE = {'prof': os.environ.get('PROF_VOICE', 'Damien Black'), 'neighbor': 'Daisy Studious', 'student_f': 'Sofia Hellen', 'student_m': 'Andrew Chipper'}
 SPEED = {'prof': 0.95, 'neighbor': 1.05, 'student_f': 1.05, 'student_m': 1.05}
-OUT = os.path.join(ROOT, 'assets', 'build', 'voice')
+# VOICE_OUT: Arbeitsordner während langer Läufe (z. B. tools/.cache/voice/out), übernommen mit tools/voice/sync.py
+OUT = os.environ.get('VOICE_OUT') or os.path.join(ROOT, 'assets', 'build', 'voice')
 TMP = os.path.join(ROOT, 'tools', '.cache', 'voice', 'wav')
 os.makedirs(TMP, exist_ok=True)
 
