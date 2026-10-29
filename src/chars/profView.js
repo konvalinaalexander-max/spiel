@@ -171,7 +171,10 @@ export class ProfView {
     if (this.glassesT < 0 && !L.walking && act !== 'write' && gname === 'none' && this.rng.chance(dt * 0.03)) this.glassesT = 1.4;
     if (this.glassesT > 0) { const gl = c.headWorld(V()).add(V(0, 0.0, 0)).addScaledVector(c.forward(V()), 0.12); c.setArm('L', 0.9, gl, c.local(0.5, 0.9, 0), { dir: V(0, 1, 0), palm: c.forward(V()).negate() }); }
     // Motion-Capture-Prof: Sprechen/Zuhören/Zeigen aus Clips, Gesten als Einzelclips; die Arm-IK oben bleibt darüber
-    if (c.isClip) { this._clips(L, gname); const pose = {}; if (L.shoulder.phase === 2 || L.shoulder.phase === 1) { pose.chest = [0, L.shoulder.side * (L.shoulder.phase === 2 ? 0.35 : 0.15), 0]; pose.spine = [0, L.shoulder.side * 0.15, 0]; } c.setGesture(pose, 5); c.update(dt, t); return; }
+    if (c.isClip) {
+      // Griffe zu den Requisiten in der Hand
+      c.setGrip('R', this.chalk.visible ? 'pen' : this.laser.visible ? 'fist' : (this.glass.visible || this.sponge.visible) ? 'hold' : null, 1);
+      c.setGrip('L', this.clicker.visible ? 'hold' : null, 0.8); this._clips(L, gname); const pose = {}; if (L.shoulder.phase === 2 || L.shoulder.phase === 1) { pose.chest = [0, L.shoulder.side * (L.shoulder.phase === 2 ? 0.35 : 0.15), 0]; pose.spine = [0, L.shoulder.side * 0.15, 0]; } c.setGesture(pose, 5); c.update(dt, t); return; }
     // Gesten-Pose mit Oszillation
     const G = GESTURES[gname] || GESTURES.none;
     const pose = {};

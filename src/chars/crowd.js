@@ -148,7 +148,7 @@ export class Crowd {
     for (const st of this.list) {
       if (!st.present) continue;
       if (leavers.includes(st.s.id)) { st.leaving = { stage: 'stand', t: this.rng.range(0, 4) }; }
-      else if (this.rng.chance(0.28)) { st.stretch = this.rng.range(2, 6); }
+      else if (this.rng.chance(0.12)) { st.stretch = this.rng.range(2.5, 5); }
     }
   }
   breakEnd() { for (const st of this.list) if (st.leaving) st.leaving.returning = true; }
@@ -295,7 +295,14 @@ export class Crowd {
       if (on) { const partner = this.byId.get(s.partner); if (partner) c.setLook(partner.c.headWorld(V()), 1); }
     }
     if (s.role === 'neighbor' && st.lean2Target !== undefined) { c.lean2 = damp(c.lean2, st.lean2Target, 4, dt); st.lean2T -= dt; if (st.lean2T <= 0) st.lean2Target = 0; }
-    if (st.stretch > 0) { st.stretch -= dt; c.setArm('R', 1, L(0.3, 1.7, 0.05), L(0.6, 1.1, 0.2), { dir: V(0, 1, 0), palm: V(0, 0, -1) }); c.setArm('L', 1, L(-0.3, 1.7, 0.05), L(-0.6, 1.1, 0.2), { dir: V(0, 1, 0), palm: V(0, 0, -1) }); }
+    // Strecken in der Pause: zurücklehnen, Hände hinter dem Kopf (Arme senkrecht hoch sah aus wie eine Meldung)
+    if (st.stretch > 0) {
+      st.stretch -= dt; const k = Math.min(1, st.stretch);   // Einblenden über die IK-Dämpfung, Ausblenden in der letzten Sekunde
+      const hw = c.headWorld(V());
+      c.setArm('R', k, hw.clone().add(V(0.07, -0.02, 0.1)), L(0.55, 1.45, 0.05), { dir: V(-1, 0.3, 0).normalize(), palm: V(0, 0, -1) });
+      c.setArm('L', k, hw.clone().add(V(-0.07, -0.02, 0.1)), L(-0.55, 1.45, 0.05), { dir: V(1, 0.3, 0).normalize(), palm: V(0, 0, -1) });
+      c.lean = damp(c.lean, -0.12, 3, dt);
+    }
   }
   /**
    * Motion-Capture-Figuren: Die Grundbewegung kommt aus den Clips (Zuhören, Arbeiten am Tisch, Eigenheiten). IK nur dort, wo eine
@@ -305,7 +312,8 @@ export class Crowd {
     const c = st.c, s = st.s, p = s.profile;
     const typing = (p === 'typer' || s.role === 'opponent' || s.role === 'latecomer') && (s.role !== 'opponent' || ctx.oppTyping || this.rng.chance(0.02));
     let act = 'listen';
-    if (st.handUp) { act = 'calm'; c.setArm('R', 1, L(0.18, 1.62, -0.05), L(0.5, 1.1, 0.1), { dir: V(0, 1, 0), palm: V(0, 0, -1) }); }
+    c.setGrip('L', null); c.setGrip('R', null);
+    if (st.handUp) { act = 'calm'; c.setArm('R', 1, L(0.18, 1.62, -0.05), L(0.5, 1.1, 0.1), { dir: V(0, 1, 0), palm: V(0, 0, -1) }); c.setGrip('R', 'flat', 1); }
     else if (p === 'sleeper') { act = 'sleep'; c.lean = damp(c.lean, 0.32, 2, dt); }
     else if (typing || (p === 'typer' && st.look === 'desk') || ((p === 'writer' || s.role === 'neighbor') && st.look === 'desk')) {
       // Hände per IK an Tastatur bzw. Stift, Grundhaltung aus ruhigen Sitz-Clips
@@ -319,12 +327,14 @@ export class Crowd {
         const wx = Math.sin(t * 2.3 + st.phase) * 0.035, wz = Math.sin(t * 7.1 + st.phase) * 0.006;
         c.setArm('R', 0.95, deskPt(0.09 + wx, 0.08 + wz), poleR, { dir: handDir, palm: V(-0.4, -1, 0).normalize() });
         c.setArm('L', 0.8, deskPt(-0.14, 0.06), poleL, { dir: V(0.5, -0.3, -1).normalize(), palm });
+        c.setGrip('R', 'pen', 1);
         if (this.rng.chance(dt * 0.6)) this.sfx('penWrite', L(0, LY.DESK_H, -0.3), 0.12);
       } else {
         act = 'type';
         const k = typing ? 1 : 0.25, jR = Math.sin(t * 13 + st.phase) * 0.008 * k, jL = Math.sin(t * 11.3 + st.phase * 2) * 0.008 * k;
         c.setArm('R', 0.95, deskPt(0.08 + jR, 0.06), poleR, { dir: handDir, palm });
         c.setArm('L', 0.95, deskPt(-0.08 + jL, 0.06), poleL, { dir: handDir, palm });
+        c.setGrip('L', 'type', 1); c.setGrip('R', 'type', 1);
         if (typing && this.rng.chance(dt * 6)) this.sfx('keyClick', L(0, LY.DESK_H, -0.3), 0.18);
       }
     }
@@ -334,11 +344,12 @@ export class Crowd {
       // Handy im Schoß unter der Pultkante (Blick „desk“ zeigt dorthin), Handflächen zum Gesicht
       c.setArm('R', 0.9, L(0.05, LY.DESK_H - 0.07 + scroll, -0.1), poleR, { dir: V(0, 0.3, -1).normalize(), palm: V(0, 0.6, 0.8).normalize() });
       c.setArm('L', 0.9, L(-0.05, LY.DESK_H - 0.08, -0.1), poleL, { dir: V(0, 0.3, -1).normalize(), palm: V(0, 0.6, 0.8).normalize() });
+      c.setGrip('R', 'hold', 1); c.setGrip('L', 'hold', 0.8);
     } else if (p === 'coffee') {
       st.drinkT -= dt;
       if (st.drinkT < -2.4) st.drinkT = this.rng.range(10, 28);
       const k = st.drinkT < 0 ? Math.sin(clamp(-st.drinkT / 2.4, 0, 1) * Math.PI) : 0;
-      if (k > 0.01) { const mouth = c.headWorld(V()).add(V(0, -0.08, -0.08)); c.setArm('R', k, mouth, L(0.4, 0.55, 0.15), { dir: V(0, 0.2, -1).normalize(), palm: V(-1, 0, 0) }); }
+      if (k > 0.01) { const mouth = c.headWorld(V()).add(V(0, -0.08, -0.08)); c.setArm('R', k, mouth, L(0.4, 0.55, 0.15), { dir: V(0, 0.2, -1).normalize(), palm: V(-1, 0, 0) }); c.setGrip('R', 'hold', k); }
     }
     c.activity = act;
     if (p !== 'sleeper' && act !== 'type' && act !== 'work') c.lean = damp(c.lean, 0, 2, dt);

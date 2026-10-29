@@ -51,6 +51,8 @@ window.run = async (specs, W = 800, H = 800) => {
       if (mode === 'phone') { c.setArm('R', 0.9, L(0.05, DESK_H + 0.14, -0.17), poleR, { dir: V(0, 0.4, -1).normalize(), palm: V(0, 0.5, 1).normalize() }); c.setArm('L', 0.9, L(-0.05, DESK_H + 0.12, -0.17), poleL, { dir: V(0, 0.4, -1).normalize(), palm: V(0, 0.5, 1).normalize() }); }
       if (mode === 'type') { const jR = Math.sin(t * 13) * 0.008, jL = Math.sin(t * 11.3) * 0.008; c.setArm('R', 0.95, deskPt(0.08 + jR, 0.06), poleR, { dir: handDir, palm }); c.setArm('L', 0.95, deskPt(-0.08 + jL, 0.06), poleL, { dir: handDir, palm }); }
       if (mode === 'work') { const wx = Math.sin(t * 2.3) * 0.035, wz = Math.sin(t * 7.1) * 0.006; c.setArm('R', 0.95, deskPt(0.09 + wx, 0.08 + wz), poleR, { dir: handDir, palm: V(-0.4, -1, 0).normalize() }); c.setArm('L', 0.8, deskPt(-0.14, 0.06), poleL, { dir: V(0.5, -0.3, -1).normalize(), palm }); }
+      c.setGrip('R', mode === 'type' ? 'type' : mode === 'work' ? 'pen' : mode === 'phone' ? 'hold' : mode === 'handup' ? 'flat' : null, 1);
+      c.setGrip('L', mode === 'type' ? 'type' : mode === 'phone' ? 'hold' : null, 1);
       if (mode === 'once' && t < 1 / 29) c.playOnce(arg, 0.3);
       if (mode === 'face') { c.talkTarget = 1; c.talkVis = { ...VISEMES.A, v0: 'A', v1: 'O', f: (t * 2) % 1, e: 0.8 }; c.browTarget = Math.sin(t) > 0 ? 1 : 0; }
       c.update(1 / 30, t);
@@ -64,6 +66,7 @@ window.run = async (specs, W = 800, H = 800) => {
       shot(name + '_side', V(2.6, 1.1, 0), V(0, 0.95, 0), 38);
       shot(name + '_front', V(0.6, 1.4, -3.2), V(0, 0.95, 0), 36);
     }
+    if (sitting) shot(name + '_hands', V(0.05, DESK_H + 0.5, rowFront - 0.2), V(0, DESK_H, rowFront + 0.32), 36);
     const f = V(Math.sin(c.yaw), 0, Math.cos(c.yaw));
     shot(name + '_face', hdp.clone().addScaledVector(f, 0.55).add(V(0.12, 0.12, 0)), hdp.clone().add(V(0, 0.07, 0)), 28);
     scene.remove(rig.mesh);

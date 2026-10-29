@@ -43,6 +43,14 @@ export const SIT_POOLS = {
   sleep: ['sit_relaxed'],
   player: ['sit_breathe']   // eigene Figur (Ich-Perspektive): ruhig, die Kamera hängt an den Augen
 };
+// Griffe: [Daumen, Zeige-, Mittel-, Ring-, kleiner Finger] × [Grund-, Mittel-, Endglied] (zusätzliche Beugung zur Clip-Haltung)
+const GRIPS = {
+  type: [[0, 0, 0], [-0.15, -0.1, 0], [-0.12, -0.1, 0], [-0.08, -0.05, 0], [-0.05, 0, 0]],   // Clip-Hände sind schon locker gebeugt → etwas strecken
+  pen: [[0.3, 0.25, 0.15], [0.05, 0.2, 0.15], [0.3, 0.45, 0.3], [0.7, 0.8, 0.55], [0.8, 0.85, 0.6]],
+  hold: [[0.25, 0.2, 0.1], [0.3, 0.35, 0.25], [0.35, 0.4, 0.25], [0.4, 0.45, 0.3], [0.45, 0.45, 0.3]],
+  fist: [[0.5, 0.4, 0.25], [0.9, 1.0, 0.7], [0.95, 1.05, 0.75], [1.0, 1.05, 0.75], [1.0, 1.05, 0.75]],
+  flat: [[0, 0, 0], [-0.2, -0.15, -0.05], [-0.2, -0.15, -0.05], [-0.2, -0.15, -0.05], [-0.2, -0.15, -0.05]]
+};
 const SIT_FIDGETS = ['sit_look', 'sit_yawn', 'sit_scratch', 'sit_face', 'sit_hair', 'sit_roll_head', 'sit_cough', 'sit_shrug', 'sit_dust', 'sit_thoughtful'];
 const STAND_POOL = ['idle_1', 'idle_2', 'idle_look'];
 
@@ -65,9 +73,14 @@ export class ClipCharacter {
     this.walkSpeed = 0; this.lean = 0; this.lean2 = 0; this.headTilt = 0; this.headTiltTarget = 0;
     this.visible = true; this.sleepy = false;
     this.activity = 'listen'; this.standPool = STAND_POOL; this.fidgets = opts.fidgets !== false;
+    this.grip = { L: { kind: null, w: 0, tw: 0 }, R: { kind: null, w: 0, tw: 0 } };
     this.fidgetT = this.rng.range(5, 20);
     this.base = null; this.baseKey = ''; this.baseT = 0; this.shot = null;
     this.groundOff = 0; this.sitOff = null;
+    // Ruhedrehung aller Knochen: Clips enthalten nur Spuren, die sich bewegen (konstante wurden beim Packen entfernt). Alles,
+    // was hier per rotateWorld überlagert wird (Blick, Haltung, IK, Finger), muss deshalb jedes Bild von der Ruhe ausgehen,
+    // sonst summiert sich die Überlagerung auf Knochen ohne Spur Bild für Bild auf.
+    this.restQ = (rig.skeleton ? rig.skeleton.bones : []).map(bn => [bn, bn.quaternion.clone()]);
     // Ruhewerte der Knochen, die nur hier (nicht von Clips) bewegt werden
     const b = this.bones;
     this.faceRest = ['jaw', 'eyeL', 'eyeR'].filter(n => b[n]).map(n => [b[n], b[n].quaternion.clone()]);
@@ -88,6 +101,12 @@ export class ClipCharacter {
       const palm = s === 'R' ? side.clone().cross(fing).normalize() : fing.clone().cross(side).normalize();
       this.handFrame[s] = { fing, palm, knuckle: f2.position.clone() };
     }
+    // Fingerketten (Biped: Finger0 = Daumen, 1 Zeige-, 2 Mittel-, 3 Ring-, 4 kleiner Finger; je drei Glieder)
+    this.fingers = {};
+    for (const s of ['L', 'R']) {
+      const ch = [0, 1, 2, 3, 4].map(k => [`Bip01_${s}_Finger${k}`, `Bip01_${s}_Finger${k}1`, `Bip01_${s}_Finger${k}2`].map(n => findBone(rig, n)).filter(Boolean));
+      if (ch.every(c => c.length)) this.fingers[s] = ch;
+    }
     // Morphs (Hauptfiguren mit Gesichtsformen)
     const dict = this.mesh.isSkinnedMesh ? this.mesh.morphTargetDictionary : (rig.skinned && rig.skinned.morphTargetDictionary);
     this.morph = dict ? { dict, inf: (this.mesh.isSkinnedMesh ? this.mesh : rig.skinned).morphTargetInfluences } : null;
@@ -107,6 +126,8 @@ export class ClipCharacter {
   setLook(target, w = 1) { this.lookTarget = target; this.lookTW = target ? w : 0; }
   setArm(side, w, target, pole, hand = null) { const a = this.arms[side]; a.tw = w; if (target) a.target.copy(target); if (pole) a.pole.copy(pole); a.hand = hand; }
   setGesture(pose, speed = 6) { this.gestureTarget = pose || {}; this.gestureSpeed = speed; }
+  /** Handhaltung über der Clip-Bewegung: 'type' (Tastatur), 'pen' (Stift), 'hold' (Handy/Becher), 'fist' (Zeigestab); null = Clip */
+  setGrip(side, kind, w = 1) { const g = this.grip[side]; if (kind) g.kind = kind; g.tw = kind ? w : 0; }
   local(x, y, z, out = V()) { const c = Math.cos(this.yaw), s = Math.sin(this.yaw); return out.set(this.pos.x + x * c + z * s, this.pos.y + y, this.pos.z - x * s + z * c); }
   headWorld(out = V()) { this.bones.head.updateWorldMatrix(true, false); return out.setFromMatrixPosition(this.bones.head.matrixWorld).add(_v5.set(0, 0.075, 0)); }
   forward(out = V()) { return out.set(Math.sin(this.yaw), 0, Math.cos(this.yaw)); }
@@ -174,7 +195,8 @@ export class ClipCharacter {
       const k = 1 - Math.exp(-4 * dt);
       this.pos.lerp(this.seat.pos, k); this.yaw = angleDamp(this.yaw, this.seat.yaw, 5, dt);
     }
-    // nur hier bewegte Knochen auf Ruhe zurücksetzen (Clips enthalten keine Gesichtsspuren)
+    // alle Knochen auf Ruhe zurücksetzen, danach schreibt der Mixer die animierten (Gesicht: keine Spuren in den Clips)
+    for (const [o, q] of this.restQ) o.quaternion.copy(q);
     for (const [o, q] of this.faceRest) o.quaternion.copy(q);
     for (const [o, p] of this.lids) o.position.copy(p);
     for (const [o, p] of this.browBones) o.position.copy(p);
@@ -200,8 +222,28 @@ export class ClipCharacter {
       a.w = damp(a.w, a.tw, 7, dt);
       if (a.w > 0.01 && this.handFrame[side]) this._armIK(side, a);
     }
-    // 6) Gesicht
+    // 6) Finger (Griff) – nach der Arm-IK, damit die Achsen zur endgültigen Handlage passen
+    for (const side of ['L', 'R']) { const g = this.grip[side]; g.w = damp(g.w, g.tw, 9, dt); if (g.w > 0.01 && g.kind && this.fingers[side]) this._applyGrip(side, g); }
+    // 7) Gesicht
     this._updateFace(dt, time);
+  }
+  /**
+   * Finger beugen: jede Fingerkette um die Achse Fingerrichtung × Handflächennormale (Welt) drehen – so wandern die Finger zur
+   * Handfläche, unabhängig von den lokalen Achsen des Biped-Skeletts. Werte je Glied (Grund-, Mittel-, Endglied) in Radiant.
+   */
+  _applyGrip(side, g) {
+    const P = GRIPS[g.kind]; if (!P) return;
+    const hf = this.handFrame[side], hd = this.bones['hand' + side];
+    worldQ(hd, _q3);
+    const f = _u1.copy(hf.fing).applyQuaternion(_q3), n = _u2.copy(hf.palm).applyQuaternion(_q3);
+    const axis = _u3.copy(f).cross(n).normalize(), thumbAxis = _u4.copy(f).normalize();
+    const fs = this.fingers[side];
+    for (let k = 1; k <= 4; k++) {
+      const a = P[k], chain = fs[k];
+      for (let j = 0; j < chain.length; j++) rotateWorld(chain[j], axisAngle(axis, a[j] * g.w));
+    }
+    const t = P[0], th = fs[0];
+    for (let j = 0; j < th.length; j++) rotateWorld(th[j], axisAngle(thumbAxis, (side === 'R' ? -1 : 1) * t[j] * g.w));
   }
   /** Versatz, der das Becken des Sitz-Clips auf unseren Sitz bringt (aus der Bip01-Spur des ersten Sitz-Clips) */
   _sitOffset() {

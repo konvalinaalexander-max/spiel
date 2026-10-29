@@ -78,7 +78,7 @@ async function tile(file, s, keepAlpha, tint = null) {
       const t = [1, 3, 5].map(k => parseInt(tint.slice(k, k + 2), 16)); let sum = 0, n = 0;
       for (let i = 0; i < full.length; i += 4) if (full[i + 3] >= 128) { sum += full[i] + full[i + 1] + full[i + 2]; n++; }
       const mean = sum / Math.max(1, n) || 1;
-      for (let i = 0; i < full.length; i += 4) { const k = Math.min(1.3, Math.max(0.6, (full[i] + full[i + 1] + full[i + 2]) / mean)); for (let c = 0; c < 3; c++) full[i + c] = Math.min(255, Math.round(t[c] * k)); }
+      for (let i = 0; i < full.length; i += 4) { const k = Math.min(1.25, Math.max(0.45, (full[i] + full[i + 1] + full[i + 2]) / mean)); for (let c = 0; c < 3; c++) full[i + c] = Math.min(255, Math.round(t[c] * k)); }
     }
     bleedRGBA(full, info.width, info.height, 128, Math.ceil(Math.max(info.width, info.height) / inner) * 3);
     const small = await sharp(full, { raw: { width: info.width, height: info.height, channels: 4 } }).resize(inner, inner, { kernel: 'lanczos3' }).raw().toBuffer();

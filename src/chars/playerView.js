@@ -134,6 +134,12 @@ export class PlayerView {
     const palmR = V(0, -1, 0.1).normalize().lerp(V(-1, -0.35, 0).normalize(), nbB).normalize();
     c.setArm('R', 1, R, poleR, { dir: dirR, palm: palmR });
     c.setArm('L', 1, Lh, poleL, { dir: V(0.15, -0.6, -1).normalize(), palm: handDown.palm });
+    // Finger: Tastatur leicht gebeugt, beim Mitschreiben Stiftgriff rechts, links flach auf dem Block
+    if (c.isClip) {
+      const pen = nbB > 0.3;
+      c.setGrip('R', pen ? 'pen' : 'type', pen ? nbB : Math.max(0.35, blend));
+      c.setGrip('L', nbB > blend ? 'flat' : 'type', Math.max(0.35, blend, nbB * 0.7));
+    }
     c.update(dt, t);
     // ------------------------------------------------- Kamera
     // Zuhören: an den Augen der Figur. Laptop/Heft: Blick senkrecht auf Bildschirm bzw. Seite

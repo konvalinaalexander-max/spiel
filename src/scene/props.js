@@ -378,7 +378,7 @@ export function buildProps(gfx, hall, plan, opts = {}) {
     pencilCase(onDesk(prow, ps.x + 0.5, pzc + 0.06, 0.2), 0x7d3c98);
     stackPaper(onDesk(prow, ps.x + 0.62, pzc - 0.02, -0.25), 8, 6); // Folienskript (Ausdruck)
     B.add(new THREE.ConeGeometry(0.03, 0.002, 3), PM.paper, M4(onDesk(prow, ps.x + 0.69, pzc - 0.14, -0.25), mat(0, 0.016, 0, 0, 0.5, 0)), { ...C(0xf2f0e8), keepUV: true, cast: false }); // Eselsohr
-    highlighter(onDesk(prow, ps.x + 0.18, pzc + 0.1, 0.9), 0xf7dc1f);
+    highlighter(onDesk(prow, ps.x - 0.45, pzc + 0.12, 1.3), 0xf7dc1f);   // links neben Laptop und Handy (dort, wo vorher die linke Hand das Heft hielt, sah es aus, als hielte sie ihn)
     apple(onDesk(prow, ps.x - 0.33, pzc - 0.06));
     bottlePET(onLedge(prow, ps.x - 0.36));
   }
@@ -507,7 +507,8 @@ export function buildProps(gfx, hall, plan, opts = {}) {
     // vor dem Tisch am Boden: Korb mit Heuproben, Futterkiste, Stuhl
     real('wicker_basket_01', P(T2.x - 2.15, LY.PODIUM.h, T2.z + 0.62, 0.3), { scale: 0.8 });
     real('wooden_crate_01', P(T2.x - 1.55, LY.PODIUM.h, T2.z + 0.68, -0.2), { scale: 0.75 });
-    real('SchoolChair_01', P(T2.x + 2.85, LY.PODIUM.h, T2.z + 0.15, -1.9));
+    // Stuhl in der linken vorderen Ecke (stand vorher auf dem Weg Pult → Saal, der Prof lief hindurch)
+    real('SchoolChair_01', P(LY.ROOM.x0 + 0.4, LY.PODIUM.h, LY.ROOM.z0 + 1.1, 1.35));
     // Gelenkleuchte am rechten Tischende, zum Tisch geneigt
     real('desk_lamp_arm_01', P(T2.x + 2.3, ty2, T2.z - 0.28, -2.2), { scale: 0.5 });
     // Pflanzen: vorne links neben der Tafel, hinten in der Ecke, auf der Fensterbank
