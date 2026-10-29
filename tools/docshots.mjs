@@ -1,6 +1,7 @@
 // Erzeugt die Dokumentations-Screenshots (Phase 7: alle Screens DE/EN in drei Auflösungen).
 // node tools/docshots.mjs [--q low] [--langs de,en] [--sizes 1920x1080,1366x768,1024x768] [--screens start,lv,...]
 import { createRequire } from 'node:module';
+import { DIST } from './dist.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 const { chromium } = createRequire(import.meta.url)('playwright');
@@ -19,7 +20,7 @@ for (const lang of langs) for (const [w, h] of sizes) {
   page.on('pageerror', e => errors.push(`${lang} ${w}: ${e.message}`));
   page.on('console', m => { if (m.type() === 'error') errors.push(`${lang} ${w}: ${m.text()}`); });
   await page.addInitScript(l => { try { localStorage.setItem('boku-ttt-v2:lang', JSON.stringify(l)); } catch (e) { /* egal */ } }, lang);
-  await page.goto('file://' + path.join(root, 'dist/BOKU_TicTacTierernaehrung_v2.html') + `?q=${args.q || 'low'}&bot=0.6`);
+  await page.goto('file://' + path.join(root, DIST) + `?q=${args.q || 'low'}&bot=0.6`);
   const tag = `${lang}_${w}x${h}`;
   const shot = async name => { await page.screenshot({ path: path.join(out, `${name}_${tag}.jpg`), type: 'jpeg', quality: 82, timeout: 180000 }); lap(`${name}_${tag}`); };
   if (screens.includes('loading')) { await page.waitForTimeout(900); await page.evaluate(() => window.__ui && window.__ui.show('loading')); await shot('loading'); }

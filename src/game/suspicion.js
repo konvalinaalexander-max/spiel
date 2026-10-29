@@ -20,7 +20,7 @@ export class Suspicion {
   }
   /**
    * s = { vis, fovea, cone, los }  (vom Sichtmodell)
-   * p = { laptop (0–1: Kopf unten am Laptop), notes (0–1), lookAway (0–1), motion (0–1), glow (0–1), hands (0–1), gameVisible (bool) }
+   * p = { laptop (0–1: Kopf unten am Laptop), notes (0–1), lookAway (0–1), motion (0–1), glow (0–1), hands (0–1), gameVisible (bool), studying (0–1: Folien am Laptop mitlesen) }
    * mods = { mul (Schwierigkeit), tolerance, focus }
    */
   update(dt, s, p, mods = {}) {
@@ -32,11 +32,13 @@ export class Suspicion {
     this.attention -= T.attDecay * dt * (s.vis < 0.05 ? 1.4 : 0.6);
     // Verdacht: nur wenn er bewusst hinschaut (Aufmerksamkeit über Schwelle)
     if (this.attention > T.susGate) {
-      const tell = p.laptop * 1.0 + p.glow * 0.4 + p.hands * 0.5 + p.lookAway * 0.25;
+      // Wer am Laptop die Folien mitliest, wirkt wie jemand, der lernt: deutlich weniger verräterisch
+      const tell = p.laptop * (1 - 0.65 * (p.studying || 0)) + p.glow * 0.4 + p.hands * 0.5 + p.lookAway * 0.25;
       this.suspicion += s.vis * tell * T.susRise * mul * tol * dt;
     }
     const legit = p.notes > 0.5 && p.laptop < 0.3;
-    this.suspicion -= (legit ? T.susDecayNotes : T.susDecay) * dt * (s.vis < 0.05 ? 1 : 0.5);
+    const decay = legit ? T.susDecayNotes : (p.studying || 0) > 0.6 ? (T.susDecay + T.susDecayNotes) / 2 : T.susDecay;
+    this.suspicion -= decay * dt * (s.vis < 0.05 ? 1 : 0.5);
     // Beweis: direkter (fovealer) Blick + eindeutig am Laptop + Spiel offen, ab einem Grundverdacht
     if (this.suspicion > T.evGate && s.fovea > 0) {
       const proof = p.laptop * (0.55 + 0.25 * p.hands + 0.2 * p.glow) * (p.gameVisible ? 1 : 0.25);

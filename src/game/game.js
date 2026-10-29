@@ -7,6 +7,7 @@ import { ProfView } from '../chars/profView.js';
 import { PlayerView } from '../chars/playerView.js';
 import { LaptopOS, LAPTOP_SIZE } from '../laptop/os.js';
 import { SLIDE_META } from './world.js';
+import { SlideRenderer } from '../scene/slides.js';
 import { t, getLang } from '../ui/i18n.js';
 import { clamp, damp, lerp, smoothstep } from '../core/util.js';
 import * as LY from '../scene/layout.js';
@@ -43,10 +44,21 @@ export class Game {
       onNotify: (kind, muted) => S.notifyRaised(muted || S.player.muted),
       onCell: i => this._place(i), onNextRound: () => S.nextRound(),
       onSnake: score => { S.stats.snake = Math.max(S.stats.snake, score); },
-      target: () => S.target, colorblind: this.settings.colorblind
+      target: () => S.target, colorblind: this.settings.colorblind,
+      // BOKUlearn Live: aktuelle Folie (Beamer-Canvas), Archiv der gezeigten Folien, eigene Notizen
+      slides: {
+        live: () => (this.lastSlide && !this._noSignal && this.world.fx.beamer.target ? this.world.fx.slides.canvas : null),
+        log: () => this.slideLog,
+        render: d => { this.archiveSR ||= new SlideRenderer(1920, 1080); const k = JSON.stringify(d); if (this._archiveKey !== k) { this._archiveKey = k; this._drawSlide(this.archiveSR, d); } return this.archiveSR.canvas; }
+      },
+      getNotes: () => this.notesWritten
     });
+    this.slideLog = []; this.notesWritten = [];
     this.osTex = new THREE.CanvasTexture(this.os.canvas); this.osTex.colorSpace = THREE.SRGBColorSpace; this.osTex.anisotropy = this.gfx.renderer.capabilities.getMaxAnisotropy();
     lap.screenMat.map = this.osTex; lap.screenMat.needsUpdate = true;
+    // Mauszeiger als eigenes kleines Objekt über dem Bildschirm: Zeigerbewegung lädt keine 2560er-Textur hoch
+    this.os.externalCursor = true;
+    this.cursorMesh = this._makeCursor(lap);
     this.os.draw(); this.osTex.needsUpdate = true;
     // Zustand
     this.t = 0; this.paused = false; this.ended = false;
@@ -223,22 +235,34 @@ export class Game {
     }
     this.hud.say(sp, d.text, d.dur || 2, d.kind);
   }
-  _slide(d) {
-    const W = this.world, sr = W.fx.slides, meta = SLIDE_META[this.lang];
-    let ok = true;
+  /** zeichnet eine Folienbeschreibung in einen SlideRenderer; false, wenn sie nicht darstellbar ist */
+  _drawSlide(sr, d) {
+    const meta = SLIDE_META[this.lang];
     switch (d.kind) {
-      case 'content': { const s = this._sec(d.section); const sl = s && s.slides[d.index]; if (sl) sr.content(meta, sl, d.no, d.total, this.lang); else ok = false; break; }
-      case 'title': sr.title(meta, { title: t('slide.title'), sub: t('slide.sub'), who: t('lv.lecturerV'), when: t('slide.when') }); break;
-      case 'agenda': sr.agenda(meta, t('slide.agenda'), d.agenda || [], d.current ?? -1, d.no, d.total); break;
-      case 'break': sr.message(meta, t('slide.break'), t('slide.breakSub')); break;
-      case 'end': sr.message(meta, t('slide.end'), t('slide.endSub')); break;
-      case 'nosignal': sr.noSignal(t('slide.nosignal')); this._noSignal = true; break;
-      case 'restore': this._noSignal = false; if (this.lastSlide) { this._slide(this.lastSlide); return; } break;
-      case 'boot': sr.boot(t('slide.boot'), 1); break;
-      case 'desktop': sr.desktop(meta, this._hm()); break;
-      default: ok = false;
+      case 'content': { const s = this._sec(d.section); const sl = s && s.slides[d.index]; if (!sl) return false; sr.content(meta, sl, d.no, d.total, this.lang); return true; }
+      case 'title': sr.title(meta, { title: t('slide.title'), sub: t('slide.sub'), who: t('lv.lecturerV'), when: t('slide.when') }); return true;
+      case 'agenda': sr.agenda(meta, t('slide.agenda'), d.agenda || [], d.current ?? -1, d.no, d.total); return true;
+      case 'break': sr.message(meta, t('slide.break'), t('slide.breakSub')); return true;
+      case 'end': sr.message(meta, t('slide.end'), t('slide.endSub')); return true;
+      case 'boot': sr.boot(t('slide.boot'), 1); return true;
+      case 'desktop': sr.desktop(meta, this._hm()); return true;
+      default: return false;
     }
+  }
+  _slide(d) {
+    const W = this.world, sr = W.fx.slides;
+    let ok = true;
+    if (d.kind === 'nosignal') { sr.noSignal(t('slide.nosignal')); this._noSignal = true; }
+    else if (d.kind === 'restore') { this._noSignal = false; if (this.lastSlide) { this._slide(this.lastSlide); return; } }
+    else ok = this._drawSlide(sr, d);
     if (d.kind !== 'nosignal' && d.kind !== 'restore' && ok) this.lastSlide = d;
+    // Archiv für „Folien live“ (Inhalts-, Titel- und Gliederungsfolien, ohne direkte Wiederholung)
+    if (ok && ['content', 'title', 'agenda'].includes(d.kind)) {
+      const title = d.kind === 'content' ? (this._sec(d.section)?.slides[d.index]?.title || '') : d.kind === 'title' ? t('slide.title') : t('slide.agenda');
+      const last = this.slideLog[this.slideLog.length - 1], key = JSON.stringify(d);
+      if (!last || last.key !== key) this.slideLog.push({ ...d, title, key });
+    }
+    if (this.os.app === 'live') this.os.dirty = true;
     if (ok && d.kind === 'content') W.fx.beamer.level *= 0.55; // kurzer Blend beim Folienwechsel
     if (this._bootT !== undefined && this._bootT < 2.5) return; // Beamer fährt noch hoch – Folie erscheint danach
     if (ok) W.fx.updateSlideTextures();
@@ -418,7 +442,7 @@ export class Game {
     const nb = W.props.player.notebook;
     if (p.mode === 'notes' && p.blend < 0.2 && nb.queue.length === 0 && !nb.job) {
       const sec = S.director.currentSection; const lines = sec && this.notesLines.get(sec.sec.id);
-      if (lines && lines.length) nb.add([lines.shift()]); else if (sec && !this._notesHead?.[sec.sec.id]) { (this._notesHead ||= {})[sec.sec.id] = 1; nb.add(['— ' + (this._secTitle || '') + ' —']); }
+      if (lines && lines.length) { const l = lines.shift(); nb.add([l]); this.notesWritten.push(l); if (this.os.app === 'live') this.os.dirty = true; } else if (sec && !this._notesHead?.[sec.sec.id]) { (this._notesHead ||= {})[sec.sec.id] = 1; nb.add(['— ' + (this._secTitle || '') + ' —']); }
     }
     const writing = nb.update(dt, p.mode === 'notes' && this.player.notesBlend > 0.7, 300);
     if (writing && Math.random() < dt * 5) A.play('penWrite', { bus: 'player', gain: 0.25 });
@@ -429,6 +453,7 @@ export class Game {
     const scrMat = W.props.player.laptop.screenMat;
     const lidF = smoothstep(55, 95, this.lid);
     scrMat.color.setScalar(Math.min(1.6, (0.25 + this.brightness * 0.95) * lidF * (1 + (this.os.flicker || 0) * 0.25)));
+    this._updateCursor(scrMat);
     W.light.laptopGlow.intensity = this.brightness * lidF * (0.25 + (this.os.luma || 0.3) * 0.6) * 1.2;
     W.light.laptopGlow.position.copy(W.props.player.laptop.screenWorld(0.5, 0.5)).addScaledVector(W.props.player.laptop.screenNormal(V()), 0.35);
     // Welt
@@ -474,6 +499,29 @@ export class Game {
     else H.debug(false);
   }
   /** Bild-in-Bild aus Sicht des Profs (F3, Debug) */
+  _makeCursor(lap) {
+    const K = 4, px = 24, tex = {};
+    for (const shape of ['arrow', 'hand']) {
+      const cv = document.createElement('canvas'); cv.width = cv.height = px * K;
+      const c = cv.getContext('2d'); c.scale(K, K); this.os._cursor(c, 3, 1, shape === 'hand');
+      const tx = new THREE.CanvasTexture(cv); tx.colorSpace = THREE.SRGBColorSpace; tx.anisotropy = this.gfx.renderer.capabilities.getMaxAnisotropy(); tex[shape] = tx;
+    }
+    const s = lap.sw * px / LAPTOP_SIZE.W;
+    const geo = new THREE.PlaneGeometry(s, s); geo.translate(s / 2, -s / 2, 0);
+    const mat = new THREE.MeshBasicMaterial({ map: tex.arrow, transparent: true, depthWrite: false, toneMapped: true });
+    const mesh = new THREE.Mesh(geo, mat); mesh.renderOrder = 2; mesh.userData.tex = tex;
+    lap.screen.add(mesh);
+    return mesh;
+  }
+  _updateCursor(scrMat) {
+    const m = this.cursorMesh; if (!m) return;
+    const lap = W.props.player.laptop, os = this.os, K = 3 / 24, s = lap.sw * 24 / LAPTOP_SIZE.W;
+    m.visible = os.cursor.visible && this.lid > 40;
+    // Zeichnung beginnt bei (3, 1) im 24-px-Feld → Hotspot ausgleichen
+    m.position.set((os.cursor.x / LAPTOP_SIZE.W - 0.5) * lap.sw - K * s, (0.5 - os.cursor.y / LAPTOP_SIZE.H) * lap.sh + s / 24, 0.0003);
+    const want = m.userData.tex[os.pointerShape]; if (m.material.map !== want) { m.material.map = want; m.material.needsUpdate = true; }
+    m.material.color.copy(scrMat.color);
+  }
   renderPiP() {
     if (!this.debug) return;
     const r = this.gfx.renderer, S = this.session;

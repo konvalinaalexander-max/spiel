@@ -2,6 +2,7 @@
 // Spielerperspektiven (3), 10-Bild-Sequenz Gehen/Schreiben/Umdrehen, Vergleich v1 ↔ v2.
 // node tools/phaseshots.mjs [--only presets,orbit,player,seq,v1]
 import { createRequire } from 'node:module';
+import { DIST } from './dist.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 const { chromium } = createRequire(import.meta.url)('playwright');
@@ -19,7 +20,7 @@ async function openGame(browser, q, seed = 4242) {
   const page = await browser.newPage({ viewport: { width: W, height: H } });
   page.on('pageerror', e => console.log('pageerror', e.message));
   await page.addInitScript(() => { try { localStorage.setItem('boku-ttt-v2:lang', JSON.stringify('de')); } catch (e) { /* egal */ } });
-  await page.goto('file://' + path.join(root, 'dist/BOKU_TicTacTierernaehrung_v2.html') + `?q=${q}`);
+  await page.goto('file://' + path.join(root, DIST) + `?q=${q}`);
   await page.waitForFunction(() => window.__world && window.__state && window.__state() === 'menu', null, { timeout: 600000, polling: 1000 });
   await page.evaluate(s => { window.__hold = true; window.__ui.cfg.seed = s; window.__ui.hooks.start({ ...window.__ui.cfg, seed: s }); }, seed);
   await page.waitForFunction(() => window.__state() === 'game', null, { timeout: 60000 });

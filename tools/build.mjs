@@ -1,10 +1,11 @@
 // Baut das Spiel in EINE offline-fähige HTML-Datei:
-//   dist/BOKU_TicTacTierernaehrung_v2.html  +  dist/SHA256.txt
+//   dist/BOKU_TicTacTierernaehrung_v3.html  +  dist/SHA256.txt (Prüfsummen aller ausgelieferten Dateien)
 // Aufruf: npm run build   (optional: --dev für unminifizierten Build mit Sourcemap-Kommentaren)
 import { build } from 'esbuild';
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
+import { DIST, DIST_NAME } from './dist.mjs';
 
 const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
 const dev = process.argv.includes('--dev');
@@ -63,10 +64,13 @@ html = html
   .replace('<!--THIRDTEXT-->', () => third.replace(/<\//g, '<\\/'));
 
 fs.mkdirSync(path.join(root, 'dist'), { recursive: true });
-const out = path.join(root, 'dist/BOKU_TicTacTierernaehrung_v2.html');
+const out = path.join(root, DIST);
 fs.writeFileSync(out, html);
 const hash = crypto.createHash('sha256').update(html).digest('hex');
-fs.writeFileSync(path.join(root, 'dist/SHA256.txt'), `${hash}  BOKU_TicTacTierernaehrung_v2.html\n`);
+// Prüfsummen: v3 + unveränderte Vorversionen
+const sums = [`${hash}  ${DIST_NAME}`];
+for (const f of ['BOKU_TicTacTierernaehrung_v2.html', 'BOKU_TicTacTierernaehrung_v1.html']) { const fp = path.join(root, 'dist', f); if (fs.existsSync(fp)) sums.push(`${crypto.createHash('sha256').update(fs.readFileSync(fp)).digest('hex')}  ${f}`); }
+fs.writeFileSync(path.join(root, 'dist/SHA256.txt'), sums.join('\n') + '\n');
 const kb = (Buffer.byteLength(html) / 1024).toFixed(0);
-console.log(`dist/BOKU_TicTacTierernaehrung_v2.html  ${kb} KB  (${Date.now() - t0} ms)`);
+console.log(`${DIST}  ${kb} KB  (${Date.now() - t0} ms)`);
 if (Buffer.byteLength(html) > 25 * 1024 * 1024) { console.error('Build größer als 25 MB!'); process.exit(1); }

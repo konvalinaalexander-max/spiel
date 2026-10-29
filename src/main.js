@@ -36,7 +36,8 @@ function applyGfxSettings(s) {
   const next = { ...gfx.preset, renderScale: PRESETS[gfx.presetId].renderScale * (s.dprScale ?? 1), grain: s.grain !== false && PRESETS[gfx.presetId].grain };
   gfx.applyLive(next);
   gfx.caDisabled = s.ca === false || s.photosensitive;
-  if (gfx.vignette) gfx.vignette.offset = s.vignette === false ? 0.9 : 0.32;
+  gfx.vignetteBase = s.vignette === false ? 0 : 0.2;
+  gfx.setSharpen(s.sharpen ?? 0.3);
   if (game) { game.settings = s; game.player.fovBase = s.fov || 60; game.player.reducedMotion = !!s.reducedMotion; game.os.opts.colorblind = s.colorblind; game.os.dirty = true; }
   hud?.applySettings(s);
   input.sens = s.sens ?? 1; input.invertY = !!s.invertY; input.cellKeys = s.cellKeys !== false; input.usePointerLock = s.pointerLock !== false;
@@ -54,6 +55,7 @@ async function boot() {
     applySettings: s => applyGfxSettings(s), reloadQuality: () => { sessionStorage.setItem('boku-ttt-v2:menu', 'settings'); location.reload(); },
     gate: () => enterGate(), inGame: () => !!game && !game.ended, click: () => audio.play('uiClick', { bus: 'ui', gain: 0.3 }),
     lang: l => { audio.setLang(l); }, testVoice: () => { audio.start(); audio.speak(t('set.testLine')); },
+    renderInfo: () => gfx ? gfx.renderInfo() : null,
     gpuInfo: () => gfx ? t('set.gpuInfo', { gpu: gfx.gpuName || '?', preset: t('set.q.' + gfx.presetId) }) + (gfx.measured ? ' · ' + t('set.measured', { ms: gfx.measured.ms.toFixed(1), preset: t('set.q.' + gfx.measured.suggestion) }) : '') : '',
     screen: name => { document.body.dataset.screen = name || 'none'; }
   });

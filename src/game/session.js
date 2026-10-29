@@ -186,12 +186,17 @@ export class Session {
     const lidF = smoothstep(80, 120, p.lid);
     const glow = p.blend * p.brightness * (0.25 + p.luma * 0.75) * lidF;
     const lookAway = p.mode === 'listen' ? clamp((Math.abs(p.headYaw) - 0.75) / 0.6, 0, 1) : 0;
-    const signals = { laptop: b, notes, lookAway, motion: p.motion, glow, hands: Math.min(1, p.hands + p.tellNotify * 0.5), gameVisible: p.app === 'ttt' || p.app === 'snake' };
+    const studying = p.mode === 'laptop' && p.app === 'live' ? b : 0; // Folien am Laptop mitlesen
+    const signals = { laptop: b, notes, lookAway, motion: p.motion, glow, hands: Math.min(1, p.hands + p.tellNotify * 0.5), gameVisible: p.app === 'ttt' || p.app === 'snake', studying };
     const mods = { mul: this.diff.mul, tolerance: this.prof.tolerance, focus: this.prof.focusPlayer > 0 };
     if (this.state === 'playing' && !this.caughtSeq) {
       const caught = this.susp.update(dt, this.lastVis, signals, mods);
       if (caught) this._caught();
       this._reactions(dt);
+    }
+    // Folien mitlesen zählt halb so viel wie Mitschreiben (Hilfe bei Prüfungsfragen)
+    if (signals.studying > 0.6 && this.director.currentSection && this.prof.talking) {
+      const id = this.director.currentSection.sec.id; p.notes[id] = clamp((p.notes[id] || 0) + dt / 80, 0, 1);
     }
     // Notizen
     if (p.mode === 'notes' && this.director.currentSection && this.prof.talking) {
@@ -352,6 +357,7 @@ export class Session {
     H('suspicion', this.susp.attention > 40);
     H('notes', ph === 'part1' && this.t > 60);
     H('zoom', ph === 'part1' && this.t > 95 && this.player.mode === 'listen');
+    H('live', this.player.blend > 0.9 && this.t > 150 && this.player.app !== 'live');
     H('lid', this.player.laptopTime > 45);
     H('alttab', this.susp.suspicion > 30 && this.player.blend > 0.5);
     H('list', this.list && this.list.holder === 'player');

@@ -1,12 +1,13 @@
 // Headless-Screenshot-Helfer.
 // node tools/shot.mjs --out docs/screenshots/x.png [--q medium] [--w 1280 --h 800] [--wait 3000] [--eval "js"] [--query "a=b"]
 import { createRequire } from 'node:module';
+import { DIST } from './dist.mjs';
 const { chromium } = createRequire(import.meta.url)('playwright');
 import path from 'node:path';
 
 const args = Object.fromEntries(process.argv.slice(2).reduce((acc, a, i, arr) => { if (a.startsWith('--')) acc.push([a.slice(2), arr[i + 1] && !arr[i + 1].startsWith('--') ? arr[i + 1] : true]); return acc; }, []));
 const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
-const file = 'file://' + path.join(root, 'dist/BOKU_TicTacTierernaehrung_v2.html');
+const file = 'file://' + path.join(root, DIST);
 const w = +(args.w || 1280), h = +(args.h || 800);
 const browser = await chromium.launch({ args: ['--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader', '--ignore-gpu-blocklist', '--autoplay-policy=no-user-gesture-required'] });
 const page = await browser.newPage({ viewport: { width: w, height: h } });

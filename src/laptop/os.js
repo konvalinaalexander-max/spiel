@@ -20,7 +20,10 @@ function wrapLines(c, text, maxW) {
 
 export class LaptopOS {
   constructor(opts) {
-    this.canvas = document.createElement('canvas'); this.canvas.width = W; this.canvas.height = H;
+    // Logische Größe bleibt 1280 × 800 (Layout, Klickflächen); gezeichnet wird mit opts.scale (Desktop 2 → 2560 × 1600),
+    // damit die Schrift im Laptop-Blick nicht hochskaliert und weich wird
+    this.scale = opts.scale ?? 2;
+    this.canvas = document.createElement('canvas'); this.canvas.width = Math.round(W * this.scale); this.canvas.height = Math.round(H * this.scale);
     this.ctx = this.canvas.getContext('2d');
     this.opts = opts; // { getTime(), getSections(), sfx(name), ttt, opponent, onNotify(kind) }
     this.ttt = opts.ttt; this.opponent = opts.opponent;
@@ -48,7 +51,17 @@ export class LaptopOS {
   get gameVisible() { return this.app === 'ttt' || this.app === 'snake'; }
   focus(app) { if (app === this.app) return; if (app === 'ttt' || app === 'snake') this.lastGame = app; this.app = app; this.switchAnim = 1; this.dirty = true; this.flicker = 1; this.opts.sfx?.('click'); }
   altTab() { this.focus(this.gameVisible ? 'pdf' : this.lastGame); }
-  pointerTo(x, y) { const nx = clamp(x, 0, W - 1), ny = clamp(y, 0, H - 1); if (nx !== this.cursor.x || ny !== this.cursor.y) { this.cursor.x = nx; this.cursor.y = ny; this.dirty = true; } }
+  pointerTo(x, y) {
+    const nx = clamp(x, 0, W - 1), ny = clamp(y, 0, H - 1); if (nx === this.cursor.x && ny === this.cursor.y) return;
+    this.cursor.x = nx; this.cursor.y = ny;
+    // Mit eigenem Zeiger-Objekt (externalCursor) nur neu zeichnen, wenn sich das Ziel unter dem Zeiger ändert oder ein Tooltip mitläuft –
+    // sonst müsste bei jeder Mausbewegung die ganze große Textur neu hochgeladen werden
+    if (!this.externalCursor) { this.dirty = true; return; }
+    const hv = this._hit(nx, ny), key = hv ? (hv.id ?? hv) : null;
+    if (key !== this._hoverKey || (hv && hv.tip)) { this._hoverKey = key; this.dirty = true; }
+  }
+  /** Zeigerform für das externe Zeiger-Objekt */
+  get pointerShape() { return this._hit(this.cursor.x, this.cursor.y) ? 'hand' : 'arrow'; }
   pointerBy(dx, dy) { this.pointerTo(this.cursor.x + dx, this.cursor.y + dy); }
   click() {
     const r = this._hit(this.cursor.x, this.cursor.y);
@@ -90,11 +103,11 @@ export class LaptopOS {
   // ------------------------------------------------------------------ Zeichnen
   draw() {
     const c = this.ctx; this.regions = [];
-    c.setTransform(1, 0, 0, 1, 0, 0);
-    c.drawImage(this._wallpaper, 0, 0);
+    c.setTransform(this.scale, 0, 0, this.scale, 0, 0);
+    c.drawImage(this._wallpaper, 0, 0, W, H);
     const lang = getLang();
     // Desktop-Icons
-    const apps = [['ttt', t('os.app.ttt')], ['snake', t('os.app.snake')], ['pdf', t('os.app.pdf')], ['browser', t('os.app.browser')], ['mail', t('os.app.mail')]];
+    const apps = [['ttt', t('os.app.ttt')], ['snake', t('os.app.snake')], ['live', t('os.app.live')], ['pdf', t('os.app.pdf')], ['browser', t('os.app.browser')], ['mail', t('os.app.mail')]];
     // Fenster
     const wx = 70, wy = 30, ww = W - 140, wh = H - TB - 60;
     this._window(wx, wy, ww, wh, this._title());
@@ -103,6 +116,7 @@ export class LaptopOS {
     const cw = ww, ch = wh - 34;
     if (this.app === 'ttt') this._drawTTT(c, cw, ch);
     else if (this.app === 'snake') this._drawSnake(c, cw, ch);
+    else if (this.app === 'live') this._drawLive(c, cw, ch);
     else if (this.app === 'pdf') this._drawPDF(c, cw, ch);
     else if (this.app === 'browser') this._drawBrowser(c, cw, ch);
     else if (this.app === 'mail') this._drawMail(c, cw, ch);
@@ -156,17 +170,19 @@ export class LaptopOS {
     // Helligkeit
     if (this.brightness < 1) { c.fillStyle = `rgba(0,0,0,${(1 - this.brightness) * 0.85})`; c.fillRect(0, 0, W, H); }
     // Cursor
-    if (this.cursor.visible) this._cursor(c, this.cursor.x, this.cursor.y, hv);
+    if (this.cursor.visible && !this.externalCursor) this._cursor(c, this.cursor.x, this.cursor.y, hv);
+    this._hoverKey = hv ? (hv.id ?? hv) : null;
     this.luma = this._appLuma() * this.brightness;
     this.dirty = false;
     this.texture && (this.texture.needsUpdate = true);
     return lang;
   }
-  _appLuma() { return { ttt: 0.32, snake: 0.18, pdf: 0.82, browser: 0.78, mail: 0.8 }[this.app] ?? 0.5; }
+  _appLuma() { return { ttt: 0.32, snake: 0.18, live: 0.7, pdf: 0.82, browser: 0.78, mail: 0.8 }[this.app] ?? 0.5; }
   _title() {
     switch (this.app) {
       case 'ttt': return t('os.title.ttt', { name: this.opponent.name });
       case 'snake': return t('os.title.snake');
+      case 'live': return t('os.title.live');
       case 'pdf': return t('os.title.pdf');
       case 'browser': return t('os.title.browser');
       default: return t('os.title.mail');
@@ -188,6 +204,7 @@ export class LaptopOS {
     const r = (cx, cy, w, h, col) => { c.fillStyle = col; c.fillRect(cx, cy, w, h); };
     if (id === 'ttt') { r(0, 0, s, s, '#26324a'); c.strokeStyle = '#8da0c4'; c.lineWidth = 2; for (let i = 1; i < 3; i++) { c.beginPath(); c.moveTo(i * s / 3, 5); c.lineTo(i * s / 3, s - 5); c.moveTo(5, i * s / 3); c.lineTo(s - 5, i * s / 3); c.stroke(); } c.strokeStyle = '#4fd18b'; c.lineWidth = 3; c.beginPath(); c.moveTo(6, 6); c.lineTo(s / 3 - 3, s / 3 - 3); c.moveTo(s / 3 - 3, 6); c.lineTo(6, s / 3 - 3); c.stroke(); c.strokeStyle = '#f0954a'; c.beginPath(); c.arc(s / 2, s / 2, 5, 0, 7); c.stroke(); }
     else if (id === 'snake') { r(0, 0, s, s, '#101820'); c.fillStyle = '#58d68d'; for (let i = 0; i < 5; i++) c.fillRect(6 + i * 5, 20 - (i > 2 ? (i - 2) * 5 : 0), 5, 5); c.fillStyle = '#e74c3c'; c.fillRect(26, 8, 5, 5); }
+    else if (id === 'live') { r(0, 0, s, s, '#00aa5a'); r(5, 7, s - 10, (s - 10) * 0.56, '#fff'); r(9, 11, s - 22, 3, '#00aa5a'); r(9, 17, s - 18, 2, '#9aa1ab'); r(9, 21, s - 24, 2, '#9aa1ab'); c.fillStyle = '#ff4d4d'; c.beginPath(); c.arc(s - 6, s - 6, 4, 0, 7); c.fill(); }
     else if (id === 'pdf') { r(4, 0, s - 8, s, '#fff'); r(4, 0, s - 8, 9, '#c0392b'); c.fillStyle = '#fff'; c.font = `bold 8px ${FONT}`; c.fillText('PDF', 9, 8); for (let i = 0; i < 4; i++) r(9, 14 + i * 5, s - 18 - (i % 2) * 6, 2, '#999'); }
     else if (id === 'browser') { r(0, 0, s, s, '#fff'); r(0, 0, s, 8, '#ddd'); drawBokuLogo(c, 4, 12, 9); r(4, 26, s - 8, 2, '#bbb'); r(4, 30, s - 14, 2, '#bbb'); }
     else if (id === 'mail') { r(1, 6, s - 2, s - 12, '#3a7bd5'); c.strokeStyle = '#fff'; c.lineWidth = 2; c.beginPath(); c.moveTo(2, 7); c.lineTo(s / 2, s / 2 + 2); c.lineTo(s - 2, 7); c.stroke(); const unread = this._mails().filter(m => !m.read && m.visible).length; if (unread) { c.fillStyle = '#e05b4b'; c.beginPath(); c.arc(s - 3, 4, 7, 0, 7); c.fill(); c.fillStyle = '#fff'; c.font = `bold 10px ${FONT}`; c.fillText(String(unread), s - 6, 8); } }
@@ -207,8 +224,8 @@ export class LaptopOS {
   _region(x, y, w, h, fn, id, tip) { this.regions.push({ x, y, w, h, fn, id, tip }); }
   _hit(x, y) { for (let i = this.regions.length - 1; i >= 0; i--) { const r = this.regions[i]; if (x >= r.x && x <= r.x + r.w && y >= r.y && y <= r.y + r.h) return r; } return null; }
   _makeWallpaper() {
-    const cv = document.createElement('canvas'); cv.width = W; cv.height = H;
-    const c = cv.getContext('2d'); const r = makeRng(5);
+    const cv = document.createElement('canvas'); cv.width = Math.round(W * this.scale); cv.height = Math.round(H * this.scale);
+    const c = cv.getContext('2d'); c.scale(this.scale, this.scale); const r = makeRng(5);
     const g = c.createLinearGradient(0, 0, 0, H); g.addColorStop(0, '#7fa7c9'); g.addColorStop(0.55, '#d9e4ea'); g.addColorStop(1, '#6f9a5b');
     c.fillStyle = g; c.fillRect(0, 0, W, H);
     const ridge = (base, amp, col, f) => { c.fillStyle = col; c.beginPath(); c.moveTo(0, H); for (let x = 0; x <= W; x += 8) c.lineTo(x, base - Math.abs(Math.sin(x * f + base)) * amp - Math.sin(x * f * 3.1) * amp * 0.2); c.lineTo(W, H); c.fill(); };
@@ -324,6 +341,57 @@ export class LaptopOS {
     if (!s.running || s.dead) { c.fillStyle = 'rgba(0,0,0,0.55)'; c.fillRect(ox, oy + cs * 6, cs * 28, cs * 4); c.fillStyle = '#fff'; c.font = `bold 22px ${FONT}`; c.textAlign = 'center'; c.fillText(s.dead ? t('os.snake.dead') : t('os.snake.start'), ox + cs * 14, oy + cs * 8 + 8); c.textAlign = 'left'; }
   }
 
+  // ------------------------------------------------------------------ BOKUlearn Live (Folien mitlesen)
+  // Zeigt die aktuelle Folie des Profs scharf am eigenen Bildschirm, dazu das Folienarchiv der Einheit und die eigenen Notizen.
+  // Spielregel: Folien lesen gilt als Lernen (kein Beweis, Verdacht sinkt langsam), siehe Session/Suspicion.
+  _drawLive(c, w, h) {
+    const sl = this.opts.slides; const log = sl ? sl.log() : [];
+    c.fillStyle = '#f4f5f7'; c.fillRect(0, 0, w, h);
+    // Kopfzeile
+    c.fillStyle = '#ffffff'; c.fillRect(0, 0, w, 48); c.fillStyle = '#dfe3e8'; c.fillRect(0, 48, w, 1);
+    drawBokuLogo(c, 16, 12, 24);
+    c.fillStyle = C.text; c.font = `bold 16px ${FONT}`; c.fillText(t('os.live.head'), 84, 30);
+    const viewing = this.liveView != null && log[this.liveView];
+    if (!viewing) { c.fillStyle = '#e03b3b'; c.beginPath(); c.arc(w - 300, 24, 6, 0, 7); c.fill(); c.fillStyle = '#e03b3b'; c.font = `bold 13px ${FONT}`; c.fillText('LIVE', w - 288, 29); }
+    // Suchfeld (filtert das Archiv)
+    c.fillStyle = '#f1f3f5'; c.fillRect(w - 230, 11, 214, 26); c.strokeStyle = '#c9d0d8'; c.lineWidth = 1; c.strokeRect(w - 230, 11, 214, 26);
+    c.fillStyle = this.liveQuery ? C.text : '#8a929e'; c.font = `13px ${FONT}`; c.fillText(this.liveQuery || t('os.live.search'), w - 220, 29);
+    this._region(w - 230, 11, 214, 26, () => { this.liveQuery = this.liveQuery ? '' : (log.length ? log[log.length - 1].title.split(' ')[0] : ''); }, 'live:search');
+    // Folie
+    const sx = 16, sy = 62, sw = 820, sh = Math.round(sw * 9 / 16);
+    c.fillStyle = '#000'; c.fillRect(sx - 1, sy - 1, sw + 2, sh + 2);
+    const src = viewing ? sl.render(viewing) : sl?.live();
+    if (src) { c.imageSmoothingQuality = 'high'; c.drawImage(src, sx, sy, sw, sh); }
+    else { c.fillStyle = '#2b2f36'; c.fillRect(sx, sy, sw, sh); c.fillStyle = '#c9d0d8'; c.font = `16px ${FONT}`; c.textAlign = 'center'; c.fillText(t('os.live.waiting'), sx + sw / 2, sy + sh / 2); c.textAlign = 'left'; }
+    if (viewing) {
+      c.fillStyle = 'rgba(0,0,0,.72)'; c.fillRect(sx, sy, 300, 30); c.fillStyle = '#fff'; c.font = `bold 13px ${FONT}`; c.fillText(t('os.live.archive', { n: this.liveView + 1 }), sx + 10, sy + 20);
+      c.fillStyle = C.g; c.fillRect(sx + sw - 190, sy + 8, 180, 30); c.fillStyle = '#fff'; c.font = `bold 13px ${FONT}`; c.fillText(t('os.live.back'), sx + sw - 178, sy + 28);
+      this._region(sx + sw - 190, sy + 8, 180, 30, () => { this.liveView = null; }, 'live:back');
+    }
+    // Notizen unter der Folie
+    const ny = sy + sh + 16;
+    c.fillStyle = C.text; c.font = `bold 14px ${FONT}`; c.fillText(t('os.live.notes'), sx, ny + 4);
+    const notes = this.opts.getNotes ? this.opts.getNotes() : [];
+    c.font = `14px ${FONT}`; c.fillStyle = '#3b4250';
+    const lines = notes.slice(-Math.floor((h - ny - 20) / 20));
+    if (!lines.length) { c.fillStyle = '#8a929e'; c.fillText(t('os.live.noNotes'), sx, ny + 28); }
+    lines.forEach((l, i) => c.fillText('• ' + l, sx, ny + 28 + i * 20));
+    // Archiv rechts
+    const ax = sx + sw + 18, aw = w - ax - 16;
+    c.fillStyle = C.text; c.font = `bold 14px ${FONT}`; c.fillText(t('os.live.list', { n: log.length }), ax, sy + 14);
+    const q = (this.liveQuery || '').toLowerCase();
+    const items = log.map((d, i) => ({ d, i })).filter(e => !q || e.d.title.toLowerCase().includes(q));
+    const rows = Math.floor((h - sy - 40) / 34), shown = items.slice(-rows);
+    shown.forEach(({ d, i }, k) => {
+      const y = sy + 28 + k * 34, cur = viewing ? i === this.liveView : i === log.length - 1;
+      c.fillStyle = cur ? '#e3f4ea' : '#ffffff'; c.fillRect(ax, y, aw, 30); c.fillStyle = cur ? C.g : '#dfe3e8'; c.fillRect(ax, y, 4, 30);
+      c.fillStyle = C.mut; c.font = `12px ${FONT}`; c.fillText(String(i + 1).padStart(2, '0'), ax + 10, y + 19);
+      c.fillStyle = C.text; c.font = `13px ${FONT}`;
+      let tt = d.title; while (c.measureText(tt).width > aw - 46 && tt.length > 4) tt = tt.slice(0, -2); if (tt !== d.title) tt = tt.trimEnd() + '…';
+      c.fillText(tt, ax + 34, y + 19);
+      this._region(ax, y, aw, 30, () => { this.liveView = i === log.length - 1 ? null : i; }, 'live:' + i);
+    });
+  }
   // ------------------------------------------------------------------ Skriptum (PDF)
   _drawPDF(c, w, h) {
     c.fillStyle = '#525659'; c.fillRect(0, 0, w, h);

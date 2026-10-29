@@ -16,7 +16,7 @@ const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
 const WORDMARK = `<span class="wordmark" aria-hidden="true"><span class="wm-bars"><i></i><i></i><i></i></span><span class="wm-text">BOKU</span></span>`;
 
 export const DEFAULT_CFG = { difficulty: 'bachelor', mode: 'tournament', length: 'normal', opponent: 'hall', weather: 'sunny', seat: { row: 4, k: 7 }, avatar: 'a', hints: true, custom: { vigilance: 1, target: 5, oppSkill: 0.5, neighbor: 'helpful' } };
-export const DEFAULT_SETTINGS = { quality: 'auto', dprScale: 1, fov: 60, dof: true, grain: true, ca: true, vignette: true, subtitles: true, subSize: 'm', colorblind: false, photosensitive: false, reducedMotion: false, highContrast: false, susIndicator: true, minimalHud: false, pointerLock: true, sens: 1, invertY: false, cellKeys: true, name: '' };
+export const DEFAULT_SETTINGS = { quality: 'auto', dprScale: 1, sharpen: 0.3, fov: 60, dof: true, grain: false, ca: true, vignette: true, subtitles: true, subSize: 'm', colorblind: false, photosensitive: false, reducedMotion: false, highContrast: false, susIndicator: true, minimalHud: false, pointerLock: true, sens: 1, invertY: false, cellKeys: true, name: '' };
 
 export class UI {
   constructor(root, hooks) {
@@ -123,7 +123,9 @@ export class UI {
       <div class="tabs" role="tablist"><button role="tab" data-tab="gfx" data-i18n="set.tab.gfx"></button><button role="tab" data-tab="audio" data-i18n="set.tab.audio"></button><button role="tab" data-tab="controls" data-i18n="set.tab.controls"></button><button role="tab" data-tab="a11y" data-i18n="set.tab.a11y"></button><button role="tab" data-tab="lang" data-i18n="set.tab.lang"></button></div>
       <div class="tabpanel" data-panel="gfx">
         <label class="row"><span data-i18n="set.quality"></span><select id="s-quality"><option value="auto" data-i18n="set.q.auto"></option><option value="low" data-i18n="set.q.low"></option><option value="medium" data-i18n="set.q.medium"></option><option value="high" data-i18n="set.q.high"></option><option value="ultra" data-i18n="set.q.ultra"></option></select></label>
-        <label class="row"><span data-i18n="set.dpr"></span><input type="range" id="s-dpr" min="0.5" max="1" step="0.05"><output id="s-dpr-o"></output></label>
+        <label class="row"><span data-i18n="set.dpr"></span><input type="range" id="s-dpr" min="0.5" max="2" step="0.05"><output id="s-dpr-o"></output></label>
+        <p class="opt-desc" id="s-dpr-px"></p>
+        <label class="row"><span data-i18n="set.sharpen"></span><input type="range" id="s-sharpen" min="0" max="0.6" step="0.05"><output id="s-sharpen-o"></output></label>
         <label class="row"><span data-i18n="set.fov"></span><input type="range" id="s-fov" min="50" max="80" step="1"><output id="s-fov-o"></output></label>
         <label class="row check"><input type="checkbox" id="s-dof"> <span data-i18n="set.dof"></span></label>
         <label class="row check"><input type="checkbox" id="s-grain"> <span data-i18n="set.grain"></span></label>
@@ -280,9 +282,9 @@ export class UI {
     const S = this.settings, A = this.hooks.audio;
     $$('[role=tab]', this.root).forEach(tb => tb.addEventListener('click', () => this._tab(tb.dataset.tab)));
     const chk = (id, key, live = true) => { const el = $(id); el.checked = !!S[key]; el.addEventListener('change', () => { S[key] = el.checked; this._saveSettings(live); }); };
-    const rng = (id, key, fmt) => { const el = $(id), o = $(id + '-o'); el.value = S[key]; if (o) o.textContent = fmt(S[key]); el.addEventListener('input', () => { S[key] = +el.value; if (o) o.textContent = fmt(S[key]); this._saveSettings(true); }); };
+    const rng = (id, key, fmt) => { const el = $(id), o = $(id + '-o'); el.value = S[key]; if (o) o.textContent = fmt(S[key]); el.addEventListener('input', () => { S[key] = +el.value; if (o) o.textContent = fmt(S[key]); this._saveSettings(true); this._showPixels(); }); };
     $('#s-quality').value = S.quality; $('#s-quality').addEventListener('change', e => { S.quality = e.target.value; this._saveSettings(true); });
-    rng('#s-dpr', 'dprScale', v => Math.round(v * 100) + ' %'); rng('#s-fov', 'fov', v => v + '°');
+    rng('#s-dpr', 'dprScale', v => Math.round(v * 100) + ' %'); rng('#s-sharpen', 'sharpen', v => Math.round(v / 0.6 * 100) + ' %'); rng('#s-fov', 'fov', v => v + '°');
     chk('#s-dof', 'dof'); chk('#s-grain', 'grain'); chk('#s-ca', 'ca'); chk('#s-vignette', 'vignette');
     $('#s-reload').addEventListener('click', () => this.hooks.reloadQuality?.());
     // Audio
@@ -305,6 +307,12 @@ export class UI {
     const A = this.hooks.audio;
     $('#s-voiceinfo').textContent = A.ttsAvailable ? t('set.voiceInfo', { v: A.tts.voice ? A.tts.voice.name + ' (' + A.tts.voice.lang + ')' : t('set.voiceDefault') }) : t('set.noTTS');
     $('#s-gpu').textContent = this.hooks.gpuInfo?.() || '';
+    this._showPixels();
+  }
+  /** echte Renderauflösung neben dem Regler (wird nach jeder Änderung neu gemessen) */
+  _showPixels() {
+    const el = $('#s-dpr-px'); const r = this.hooks.renderInfo?.(); if (!el || !r) return;
+    el.textContent = t('set.dprPixels', { w: r.w, h: r.h, r: Math.round(r.ratio * 100), aa: r.msaa ? r.msaa + '× MSAA' : 'SMAA' });
   }
   _renderKeys() {
     const inp = this.hooks.input; if (!inp) return;

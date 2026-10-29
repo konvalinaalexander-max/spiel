@@ -47,8 +47,10 @@ export function buildFixtures(gfx, hall, opts = {}) {
 
   // ------------------------------------------------------------------ Leinwand + Beamer
   const SC = LY.SCREEN;
-  // Folien immer in voller Auflösung (8 MB Textur, auch auf „Niedrig“ vertretbar) – Schrift ist das Wichtigste am Bild
-  const sr = new SlideRenderer(1920, 1080);
+  // Folien in 3840 × 2160 (Desktop): auch mit „genau hinschauen“ und bei Gerätepixelverhältnis 2 wird die Textur nur
+  // verkleinert, nie vergrößert – Schrift ist das Wichtigste am Bild. Mobil (opts.slidePx) kleiner.
+  const slideW = opts.slidePx || 3840;
+  const sr = new SlideRenderer(slideW, Math.round(slideW * 9 / 16));
   const slideTex = new THREE.CanvasTexture(sr.canvas); slideTex.colorSpace = THREE.SRGBColorSpace; slideTex.anisotropy = gfx.renderer.capabilities.getMaxAnisotropy();
   const weave = gfx.tex.make('screenWeave', { size: 512 });
   // Folie leicht geschärft abtasten (Mip-Bias −0,7): aus 6–9 m Entfernung wird die Textur 4–6-fach verkleinert,

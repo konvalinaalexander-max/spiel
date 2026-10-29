@@ -56,6 +56,7 @@ export async function buildWorld(gfx, params, progress = () => {}) {
   W.updateBoards = dt => {
     for (const p of W.fx.panels) { const y = p.group.position.y; if (Math.abs(y - p.targetY) > 1e-4) { p.group.position.y = damp(y, p.targetY, 2.2, dt); W.boardMoving = true; } }
   };
+  W.textureCount = gfx.finalizeTextures();
   // Shader vorkompilieren (vermeidet Ruckler beim ersten Blick in eine Richtung); parallel, wo der Treiber es kann
   try { if (gfx.renderer.compileAsync && gfx.renderer.extensions.has('KHR_parallel_shader_compile')) await gfx.renderer.compileAsync(gfx.scene, gfx.camera); else gfx.renderer.compile(gfx.scene, gfx.camera); } catch (e) { /* optional */ }
   await step(0.95, 'load.compile');

@@ -1,25 +1,27 @@
 // Qualitätsstufen. "live" = ohne Neustart umschaltbar; Texturgröße greift beim nächsten Laden.
+// V3: Die Stufen skalieren Schatten, AO, Effekte, Texturen und Sichtweite – nie die Auflösung (immer native Bildschirmpixel,
+// bis Gerätepixelverhältnis 2). Kantenglättung per MSAA auf dem Hauptpass, SMAA nur als Rückfall ohne WebGL2-Multisampling.
 import { storage } from '../core/util.js';
 
 export const PRESETS = {
   low: {
-    id: 'low', maxDpr: 1, renderScale: 0.8, cascades: 1, shadowSize: 1024, shadowMaxFar: 18,
-    ao: false, aoHalf: true, aoSamples: 8, bloom: false, dof: false, aa: 'fxaa', godRays: false, dust: false,
+    id: 'low', maxDpr: 2, renderScale: 1, msaa: 2, cascades: 1, shadowSize: 1024, shadowMaxFar: 18,
+    ao: false, aoHalf: true, aoSamples: 8, bloom: false, dof: false, aa: 'msaa', godRays: false, dust: false,
     areaLights: false, spotShadow: false, texSize: 512, grain: false, outsideDetail: 0, envMap: true, studentShadows: false
   },
   medium: {
-    id: 'medium', maxDpr: 1, renderScale: 1, cascades: 2, shadowSize: 1024, shadowMaxFar: 24,
-    ao: true, aoHalf: true, aoSamples: 12, bloom: true, dof: true, aa: 'smaa', godRays: true, dust: false,
+    id: 'medium', maxDpr: 2, renderScale: 1, msaa: 4, cascades: 2, shadowSize: 1024, shadowMaxFar: 24,
+    ao: true, aoHalf: true, aoSamples: 12, bloom: true, dof: true, aa: 'msaa', godRays: true, dust: false,
     areaLights: false, spotShadow: false, texSize: 1024, grain: true, outsideDetail: 1, envMap: true, studentShadows: true
   },
   high: {
-    id: 'high', maxDpr: 1.5, renderScale: 1, cascades: 3, shadowSize: 2048, shadowMaxFar: 28,
-    ao: true, aoHalf: true, aoSamples: 16, bloom: true, dof: true, aa: 'smaa', godRays: true, dust: true,
+    id: 'high', maxDpr: 2, renderScale: 1, msaa: 4, cascades: 3, shadowSize: 2048, shadowMaxFar: 28,
+    ao: true, aoHalf: true, aoSamples: 16, bloom: true, dof: true, aa: 'msaa', godRays: true, dust: true,
     areaLights: true, spotShadow: true, texSize: 1024, grain: true, outsideDetail: 2, envMap: true, studentShadows: true
   },
   ultra: {
-    id: 'ultra', maxDpr: 2, renderScale: 1, cascades: 3, shadowSize: 4096, shadowMaxFar: 30,
-    ao: true, aoHalf: false, aoSamples: 16, bloom: true, dof: true, aa: 'smaa', godRays: true, dust: true,
+    id: 'ultra', maxDpr: 2, renderScale: 1, msaa: 4, cascades: 3, shadowSize: 4096, shadowMaxFar: 30,
+    ao: true, aoHalf: false, aoSamples: 16, bloom: true, dof: true, aa: 'msaa', godRays: true, dust: true,
     areaLights: true, spotShadow: true, texSize: 2048, grain: true, outsideDetail: 2, envMap: true, studentShadows: true
   }
 };

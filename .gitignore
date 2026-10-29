@@ -2,3 +2,9 @@ node_modules/
 *.log
 .DS_Store
 docs/screenshots/e2e*/
+# V3-Werkzeuge und Rohdaten (reproduzierbar über npm run assets / tools/setup)
+tools/blender/blender-*/
+tools/bin/
+tools/.cache/
+tools/.venv*/
+assets/src/

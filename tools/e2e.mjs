@@ -1,6 +1,7 @@
 // Headless-Durchlauf im echten Build (Chromium + SwiftShader): Ladebildschirm → Startseite → LV-Seite → Spiel.
 // node tools/e2e.mjs [--q low] [--out docs/screenshots/e2e] [--steps "listen,laptop,board"] [--sim 120]
 import { createRequire } from 'node:module';
+import { DIST } from './dist.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 const { chromium } = createRequire(import.meta.url)('playwright');
@@ -19,7 +20,7 @@ if (args.query) for (const kv of String(args.query).split('&')) { const [k, v] =
 const t0 = Date.now();
 const lap = m => console.log(`[${((Date.now() - t0) / 1000).toFixed(1)}s] ${m}`);
 await page.addInitScript(l => { try { if (l) localStorage.setItem('boku-ttt-v2:lang', JSON.stringify(l)); } catch (e) {} }, args.lang || null);
-await page.goto('file://' + path.join(root, 'dist/BOKU_TicTacTierernaehrung_v2.html') + '?' + qs);
+await page.goto('file://' + path.join(root, DIST) + '?' + qs);
 const shotCanvas = async (name, cam) => { const d = await page.evaluate(c => window.__render(c), cam || null); fs.writeFileSync(path.join(outDir, name + '.jpg'), Buffer.from(d.split(',')[1], 'base64')); lap('canvas ' + name); };
 const shotPage = async name => { await page.evaluate(() => { window.__hold = true; window.__render(); }); await page.screenshot({ path: path.join(outDir, name + '.jpg'), type: 'jpeg', quality: 85, timeout: 180000 }); lap('page ' + name); };
 try {

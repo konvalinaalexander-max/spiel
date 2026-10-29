@@ -3,6 +3,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
+import { DIST, DIST_NAME } from './dist.mjs';
 import { execFileSync } from 'node:child_process';
 import * as THREE from 'three';
 import { result, minimax, bestMoves, chooseMove, TicTacToe } from '../src/game/tictactoe.js';
@@ -79,6 +80,16 @@ test('Mitschreiben baut Verdacht schneller ab', () => {
   for (let i = 0; i < 300; i++) { a.update(1 / 30, { vis: 0, fovea: 0, cone: 0, los: 0 }, { laptop: 0, notes: 1, lookAway: 0, motion: 0, glow: 0, hands: 0 }); b.update(1 / 30, { vis: 0, fovea: 0, cone: 0, los: 0 }, { laptop: 0, notes: 0, lookAway: 0, motion: 0, glow: 0, hands: 0 }); }
   ok(a.suspicion < b.suspicion, `${a.suspicion} !< ${b.suspicion}`);
 });
+test('Folien am Laptop mitlesen ist weniger verdächtig als Spielen und liefert keinen Beweis', () => {
+  const seen = { vis: 0.5, fovea: 0.5, cone: 1, los: 1 };
+  const play = new Suspicion(), study = new Suspicion(); play.attention = study.attention = 60; play.suspicion = study.suspicion = 40;
+  for (let i = 0; i < 45; i++) {
+    play.update(1 / 30, seen, { laptop: 1, notes: 0, lookAway: 0, motion: 0, glow: 0.3, hands: 0.5, gameVisible: true, studying: 0 });
+    study.update(1 / 30, seen, { laptop: 1, notes: 0, lookAway: 0, motion: 0, glow: 0.3, hands: 0.5, gameVisible: false, studying: 1 });
+  }
+  ok(study.suspicion < play.suspicion, `Verdacht ${study.suspicion} !< ${play.suspicion}`);
+  ok(study.evidence < play.evidence * 0.4, `Beweis ${study.evidence} vs ${play.evidence}`);
+});
 
 console.log('Übersetzungen');
 const DE = JSON.parse(fs.readFileSync(path.join(root, 'src/content/strings.de.json'), 'utf8'));
@@ -147,12 +158,13 @@ if (!args.includes('--quick')) {
 }
 
 console.log('Build');
-test('dist/BOKU_TicTacTierernaehrung_v2.html existiert, < 25 MB, SHA256 stimmt', () => {
-  const f = path.join(root, 'dist/BOKU_TicTacTierernaehrung_v2.html');
+test(`${DIST} existiert, ≤ 120 MB, Prüfsummen stimmen`, () => {
+  const f = path.join(root, DIST);
   ok(fs.existsSync(f), 'Build fehlt – npm run build');
-  const buf = fs.readFileSync(f); ok(buf.length < 25 * 1024 * 1024, 'zu groß');
-  const sha = fs.readFileSync(path.join(root, 'dist/SHA256.txt'), 'utf8').split(/\s+/)[0];
-  eq(crypto.createHash('sha256').update(buf).digest('hex'), sha, 'SHA256');
+  const buf = fs.readFileSync(f); ok(buf.length <= 120 * 1024 * 1024, 'zu groß');
+  const sums = Object.fromEntries(fs.readFileSync(path.join(root, 'dist/SHA256.txt'), 'utf8').trim().split('\n').map(l => l.split(/\s+/).reverse()));
+  eq(crypto.createHash('sha256').update(buf).digest('hex'), sums[DIST_NAME], 'SHA256 v3');
+  for (const v of ['BOKU_TicTacTierernaehrung_v2.html', 'BOKU_TicTacTierernaehrung_v1.html']) if (sums[v]) eq(crypto.createHash('sha256').update(fs.readFileSync(path.join(root, 'dist', v))).digest('hex'), sums[v], 'SHA256 ' + v);
   const html = buf.toString('utf8');
   ok(!/<script[^>]+src=/.test(html) && !/<link[^>]+stylesheet/.test(html), 'externe Ressourcen gefunden');
   ok(!/type="module"/.test(html), 'ES-Module funktionieren nicht über file://');

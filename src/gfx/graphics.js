@@ -7,6 +7,7 @@ import {
   BrightnessContrastEffect, NoiseEffect, BlendFunction
 } from 'postprocessing';
 import { N8AOPostPass } from 'n8ao';
+import { CASEffect } from './cas.js';
 import { PRESETS } from './quality.js';
 import { TextureFactory } from './textures.js';
 import { clamp, damp } from '../core/util.js';
@@ -30,6 +31,7 @@ export class Graphics {
     this.csm = null;
     this.sunDir = new THREE.Vector3(0.75, -0.55, 0.22).normalize();
     this.dofTarget = 0;   // 0 = aus, 1 = Laptop-Fokus
+    this.sharpen = 0.3;   // Nachschärfung (CAS), Einstellung 0–0,6
     this.stress = 0;      // 0–1, steuert Aberration/Vignette
     this.size = new THREE.Vector2();
     this.timings = [];
@@ -101,7 +103,11 @@ export class Graphics {
   // ---------- Post-Stack -------------------------------------------------
   buildPost() {
     const p = this.preset;
-    const composer = new EffectComposer(this.renderer, { frameBufferType: THREE.HalfFloatType, multisampling: 0 });
+    // Kantenglättung: MSAA auf dem Hauptpass (WebGL2); ohne Multisampling SMAA als Rückfall. Kein FXAA (weichzeichnend).
+    const caps = this.renderer.capabilities;
+    const samples = p.aa === 'msaa' && caps.isWebGL2 ? Math.min(p.msaa || 4, caps.maxSamples || 0) : 0;
+    this.msaaSamples = samples;
+    const composer = new EffectComposer(this.renderer, { frameBufferType: THREE.HalfFloatType, multisampling: samples });
     composer.addPass(new RenderPass(this.scene, this.camera));
     if (p.ao) {
       const ao = new N8AOPostPass(this.scene, this.camera, 1, 1);
@@ -118,33 +124,39 @@ export class Graphics {
       this.aoPass = ao;
     }
     if (p.dof) {
-      this.dof = new DepthOfFieldEffect(this.camera, { focusDistance: 0.6, focusRange: 0.5, bokehScale: 3.2, resolutionScale: 0.5 });
+      // nur Fernfeld im Laptop-/Heftblick; volle Auflösung und kleiner Bokeh, damit die Fokusebene messerscharf bleibt
+      this.dof = new DepthOfFieldEffect(this.camera, { focusDistance: 0.6, focusRange: 0.5, bokehScale: 1.5, resolutionScale: 1 });
       this.dofPass = new EffectPass(this.camera, this.dof);
       this.dofPass.enabled = false;
       composer.addPass(this.dofPass);
     }
     const fx = [];
-    if (p.bloom) { this.bloom = new BloomEffect({ intensity: 0.55, luminanceThreshold: 1.0, luminanceSmoothing: 0.18, mipmapBlur: true, radius: 0.72, levels: 6 }); fx.push(this.bloom); }
-    this.hueSat = new HueSaturationEffect({ saturation: -0.08, hue: 0 });
-    this.bc = new BrightnessContrastEffect({ brightness: 0.0, contrast: 0.06 });
-    this.vignette = new VignetteEffect({ eskil: false, offset: 0.32, darkness: 0.42 });
+    // Bloom nur für echte Lichtquellen (Lampen, Fenster, LEDs) – Folien- und Papierweiß liegen darunter
+    if (p.bloom) { this.bloom = new BloomEffect({ intensity: 0.3, luminanceThreshold: 1.1, luminanceSmoothing: 0.15, mipmapBlur: true, radius: 0.6, levels: 6 }); fx.push(this.bloom); }
+    this.hueSat = new HueSaturationEffect({ saturation: 0, hue: 0 });
+    this.bc = new BrightnessContrastEffect({ brightness: 0.0, contrast: 0.08 });
+    this.vignette = new VignetteEffect({ eskil: false, offset: 0.35, darkness: 0.2 });
     this.tone = new ToneMappingEffect({ mode: ToneMappingMode.AGX });
     fx.push(this.tone, this.hueSat, this.bc, this.vignette);
-    if (p.grain) { this.noise = new NoiseEffect({ premultiply: true, blendFunction: BlendFunction.SCREEN }); this.noise.blendMode.opacity.value = 0.05; fx.push(this.noise); }
+    if (p.grain) { this.noise = new NoiseEffect({ premultiply: true, blendFunction: BlendFunction.SCREEN }); this.noise.blendMode.opacity.value = 0.03; fx.push(this.noise); }
     composer.addPass(new EffectPass(this.camera, ...fx));
     this.ca = new ChromaticAberrationEffect({ offset: new THREE.Vector2(0, 0), radialModulation: true, modulationOffset: 0.25 });
     this.caPass = new EffectPass(this.camera, this.ca);
     this.caPass.enabled = false;
     composer.addPass(this.caPass);
-    if (p.aa === 'smaa') composer.addPass(new EffectPass(this.camera, new SMAAEffect({ preset: SMAAPreset.HIGH })));
-    else if (p.aa === 'fxaa') composer.addPass(new EffectPass(this.camera, new FXAAEffect()));
+    if (!samples) composer.addPass(new EffectPass(this.camera, new SMAAEffect({ preset: SMAAPreset.HIGH })));
+    // Nachschärfung als letzter Pass (Anzeige-Farbraum)
+    this.cas = new CASEffect({ sharpness: this.sharpen / 0.6 });
+    this.casPass = new EffectPass(this.camera, this.cas);
+    this.casPass.enabled = this.sharpen > 0.001;
+    composer.addPass(this.casPass);
     this.composer = composer;
     this.resize();
   }
   /** Laufzeit-Änderungen, die keinen Neustart brauchen */
   applyLive(next) {
     const p = this.preset;
-    const needRebuildPost = ['ao', 'aoHalf', 'aoSamples', 'bloom', 'dof', 'aa', 'grain'].some(k => next[k] !== p[k]);
+    const needRebuildPost = ['ao', 'aoHalf', 'aoSamples', 'bloom', 'dof', 'aa', 'msaa', 'grain'].some(k => next[k] !== p[k]);
     const needCSM = next.cascades !== p.cascades || next.shadowSize !== p.shadowSize || next.shadowMaxFar !== p.shadowMaxFar;
     Object.assign(p, next, { texSize: p.texSize });
     if (needCSM) this._buildCSM();
@@ -153,7 +165,10 @@ export class Graphics {
   }
   resize() {
     const w = Math.max(1, this.canvas.clientWidth || innerWidth), h = Math.max(1, this.canvas.clientHeight || innerHeight);
-    const dpr = Math.min(window.devicePixelRatio || 1, this.preset.maxDpr) * this.preset.renderScale;
+    // native Bildschirmpixel (bis Gerätepixelverhältnis maxDpr) × Regler „Renderauflösung“ (renderScale, 50–200 %);
+    // Obergrenze ≈ 16,6 Mio. Pixel (doppeltes 4K), damit der Regler auf großen Bildschirmen nichts sprengt
+    let dpr = Math.min(window.devicePixelRatio || 1, this.preset.maxDpr) * this.preset.renderScale;
+    dpr = Math.min(dpr, Math.sqrt(16.6e6 / (w * h)));
     this.renderer.setPixelRatio(dpr);
     this.renderer.setSize(w, h, false);
     this.camera.aspect = w / h;
@@ -161,7 +176,22 @@ export class Graphics {
     if (this.composer) this.composer.setSize(w, h, false);
     if (this.csm) this.csm.updateFrustums();
     this.size.set(w, h);
+    this.pixelRatio = dpr;
   }
+  /** tatsächliche Renderauflösung in Pixeln und Verhältnis zu den Bildschirmpixeln (für die Einstellungen) */
+  renderInfo() { const c = this.renderer.domElement, dev = window.devicePixelRatio || 1; return { w: c.width, h: c.height, ratio: this.pixelRatio / dev, msaa: this.msaaSamples || 0 }; }
+  /** Texturdisziplin: maximale anisotrope Filterung für alle Texturen der Szene (Mipmaps erzeugt three.js ohnehin) */
+  finalizeTextures(root = this.scene) {
+    const a = this.renderer.capabilities.getMaxAnisotropy(), seen = new Set();
+    root.traverse(o => {
+      for (const m of Array.isArray(o.material) ? o.material : [o.material]) if (m) for (const k of ['map', 'emissiveMap', 'normalMap', 'roughnessMap', 'metalnessMap', 'aoMap', 'alphaMap', 'bumpMap', 'lightMap']) {
+        const t = m[k]; if (!t || seen.has(t)) continue; seen.add(t);
+        if (t.anisotropy < a && !t.isRenderTargetTexture) { t.anisotropy = a; t.needsUpdate = true; }
+      }
+    });
+    return seen.size;
+  }
+  setSharpen(v) { this.sharpen = v; if (this.cas) { this.cas.sharpness = v / 0.6; this.casPass.enabled = v > 0.001; } }
   setStress(s) { this.stress = clamp(s, 0, 1); }
   /** Fokussteuerung für DOF (Distanz in m) */
   setFocus(enabled, dist = 0.55, range = 0.35) {
@@ -173,12 +203,12 @@ export class Graphics {
   render(dt) {
     const s = this.stress;
     if (this.ca) {
-      const amt = this.photosensitive || this.caDisabled ? 0 : Math.max(0, s - 0.55) * 0.006;
+      const amt = this.photosensitive || this.caDisabled ? 0 : Math.min(0.0015, Math.max(0, s - 0.55) * 0.0034);
       this.caPass.enabled = amt > 0.0004;
       this.ca.offset.set(amt, amt * 0.6);
     }
     this.pulse = Math.max(0, (this.pulse || 0) - dt * 3.2);
-    if (this.vignette) this.vignette.darkness = damp(this.vignette.darkness, 0.42 + s * 0.35, 4, dt) + this.pulse * 0.1 * s;
+    if (this.vignette) this.vignette.darkness = damp(this.vignette.darkness, (this.vignetteBase ?? 0.2) + s * 0.3, 4, dt) + this.pulse * 0.1 * s;
     this.csm.update();
     this.renderer.info.reset();
     if (this.composer) this.composer.render(dt);
