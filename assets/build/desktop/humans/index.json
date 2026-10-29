@@ -3,10 +3,10 @@
   "prof": {
    "id": "prof",
    "class": "hero",
-   "verts": 27620,
-   "tris": 48372,
-   "kb": 694,
-   "wrapped": 3,
+   "verts": 26515,
+   "tris": 45780,
+   "kb": 661,
+   "wrapped": 0,
    "tiles": {
     "body:body": 1024,
     "eyebrow001:eyebrow": 128,
@@ -14,22 +14,22 @@
     "high-poly:eyes": 128,
     "kwnet_at_optical_glasses:glasses": 256,
     "shoes01:clothes": 512,
-    "short04:hair": 512,
+    "short02:hair": 512,
     "teeth_base:teeth": 128,
     "toigo_fisherman_sweater:clothes": 1024,
     "toigo_wool_pants:clothes": 1024
    },
    "role": "prof",
    "female": false,
-   "atlasKB": 497,
+   "atlasKB": 480,
    "normalKB": 278
   },
   "player_a": {
    "id": "player_a",
    "class": "player",
-   "verts": 21778,
-   "tris": 40200,
-   "kb": 596,
+   "verts": 22941,
+   "tris": 41536,
+   "kb": 624,
    "wrapped": 0,
    "tiles": {
     "body:body": 2048,
@@ -48,9 +48,9 @@
   "player_b": {
    "id": "player_b",
    "class": "player",
-   "verts": 22607,
-   "tris": 39074,
-   "kb": 595,
+   "verts": 20929,
+   "tris": 34570,
+   "kb": 537,
    "wrapped": 0,
    "tiles": {
     "body:body": 2048,
@@ -70,9 +70,9 @@
   "player_c": {
    "id": "player_c",
    "class": "player",
-   "verts": 23142,
-   "tris": 40790,
-   "kb": 619,
+   "verts": 24625,
+   "tris": 42700,
+   "kb": 654,
    "wrapped": 0,
    "tiles": {
     "body:body": 2048,
@@ -91,9 +91,9 @@
   "neighbor": {
    "id": "neighbor",
    "class": "hero",
-   "verts": 33758,
-   "tris": 58024,
-   "kb": 858,
+   "verts": 33573,
+   "tris": 57422,
+   "kb": 851,
    "wrapped": 0,
    "tiles": {
     "body:body": 1024,
@@ -113,9 +113,9 @@
   "tutor": {
    "id": "tutor",
    "class": "hero",
-   "verts": 18674,
-   "tris": 32420,
-   "kb": 478,
+   "verts": 18675,
+   "tris": 31618,
+   "kb": 472,
    "wrapped": 0,
    "tiles": {
     "body:body": 1024,
@@ -136,9 +136,10 @@
   "f01": {
    "id": "f01",
    "class": "crowd",
-   "verts": 9952,
-   "tris": 15044,
-   "kb": 251,
+   "verts": 10005,
+   "tris": 15088,
+   "tris1": 5195,
+   "kb": 278,
    "wrapped": 0,
    "tiles": {
     "eyebrow010:eyebrow": 64,
@@ -160,9 +161,10 @@
   "f02": {
    "id": "f02",
    "class": "crowd",
-   "verts": 9102,
-   "tris": 14238,
-   "kb": 227,
+   "verts": 8839,
+   "tris": 13442,
+   "tris1": 4776,
+   "kb": 243,
    "wrapped": 0,
    "tiles": {
     "eyebrow011:eyebrow": 64,
@@ -185,9 +187,10 @@
   "f03": {
    "id": "f03",
    "class": "crowd",
-   "verts": 9456,
-   "tris": 14540,
-   "kb": 212,
+   "verts": 8977,
+   "tris": 13488,
+   "tris1": 4594,
+   "kb": 218,
    "wrapped": 0,
    "tiles": {
     "afro01:hair": 256,
@@ -210,9 +213,10 @@
   "f04": {
    "id": "f04",
    "class": "crowd",
-   "verts": 6991,
-   "tris": 11648,
-   "kb": 169,
+   "verts": 6603,
+   "tris": 10736,
+   "tris1": 3904,
+   "kb": 174,
    "wrapped": 0,
    "tiles": {
     "cortu_cargo_pants:clothes": 256,
@@ -235,9 +239,10 @@
   "f05": {
    "id": "f05",
    "class": "crowd",
-   "verts": 11065,
-   "tris": 17420,
-   "kb": 272,
+   "verts": 10564,
+   "tris": 16154,
+   "tris1": 5515,
+   "kb": 285,
    "wrapped": 0,
    "tiles": {
     "eyebrow010:eyebrow": 64,
@@ -260,9 +265,10 @@
   "f06": {
    "id": "f06",
    "class": "crowd",
-   "verts": 10378,
-   "tris": 17010,
-   "kb": 266,
+   "verts": 9821,
+   "tris": 15934,
+   "tris1": 5339,
+   "kb": 277,
    "wrapped": 0,
    "tiles": {
     "bob02:hair": 256,
@@ -285,9 +291,10 @@
   "f07": {
    "id": "f07",
    "class": "crowd",
-   "verts": 10275,
-   "tris": 17437,
-   "kb": 259,
+   "verts": 9715,
+   "tris": 16067,
+   "tris1": 5703,
+   "kb": 271,
    "wrapped": 0,
    "tiles": {
     "eyebrow012:eyebrow": 64,
@@ -310,9 +317,10 @@
   "f08": {
    "id": "f08",
    "class": "crowd",
-   "verts": 9112,
-   "tris": 10735,
-   "kb": 212,
+   "verts": 8725,
+   "tris": 9817,
+   "tris1": 3444,
+   "kb": 214,
    "wrapped": 0,
    "tiles": {
     "cortu_cargo_pants:clothes": 256,
@@ -335,9 +343,10 @@
   "m01": {
    "id": "m01",
    "class": "crowd",
-   "verts": 7965,
-   "tris": 13948,
-   "kb": 206,
+   "verts": 8019,
+   "tris": 13866,
+   "tris1": 4940,
+   "kb": 232,
    "wrapped": 0,
    "tiles": {
     "eyebrow001:eyebrow": 64,
@@ -359,9 +368,10 @@
   "m02": {
    "id": "m02",
    "class": "crowd",
-   "verts": 7154,
-   "tris": 11586,
-   "kb": 176,
+   "verts": 7111,
+   "tris": 11302,
+   "tris1": 3712,
+   "kb": 191,
    "wrapped": 3,
    "tiles": {
     "eyebrow004:eyebrow": 64,
@@ -383,9 +393,10 @@
   "m03": {
    "id": "m03",
    "class": "crowd",
-   "verts": 8852,
-   "tris": 13398,
-   "kb": 218,
+   "verts": 8812,
+   "tris": 13084,
+   "tris1": 4577,
+   "kb": 238,
    "wrapped": 0,
    "tiles": {
     "eyebrow001:eyebrow": 64,
@@ -407,9 +418,10 @@
   "m04": {
    "id": "m04",
    "class": "crowd",
-   "verts": 8476,
-   "tris": 13951,
-   "kb": 218,
+   "verts": 8391,
+   "tris": 13627,
+   "tris1": 4857,
+   "kb": 239,
    "wrapped": 0,
    "tiles": {
     "culturalibre_hair_02:hair": 256,
@@ -431,9 +443,10 @@
   "m05": {
    "id": "m05",
    "class": "crowd",
-   "verts": 7670,
-   "tris": 12570,
-   "kb": 187,
+   "verts": 7028,
+   "tris": 11174,
+   "tris1": 3673,
+   "kb": 185,
    "wrapped": 3,
    "tiles": {
     "cortu_cargo_pants:clothes": 256,
@@ -456,9 +469,10 @@
   "m06": {
    "id": "m06",
    "class": "crowd",
-   "verts": 9454,
-   "tris": 15644,
-   "kb": 235,
+   "verts": 8786,
+   "tris": 14212,
+   "tris1": 4594,
+   "kb": 237,
    "wrapped": 8,
    "tiles": {
     "cortu_short_messy_hair:hair": 256,
@@ -481,9 +495,10 @@
   "m07": {
    "id": "m07",
    "class": "crowd",
-   "verts": 7966,
-   "tris": 13980,
-   "kb": 201,
+   "verts": 7393,
+   "tris": 12734,
+   "tris1": 4767,
+   "kb": 209,
    "wrapped": 0,
    "tiles": {
     "cortu_cargo_pants:clothes": 256,
@@ -506,9 +521,10 @@
   "m08": {
    "id": "m08",
    "class": "crowd",
-   "verts": 7211,
-   "tris": 12525,
-   "kb": 186,
+   "verts": 7272,
+   "tris": 12455,
+   "tris1": 4231,
+   "kb": 207,
    "wrapped": 0,
    "tiles": {
     "eyebrow003:eyebrow": 64,
