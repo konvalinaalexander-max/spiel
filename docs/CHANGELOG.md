@@ -26,6 +26,14 @@
   räumlich am Kopf der Figur, Kiefer folgt der Lautstärke. Desktop: Stimmen als Begleitdatei je Sprache.
 - Echte Geräusche (51 Klänge, CC0/CC BY/PD) statt Synthese; synthetisch bleiben nur fünf Laptop-Signaltöne. Menü-Musik von Kevin MacLeod.
 
+**Licht**
+- Gebackenes Licht aus Blender/Cycles: indirektes Licht der Deckenleuchten, des Himmels und der Sonne plus
+  Umgebungsverdeckung auf allen Saalflächen (vier Atlanten, entrauscht, Wettervarianten sonnig/bewölkt).
+
+**Stimme (Entscheidung des Auftraggebers: Deutsch reicht)**
+- Vertont wird vollständig auf Deutsch; Englisch bleibt als Textfassung, nur teilweise vertont.
+- Keine Sprachausgabe des Browsers und kein synthetisches Murmeln mehr: ohne Aufnahme bleibt der Untertitel.
+
 **Handy**
 - Mobil-Build als PWA (offline nach erstem Start), Touch-Steuerung mit Tastenleiste, Pinch-Zoom, Wake Lock, Pages-Workflow.
 
