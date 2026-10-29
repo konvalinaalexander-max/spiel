@@ -19,6 +19,28 @@
   "de": "Coqui XTTS v2 (CPML, nicht-kommerziell): Damien Black, Daisy Studious, Sofia Hellen, Andrew Chipper – synthetische Studiosprecher",
   "en": "Kokoro-82M by hexgrad (Apache-2.0): bm_daniel, bf_emma, af_heart, am_michael – synthetic voices"
  },
+ "models": [
+  "Alex Weber",
+  "Balen",
+  "Dario Barresi",
+  "Ethan Place",
+  "Greg Zaal",
+  "James Ray Cock",
+  "Jiří Ptáček",
+  "John Malcolm",
+  "Kuutti Siitonen",
+  "L",
+  "Luis José Fernández Rodríguez",
+  "Mateusz Sadek",
+  "Nazar Borodavka",
+  "Oliver Harries",
+  "PierreB3D",
+  "Plat251",
+  "Rahul Chaudhary",
+  "Rico Cilliers",
+  "Ulan Cabanilla",
+  "Yann Kervran"
+ ],
  "sounds": [
   {
    "line": "\"Almost Bliss\" Kevin MacLeod (incompetech.com), Licensed under Creative Commons: By Attribution 4.0 License, http://creativecommons.org/licenses/by/4.0/",

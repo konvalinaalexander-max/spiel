@@ -457,5 +457,7 @@
   "credits.figures": "Characters",
   "credits.figuresText": "Every person in the game was built with MakeHuman/MPFB (CC0 asset packs). Authors of the clothes, hair and skins used:",
   "credits.voices": "Voices",
-  "credits.sounds": "Sounds and music (real recordings)"
+  "credits.sounds": "Sounds and music (real recordings)",
+  "credits.models": "Props and materials",
+  "credits.modelsText": "3D models from Poly Haven and materials from ambientCG (both CC0). Models by:"
 }

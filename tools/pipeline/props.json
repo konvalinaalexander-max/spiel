@@ -1,0 +1,195 @@
+{
+ "note": "Echte Requisiten (Auftrag V3, Phase 5): Poly Haven, CC0. tex = Kantenlänge der Texturen (Desktop; Mobil halbiert), tris = Höchstzahl Dreiecke nach Vereinfachung.",
+ "models": [
+  {
+   "id": "wall_clock",
+   "tex": 512,
+   "tris": 2500,
+   "use": "Wanduhr über der Tafel"
+  },
+  {
+   "id": "potted_plant_01",
+   "tex": 512,
+   "tris": 9000,
+   "use": "Pflanze Fensterbank",
+   "error": 0.06
+  },
+  {
+   "id": "potted_plant_02",
+   "tex": 512,
+   "tris": 9000,
+   "use": "Pflanze neben dem Pult",
+   "error": 0.06
+  },
+  {
+   "id": "potted_plant_04",
+   "tex": 512,
+   "tris": 9000,
+   "use": "Pflanze hinten",
+   "error": 0.06
+  },
+  {
+   "id": "book_encyclopedia_set_01",
+   "tex": 512,
+   "tris": 3000,
+   "use": "Fachbücher am Vortragstisch"
+  },
+  {
+   "id": "food_apple_01",
+   "tex": 256,
+   "tris": 800,
+   "use": "Apfel am Platz",
+   "error": 0.03
+  },
+  {
+   "id": "croissant",
+   "tex": 256,
+   "tris": 1200,
+   "use": "Croissant am Platz",
+   "error": 0.03
+  },
+  {
+   "id": "modified_thermos",
+   "tex": 256,
+   "tris": 1500,
+   "use": "Thermosflasche"
+  },
+  {
+   "id": "plastic_thermos",
+   "tex": 256,
+   "tris": 1500,
+   "use": "Thermosflasche"
+  },
+  {
+   "id": "jug_01",
+   "tex": 256,
+   "tris": 1500,
+   "use": "Krug am Vortragstisch"
+  },
+  {
+   "id": "cardboard_box_01",
+   "tex": 256,
+   "tris": 300,
+   "use": "Karton hinten"
+  },
+  {
+   "id": "vintage_microscope",
+   "tex": 512,
+   "tris": 5000,
+   "use": "Mikroskop am Vortragstisch",
+   "error": 0.03
+  },
+  {
+   "id": "chemistry_set",
+   "tex": 512,
+   "tris": 6000,
+   "use": "Glasgeräte am Vortragstisch",
+   "error": 0.03
+  },
+  {
+   "id": "magnifying_glass_01",
+   "tex": 256,
+   "tris": 1000,
+   "use": "Lupe"
+  },
+  {
+   "id": "desk_lamp_arm_01",
+   "tex": 256,
+   "tris": 3000,
+   "use": "Pultlampe"
+  },
+  {
+   "id": "SchoolChair_01",
+   "tex": 512,
+   "tris": 3000,
+   "use": "Stuhl vorne"
+  },
+  {
+   "id": "hanging_picture_frame_02",
+   "tex": 256,
+   "tris": 600,
+   "use": "Bilderrahmen"
+  },
+  {
+   "id": "marble_bust_01",
+   "tex": 512,
+   "tris": 6000,
+   "use": "Büste in der Ecke",
+   "error": 0.03
+  },
+  {
+   "id": "wicker_basket_01",
+   "tex": 256,
+   "tris": 3000,
+   "use": "Korb mit Heuproben",
+   "error": 0.03
+  },
+  {
+   "id": "wooden_crate_01",
+   "tex": 256,
+   "tris": 600,
+   "use": "Kiste mit Futterproben"
+  },
+  {
+   "id": "plastic_crate_01",
+   "tex": 256,
+   "tris": 1500,
+   "use": "Kiste"
+  },
+  {
+   "id": "rubber_duck_toy",
+   "tex": 256,
+   "tris": 800,
+   "use": "Gummiente am Pult"
+  },
+  {
+   "id": "medical_box",
+   "tex": 256,
+   "tris": 600,
+   "use": "Erste-Hilfe-Kasten"
+  },
+  {
+   "id": "dustpan",
+   "tex": 256,
+   "tris": 600,
+   "use": "Kehrschaufel"
+  },
+  {
+   "id": "plastic_broom",
+   "tex": 256,
+   "tris": 1500,
+   "use": "Besen"
+  },
+  {
+   "id": "measuring_tape_01",
+   "tex": 256,
+   "tris": 800,
+   "use": "Maßband"
+  },
+  {
+   "id": "vintage_stapler",
+   "tex": 256,
+   "tris": 1000,
+   "use": "Heftmaschine"
+  },
+  {
+   "id": "ceramic_vase_01",
+   "tex": 256,
+   "tris": 1200,
+   "use": "Vase"
+  },
+  {
+   "id": "lemon",
+   "tex": 256,
+   "tris": 600,
+   "use": "Zitrone",
+   "error": 0.03
+  },
+  {
+   "id": "wooden_bookshelf_worn",
+   "tex": 512,
+   "tris": 3000,
+   "use": "Bücherregal"
+  }
+ ]
+}

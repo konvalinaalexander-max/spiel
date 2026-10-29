@@ -103,6 +103,67 @@ Prof „bm_daniel“, Nachbarin „bf_emma“, Studierende „af_heart“ / „a
 Mit einem Azure-Schlüssel (`AZURE_SPEECH_KEY`, `AZURE_SPEECH_REGION`) kann die Stimme gegen „de-AT-JonasNeural“
 (österreichisches Deutsch) ausgetauscht werden.
 
+## Materialien (ambientCG, CC0)
+
+Verarbeitet mit `tools/pipeline/textures.mjs` (KTX2: Farbe ETC1S, Normalen UASTC, ORM).
+
+| Material | Verwendung | Quelle |
+|---|---|---|
+| WoodFloor052 | Fischgrätparkett | https://ambientcg.com/view?id=WoodFloor052 |
+| Wood066 | Pultbänke, Tische | https://ambientcg.com/view?id=Wood066 |
+| Wood060 | Vertäfelung | https://ambientcg.com/view?id=Wood060 |
+| Plaster001 | Wände | https://ambientcg.com/view?id=Plaster001 |
+| Plaster002 | Decke | https://ambientcg.com/view?id=Plaster002 |
+| Fabric030 | Rollos | https://ambientcg.com/view?id=Fabric030 |
+| Fabric066 | Stoffe | https://ambientcg.com/view?id=Fabric066 |
+| Metal032 | Aluminium | https://ambientcg.com/view?id=Metal032 |
+| Metal048A | Messing | https://ambientcg.com/view?id=Metal048A |
+| Metal055A | Stahl | https://ambientcg.com/view?id=Metal055A |
+| Leather030 | Leder braun | https://ambientcg.com/view?id=Leather030 |
+| Leather026 | Leder schwarz | https://ambientcg.com/view?id=Leather026 |
+| Marble021 | Fensterbank | https://ambientcg.com/view?id=Marble021 |
+| Asphalt031 | Straße | https://ambientcg.com/view?id=Asphalt031 |
+| PavingStones128 | Gehsteig | https://ambientcg.com/view?id=PavingStones128 |
+| PavingStones150 | Kopfsteinpflaster | https://ambientcg.com/view?id=PavingStones150 |
+| Grass001 | Wiese | https://ambientcg.com/view?id=Grass001 |
+
+## Requisiten (Poly Haven, CC0)
+
+Verarbeitet mit `tools/pipeline/props.mjs` (vereinfacht, KTX2, Meshopt).
+
+| Modell | Verwendung | Urheber:in | Dreiecke | Quelle |
+|---|---|---|---|---|
+| Wall Clock | Wanduhr über der Tafel | PierreB3D | 2504 | https://polyhaven.com/a/wall_clock |
+| Potted Plant 01 | Pflanze Fensterbank | Rico Cilliers | 9764 | https://polyhaven.com/a/potted_plant_01 |
+| Food Apple 01 | Apfel am Platz | Oliver Harries | 800 | https://polyhaven.com/a/food_apple_01 |
+| Potted Plant 02 | Pflanze neben dem Pult | Rico Cilliers | 8948 | https://polyhaven.com/a/potted_plant_02 |
+| Potted Plant 04 | Pflanze hinten | James Ray Cock | 8929 | https://polyhaven.com/a/potted_plant_04 |
+| Book Encyclopedia Set 01 | Fachbücher am Vortragstisch | John Malcolm | 21765 | https://polyhaven.com/a/book_encyclopedia_set_01 |
+| Croissant | Croissant am Platz | Greg Zaal, Dario Barresi | 1198 | https://polyhaven.com/a/croissant |
+| Modified Thermos | Thermosflasche | Alex Weber | 2388 | https://polyhaven.com/a/modified_thermos |
+| Plastic Thermos | Thermosflasche | PierreB3D | 1500 | https://polyhaven.com/a/plastic_thermos |
+| Jug 01 | Krug am Vortragstisch | Kuutti Siitonen | 1500 | https://polyhaven.com/a/jug_01 |
+| Cardboard Box 01 | Karton hinten | Rahul Chaudhary | 300 | https://polyhaven.com/a/cardboard_box_01 |
+| Vintage Microscope | Mikroskop am Vortragstisch | Luis José Fernández Rodríguez | 5057 | https://polyhaven.com/a/vintage_microscope |
+| Chemistry Set | Glasgeräte am Vortragstisch | Jiří Ptáček | 7031 | https://polyhaven.com/a/chemistry_set |
+| Magnifying Glass 01 | Lupe | Nazar Borodavka | 997 | https://polyhaven.com/a/magnifying_glass_01 |
+| Desk Lamp Arm 01 | Pultlampe | Yann Kervran, Kuutti Siitonen | 3148 | https://polyhaven.com/a/desk_lamp_arm_01 |
+| School Chair 01 | Stuhl vorne | Ethan Place | 3000 | https://polyhaven.com/a/SchoolChair_01 |
+| Hanging Picture Frame 02 | Bilderrahmen | James Ray Cock | 601 | https://polyhaven.com/a/hanging_picture_frame_02 |
+| Marble Bust 01 | Büste in der Ecke | Rico Cilliers | 6000 | https://polyhaven.com/a/marble_bust_01 |
+| Wicker Basket 01 | Korb mit Heuproben | Kuutti Siitonen | 2468 | https://polyhaven.com/a/wicker_basket_01 |
+| Wooden Crate 01 | Kiste mit Futterproben | James Ray Cock | 850 | https://polyhaven.com/a/wooden_crate_01 |
+| Plastic Crate 01 | Kiste | PierreB3D | 10350 | https://polyhaven.com/a/plastic_crate_01 |
+| Rubber Duck Toy | Gummiente am Pult | Plat251 | 800 | https://polyhaven.com/a/rubber_duck_toy |
+| Medical Box | Erste-Hilfe-Kasten | Ulan Cabanilla | 676 | https://polyhaven.com/a/medical_box |
+| Dustpan | Kehrschaufel | Balen | 600 | https://polyhaven.com/a/dustpan |
+| Plastic Broom | Besen | L | 3915 | https://polyhaven.com/a/plastic_broom |
+| Measuring Tape 01 | Maßband | Kuutti Siitonen | 800 | https://polyhaven.com/a/measuring_tape_01 |
+| Vintage Stapler | Heftmaschine | Mateusz Sadek | 1146 | https://polyhaven.com/a/vintage_stapler |
+| Ceramic Vase 01 | Vase | James Ray Cock | 1222 | https://polyhaven.com/a/ceramic_vase_01 |
+| Lemon | Zitrone | Kuutti Siitonen | 600 | https://polyhaven.com/a/lemon |
+| Wooden Bookshelf Worn | Bücherregal | Ulan Cabanilla | 3000 | https://polyhaven.com/a/wooden_bookshelf_worn |
+
 ## Geräusche und Musik (echte Aufnahmen)
 
 Aufbereitet mit `tools/audio/build_sfx.py` aus den Kandidaten in `tools/pipeline/audio_sources.json`

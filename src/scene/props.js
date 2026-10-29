@@ -226,9 +226,14 @@ export function buildProps(gfx, hall, plan, opts = {}) {
   const bottleSteel = (m, col) => { B.add(cyl(0.035, 0.035, 0.23, 16), PM.matte, M4(m, mat(0, 0.115, 0)), { ...C(col), keepUV: true }); B.add(cyl(0.022, 0.03, 0.035, 14), PM.metal, M4(m, mat(0, 0.245, 0)), { ...C(0xb8bcc2), keepUV: true }); };
   const mateBottle = m => { B.add(cyl(0.031, 0.031, 0.17, 14), PM.glass, M4(m, mat(0, 0.085, 0)), { ...C(0x9a7a3a), keepUV: true }); B.add(cyl(0.012, 0.03, 0.06, 14, true), PM.glass, M4(m, mat(0, 0.2, 0)), { ...C(0x9a7a3a), keepUV: true }); B.add(cyl(0.03, 0.03, 0.07, 14, true), PM.paper, M4(m, mat(0, 0.1, 0)), { ...C(0x7dc4e4), keepUV: true }); B.add(cyl(0.0125, 0.0125, 0.008, 10), PM.metal, M4(m, mat(0, 0.234, 0)), { ...C(0xc9a227), keepUV: true }); };
   const mensaCup = m => { B.add(cyl(0.042, 0.03, 0.12, 16), PM.paper, M4(m, mat(0, 0.06, 0)), { ...C(0xf3efe6), keepUV: true }); B.add(cyl(0.0425, 0.0425, 0.03, 16, true), PM.paper, M4(m, mat(0, 0.08, 0)), { ...C(0x00aa5a), keepUV: true }); B.add(cyl(0.044, 0.044, 0.01, 16), PM.gloss, M4(m, mat(0, 0.124, 0)), { ...C(0xfafafa), keepUV: true }); };
-  const thermo = (m, col) => { B.add(cyl(0.038, 0.034, 0.17, 16), PM.matte, M4(m, mat(0, 0.085, 0)), { ...C(col), keepUV: true }); B.add(cyl(0.039, 0.039, 0.025, 16), PM.gloss, M4(m, mat(0, 0.18, 0)), { ...C(0x222222), keepUV: true }); };
+  const thermo = (m, col) => { if (RP && (col & 1) && real(((col >> 1) & 1) ? 'modified_thermos' : 'plastic_thermos', m, { scale: 0.75 })) return; thermoProc(m, col); };
+  const thermoProc = (m, col) => { B.add(cyl(0.038, 0.034, 0.17, 16), PM.matte, M4(m, mat(0, 0.085, 0)), { ...C(col), keepUV: true }); B.add(cyl(0.039, 0.039, 0.025, 16), PM.gloss, M4(m, mat(0, 0.18, 0)), { ...C(0x222222), keepUV: true }); };
   const phoneDown = (m, col) => { B.add(rbox(0.074, 0.009, 0.155, 0.008), PM.gloss, M4(m, mat(0, 0.0045, 0)), { ...C(col), keepUV: true, cast: false }); B.add(cyl(0.008, 0.008, 0.002, 10), PM.gloss, M4(m, mat(-0.02, 0.0095, -0.055)), { ...C(0x111111), keepUV: true, cast: false }); };
-  const apple = m => { B.add(new THREE.SphereGeometry(0.036, 14, 10), PM.gloss, M4(m, mat(0, 0.034, 0, 0, 0, 0, 1, 0.9, 1)), { ...C(0xb8282a), keepUV: true }); B.add(cyl(0.002, 0.002, 0.018, 5), PM.matte, M4(m, mat(0, 0.07, 0)), { ...C(0x5d3a1a), keepUV: true, cast: false }); };
+  const RP = opts.models || null;
+  const real = (id, m, o) => !!(RP && RP.place(B, id, m, o));
+  const appleProc = m => { B.add(new THREE.SphereGeometry(0.036, 14, 10), PM.gloss, M4(m, mat(0, 0.034, 0, 0, 0, 0, 1, 0.9, 1)), { ...C(0xb8282a), keepUV: true }); B.add(cyl(0.002, 0.002, 0.018, 5), PM.matte, M4(m, mat(0, 0.07, 0)), { ...C(0x5d3a1a), keepUV: true, cast: false }); };
+  const apple = m => { if (!real('food_apple_01', M4(m, mat(0, 0, 0, 0, rng.range(0, 6), 0)))) appleProc(m); };
+  const fruit = (m, r) => { const id = r.pick(['croissant', 'lemon', 'food_apple_01', 'lemon']); if (!real(id, M4(m, mat(0, 0, 0, 0, r.range(0, 6), 0)))) appleProc(m); };
   const kornspitz = m => { B.add(rbox(0.18, 0.05, 0.09, 0.02), PM.paper, M4(m, mat(0, 0.025, 0, 0, 0, 0.05)), { ...C(0xd8c3a0), keepUV: true }); };
   const pencilCase = (m, col) => { B.add(cyl(0.03, 0.03, 0.2, 12), PM.fabric, M4(m, mat(0, 0.028, 0, 0, 0, Math.PI / 2, 1, 0.9, 1)), { ...C(col), keepUV: true }); B.add(box(0.19, 0.003, 0.006), PM.metal, M4(m, mat(0, 0.055, 0)), { ...C(0x999999), keepUV: true, cast: false }); };
   const calculator = m => { B.add(rbox(0.08, 0.014, 0.16, 0.006), PM.matte, M4(m, mat(0, 0.007, 0)), { ...C(0x2b2d31), keepUV: true, cast: false }); B.add(box(0.06, 0.001, 0.025), PM.gloss, M4(m, mat(0, 0.0145, -0.055)), { ...C(0x8fa38a), keepUV: true, cast: false }); for (let k = 0; k < 20; k++) B.add(box(0.011, 0.002, 0.008), PM.matte, M4(m, mat(-0.024 + (k % 4) * 0.016, 0.015, -0.02 + Math.floor(k / 4) * 0.016)), { ...C(k % 4 === 3 ? 0x4a6a8a : 0x5a5d63), keepUV: true, cast: false }); };
@@ -288,7 +293,7 @@ export function buildProps(gfx, hall, plan, opts = {}) {
       () => pencilCase(onDesk(row, x - 0.22, zc + 0.05, r.range(-0.3, 0.3)), r.pick([0x34495e, 0x7d3c98, 0x1e8449, 0x922b21])),
       () => phoneDown(onDesk(row, x + 0.22, zc + 0.06, r.range(-0.4, 0.4)), r.pick(PHONE)),
       () => calculator(onDesk(row, x - 0.24, zc + 0.02, r.range(-0.3, 0.3))),
-      () => apple(onDesk(row, x + 0.25, zc - 0.05)), () => kornspitz(onDesk(row, x - 0.25, zc - 0.04, r.range(-0.4, 0.4))),
+      () => apple(onDesk(row, x + 0.25, zc - 0.05)), () => fruit(onDesk(row, x + 0.24, zc - 0.04), r), () => kornspitz(onDesk(row, x - 0.25, zc - 0.04, r.range(-0.4, 0.4))),
       () => earbuds(onDesk(row, x + 0.2, zc + 0.08)), () => keys(onDesk(row, x + 0.24, zc + 0.08, r.range(0, 3))),
       () => card(onDesk(row, x - 0.2, zc + 0.08, r.range(-0.3, 0.3))), () => gum(onDesk(row, x + 0.18, zc - 0.08, r.range(0, 2))),
       () => tissues(onDesk(row, x - 0.18, zc - 0.07, r.range(-0.3, 0.3))), () => sticky(onDesk(row, x - 0.2, zc + 0.06, r.range(-0.3, 0.3))),
@@ -485,6 +490,40 @@ export function buildProps(gfx, hall, plan, opts = {}) {
     const s = plan.latecomer, B2 = new Batcher();
     laptopParts(onDesk(s.seat.row, s.seat.x, LY.rowFront(s.seat.row) + 0.22, 0.05), 'silver', 1.85, scr.index('notes'), [[0, 0.05, 0.02, 0.06, 0.2]], B2);
     const grp = new THREE.Group(); B2.build(grp, 'lateLaptop'); grp.visible = false; scene.add(grp); lateLaptop = grp;
+  }
+  // ----------------------------------------------------- echte Modelle (Poly Haven, CC0) im Raum
+  if (RP) {
+    const T2 = LY.TABLE, ty2 = LY.PODIUM.h + T2.h, P = (x, y, z, yaw = 0) => mat(x, y, z, 0, yaw, 0);
+    // Vortragstisch: Mikroskop, Fachbücher, Krug, Lupe, Heftmaschine, Maßband, Gummiente
+    real('vintage_microscope', P(T2.x + 1.05, ty2, T2.z - 0.18, 0.6));
+    real('book_encyclopedia_set_01', P(T2.x - 0.62, ty2, T2.z + 0.22, 0.1), { scale: 0.8 });
+    real('jug_01', P(T2.x + 0.92, ty2, T2.z - 0.28, 1.2), { scale: 0.9 });
+    real('magnifying_glass_01', P(T2.x - 1.6, ty2, T2.z + 0.12, 2.2));
+    real('vintage_stapler', P(T2.x - 0.18, ty2, T2.z + 0.27, -0.4));
+    real('measuring_tape_01', P(T2.x + 1.35, ty2, T2.z + 0.2, 0.8));
+    real('rubber_duck_toy', P(T2.x + 1.12, ty2, T2.z + 0.24, -2.6), { scale: 0.35 });
+    // vor dem Tisch am Boden: Korb mit Heuproben, Futterkiste, Stuhl
+    real('wicker_basket_01', P(T2.x - 2.15, LY.PODIUM.h, T2.z + 0.62, 0.3), { scale: 0.8 });
+    real('wooden_crate_01', P(T2.x - 1.55, LY.PODIUM.h, T2.z + 0.68, -0.2), { scale: 0.75 });
+    real('SchoolChair_01', P(T2.x + 2.85, LY.PODIUM.h, T2.z + 0.15, -1.9));
+    // Gelenkleuchte am rechten Tischende, zum Tisch geneigt
+    real('desk_lamp_arm_01', P(T2.x + 2.3, ty2, T2.z - 0.28, -2.2), { scale: 0.5 });
+    // Pflanzen: vorne links neben der Tafel, hinten in der Ecke, auf der Fensterbank
+    real('potted_plant_02', P(LY.ROOM.x0 + 0.45, LY.PODIUM.h, LY.ROOM.z0 + 0.5, 0.4));
+    real('potted_plant_01', P(LY.ROOM.x1 - 0.5, LY.BACK_FLOOR, LY.ROOM.z1 - 0.55, 2.0), { scale: 0.95 });
+    real('potted_plant_04', P(LY.ROOM.x0 + 0.24, LY.WINDOWS.y0 - 0.02, LY.WINDOWS.list[2] - 0.45, 1.0));
+    real('ceramic_vase_01', P(LY.ROOM.x0 + 0.22, LY.WINDOWS.y0 - 0.02, LY.WINDOWS.list[1] + 0.6, 0.3), { scale: 0.6 });
+    // hinten: Regale, Kartons, Kisten, Büste auf dem Bücherregal
+    real('cardboard_box_01', P(LY.ROOM.x0 + 1.9, LY.BACK_FLOOR, LY.ROOM.z1 - 0.35, 0.2));
+    real('cardboard_box_01', P(LY.ROOM.x0 + 1.95, LY.BACK_FLOOR + 0.3, LY.ROOM.z1 - 0.35, -0.3), { scale: 0.8 });
+    real('plastic_crate_01', P(LY.ROOM.x0 + 2.5, LY.BACK_FLOOR, LY.ROOM.z1 - 0.4, 0.1));
+    real('wooden_bookshelf_worn', P(LY.ROOM.x1 - 0.3, LY.PODIUM.h, LY.ROOM.z0 + 2.0, -Math.PI / 2), { scale: 0.9 });
+    real('marble_bust_01', P(LY.ROOM.x1 - 0.3, LY.PODIUM.h + 2.063 * 0.9, LY.ROOM.z0 + 2.0, -Math.PI / 2), { scale: 0.8 });
+    // Tür vorne: Mülleimer, Besen, Kehrschaufel, Erste-Hilfe-Kasten an der Wand, Bilderrahmen
+    real('plastic_broom', mat(LY.ROOM.x1 - 0.12, LY.PODIUM.h, LY.ROOM.z0 + 0.25, 0, 0.3, -0.18));
+    real('dustpan', P(LY.ROOM.x1 - 0.3, LY.PODIUM.h, LY.ROOM.z0 + 0.45, 1.2));
+    real('medical_box', P(LY.ROOM.x1 - 0.3, LY.PODIUM.h + 2.063 * 0.9, LY.ROOM.z0 + 2.45, -Math.PI / 2), { scale: 0.6 });
+    real('hanging_picture_frame_02', mat(LY.ROOM.x1 - 0.03, 1.9, -0.8, 0, -Math.PI / 2, 0), { scale: 1.2, cast: false });
   }
   const meshes = B.build(scene, 'props');
   // Studi-Bildschirme: dezentes Flimmern der Emission (Videos, Scrollen)

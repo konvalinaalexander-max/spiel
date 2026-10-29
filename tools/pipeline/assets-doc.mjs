@@ -66,6 +66,17 @@ Prof „bm_daniel“, Nachbarin „bf_emma“, Studierende „af_heart“ / „a
 Mit einem Azure-Schlüssel (\`AZURE_SPEECH_KEY\`, \`AZURE_SPEECH_REGION\`) kann die Stimme gegen „de-AT-JonasNeural“
 (österreichisches Deutsch) ausgetauscht werden.
 `;
+// Requisiten (Phase 5): Poly Haven, CC0
+const props = read('assets/build/desktop/props/index.json') || {};
+const textures = read('assets/build/desktop/textures.json') || {};
+if (Object.keys(textures).length) {
+  md += `\n## Materialien (ambientCG, CC0)\n\nVerarbeitet mit \`tools/pipeline/textures.mjs\` (KTX2: Farbe ETC1S, Normalen UASTC, ORM).\n\n| Material | Verwendung | Quelle |\n|---|---|---|\n`;
+  for (const [id, t] of Object.entries(textures)) md += `| ${id} | ${t.use} | ${t.source} |\n`;
+}
+if (Object.keys(props).length) {
+  md += `\n## Requisiten (Poly Haven, CC0)\n\nVerarbeitet mit \`tools/pipeline/props.mjs\` (vereinfacht, KTX2, Meshopt).\n\n| Modell | Verwendung | Urheber:in | Dreiecke | Quelle |\n|---|---|---|---|---|\n`;
+  for (const p of Object.values(props)) md += `| ${p.name} | ${p.use} | ${(p.authors || []).join(', ')} | ${p.tris} | ${p.source} |\n`;
+}
 // Geräusche (Phase 6b): Herkunft je Aufnahme aus assets/build/sfx/manifest.json
 const sfx = read('assets/build/sfx/manifest.json') || {};
 const sounds = new Map();
@@ -85,6 +96,7 @@ const credits = {
   figures: [...authors].sort(),
   voices: { de: 'Coqui XTTS v2 (CPML, nicht-kommerziell): Damien Black, Daisy Studious, Sofia Hellen, Andrew Chipper – synthetische Studiosprecher',
     en: 'Kokoro-82M by hexgrad (Apache-2.0): bm_daniel, bf_emma, af_heart, am_michael – synthetic voices' },
+  models: [...new Set(Object.values(props).flatMap(p => p.authors || []))].sort(),
   sounds: [...sounds.entries()].map(([k, v]) => ({ line: k, license: v.license, names: [...v.names] })).sort((a, b) => a.line.localeCompare(b.line))
 };
 fs.mkdirSync(path.join(root, 'assets/build'), { recursive: true });

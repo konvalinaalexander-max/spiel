@@ -239,6 +239,7 @@ export class UI {
     const esc = x => String(x).replace(/[&<>"]/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[ch]);
     const fill = () => {
       box.innerHTML = `<h2 class="h2bar">${esc(t('credits.figures'))}</h2><p>${esc(t('credits.figuresText'))} ${esc(c.figures.join(', '))}.</p>`
+        + (c.models && c.models.length ? `<h2 class="h2bar">${esc(t('credits.models'))}</h2><p>${esc(t('credits.modelsText'))} ${esc(c.models.join(', '))}.</p>` : '')
         + `<h2 class="h2bar">${esc(t('credits.voices'))}</h2><p>${esc(c.voices.de)}<br>${esc(c.voices.en)}</p>`
         + (c.sounds && c.sounds.length ? `<h2 class="h2bar">${esc(t('credits.sounds'))}</h2><ul class="credit-list">${c.sounds.map(s => `<li>${esc(s.line)}</li>`).join('')}</ul>` : '');
     };

@@ -10,6 +10,7 @@ import { characterMaterial } from '../chars/rig.js';
 import { Crowd } from '../chars/crowd.js';
 import { loadHumans } from '../chars/humans.js';
 import { loadPBR } from '../gfx/pbrTextures.js';
+import { loadPropModels } from '../scene/realProps.js';
 import { planPopulation } from './population.js';
 import { damp } from '../core/util.js';
 import * as LY from '../scene/layout.js';
@@ -38,7 +39,8 @@ export async function buildWorld(gfx, params, progress = () => {}) {
   W.blinds = buildBlinds(gfx, params.weather === 'sunny' ? [0.45, 0, 0] : [0, 0, 0]);
   await step(0.52, 'load.props');
   W.plan = planPopulation(POP_SEED, params.seat);
-  W.props = buildProps(gfx, W.hall, W.plan, { weather: params.weather, notesHeader: params.lang === 'en' ? 'Animal Nutrition – 27 Oct' : 'Tierernährung VO – 27.10.' });
+  if (W.models === undefined) { try { W.models = await loadPropModels(gfx); } catch (e) { console.warn('Requisiten: Rückfall auf einfache Formen', e); W.models = null; } }
+  W.props = buildProps(gfx, W.hall, W.plan, { models: W.models, weather: params.weather, notesHeader: params.lang === 'en' ? 'Animal Nutrition – 27 Oct' : 'Tierernährung VO – 27.10.' });
   W.details = buildDetails(gfx, W.hall, W.plan);
   await step(0.62, 'load.people');
   W.charMat = characterMaterial(gfx);

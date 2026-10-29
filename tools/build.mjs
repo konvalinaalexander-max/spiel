@@ -112,6 +112,15 @@ if (!mobile && fs.existsSync(texMan) && !process.argv.includes('--no-textures'))
   texBlock = JSON.stringify({ index, files, basis: humansBlock ? null : { js: fs.readFileSync(path.join(basis, 'basis_transcoder.js')).toString('base64'), wasm: fs.readFileSync(path.join(basis, 'basis_transcoder.wasm')).toString('base64') } });
   console.log(`Materialien: ${Object.keys(index).length}, ${(bytes / 1048576).toFixed(1)} MB`);
 }
+// Echte Requisiten (Phase 5): assets/build/<profil>/props/index.json + <id>.glb → eingebetteter Block
+let propsBlock = '';
+const propsDir = path.join(root, 'assets/build', profile, 'props');
+if (!mobile && fs.existsSync(path.join(propsDir, 'index.json')) && !process.argv.includes('--no-props')) {
+  const index = JSON.parse(fs.readFileSync(path.join(propsDir, 'index.json'), 'utf8')), files = {}; let bytes = 0;
+  for (const id of Object.keys(index)) { const f = path.join(propsDir, id + '.glb'); if (!fs.existsSync(f)) { delete index[id]; continue; } const b = fs.readFileSync(f); bytes += b.length; files[id + '.glb'] = b.toString('base64'); }
+  propsBlock = JSON.stringify({ index, files });
+  console.log(`Requisiten: ${Object.keys(index).length} Modelle, ${(bytes / 1048576).toFixed(1)} MB`);
+}
 const creditsFile = path.join(root, 'assets/build/credits.json');
 const creditsBlock = fs.existsSync(creditsFile) ? fs.readFileSync(creditsFile, 'utf8').replace(/<\//g, '<\\/') : '';
 let remoteBlock = '', headExtra = '';
@@ -123,7 +132,7 @@ html = html
   .replace('<!--HEADEXTRA-->', () => headExtra)
   .replace('<!--STYLE-->', () => `<style>\n${css}\n</style>`)
   // Bundle erst nach dem ersten Bild ausführen (schneller erster Paint: Vorlader sichtbar, bevor 2 MB JS laufen)
-  .replace('<!--SCRIPT-->', () => `${remoteBlock}<script type="text/plain" id="assets-humans">${humansBlock}</script>\n<script type="text/plain" id="assets-voice">${voiceBlock}</script>\n<script type="text/plain" id="assets-sfx">${sfxBlock}</script>\n<script type="text/plain" id="assets-textures">${texBlock}</script>\n<script type="application/json" id="credits-data">${creditsBlock}</script>\n<script type="text/plain" id="bundle">\n${safeJs}\n</script>\n<script>(function(){function run(){var t=document.getElementById('bundle').textContent,s=document.createElement('script');try{s.src=URL.createObjectURL(new Blob([t],{type:'text/javascript'}));}catch(e){s.text=t;}document.body.appendChild(s);}requestAnimationFrame(function(){setTimeout(run,30);});})();</script>`)
+  .replace('<!--SCRIPT-->', () => `${remoteBlock}<script type="text/plain" id="assets-humans">${humansBlock}</script>\n<script type="text/plain" id="assets-voice">${voiceBlock}</script>\n<script type="text/plain" id="assets-sfx">${sfxBlock}</script>\n<script type="text/plain" id="assets-textures">${texBlock}</script>\n<script type="text/plain" id="assets-props">${propsBlock}</script>\n<script type="application/json" id="credits-data">${creditsBlock}</script>\n<script type="text/plain" id="bundle">\n${safeJs}\n</script>\n<script>(function(){function run(){var t=document.getElementById('bundle').textContent,s=document.createElement('script');try{s.src=URL.createObjectURL(new Blob([t],{type:'text/javascript'}));}catch(e){s.text=t;}document.body.appendChild(s);}requestAnimationFrame(function(){setTimeout(run,30);});})();</script>`)
   .replace('<!--LICENSES-->', () => `<!--\n${third.replace(/--/g, '- -')}\n-->`)
   .replace('<!--THIRDTEXT-->', () => third.replace(/<\//g, '<\\/'));
 
@@ -138,4 +147,6 @@ fs.writeFileSync(out, html);
 writeSums(root);
 const kb = (Buffer.byteLength(html) / 1024).toFixed(0);
 console.log(`${DIST}  ${kb} KB  (${Date.now() - t0} ms)`);
-if (Buffer.byteLength(html) > 60 * 1024 * 1024) { console.error('Build größer als 60 MB!'); process.exit(1); }
+// Auftrag V3: Ziel ≤ 80 MB, harte Grenze 120 MB
+if (Buffer.byteLength(html) > 120 * 1024 * 1024) { console.error('Build größer als 120 MB!'); process.exit(1); }
+if (Buffer.byteLength(html) > 80 * 1024 * 1024) console.warn('Hinweis: Build über dem Ziel von 80 MB');
