@@ -93,14 +93,10 @@ export class Game {
     return speaking || chalk;
   }
   _startAmbience() {
-    const A = this.audio, W = this.world;
-    A.loop('ventilation', { gain: 0.25, bus: 'room' });
-    A.loop('roomTone', { gain: 0.35, bus: 'room' });
-    A.loop('murmur', { gain: 0.5, bus: 'room' });
-    A.loop('traffic', { pos: V(LY.ROOM.x0 - 3, 1, 0), gain: this.cfg.weather === 'rain' ? 0.2 : 0.3, bus: 'room' });
-    if (this.cfg.weather === 'rain') A.loop('rain', { pos: V(LY.ROOM.x0 - 1, 2.5, 0), gain: 0.45, bus: 'room' });
-    if (this.cfg.weather !== 'sunny') A.loop('wind', { pos: V(LY.ROOM.x0 - 1, 2.5, -2), gain: 0.12, bus: 'room' });
-    void W;
+    // Atmosphären (Phase 6b): Pegel je Phase/Wetter in AudioEngine.ambience(); hier nur die Orte im Saal
+    this.audio.ambience({ phase: this.session.director.phase, weather: this.cfg.weather, raining: false, places: {
+      window: V(LY.ROOM.x0 - 1, 2.5, 0), street: V(LY.ROOM.x0 - 3, 1, 0), streetFar: V(LY.ROOM.x0 - 14, 2, 8), wind: V(LY.ROOM.x0 - 1, 2.5, -2),
+      birds: V(LY.ROOM.x0 - 7, 5, 1), door: V(LY.BACK_DOOR.x, LY.BACK_FLOOR + 1.2, LY.BACK_DOOR.z + 1.5), lectern: V(LY.LECTERN.x, 1.5, LY.LECTERN.z) } });
   }
   // ------------------------------------------------------------------ Eingaben
   _place(i) { if (this.session.tttPlay(i)) { this.audio.play('ttPlace', { bus: 'player', gain: 0.4 }); this.typingT = 0.25; } }
@@ -195,7 +191,7 @@ export class Game {
       case 'beamer': W.fx.setBeamer(d.on); A.play('clicker', { pos: V(LY.LECTERN.x, 1.1, LY.LECTERN.z), gain: 0.4 }); if (d.on) { this._bootT = 0; A.loop('projectorFan', { pos: V(LY.PROJECTOR.x, LY.PROJECTOR.y, LY.PROJECTOR.z), gain: 0.25, bus: 'room' }); } break;
       case 'clicker': this.profView.clickerPress(); A.play('clicker', { pos: this.profView.head, gain: 0.35 }); break;
       case 'fx': this._fx(d); break;
-      case 'phase': H.setClock(this._hm(), PHASE_KEYS[d.phase] || d.phase, this._secTitle); if (d.phase === 'break') A.loop('murmur', { gain: 0.95, bus: 'room' }); else if (d.phase === 'part2') A.loop('murmur', { gain: 0.45, bus: 'room' }); break;
+      case 'phase': H.setClock(this._hm(), PHASE_KEYS[d.phase] || d.phase, this._secTitle); A.ambience({ phase: d.phase }); break;
       case 'section': if (Math.random() < 0.35) A.play('throatClear', { pos: this.profView.head, gain: 0.5 }); this._secTitle = d.title; this.notesLines.set(d.id, (d.notes || []).slice()); this.os.dirty = true; break;
       case 'quizIntro': A.play('quizSting', { bus: 'ui', gain: 0.4 }); break;
       case 'quizOpen': this._quizOpen(d); break;
@@ -335,12 +331,12 @@ export class Game {
       case 'phoneRing': if (spos) { A.play('phoneRing', { pos: spos, gain: 0.7 }); C.lookAll(spos, 3, 0.8, st); } break;
       case 'attendanceStart': break;
       case 'attendanceCollect': W.props.listTo('table'); break;
-      case 'laugh': C.laugh(); for (let i = 0; i < 5; i++) A.play('laughSoft', { pos: V(-3 + Math.random() * 6, 1.4, -1 + Math.random() * 6), gain: 0.35, delay: Math.random() * 0.5 }); break;
+      case 'laugh': C.laugh(); A.laughCrowd([0, 1, 2].map(() => V(-3 + Math.random() * 6, 1.4, -1 + Math.random() * 6))); break;
       case 'drink': W.props.table.glass.visible = false; setTimeout(() => { W.props.table.glass.visible = true; }, 6500); A.play('glass', { pos: this.profView.head, gain: 0.4, delay: 1 }); break;
       case 'blinds': W.blinds.set(d.window ?? 0, d.value ?? 0.85); A.play('boardSlide', { pos: V(LY.ROOM.x0, 3.5, LY.WINDOWS.list[d.window || 0]), gain: 0.25, rate: 1.6 }); break;
-      case 'rain': W.outside.startRain?.(); A.loop('rain', { pos: V(LY.ROOM.x0 - 1, 2.5, 0), gain: 0.4, bus: 'room', fade: 6 }); C.lookAll(V(LY.ROOM.x0 - 4, 2.5, 0), 2, 0.4); break;
+      case 'rain': W.outside.startRain?.(); A.ambience({ raining: true }); C.lookAll(V(LY.ROOM.x0 - 4, 2.5, 0), 2, 0.4); break;
       case 'doorBang': A.play('doorBang', { pos: V(LY.BACK_DOOR.x, LY.BACK_FLOOR + 1, LY.BACK_DOOR.z + 0.5), gain: 0.9 }); C.lookAll(V(LY.BACK_DOOR.x, LY.BACK_FLOOR + 1.6, LY.BACK_DOOR.z), 2, 0.85); this.player.startle = 0.6; break;
-      case 'leave': C.studentLeave(d.who); if (spos) A.play('zipper', { pos: spos, gain: 0.5 }); break;
+      case 'leave': C.studentLeave(d.who); if (spos) { A.play('zipper', { pos: spos, gain: 0.5 }); A.play('bag', { pos: spos.clone().setY(spos.y - 0.6), gain: 0.5, delay: 0.9 }); } break;
       case 'coughFit': if (spos) for (let i = 0; i < 6; i++) A.play(i % 2 ? 'cough' : 'coughHigh', { pos: spos, gain: 0.55, delay: i * 0.45 + Math.random() * 0.2 }); break;
       case 'flicker': W.light.setFlickerBurst(); break;
       case 'bottleDrop': if (spos) { A.play('bottleDrop', { pos: spos.clone().setY(spos.y - 1), gain: 0.8 }); C.lookAll(spos, 2, 0.7, st); } break;
@@ -407,9 +403,8 @@ export class Game {
       this._ambT = 1.2 + Math.random() * (S.director.phase === 'break' ? 1.5 : 3.5);
       const list = W.crowd.list.filter(x => x.present && x.c.visible); if (!list.length) return;
       const st = list[Math.floor(Math.random() * list.length)], pos = st.c.headWorld(V());
-      const r = Math.random();
-      const name = r < 0.12 ? (Math.random() < 0.5 ? 'cough' : 'throatClear') : r < 0.35 ? 'chairCreak' : r < 0.55 ? 'pageTurn' : r < 0.7 ? 'penClick' : r < 0.78 ? 'zipper' : r < 0.9 ? 'cloth' : 'seatFlip';
-      A.play(name, { pos: name === 'chairCreak' || name === 'seatFlip' ? pos.clone().setY(pos.y - 0.6) : pos, gain: 0.35 + Math.random() * 0.25 });
+      const f = A.crowdFoley(S.director.phase); // Auswahl nach Phase (Niesen, Gähnen, Textmarker, Pause: Apfel, Besteck …)
+      A.play(f.name, { pos: pos.clone().setY(pos.y + f.dy), gain: (0.35 + Math.random() * 0.25) * f.gain });
     }
     // eigener Sitz knarzt bei schnellen Kopfbewegungen; Stoff raschelt beim Umdrehen
     const v = Math.abs((this.player.yaw - (this._lastYaw ?? this.player.yaw)) / Math.max(dt, 1e-3)); this._lastYaw = this.player.yaw;

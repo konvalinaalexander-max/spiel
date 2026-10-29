@@ -86,8 +86,10 @@ for (const [name, m] of Object.entries(sfx)) for (const o of m.origin || []) {
   sounds.get(key).names.add(name);
 }
 if (sounds.size) {
-  md += `\n## Geräusche und Musik (echte Aufnahmen)\n\nAufbereitet mit \`tools/audio/build_sfx.py\` aus den Kandidaten in \`tools/pipeline/audio_sources.json\`
-(Recherche und Lizenzprüfung: \`docs/AUDIO_QUELLEN.md\`). CC-BY-Aufnahmen sind im Spiel unter „Impressum, Quellen & Lizenzen“ genannt.\n\n| Klang | Lizenz | Herkunft |\n|---|---|---|\n`;
+  md += `\n## Geräusche, Musik und Hall (echte Aufnahmen)\n\nAufbereitet mit \`tools/audio/build_sfx.py\` aus den Kandidaten in \`tools/pipeline/audio_sources.json\`
+(geladen und geprüft mit \`tools/audio/fetch_sfx.py\`, Prüfsummen dort; Recherche: \`docs/AUDIO_QUELLEN.md\`, Übersicht und Clipliste: \`docs/AUDIO.md\`).
+Der Hall (\`irFront\`, \`irBack\`) stammt aus echten Impulsantworten eines Hörsaals (TU Berlin, Auditorium 3; \`tools/audio/extract_ir.py\`).
+CC-BY-Aufnahmen sind im Spiel unter „Impressum, Quellen & Lizenzen“ genannt.\n\n| Klang | Lizenz | Herkunft |\n|---|---|---|\n`;
   for (const [k, v] of sounds) md += `| ${[...v.names].join(', ')} | ${v.license} | ${k.replace(/\|/g, '/')} |\n`;
 }
 fs.writeFileSync(path.join(root, 'docs/ASSETS.md'), md);

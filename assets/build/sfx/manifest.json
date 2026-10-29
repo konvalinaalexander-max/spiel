@@ -7,7 +7,7 @@
    "bird_3.ogg"
   ],
   "loop": false,
-  "gain": 0.2985,
+  "gain": 0.3162,
   "origin": [
    {
     "file": "bird_0.ogg",
@@ -16,7 +16,7 @@
     "author": "isaiah658",
     "attribution": "",
     "quality": "ok",
-    "sha": "4f7af56b82259d77"
+    "sha": "2e6ae8010dbff0fc"
    },
    {
     "file": "bird_1.ogg",
@@ -25,7 +25,7 @@
     "author": "IgnasD",
     "attribution": "",
     "quality": "ok",
-    "sha": "fa8a6166ca28a66b"
+    "sha": "b869be85cc6f914f"
    },
    {
     "file": "bird_2.ogg",
@@ -34,7 +34,7 @@
     "author": "chr_friess (radio aporee ::: maps)",
     "attribution": "",
     "quality": "ok",
-    "sha": "d53c770f1af00c1a"
+    "sha": "6498a308daf06676"
    },
    {
     "file": "bird_3.ogg",
@@ -43,7 +43,7 @@
     "author": "Spanac / Free Sounds Library",
     "attribution": "\"Birds Singing In A Peaceful Park Sound Effect\" – Downloaded from www.freesoundslibrary.com (Free Sounds Library, Spanac), CC BY 4.0",
     "quality": "ok",
-    "sha": "d21f080e92db7c80"
+    "sha": "8ff7a22af739f824"
    }
   ]
  },
@@ -53,7 +53,7 @@
    "boardSlide_1.ogg"
   ],
   "loop": false,
-  "gain": 0.9886,
+  "gain": 1.0471,
   "origin": [
    {
     "file": "boardSlide_0.ogg",
@@ -62,7 +62,7 @@
     "author": "Spanac / Free Sounds Library",
     "attribution": "\"Sliding Door Sounds\" – Downloaded from www.freesoundslibrary.com (Free Sounds Library, Spanac), CC BY 4.0",
     "quality": "schwach",
-    "sha": "4c66caf925aabce2"
+    "sha": "cf7a7a4ef3152e3c"
    },
    {
     "file": "boardSlide_1.ogg",
@@ -71,7 +71,7 @@
     "author": "Varkalandar",
     "attribution": "\"Rock/Metal Slide\" by Varkalandar – https://opengameart.org/content/rockmetal-slide – CC BY 4.0",
     "quality": "schwach",
-    "sha": "a039e90fa9864056"
+    "sha": "0891d59400cfdaf2"
    }
   ]
  },
@@ -80,7 +80,7 @@
    "bottleDrop_0.ogg"
   ],
   "loop": false,
-  "gain": 0.3428,
+  "gain": 0.3631,
   "origin": [
    {
     "file": "bottleDrop_0.ogg",
@@ -89,7 +89,7 @@
     "author": "Stilgar (pdsounds.org)",
     "attribution": "",
     "quality": "schwach",
-    "sha": "a5fa896fbb121da4"
+    "sha": "8ad9e5d8aeb9306c"
    }
   ]
  },
@@ -99,7 +99,7 @@
    "breath_1.ogg"
   ],
   "loop": false,
-  "gain": 0.2985,
+  "gain": 0.3162,
   "origin": [
    {
     "file": "breath_0.ogg",
@@ -108,7 +108,7 @@
     "author": "OwlishMedia",
     "attribution": "",
     "quality": "ok",
-    "sha": "8892ad2d868e1e1e"
+    "sha": "9e720fdebd178f81"
    },
    {
     "file": "breath_1.ogg",
@@ -117,7 +117,7 @@
     "author": "OwlishMedia",
     "attribution": "",
     "quality": "ok",
-    "sha": "3ad38e78cbd46374"
+    "sha": "d371767fc2ddea9b"
    }
   ]
  },
@@ -128,7 +128,7 @@
    "chairCreak_2.ogg"
   ],
   "loop": false,
-  "gain": 0.2985,
+  "gain": 0.3162,
   "origin": [
    {
     "file": "chairCreak_0.ogg",
@@ -137,7 +137,7 @@
     "author": "earthcalling (pdsounds.org)",
     "attribution": "",
     "quality": "ok",
-    "sha": "24d2b91fc2618322"
+    "sha": "b518853f764b9895"
    },
    {
     "file": "chairCreak_1.ogg",
@@ -146,7 +146,7 @@
     "author": "Museum of Municipal Engineering / Work With Sounds",
     "attribution": "\"The Linke Hofman Standard tram – the bench\" – recorded by Museum of Municipal Engineering, Work With Sounds (EU-Projekt, http://soundsofchanges.eu/sound/the-linke-hofman-standard-tram-the-bench/) – CC BY 4.0",
     "quality": "ok",
-    "sha": "1333d5a37719dfd1"
+    "sha": "0a75b1619e480dca"
    },
    {
     "file": "chairCreak_2.ogg",
@@ -155,7 +155,7 @@
     "author": "laleksic",
     "attribution": "",
     "quality": "ok",
-    "sha": "e3d53504fe3b29f0"
+    "sha": "8695cfc5f7d637f6"
    }
   ]
  },
@@ -165,7 +165,7 @@
    "chalkScratch_1.ogg"
   ],
   "loop": false,
-  "gain": 0.2985,
+  "gain": 0.5012,
   "origin": [
    {
     "file": "chalkScratch_0.ogg",
@@ -174,7 +174,7 @@
     "author": "La Fonderie / Work With Sounds",
     "attribution": "\"Chalk\" – recorded by La Fonderie, Work With Sounds (EU-Projekt, http://soundsofchanges.eu/sound/chalk/) – CC BY 4.0",
     "quality": "gut",
-    "sha": "6609957473bccf49"
+    "sha": "ec37ca97df922df0"
    },
    {
     "file": "chalkScratch_1.ogg",
@@ -183,7 +183,7 @@
     "author": "La Fonderie / Work With Sounds",
     "attribution": "\"Chalk\" – recorded by La Fonderie, Work With Sounds (EU-Projekt, http://soundsofchanges.eu/sound/chalk/) – CC BY 4.0",
     "quality": "gut",
-    "sha": "6934ad6fb8917a72"
+    "sha": "83da378fd7964fed"
    }
   ]
  },
@@ -193,7 +193,7 @@
    "chalkTap_1.ogg"
   ],
   "loop": false,
-  "gain": 0.2985,
+  "gain": 0.5012,
   "origin": [
    {
     "file": "chalkTap_0.ogg",
@@ -202,7 +202,7 @@
     "author": "La Fonderie / Work With Sounds",
     "attribution": "\"Chalk\" – recorded by La Fonderie, Work With Sounds (EU-Projekt, http://soundsofchanges.eu/sound/chalk/) – CC BY 4.0",
     "quality": "gut",
-    "sha": "6429305efebc06fa"
+    "sha": "a9ef66dd3ecfacaf"
    },
    {
     "file": "chalkTap_1.ogg",
@@ -211,7 +211,7 @@
     "author": "La Fonderie / Work With Sounds",
     "attribution": "\"Chalk\" – recorded by La Fonderie, Work With Sounds (EU-Projekt, http://soundsofchanges.eu/sound/chalk/) – CC BY 4.0",
     "quality": "gut",
-    "sha": "e793bd246cf4704c"
+    "sha": "3c2e4abe5004f3fd"
    }
   ]
  },
@@ -221,7 +221,7 @@
    "clicker_1.ogg"
   ],
   "loop": false,
-  "gain": 0.2985,
+  "gain": 0.3162,
   "origin": [
    {
     "file": "clicker_0.ogg",
@@ -230,7 +230,7 @@
     "author": "1j01 (Isaiah Odhner)",
     "attribution": "",
     "quality": "schwach",
-    "sha": "04b8cfe9e299d908"
+    "sha": "416716869513b40a"
    },
    {
     "file": "clicker_1.ogg",
@@ -239,7 +239,7 @@
     "author": "OwlishMedia",
     "attribution": "",
     "quality": "schwach",
-    "sha": "997f11d49e2648ec"
+    "sha": "f049f79447c3efdc"
    }
   ]
  },
@@ -250,7 +250,7 @@
    "cloth_2.ogg"
   ],
   "loop": false,
-  "gain": 0.2985,
+  "gain": 0.3162,
   "origin": [
    {
     "file": "cloth_0.ogg",
@@ -259,7 +259,7 @@
     "author": "OwlishMedia",
     "attribution": "",
     "quality": "gut",
-    "sha": "add2ffecc1f925ae"
+    "sha": "a8a313eb3515c412"
    },
    {
     "file": "cloth_1.ogg",
@@ -268,7 +268,7 @@
     "author": "OwlishMedia",
     "attribution": "",
     "quality": "gut",
-    "sha": "96ef9bedf9e3baa9"
+    "sha": "6ab6277aeb918833"
    },
    {
     "file": "cloth_2.ogg",
@@ -277,7 +277,7 @@
     "author": "OwlishMedia",
     "attribution": "",
     "quality": "ok",
-    "sha": "8fcc730f27f0ef85"
+    "sha": "c1df0d9144569962"
    }
   ]
  },
@@ -289,7 +289,7 @@
    "cough_3.ogg"
   ],
   "loop": false,
-  "gain": 0.4842,
+  "gain": 0.5129,
   "origin": [
    {
     "file": "cough_0.ogg",
@@ -298,7 +298,7 @@
     "author": "AntumDeluge (Jordan Irwin)",
     "attribution": "",
     "quality": "gut",
-    "sha": "9ed36df6e230a260"
+    "sha": "a945ceef63d4f119"
    },
    {
     "file": "cough_1.ogg",
@@ -307,7 +307,7 @@
     "author": "Stilgar (pdsounds.org)",
     "attribution": "",
     "quality": "ok",
-    "sha": "b8d5b145bf9d9791"
+    "sha": "fcf2f33c0ae63207"
    },
    {
     "file": "cough_2.ogg",
@@ -316,7 +316,7 @@
     "author": "frosty ham",
     "attribution": "",
     "quality": "ok",
-    "sha": "6465ccbaf685874c"
+    "sha": "1027b7170f81a448"
    },
    {
     "file": "cough_3.ogg",
@@ -325,7 +325,7 @@
     "author": "OwlishMedia",
     "attribution": "",
     "quality": "ok",
-    "sha": "06c5d589821ed68b"
+    "sha": "7dfed570e596d78c"
    }
   ]
  },
@@ -336,7 +336,7 @@
    "coughHigh_2.ogg"
   ],
   "loop": false,
-  "gain": 0.3846,
+  "gain": 0.4074,
   "origin": [
    {
     "file": "coughHigh_0.ogg",
@@ -345,7 +345,7 @@
     "author": "OwlishMedia",
     "attribution": "",
     "quality": "ok",
-    "sha": "060c666c211bf421"
+    "sha": "534fb99bfe2051b9"
    },
    {
     "file": "coughHigh_1.ogg",
@@ -354,7 +354,7 @@
     "author": "Spanac / Free Sounds Library",
     "attribution": "\"Coughing Sound Effect\" – Downloaded from www.freesoundslibrary.com (Free Sounds Library, Spanac), CC BY 4.0",
     "quality": "ok",
-    "sha": "a80c178b427a791b"
+    "sha": "586d9a018109a426"
    },
    {
     "file": "coughHigh_2.ogg",
@@ -363,7 +363,7 @@
     "author": "OwlishMedia",
     "attribution": "",
     "quality": "ok",
-    "sha": "30d13df339d0e5f4"
+    "sha": "0068c52b0004c955"
    }
   ]
  },
@@ -373,7 +373,7 @@
    "doorBang_1.ogg"
   ],
   "loop": false,
-  "gain": 1.0593,
+  "gain": 1.122,
   "origin": [
    {
     "file": "doorBang_0.ogg",
@@ -382,7 +382,7 @@
     "author": "qubodup (Iwan Gabovitch)",
     "attribution": "",
     "quality": "gut",
-    "sha": "4902e75feb825a7f"
+    "sha": "9b72620f710cc45f"
    },
    {
     "file": "doorBang_1.ogg",
@@ -391,7 +391,7 @@
     "author": "qubodup (Iwan Gabovitch)",
     "attribution": "",
     "quality": "gut",
-    "sha": "7f4632eafa6888da"
+    "sha": "538ff2c2fe53bf77"
    }
   ]
  },
@@ -402,7 +402,7 @@
    "doorClose_2.ogg"
   ],
   "loop": false,
-  "gain": 1.0593,
+  "gain": 1.1442,
   "origin": [
    {
     "file": "doorClose_0.ogg",
@@ -411,7 +411,7 @@
     "author": "qubodup (Iwan Gabovitch)",
     "attribution": "",
     "quality": "gut",
-    "sha": "bc5dd879956aa75d"
+    "sha": "36e5c4ae05a12f74"
    },
    {
     "file": "doorClose_1.ogg",
@@ -420,7 +420,7 @@
     "author": "qubodup (Iwan Gabovitch)",
     "attribution": "",
     "quality": "gut",
-    "sha": "8a4dea11ebee928f"
+    "sha": "0b5592456c3a3954"
    },
    {
     "file": "doorClose_2.ogg",
@@ -429,7 +429,7 @@
     "author": "Stephan (pdsounds.org)",
     "attribution": "",
     "quality": "ok",
-    "sha": "75ad8ffcfc594308"
+    "sha": "c494b9cfe83f1236"
    }
   ]
  },
@@ -439,7 +439,7 @@
    "doorOpen_1.ogg"
   ],
   "loop": false,
-  "gain": 0.2985,
+  "gain": 0.3162,
   "origin": [
    {
     "file": "doorOpen_0.ogg",
@@ -448,7 +448,7 @@
     "author": "qubodup (Iwan Gabovitch)",
     "attribution": "",
     "quality": "gut",
-    "sha": "005f8f72d0ab5da2"
+    "sha": "f4b715c192e63e21"
    },
    {
     "file": "doorOpen_1.ogg",
@@ -457,7 +457,7 @@
     "author": "Stephan (pdsounds.org)",
     "attribution": "",
     "quality": "ok",
-    "sha": "5c5a920b9356309b"
+    "sha": "479a21bddb844b2f"
    }
   ]
  },
@@ -468,7 +468,7 @@
    "glass_2.ogg"
   ],
   "loop": false,
-  "gain": 0.5888,
+  "gain": 0.6237,
   "origin": [
    {
     "file": "glass_0.ogg",
@@ -477,7 +477,7 @@
     "author": "rubberduck",
     "attribution": "",
     "quality": "ok",
-    "sha": "3ce0ff3a072af94c"
+    "sha": "5fe5624c83817bd1"
    },
    {
     "file": "glass_1.ogg",
@@ -486,7 +486,7 @@
     "author": "rubberduck",
     "attribution": "",
     "quality": "ok",
-    "sha": "a21564939b97e8ab"
+    "sha": "8bcdaa3ae1b5b4ba"
    },
    {
     "file": "glass_2.ogg",
@@ -495,7 +495,7 @@
     "author": "Nicole Marie T (OGA: Dogoso)",
     "attribution": "\"Cup On Table Sfx Sound Effect\" – Sound Effect By Nicole Marie T – https://opengameart.org/content/cup-on-table-sfx-sound-effect – CC BY 4.0",
     "quality": "ok",
-    "sha": "fce75288b865f147"
+    "sha": "b427c89af2251483"
    }
   ]
  },
@@ -504,7 +504,7 @@
    "hinge_0.ogg"
   ],
   "loop": false,
-  "gain": 0.2985,
+  "gain": 0.3162,
   "origin": [
    {
     "file": "hinge_0.ogg",
@@ -513,7 +513,7 @@
     "author": "OwlishMedia",
     "attribution": "",
     "quality": "schwach",
-    "sha": "44c19aebc7b55e23"
+    "sha": "168c289e6e0c0f9b"
    }
   ]
  },
@@ -524,7 +524,7 @@
    "keyClick_2.ogg"
   ],
   "loop": false,
-  "gain": 0.3055,
+  "gain": 0.3236,
   "origin": [
    {
     "file": "keyClick_0.ogg",
@@ -533,7 +533,7 @@
     "author": "unicaegames (Unicae Games)",
     "attribution": "",
     "quality": "gut",
-    "sha": "2a2657b1b80f9dba"
+    "sha": "600bd19e55c1f3ed"
    },
    {
     "file": "keyClick_1.ogg",
@@ -542,7 +542,7 @@
     "author": "unicaegames (Unicae Games)",
     "attribution": "",
     "quality": "ok",
-    "sha": "de84d42481b71ad3"
+    "sha": "abe8ebf0d0567242"
    },
    {
     "file": "keyClick_2.ogg",
@@ -551,7 +551,7 @@
     "author": "Erik Pålsson / Work With Sounds",
     "attribution": "\"Computer work at home\" – recorded by Erik Pålsson, Work With Sounds (EU-Projekt, http://soundsofchanges.eu/sound/computer-work-at-home/) – CC BY 4.0",
     "quality": "ok",
-    "sha": "382614b6b939ee8d"
+    "sha": "1de410d5e6f892d8"
    }
   ]
  },
@@ -562,7 +562,7 @@
    "laughSoft_2.ogg"
   ],
   "loop": false,
-  "gain": 0.2985,
+  "gain": 0.3162,
   "origin": [
    {
     "file": "laughSoft_0.ogg",
@@ -571,7 +571,7 @@
     "author": "Nocturnal_Vanguard (AuraVoice)",
     "attribution": "",
     "quality": "ok",
-    "sha": "48cb105cef46382a"
+    "sha": "0c984391bd034e47"
    },
    {
     "file": "laughSoft_1.ogg",
@@ -580,7 +580,7 @@
     "author": "Nocturnal_Vanguard (AuraVoice)",
     "attribution": "",
     "quality": "ok",
-    "sha": "f955654aefee0f60"
+    "sha": "482bc2e34546635b"
    },
    {
     "file": "laughSoft_2.ogg",
@@ -589,7 +589,7 @@
     "author": "ezwa (pdsounds.org)",
     "attribution": "",
     "quality": "ok",
-    "sha": "f00f3ed02e1ef6f4"
+    "sha": "fb43f4e7ec4e6c3a"
    }
   ]
  },
@@ -598,7 +598,7 @@
    "lidClose_0.ogg"
   ],
   "loop": false,
-  "gain": 0.8222,
+  "gain": 0.871,
   "origin": [
    {
     "file": "lidClose_0.ogg",
@@ -607,7 +607,7 @@
     "author": "OwlishMedia",
     "attribution": "",
     "quality": "schwach",
-    "sha": "04c4ac9551d71c84"
+    "sha": "a32ef5996a7237ab"
    }
   ]
  },
@@ -617,7 +617,7 @@
    "micThump_1.ogg"
   ],
   "loop": false,
-  "gain": 1.0593,
+  "gain": 1.122,
   "origin": [
    {
     "file": "micThump_0.ogg",
@@ -626,7 +626,7 @@
     "author": "ezwa (pdsounds.org)",
     "attribution": "",
     "quality": "schwach",
-    "sha": "d17d6e285d432558"
+    "sha": "1a7a1000be03798c"
    },
    {
     "file": "micThump_1.ogg",
@@ -635,7 +635,7 @@
     "author": "OwlishMedia",
     "attribution": "",
     "quality": "schwach",
-    "sha": "8b43cfb47da57274"
+    "sha": "bc0faaa141969f0b"
    }
   ]
  },
@@ -653,7 +653,7 @@
     "author": "Spanac / Free Sounds Library",
     "attribution": "\"Audience Murmur Sound Effect\" – Downloaded from www.freesoundslibrary.com (Free Sounds Library, Spanac), CC BY 4.0",
     "quality": "gut",
-    "sha": "626f02e7ed5a21fa"
+    "sha": "751b2a8a3c956d9c"
    }
   ]
  },
@@ -663,7 +663,7 @@
    "murmurBurst_1.ogg"
   ],
   "loop": false,
-  "gain": 0.2985,
+  "gain": 0.3162,
   "origin": [
    {
     "file": "murmurBurst_0.ogg",
@@ -672,7 +672,7 @@
     "author": "Spanac / Free Sounds Library",
     "attribution": "\"Audience Murmur Sound Effect\" – Downloaded from www.freesoundslibrary.com (Free Sounds Library, Spanac), CC BY 4.0",
     "quality": "ok",
-    "sha": "5f960d22def5a81b"
+    "sha": "6c7b6fc5b0ba362b"
    },
    {
     "file": "murmurBurst_1.ogg",
@@ -681,7 +681,7 @@
     "author": "jerrypadfield (radio aporee ::: maps)",
     "attribution": "",
     "quality": "ok",
-    "sha": "dafec55b24038b7e"
+    "sha": "94be8aa5bd53fc72"
    }
   ]
  },
@@ -699,7 +699,7 @@
     "author": "Kevin MacLeod",
     "attribution": "\"Almost Bliss\" Kevin MacLeod (incompetech.com), Licensed under Creative Commons: By Attribution 4.0 License, http://creativecommons.org/licenses/by/4.0/",
     "quality": "gut",
-    "sha": "7bd58b768e3c34bc"
+    "sha": "a0f560df062f9bea"
    }
   ]
  },
@@ -710,7 +710,7 @@
    "pageTurn_2.ogg"
   ],
   "loop": false,
-  "gain": 0.3981,
+  "gain": 0.4217,
   "origin": [
    {
     "file": "pageTurn_0.ogg",
@@ -719,7 +719,7 @@
     "author": "OwlishMedia",
     "attribution": "",
     "quality": "gut",
-    "sha": "c47ec57b1c39aa0f"
+    "sha": "c6af75a71087a238"
    },
    {
     "file": "pageTurn_1.ogg",
@@ -728,7 +728,7 @@
     "author": "Nicole Marie T (OGA: Dogoso)",
     "attribution": "\"Page Turning Sfx Sound Effect\" – Sound Effect By Nicole Marie T – https://opengameart.org/content/page-turning-sfx-sound-effect – CC BY 4.0",
     "quality": "gut",
-    "sha": "90529ac73086c8d4"
+    "sha": "47fbcee16eb71b0f"
    },
    {
     "file": "pageTurn_2.ogg",
@@ -737,7 +737,7 @@
     "author": "laleksic",
     "attribution": "",
     "quality": "ok",
-    "sha": "7895819d2a5604b7"
+    "sha": "c2293a1e1907ee59"
    }
   ]
  },
@@ -747,7 +747,7 @@
    "penClick_1.ogg"
   ],
   "loop": false,
-  "gain": 0.3055,
+  "gain": 0.3236,
   "origin": [
    {
     "file": "penClick_0.ogg",
@@ -756,7 +756,7 @@
     "author": "Nicole Marie T (OGA: Dogoso)",
     "attribution": "\"Pen Click Sfx Sound Effect\" – Sound Effect By Nicole Marie T – https://opengameart.org/content/pen-click-sfx-sound-effect – CC BY 4.0",
     "quality": "gut",
-    "sha": "9643d66c2da0e443"
+    "sha": "e8cb4d07c6014c5e"
    },
    {
     "file": "penClick_1.ogg",
@@ -765,16 +765,18 @@
     "author": "Stilgar (pdsounds.org)",
     "attribution": "",
     "quality": "ok",
-    "sha": "081cc06843413bd0"
+    "sha": "e0ed1225d5e0dbad"
    }
   ]
  },
  "penWrite": {
   "files": [
-   "penWrite_0.ogg"
+   "penWrite_0.ogg",
+   "penWrite_1.ogg",
+   "penWrite_2.ogg"
   ],
   "loop": false,
-  "gain": 0.2985,
+  "gain": 0.3162,
   "origin": [
    {
     "file": "penWrite_0.ogg",
@@ -783,7 +785,25 @@
     "author": "OwlishMedia",
     "attribution": "",
     "quality": "gut",
-    "sha": "c1e790bcf9cf02e5"
+    "sha": "b0120d622dc96617"
+   },
+   {
+    "file": "penWrite_1.ogg",
+    "source": "https://opengameart.org/content/sound-effects-pack",
+    "license": "CC0-1.0",
+    "author": "OwlishMedia",
+    "attribution": "",
+    "quality": "gut",
+    "sha": "ed223f4568b3c82b"
+   },
+   {
+    "file": "penWrite_2.ogg",
+    "source": "https://opengameart.org/content/sound-effects-pack",
+    "license": "CC0-1.0",
+    "author": "OwlishMedia",
+    "attribution": "",
+    "quality": "gut",
+    "sha": "d1f40be029f0827a"
    }
   ]
  },
@@ -793,7 +813,7 @@
    "phoneRing_1.ogg"
   ],
   "loop": false,
-  "gain": 0.2985,
+  "gain": 0.3162,
   "origin": [
    {
     "file": "phoneRing_0.ogg",
@@ -802,7 +822,7 @@
     "author": "Spanac / Free Sounds Library",
     "attribution": "\"Phone Ring Sound Effect\" – Downloaded from www.freesoundslibrary.com (Free Sounds Library, Spanac), CC BY 4.0",
     "quality": "ok",
-    "sha": "7a1dd15ee2cb5a08"
+    "sha": "1ea28fcf61387508"
    },
    {
     "file": "phoneRing_1.ogg",
@@ -811,17 +831,18 @@
     "author": "Spanac / Free Sounds Library",
     "attribution": "\"Old Cell Phone Ringing Sound Effect\" – Downloaded from www.freesoundslibrary.com (Free Sounds Library, Spanac), CC BY 4.0",
     "quality": "ok",
-    "sha": "63928257bd3dca7e"
+    "sha": "c7ec14562fac192d"
    }
   ]
  },
  "phoneVibrate": {
   "files": [
    "phoneVibrate_0.ogg",
-   "phoneVibrate_1.ogg"
+   "phoneVibrate_1.ogg",
+   "phoneVibrate_2.ogg"
   ],
   "loop": false,
-  "gain": 0.537,
+  "gain": 0.5689,
   "origin": [
    {
     "file": "phoneVibrate_0.ogg",
@@ -830,16 +851,25 @@
     "author": "OwlishMedia",
     "attribution": "",
     "quality": "gut",
-    "sha": "318c25165aa0f322"
+    "sha": "1013baca7a60decb"
    },
    {
     "file": "phoneVibrate_1.ogg",
+    "source": "https://opengameart.org/content/sound-effects-pack",
+    "license": "CC0-1.0",
+    "author": "OwlishMedia",
+    "attribution": "",
+    "quality": "gut",
+    "sha": "21fa68cdfc67a32a"
+   },
+   {
+    "file": "phoneVibrate_2.ogg",
     "source": "https://www.freesoundslibrary.com/vibrating-sound/",
     "license": "CC-BY-4.0",
     "author": "Spanac / Free Sounds Library",
     "attribution": "\"Vibrating Sound\" – Downloaded from www.freesoundslibrary.com (Free Sounds Library, Spanac), CC BY 4.0",
     "quality": "ok",
-    "sha": "b320926a3913898d"
+    "sha": "36e69688cfc74a9e"
    }
   ]
  },
@@ -848,7 +878,7 @@
    "pour_0.ogg"
   ],
   "loop": false,
-  "gain": 0.2985,
+  "gain": 0.3162,
   "origin": [
    {
     "file": "pour_0.ogg",
@@ -857,7 +887,7 @@
     "author": "Spanac / Free Sounds Library",
     "attribution": "\"Pouring Water\" – Downloaded from www.freesoundslibrary.com (Free Sounds Library, Spanac), CC BY 4.0",
     "quality": "ok",
-    "sha": "3bb556cd76879d83"
+    "sha": "f7d1fd87a7636e0b"
    }
   ]
  },
@@ -875,7 +905,7 @@
     "author": "La Fonderie / Work With Sounds",
     "attribution": "\"Fan - Cinema projector\" – recorded by La Fonderie, Work With Sounds (EU-Projekt, http://soundsofchanges.eu/sound/fan-cinema-projector/) – CC BY 4.0",
     "quality": "ok",
-    "sha": "9c6a6a3b5bf14ceb"
+    "sha": "8031948357e9bbc7"
    }
   ]
  },
@@ -884,7 +914,7 @@
    "rain_0.ogg"
   ],
   "loop": true,
-  "gain": 4.0752,
+  "gain": 2.9711,
   "origin": [
    {
     "file": "rain_0.ogg",
@@ -893,7 +923,7 @@
     "author": "Fredrik Johansson / Work With Sounds",
     "attribution": "\"Rain on a window: A soundscape\" – recorded by Fredrik Johansson, Work With Sounds (EU-Projekt, http://soundsofchanges.eu/sound/rain-on-a-window-a-soundscape/) – CC BY 4.0",
     "quality": "gut",
-    "sha": "4e9307a480e7be37"
+    "sha": "964fc8f98c960865"
    }
   ]
  },
@@ -911,7 +941,7 @@
     "author": "susanfedynak (radio aporee ::: maps)",
     "attribution": "",
     "quality": "gut",
-    "sha": "5599d6d5076691e2"
+    "sha": "3730f6d60a0e48dc"
    }
   ]
  },
@@ -921,7 +951,7 @@
    "seatFlip_1.ogg"
   ],
   "loop": false,
-  "gain": 0.6531,
+  "gain": 0.6918,
   "origin": [
    {
     "file": "seatFlip_0.ogg",
@@ -930,7 +960,7 @@
     "author": "La Fonderie / Work With Sounds",
     "attribution": "\"Cinema seat\" – recorded by La Fonderie, Work With Sounds (EU-Projekt, http://soundsofchanges.eu/sound/cinema-seat/) – CC BY 4.0",
     "quality": "gut",
-    "sha": "59754f681fb1c332"
+    "sha": "59240f9253600243"
    },
    {
     "file": "seatFlip_1.ogg",
@@ -939,7 +969,7 @@
     "author": "La Fonderie / Work With Sounds",
     "attribution": "\"Cinema seat\" – recorded by La Fonderie, Work With Sounds (EU-Projekt, http://soundsofchanges.eu/sound/cinema-seat/) – CC BY 4.0",
     "quality": "gut",
-    "sha": "15b02afaab99bdf8"
+    "sha": "d02dc61e2ab5b813"
    }
   ]
  },
@@ -949,7 +979,7 @@
    "sponge_1.ogg"
   ],
   "loop": false,
-  "gain": 0.2985,
+  "gain": 0.4467,
   "origin": [
    {
     "file": "sponge_0.ogg",
@@ -958,7 +988,7 @@
     "author": "La Fonderie / Work With Sounds",
     "attribution": "\"Wet sponge\" – recorded by La Fonderie, Work With Sounds (EU-Projekt, http://soundsofchanges.eu/sound/wet-sponge-2/) – CC BY 4.0",
     "quality": "gut",
-    "sha": "7b5f7eb8229fb7b4"
+    "sha": "e435a30db01a7322"
    },
    {
     "file": "sponge_1.ogg",
@@ -967,7 +997,7 @@
     "author": "La Fonderie / Work With Sounds",
     "attribution": "\"Wet sponge\" – recorded by La Fonderie, Work With Sounds (EU-Projekt, http://soundsofchanges.eu/sound/wet-sponge-2/) – CC BY 4.0",
     "quality": "gut",
-    "sha": "47419e839b2e873b"
+    "sha": "1cf9d29a3490928e"
    }
   ]
  },
@@ -977,7 +1007,7 @@
    "stepCarpet_1.ogg"
   ],
   "loop": false,
-  "gain": 0.3758,
+  "gain": 0.3981,
   "origin": [
    {
     "file": "stepCarpet_0.ogg",
@@ -986,7 +1016,7 @@
     "author": "OwlishMedia",
     "attribution": "",
     "quality": "schwach",
-    "sha": "05ca5fca9f2c281a"
+    "sha": "fdfab0056631b30c"
    },
    {
     "file": "stepCarpet_1.ogg",
@@ -995,7 +1025,7 @@
     "author": "Stephan (pdsounds.org)",
     "attribution": "",
     "quality": "schwach",
-    "sha": "7a2baaf7202aa72c"
+    "sha": "e6adbab0dfc9a95c"
    }
   ]
  },
@@ -1006,7 +1036,7 @@
    "stepParquet_2.ogg"
   ],
   "loop": false,
-  "gain": 0.5623,
+  "gain": 0.8414,
   "origin": [
    {
     "file": "stepParquet_0.ogg",
@@ -1015,7 +1045,7 @@
     "author": "OwlishMedia",
     "attribution": "",
     "quality": "ok",
-    "sha": "be3d435d23029361"
+    "sha": "0ff77f31da6f1edc"
    },
    {
     "file": "stepParquet_1.ogg",
@@ -1024,7 +1054,7 @@
     "author": "Torsten Nilsson / Work With Sounds",
     "attribution": "\"Creaking floors\" – recorded by Torsten Nilsson, Work With Sounds (EU-Projekt, http://soundsofchanges.eu/sound/creaking-floors/) – CC BY 4.0",
     "quality": "ok",
-    "sha": "74361440020b6556"
+    "sha": "48104e98e5349ad2"
    },
    {
     "file": "stepParquet_2.ogg",
@@ -1033,7 +1063,7 @@
     "author": "Kenney (kenney.nl)",
     "attribution": "",
     "quality": "ok",
-    "sha": "a564132ee3100109"
+    "sha": "3c477abd136a4fa9"
    }
   ]
  },
@@ -1043,7 +1073,7 @@
    "stepStair_1.ogg"
   ],
   "loop": false,
-  "gain": 0.7079,
+  "gain": 1.0593,
   "origin": [
    {
     "file": "stepStair_0.ogg",
@@ -1052,7 +1082,7 @@
     "author": "Torsten Nilsson / Work With Sounds",
     "attribution": "\"Stairwell\" – recorded by Torsten Nilsson, Work With Sounds (EU-Projekt, http://soundsofchanges.eu/sound/stairwell/) – CC BY 4.0",
     "quality": "ok",
-    "sha": "ef79b5abcd320e43"
+    "sha": "98adecdee0cde5c4"
    },
    {
     "file": "stepStair_1.ogg",
@@ -1061,7 +1091,7 @@
     "author": "OwlishMedia",
     "attribution": "",
     "quality": "ok",
-    "sha": "86f34fa6537b8dd4"
+    "sha": "932266f2b3e579a3"
    }
   ]
  },
@@ -1070,7 +1100,7 @@
    "throatClear_0.ogg"
   ],
   "loop": false,
-  "gain": 0.5248,
+  "gain": 0.5559,
   "origin": [
    {
     "file": "throatClear_0.ogg",
@@ -1079,7 +1109,7 @@
     "author": "ezwa (pdsounds.org)",
     "attribution": "",
     "quality": "schwach",
-    "sha": "cb93cb38b6199f46"
+    "sha": "aa32ad52efdb6b4f"
    }
   ]
  },
@@ -1089,7 +1119,7 @@
    "touchpad_1.ogg"
   ],
   "loop": false,
-  "gain": 0.2985,
+  "gain": 0.3162,
   "origin": [
    {
     "file": "touchpad_0.ogg",
@@ -1098,7 +1128,7 @@
     "author": "OwlishMedia",
     "attribution": "",
     "quality": "schwach",
-    "sha": "b56687453e2e865b"
+    "sha": "62cef3567387096e"
    },
    {
     "file": "touchpad_1.ogg",
@@ -1107,7 +1137,7 @@
     "author": "1j01 (Isaiah Odhner)",
     "attribution": "",
     "quality": "schwach",
-    "sha": "dd531d65f6562eff"
+    "sha": "8690ecfaaf10450c"
    }
   ]
  },
@@ -1125,7 +1155,7 @@
     "author": "damir.kustic (radio aporee ::: maps)",
     "attribution": "",
     "quality": "gut",
-    "sha": "372d1c3d9191228f"
+    "sha": "11aa1aab8fdbf1bd"
    }
   ]
  },
@@ -1136,7 +1166,7 @@
    "tramBell_2.ogg"
   ],
   "loop": false,
-  "gain": 0.5188,
+  "gain": 0.5495,
   "origin": [
    {
     "file": "tramBell_0.ogg",
@@ -1145,7 +1175,7 @@
     "author": "Museum of Municipal Engineering / Work With Sounds",
     "attribution": "\"The Linke Hofman Standard tram – the bell (recorded from the outside)\" – recorded by Museum of Municipal Engineering, Work With Sounds (EU-Projekt, http://soundsofchanges.eu/sound/the-linke-hofman-standard-tram-the-bell-recorded-from-the-outside/) – CC BY 4.0",
     "quality": "gut",
-    "sha": "31c9b3bd4e6047b4"
+    "sha": "8b80a4bc37547f0d"
    },
    {
     "file": "tramBell_1.ogg",
@@ -1154,7 +1184,7 @@
     "author": "Museum of Municipal Engineering / Work With Sounds",
     "attribution": "\"The SN4 type tram – the bell (recorded from the outside)\" – recorded by Museum of Municipal Engineering, Work With Sounds (EU-Projekt, http://soundsofchanges.eu/sound/the-sn4-type-tram-the-bell-recorded-from-the-outside/) – CC BY 4.0",
     "quality": "gut",
-    "sha": "b9423a9f1dffd65a"
+    "sha": "713fa56109152762"
    },
    {
     "file": "tramBell_2.ogg",
@@ -1163,7 +1193,7 @@
     "author": "Museum of Municipal Engineering / Work With Sounds",
     "attribution": "\"The N tram – the bell (recorded from the outside)\" – recorded by Museum of Municipal Engineering, Work With Sounds (EU-Projekt, http://soundsofchanges.eu/sound/the-n-tram-the-bell-recorded-from-the-outside/) – CC BY 4.0",
     "quality": "gut",
-    "sha": "d4fc26d5ee30883a"
+    "sha": "b17fe53bf60d8afc"
    }
   ]
  },
@@ -1181,7 +1211,7 @@
     "author": "Erik Pålsson / Work With Sounds",
     "attribution": "\"Bathroom fan\" – recorded by Erik Pålsson, Work With Sounds (EU-Projekt, http://soundsofchanges.eu/sound/bathroom-fan/) – CC BY 4.0",
     "quality": "ok",
-    "sha": "5903dbcb8e8d8c8b"
+    "sha": "d4829f08fdca3bf7"
    }
   ]
  },
@@ -1190,7 +1220,7 @@
    "wind_0.ogg"
   ],
   "loop": true,
-  "gain": 1.7706,
+  "gain": 1.5168,
   "origin": [
    {
     "file": "wind_0.ogg",
@@ -1199,7 +1229,7 @@
     "author": "Thimras",
     "attribution": "",
     "quality": "gut",
-    "sha": "4f79a965cf91735f"
+    "sha": "f0c79c4b6db356e2"
    }
   ]
  },
@@ -1208,7 +1238,7 @@
    "zipper_0.ogg"
   ],
   "loop": false,
-  "gain": 0.2985,
+  "gain": 0.3162,
   "origin": [
    {
     "file": "zipper_0.ogg",
@@ -1217,7 +1247,7 @@
     "author": "OwlishMedia",
     "attribution": "",
     "quality": "gut",
-    "sha": "cb05f7b3fae21457"
+    "sha": "387785ed9c408a04"
    }
   ]
  },
@@ -1227,7 +1257,7 @@
    "touchpad_1.ogg"
   ],
   "loop": false,
-  "gain": 0.2985,
+  "gain": 0.3162,
   "origin": [
    {
     "file": "touchpad_0.ogg",
@@ -1236,7 +1266,7 @@
     "author": "OwlishMedia",
     "attribution": "",
     "quality": "schwach",
-    "sha": "b56687453e2e865b"
+    "sha": "62cef3567387096e"
    },
    {
     "file": "touchpad_1.ogg",
@@ -1245,7 +1275,7 @@
     "author": "1j01 (Isaiah Odhner)",
     "attribution": "",
     "quality": "schwach",
-    "sha": "dd531d65f6562eff"
+    "sha": "8690ecfaaf10450c"
    }
   ],
   "alias": "touchpad"
@@ -1257,7 +1287,7 @@
    "keyClick_2.ogg"
   ],
   "loop": false,
-  "gain": 0.3055,
+  "gain": 0.3236,
   "origin": [
    {
     "file": "keyClick_0.ogg",
@@ -1266,7 +1296,7 @@
     "author": "unicaegames (Unicae Games)",
     "attribution": "",
     "quality": "gut",
-    "sha": "2a2657b1b80f9dba"
+    "sha": "600bd19e55c1f3ed"
    },
    {
     "file": "keyClick_1.ogg",
@@ -1275,7 +1305,7 @@
     "author": "unicaegames (Unicae Games)",
     "attribution": "",
     "quality": "ok",
-    "sha": "de84d42481b71ad3"
+    "sha": "abe8ebf0d0567242"
    },
    {
     "file": "keyClick_2.ogg",
@@ -1284,7 +1314,7 @@
     "author": "Erik Pålsson / Work With Sounds",
     "attribution": "\"Computer work at home\" – recorded by Erik Pålsson, Work With Sounds (EU-Projekt, http://soundsofchanges.eu/sound/computer-work-at-home/) – CC BY 4.0",
     "quality": "ok",
-    "sha": "382614b6b939ee8d"
+    "sha": "1de410d5e6f892d8"
    }
   ],
   "alias": "keyClick"
@@ -1294,7 +1324,7 @@
    "good_0.ogg"
   ],
   "loop": false,
-  "gain": 0.2985,
+  "gain": 0.3162,
   "origin": [
    {
     "file": "good_0.ogg",
@@ -1303,6 +1333,7 @@
     "author": "Kevin MacLeod",
     "attribution": "\"Clear Waters\" Kevin MacLeod (incompetech.com), Licensed under Creative Commons: By Attribution 4.0 – einzelne Klaviertöne als Signal",
     "quality": "ok",
+    "sha": "5a8eb8b1f0bebbc3",
     "derived": true
    }
   ]
@@ -1312,7 +1343,7 @@
    "quizSting_0.ogg"
   ],
   "loop": false,
-  "gain": 0.2985,
+  "gain": 0.3162,
   "origin": [
    {
     "file": "quizSting_0.ogg",
@@ -1321,6 +1352,7 @@
     "author": "Kevin MacLeod",
     "attribution": "\"Clear Waters\" Kevin MacLeod (incompetech.com), Licensed under Creative Commons: By Attribution 4.0 – einzelne Klaviertöne als Signal",
     "quality": "ok",
+    "sha": "740bc192da8ee364",
     "derived": true
    }
   ]
@@ -1330,7 +1362,7 @@
    "sting_0.ogg"
   ],
   "loop": false,
-  "gain": 0.2985,
+  "gain": 0.3162,
   "origin": [
    {
     "file": "sting_0.ogg",
@@ -1339,6 +1371,7 @@
     "author": "Kevin MacLeod",
     "attribution": "\"Clear Waters\" Kevin MacLeod (incompetech.com), Licensed under Creative Commons: By Attribution 4.0 – einzelne Klaviertöne als Signal",
     "quality": "ok",
+    "sha": "f343bcc0db3ea222",
     "derived": true
    }
   ]
@@ -1348,7 +1381,7 @@
    "heart_0.ogg"
   ],
   "loop": false,
-  "gain": 1.0593,
+  "gain": 1.122,
   "origin": [
    {
     "file": "heart_0.ogg",
@@ -1357,6 +1390,7 @@
     "author": "ezwa (pdsounds.org)",
     "attribution": "",
     "quality": "schwach",
+    "sha": "25463729e713ec10",
     "derived": true
    }
   ]
@@ -1366,7 +1400,7 @@
    "micFeedback_0.ogg"
   ],
   "loop": false,
-  "gain": 0.2985,
+  "gain": 0.3162,
   "origin": [
    {
     "file": "micFeedback_0.ogg",
@@ -1375,7 +1409,1171 @@
     "author": "Museum of Municipal Engineering / Work With Sounds",
     "attribution": "\"The Linke Hofman Standard tram – the bell (recorded from the outside)\" – recorded by Museum of Municipal Engineering, Work With Sounds (EU-Projekt, http://soundsofchanges.eu/sound/the-linke-hofman-standard-tram-the-bell-recorded-from-the-outside/) – CC BY 4.0 – bearbeitet (Rückkopplungston)",
     "quality": "gut",
+    "sha": "8972adae0b773a53",
     "derived": true
+   }
+  ]
+ },
+ "keyboards": {
+  "files": [
+   "keyboards_0.ogg"
+  ],
+  "loop": true,
+  "gain": 0.7246,
+  "origin": [
+   {
+    "file": "keyboards_0.ogg",
+    "source": "https://pdsounds.tuxfamily.org/list.html",
+    "license": "Public-Domain",
+    "author": "Teto Yasha (pdsounds.org)",
+    "attribution": "",
+    "quality": "gut",
+    "sha": "3b81738598346afd"
+   },
+   {
+    "file": "keyboards_0.ogg",
+    "source": "https://pdsounds.tuxfamily.org/list.html",
+    "license": "Public-Domain",
+    "author": "russiandoll (pdsounds.org)",
+    "attribution": "",
+    "quality": "gut",
+    "sha": "3b81738598346afd"
+   },
+   {
+    "file": "keyboards_0.ogg",
+    "source": "https://pdsounds.tuxfamily.org/list.html",
+    "license": "Public-Domain",
+    "author": "Stephan (pdsounds.org)",
+    "attribution": "",
+    "quality": "ok",
+    "sha": "3b81738598346afd"
+   },
+   {
+    "file": "keyboards_0.ogg",
+    "source": "https://pdsounds.tuxfamily.org/list.html",
+    "license": "Public-Domain",
+    "author": "russiandoll (pdsounds.org)",
+    "attribution": "",
+    "quality": "ok",
+    "sha": "3b81738598346afd"
+   },
+   {
+    "file": "keyboards_0.ogg",
+    "source": "https://opengameart.org/content/keyboard-soundpack-1-typing-and-single-keystrokes",
+    "license": "CC0-1.0",
+    "author": "unicaegames (Unicae Games)",
+    "attribution": "",
+    "quality": "ok",
+    "sha": "3b81738598346afd"
+   },
+   {
+    "file": "keyboards_0.ogg",
+    "source": "https://opengameart.org/content/keyboard-soundpack-1-typing-and-single-keystrokes",
+    "license": "CC0-1.0",
+    "author": "unicaegames (Unicae Games)",
+    "attribution": "",
+    "quality": "ok",
+    "sha": "3b81738598346afd"
+   }
+  ]
+ },
+ "laughSmall": {
+  "files": [
+   "laughSmall_0.ogg",
+   "laughSmall_1.ogg",
+   "laughSmall_2.ogg"
+  ],
+  "loop": false,
+  "gain": 0.3162,
+  "origin": [
+   {
+    "file": "laughSmall_0.ogg",
+    "source": "https://pdsounds.tuxfamily.org/list.html",
+    "license": "Public-Domain",
+    "author": "ezwa (pdsounds.org)",
+    "attribution": "",
+    "quality": "ok",
+    "sha": "fe10b9e23fe24421"
+   },
+   {
+    "file": "laughSmall_0.ogg",
+    "source": "https://pdsounds.tuxfamily.org/list.html",
+    "license": "Public-Domain",
+    "author": "ezwa (pdsounds.org)",
+    "attribution": "",
+    "quality": "ok",
+    "sha": "fe10b9e23fe24421"
+   },
+   {
+    "file": "laughSmall_0.ogg",
+    "source": "https://pdsounds.tuxfamily.org/list.html",
+    "license": "Public-Domain",
+    "author": "ezwa (pdsounds.org)",
+    "attribution": "",
+    "quality": "ok",
+    "sha": "fe10b9e23fe24421"
+   },
+   {
+    "file": "laughSmall_1.ogg",
+    "source": "https://opengameart.org/content/sound-effects-pack",
+    "license": "CC0-1.0",
+    "author": "OwlishMedia",
+    "attribution": "",
+    "quality": "ok",
+    "sha": "559ab75ba5cb13f4"
+   },
+   {
+    "file": "laughSmall_1.ogg",
+    "source": "https://opengameart.org/content/do-you-remember-laughter",
+    "license": "CC0-1.0",
+    "author": "Supergeek",
+    "attribution": "",
+    "quality": "ok",
+    "sha": "559ab75ba5cb13f4"
+   },
+   {
+    "file": "laughSmall_1.ogg",
+    "source": "https://pdsounds.tuxfamily.org/list.html",
+    "license": "Public-Domain",
+    "author": "ezwa (pdsounds.org)",
+    "attribution": "",
+    "quality": "ok",
+    "sha": "559ab75ba5cb13f4"
+   },
+   {
+    "file": "laughSmall_2.ogg",
+    "source": "https://pdsounds.tuxfamily.org/list.html",
+    "license": "Public-Domain",
+    "author": "ezwa (pdsounds.org)",
+    "attribution": "",
+    "quality": "ok",
+    "sha": "27b6537df7f6fe30"
+   },
+   {
+    "file": "laughSmall_2.ogg",
+    "source": "https://opengameart.org/content/group-giggling",
+    "license": "CC0-1.0",
+    "author": "Nocturnal_Vanguard (AuraVoice)",
+    "attribution": "",
+    "quality": "ok",
+    "sha": "27b6537df7f6fe30"
+   },
+   {
+    "file": "laughSmall_2.ogg",
+    "source": "https://opengameart.org/content/group-giggling",
+    "license": "CC0-1.0",
+    "author": "Nocturnal_Vanguard (AuraVoice)",
+    "attribution": "",
+    "quality": "ok",
+    "sha": "27b6537df7f6fe30"
+   }
+  ]
+ },
+ "laughMid": {
+  "files": [
+   "laughMid_0.ogg",
+   "laughMid_1.ogg",
+   "laughMid_2.ogg"
+  ],
+  "loop": false,
+  "gain": 0.5012,
+  "origin": [
+   {
+    "file": "laughMid_0.ogg",
+    "source": "https://pdsounds.tuxfamily.org/list.html",
+    "license": "Public-Domain",
+    "author": "ezwa (pdsounds.org)",
+    "attribution": "",
+    "quality": "ok",
+    "sha": "58abdd955b5cbaca"
+   },
+   {
+    "file": "laughMid_0.ogg",
+    "source": "https://pdsounds.tuxfamily.org/list.html",
+    "license": "Public-Domain",
+    "author": "ezwa (pdsounds.org)",
+    "attribution": "",
+    "quality": "ok",
+    "sha": "58abdd955b5cbaca"
+   },
+   {
+    "file": "laughMid_0.ogg",
+    "source": "https://pdsounds.tuxfamily.org/list.html",
+    "license": "Public-Domain",
+    "author": "ezwa (pdsounds.org)",
+    "attribution": "",
+    "quality": "ok",
+    "sha": "58abdd955b5cbaca"
+   },
+   {
+    "file": "laughMid_0.ogg",
+    "source": "https://pdsounds.tuxfamily.org/list.html",
+    "license": "Public-Domain",
+    "author": "ezwa (pdsounds.org)",
+    "attribution": "",
+    "quality": "ok",
+    "sha": "58abdd955b5cbaca"
+   },
+   {
+    "file": "laughMid_0.ogg",
+    "source": "https://opengameart.org/content/group-giggling",
+    "license": "CC0-1.0",
+    "author": "Nocturnal_Vanguard (AuraVoice)",
+    "attribution": "",
+    "quality": "ok",
+    "sha": "58abdd955b5cbaca"
+   },
+   {
+    "file": "laughMid_0.ogg",
+    "source": "https://opengameart.org/content/old-man-cough",
+    "license": "CC0-1.0",
+    "author": "AntumDeluge (Jordan Irwin)",
+    "attribution": "",
+    "quality": "ok",
+    "sha": "58abdd955b5cbaca"
+   },
+   {
+    "file": "laughMid_1.ogg",
+    "source": "https://opengameart.org/content/do-you-remember-laughter",
+    "license": "CC0-1.0",
+    "author": "Supergeek",
+    "attribution": "",
+    "quality": "ok",
+    "sha": "40a446b8234c2511"
+   },
+   {
+    "file": "laughMid_1.ogg",
+    "source": "https://opengameart.org/content/group-giggling",
+    "license": "CC0-1.0",
+    "author": "Nocturnal_Vanguard (AuraVoice)",
+    "attribution": "",
+    "quality": "ok",
+    "sha": "40a446b8234c2511"
+   },
+   {
+    "file": "laughMid_1.ogg",
+    "source": "https://pdsounds.tuxfamily.org/list.html",
+    "license": "Public-Domain",
+    "author": "ezwa (pdsounds.org)",
+    "attribution": "",
+    "quality": "ok",
+    "sha": "40a446b8234c2511"
+   },
+   {
+    "file": "laughMid_1.ogg",
+    "source": "https://opengameart.org/content/group-giggling",
+    "license": "CC0-1.0",
+    "author": "Nocturnal_Vanguard (AuraVoice)",
+    "attribution": "",
+    "quality": "ok",
+    "sha": "40a446b8234c2511"
+   },
+   {
+    "file": "laughMid_1.ogg",
+    "source": "https://opengameart.org/content/sound-effects-pack",
+    "license": "CC0-1.0",
+    "author": "OwlishMedia",
+    "attribution": "",
+    "quality": "ok",
+    "sha": "40a446b8234c2511"
+   },
+   {
+    "file": "laughMid_1.ogg",
+    "source": "https://opengameart.org/content/old-man-cough",
+    "license": "CC0-1.0",
+    "author": "AntumDeluge (Jordan Irwin)",
+    "attribution": "",
+    "quality": "ok",
+    "sha": "40a446b8234c2511"
+   },
+   {
+    "file": "laughMid_2.ogg",
+    "source": "https://pdsounds.tuxfamily.org/list.html",
+    "license": "Public-Domain",
+    "author": "ezwa (pdsounds.org)",
+    "attribution": "",
+    "quality": "ok",
+    "sha": "1b50060c1c45d1d2"
+   },
+   {
+    "file": "laughMid_2.ogg",
+    "source": "https://pdsounds.tuxfamily.org/list.html",
+    "license": "Public-Domain",
+    "author": "ezwa (pdsounds.org)",
+    "attribution": "",
+    "quality": "ok",
+    "sha": "1b50060c1c45d1d2"
+   },
+   {
+    "file": "laughMid_2.ogg",
+    "source": "https://pdsounds.tuxfamily.org/list.html",
+    "license": "Public-Domain",
+    "author": "ezwa (pdsounds.org)",
+    "attribution": "",
+    "quality": "ok",
+    "sha": "1b50060c1c45d1d2"
+   },
+   {
+    "file": "laughMid_2.ogg",
+    "source": "https://opengameart.org/content/sound-effects-pack",
+    "license": "CC0-1.0",
+    "author": "OwlishMedia",
+    "attribution": "",
+    "quality": "ok",
+    "sha": "1b50060c1c45d1d2"
+   },
+   {
+    "file": "laughMid_2.ogg",
+    "source": "https://pdsounds.tuxfamily.org/list.html",
+    "license": "Public-Domain",
+    "author": "ezwa (pdsounds.org)",
+    "attribution": "",
+    "quality": "ok",
+    "sha": "1b50060c1c45d1d2"
+   },
+   {
+    "file": "laughMid_2.ogg",
+    "source": "https://opengameart.org/content/old-man-cough",
+    "license": "CC0-1.0",
+    "author": "AntumDeluge (Jordan Irwin)",
+    "attribution": "",
+    "quality": "ok",
+    "sha": "1b50060c1c45d1d2"
+   }
+  ]
+ },
+ "laughBig": {
+  "files": [
+   "laughBig_0.ogg",
+   "laughBig_1.ogg",
+   "laughBig_2.ogg"
+  ],
+  "loop": false,
+  "gain": 0.7079,
+  "origin": [
+   {
+    "file": "laughBig_0.ogg",
+    "source": "https://pdsounds.tuxfamily.org/list.html",
+    "license": "Public-Domain",
+    "author": "ezwa (pdsounds.org)",
+    "attribution": "",
+    "quality": "ok",
+    "sha": "8daebe12c3d86ea4"
+   },
+   {
+    "file": "laughBig_0.ogg",
+    "source": "https://pdsounds.tuxfamily.org/list.html",
+    "license": "Public-Domain",
+    "author": "ezwa (pdsounds.org)",
+    "attribution": "",
+    "quality": "ok",
+    "sha": "8daebe12c3d86ea4"
+   },
+   {
+    "file": "laughBig_0.ogg",
+    "source": "https://opengameart.org/content/old-man-cough",
+    "license": "CC0-1.0",
+    "author": "AntumDeluge (Jordan Irwin)",
+    "attribution": "",
+    "quality": "ok",
+    "sha": "8daebe12c3d86ea4"
+   },
+   {
+    "file": "laughBig_0.ogg",
+    "source": "https://opengameart.org/content/do-you-remember-laughter",
+    "license": "CC0-1.0",
+    "author": "Supergeek",
+    "attribution": "",
+    "quality": "ok",
+    "sha": "8daebe12c3d86ea4"
+   },
+   {
+    "file": "laughBig_0.ogg",
+    "source": "https://pdsounds.tuxfamily.org/list.html",
+    "license": "Public-Domain",
+    "author": "ezwa (pdsounds.org)",
+    "attribution": "",
+    "quality": "ok",
+    "sha": "8daebe12c3d86ea4"
+   },
+   {
+    "file": "laughBig_0.ogg",
+    "source": "https://pdsounds.tuxfamily.org/list.html",
+    "license": "Public-Domain",
+    "author": "ezwa (pdsounds.org)",
+    "attribution": "",
+    "quality": "ok",
+    "sha": "8daebe12c3d86ea4"
+   },
+   {
+    "file": "laughBig_0.ogg",
+    "source": "https://pdsounds.tuxfamily.org/list.html",
+    "license": "Public-Domain",
+    "author": "ezwa (pdsounds.org)",
+    "attribution": "",
+    "quality": "ok",
+    "sha": "8daebe12c3d86ea4"
+   },
+   {
+    "file": "laughBig_0.ogg",
+    "source": "https://opengameart.org/content/group-giggling",
+    "license": "CC0-1.0",
+    "author": "Nocturnal_Vanguard (AuraVoice)",
+    "attribution": "",
+    "quality": "ok",
+    "sha": "8daebe12c3d86ea4"
+   },
+   {
+    "file": "laughBig_0.ogg",
+    "source": "https://opengameart.org/content/sound-effects-pack",
+    "license": "CC0-1.0",
+    "author": "OwlishMedia",
+    "attribution": "",
+    "quality": "ok",
+    "sha": "8daebe12c3d86ea4"
+   },
+   {
+    "file": "laughBig_0.ogg",
+    "source": "https://opengameart.org/content/do-you-remember-laughter",
+    "license": "CC0-1.0",
+    "author": "Supergeek",
+    "attribution": "",
+    "quality": "ok",
+    "sha": "8daebe12c3d86ea4"
+   },
+   {
+    "file": "laughBig_1.ogg",
+    "source": "https://pdsounds.tuxfamily.org/list.html",
+    "license": "Public-Domain",
+    "author": "ezwa (pdsounds.org)",
+    "attribution": "",
+    "quality": "ok",
+    "sha": "0e7165b401909124"
+   },
+   {
+    "file": "laughBig_1.ogg",
+    "source": "https://opengameart.org/content/group-giggling",
+    "license": "CC0-1.0",
+    "author": "Nocturnal_Vanguard (AuraVoice)",
+    "attribution": "",
+    "quality": "ok",
+    "sha": "0e7165b401909124"
+   },
+   {
+    "file": "laughBig_1.ogg",
+    "source": "https://opengameart.org/content/group-giggling",
+    "license": "CC0-1.0",
+    "author": "Nocturnal_Vanguard (AuraVoice)",
+    "attribution": "",
+    "quality": "ok",
+    "sha": "0e7165b401909124"
+   },
+   {
+    "file": "laughBig_1.ogg",
+    "source": "https://pdsounds.tuxfamily.org/list.html",
+    "license": "Public-Domain",
+    "author": "ezwa (pdsounds.org)",
+    "attribution": "",
+    "quality": "ok",
+    "sha": "0e7165b401909124"
+   },
+   {
+    "file": "laughBig_1.ogg",
+    "source": "https://opengameart.org/content/sound-effects-pack",
+    "license": "CC0-1.0",
+    "author": "OwlishMedia",
+    "attribution": "",
+    "quality": "ok",
+    "sha": "0e7165b401909124"
+   },
+   {
+    "file": "laughBig_1.ogg",
+    "source": "https://pdsounds.tuxfamily.org/list.html",
+    "license": "Public-Domain",
+    "author": "ezwa (pdsounds.org)",
+    "attribution": "",
+    "quality": "ok",
+    "sha": "0e7165b401909124"
+   },
+   {
+    "file": "laughBig_1.ogg",
+    "source": "https://opengameart.org/content/do-you-remember-laughter",
+    "license": "CC0-1.0",
+    "author": "Supergeek",
+    "attribution": "",
+    "quality": "ok",
+    "sha": "0e7165b401909124"
+   },
+   {
+    "file": "laughBig_1.ogg",
+    "source": "https://pdsounds.tuxfamily.org/list.html",
+    "license": "Public-Domain",
+    "author": "ezwa (pdsounds.org)",
+    "attribution": "",
+    "quality": "ok",
+    "sha": "0e7165b401909124"
+   },
+   {
+    "file": "laughBig_1.ogg",
+    "source": "https://pdsounds.tuxfamily.org/list.html",
+    "license": "Public-Domain",
+    "author": "ezwa (pdsounds.org)",
+    "attribution": "",
+    "quality": "ok",
+    "sha": "0e7165b401909124"
+   },
+   {
+    "file": "laughBig_1.ogg",
+    "source": "https://pdsounds.tuxfamily.org/list.html",
+    "license": "Public-Domain",
+    "author": "ezwa (pdsounds.org)",
+    "attribution": "",
+    "quality": "ok",
+    "sha": "0e7165b401909124"
+   },
+   {
+    "file": "laughBig_2.ogg",
+    "source": "https://opengameart.org/content/group-giggling",
+    "license": "CC0-1.0",
+    "author": "Nocturnal_Vanguard (AuraVoice)",
+    "attribution": "",
+    "quality": "ok",
+    "sha": "28c92d8687f12732"
+   },
+   {
+    "file": "laughBig_2.ogg",
+    "source": "https://opengameart.org/content/do-you-remember-laughter",
+    "license": "CC0-1.0",
+    "author": "Supergeek",
+    "attribution": "",
+    "quality": "ok",
+    "sha": "28c92d8687f12732"
+   },
+   {
+    "file": "laughBig_2.ogg",
+    "source": "https://pdsounds.tuxfamily.org/list.html",
+    "license": "Public-Domain",
+    "author": "ezwa (pdsounds.org)",
+    "attribution": "",
+    "quality": "ok",
+    "sha": "28c92d8687f12732"
+   },
+   {
+    "file": "laughBig_2.ogg",
+    "source": "https://pdsounds.tuxfamily.org/list.html",
+    "license": "Public-Domain",
+    "author": "ezwa (pdsounds.org)",
+    "attribution": "",
+    "quality": "ok",
+    "sha": "28c92d8687f12732"
+   },
+   {
+    "file": "laughBig_2.ogg",
+    "source": "https://pdsounds.tuxfamily.org/list.html",
+    "license": "Public-Domain",
+    "author": "ezwa (pdsounds.org)",
+    "attribution": "",
+    "quality": "ok",
+    "sha": "28c92d8687f12732"
+   },
+   {
+    "file": "laughBig_2.ogg",
+    "source": "https://pdsounds.tuxfamily.org/list.html",
+    "license": "Public-Domain",
+    "author": "ezwa (pdsounds.org)",
+    "attribution": "",
+    "quality": "ok",
+    "sha": "28c92d8687f12732"
+   },
+   {
+    "file": "laughBig_2.ogg",
+    "source": "https://opengameart.org/content/group-giggling",
+    "license": "CC0-1.0",
+    "author": "Nocturnal_Vanguard (AuraVoice)",
+    "attribution": "",
+    "quality": "ok",
+    "sha": "28c92d8687f12732"
+   },
+   {
+    "file": "laughBig_2.ogg",
+    "source": "https://pdsounds.tuxfamily.org/list.html",
+    "license": "Public-Domain",
+    "author": "ezwa (pdsounds.org)",
+    "attribution": "",
+    "quality": "ok",
+    "sha": "28c92d8687f12732"
+   },
+   {
+    "file": "laughBig_2.ogg",
+    "source": "https://pdsounds.tuxfamily.org/list.html",
+    "license": "Public-Domain",
+    "author": "ezwa (pdsounds.org)",
+    "attribution": "",
+    "quality": "ok",
+    "sha": "28c92d8687f12732"
+   },
+   {
+    "file": "laughBig_2.ogg",
+    "source": "https://opengameart.org/content/do-you-remember-laughter",
+    "license": "CC0-1.0",
+    "author": "Supergeek",
+    "attribution": "",
+    "quality": "ok",
+    "sha": "28c92d8687f12732"
+   }
+  ]
+ },
+ "irBack": {
+  "files": [
+   "irBack_0.ogg"
+  ],
+  "loop": false,
+  "gain": 0.0664,
+  "origin": [
+   {
+    "file": "irBack_0.ogg",
+    "source": "https://zenodo.org/records/160749",
+    "license": "CC-BY-4.0",
+    "author": "Hagen Wierstorf, Matthias Geier (TU Ilmenau / Universität Rostock, Two!Ears)",
+    "attribution": "\"Binaural room impulse responses recorded with KEMAR in a mid-size lecture hall\" (Auditorium 3, TU Berlin) – H. Wierstorf, M. Geier, Zenodo, doi:10.5281/zenodo.160749 – CC BY 4.0",
+    "quality": "gut",
+    "sha": "ccf81fba6676c5ac"
+   }
+  ],
+  "ir": true,
+  "t30": 0.754,
+  "lenS": 0.95,
+  "wetLufsRef": -27.7
+ },
+ "irFront": {
+  "files": [
+   "irFront_0.ogg"
+  ],
+  "loop": false,
+  "gain": 0.06,
+  "origin": [
+   {
+    "file": "irFront_0.ogg",
+    "source": "https://zenodo.org/records/160749",
+    "license": "CC-BY-4.0",
+    "author": "Hagen Wierstorf, Matthias Geier (TU Ilmenau / Universität Rostock, Two!Ears)",
+    "attribution": "\"Binaural room impulse responses recorded with KEMAR in a mid-size lecture hall\" (Auditorium 3, TU Berlin) – H. Wierstorf, M. Geier, Zenodo, doi:10.5281/zenodo.160749 – CC BY 4.0",
+    "quality": "gut",
+    "sha": "92640326e6e21527"
+   }
+  ],
+  "ir": true,
+  "t30": 0.749,
+  "lenS": 0.95,
+  "wetLufsRef": -27.7
+ },
+ "appleBite": {
+  "files": [
+   "appleBite_0.ogg",
+   "appleBite_1.ogg",
+   "appleBite_2.ogg",
+   "appleBite_3.ogg"
+  ],
+  "loop": false,
+  "gain": 0.4217,
+  "origin": [
+   {
+    "file": "appleBite_0.ogg",
+    "source": "https://opengameart.org/content/apple-bite",
+    "license": "CC0-1.0",
+    "author": "AntumDeluge (nach Freesound #333825, CC0)",
+    "attribution": "",
+    "quality": "gut",
+    "sha": "d9bb8917a970709b"
+   },
+   {
+    "file": "appleBite_1.ogg",
+    "source": "https://opengameart.org/content/7-eating-crunches",
+    "license": "CC0-1.0",
+    "author": "StarNinjas (aufgenommen von Tito)",
+    "attribution": "",
+    "quality": "gut",
+    "sha": "0a5a26973e4947c5"
+   },
+   {
+    "file": "appleBite_2.ogg",
+    "source": "https://opengameart.org/content/7-eating-crunches",
+    "license": "CC0-1.0",
+    "author": "StarNinjas (aufgenommen von Tito)",
+    "attribution": "",
+    "quality": "gut",
+    "sha": "1cdc138f0f22ccf7"
+   },
+   {
+    "file": "appleBite_3.ogg",
+    "source": "https://opengameart.org/content/7-eating-crunches",
+    "license": "CC0-1.0",
+    "author": "StarNinjas (aufgenommen von Tito)",
+    "attribution": "",
+    "quality": "ok",
+    "sha": "f7a4bfd0956de194"
+   }
+  ]
+ },
+ "bag": {
+  "files": [
+   "bag_0.ogg",
+   "bag_1.ogg",
+   "bag_2.ogg"
+  ],
+  "loop": false,
+  "gain": 0.3162,
+  "origin": [
+   {
+    "file": "bag_0.ogg",
+    "source": "https://opengameart.org/content/inventory-bag",
+    "license": "CC-BY-3.0",
+    "author": "spookymodem",
+    "attribution": "\"Inventory Bag\" by spookymodem (opengameart.org/content/inventory-bag) – CC BY 3.0",
+    "quality": "gut",
+    "sha": "7497d8b3a205a39a"
+   },
+   {
+    "file": "bag_1.ogg",
+    "source": "https://opengameart.org/content/sound-effects-pack",
+    "license": "CC0-1.0",
+    "author": "OwlishMedia",
+    "attribution": "",
+    "quality": "ok",
+    "sha": "60f7ed0c4e1660f9"
+   },
+   {
+    "file": "bag_2.ogg",
+    "source": "https://opengameart.org/content/202-more-sound-effects",
+    "license": "CC0-1.0",
+    "author": "OwlishMedia",
+    "attribution": "",
+    "quality": "ok",
+    "sha": "f1f6fea56db7cfe7"
+   }
+  ]
+ },
+ "birds": {
+  "files": [
+   "birds_0.ogg"
+  ],
+  "loop": true,
+  "gain": 1.4318,
+  "origin": [
+   {
+    "file": "birds_0.ogg",
+    "source": "https://archive.org/details/aporee_70348_82012",
+    "license": "PDM-1.0",
+    "author": "Jan Krtička (radio aporee ::: maps)",
+    "attribution": "",
+    "quality": "gut",
+    "sha": "ac33310de2b8172b"
+   }
+  ]
+ },
+ "corridor": {
+  "files": [
+   "corridor_0.ogg"
+  ],
+  "loop": true,
+  "gain": 1.514,
+  "origin": [
+   {
+    "file": "corridor_0.ogg",
+    "source": "https://archive.org/details/aporee_26981_72131",
+    "license": "PDM-1.0",
+    "author": "raphaelr (radio aporee ::: maps)",
+    "attribution": "",
+    "quality": "gut",
+    "sha": "7b1caab4ab8fadc6"
+   }
+  ]
+ },
+ "cupDown": {
+  "files": [
+   "cupDown_0.ogg",
+   "cupDown_1.ogg",
+   "cupDown_2.ogg"
+  ],
+  "loop": false,
+  "gain": 0.6237,
+  "origin": [
+   {
+    "file": "cupDown_0.ogg",
+    "source": "https://opengameart.org/content/cutlery-sounds",
+    "license": "CC0-1.0",
+    "author": "TinyWorlds",
+    "attribution": "",
+    "quality": "gut",
+    "sha": "eb928382aedb3429"
+   },
+   {
+    "file": "cupDown_1.ogg",
+    "source": "https://opengameart.org/content/cup-on-table-sfx-sound-effect",
+    "license": "CC-BY-4.0",
+    "author": "Nicole Marie T (OGA: Dogoso)",
+    "attribution": "\"Cup On Table Sfx Sound Effect\" – Sound Effect By Nicole Marie T – https://opengameart.org/content/cup-on-table-sfx-sound-effect – CC BY 4.0",
+    "quality": "ok",
+    "sha": "9619abfc8551cc74"
+   },
+   {
+    "file": "cupDown_2.ogg",
+    "source": "https://opengameart.org/content/100-cc0-sfx",
+    "license": "CC0-1.0",
+    "author": "rubberduck",
+    "attribution": "",
+    "quality": "ok",
+    "sha": "ee90640755abac33"
+   }
+  ]
+ },
+ "cutlery": {
+  "files": [
+   "cutlery_0.ogg",
+   "cutlery_1.ogg",
+   "cutlery_2.ogg",
+   "cutlery_3.ogg"
+  ],
+  "loop": false,
+  "gain": 0.6237,
+  "origin": [
+   {
+    "file": "cutlery_0.ogg",
+    "source": "https://opengameart.org/content/cutlery-sounds",
+    "license": "CC0-1.0",
+    "author": "TinyWorlds",
+    "attribution": "",
+    "quality": "gut",
+    "sha": "2f6f7ca29a52e19b"
+   },
+   {
+    "file": "cutlery_1.ogg",
+    "source": "https://opengameart.org/content/cutlery-sounds",
+    "license": "CC0-1.0",
+    "author": "TinyWorlds",
+    "attribution": "",
+    "quality": "ok",
+    "sha": "1d4b431d2388ddba"
+   },
+   {
+    "file": "cutlery_2.ogg",
+    "source": "https://opengameart.org/content/cutlery-sounds",
+    "license": "CC0-1.0",
+    "author": "TinyWorlds",
+    "attribution": "",
+    "quality": "ok",
+    "sha": "6a99ccbd39b86a82"
+   },
+   {
+    "file": "cutlery_3.ogg",
+    "source": "https://pdsounds.tuxfamily.org/list.html",
+    "license": "Public-Domain",
+    "author": "Thore (pdsounds.org)",
+    "attribution": "",
+    "quality": "ok",
+    "sha": "0d4eee0744a1ba8a"
+   }
+  ]
+ },
+ "highlighter": {
+  "files": [
+   "highlighter_0.ogg",
+   "highlighter_1.ogg",
+   "highlighter_2.ogg"
+  ],
+  "loop": false,
+  "gain": 0.3318,
+  "origin": [
+   {
+    "file": "highlighter_0.ogg",
+    "source": "https://pdsounds.tuxfamily.org/list.html",
+    "license": "Public-Domain",
+    "author": "Stephan (pdsounds.org)",
+    "attribution": "",
+    "quality": "ok",
+    "sha": "31b63b65a0bc93b6"
+   },
+   {
+    "file": "highlighter_1.ogg",
+    "source": "https://pdsounds.tuxfamily.org/list.html",
+    "license": "Public-Domain",
+    "author": "Stephan (pdsounds.org)",
+    "attribution": "",
+    "quality": "ok",
+    "sha": "b4914a2a315d8982"
+   },
+   {
+    "file": "highlighter_2.ogg",
+    "source": "https://pdsounds.tuxfamily.org/list.html",
+    "license": "Public-Domain",
+    "author": "Stephan (pdsounds.org)",
+    "attribution": "",
+    "quality": "ok",
+    "sha": "fb9daea4a8efcda2"
+   }
+  ]
+ },
+ "murmurBreak": {
+  "files": [
+   "murmurBreak_0.ogg"
+  ],
+  "loop": true,
+  "gain": 0.5085,
+  "origin": [
+   {
+    "file": "murmurBreak_0.ogg",
+    "source": "https://archive.org/details/aporee_31068_35712",
+    "license": "PDM-1.0",
+    "author": "p15221004 (De Montfort University) (radio aporee ::: maps)",
+    "attribution": "",
+    "quality": "gut",
+    "sha": "632b128b73d6c213"
+   }
+  ]
+ },
+ "murmurQuiet": {
+  "files": [
+   "murmurQuiet_0.ogg"
+  ],
+  "loop": true,
+  "gain": 0.4213,
+  "origin": [
+   {
+    "file": "murmurQuiet_0.ogg",
+    "source": "https://pdsounds.tuxfamily.org/list.html",
+    "license": "Public-Domain",
+    "author": "Stephan (pdsounds.org)",
+    "attribution": "",
+    "quality": "gut",
+    "sha": "e6a94f04dba5ce5e"
+   }
+  ]
+ },
+ "paperTear": {
+  "files": [
+   "paperTear_0.ogg",
+   "paperTear_1.ogg",
+   "paperTear_2.ogg",
+   "paperTear_3.ogg"
+  ],
+  "loop": false,
+  "gain": 0.4217,
+  "origin": [
+   {
+    "file": "paperTear_0.ogg",
+    "source": "https://opengameart.org/content/various-paper-sound-effects",
+    "license": "CC0-1.0",
+    "author": "Luckius",
+    "attribution": "",
+    "quality": "gut",
+    "sha": "003e5306c3cfce44"
+   },
+   {
+    "file": "paperTear_1.ogg",
+    "source": "https://pdsounds.tuxfamily.org/list.html",
+    "license": "Public-Domain",
+    "author": "Stephan (pdsounds.org)",
+    "attribution": "",
+    "quality": "ok",
+    "sha": "ecbf7906709ac308"
+   },
+   {
+    "file": "paperTear_2.ogg",
+    "source": "https://pdsounds.tuxfamily.org/list.html",
+    "license": "Public-Domain",
+    "author": "Stephan (pdsounds.org)",
+    "attribution": "",
+    "quality": "ok",
+    "sha": "5e4755f54343070b"
+   },
+   {
+    "file": "paperTear_3.ogg",
+    "source": "https://pdsounds.tuxfamily.org/list.html",
+    "license": "Public-Domain",
+    "author": "Stephan (pdsounds.org)",
+    "attribution": "",
+    "quality": "ok",
+    "sha": "6e8a12aaa87b05f1"
+   }
+  ]
+ },
+ "rainHeavy": {
+  "files": [
+   "rainHeavy_0.ogg"
+  ],
+  "loop": true,
+  "gain": 3.0441,
+  "origin": [
+   {
+    "file": "rainHeavy_0.ogg",
+    "source": "https://archive.org/details/aporee_60048_68965",
+    "license": "PDM-1.0",
+    "author": "theo.albaric (radio aporee ::: maps)",
+    "attribution": "",
+    "quality": "gut",
+    "sha": "c187b2046228f6b5"
+   }
+  ]
+ },
+ "shush": {
+  "files": [
+   "shush_0.ogg",
+   "shush_1.ogg",
+   "shush_2.ogg"
+  ],
+  "loop": false,
+  "gain": 0.5559,
+  "origin": [
+   {
+    "file": "shush_0.ogg",
+    "source": "https://opengameart.org/content/sound-effects-pack",
+    "license": "CC0-1.0",
+    "author": "OwlishMedia",
+    "attribution": "",
+    "quality": "gut",
+    "sha": "3ab93d7e80aa870f"
+   },
+   {
+    "file": "shush_1.ogg",
+    "source": "https://opengameart.org/content/no-talking-in-the-library",
+    "license": "CC-BY-3.0",
+    "author": "jdagenet (Jason Dagenet)",
+    "attribution": "\"No Talking in The Library!\" by jdagenet (Jason Dagenet), opengameart.org – CC BY 3.0",
+    "quality": "ok",
+    "sha": "db8ccad7eccdfa4d"
+   },
+   {
+    "file": "shush_2.ogg",
+    "source": "https://opengameart.org/content/no-talking-in-the-library",
+    "license": "CC-BY-3.0",
+    "author": "jdagenet (Jason Dagenet)",
+    "attribution": "\"No Talking in The Library!\" by jdagenet (Jason Dagenet), opengameart.org – CC BY 3.0",
+    "quality": "ok",
+    "sha": "c3f2a43fad34ddab"
+   }
+  ]
+ },
+ "sneeze": {
+  "files": [
+   "sneeze_0.ogg",
+   "sneeze_1.ogg",
+   "sneeze_2.ogg",
+   "sneeze_3.ogg",
+   "sneeze_4.ogg"
+  ],
+  "loop": false,
+  "gain": 0.5129,
+  "origin": [
+   {
+    "file": "sneeze_0.ogg",
+    "source": "https://opengameart.org/content/genuine-sneeze-sound",
+    "license": "CC0-1.0",
+    "author": "qubodup (Iwan Gabovitch)",
+    "attribution": "",
+    "quality": "gut",
+    "sha": "a6af3a3c79aba862"
+   },
+   {
+    "file": "sneeze_1.ogg",
+    "source": "https://pdsounds.tuxfamily.org/list.html",
+    "license": "Public-Domain",
+    "author": "Jc (pdsounds.org)",
+    "attribution": "",
+    "quality": "gut",
+    "sha": "a6575f58c8c96add"
+   },
+   {
+    "file": "sneeze_2.ogg",
+    "source": "https://opengameart.org/content/sneeze",
+    "license": "CC0-1.0",
+    "author": "zarokima",
+    "attribution": "",
+    "quality": "ok",
+    "sha": "c1f5834a356e8c7c"
+   },
+   {
+    "file": "sneeze_3.ogg",
+    "source": "https://pdsounds.tuxfamily.org/list.html",
+    "license": "Public-Domain",
+    "author": "ezwa (pdsounds.org)",
+    "attribution": "",
+    "quality": "ok",
+    "sha": "e873af66f590057b"
+   },
+   {
+    "file": "sneeze_4.ogg",
+    "source": "https://pdsounds.tuxfamily.org/list.html",
+    "license": "Public-Domain",
+    "author": "Jc (pdsounds.org)",
+    "attribution": "",
+    "quality": "ok",
+    "sha": "248009e2d7d58c90"
+   }
+  ]
+ },
+ "streetFar": {
+  "files": [
+   "streetFar_0.ogg"
+  ],
+  "loop": true,
+  "gain": 1.821,
+  "origin": [
+   {
+    "file": "streetFar_0.ogg",
+    "source": "https://archive.org/details/aporee_60629_69672",
+    "license": "PDM-1.0",
+    "author": "chr_friess (radio aporee ::: maps)",
+    "attribution": "",
+    "quality": "gut",
+    "sha": "4a07272920539cdd"
+   }
+  ]
+ },
+ "yawn": {
+  "files": [
+   "yawn_0.ogg",
+   "yawn_1.ogg",
+   "yawn_2.ogg",
+   "yawn_3.ogg"
+  ],
+  "loop": false,
+  "gain": 0.3162,
+  "origin": [
+   {
+    "file": "yawn_0.ogg",
+    "source": "https://pdsounds.tuxfamily.org/list.html",
+    "license": "Public-Domain",
+    "author": "ezwa (pdsounds.org)",
+    "attribution": "",
+    "quality": "gut",
+    "sha": "a33271b3a02f60ce"
+   },
+   {
+    "file": "yawn_1.ogg",
+    "source": "https://pdsounds.tuxfamily.org/list.html",
+    "license": "Public-Domain",
+    "author": "ezwa (pdsounds.org)",
+    "attribution": "",
+    "quality": "gut",
+    "sha": "e67fe1d2bd48ff09"
+   },
+   {
+    "file": "yawn_2.ogg",
+    "source": "https://opengameart.org/content/sound-effects-pack",
+    "license": "CC0-1.0",
+    "author": "OwlishMedia",
+    "attribution": "",
+    "quality": "gut",
+    "sha": "d1c6ce59187fffee"
+   },
+   {
+    "file": "yawn_3.ogg",
+    "source": "https://opengameart.org/content/sound-effects-pack",
+    "license": "CC0-1.0",
+    "author": "OwlishMedia",
+    "attribution": "",
+    "quality": "ok",
+    "sha": "4070844111ea1c2e"
    }
   ]
  }
