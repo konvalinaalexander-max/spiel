@@ -15,9 +15,9 @@ const sections = fs.readdirSync(path.join(root, 'src/content/sections')).filter(
 const SPEAKER = { latecomer_enter: 'student', phone_ring_student: 'student', student_gras: 'student', neighbor_warn: 'neighbor', neighbor_betray: 'neighbor', neighbor_smalltalk: 'neighbor', attendance_neighbor: 'neighbor' };
 const clips = new Map(); // id → { id, lang, speaker, text, kind }
 const lines = [];        // { lang, speaker, key, template, parts: [ {text}|{var} ] }
-const add1 = (lang, speaker, text, kind) => { const id = fnv(`${lang}|${speaker}|${text}`); if (!clips.has(id)) clips.set(id, { id, lang, speaker, text, kind }); return id; };
+const add1 = (lang, speaker, text, kind, vi = 0) => { const id = fnv(`${lang}|${speaker}|${text}`); if (!clips.has(id)) clips.set(id, { id, lang, speaker, text, kind, vi }); return id; };
 // Studierende sprechen mit einer jungen Männer- oder Frauenstimme (je nach Figur) → beide Fassungen
-const add = (lang, speaker, text, kind) => { text = text.trim(); if (!text) return null; if (speaker === 'student') { add1(lang, 'student_f', text, kind); return add1(lang, 'student_m', text, kind); } return add1(lang, speaker, text, kind); };
+const add = (lang, speaker, text, kind, vi = 0) => { text = text.trim(); if (!text) return null; if (speaker === 'student') { add1(lang, 'student_f', text, kind, vi); return add1(lang, 'student_m', text, kind, vi); } return add1(lang, speaker, text, kind, vi); };
 const split = tpl => tpl.split(/(\{[a-z]+\})/).filter(Boolean).map(p => (/^\{[a-z]+\}$/.test(p) ? { var: p.slice(1, -1) } : { text: p }));
 
 for (const lang of ['de', 'en']) {
@@ -37,7 +37,7 @@ for (const lang of ['de', 'en']) {
   for (const s of sections) {
     const L = s[lang];
     add(lang, 'prof', L.title, 'title');
-    for (const b of L.beats) for (const v of b.variants) add(lang, 'prof', v, 'lecture');
+    for (const b of L.beats) b.variants.forEach((v, vi) => add(lang, 'prof', v, 'lecture', vi));
     for (const a of s.asides || []) add(lang, 'prof', a[lang], 'aside');
     for (const q of L.quiz || []) { if (q.q) add(lang, 'prof', q.q, 'question'); if (q.explain) add(lang, 'prof', q.explain, 'lecture'); }
   }

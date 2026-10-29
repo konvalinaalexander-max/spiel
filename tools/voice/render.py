@@ -24,7 +24,7 @@ SPEAKERS = (opt('speaker') or 'prof,neighbor,student_f,student_m').split(',')
 LIMIT = int(opt('limit', '0'))
 ORDER = (opt('order') or 'part,event,question,var-row,var-minutes,title,aside,lecture').split(',')
 # Stimmen: eingebaute XTTS-Studiosprecher (synthetisch). Auswahl siehe docs/AUDIO.md (Prüfsätze, WER/SQUIM).
-VOICE = {'prof': os.environ.get('PROF_VOICE', 'Viktor Menelaos'), 'neighbor': 'Daisy Studious', 'student_f': 'Sofia Hellen', 'student_m': 'Andrew Chipper'}
+VOICE = {'prof': os.environ.get('PROF_VOICE', 'Damien Black'), 'neighbor': 'Daisy Studious', 'student_f': 'Sofia Hellen', 'student_m': 'Andrew Chipper'}
 SPEED = {'prof': 0.95, 'neighbor': 1.05, 'student_f': 1.05, 'student_m': 1.05}
 OUT = os.path.join(ROOT, 'assets', 'build', 'voice')
 TMP = os.path.join(ROOT, 'tools', '.cache', 'voice', 'wav')
@@ -33,7 +33,8 @@ os.makedirs(TMP, exist_ok=True)
 corpus = json.load(open(os.path.join(ROOT, 'tools', '.cache', 'voice', 'corpus.json'), encoding='utf-8'))
 clips = [c for c in corpus['clips'] if c['lang'] in LANGS and c['speaker'] in SPEAKERS]
 rank = {k: i for i, k in enumerate(ORDER)}
-clips.sort(key=lambda c: (LANGS.index(c['lang']), rank.get(c['kind'], 99), SPEAKERS.index(c['speaker'])))
+# Reihenfolge: Ereignis-Sätze, Fragen, Werte, Titel, Anekdoten, dann Lehrsätze (je Takt zuerst Variante 0, dann 1, 2)
+clips.sort(key=lambda c: (LANGS.index(c['lang']), c.get('vi', 0) if c['kind'] == 'lecture' else -1, rank.get(c['kind'], 99), SPEAKERS.index(c['speaker'])))
 if LIMIT: clips = clips[:LIMIT]
 
 

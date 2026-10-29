@@ -123,11 +123,12 @@ def score():
         win = int(0.3 * sr)
         rms = [np.sqrt(np.mean(wav[i:i + win] ** 2)) for i in range(0, max(1, len(wav) - win), win // 2)]
         floor_db = 20 * np.log10(max(1e-9, min(rms)))
-        segs, _ = asr.transcribe(f, language=e['lang'], beam_size=5)
-        hyp = ' '.join(s.text for s in segs)
         w16 = torchaudio.functional.resample(torch.from_numpy(wav)[None], sr, 16000)
+        segs, _ = asr.transcribe(w16[0].numpy(), language=e['lang'], beam_size=5)  # Array statt Datei (PyAV-Version)
+        hyp = ' '.join(s.text for s in segs)
         with torch.no_grad():
             stoi, pesq, sisdr = [float(x) for x in squim(w16)]
+        floor_db = float(floor_db); lufs = float(lufs) if lufs is not None else None
         r = {**e, 'dur': round(dur, 2), 'rtf': round(e['secs'] / max(dur, 1e-3), 2), 'lufs': round(lufs, 1) if lufs else None,
              'floor_dbfs': round(floor_db, 1), 'wer': round(wer(e['text'], hyp), 3), 'hyp': hyp.strip(),
              'stoi': round(stoi, 3), 'pesq': round(pesq, 2), 'sisdr': round(sisdr, 1)}

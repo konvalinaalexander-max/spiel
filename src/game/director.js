@@ -295,7 +295,9 @@ export class Director {
   _startBeat(s) {
     const pl = this.ctx.prof; const S = this.L(s.sec); const b = S.beats[s.bi];
     s.b = b; s.phase = 'move';
-    const text = this.pick(b.variants.map(v => v));
+    // Varianten mit vorgerenderter Aufnahme bevorzugen (sonst bliebe der Prof bei fehlender Aufnahme stumm)
+    const voiced = this.ctx.voiced ? b.variants.filter(v => this.ctx.voiced(v)) : [];
+    const text = this.pick(voiced.length ? voiced : b.variants.map(v => v));
     s.text = text;
     // Ort festlegen
     let spot = null, then = 'class';

@@ -71,6 +71,7 @@ export class Game {
     this.debug = false; this.notesLines = new Map();
     this.hintsOn = cfg.hints !== false;
     S.externalBusy = () => this._busy();
+    S.externalVoiced = text => !!(this.audio && this.audio.bank && this.audio.voiceMode === 'voice' && this.audio.bank.parts(getLang(), 'prof', text));
     // Startzustand Leinwand: Beamer aus, Desktop des Prof-Laptops vorbereitet
     W.fx.slides.desktop(SLIDE_META[lang], '10:10'); W.fx.updateSlideTextures(); W.fx.setBeamer(false);
     // Profs Kopfposition für Studierende

@@ -68,10 +68,27 @@ if (fs.existsSync(path.join(humDir, 'index.json')) && !process.argv.includes('--
   const basis = path.join(root, 'node_modules/three/examples/jsm/libs/basis');
   humansBlock = JSON.stringify({ index, files, basis: { js: fs.readFileSync(path.join(basis, 'basis_transcoder.js')).toString('base64'), wasm: fs.readFileSync(path.join(basis, 'basis_transcoder.wasm')).toString('base64') } });
 }
+// Vorgerenderte Stimmen (Phase 6): assets/build/voice/<sprache>/manifest.json + <id>.ogg (Opus) → eingebetteter Block
+let voiceBlock = '';
+if (!process.argv.includes('--no-voice')) {
+  const vb = {}; let n = 0, bytes = 0;
+  for (const lang of ['de', 'en']) {
+    const dir = path.join(root, 'assets/build/voice', lang), mf = path.join(dir, 'manifest.json');
+    if (!fs.existsSync(mf)) continue;
+    const man = JSON.parse(fs.readFileSync(mf, 'utf8')); const clips = {};
+    for (const [id, m] of Object.entries(man)) {
+      const f = path.join(dir, id + '.ogg'); if (!fs.existsSync(f)) continue;
+      const b = fs.readFileSync(f); bytes += b.length; n++;
+      clips[id] = { a: b.toString('base64'), d: m.d, e: m.e };
+    }
+    vb[lang] = { clips };
+  }
+  if (n) { voiceBlock = JSON.stringify(vb); console.log(`Stimmen: ${n} Aufnahmen, ${(bytes / 1048576).toFixed(1)} MB`); }
+}
 html = html
   .replace('<!--STYLE-->', () => `<style>\n${css}\n</style>`)
   // Bundle erst nach dem ersten Bild ausführen (schneller erster Paint: Vorlader sichtbar, bevor 2 MB JS laufen)
-  .replace('<!--SCRIPT-->', () => `<script type="text/plain" id="assets-humans">${humansBlock}</script>\n<script type="text/plain" id="bundle">\n${safeJs}\n</script>\n<script>(function(){function run(){var t=document.getElementById('bundle').textContent,s=document.createElement('script');try{s.src=URL.createObjectURL(new Blob([t],{type:'text/javascript'}));}catch(e){s.text=t;}document.body.appendChild(s);}requestAnimationFrame(function(){setTimeout(run,30);});})();</script>`)
+  .replace('<!--SCRIPT-->', () => `<script type="text/plain" id="assets-humans">${humansBlock}</script>\n<script type="text/plain" id="assets-voice">${voiceBlock}</script>\n<script type="text/plain" id="bundle">\n${safeJs}\n</script>\n<script>(function(){function run(){var t=document.getElementById('bundle').textContent,s=document.createElement('script');try{s.src=URL.createObjectURL(new Blob([t],{type:'text/javascript'}));}catch(e){s.text=t;}document.body.appendChild(s);}requestAnimationFrame(function(){setTimeout(run,30);});})();</script>`)
   .replace('<!--LICENSES-->', () => `<!--\n${third.replace(/--/g, '- -')}\n-->`)
   .replace('<!--THIRDTEXT-->', () => third.replace(/<\//g, '<\\/'));
 

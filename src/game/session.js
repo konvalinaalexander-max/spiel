@@ -58,7 +58,8 @@ export class Session {
       sections: content.sections, dialogue: content.dialogue, lang: cfg.lang || 'de', seconds: this.seconds, seed: (cfg.seed || 1) + 17,
       prof: this.prof, population: this.pop, difficulty: this.diff, weather: cfg.weather || 'sunny',
       out: (t, d) => this._directorOut(t, d), busy: () => this.externalBusy(),
-      playerRow: () => this.seat.row + 1, blockQuiz: () => this.state !== 'playing'
+      playerRow: () => this.seat.row + 1, blockQuiz: () => this.state !== 'playing',
+      voiced: text => (this.externalVoiced ? this.externalVoiced(text) : false)
     });
     this.content = content;
     // Statistik

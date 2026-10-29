@@ -67,3 +67,35 @@ Die Wiedergabelautstärke hängt zusätzlich von der Entfernung (Panner) und dem
 - Die Browser-Sprachausgabe ist nicht räumlich und nicht verhallt (API-Grenze); die Murmel-Alternative ist es.
 - Stimmenqualität hängt von den im Betriebssystem installierten Stimmen ab (Windows: „Microsoft Michael/Stefan“, macOS: „Yannick“/„Anna“, Android: Google-Stimmen).
 - Im Headless-Test gibt es keine Audioausgabe; geprüft werden Erzeugung, Nahtstellen und die Abspiel-Aufrufe (keine Fehler in der Konsole).
+
+## Stimme in Version 3 (vorgerendert, keine Computerstimme mehr)
+
+**Stufe laut Auftrag (Anhang E):** Ohne API-Schlüssel gilt Stufe 2 – ein offenes Modell mit menschlicher Qualität, im Batch auf
+der CPU vorgerendert. Browser-Sprachausgabe und Murmeln sind nur noch als ausdrücklich gewählte Notlösung in den Einstellungen
+vorhanden; Standard ist „Echte Stimme (vorgerendert)“. Fehlt eine Aufnahme, bleibt es beim Untertitel.
+
+**Modell:** Coqui XTTS v2 (CPML, nicht-kommerziell) mit eingebauten, synthetischen Studiosprechern – keine geklonte reale Person.
+
+**Auswahl** (Prüfsätze aus `tools/voice/eval_tts.py`, objektiv bewertet, weil im Container nicht gehört werden kann):
+Rückerkennung mit faster-whisper (Wortfehlerrate, WER), Signalqualität ohne Referenz mit torchaudio SQUIM (PESQ/STOI/SI-SDR),
+Grundfrequenz (Stimmlage).
+
+| Sprecher | Sprache | WER | PESQ (geschätzt) | STOI | SI-SDR | Grundfrequenz | Echtzeitfaktor (CPU) |
+|---|---|---|---|---|---|---|---|
+| **Damien Black** (gewählt: Prof) | de | **0,083** | 4,02 | 0,995 | 25,3 dB | **≈ 90 Hz** (tief, reif) | 1,76 |
+| Baldur Sanjin | de | 0,161 | 3,65 | 0,994 | 24,5 dB | ≈ 94 Hz | 1,88 |
+| Ludvig Milivoj | de | 0,165 | 3,96 | 0,995 | 24,4 dB | ≈ 111 Hz | 1,80 |
+| Viktor Menelaos | de | 0,292 | 3,91 | 0,997 | 25,7 dB | ≈ 117 Hz | – |
+| Damien Black | en | 0,088 | 3,82 | 0,996 | 24,6 dB | – | 1,78 |
+
+Nebenstimmen: Nachbarin „Daisy Studious“, Studierende „Sofia Hellen“ / „Andrew Chipper“ (je nach Figur).
+Grenze: XTTS spricht Standarddeutsch, keine österreichische Färbung. Mit `AZURE_SPEECH_KEY` + `AZURE_SPEECH_REGION`
+(Umgebungsvariablen der Cloud-Umgebung) kann `tools/voice/render.py` auf Azure „de-AT-JonasNeural“ umgestellt werden.
+
+**Ablauf:** `node tools/voice/corpus.mjs` (alle gesprochenen Sätze, Platzhalter-Sätze in Stücke geteilt) →
+`tools/.venv/bin/python tools/voice/render.py --lang de` (Sprechfassung über `tools/voice/normalize.py`: Zahlen, Einheiten und
+Fachabkürzungen ausgeschrieben, z. B. „6,2 MJ NEL je kg TM“ → „sechs Komma zwei Megajoule en-e-el je Kilogramm Trockenmasse“) →
+Mastering je Clip mit ffmpeg: Hochpass 80 Hz, De-Esser-Absenkung, Stille ≤ 80 ms, Lautheit −16 LUFS (zweistufig), True Peak
+−1,5 dBTP, 48 kHz, Opus 28 kbit/s mono; Lautstärkekurve 20 Hz für die Mundbewegung → `assets/build/voice/<sprache>/`.
+Im Spiel (`src/audio/voice.js`): Aufnahme über ihre Kennung finden, Stücke mit 60 ms Abstand aneinanderreihen, räumlich am Kopf
+der Figur abspielen, Hall aus dem Raum; der Kiefer des Profs folgt der Lautstärkekurve.
