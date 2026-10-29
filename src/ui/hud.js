@@ -23,7 +23,14 @@ export class HUD {
       <div class="hud-dirt" id="h-dirt" aria-hidden="true"></div>
       <div class="hud-sign" id="h-sign" hidden><div class="sign-card"><div class="sign-head" id="h-sign-t"></div><canvas id="h-sign-c" width="420" height="140"></canvas><div class="sign-foot" id="h-sign-f"></div></div></div>
       <div class="hud-debug" id="h-debug" hidden></div>
-      <div class="hud-touch" id="h-touch" hidden><button data-act="toggleLaptop" data-i18n="touch.laptop"></button><button data-act="notes" data-i18n="touch.notes"></button><button data-act="altTab" data-i18n="touch.alttab"></button><button data-act="pause" data-i18n="touch.pause"></button></div>`;
+      <div class="hud-touch" id="h-touch" hidden>
+        <button data-act="toggleLaptop" data-i18n="touch.laptop"></button>
+        <button data-act="notes" data-hold data-i18n="touch.notes"></button>
+        <button data-act="altTab" data-i18n="touch.alttab"></button>
+        <button data-act="zoom" data-hold data-i18n="touch.zoom"></button>
+        <button data-act="pause" data-i18n="touch.pause"></button>
+      </div>
+      <div class="hud-rotate" id="h-rotate" hidden data-i18n="touch.rotate"></div>`;
     this.el = id => root.querySelector('#' + id);
     this.subs = []; this.hints = []; this.quizEl = this.el('h-quiz');
     this.applySettings(settings);
@@ -147,5 +154,27 @@ export class HUD {
   signClose(done) { this.el('h-sign').hidden = true; this._sp = null; if (done) this.toast(t('hud.signed'), 'good'); }
   // ------------------------------------------------------------------ Debug
   debug(on, text) { const el = this.el('h-debug'); el.hidden = !on; if (on) el.textContent = text; }
-  touch(on) { this.el('h-touch').hidden = !on; }
+  /**
+   * Touch-Leiste (Anhang D): Tippen löst aus, Halte-Tasten (Mitschreiben, Hinschauen) zeigen einen Fortschrittsring und
+   * vibrieren 10 ms beim Start. input: Input-Instanz (virtualPress).
+   */
+  touch(on, input = null) {
+    const bar = this.el('h-touch'); bar.hidden = !on;
+    if (!on || !input || bar._bound) return; bar._bound = true;
+    for (const b of bar.querySelectorAll('button')) {
+      const act = b.dataset.act, hold = b.hasAttribute('data-hold');
+      const down = e => { e.preventDefault(); b.setPointerCapture?.(e.pointerId); input.virtualPress(act, true); b.classList.add('held'); if (hold && navigator.vibrate) { try { navigator.vibrate(10); } catch (x) { /* egal */ } } };
+      const up = e => { e.preventDefault(); input.virtualPress(act, false); b.classList.remove('held'); };
+      b.addEventListener('pointerdown', down); b.addEventListener('pointerup', up); b.addEventListener('pointercancel', up); b.addEventListener('lostpointercapture', up);
+    }
+  }
+  /** je Modus nur sinnvolle Tasten zeigen; Hochformat-Hinweis außerhalb des Laptop-Blicks */
+  touchMode(mode, portrait) {
+    const bar = this.el('h-touch'); if (bar.hidden) return;
+    for (const b of bar.querySelectorAll('button')) {
+      const a = b.dataset.act;
+      b.hidden = (a === 'altTab' && mode !== 'laptop') || (a === 'zoom' && mode !== 'listen') || (a === 'notes' && mode === 'laptop');
+    }
+    this.el('h-rotate').hidden = !(portrait && mode !== 'laptop');
+  }
 }

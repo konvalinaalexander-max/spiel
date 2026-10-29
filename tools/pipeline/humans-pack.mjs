@@ -124,7 +124,8 @@ async function packFigure(h, region, atlasC, atlasN, atlasKey) {
     for (let i = 0; i < n; i++) {
       pos.push(...P.getElement(i, e)); nor.push(...N.getElement(i, e));
       let [u, v] = U ? U.getElement(i, e) : [0.5, 0.5];
-      if (u < -0.001 || u > 1.001 || v < -0.001 || v > 1.001) { wrapped++; u -= Math.floor(u); v -= Math.floor(v); }
+      // UVs knapp außerhalb [0,1] am Rand festhalten (Umklappen würde Dreiecke quer über die Kachel ziehen → Flecken)
+      if (u < -0.001 || u > 1.001 || v < -0.001 || v > 1.001) wrapped++;
       uv.push((x0 + Math.min(1, Math.max(0, u)) * s) / AW, (y0 + Math.min(1, Math.max(0, v)) * s) / AH);
       const jj = J.getElement(i, []), ww = W.getElement(i, []);
       const tot = ww.reduce((a, b) => a + b, 0) || 1;
@@ -191,7 +192,7 @@ for (const h of all.filter(h => h.class !== 'crowd' && (!only || only.includes(h
     kn = await writeAtlas(path.join(out, h.id + '_n.ktx2'), aN, true);
   }
   index.humans[h.id] = { ...r, role: h.role, female: !!h.female, atlasKB: kc, normalKB: kn };
-  console.log(`✓ ${h.id.padEnd(9)} ${r.verts} Vertices, ${r.tris} Dreiecke, Geometrie ${r.kb} KB, Atlas ${kc} KB${kn ? `, Normalen ${kn} KB` : ''}${r.wrapped ? `, ${r.wrapped} UVs gefaltet` : ''}`);
+  console.log(`✓ ${h.id.padEnd(9)} ${r.verts} Vertices, ${r.tris} Dreiecke, Geometrie ${r.kb} KB, Atlas ${kc} KB${kn ? `, Normalen ${kn} KB` : ''}${r.wrapped ? `, ${r.wrapped} UVs am Rand begrenzt` : ''}`);
 }
 // Menge: zwei gemeinsame Atlanten (Frauen/Männer) zu 4×2 Kacheln à 1024 px → je Atlas ein Draw Call (plus Haar)
 const crowd = all.filter(h => h.class === 'crowd');
@@ -204,7 +205,7 @@ if (crowd.length && (!only || only.includes('crowd'))) {
     for (const [i, h] of list.entries()) {
       const r = await packFigure(h, { x: (i % cols) * tile, y: Math.floor(i / cols) * tile }, aC, null, key);
       index.humans[h.id] = { ...r, atlas: key, role: 'student', female: !!h.female, skinTone: h.skinTone, hairTone: h.hairTone, top: h.top, tint: !!h.tintTop };
-      console.log(`✓ ${h.id.padEnd(9)} ${r.verts} Vertices, ${r.tris} Dreiecke, Geometrie ${r.kb} KB${r.wrapped ? `, ${r.wrapped} UVs gefaltet` : ''}`);
+      console.log(`✓ ${h.id.padEnd(9)} ${r.verts} Vertices, ${r.tris} Dreiecke, Geometrie ${r.kb} KB${r.wrapped ? `, ${r.wrapped} UVs am Rand begrenzt` : ''}`);
     }
     const kc = await writeAtlas(path.join(out, key + '_c.ktx2'), aC);
     index.crowdAtlas[key] = { w: aC.w, h: aC.h, kb: kc };

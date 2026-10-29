@@ -19,7 +19,9 @@ export class Input {
     this.down = new Set(); this.pressed = new Set();
     this.mouse = { dx: 0, dy: 0, wheel: 0, clicks: 0, rclicks: 0, x: 0, y: 0, buttons: 0 };
     this.locked = false; this.enabled = false;
-    this.touch = { active: false, look: null, dx: 0, dy: 0, taps: [] };
+    this.touch = { active: false, look: null, dx: 0, dy: 0, taps: [], pinch: null, pinchZoom: 0, swipe: null };
+    // virtuelle Tasten (Touch-Leiste): gehaltene Aktionen und einmalige Auslöser, zusätzlich zur Tastatur
+    this.vheld = new Set(); this.vhit = new Set();
     this.gp = { connected: false, prev: [], axes: [0, 0, 0, 0] };
     this.onKey = null; // für Tastenbelegung im Menü
     this.cellKeys = storage.get('cellKeys', true);
@@ -51,24 +53,37 @@ export class Input {
       const was = this.locked; this.locked = document.pointerLockElement === canvas;
       if (was && !this.locked && this.enabled) bus.emit('input:unlock');
     });
-    // Touch: Ziehen = Umschauen / Cursor, Tippen = Klick
+    // Touch: Ziehen = Umschauen / Cursor, Tippen = Klick, Pinch = genau hinschauen, zwei Finger nach unten = Deckel zu
+    const pts = new Map();
+    const pinchDist = () => { const a = [...pts.values()]; return a.length >= 2 ? Math.hypot(a[0].x - a[1].x, a[0].y - a[1].y) : 0; };
     canvas.addEventListener('touchstart', e => {
       if (!this.enabled) return; this.touch.active = true;
-      for (const t of e.changedTouches) if (!this.touch.look) this.touch.look = { id: t.identifier, x: t.clientX, y: t.clientY, x0: t.clientX, y0: t.clientY, t0: performance.now() };
+      for (const t of e.changedTouches) pts.set(t.identifier, { x: t.clientX, y: t.clientY, y0: t.clientY });
+      if (pts.size >= 2) { this.touch.look = null; this.touch.pinch = { d0: pinchDist(), z0: this.touch.pinchZoom }; this.touch.swipe = { y0: [...pts.values()].reduce((s2, p) => s2 + p.y, 0) / pts.size }; }
+      else for (const t of e.changedTouches) if (!this.touch.look) this.touch.look = { id: t.identifier, x: t.clientX, y: t.clientY, x0: t.clientX, y0: t.clientY, t0: performance.now() };
       e.preventDefault();
     }, { passive: false });
     canvas.addEventListener('touchmove', e => {
-      const L = this.touch.look; if (!L) return;
-      for (const t of e.changedTouches) if (t.identifier === L.id) { this.touch.dx += t.clientX - L.x; this.touch.dy += t.clientY - L.y; L.x = t.clientX; L.y = t.clientY; }
+      for (const t of e.changedTouches) { const p = pts.get(t.identifier); if (p) { p.x = t.clientX; p.y = t.clientY; } }
+      if (this.touch.pinch && pts.size >= 2) {
+        const d = pinchDist(); this.touch.pinchZoom = clamp(this.touch.pinch.z0 + (d - this.touch.pinch.d0) / 180, 0, 1);
+        const y = [...pts.values()].reduce((s2, p) => s2 + p.y, 0) / pts.size;
+        if (this.touch.swipe && y - this.touch.swipe.y0 > 90 && Math.abs(d - this.touch.pinch.d0) < 40) { this.vhit.add('lid'); this.touch.swipe = null; }
+      }
+      const L = this.touch.look;
+      if (L) for (const t of e.changedTouches) if (t.identifier === L.id) { this.touch.dx += t.clientX - L.x; this.touch.dy += t.clientY - L.y; L.x = t.clientX; L.y = t.clientY; }
       e.preventDefault();
     }, { passive: false });
-    canvas.addEventListener('touchend', e => {
+    const end = e => {
+      for (const t of e.changedTouches) pts.delete(t.identifier);
+      if (pts.size < 2) { this.touch.pinch = null; this.touch.swipe = null; this.touch.pinchZoom = 0; }
       const L = this.touch.look; if (!L) return;
       for (const t of e.changedTouches) if (t.identifier === L.id) {
         if (performance.now() - L.t0 < 260 && Math.hypot(t.clientX - L.x0, t.clientY - L.y0) < 14) this.touch.taps.push({ x: t.clientX, y: t.clientY });
         this.touch.look = null;
       }
-    });
+    };
+    canvas.addEventListener('touchend', end); canvas.addEventListener('touchcancel', end);
     addEventListener('gamepadconnected', () => { this.gp.connected = true; bus.emit('input:gamepad', true); });
     addEventListener('gamepaddisconnected', () => { this.gp.connected = false; bus.emit('input:gamepad', false); });
   }
@@ -79,8 +94,10 @@ export class Input {
   }
   exitLock() { if (document.pointerLockElement) document.exitPointerLock(); }
   setKeys(k) { this.keys = { ...DEFAULT_KEYS, ...k }; storage.set('keys', k); }
-  is(action) { return (this.keys[action] || []).some(c => this.down.has(c)); }
-  hit(action) { return (this.keys[action] || []).some(c => this.pressed.has(c)); }
+  is(action) { return this.vheld.has(action) || (action === 'zoom' && this.touch.pinchZoom > 0.25) || (this.keys[action] || []).some(c => this.down.has(c)); }
+  hit(action) { return this.vhit.has(action) || (this.keys[action] || []).some(c => this.pressed.has(c)); }
+  /** Touch-Leiste: Aktion halten (down=true/false) oder einmal auslösen */
+  virtualPress(action, down) { if (down) { if (!this.vheld.has(action)) this.vhit.add(action); this.vheld.add(action); } else this.vheld.delete(action); }
   cellHit() { if (!this.cellKeys) return -1; for (const c of this.pressed) if (c in CELL_KEYS && (c.startsWith('Numpad') || this._laptopFocus)) return CELL_KEYS[c]; return -1; }
   /** Pro Frame einmal aufrufen; gibt zusammengefasste Werte zurück und setzt Zähler zurück */
   poll() {
@@ -100,7 +117,7 @@ export class Input {
     }
     return out;
   }
-  endFrame() { this.pressed.clear(); }
+  endFrame() { this.pressed.clear(); this.vhit.clear(); }
 }
 export const keyLabel = code => code.replace(/^Key/, '').replace(/^Digit/, '').replace('Numpad', 'Num ').replace('Space', '␣ Leertaste').replace('Escape', 'Esc').replace('Arrow', '');
 export { clamp };

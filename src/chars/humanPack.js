@@ -97,7 +97,8 @@ export function humanMaterial(gfx, { map, normalMap = null, alpha = false, tint 
  */
 export function stripHead(rig) {
   const g = rig.mesh.geometry, names = rig.skeleton.bones.map(b => b.name);
-  const HEAD = new Set(['head', 'neck', 'jaw', 'eyeL', 'eyeR', 'lidL', 'lidR', 'browL', 'browR'].map(n => names.indexOf(n)).filter(i => i >= 0));
+  // Kopf, Hals und Schlüsselbeinbereich liegen direkt an der Kamera; schon ein Vertex mit überwiegendem Gewicht dort genügt
+  const HEAD = new Set(['head', 'neck', 'jaw', 'eyeL', 'eyeR', 'lidL', 'lidR', 'browL', 'browR', 'clavL', 'clavR'].map(n => names.indexOf(n)).filter(i => i >= 0));
   const si = g.attributes.skinIndex, sw = g.attributes.skinWeight, n = si.count;
   const headW = new Float32Array(n);
   for (let i = 0; i < n; i++) for (let k = 0; k < 4; k++) if (HEAD.has(si.getComponent(i, k))) headW[i] += sw.getComponent(i, k);
@@ -106,7 +107,7 @@ export function stripHead(rig) {
     const start = keep.length;
     for (let t = gr.start; t < gr.start + gr.count; t += 3) {
       const a = idx[t], b = idx[t + 1], c = idx[t + 2];
-      if (headW[a] > 0.5 && headW[b] > 0.5 && headW[c] > 0.5) continue;
+      if (headW[a] > 0.5 || headW[b] > 0.5 || headW[c] > 0.5) continue;
       keep.push(a, b, c);
     }
     groups.push({ start, count: keep.length - start, materialIndex: gr.materialIndex });

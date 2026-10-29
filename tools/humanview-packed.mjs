@@ -1,0 +1,26 @@
+// node tools/humanview-packed.mjs prof,m01,fp:player_a [desktop|mobile] [ausgabe]
+import { build } from 'esbuild';
+import fs from 'node:fs';
+import path from 'node:path';
+import { createRequire } from 'node:module';
+const require = createRequire(import.meta.url);
+const { chromium } = require('playwright');
+const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
+const ids = process.argv[2].split(','), profile = process.argv[3] || 'desktop';
+const out = process.argv[4] || path.join(root, 'tools/.cache/humanview'); fs.mkdirSync(out, { recursive: true });
+const hd = path.join(root, 'assets/build', profile, 'humans');
+const files = {}; for (const f of fs.readdirSync(hd)) if (/\.(hpk|ktx2)$/.test(f)) files[f] = fs.readFileSync(path.join(hd, f)).toString('base64');
+const basis = path.join(root, 'node_modules/three/examples/jsm/libs/basis');
+const block = JSON.stringify({ index: JSON.parse(fs.readFileSync(path.join(hd, 'index.json'), 'utf8')), files, basis: { js: fs.readFileSync(path.join(basis, 'basis_transcoder.js')).toString('base64'), wasm: fs.readFileSync(path.join(basis, 'basis_transcoder.wasm')).toString('base64') } });
+const js = (await build({ entryPoints: [path.join(root, 'tools/humanview/packed.js')], bundle: true, format: 'iife', write: false, logLevel: 'error' })).outputFiles[0].text;
+const html = path.join(out, 'packed.html');
+fs.writeFileSync(html, `<!doctype html><meta charset="utf-8"><body style="margin:0"><script type="text/plain" id="assets-humans">${block}</script><script>${js}</script>`);
+const browser = await chromium.launch({ args: ['--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader', '--ignore-gpu-blocklist', '--disable-gpu-watchdog'] });
+const page = await browser.newPage({ viewport: { width: 900, height: 1200 } });
+page.on('pageerror', e => console.log('pageerror', e.message));
+page.on('console', m => { if (m.type() === 'error') console.log('console', m.text().slice(0, 300)); });
+await page.goto('file://' + html);
+const shots = await page.evaluate(i => window.run(i), ids);
+for (const [k, v] of Object.entries(shots)) fs.writeFileSync(path.join(out, k.replace(':', '_') + '.png'), Buffer.from(v.split(',')[1], 'base64'));
+console.log('✓', Object.keys(shots).join(', '), '→', out);
+await browser.close();

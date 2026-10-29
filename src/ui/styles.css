@@ -239,8 +239,17 @@ select,input[type=text]{height:var(--btn-h);border:1px solid var(--button-border
 .quiz-res.wrong,.quiz-res.timeout{background:#fbecec;border-left-color:var(--warning)}
 .hud-cross{position:absolute;left:50%;top:50%;width:4px;height:4px;margin:-2px 0 0 -2px;border-radius:50%;background:rgba(255,255,255,.55);box-shadow:0 0 2px rgba(0,0,0,.6)}
 .hud-debug{position:absolute;left:16px;top:84px;white-space:pre;font:11px/1.4 monospace;background:rgba(0,0,0,.6);padding:6px 8px;color:#bfffd8}
-.hud-touch{position:absolute;right:12px;bottom:70px;display:grid;gap:8px;pointer-events:auto}
-.hud-touch button{width:86px;height:46px;border:1px solid rgba(255,255,255,.6);background:rgba(0,0,0,.45);color:#fff;border-radius:6px;font-weight:bold}
+.hud-touch{position:absolute;left:max(12px,env(safe-area-inset-left));right:max(12px,env(safe-area-inset-right));bottom:max(10px,env(safe-area-inset-bottom));display:flex;justify-content:center;gap:10px;pointer-events:auto;flex-wrap:wrap}
+.hud-touch button{position:relative;min-width:64px;height:52px;padding:0 14px;border:1px solid rgba(255,255,255,.75);background:rgba(10,14,12,.62);color:#fff;border-radius:12px;font-weight:700;font-size:15px;touch-action:none;-webkit-user-select:none;user-select:none;overflow:hidden}
+.hud-touch button[hidden]{display:none}
+.hud-touch button.held{background:rgba(0,120,64,.85);border-color:#fff}
+.hud-touch button[data-hold]::after{content:"";position:absolute;inset:3px;border-radius:9px;background:conic-gradient(rgba(255,255,255,.55) var(--p,0%),transparent 0);-webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 3px),#000 0);mask:radial-gradient(farthest-side,transparent calc(100% - 3px),#000 0);opacity:0;transition:opacity .15s}
+.hud-touch button[data-hold].held::after{opacity:1;animation:holdring .6s linear forwards}
+@property --p{syntax:'<percentage>';inherits:false;initial-value:0%}
+@keyframes holdring{to{--p:100%}}
+.hud-rotate{position:absolute;left:50%;top:38%;transform:translate(-50%,-50%);padding:14px 18px;border-radius:12px;background:rgba(0,0,0,.72);color:#fff;font-weight:600;text-align:center;max-width:80vw;pointer-events:none}
+.hud-subs{padding-bottom:env(safe-area-inset-bottom)}
+@media (pointer:coarse){.hud-subs{bottom:84px}}
 body[data-screen=game] #ui{pointer-events:none}
 @keyframes slideIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
 @keyframes pop{from{transform:scale(.85);opacity:0}to{transform:none;opacity:1}}

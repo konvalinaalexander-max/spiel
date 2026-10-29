@@ -183,8 +183,7 @@ for i in reversed(range(len(layers))):
         gname = {g.index: g.name for g in inner.vertex_groups}
         for v in inner.data.vertices:
             # nur Vertices, deren Hauptknochen auch die äußere Schicht bewegt (Hand neben der Hose bleibt unberührt)
-            dom = max(((gname.get(g.group), g.weight) for g in v.groups if gname.get(g.group) in BONES), key=lambda t: t[1], default=(None, 0))[0]
-            if dom not in cover: continue
+            # (Knochenfilter nur nötig, wenn Hände an der Hose liegen – in der A-Pose nicht der Fall; ausgeschaltet)
             pw = iw @ v.co
             loc, nrm, _, dist = bvh.find_nearest(pw, 0.03)
             if loc is None: continue
@@ -193,6 +192,22 @@ for i in reversed(range(len(layers))):
             off = pw - loc; d = off.dot(nrm)
             if d > -margin and (off - nrm * d).length < 0.008:
                 v.co = inv @ (pw - nrm * (d + margin)); n += 1
+        # zweiter Durchgang über die Flächenmitten: große Dreiecke (Körper-Proxy) können trotz verschobener Ecken durchstechen
+        for it in range(4):
+            moved = 0
+            for poly in inner.data.polygons:
+                cw = iw @ poly.center
+                loc, nrm, _, dist = bvh.find_nearest(cw, 0.03)
+                if loc is None: continue
+                pn = (iw.to_3x3() @ poly.normal).normalized()
+                if nrm.dot(pn) < 0: nrm = -nrm
+                off = cw - loc; d = off.dot(nrm)
+                if d > -margin and (off - nrm * d).length < 0.012:
+                    for vi in poly.vertices:
+                        vv = inner.data.vertices[vi]; vv.co = inv @ ((iw @ vv.co) - nrm * (d + margin))
+                    moved += 1
+            inner.data.update(); n += moved
+            if not moved: break
         if n: pushed[f'{inner.name}<{outer.name}'] = n
 log('Schichten korrigiert:', pushed)
 

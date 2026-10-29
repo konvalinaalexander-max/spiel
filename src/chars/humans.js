@@ -57,6 +57,18 @@ export async function loadHumans(gfx, onProgress = () => {}) {
     rig.atlasKey = d.head.atlas;
     return rig;
   };
+  /** beliebiger Figurtyp direkt (Prüfansichten); Mengen-Typen mit neutraler Einfärbung */
+  H.design = (id, tintHex = null) => {
+    const d = H.designs[id]; if (!d) return null;
+    const rig = rigFromHPK(d, H.materials(d.head.atlas)); rig.atlasKey = d.head.atlas;
+    if (d.head.atlas.startsWith('crowd')) {
+      const g = rig.mesh.geometry, n = g.attributes.position.count, tint = new Float32Array(n * 3);
+      const c = new THREE.Color(tintHex ?? 0xffffff).multiplyScalar(tintHex != null && d.head.tint ? TINT_GRAY : 1);
+      for (let i = 0; i < n; i++) { tint[i * 3] = c.r; tint[i * 3 + 1] = c.g; tint[i * 3 + 2] = c.b; }
+      g.setAttribute('aTint', new THREE.BufferAttribute(tint, 3));
+    }
+    return rig;
+  };
   /** Studierende:r aus dem Besetzungsplan → passender Figurtyp, Oberteil in der Farbe der Person */
   H.forStudent = s => {
     if (s.role === 'neighbor' && H.designs.neighbor) return H.hero('neighbor');

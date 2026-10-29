@@ -47,7 +47,7 @@ for (const l of ['deu', 'eng']) if (!fs.existsSync(path.join(cache, l + '.traine
 const worker = await createWorker(['deu', 'eng'], 1, { langPath: cache, cachePath: cache, logger: () => {} });
 await worker.setParameters({ tessedit_pageseg_mode: '6', preserve_interword_spaces: '1' });
 
-const flags = ['--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader', '--ignore-gpu-blocklist'];
+const flags = ['--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader', '--ignore-gpu-blocklist', '--disable-gpu-watchdog', '--disable-gpu-process-crash-limit', '--js-flags=--max-old-space-size=4096'];
 const results = [];
 async function openAt(browser, dpr) {
   const page = await browser.newPage({ viewport: { width: W, height: H }, deviceScaleFactor: dpr });

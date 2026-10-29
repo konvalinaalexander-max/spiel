@@ -75,7 +75,7 @@ export class Game {
     // Startzustand Leinwand: Beamer aus, Desktop des Prof-Laptops vorbereitet
     W.fx.slides.desktop(SLIDE_META[lang], '10:10'); W.fx.updateSlideTextures(); W.fx.setBeamer(false);
     // Profs Kopfposition für Studierende
-    this.hud.show(true); this.hud.setStrikes(0); this.hud.touch(matchMedia('(pointer: coarse)').matches);
+    this.hud.show(true); this.hud.setStrikes(0); this.hud.touch(matchMedia('(pointer: coarse)').matches, this.input);
     this.hud.setScore(S.ttt, S.target);
     this._prompt = null;
     // Ambiente
@@ -106,6 +106,8 @@ export class Game {
   _place(i) { if (this.session.tttPlay(i)) { this.audio.play('ttPlace', { bus: 'player', gain: 0.4 }); this.typingT = 0.25; } }
   handleInput(dt) {
     const I = this.input, S = this.session, p = S.player, os = this.os;
+    // Touch-Leiste je Modus (nur bei Änderung ins DOM)
+    { const k = p.mode + (innerHeight > innerWidth ? 'P' : 'L'); if (k !== this._touchKey) { this._touchKey = k; this.hud.touchMode(p.mode, innerHeight > innerWidth); } }
     const inp = I.poll();
     const gp = inp.gp;
     if (this.paused || this.ended) { I.endFrame(); return { dx: 0, dy: 0 }; }

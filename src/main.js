@@ -123,8 +123,16 @@ const world_meta = () => ({ ...(getLang() === 'en' ? { university: 'University o
 const cfgKey = c => JSON.stringify({ w: c.weather, s: c.seat });
 
 let queuedStart = null;
+// Handy: Bildschirm wach halten (Wake Lock), Vollbild auf Android – beides nur auf Touch-Geräten und nur nach Nutzeraktion
+let wakeLock = null;
+async function mobileStart() {
+  if (!matchMedia('(pointer: coarse)').matches) return;
+  try { if (navigator.wakeLock && !wakeLock) { wakeLock = await navigator.wakeLock.request('screen'); wakeLock.addEventListener('release', () => { wakeLock = null; }); } } catch (e) { /* nicht verfügbar */ }
+  try { if (/Android/i.test(navigator.userAgent) && !document.fullscreenElement && document.documentElement.requestFullscreen) await document.documentElement.requestFullscreen({ navigationUI: 'hide' }); } catch (e) { /* abgelehnt */ }
+}
+document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible' && state === 'game') mobileStart(); });
 function startLecture(cfg, again) {
-  audio.start();
+  audio.start(); mobileStart();
   if (!world) { queuedStart = { cfg, again }; ui.show('loading'); return; } // Hörsaal lädt noch
   const sc = ui.sessionCfg();
   if (!world.fresh || cfgKey(cfg) !== world.cfgKey || again) {
