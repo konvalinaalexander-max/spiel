@@ -66,5 +66,27 @@ Prof „bm_daniel“, Nachbarin „bf_emma“, Studierende „af_heart“ / „a
 Mit einem Azure-Schlüssel (\`AZURE_SPEECH_KEY\`, \`AZURE_SPEECH_REGION\`) kann die Stimme gegen „de-AT-JonasNeural“
 (österreichisches Deutsch) ausgetauscht werden.
 `;
+// Geräusche (Phase 6b): Herkunft je Aufnahme aus assets/build/sfx/manifest.json
+const sfx = read('assets/build/sfx/manifest.json') || {};
+const sounds = new Map();
+for (const [name, m] of Object.entries(sfx)) for (const o of m.origin || []) {
+  const key = o.attribution || `${o.source} (${o.license})`;
+  if (!sounds.has(key)) sounds.set(key, { names: new Set(), license: o.license, author: o.author, source: o.source });
+  sounds.get(key).names.add(name);
+}
+if (sounds.size) {
+  md += `\n## Geräusche und Musik (echte Aufnahmen)\n\nAufbereitet mit \`tools/audio/build_sfx.py\` aus den Kandidaten in \`tools/pipeline/audio_sources.json\`
+(Recherche und Lizenzprüfung: \`docs/AUDIO_QUELLEN.md\`). CC-BY-Aufnahmen sind im Spiel unter „Impressum, Quellen & Lizenzen“ genannt.\n\n| Klang | Lizenz | Herkunft |\n|---|---|---|\n`;
+  for (const [k, v] of sounds) md += `| ${[...v.names].join(', ')} | ${v.license} | ${k.replace(/\|/g, '/')} |\n`;
+}
 fs.writeFileSync(path.join(root, 'docs/ASSETS.md'), md);
+// Nennungen für die Credits-Seite im Spiel
+const credits = {
+  figures: [...authors].sort(),
+  voices: { de: 'Coqui XTTS v2 (CPML, nicht-kommerziell): Damien Black, Daisy Studious, Sofia Hellen, Andrew Chipper – synthetische Studiosprecher',
+    en: 'Kokoro-82M by hexgrad (Apache-2.0): bm_daniel, bf_emma, af_heart, am_michael – synthetic voices' },
+  sounds: [...sounds.entries()].map(([k, v]) => ({ line: k, license: v.license, names: [...v.names] })).sort((a, b) => a.line.localeCompare(b.line))
+};
+fs.mkdirSync(path.join(root, 'assets/build'), { recursive: true });
+fs.writeFileSync(path.join(root, 'assets/build/credits.json'), JSON.stringify(credits, null, 1));
 console.log('docs/ASSETS.md geschrieben');

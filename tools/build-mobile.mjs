@@ -51,6 +51,18 @@ export async function buildMobile({ root, humDir, noVoice }) {
     }
     if (Object.keys(voiceFiles).length) remote.voice = 'assets/voice/';
   }
+  // Geräusche (gehören zum Kern: ohne sie fehlt die Klangwelt)
+  const sfxDir = path.join(root, 'assets/build/sfx');
+  if (fs.existsSync(path.join(sfxDir, 'manifest.json'))) {
+    const man = JSON.parse(fs.readFileSync(path.join(sfxDir, 'manifest.json'), 'utf8')), slim = {};
+    for (const [name, m] of Object.entries(man)) {
+      const files = m.files.filter(f => fs.existsSync(path.join(sfxDir, f)));
+      for (const f of files) core.push(rel(copy(path.join(sfxDir, f), path.join(OUT, 'assets/sfx', f))));
+      if (files.length) slim[name] = { loop: !!m.loop, files };
+    }
+    fs.writeFileSync(path.join(OUT, 'assets/sfx/manifest.json'), JSON.stringify(slim)); core.push('assets/sfx/manifest.json');
+    remote.sfx = 'assets/sfx/';
+  }
   // Symbole (PNG aus SVG: grünes Feld mit Tic-Tac-Toe-Gitter, X und O)
   const sharp = require('sharp');
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><rect width="512" height="512" fill="#00aa5a"/>

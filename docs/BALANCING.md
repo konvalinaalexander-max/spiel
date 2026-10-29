@@ -8,14 +8,23 @@ schreibt in ruhigen Momenten mit und beantwortet Prüfungsfragen umso besser, je
 Vorlesungslänge „normal“ (720 s ≙ 90 Spielminuten), Sitzplatz Reihe 5 / Platz 8, Gegner:in im Hörsaal,
 80 Durchläufe je Stufe mit unterschiedlichen Seeds (Vorlesungsablauf, Besetzung, Prof-Verhalten).
 
-## Ergebnis
+## Ergebnis (Version 3)
 
 | Stufe | Ziel (Siege) | Erfolgsquote | Erwischt pro Lauf | Rauswurf | Siege / Niederl. / Unentsch. | Quiz richtig / gestellt | Ø Note | Ø Dauer | Ø Zeit am Spiel |
 |---|---|---|---|---|---|---|---|---|---|
-| erstsemester | 6 | 95 % | 0,06 | 1 % | 9,53 / 4,4 / 9,29 | 2,2 / 2,63 | 1,3 | 12:05 | 319 s |
-| bachelor | 7 | 54 % | 0,33 | 6 % | 6,79 / 4,11 / 9,81 | 2,23 / 2,96 | 2,8 | 11:48 | 293 s |
-| pruefungswoche | 7 | 35 % | 0,48 | 10 % | 5,7 / 4,05 / 9,8 | 2,85 / 3,85 | 3,48 | 11:45 | 277 s |
-| diplom | 8 | 11 % | 1,23 | 24 % | 4,65 / 3,64 / 8,51 | 2,86 / 4,08 | 4,46 | 11:02 | 241 s |
+| erstsemester | 5 | 92 % | 0,09 | 1 % | 7,33 / 3,09 / 7,25 | 2,11 / 2,49 | 1,4 | 12:19 | 245 s |
+| bachelor | 6 | 50 % | 0,42 | 10 % | 6,03 / 2,98 / 6,74 | 2,39 / 2,99 | 2,9 | 11:57 | 219 s |
+| pruefungswoche | 6 | 31 % | 0,55 | 9 % | 4,62 / 3,02 / 7,00 | 3,05 / 3,81 | 3,6 | 12:01 | 211 s |
+| diplom | 6 | 15 % | 1,51 | 28 % | 3,49 / 2,38 / 6,11 | 2,95 / 3,90 | 4,3 | 11:05 | 179 s |
+
+Rohdaten: `docs/balancing_v3.json`. Version 2 zum Vergleich: Erstsemester 95 %, Bachelor 54 %, Prüfungswoche 35 %, Diplom 11 %
+(`docs/balancing_final.json`).
+
+**Warum neu abgestimmt:** Mit den neuen Prof-Texten (Anekdoten, Running Gags, Zwischenfragen) schaut Prof. Haferkorn beim Erzählen
+öfter in den Saal. Der Bot hatte dadurch rund 25 % weniger Zeit am Laptop (Bachelor 226 s statt 293 s) und kam auf 34 % statt
+54 %. Statt den Prof wieder stummer zu machen, sind die Siegziele kleiner (Erstsemester 6 → 5, Bachelor/Prüfungswoche 7 → 6,
+Diplom 8 → 6) und die Gegner:in in Bachelor (0,48 → 0,40), Prüfungswoche (0,56 → 0,50) und Diplom (0,56 → 0,52) etwas schwächer.
+Zwischenstand mit 40 Läufen: 90 / 43 / 30 / 13 %; danach Bachelor-Gegner:in 0,44 → 0,40.
 
 Zielband laut Auftrag: **„Bachelor“ ≈ 50 %** Erfolgsquote eines mittelguten Bots. Die Stufen sind monoton gestaffelt
 (leicht → sehr schwer), „Erstsemester“ ist für den Einstieg bewusst gutmütig, „Diplomand:in“ eine echte Herausforderung.
@@ -26,9 +35,9 @@ Zielband laut Auftrag: **„Bachelor“ ≈ 50 %** Erfolgsquote eines mittelgute
 | Stufe | Verdachts-Multiplikator | Schulterblick alle | Vorwarnung (Kreide stoppt) | Bluff | Blick auf Spieler:in | Fixationsdauer | Drehrate | Gegner-Stärke | Nachbarin |
 |---|---|---|---|---|---|---|---|---|---|
 | erstsemester | 0,7 | 14–30 s | 0,65 s | 12 % | 6 % | 0,9–2,4 s | 2,6 | 0,28 | helpful |
-| bachelor | 1,65 | 8–18 s | 0,31 s | 28 % | 22 % | 0,7–2,3 s | 3,8 | 0,48 | helpful |
-| pruefungswoche | 1,8 | 6–15 s | 0,26 s | 33 % | 24 % | 0,5–1,7 s | 4,4 | 0,56 | neutral |
-| diplom | 2,2 | 5–12 s | 0,2 s | 38 % | 24 % | 0,45–1,5 s | 5 | 0,56 | betrayer |
+| bachelor | 1,65 | 8–18 s | 0,31 s | 28 % | 22 % | 0,7–2,3 s | 3,8 | 0,40 | helpful |
+| pruefungswoche | 1,8 | 6–15 s | 0,26 s | 33 % | 24 % | 0,5–1,7 s | 4,4 | 0,50 | neutral |
+| diplom | 2,2 | 5–12 s | 0,2 s | 38 % | 24 % | 0,45–1,5 s | 5 | 0,52 | betrayer |
 
 Weitere Größen (alle Stufen): Verdachtsmodell `src/game/suspicion.js` (Aufmerksamkeit steigt 70/s × Sichtbarkeit × Auffälligkeit, fällt 28/s;
 Verdacht ab Aufmerksamkeit 20; Beweis nur foveal und ab Verdacht 12), Sichtkegel `src/game/vision.js` (Fovea ±5°, Peripherie bis 60°,

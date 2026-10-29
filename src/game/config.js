@@ -2,19 +2,19 @@
 
 export const DIFFICULTIES = {
   erstsemester: {
-    id: 'erstsemester', target: 6, mul: 0.7, quizEvery: 0.3, quizTime: 20, oppSkill: 0.28, neighbor: 'helpful', aisle: 0.6,
+    id: 'erstsemester', target: 5, mul: 0.7, quizEvery: 0.3, quizTime: 20, oppSkill: 0.28, neighbor: 'helpful', aisle: 0.6,
     prof: { shoulderEvery: [14, 30], telegraph: 0.65, bluffChance: 0.12, playerFixChance: 0.06, fixation: [0.9, 2.4], turnRate: 2.6 }
   },
   bachelor: {
-    id: 'bachelor', target: 7, mul: 1.65, quizEvery: 0.24, quizTime: 16, oppSkill: 0.48, neighbor: 'helpful', aisle: 1,
+    id: 'bachelor', target: 6, mul: 1.65, quizEvery: 0.24, quizTime: 16, oppSkill: 0.4, neighbor: 'helpful', aisle: 1,
     prof: { shoulderEvery: [8, 18], telegraph: 0.31, bluffChance: 0.28, playerFixChance: 0.22, fixation: [0.7, 2.3], turnRate: 3.8 }
   },
   pruefungswoche: {
-    id: 'pruefungswoche', target: 7, mul: 1.8, quizEvery: 0.2, quizTime: 14, oppSkill: 0.56, neighbor: 'neutral', aisle: 1.4,
+    id: 'pruefungswoche', target: 6, mul: 1.8, quizEvery: 0.2, quizTime: 14, oppSkill: 0.5, neighbor: 'neutral', aisle: 1.4,
     prof: { shoulderEvery: [6, 15], telegraph: 0.26, bluffChance: 0.33, playerFixChance: 0.24, fixation: [0.5, 1.7], turnRate: 4.4 }
   },
   diplom: {
-    id: 'diplom', target: 8, mul: 2.2, quizEvery: 0.17, quizTime: 12, oppSkill: 0.56, neighbor: 'betrayer', aisle: 1.8,
+    id: 'diplom', target: 6, mul: 2.2, quizEvery: 0.17, quizTime: 12, oppSkill: 0.52, neighbor: 'betrayer', aisle: 1.8,
     prof: { shoulderEvery: [5, 12], telegraph: 0.2, bluffChance: 0.38, playerFixChance: 0.24, fixation: [0.45, 1.5], turnRate: 5.0 }
   }
 };

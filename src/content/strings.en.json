@@ -453,5 +453,9 @@
   "set.minimalHud": "Minimal HUD (subtitles, hints and quiz only)",
   "set.pointerLock": "Capture the mouse (pointer lock) – off: view follows the visible cursor",
   "set.measured": "measured {ms} ms/frame → recommended {preset} (from the next start)",
-  "hud.winToast": "Round won: +{p} points ({w}/{target})"
+  "hud.winToast": "Round won: +{p} points ({w}/{target})",
+  "credits.figures": "Characters",
+  "credits.figuresText": "Every person in the game was built with MakeHuman/MPFB (CC0 asset packs). Authors of the clothes, hair and skins used:",
+  "credits.voices": "Voices",
+  "credits.sounds": "Sounds and music (real recordings)"
 }

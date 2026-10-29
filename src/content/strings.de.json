@@ -453,5 +453,9 @@
   "set.minimalHud": "Minimales HUD (nur Untertitel, Hinweise und Quiz)",
   "set.pointerLock": "Mauszeiger einfangen (Pointer Lock) – aus: Blick folgt dem sichtbaren Mauszeiger",
   "set.measured": "gemessen {ms} ms/Bild → Empfehlung {preset} (ab dem nächsten Start)",
-  "hud.winToast": "Runde gewonnen: +{p} Punkte ({w}/{target})"
+  "hud.winToast": "Runde gewonnen: +{p} Punkte ({w}/{target})",
+  "credits.figures": "Figuren",
+  "credits.figuresText": "Alle Menschen im Spiel sind mit MakeHuman/MPFB erzeugt (Assetpakete CC0). Urheber:innen der verwendeten Kleidung, Haare und Häute:",
+  "credits.voices": "Stimmen",
+  "credits.sounds": "Geräusche und Musik (echte Aufnahmen)"
 }

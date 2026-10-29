@@ -88,6 +88,19 @@ if (!mobile && !process.argv.includes('--no-voice')) {
   }
   if (n) { voiceBlock = JSON.stringify(vb); console.log(`Stimmen: ${n} Aufnahmen, ${(bytes / 1048576).toFixed(1)} MB`); }
 }
+// Echte Geräusche (Phase 6b): assets/build/sfx/manifest.json + <name>_<n>.ogg → eingebetteter Block
+let sfxBlock = '';
+const sfxMan = path.join(root, 'assets/build/sfx/manifest.json');
+if (!mobile && fs.existsSync(sfxMan) && !process.argv.includes('--no-sfx')) {
+  const man = JSON.parse(fs.readFileSync(sfxMan, 'utf8')), out = {}; let n = 0, bytes = 0;
+  for (const [name, m] of Object.entries(man)) {
+    const files = m.files.filter(f => fs.existsSync(path.join(root, 'assets/build/sfx', f))).map(f => { const b = fs.readFileSync(path.join(root, 'assets/build/sfx', f)); bytes += b.length; n++; return b.toString('base64'); });
+    if (files.length) out[name] = { loop: !!m.loop, files };
+  }
+  sfxBlock = JSON.stringify(out); console.log(`Geräusche: ${Object.keys(out).length} Klänge, ${n} Aufnahmen, ${(bytes / 1048576).toFixed(1)} MB`);
+}
+const creditsFile = path.join(root, 'assets/build/credits.json');
+const creditsBlock = fs.existsSync(creditsFile) ? fs.readFileSync(creditsFile, 'utf8').replace(/<\//g, '<\\/') : '';
 let remoteBlock = '', headExtra = '';
 if (mobile) {
   const { buildMobile } = await import('./build-mobile.mjs');
@@ -97,7 +110,7 @@ html = html
   .replace('<!--HEADEXTRA-->', () => headExtra)
   .replace('<!--STYLE-->', () => `<style>\n${css}\n</style>`)
   // Bundle erst nach dem ersten Bild ausführen (schneller erster Paint: Vorlader sichtbar, bevor 2 MB JS laufen)
-  .replace('<!--SCRIPT-->', () => `${remoteBlock}<script type="text/plain" id="assets-humans">${humansBlock}</script>\n<script type="text/plain" id="assets-voice">${voiceBlock}</script>\n<script type="text/plain" id="bundle">\n${safeJs}\n</script>\n<script>(function(){function run(){var t=document.getElementById('bundle').textContent,s=document.createElement('script');try{s.src=URL.createObjectURL(new Blob([t],{type:'text/javascript'}));}catch(e){s.text=t;}document.body.appendChild(s);}requestAnimationFrame(function(){setTimeout(run,30);});})();</script>`)
+  .replace('<!--SCRIPT-->', () => `${remoteBlock}<script type="text/plain" id="assets-humans">${humansBlock}</script>\n<script type="text/plain" id="assets-voice">${voiceBlock}</script>\n<script type="text/plain" id="assets-sfx">${sfxBlock}</script>\n<script type="application/json" id="credits-data">${creditsBlock}</script>\n<script type="text/plain" id="bundle">\n${safeJs}\n</script>\n<script>(function(){function run(){var t=document.getElementById('bundle').textContent,s=document.createElement('script');try{s.src=URL.createObjectURL(new Blob([t],{type:'text/javascript'}));}catch(e){s.text=t;}document.body.appendChild(s);}requestAnimationFrame(function(){setTimeout(run,30);});})();</script>`)
   .replace('<!--LICENSES-->', () => `<!--\n${third.replace(/--/g, '- -')}\n-->`)
   .replace('<!--THIRDTEXT-->', () => third.replace(/<\//g, '<\\/'));
 

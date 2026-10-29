@@ -174,7 +174,7 @@ export class UI {
     R.append(h(`<section id="scr-achievements" class="screen site modal-page" hidden><div class="page-card"><header class="page-head"><h1 data-i18n="nav.achievements"></h1><button class="btn btn-small" data-back data-i18n="ui.back"></button></header><div class="badges" id="badges"></div></div></section>`));
     R.append(h(`<section id="scr-leaderboard" class="screen site modal-page" hidden><div class="page-card"><header class="page-head"><h1 data-i18n="nav.leaderboard"></h1><button class="btn btn-small" data-back data-i18n="ui.back"></button></header><table class="lv-table board"><thead><tr><th>#</th><th data-i18n="lb.name"></th><th data-i18n="lb.score"></th><th data-i18n="lb.grade"></th><th data-i18n="lb.diff"></th><th data-i18n="lb.date"></th></tr></thead><tbody id="lb-body"></tbody></table><p class="opt-desc" data-i18n="lb.note"></p></div></section>`));
     R.append(h(`<section id="scr-help" class="screen site modal-page" hidden><div class="page-card"><header class="page-head"><h1 data-i18n="help.title"></h1><button class="btn btn-small" data-back data-i18n="ui.back"></button></header><div class="help" id="help"></div></div></section>`));
-    R.append(h(`<section id="scr-credits" class="screen site modal-page" hidden><div class="page-card"><header class="page-head"><h1 data-i18n="credits.title"></h1><button class="btn btn-small" data-back data-i18n="ui.back"></button></header><div data-i18n-html="credits.body"></div><pre class="licenses" id="licenses"></pre></div></section>`));
+    R.append(h(`<section id="scr-credits" class="screen site modal-page" hidden><div class="page-card"><header class="page-head"><h1 data-i18n="credits.title"></h1><button class="btn btn-small" data-back data-i18n="ui.back"></button></header><div data-i18n-html="credits.body"></div><div id="credits-assets"></div><pre class="licenses" id="licenses"></pre></div></section>`));
     // Navigation
     R.addEventListener('click', e => {
       const go = e.target.closest('[data-go]'); if (go) { e.preventDefault(); this.show(go.dataset.go, { from: this.screen }); this.hooks.click?.(); return; }
@@ -186,6 +186,7 @@ export class UI {
     $('#p-quit').addEventListener('click', () => this.hooks.quit?.());
     $('#lv-start').addEventListener('click', () => { this._saveCfg(); this.hooks.start?.(this.cfg); });
     const lic = document.getElementById('third-party'); if (lic) $('#licenses').textContent = lic.textContent;
+    this._buildCredits();
     this._buildLV(); this._buildSettings(); this._buildHelp();
     addEventListener('keydown', e => { if (e.key === 'Escape' && this.screen && ['settings', 'achievements', 'leaderboard', 'help', 'credits'].includes(this.screen)) { e.preventDefault(); this.back(); } });
   }
@@ -229,6 +230,19 @@ export class UI {
       b.addEventListener('click', () => { for (const x of el.children) x.setAttribute('aria-pressed', String(x === b)); onPick(it.v); this.hooks.click?.(); });
       el.append(b);
     }
+  }
+  /** Nennungen: Figuren, Stimmen, Geräusche (aus assets/build/credits.json, beim Bauen eingebettet) */
+  _buildCredits() {
+    const el = document.getElementById('credits-data'), box = $('#credits-assets');
+    let c = null; try { c = el && el.textContent.trim() ? JSON.parse(el.textContent) : null; } catch (e) { c = null; }
+    if (!c || !box) return;
+    const esc = x => String(x).replace(/[&<>"]/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[ch]);
+    const fill = () => {
+      box.innerHTML = `<h2 class="h2bar">${esc(t('credits.figures'))}</h2><p>${esc(t('credits.figuresText'))} ${esc(c.figures.join(', '))}.</p>`
+        + `<h2 class="h2bar">${esc(t('credits.voices'))}</h2><p>${esc(c.voices.de)}<br>${esc(c.voices.en)}</p>`
+        + (c.sounds && c.sounds.length ? `<h2 class="h2bar">${esc(t('credits.sounds'))}</h2><ul class="credit-list">${c.sounds.map(s => `<li>${esc(s.line)}</li>`).join('')}</ul>` : '');
+    };
+    fill(); bus.on('lang', fill);
   }
   _buildLV() {
     const c = this.cfg;

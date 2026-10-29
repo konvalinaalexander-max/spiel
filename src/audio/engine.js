@@ -3,6 +3,7 @@
 import { synthesizeAll, makeImpulse } from './synth.js';
 import { storage, clamp, lerp } from '../core/util.js';
 import { VoiceBank } from './voice.js';
+import { loadSfx } from './sfx.js';
 
 const AC = typeof AudioContext !== 'undefined' ? AudioContext : (typeof webkitAudioContext !== 'undefined' ? webkitAudioContext : null);
 
@@ -24,7 +25,13 @@ export class AudioEngine {
   }
   /** Klänge vorab synthetisieren (geht ohne Nutzerinteraktion) */
   async prepare(progress) {
-    try { this.buffers = await synthesizeAll(progress); } catch (e) { console.warn('Audio-Synthese fehlgeschlagen', e); this.buffers = {}; }
+    // zuerst die echten Aufnahmen, dann nur noch synthetisieren, was fehlt (UI-Signaltöne des Laptops)
+    let real = {};
+    try { real = await loadSfx(f => progress && progress(f * 0.7)); } catch (e) { console.warn('Geräusche: Rückfall auf Synthese', e); }
+    this.realSounds = new Set(Object.keys(real));
+    let synth = {};
+    try { synth = await synthesizeAll(f => progress && progress(0.7 + f * 0.3), this.realSounds); } catch (e) { console.warn('Audio-Synthese fehlgeschlagen', e); }
+    this.buffers = { ...synth, ...real };
   }
   /** Muss nach einer Nutzerinteraktion aufgerufen werden */
   start() {
@@ -278,6 +285,15 @@ export class AudioEngine {
   /** Ruhige, generative Musik ("Campus am Morgen") – nur in Menüs */
   startMusic() {
     if (!this.ready || this.music) return;
+    const rec = this._buf('music');
+    if (rec) {
+      // „Almost Bliss“ (Kevin MacLeod, CC BY 4.0) als Schleife, leise im Hintergrund
+      const ctx = this.ctx, out = ctx.createGain(); out.gain.value = 0; out.connect(this.bus.music);
+      out.gain.setTargetAtTime(0.5, ctx.currentTime, 1.5);
+      const s = ctx.createBufferSource(); s.buffer = rec; s.loop = true; s.connect(out); s.start();
+      this.music = { out, stop: false, src: s };
+      return;
+    }
     const ctx = this.ctx; const out = ctx.createGain(); out.gain.value = 0; out.connect(this.bus.music);
     out.gain.setTargetAtTime(0.35, ctx.currentTime, 1.5);
     const lp = ctx.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.value = 1800; lp.connect(out);
@@ -313,6 +329,7 @@ export class AudioEngine {
     if (!this.music) return;
     const m = this.music; m.stop = true; clearTimeout(m.timer);
     m.out.gain.setTargetAtTime(0, this.ctx.currentTime, 0.6);
+    if (m.src) { try { m.src.stop(this.ctx.currentTime + 3); } catch (e) { /* schon gestoppt */ } }
     this.music = null;
   }
 }

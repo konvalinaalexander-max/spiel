@@ -161,8 +161,8 @@ export function makeImpulse(ctx, rt60 = 1.15, preDelay = 0.018) {
 }
 
 /** Erzeugt alle Klänge; progress(k) wird aufgerufen. Liefert {name: AudioBuffer} */
-export async function synthesizeAll(progress) {
-  const out = {}; const names = Object.keys(SOUNDS), loops = Object.keys(LOOPS);
+export async function synthesizeAll(progress, skip = new Set()) {
+  const out = {}; const names = Object.keys(SOUNDS).filter(n => !skip.has(n)), loops = Object.keys(LOOPS).filter(n => !skip.has(n));
   const total = names.length + loops.length + 8; let done = 0;
   const tick = () => progress && progress(++done / total);
   // Varianten für häufige Klänge

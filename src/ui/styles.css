@@ -151,6 +151,7 @@ select,input[type=text]{height:var(--btn-h);border:1px solid var(--button-border
 .help .lead{font-size:16px;line-height:1.5}
 .help ul{line-height:1.6;padding-left:20px}
 .licenses{max-height:260px;overflow:auto;background:#f6f6f6;padding:10px;font-size:11px;white-space:pre-wrap}
+.credit-list{max-height:240px;overflow:auto;font-size:12px;line-height:1.45;padding-left:18px;margin:6px 0 14px}
 .badges{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;list-style:none;padding:0;margin:0}
 .badge{display:grid;grid-template-columns:34px 1fr;grid-template-rows:auto auto;column-gap:8px;padding:10px;background:#f6f6f6;border-left:3px solid var(--line);opacity:.75}
 .badge.on{background:var(--info-bg);border-left-color:var(--boku-green);opacity:1}
