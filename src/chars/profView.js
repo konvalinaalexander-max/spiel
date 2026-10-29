@@ -25,9 +25,9 @@ const GESTURES = {
 };
 
 export class ProfView {
-  constructor(gfx, mat, logic, fixtures, audio) {
+  constructor(gfx, mat, logic, fixtures, audio, humans = null) {
     this.logic = logic; this.fx = fixtures; this.audio = audio;
-    this.rig = buildCharacter(PROF_SPEC, mat);
+    this.rig = (humans && humans.hero('prof')) || buildCharacter(PROF_SPEC, mat);
     this.char = new Character(this.rig, { floorAt: LY.floorAt, seed: 77 });
     gfx.scene.add(this.rig.mesh);
     this.char.lookLimits = { yaw: 1.45, up: 0.6, down: 0.9 };

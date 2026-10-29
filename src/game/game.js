@@ -28,10 +28,10 @@ export class Game {
     if (this.botSkill != null) this.bot = new Bot(S, this.botSkill, 99);
     this.sections = this.content.sections;
     // Prof
-    this.profView = new ProfView(this.gfx, W.charMat, S.prof, W.fx, this.audio);
+    this.profView = new ProfView(this.gfx, W.charMat, S.prof, W.fx, this.audio, W.humans);
     this.profView.onStep = (f, c) => this.audio.play(c.pos.z > LY.ROW0_Z ? 'stepStair' : 'stepParquet', { pos: c.pos.clone().add(V(0, 0.05, 0)), gain: 0.5, vary: 0.15 });
     // eigener Körper
-    this.player = new PlayerView(this.gfx, W.charMat, S, W.props, cfg.avatar || 'a');
+    this.player = new PlayerView(this.gfx, W.charMat, S, W.props, cfg.avatar || 'a', W.humans);
     this.player.fovBase = this.settings.fov || 60; this.player.reducedMotion = !!this.settings.reducedMotion;
     // Laptop
     const lap = W.props.player.laptop;

@@ -8,3 +8,5 @@ tools/bin/
 tools/.cache/
 tools/.venv*/
 assets/src/
+# Rohfassungen der Figuren (groß, aus tools/pipeline/humans.mjs reproduzierbar); verpackt liegt alles in assets/build/<profil>/
+assets/build/humans/

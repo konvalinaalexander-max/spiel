@@ -56,10 +56,22 @@ const third = fs.readFileSync(path.join(root, 'tools/THIRD_PARTY.txt'), 'utf8');
 if (!html.includes('<!--STYLE-->') || !html.includes('<!--SCRIPT-->')) throw new Error('Template-Platzhalter fehlen');
 // </script> im Bundle unschädlich machen
 const safeJs = js.replace(/<\/script/gi, '<\\/script');
+// Echte Figuren (Phase 4): verpackte Geometrie (HPK) + Atlanten (KTX2) + Basis-Transkodierer als eingebetteter Datenblock.
+// Liegt kein verpacktes Profil vor, bleibt der Block leer und das Spiel nutzt die prozeduralen Figuren.
+const profile = process.argv.includes('--profile') ? process.argv[process.argv.indexOf('--profile') + 1] : 'desktop';
+const humDir = path.join(root, 'assets/build', profile, 'humans');
+let humansBlock = '';
+if (fs.existsSync(path.join(humDir, 'index.json')) && !process.argv.includes('--no-humans')) {
+  const index = JSON.parse(fs.readFileSync(path.join(humDir, 'index.json'), 'utf8'));
+  const files = {};
+  for (const f of fs.readdirSync(humDir)) if (/\.(hpk|ktx2)$/.test(f)) files[f] = fs.readFileSync(path.join(humDir, f)).toString('base64');
+  const basis = path.join(root, 'node_modules/three/examples/jsm/libs/basis');
+  humansBlock = JSON.stringify({ index, files, basis: { js: fs.readFileSync(path.join(basis, 'basis_transcoder.js')).toString('base64'), wasm: fs.readFileSync(path.join(basis, 'basis_transcoder.wasm')).toString('base64') } });
+}
 html = html
   .replace('<!--STYLE-->', () => `<style>\n${css}\n</style>`)
   // Bundle erst nach dem ersten Bild ausführen (schneller erster Paint: Vorlader sichtbar, bevor 2 MB JS laufen)
-  .replace('<!--SCRIPT-->', () => `<script type="text/plain" id="bundle">\n${safeJs}\n</script>\n<script>(function(){function run(){var t=document.getElementById('bundle').textContent,s=document.createElement('script');try{s.src=URL.createObjectURL(new Blob([t],{type:'text/javascript'}));}catch(e){s.text=t;}document.body.appendChild(s);}requestAnimationFrame(function(){setTimeout(run,30);});})();</script>`)
+  .replace('<!--SCRIPT-->', () => `<script type="text/plain" id="assets-humans">${humansBlock}</script>\n<script type="text/plain" id="bundle">\n${safeJs}\n</script>\n<script>(function(){function run(){var t=document.getElementById('bundle').textContent,s=document.createElement('script');try{s.src=URL.createObjectURL(new Blob([t],{type:'text/javascript'}));}catch(e){s.text=t;}document.body.appendChild(s);}requestAnimationFrame(function(){setTimeout(run,30);});})();</script>`)
   .replace('<!--LICENSES-->', () => `<!--\n${third.replace(/--/g, '- -')}\n-->`)
   .replace('<!--THIRDTEXT-->', () => third.replace(/<\//g, '<\\/'));
 
@@ -73,4 +85,4 @@ for (const f of ['BOKU_TicTacTierernaehrung_v2.html', 'BOKU_TicTacTierernaehrung
 fs.writeFileSync(path.join(root, 'dist/SHA256.txt'), sums.join('\n') + '\n');
 const kb = (Buffer.byteLength(html) / 1024).toFixed(0);
 console.log(`${DIST}  ${kb} KB  (${Date.now() - t0} ms)`);
-if (Buffer.byteLength(html) > 25 * 1024 * 1024) { console.error('Build größer als 25 MB!'); process.exit(1); }
+if (Buffer.byteLength(html) > 60 * 1024 * 1024) { console.error('Build größer als 60 MB!'); process.exit(1); }

@@ -24,14 +24,14 @@ export class Crowd {
     // Spätkommer:in (zunächst draußen)
     this.late = this._add(plan.latecomer, mat, true);
     // Tutorin
-    const tr = buildCharacter(TUTOR_SPEC, mat);
+    const tr = (opts.humans && opts.humans.hero('tutor')) || buildCharacter(TUTOR_SPEC, mat);
     this.tutor = new Character(tr, { floorAt: LY.floorAt, seed: 314 });
     gfx.scene.add(tr.mesh); tr.mesh.visible = false; this.tutor.visible = false;
     this.tutor.placeAt(LY.BACK_DOOR.x, LY.BACK_DOOR.z - 0.4, Math.PI);
     this.focus = { prof: V(0, 1.8, -5), screen: V(LY.SCREEN.x, LY.SCREEN.y, LY.SCREEN.z), board: V(LY.BOARD.x, LY.BOARD.lowY + 0.6, LY.ROOM.z0), player: V() };
   }
   _add(s, mat, outside = false) {
-    const rig = buildCharacter(s.spec, mat);
+    const rig = (this.opts.humans && this.opts.humans.forStudent(s)) || buildCharacter(s.spec, mat);
     // Die Figur wird nicht einzeln gezeichnet: Knochen hängen an einem leeren Container, die Geometrie
     // kommt später in ein gemeinsames SkinnedMesh (ein Draw Call für viele Figuren, siehe mergeMeshes)
     const container = new THREE.Object3D();
@@ -56,26 +56,62 @@ export class Crowd {
    * Jede Figur behält ihr eigenes Skelett (Knochen-Offset im skinIndex); Animation läuft unverändert über die Knochen.
    */
   mergeMeshes(material) {
-    const groups = { cast: [], rest: [] };
-    for (const st of this.list) groups[st.rig.castShadow ? 'cast' : 'rest'].push(st.rig);
+    const groups = {};
+    // Echte Figuren je Atlas getrennt (eigene Materialien), prozedurale Figuren wie bisher; jeweils schattenwerfend/übrige
+    for (const st of this.list) { const k = (st.rig.atlasKey || 'proc') + (st.rig.castShadow ? ':cast' : ':rest'); (groups[k] || (groups[k] = [])).push(st.rig); }
     this.merged = [];
     for (const [key, rigs] of Object.entries(groups)) {
       if (!rigs.length) continue;
-      const geos = [], bones = [], inverses = [];
-      for (const rig of rigs) {
-        const g = rig.skinned.geometry.clone();
-        const off = bones.length, si = g.attributes.skinIndex;
-        for (let i = 0; i < si.count; i++) si.setXYZW(i, si.getX(i) + off, si.getY(i) + off, si.getZ(i) + off, si.getW(i) + off);
-        geos.push(g);
-        bones.push(...rig.skeleton.bones); inverses.push(...rig.skeleton.boneInverses.map(m => m.clone()));
-        rig.skinned.geometry.dispose();
-      }
-      const geo = mergeGeometries(geos, false); geos.forEach(g => g.dispose());
-      const mesh = new THREE.SkinnedMesh(geo, material);
-      mesh.bind(new THREE.Skeleton(bones, inverses), new THREE.Matrix4());
-      mesh.frustumCulled = false; mesh.castShadow = key === 'cast'; mesh.receiveShadow = true; mesh.name = 'crowd-' + key;
+      const mesh = rigs[0].human ? this._mergeHumans(rigs) : this._mergeProc(rigs, material);
+      mesh.frustumCulled = false; mesh.castShadow = key.endsWith(':cast'); mesh.receiveShadow = true; mesh.name = 'crowd-' + key;
       this.gfx.scene.add(mesh); this.merged.push(mesh);
     }
+  }
+  _mergeProc(rigs, material) {
+    const geos = [], bones = [], inverses = [];
+    for (const rig of rigs) {
+      const g = rig.skinned.geometry.clone();
+      const off = bones.length, si = g.attributes.skinIndex;
+      for (let i = 0; i < si.count; i++) si.setXYZW(i, si.getX(i) + off, si.getY(i) + off, si.getZ(i) + off, si.getW(i) + off);
+      geos.push(g);
+      bones.push(...rig.skeleton.bones); inverses.push(...rig.skeleton.boneInverses.map(m => m.clone()));
+      rig.skinned.geometry.dispose();
+    }
+    const geo = mergeGeometries(geos, false); geos.forEach(g => g.dispose());
+    const mesh = new THREE.SkinnedMesh(geo, material);
+    mesh.bind(new THREE.Skeleton(bones, inverses), new THREE.Matrix4());
+    return mesh;
+  }
+  /** Echte Figuren eines Atlas zu einem SkinnedMesh mit zwei Gruppen (deckend, Haar mit Alphatest) zusammenführen */
+  _mergeHumans(rigs) {
+    let nv = 0, no = 0, na = 0;
+    for (const r of rigs) { const g = r.skinned.geometry; nv += g.attributes.position.count; for (const gr of g.groups) { if (gr.materialIndex) na += gr.count; else no += gr.count; } }
+    const A = (name, size, C, norm = false) => ({ name, size, arr: new C(nv * size), norm });
+    const attrs = [A('position', 3, Float32Array), A('normal', 3, Float32Array), A('uv', 2, Uint16Array, true), A('skinIndex', 4, Uint16Array), A('skinWeight', 4, Uint8Array, true), A('aSurf', 4, Uint8Array), A('aTint', 3, Float32Array)];
+    const index = new (nv > 65535 ? Uint32Array : Uint16Array)(no + na);
+    const bones = [], inverses = [];
+    let vo = 0, io = 0, ia = no;
+    for (const r of rigs) {
+      const g = r.skinned.geometry, n = g.attributes.position.count, boff = bones.length;
+      for (const a of attrs) {
+        const src = g.attributes[a.name];
+        if (!src) { if (a.name === 'aTint') a.arr.fill(1, vo * 3, (vo + n) * 3); continue; }
+        if (a.name === 'skinIndex') for (let i = 0; i < n * 4; i++) a.arr[vo * 4 + i] = src.array[i] + boff;
+        else a.arr.set(src.array.subarray(0, n * a.size), vo * a.size);
+      }
+      const idx = g.index.array;
+      for (const gr of g.groups) for (let i = gr.start; i < gr.start + gr.count; i++) { if (gr.materialIndex) index[ia++] = idx[i] + vo; else index[io++] = idx[i] + vo; }
+      bones.push(...r.skeleton.bones); inverses.push(...r.skeleton.boneInverses.map(m => m.clone()));
+      vo += n; g.dispose();
+    }
+    const geo = new THREE.BufferGeometry();
+    for (const a of attrs) geo.setAttribute(a.name, a.name === 'skinIndex' ? new THREE.Uint16BufferAttribute(a.arr, 4) : new THREE.BufferAttribute(a.arr, a.size, a.norm));
+    geo.setIndex(new THREE.BufferAttribute(index, 1));
+    geo.addGroup(0, no, 0); geo.addGroup(no, na, 1);
+    geo.computeBoundingSphere();
+    const mesh = new THREE.SkinnedMesh(geo, rigs[0].skinned.material);
+    mesh.bind(new THREE.Skeleton(bones, inverses), new THREE.Matrix4());
+    return mesh;
   }
   /** Studierende:n nachträglich hinzufügen (schrittweises Laden) */
   addStudent(s) { return this._add(s, this.mat); }

@@ -8,6 +8,7 @@ import { buildOutside, buildBlinds } from '../scene/outside.js';
 import { buildProps, buildDetails } from '../scene/props.js';
 import { characterMaterial } from '../chars/rig.js';
 import { Crowd } from '../chars/crowd.js';
+import { loadHumans } from '../chars/humans.js';
 import { planPopulation } from './population.js';
 import { damp } from '../core/util.js';
 import * as LY from '../scene/layout.js';
@@ -38,7 +39,9 @@ export async function buildWorld(gfx, params, progress = () => {}) {
   W.details = buildDetails(gfx, W.hall, W.plan);
   await step(0.62, 'load.people');
   W.charMat = characterMaterial(gfx);
-  W.crowd = new Crowd(gfx, W.charMat, { ...W.plan, students: [] }, { shadows: gfx.preset.id === 'ultra' ? 'all' : gfx.preset.studentShadows });
+  // Echte Figuren (MakeHuman/MPFB, CC0); ohne eingebettete Daten bleibt es bei den prozeduralen Figuren
+  try { W.humans = await loadHumans(gfx, f => progress(0.6 + f * 0.02, 'load.people')); } catch (e) { console.warn('Figuren: Rückfall auf prozedurale Figuren', e); W.humans = null; }
+  W.crowd = new Crowd(gfx, W.charMat, { ...W.plan, students: [] }, { shadows: gfx.preset.id === 'ultra' ? 'all' : gfx.preset.studentShadows, humans: W.humans });
   // Figuren einzeln anlegen und zwischendurch dem Browser Luft lassen (Menü bleibt bedienbar)
   for (let i = 0; i < W.plan.students.length; i++) {
     W.crowd.addStudent(W.plan.students[i]);

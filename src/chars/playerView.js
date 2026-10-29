@@ -16,9 +16,9 @@ export const AVATARS = {
 };
 
 export class PlayerView {
-  constructor(gfx, mat, session, props, avatarId = 'a') {
+  constructor(gfx, mat, session, props, avatarId = 'a', humans = null) {
     this.gfx = gfx; this.session = session; this.props = props;
-    this.rig = buildCharacter(AVATARS[avatarId] || AVATARS.a, mat);
+    this.rig = (humans && humans.hero('player_' + (AVATARS[avatarId] ? avatarId : 'a'))) || buildCharacter(AVATARS[avatarId] || AVATARS.a, mat);
     this.char = new Character(this.rig, { floorAt: LY.floorAt, seed: 3 });
     this.rig.mesh.castShadow = true;
     this.rig.mesh.receiveShadow = false; // keine Eigenschatten-Akne an Händen/Ärmeln direkt vor der Kamera
