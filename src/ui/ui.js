@@ -237,7 +237,8 @@ export class UI {
     if (!c || !box) return;
     const esc = x => String(x).replace(/[&<>"]/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[ch]);
     const fill = () => {
-      box.innerHTML = `<h2 class="h2bar">${esc(t('credits.figures'))}</h2><p>${esc(t('credits.figuresText'))} ${esc(c.figures.join(', '))}.</p>`
+      box.innerHTML = `<h2 class="h2bar">${esc(t('credits.figures'))}</h2><p>${esc(t(c.figuresSource === 'rocketbox' ? 'credits.figuresTextRB' : 'credits.figuresText'))} ${esc(c.figures.join(', ').replace(/_/g, ' '))}.</p>`
+        + (c.figuresLicense ? `<details class="lic"><summary>${esc(t('credits.figuresLicense'))}</summary><pre style="white-space:pre-wrap;font-size:12px">${esc(c.figuresLicense)}</pre></details>` : '')
         + (c.models && c.models.length ? `<h2 class="h2bar">${esc(t('credits.models'))}</h2><p>${esc(t('credits.modelsText'))} ${esc(c.models.join(', '))}.</p>` : '')
         + `<h2 class="h2bar">${esc(t('credits.voices'))}</h2><p>${esc(c.voices.de)}<br>${esc(c.voices.en)}</p>`
         + (c.sounds && c.sounds.length ? `<h2 class="h2bar">${esc(t('credits.sounds'))}</h2><ul class="credit-list">${c.sounds.map(s => `<li>${esc(s.line)}</li>`).join('')}</ul>` : '');

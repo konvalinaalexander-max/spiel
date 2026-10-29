@@ -51,7 +51,7 @@ export function makeVisemeTrack(text, lang, dur, env = null) {
     let lo = 0, hi = N; while (lo < hi) { const mid = (lo + hi) >> 1; if (cum[mid + 1] < target) lo = mid + 1; else hi = mid; }
     return (lo + 0.5) / 20;
   });
-  const out = { jaw: 0, up: 0, low: 0, wide: 0, fwd: 0 };
+  const out = { jaw: 0, up: 0, low: 0, wide: 0, fwd: 0, v0: 'rest', v1: 'rest', f: 0, e: 0 };
   return t => {
     const e = env ? Math.min(1, env(t) * 1.6) : 0.6;
     // nächste zwei Laute weich überblenden
@@ -60,6 +60,8 @@ export function makeVisemeTrack(text, lang, dur, env = null) {
     const span = Math.max(0.04, (times[k + 1] ?? times[k] + 0.1) - times[k]);
     let f = Math.min(1, Math.max(0, (t - times[k]) / span)); f = f * f * (3 - 2 * f);
     const voiced = e > 0.06 ? 1 : 0;
+    // für Figuren mit Gesichtsformen (Rocketbox-Visemes): aktuelle/nächste Lautklasse, Überblendung, Lautstärke
+    out.v0 = voiced ? seq[k] : 'rest'; out.v1 = voiced ? seq[Math.min(seq.length - 1, k + 1)] : 'rest'; out.f = f; out.e = e;
     for (const key of KEYS) {
       const v = a[key] + (b[key] - a[key]) * f;
       out[key] = voiced ? (key === 'jaw' ? v * e : v * Math.min(1, 0.4 + e)) : VISEMES.rest[key];

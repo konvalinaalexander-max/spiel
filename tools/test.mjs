@@ -198,6 +198,37 @@ test('Figuren: Skin-Gewichte je Vertex ergeben genau 255 (sonst wandern Vertices
     }
   }
 });
+test('Rocketbox-Figuren: Gewichte = 255, Animationen (CLP2) vollständig und gültig, MIT-Hinweis in den Credits', () => {
+  for (const prof of ['desktop', 'mobile']) {
+    const dir = `assets/build/${prof}/people`; if (!has(dir + '/index.json')) { ok(prof === 'mobile', 'desktop: people/index.json fehlt'); continue; }
+    const idx = readJ(dir + '/index.json');
+    ok(Object.keys(idx.people).length >= 30, prof + ': zu wenige Figuren');
+    for (const id of ['prof', 'neighbor', 'tutor', 'player_a', 'player_b', 'player_c']) ok(idx.people[id], `${prof}: ${id} fehlt`);
+    for (const id of Object.keys(idx.people)) {
+      const ab = zlib.gunzipSync(fs.readFileSync(path.join(root, `${dir}/${id}.hpk`)));
+      const jl = ab.readUInt32LE(4), head = JSON.parse(ab.subarray(8, 8 + jl).toString());
+      ok(head.rocketbox && head.rest && head.alias, id + ': Rocketbox-Kopf unvollständig');
+      const b = head.buffers.find(x => x.name === 'weights'), w = ab.subarray(8 + jl + b.offset, 8 + jl + b.offset + b.length);
+      let bad = 0; for (let i = 0; i < w.length; i += 4) if (w[i] + w[i + 1] + w[i + 2] + w[i + 3] !== 255) bad++;
+      ok(bad === 0, `${prof}/${id}: ${bad} Vertices mit Gewichtssumme ≠ 255`);
+      if (['prof', 'neighbor', 'tutor'].includes(id)) ok(head.morphs.some(m => /^AA_VI_10/.test(m.name)) && head.morphs.some(m => /^AK_09/.test(m.name)), id + ': Visem-/Blinzel-Formen fehlen');
+    }
+    const need = { m: ['sit_idle_1', 'sit_breathe', 'idle_1', 'walk'], f: ['sit_idle_1', 'sit_breathe', 'idle_1', 'walk'], prof: ['talk_1', 'present_left', 'idle_3'] };
+    for (const [set, names] of Object.entries(need)) {
+      const ab = zlib.gunzipSync(fs.readFileSync(path.join(root, dir, idx.clips[set].file)));
+      eq(ab.subarray(0, 4).toString(), 'CLP2');
+      const jl = ab.readUInt32LE(4), head = JSON.parse(ab.subarray(8, 8 + jl).toString()), base = 8 + jl;
+      for (const n of names) ok(head.clips.some(c => c.name === n), `${set}: Clip ${n} fehlt`);
+      // Stichprobe: aufsummierte Drehungen sind Einheitsquaternionen
+      const c = head.clips[0], t = c.tracks.find(x => x.q), a = new Int16Array(ab.buffer.slice(ab.byteOffset + base + t.q[0], ab.byteOffset + base + t.q[0] + t.q[1] * 2));
+      const acc = new Int16Array(4); let worst = 0;
+      for (let i = 0; i < a.length; i++) { acc[i % 4] = i < 4 ? a[i] : acc[i % 4] + a[i]; if (i % 4 === 3) worst = Math.max(worst, Math.abs(Math.hypot(...acc) / 32767 - 1)); }
+      ok(worst < 0.01, `${set}/${c.name}: Quaternion-Norm weicht ab (${worst.toFixed(4)})`);
+    }
+  }
+  const cr = readJ('assets/build/credits.json');
+  ok(cr.figuresSource === 'rocketbox' && /MIT License/.test(cr.figuresLicense) && /Microsoft/.test(cr.figuresLicense), 'Credits: Rocketbox-Lizenzhinweis fehlt');
+});
 test('Materialien und Requisiten: Dateien vorhanden, Lizenz und Quelle je Eintrag', () => {
   for (const prof of ['desktop', 'mobile']) {
     const tx = readJ(`assets/build/${prof}/textures.json`);

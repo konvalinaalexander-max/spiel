@@ -38,6 +38,28 @@ for (const s of sources) {
   const f = fetched[s.id];
   md += `| ${s.id} | \`${s.file}\` | ${s.license || f?.license || '–'} | ${s.author || f?.author || '–'} | ${f ? '`' + f.sha256.slice(0, 16) + '`' : 'noch nicht geladen'} | ${f ? (f.bytes / 1048576).toFixed(1) + ' MB' : '–'} |\n`;
 }
+// Rocketbox-Figuren (Microsoft Rocketbox Avatar Library, MIT) – im Spiel verwendet, sofern verpackt
+const people = read('assets/build/desktop/people/index.json'), peopleCfg = read('tools/pipeline/people.json');
+if (people && peopleCfg) {
+  md += `
+## Figuren und Bewegungen (Microsoft Rocketbox, MIT)
+
+Alle Menschen im Spiel stammen aus der **Microsoft Rocketbox Avatar Library** (github.com/microsoft/Microsoft-Rocketbox,
+MIT-Lizenz, „Copyright (c) 2020 Microsoft“; Lizenztext: \`docs/licenses/Microsoft-Rocketbox-LICENSE.md\`, im Spiel unter
+„Impressum, Quellen & Lizenzen“). Die Bewegungen sind die Motion-Capture-Animationen derselben Bibliothek (Sitzen am Tisch,
+Stehen, Gehen, Sprechgesten). Geladen mit \`python3 -I tools/pipeline/people-fetch.py\`, verpackt mit
+\`node tools/pipeline/people.mjs\` (Skelett in Ruhepose, Atlanten KTX2, Gesichtsformen für Prof/Nachbarin/Tutorin, Animationen
+als Int16-Differenzen). Haarkarten: Normalen nach außen gekämmt, Deckung beim Verkleinern erhalten (\`tools/pipeline/hair.mjs\`).
+
+| Rolle | Figur | Gesichtsformen |
+|---|---|---|
+`;
+  for (const [id, h] of Object.entries(peopleCfg.heroes)) md += `| ${id} (${h.role}) | ${h.avatar} | ${h.facial ? 'ja (Visemes, Blinzeln, Brauen)' : '–'} |\n`;
+  md += `| Studierende (weiblich) | ${peopleCfg.crowd.f.join(', ')} | – |\n| Studierende (männlich) | ${peopleCfg.crowd.m.join(', ')} | – |\n`;
+  md += `\nAnimationen (Rocketbox, je männlich/weiblich): ${Object.entries(peopleCfg.clips.common).map(([k, v]) => `${k} (\`${v.replace(/^.*:/, '')}\`)`).join(', ')}.\n`;
+  md += `Prof zusätzlich: ${Object.entries(peopleCfg.clips.prof).map(([k, v]) => `${k} (\`${v}\`)`).join(', ')}.\n`;
+  md += `\nDie älteren MakeHuman/MPFB-Figuren (unten) bleiben als Rückfallebene im Werkzeug (\`node tools/build.mjs --old-humans\`), werden aber nicht mehr eingebettet.\n`;
+}
 md += `
 ## Figuren (MakeHuman-Assetpakete, CC0)
 
@@ -94,8 +116,11 @@ CC-BY-Aufnahmen sind im Spiel unter „Impressum, Quellen & Lizenzen“ genannt.
 }
 fs.writeFileSync(path.join(root, 'docs/ASSETS.md'), md);
 // Nennungen für die Credits-Seite im Spiel
+const rbLicense = fs.existsSync(path.join(root, 'docs/licenses/Microsoft-Rocketbox-LICENSE.md')) ? fs.readFileSync(path.join(root, 'docs/licenses/Microsoft-Rocketbox-LICENSE.md'), 'utf8').trim() : '';
 const credits = {
-  figures: [...authors].sort(),
+  figures: people && peopleCfg ? [...new Set([...Object.values(peopleCfg.heroes).map(h => h.avatar), ...peopleCfg.crowd.f, ...peopleCfg.crowd.m])].sort() : [...authors].sort(),
+  figuresSource: people && peopleCfg ? 'rocketbox' : 'makehuman',
+  figuresLicense: people && peopleCfg ? rbLicense : '',
   voices: { de: 'Coqui XTTS v2 (CPML, nicht-kommerziell): Damien Black, Daisy Studious, Sofia Hellen, Andrew Chipper – synthetische Studiosprecher',
     en: 'Kokoro-82M by hexgrad (Apache-2.0): bm_daniel, bf_emma, af_heart, am_michael – synthetic voices' },
   models: [...new Set(Object.values(props).flatMap(p => p.authors || []))].sort(),

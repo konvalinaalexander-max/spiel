@@ -20,13 +20,15 @@ export class PlayerView {
   constructor(gfx, mat, session, props, avatarId = 'a', humans = null) {
     this.gfx = gfx; this.session = session; this.props = props;
     this.rig = (humans && humans.hero('player_' + (AVATARS[avatarId] ? avatarId : 'a'))) || buildCharacter(AVATARS[avatarId] || AVATARS.a, mat);
-    this.char = new Character(this.rig, { floorAt: LY.floorAt, seed: 3 });
+    this.char = this.rig.rocketbox ? humans.character(this.rig, { floorAt: LY.floorAt, seed: 3, fidgets: false }) : new Character(this.rig, { floorAt: LY.floorAt, seed: 3 });
+    if (this.char.isClip) { this.char.activity = 'player'; this.char.lookShare = 1; }
     this.rig.mesh.castShadow = true;
     this.rig.mesh.receiveShadow = false; // keine Eigenschatten-Akne an Händen/Ärmeln direkt vor der Kamera
     gfx.scene.add(this.rig.mesh);
     // Augenposition relativ zum Kopf-Bone (vor dem Ausblenden des Kopfes)
     const b = this.rig.bones;
-    this.eyeLocal = b.eyeL.position.clone().add(b.eyeR.position).multiplyScalar(0.5).add(V(0, 0.005, 0.02));
+    // (Rocketbox-Kopf: lokale +X = oben, +Y = vorne)
+    this.eyeLocal = b.eyeL.position.clone().add(b.eyeR.position).multiplyScalar(0.5).add(this.rig.rocketbox ? V(0.005, 0.02, 0) : V(0, 0.005, 0.02));
     if (this.rig.human) stripHead(this.rig); else b.head.scale.setScalar(0.001);
     // Nahbereich ausblenden: Am Laptop rückt die Kamera vor den Kopf; der eigene Unterarm streift dann knapp an ihr vorbei und
     // füllt als riesiger Keil das Bild. Alles der eigenen Figur, was näher als 16 cm an der Kamera liegt, wird nicht gezeichnet

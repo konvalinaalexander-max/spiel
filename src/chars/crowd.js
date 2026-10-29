@@ -26,7 +26,7 @@ export class Crowd {
     this.late = this._add(plan.latecomer, mat, true);
     // Tutorin
     const tr = (opts.humans && opts.humans.hero('tutor')) || buildCharacter(TUTOR_SPEC, mat);
-    this.tutor = new Character(tr, { floorAt: LY.floorAt, seed: 314 });
+    this.tutor = tr.rocketbox ? opts.humans.character(tr, { floorAt: LY.floorAt, seed: 314 }) : new Character(tr, { floorAt: LY.floorAt, seed: 314 });
     gfx.scene.add(tr.mesh); tr.mesh.visible = false; this.tutor.visible = false;
     this.tutor.placeAt(LY.BACK_DOOR.x, LY.BACK_DOOR.z - 0.4, Math.PI);
     this.focus = { prof: V(0, 1.8, -5), screen: V(LY.SCREEN.x, LY.SCREEN.y, LY.SCREEN.z), board: V(LY.BOARD.x, LY.BOARD.lowY + 0.6, LY.ROOM.z0), player: V() };
@@ -35,11 +35,15 @@ export class Crowd {
     const rig = (this.opts.humans && this.opts.humans.forStudent(s)) || buildCharacter(s.spec, mat);
     // Die Figur wird nicht einzeln gezeichnet: Knochen hängen an einem leeren Container, die Geometrie
     // kommt später in ein gemeinsames SkinnedMesh (ein Draw Call für viele Figuren, siehe mergeMeshes)
-    const container = new THREE.Object3D();
-    container.add(rig.bones.root);
-    rig.skinned = rig.mesh; rig.mesh = container;
-    const c = new Character(rig, { floorAt: LY.floorAt, seed: s.seed });
-    this.gfx.scene.add(container);
+    // Ausnahme: Figuren mit Gesichtsformen (Nachbarin) bleiben ein eigenes SkinnedMesh (Morphs lassen sich nicht zusammenführen)
+    if (rig.mesh.morphTargetInfluences) { rig.separate = true; rig.skinned = rig.mesh; }
+    else {
+      const container = new THREE.Object3D();
+      container.add(rig.bones.root);
+      rig.skinned = rig.mesh; rig.mesh = container;
+    }
+    const c = rig.rocketbox ? this.opts.humans.character(rig, { floorAt: LY.floorAt, seed: s.seed }) : new Character(rig, { floorAt: LY.floorAt, seed: s.seed });
+    this.gfx.scene.add(rig.mesh);
     // Schatten nur dort, wo man sie sieht (Umgebung des eigenen Platzes) – spart je Kaskade einen Draw Call pro Figur
     const pl = this.plan.player;
     const near = !pl || !s.seat || (Math.abs(s.seat.row - pl.row) <= 2 && Math.abs(s.seat.k - pl.k) <= 4);
@@ -62,7 +66,10 @@ export class Crowd {
   mergeMeshes(material) {
     const groups = {};
     // Echte Figuren je Atlas getrennt (eigene Materialien), prozedurale Figuren wie bisher; jeweils schattenwerfend/übrige
-    for (const st of this.list) { const k = (st.rig.atlasKey || 'proc') + (st.rig.castShadow ? ':cast' : ':rest'); (groups[k] || (groups[k] = [])).push(st.rig); }
+    for (const st of this.list) {
+      if (st.rig.separate) { st.rig.skinned.castShadow = !!st.rig.castShadow; continue; }
+      const k = (st.rig.atlasKey || 'proc') + (st.rig.castShadow ? ':cast' : ':rest'); (groups[k] || (groups[k] = [])).push(st.rig);
+    }
     this.merged = [];
     for (const [key, rigs] of Object.entries(groups)) {
       if (!rigs.length) continue;
@@ -224,6 +231,8 @@ export class Crowd {
     c.sleepy = p === 'sleeper';
     // Arme je Profil
     c.setArm('L', 0); c.setArm('R', 0);
+    if (c.isClip) this._clipActivity(st, dt, t, L, ctx);
+    else {
     const handDir = V(0, -0.45, -1).normalize(), palm = V(0, -1, 0);
     const poleR = L(0.4, 0.55, 0.15), poleL = L(-0.4, 0.55, 0.15); // rechts = +x (Blick −z)
     const deskPt = (x, dz = 0) => V(s.seat.x + x, deskY, deskZ + dz);
@@ -267,6 +276,7 @@ export class Crowd {
       c.setArm('L', 1, deskPt(-0.07, 0.03), poleL, { dir: V(0.6, -0.2, -1).normalize(), palm });
     }
     if (p !== 'sleeper') c.lean = damp(c.lean, st.look === 'desk' ? 0.12 : 0.03, 2, dt);
+    }
     // Nicken (Zuhörer:innen, Mitschreibende bei Kernaussagen) und Lachen über eine Pointe
     st.nodT = (st.nodT ?? this.rng.range(4, 16)) - dt;
     if (st.nodT <= 0 && (p === 'listener' || p === 'asker' || (p === 'writer' && this.rng.chance(0.3)))) { st.nodT = this.rng.range(8, 22); st.nod = 0.9; }
@@ -285,12 +295,58 @@ export class Crowd {
     if (s.role === 'neighbor' && st.lean2Target !== undefined) { c.lean2 = damp(c.lean2, st.lean2Target, 4, dt); st.lean2T -= dt; if (st.lean2T <= 0) st.lean2Target = 0; }
     if (st.stretch > 0) { st.stretch -= dt; c.setArm('R', 1, L(0.3, 1.7, 0.05), L(0.6, 1.1, 0.2), { dir: V(0, 1, 0), palm: V(0, 0, -1) }); c.setArm('L', 1, L(-0.3, 1.7, 0.05), L(-0.6, 1.1, 0.2), { dir: V(0, 1, 0), palm: V(0, 0, -1) }); }
   }
+  /**
+   * Motion-Capture-Figuren: Die Grundbewegung kommt aus den Clips (Zuhören, Arbeiten am Tisch, Eigenheiten). IK nur dort, wo eine
+   * Hand an einen bestimmten Ort muss (Hand heben, Handy halten, Kaffeebecher zum Mund).
+   */
+  _clipActivity(st, dt, t, L, ctx) {
+    const c = st.c, s = st.s, p = s.profile;
+    const typing = (p === 'typer' || s.role === 'opponent' || s.role === 'latecomer') && (s.role !== 'opponent' || ctx.oppTyping || this.rng.chance(0.02));
+    let act = 'listen';
+    if (st.handUp) { act = 'calm'; c.setArm('R', 1, L(0.18, 1.62, -0.05), L(0.5, 1.1, 0.1), { dir: V(0, 1, 0), palm: V(0, 0, -1) }); }
+    else if (p === 'sleeper') { act = 'sleep'; c.lean = damp(c.lean, 0.32, 2, dt); }
+    else if (typing || (p === 'typer' && st.look === 'desk') || ((p === 'writer' || s.role === 'neighbor') && st.look === 'desk')) {
+      // Hände per IK an Tastatur bzw. Stift, Grundhaltung aus ruhigen Sitz-Clips
+      // Tastatur/Heft liegen ~12 cm hinter der Pultkante; dazu leicht vorbeugen (sonst gestreckte Arme)
+      const deskY = s.seat.floor + LY.DESK_H + 0.03, deskZ = LY.rowFront(s.seat.row) + 0.28;
+      c.lean = damp(c.lean, 0.16, 2, dt);
+      const deskPt = (x, dz = 0) => V(s.seat.x + x, deskY, deskZ + dz), poleR = L(0.4, 0.55, 0.15), poleL = L(-0.4, 0.55, 0.15);
+      const handDir = V(0, -0.45, -1).normalize(), palm = V(0, -1, 0);
+      if (p === 'writer' || s.role === 'neighbor') {
+        act = 'work';
+        const wx = Math.sin(t * 2.3 + st.phase) * 0.035, wz = Math.sin(t * 7.1 + st.phase) * 0.006;
+        c.setArm('R', 0.95, deskPt(0.09 + wx, 0.08 + wz), poleR, { dir: handDir, palm: V(-0.4, -1, 0).normalize() });
+        c.setArm('L', 0.8, deskPt(-0.14, 0.06), poleL, { dir: V(0.5, -0.3, -1).normalize(), palm });
+        if (this.rng.chance(dt * 0.6)) this.sfx('penWrite', L(0, LY.DESK_H, -0.3), 0.12);
+      } else {
+        act = 'type';
+        const k = typing ? 1 : 0.25, jR = Math.sin(t * 13 + st.phase) * 0.008 * k, jL = Math.sin(t * 11.3 + st.phase * 2) * 0.008 * k;
+        c.setArm('R', 0.95, deskPt(0.08 + jR, 0.06), poleR, { dir: handDir, palm });
+        c.setArm('L', 0.95, deskPt(-0.08 + jL, 0.06), poleL, { dir: handDir, palm });
+        if (typing && this.rng.chance(dt * 6)) this.sfx('keyClick', L(0, LY.DESK_H, -0.3), 0.18);
+      }
+    }
+    else if (p === 'phone') {
+      act = 'calm';
+      const scroll = Math.sin(t * 1.7 + st.phase) * 0.01, poleR = L(0.4, 0.55, 0.15), poleL = L(-0.4, 0.55, 0.15);
+      // Handy im Schoß unter der Pultkante (Blick „desk“ zeigt dorthin), Handflächen zum Gesicht
+      c.setArm('R', 0.9, L(0.05, LY.DESK_H - 0.07 + scroll, -0.1), poleR, { dir: V(0, 0.3, -1).normalize(), palm: V(0, 0.6, 0.8).normalize() });
+      c.setArm('L', 0.9, L(-0.05, LY.DESK_H - 0.08, -0.1), poleL, { dir: V(0, 0.3, -1).normalize(), palm: V(0, 0.6, 0.8).normalize() });
+    } else if (p === 'coffee') {
+      st.drinkT -= dt;
+      if (st.drinkT < -2.4) st.drinkT = this.rng.range(10, 28);
+      const k = st.drinkT < 0 ? Math.sin(clamp(-st.drinkT / 2.4, 0, 1) * Math.PI) : 0;
+      if (k > 0.01) { const mouth = c.headWorld(V()).add(V(0, -0.08, -0.08)); c.setArm('R', k, mouth, L(0.4, 0.55, 0.15), { dir: V(0, 0.2, -1).normalize(), palm: V(-1, 0, 0) }); }
+    }
+    c.activity = act;
+    if (p !== 'sleeper' && act !== 'type' && act !== 'work') c.lean = damp(c.lean, 0, 2, dt);
+  }
   neighborWhisper() { const st = this.byId.get(this.plan.neighbor.id); if (!st) return; st.lean2Target = (this.plan.neighbor.seat.x < LY.seatX(this.plan.player.k) ? -1 : 1) * 0.18; st.lean2T = 1.6; st.react = { point: this.focus.player.clone(), t: 0, dur: 1.5 }; }
   neighborGlance() { const st = this.byId.get(this.plan.neighbor.id); if (st) st.glance = 1.3; }
   _walk(st, dt) {
     const c = st.c, w = st.walk;
     const tgt = w.pts[w.i];
-    if (!tgt) { st.walk = null; this._sit(st, false); this.sfx('chairCreak', st.s.seat ? V(st.s.seat.x, st.s.seat.floor + 0.5, st.s.seat.z) : c.pos, 0.6); return; }
+    if (!tgt) { st.walk = null; c.walkSpeed = 0; this._sit(st, false); this.sfx('chairCreak', st.s.seat ? V(st.s.seat.x, st.s.seat.floor + 0.5, st.s.seat.z) : c.pos, 0.6); return; }
     const d = Math.hypot(tgt.x - c.pos.x, tgt.z - c.pos.z);
     if (d < 0.08) { w.i++; return; }
     const sp = Math.min(d, 0.95 * dt);
@@ -301,11 +357,11 @@ export class Crowd {
   _leaving(st, dt) {
     const L = st.leaving, c = st.c;
     L.t += dt;
-    if (L.stage === 'stand') { if (L.t > 0) { c.standUp(); L.stage = 'standing'; L.t = 0; } return; }
+    if (L.stage === 'stand') { if (L.t > 0) { c.standUp(); c.walkSpeed = 0; L.stage = 'standing'; L.t = 0; } return; }
     if (L.stage === 'standing') { if (L.t > 1.2) { L.stage = 'out'; L.path = this._pathOut(st.s.seat); } return; }
     if (L.stage === 'out') {
       const tgt = L.path.pts[L.path.i];
-      if (!tgt) { L.stage = 'gone'; c.visible = false; this._show(st.rig, false); st.present = false; if (L.forever) st.leaving = null; return; }
+      if (!tgt) { L.stage = 'gone'; c.walkSpeed = 0; c.visible = false; this._show(st.rig, false); st.present = false; if (L.forever) st.leaving = null; return; }
       const d = Math.hypot(tgt.x - c.pos.x, tgt.z - c.pos.z);
       if (d < 0.1) { L.path.i++; return; }
       const sp = Math.min(d, 0.9 * dt); c.pos.x += (tgt.x - c.pos.x) / d * sp; c.pos.z += (tgt.z - c.pos.z) / d * sp;

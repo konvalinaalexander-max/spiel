@@ -51,7 +51,7 @@ export async function buildWorld(gfx, params, progress = () => {}) {
   W.details = buildDetails(gfx, W.hall, W.plan);
   await step(0.62, 'load.people');
   W.charMat = characterMaterial(gfx);
-  // Echte Figuren (MakeHuman/MPFB, CC0); ohne eingebettete Daten bleibt es bei den prozeduralen Figuren
+  // Echte Figuren (Microsoft Rocketbox mit Motion Capture, MIT; ältere Fassung MakeHuman/MPFB, CC0); ohne eingebettete Daten bleibt es bei den prozeduralen Figuren
   try { W.humans = await loadHumans(gfx, f => progress(0.6 + f * 0.02, 'load.people')); } catch (e) { console.warn('Figuren: Rückfall auf prozedurale Figuren', e); W.humans = null; }
   W.crowd = new Crowd(gfx, W.charMat, { ...W.plan, students: [] }, { shadows: gfx.preset.id === 'ultra' ? 'all' : gfx.preset.studentShadows, humans: W.humans });
   // Figuren einzeln anlegen und zwischendurch dem Browser Luft lassen (Menü bleibt bedienbar)

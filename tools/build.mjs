@@ -62,12 +62,15 @@ const safeJs = js.replace(/<\/script/gi, '<\\/script');
 // Echte Figuren (Phase 4): verpackte Geometrie (HPK) + Atlanten (KTX2) + Basis-Transkodierer als eingebetteter Datenblock.
 // Liegt kein verpacktes Profil vor, bleibt der Block leer und das Spiel nutzt die prozeduralen Figuren.
 const profile = process.argv.includes('--profile') ? process.argv[process.argv.indexOf('--profile') + 1] : (mobile ? 'mobile' : 'desktop');
-const humDir = path.join(root, 'assets/build', profile, 'humans');
+// Rocketbox-Figuren mit Motion-Capture (assets/build/<profil>/people, tools/pipeline/people.mjs) haben Vorrang vor den älteren
+// MakeHuman-Figuren (…/humans); --old-humans erzwingt die alten.
+const peopleDir = path.join(root, 'assets/build', profile, 'people');
+const humDir = fs.existsSync(path.join(peopleDir, 'index.json')) && !process.argv.includes('--old-humans') ? peopleDir : path.join(root, 'assets/build', profile, 'humans');
 let humansBlock = '';
 if (!mobile && fs.existsSync(path.join(humDir, 'index.json')) && !process.argv.includes('--no-humans')) {
   const index = JSON.parse(fs.readFileSync(path.join(humDir, 'index.json'), 'utf8'));
   const files = {};
-  for (const f of fs.readdirSync(humDir)) if (/\.(hpk|ktx2)$/.test(f)) files[f] = fs.readFileSync(path.join(humDir, f)).toString('base64');
+  for (const f of fs.readdirSync(humDir)) if (/\.(hpk|ktx2|bin\.gz)$/.test(f)) files[f] = fs.readFileSync(path.join(humDir, f)).toString('base64');
   const basis = path.join(root, 'node_modules/three/examples/jsm/libs/basis');
   humansBlock = JSON.stringify({ index, files, basis: { js: fs.readFileSync(path.join(basis, 'basis_transcoder.js')).toString('base64'), wasm: fs.readFileSync(path.join(basis, 'basis_transcoder.wasm')).toString('base64') } });
 }

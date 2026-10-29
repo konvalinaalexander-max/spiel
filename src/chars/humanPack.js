@@ -9,7 +9,7 @@
 import * as THREE from 'three';
 import { FACE } from './humanAsset.js';
 
-const TYPES = { Float32Array, Int8Array, Uint16Array, Uint8Array, Uint32Array };
+const TYPES = { Float32Array, Int8Array, Int16Array, Uint16Array, Uint8Array, Uint32Array };
 
 /** gzip-komprimierte HPK-Bytes → { head, arr } */
 export async function decodeHPK(bytes) {
@@ -40,6 +40,16 @@ export function hpkGeometry({ head, arr }) {
   head.groups.forEach((gr, i) => g.addGroup(gr.start, gr.count, gr.alpha ? 1 : 0));
   // Detailstufe 1 (nur Menge): anderes Indexfeld auf denselben Vertices – crowd.js wählt je Figur nach Abstand
   if (arr.index1 && head.groups1) g.userData.lod1 = { index: arr.index1, groups: head.groups1.map(gr => ({ start: gr.start, count: gr.count, materialIndex: gr.alpha ? 1 : 0 })) };
+  // Gesichtsformen (Rocketbox-Hauptfiguren): dünn besetzt gespeichert (Vertexindex + Versatz in 0,1 mm) → dichte Differenzen
+  if (head.morphs && head.morphs.length) {
+    g.morphAttributes.position = head.morphs.map(m => {
+      const out = new Float32Array(n * 3), vi = arr[m.i], d = arr[m.d];
+      for (let j = 0; j < vi.length; j++) { out[vi[j] * 3] = d[j * 3] * m.scale; out[vi[j] * 3 + 1] = d[j * 3 + 1] * m.scale; out[vi[j] * 3 + 2] = d[j * 3 + 2] * m.scale; }
+      return new THREE.BufferAttribute(out, 3);
+    });
+    g.morphTargetsRelative = true;
+    g.userData.morphNames = head.morphs.map(m => m.name);
+  }
   g.computeBoundingSphere();
   return g;
 }
@@ -54,11 +64,15 @@ export function rigFromHPK(data, materials) {
   for (const nm of names) {
     const b = new THREE.Bone(); b.name = nm;
     const p = head.parents[nm];
-    b.position.copy(bindPos[nm]); if (p) b.position.sub(bindPos[p]);
+    if (head.rest) { const r = head.rest[nm]; b.position.set(r[0], r[1], r[2]); b.quaternion.set(r[3], r[4], r[5], r[6]); }   // Rocketbox: Knochen mit Eigendrehung
+    else { b.position.copy(bindPos[nm]); if (p) b.position.sub(bindPos[p]); }
     bones[nm] = b; list.push(b); if (p) bones[p].add(b);
   }
+  // Spielnamen (hips, handL …) zusätzlich auf die Rocketbox-Knochen zeigen lassen
+  if (head.alias) for (const [k, v] of Object.entries(head.alias)) if (bones[v]) { bones[k] = bones[v]; bindPos[k] = bindPos[v]; }
   const skeleton = new THREE.Skeleton(list);
   const mesh = new THREE.SkinnedMesh(geo, materials);
+  if (geo.userData.morphNames) { mesh.morphTargetDictionary = Object.fromEntries(geo.userData.morphNames.map((n, i) => [n, i])); mesh.morphTargetInfluences = geo.userData.morphNames.map(() => 0); }
   mesh.add(bones.root); bones.root.updateMatrixWorld(true); mesh.bind(skeleton);
   mesh.castShadow = true; mesh.receiveShadow = true; mesh.frustumCulled = false; mesh.name = 'human-' + head.id;
   const lengths = {
@@ -66,8 +80,8 @@ export function rigFromHPK(data, materials) {
     thigh: bindPos.shinL.distanceTo(bindPos.thighL), shin: bindPos.footL.distanceTo(bindPos.shinL), hipHeight: bindPos.hips.y, ankle: bindPos.footL.y
   };
   const fingerSet = s => ({ fingers: [2, 3, 4, 5].map(f => ['a', 'b', 'c'].map(k => bones[`f${f}${k}${s}`])), thumb: [bones[`thumbB${s}`], bones[`thumbC${s}`]] });
-  const fingerBones = head.fingers === 'full' ? { L: fingerSet('L'), R: fingerSet('R') } : null;
-  return { mesh, skinned: mesh, bones, skeleton, bindPos, lengths, spec: { female: head.female }, H: head.height / 1.76, human: true, face: FACE, fingerBones, design: head };
+  const fingerBones = head.fingers === 'full' && !head.rocketbox ? { L: fingerSet('L'), R: fingerSet('R') } : null;
+  return { mesh, skinned: mesh, bones, skeleton, bindPos, lengths, spec: { female: head.female }, H: head.height / 1.76, human: true, face: FACE, fingerBones, design: head, rocketbox: !!head.rocketbox };
 }
 
 /**
@@ -83,6 +97,10 @@ export function humanMaterial(gfx, { map, normalMap = null, alpha = false, tint 
       .replace('#include <common>', `#include <common>\nvarying vec2 vSurf;${tint ? '\nvarying vec3 vTint;' : ''}`)
       .replace('#include <map_fragment>', `#include <map_fragment>${tint ? '\ndiffuseColor.rgb *= vTint;' : ''}`)
       .replace('#include <roughnessmap_fragment>', 'float roughnessFactor = vSurf.x;')
+      // Haarkarten: Normalen sind nach außen gekämmt (tools/pipeline/hair.mjs) – Rückseiten nicht umdrehen, sonst N·V < 0 → Spiegelglanz
+      .replace('#include <normal_fragment_begin>', alpha ? THREE.ShaderChunk.normal_fragment_begin.replace('gl_FrontFacing ? 1.0 : - 1.0', '1.0') : '#include <normal_fragment_begin>')
+      // Haar: schwächerer Glanz, kaum Streiflicht-Fresnel (sonst helle Linien an den Kartenkanten)
+      .replace('#include <lights_physical_fragment>', alpha ? '#include <lights_physical_fragment>\nmaterial.specularColorBlended *= 0.5; material.specularF90 = 0.3;' : '#include <lights_physical_fragment>')
       .replace('#include <normal_fragment_maps>', THREE.ShaderChunk.normal_fragment_maps.replace('mapN.xy *= normalScale;', 'mapN.xy *= normalScale * vSurf.y;'));
   };
   const m = new THREE.MeshStandardMaterial({ map, normalMap, roughness: 0.8, metalness: 0, name });
@@ -98,9 +116,13 @@ export function humanMaterial(gfx, { map, normalMap = null, alpha = false, tint 
  * gemischten Gewichten zum Kopf hin – lange Dreiecke direkt vor der Kamera.
  */
 export function stripHead(rig) {
-  const g = rig.mesh.geometry, names = rig.skeleton.bones.map(b => b.name);
-  // Kopf, Hals und Schlüsselbeinbereich liegen direkt an der Kamera; schon ein Vertex mit überwiegendem Gewicht dort genügt
-  const HEAD = new Set(['head', 'neck', 'jaw', 'eyeL', 'eyeR', 'lidL', 'lidR', 'browL', 'browR', 'clavL', 'clavR'].map(n => names.indexOf(n)).filter(i => i >= 0));
+  const g = rig.mesh.geometry, list = rig.skeleton.bones;
+  // Kopf, Hals und Schlüsselbeinbereich liegen direkt an der Kamera; schon ein Vertex mit überwiegendem Gewicht dort genügt.
+  // Knochen über die Spielnamen (bei Rocketbox Verweise auf Bip01-Knochen) samt allen Gesichtsknochen unter dem Kopf
+  const HEAD = new Set();
+  for (const n of ['head', 'neck', 'jaw', 'eyeL', 'eyeR', 'lidL', 'lidR', 'browL', 'browR', 'clavL', 'clavR']) if (rig.bones[n]) HEAD.add(list.indexOf(rig.bones[n]));
+  if (rig.bones.head) rig.bones.head.traverse(o => { if (o.isBone) HEAD.add(list.indexOf(o)); });
+  HEAD.delete(-1);
   const si = g.attributes.skinIndex, sw = g.attributes.skinWeight, n = si.count;
   const headW = new Float32Array(n);
   for (let i = 0; i < n; i++) for (let k = 0; k < 4; k++) if (HEAD.has(si.getComponent(i, k))) headW[i] += sw.getComponent(i, k);

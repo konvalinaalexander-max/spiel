@@ -25,6 +25,10 @@ window.run = async (opts) => {
   const gltf = await loader.parseAsync(b64(document.getElementById('glb').textContent).buffer, '');
   const root = gltf.scene; scene.add(root);
   root.traverse(o => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = true; o.frustumCulled = false; } });
+  // Haarkarten wie im Spiel (humanMaterial): gekämmte Normalen, Rückseiten nicht umdrehen
+  root.traverse(o => { if (!o.isMesh) return; for (const m of [].concat(o.material)) if (/opacity/.test(m.name) && !opts.hairFlip) {
+    m.onBeforeCompile = s => { s.fragmentShader = s.fragmentShader.replace('#include <normal_fragment_begin>', THREE.ShaderChunk.normal_fragment_begin.replace('gl_FrontFacing ? 1.0 : - 1.0', '1.0')).replace('#include <lights_physical_fragment>', '#include <lights_physical_fragment>\nmaterial.specularColorBlended *= 0.5; material.specularF90 = 0.3;'); };
+    m.alphaToCoverage = true; m.needsUpdate = true; } });
   if (opts.scale) root.scale.setScalar(opts.scale);
   const mixer = new THREE.AnimationMixer(root);
   const extra = opts.clipsGlb ? (await loader.parseAsync(b64(document.getElementById('clips').textContent).buffer, '')).animations : [];

@@ -60,6 +60,31 @@ Keine Logos oder Fotos der BOKU, keine realen Personen; Prof. Haferkorn und alle
 | acg_PavingStones150 | `ambientcg/PavingStones150_2K-JPG.zip` | CC0-1.0 | ambientCG (Lennart Demes) | noch nicht geladen | – |
 | acg_Grass001 | `ambientcg/Grass001_2K-JPG.zip` | CC0-1.0 | ambientCG (Lennart Demes) | noch nicht geladen | – |
 
+## Figuren und Bewegungen (Microsoft Rocketbox, MIT)
+
+Alle Menschen im Spiel stammen aus der **Microsoft Rocketbox Avatar Library** (github.com/microsoft/Microsoft-Rocketbox,
+MIT-Lizenz, „Copyright (c) 2020 Microsoft“; Lizenztext: `docs/licenses/Microsoft-Rocketbox-LICENSE.md`, im Spiel unter
+„Impressum, Quellen & Lizenzen“). Die Bewegungen sind die Motion-Capture-Animationen derselben Bibliothek (Sitzen am Tisch,
+Stehen, Gehen, Sprechgesten). Geladen mit `python3 -I tools/pipeline/people-fetch.py`, verpackt mit
+`node tools/pipeline/people.mjs` (Skelett in Ruhepose, Atlanten KTX2, Gesichtsformen für Prof/Nachbarin/Tutorin, Animationen
+als Int16-Differenzen). Haarkarten: Normalen nach außen gekämmt, Deckung beim Verkleinern erhalten (`tools/pipeline/hair.mjs`).
+
+| Rolle | Figur | Gesichtsformen |
+|---|---|---|
+| prof (prof) | Male_Adult_03 | ja (Visemes, Blinzeln, Brauen) |
+| neighbor (neighbor) | Female_Adult_08 | ja (Visemes, Blinzeln, Brauen) |
+| tutor (tutor) | Female_Adult_05 | ja (Visemes, Blinzeln, Brauen) |
+| player_a (player) | Male_Adult_06 | – |
+| player_b (player) | Female_Adult_12 | – |
+| player_c (player) | Male_Adult_09 | – |
+| Studierende (weiblich) | Female_Adult_01, Female_Adult_02, Female_Adult_03, Female_Adult_04, Female_Adult_06, Female_Adult_07, Female_Adult_09, Female_Adult_11, Female_Adult_12, Female_Adult_13, Female_Adult_14, Female_Adult_15, Female_Adult_17 | – |
+| Studierende (männlich) | Male_Adult_01, Male_Adult_02, Male_Adult_04, Male_Adult_06, Male_Adult_07, Male_Adult_08, Male_Adult_09, Male_Adult_10, Male_Adult_11, Male_Adult_12, Male_Adult_13, Male_Adult_14, Male_Adult_16, Male_Adult_17, Male_Adult_18, Male_Adult_20 | – |
+
+Animationen (Rocketbox, je männlich/weiblich): sit_idle_1 (`sit_table_idle_neutral_01`), sit_idle_2 (`sit_table_idle_neutral_02`), sit_relaxed (`sit_table_idle_relaxed_01`), sit_breathe (`sit_table_breathe_01`), sit_look (`sit_table_idle_look_around`), sit_yawn (`sit_table_idle_yawn`), sit_scratch (`sit_table_idle_scratch_head`), sit_face (`sit_table_idle_touch_face`), sit_hair (`sit_table_idle_touch_hair`), sit_roll_head (`sit_table_idle_roll_head`), sit_cough (`sit_table_idle_cough`), sit_waiting (`sit_table_idle_waiting_01`), sit_thoughtful (`sit_table_gestic_thoughtful`), sit_shrug (`sit_table_gestic_shrug_01`), sit_down (`sit_down_table_left`), stand_up (`sit_stand_up_table_left`), idle_1 (`idle_neutral_01`), idle_2 (`idle_neutral_02`), idle_look (`idle_look_around_01`), walk (`walk_neutral_01`), walk_slow (`walk_slow_01`), laugh (`gestic_laugh_low`), clap (`claphands_01`), phone (`cell_phone_textmessage`), sit_nervous (`sit_table_idle_nervous_01`), sit_dust (`sit_table_idle_dust`), wave (`wave_01`).
+Prof zusätzlich: talk_1 (`gestic_talk_neutral_01`), talk_2 (`gestic_talk_neutral_02`), talk_3 (`gestic_talk_neutral_03`), talk_4 (`gestic_talk_relaxed_01`), talk_5 (`gestic_talk_relaxed_02`), present_left (`gestic_presentation_left_01`), present_right (`gestic_presentation_right_01`), moderate_1 (`moderate_01`), moderate_2 (`moderate_02`), thoughtful (`gestic_thoughtful_01`), shrug (`gestic_shrug_01`), drink (`drink_drinking`), documents (`documents_note`), listen (`gestic_listen_neutral_01`), idle_3 (`idle_neutral_03`), idle_scratch (`idle_scratch_head_01`), idle_breathe (`idle_breathe_01`), talk_excited (`gestic_talk_excited_01`), talk_left (`gestic_talk_left_01`), talk_right (`gestic_talk_right_01`).
+
+Die älteren MakeHuman/MPFB-Figuren (unten) bleiben als Rückfallebene im Werkzeug (`node tools/build.mjs --old-humans`), werden aber nicht mehr eingebettet.
+
 ## Figuren (MakeHuman-Assetpakete, CC0)
 
 Alle Figuren werden mit `node tools/pipeline/humans.mjs` aus `tools/pipeline/humans.json` erzeugt (Blender + MPFB) und mit

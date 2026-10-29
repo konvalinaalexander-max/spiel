@@ -454,5 +454,7 @@
   "credits.voices": "Voices",
   "credits.sounds": "Sounds and music (real recordings)",
   "credits.models": "Props and materials",
-  "credits.modelsText": "3D models from Poly Haven and materials from ambientCG (both CC0). Models by:"
+  "credits.modelsText": "3D models from Poly Haven and materials from ambientCG (both CC0). Models by:",
+  "credits.figuresTextRB": "Every person in the game and their movements (motion capture) come from the Microsoft Rocketbox Avatar Library (MIT License, © 2020 Microsoft). Characters used:",
+  "credits.figuresLicense": "Licence of the Rocketbox characters"
 }

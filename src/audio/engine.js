@@ -106,7 +106,6 @@ export class AudioEngine {
     this.voiceLP.connect(this.bus.voice);
     this.applyVolumes();
     this.ready = true;
-    this.pickVoice();
   }
   applyVolumes() {
     if (!this.ctx) return;
@@ -144,7 +143,7 @@ export class AudioEngine {
   /** Hall nach Hörposition: nah am Pult → Antwort „vorne“, weiter hinten → „hinten“ (gleichleistungs-Überblendung), Vorverzögerung
    *  kürzer, je weiter weg (Direktschall und erste Reflexionen kommen dort dichter hintereinander an). */
   _roomBlend(pos) {
-    const ref = this.amb?.places?.lectern; if (!ref || !this.rv || !this.rv.front || this.rv.front === this.rv.back) return;
+    const ref = this.amb?.places?.lectern; if (!ref || !this.rv || !this.rv.front || !this.rv.back || this.rv.front === this.rv.back || this._irPending) return;   // Hall wird noch geladen
     const d = Math.hypot(pos.x - ref.x, pos.z - ref.z), t = clamp((d - 3.5) / 7, 0, 1);
     if (Math.abs(t - this._rvT) < 0.01) return;
     this._rvT = t; const now = this.ctx.currentTime;

@@ -28,7 +28,7 @@ export async function buildMobile({ root, humDir, noVoice }) {
   if (fs.existsSync(path.join(humDir, 'index.json'))) {
     remote.humans = 'assets/humans/'; remote.humansFiles = {};
     for (const f of fs.readdirSync(humDir)) {
-      if (!/\.(hpk|ktx2|json)$/.test(f)) continue;
+      if (!/\.(hpk|ktx2|json|bin\.gz)$/.test(f)) continue;
       const d = copy(path.join(humDir, f), path.join(OUT, 'assets/humans', f)); core.push(rel(d));
       if (f !== 'index.json') remote.humansFiles[f] = fs.statSync(d).size;
     }

@@ -25,11 +25,17 @@ const GESTURES = {
   drink: { pose: {}, osz: [] }
 };
 
+// Clip-Sammlungen (tools/pipeline/people.json, Satz „prof“ + gemeinsamer Satz „m“)
+const PROF_TALK = ['talk_1', 'talk_2', 'talk_3', 'talk_4', 'talk_5', 'moderate_1', 'moderate_2', 'talk_left', 'talk_right'];
+const PROF_TALK_SCREEN = ['present_left', 'present_right', 'talk_4', 'talk_5'];
+const PROF_TALK_CALM = ['talk_4', 'talk_5', 'listen', 'idle_breathe'];
+const PROF_IDLE = ['idle_1', 'idle_2', 'idle_3', 'idle_breathe', 'listen', 'thoughtful'];
+
 export class ProfView {
   constructor(gfx, mat, logic, fixtures, audio, humans = null) {
     this.logic = logic; this.fx = fixtures; this.audio = audio;
     this.rig = (humans && humans.hero('prof')) || buildCharacter(PROF_SPEC, mat);
-    this.char = new Character(this.rig, { floorAt: LY.floorAt, seed: 77 });
+    this.char = this.rig.rocketbox ? humans.character(this.rig, { floorAt: LY.floorAt, seed: 77 }, 'prof') : new Character(this.rig, { floorAt: LY.floorAt, seed: 77 });
     gfx.scene.add(this.rig.mesh);
     this.char.lookLimits = { yaw: 1.45, up: 0.6, down: 0.9 };
     this.char.placeAt(logic.pos.x, logic.pos.z, logic.yaw);
@@ -164,6 +170,8 @@ export class ProfView {
     this.glassesT -= dt;
     if (this.glassesT < 0 && !L.walking && act !== 'write' && gname === 'none' && this.rng.chance(dt * 0.03)) this.glassesT = 1.4;
     if (this.glassesT > 0) { const gl = c.headWorld(V()).add(V(0, 0.0, 0)).addScaledVector(c.forward(V()), 0.12); c.setArm('L', 0.9, gl, c.local(0.5, 0.9, 0), { dir: V(0, 1, 0), palm: c.forward(V()).negate() }); }
+    // Motion-Capture-Prof: Sprechen/Zuhören/Zeigen aus Clips, Gesten als Einzelclips; die Arm-IK oben bleibt darüber
+    if (c.isClip) { this._clips(L, gname); const pose = {}; if (L.shoulder.phase === 2 || L.shoulder.phase === 1) { pose.chest = [0, L.shoulder.side * (L.shoulder.phase === 2 ? 0.35 : 0.15), 0]; pose.spine = [0, L.shoulder.side * 0.15, 0]; } c.setGesture(pose, 5); c.update(dt, t); return; }
     // Gesten-Pose mit Oszillation
     const G = GESTURES[gname] || GESTURES.none;
     const pose = {};
@@ -173,6 +181,18 @@ export class ProfView {
     if (L.shoulder.phase === 2 || L.shoulder.phase === 1) { pose.chest = [0, L.shoulder.side * (L.shoulder.phase === 2 ? 0.35 : 0.15), 0]; pose.spine = [0, L.shoulder.side * 0.15, 0]; }
     c.setGesture(pose, 5);
     c.update(dt, t);
+  }
+  /** Clip-Auswahl des Motion-Capture-Profs */
+  _clips(L, gname) {
+    const c = this.char, talking = c.talkTarget > 0, act = L.activity;
+    const handsBusy = act === 'write' || act === 'lectern' || this.laser.visible || this.wipeT > 0 || this.pushT > 0 || L.gesture === 'drink';
+    // Sprechen: Gesten-Clips; an Tafel/Pult (Hände per IK beschäftigt) ruhigere Clips, damit der freie Arm nicht wild rudert
+    c.standPool = !talking ? PROF_IDLE : handsBusy ? PROF_TALK_CALM : L.face.mode === 'screen' ? PROF_TALK_SCREEN : PROF_TALK;
+    if (gname !== this.lastG) {
+      this.lastG = gname;
+      const one = { shrug: 'shrug', question: 'thoughtful', glasses: null, count: 'talk_excited', emphasis: 'talk_excited', open: 'moderate_2' }[gname];
+      if (one && !L.walking && !handsBusy) c.playOnce(one, 0.4);
+    }
   }
   get head() { return this.char.headWorld(V()); }
 }
