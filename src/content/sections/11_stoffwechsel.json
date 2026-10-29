@@ -354,5 +354,71 @@
       "BCS at calving: Simmental ≈ 4.0, HF ≈ 3.5"
     ],
     "script": "The transition period covers roughly the three weeks before to three weeks after calving and is the most critical metabolic phase of the dairy cow. Feed intake falls before calving and rises only slowly afterwards, while milk yield increases rapidly. The resulting negative energy balance is compensated by mobilising body fat; if the influx of free fatty acids exceeds the capacity of the liver, more ketone bodies are formed. Subclinical ketosis is present from about 1.2 mmol β-hydroxybutyrate (BHB) per litre of blood, clinical ketosis from about 3.0 mmol/l. Over-conditioned cows are particularly at risk because they eat less after calving. Milk fever (hypocalcaemia) occurs because the calcium requirement rises abruptly when colostrum production begins. A close-up diet low in potassium and calcium, and lowering the dietary cation-anion balance (DCAB) with anionic salts, train calcium mobilisation from the skeleton; the effect is monitored via urine pH. High amounts of rapidly fermentable carbohydrates combined with too little physically effective fibre lead to subacute rumen acidosis. Grass tetany is an acute magnesium deficiency, typically at turnout onto young, potassium-rich grass. Ketosis and hypocalcaemia reduce gut motility and favour displacement of the abomasum. The body condition score is a simple tool for managing energy supply over the lactation."
-  }
+  },
+  "asides": [
+    {
+      "after": 0,
+      "kind": "pointe",
+      "gag": "bus40a",
+      "de": "Transitphase – das Prinzip kennen Sie vom 40A: Man steht ewig an der Haltestelle, dann kommt alles auf einmal, und keiner hat Platz. Bei der Kuh dauert so eine Transitphase rund sechs Wochen. Beim 40A fühlt sie sich nur so an.",
+      "en": "Transition period – you know the principle from the 40A bus: you wait for ages at the stop, then everything arrives at once and nobody has any room. In the cow, the transition period lasts about six weeks. On the 40A it merely feels that long.",
+      "facts": [
+        "F59"
+      ]
+    },
+    {
+      "after": 1,
+      "kind": "pointe",
+      "de": "Die frisch abgekalbte Kuh ist in derselben Lage wie viele von Ihnen im Oktober: Die Ausgaben sind sofort da, die Einnahmen kommen später, und dazwischen lebt man von den Reserven. Bei Ihnen ist das das Sparbuch, bei der Kuh das Körperfett. Beides sollte bis zum Semesterende nicht ganz leer sein.",
+      "en": "A freshly calved cow is in the same position as many of you in October: the expenses arrive immediately, the income comes later, and in between you live off your reserves. For you that is the savings account; for the cow it is body fat. Neither should be completely empty by the end of term.",
+      "facts": [
+        "F60"
+      ]
+    },
+    {
+      "after": 2,
+      "kind": "anecdote",
+      "de": "Ketose kann man manchmal riechen: Atem und Milch betroffener Kühe riechen süßlich nach Aceton, ein bisserl wie Nagellackentferner. Ich hab als junger Mann geglaubt, ich hätte dafür eine besonders feine Nase. Dann hat mir ein Tierarzt den Milchteststreifen gezeigt – der kann das auch, nur zuverlässiger und ohne Schnupfen.",
+      "en": "You can sometimes smell ketosis: the breath and milk of affected cows smell sweetish of acetone, rather like nail-varnish remover. As a young man I believed I had a particularly fine nose for it. Then a vet showed me the milk test strip – it does the same job, only more reliably and without ever catching a cold.",
+      "facts": [
+        "F61"
+      ]
+    },
+    {
+      "after": 4,
+      "kind": "frage",
+      "de": "Warum heißt es dann Milchfieber, wenn die Kuh gar kein Fieber hat? … Ehrlich gesagt: Der Name ist historisch gewachsen und fachlich daneben. Die Körpertemperatur ist meist sogar erniedrigt, die Ohren fühlen sich kalt an. Der Begriff ist also ungefähr so präzise wie das „Roh“ im Rohprotein.",
+      "en": "So why is it called milk fever if the cow has no fever? … Frankly, the name is historical and scientifically off the mark. Body temperature is usually below normal, and the ears feel cold. The term is roughly as precise as the ‘crude’ in crude protein.",
+      "facts": [
+        "F62"
+      ]
+    },
+    {
+      "after": 5,
+      "kind": "anecdote",
+      "de": "Saure Salze schmecken der Kuh übrigens überhaupt nicht. Ich hab einmal eine Messerspitze von so einer Mischung probiert – bitte nicht nachmachen – und ich kann sie gut verstehen. Darum mischt man sie gründlich in die Gesamtration ein, sonst sortiert die Kuh sie einfach aus und frisst weniger.",
+      "en": "Anionic salts, incidentally, taste dreadful to the cow. I once tried a knife-tip of such a mixture – please don’t try this at home – and I sympathise entirely. That is why they are mixed thoroughly into the total ration; otherwise the cow simply sorts them out and eats less.",
+      "facts": [
+        "F63"
+      ]
+    },
+    {
+      "after": 7,
+      "kind": "anecdote",
+      "de": "Der erste Weidetag im Frühjahr war bei uns daheim ein Fest – die Kühe springen da wirklich, auch die alten Damen. Mein Vater hat schon ein paar Tage vorher Magnesium übers Futter gestreut. „Hat der Großvater auch so gemacht“, hat er gesagt. Und die Wissenschaft gibt dem Großvater recht.",
+      "en": "The first day out to pasture in spring was a celebration at home – the cows genuinely leap about, even the elderly ladies. A few days beforehand my father would already be sprinkling magnesium over the feed. ‘Grandfather did it too,’ he would say. And science agrees with Grandfather.",
+      "facts": [
+        "F64"
+      ]
+    },
+    {
+      "after": 8,
+      "kind": "anecdote",
+      "de": "Meine Frau ist Tierärztin und hat in ihrem Berufsleben vermutlich mehr Labmägen wieder an ihren Platz gebracht als ich Prüfungen korrigiert hab. Bei uns daheim gilt deshalb eine Regel: Beim Abendessen wird nicht über Labmagenverlagerung geredet. Die Regel hält meistens bis zur Suppe.",
+      "en": "My wife is a vet and has probably put more abomasums back where they belong than I have marked exams. So at home we have a rule: no talk of displaced abomasums at dinner. The rule usually lasts until the soup.",
+      "facts": [
+        "F65"
+      ]
+    }
+  ]
 }

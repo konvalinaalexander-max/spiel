@@ -1,208 +1,314 @@
 {
  "de": {
   "mic_check": [
-   "So, hört man mich hinten? Die letzte Reihe, bitte kurz die Hand heben, wenn's zu leise ist.",
-   "Eins, zwei … Funktioniert das? Ja, ich seh Nicken in der letzten Reihe, sehr gut.",
-   "Ist das Mikro an? Ah, das Lämpchen ist grün. Hört man mich da oben?",
+   "So, hört man mich hinten? Die letzte Reihe, bitte kurz die Hand heben, wenn’s zu leise ist.",
+   "Eins, zwei … Hört man mich? Ich seh Nicken in der letzten Reihe. Oder Sie schlafen schon – beides ist ein Anfang.",
+   "Ist das Mikro an? Das Lämpchen ist grün. Grün heißt bei mir: Ich hoff das Beste.",
+   "Mikrofonprobe. Wenn Sie mich hinten nicht hören, winken S’. Wenn Sie mich zu gut hören, auch.",
    "Hallo – passt das so von der Lautstärke? Sonst drehen wir ein bisserl auf.",
-   "Ich probier's einmal mit Mikro. Wenn's hinten rauscht oder zu leise ist, geben Sie mir bitte ein Zeichen."
+   "Das Mikro sitzt? … Gut. Ich hab nämlich keine Stimme für den Hörsaal. Ich hab eine Stimme für den Kuhstall.",
+   "Kurze Tonprobe: Rohfaser, Rohprotein, Rohasche. Wenn Sie das hinten verstanden haben, sind Sie schon mitten im Stoff.",
+   "Hört man mich da oben in der letzten Reihe? Ja? Gut – dann muss ich nicht hinaufsteigen. Noch nicht.",
+   "Test, Test … Ich red seit über zwanzig Jahren in diesen Saal hinein und frag trotzdem jedes Mal, ob man mich hört. Hört man mich?"
   ],
   "projector_wait": [
    "Der Beamer braucht noch einen Moment, der ist auch noch nicht ganz munter.",
-   "Wir warten kurz, bis das Bild da ist. Das Gerät muss sich erst aufwärmen.",
-   "Noch ein wenig Geduld, der Beamer fährt hoch. Inzwischen können Sie schon BOKUlearn aufmachen, dort sind die Folien.",
-   "So, eingesteckt ist alles … jetzt sucht er das Signal. Das dauert immer ein paar Sekunden.",
-   "Die Lampe muss erst warm werden. Ich erzähl Ihnen inzwischen, was wir heute vorhaben."
+   "So, eingesteckt ist alles … jetzt sucht er das Signal. Er sucht es immer. Gefunden hat er’s bis jetzt auch fast immer.",
+   "Die Lampe muss erst warm werden. Wie eine Kuh in der Früh: zuerst schauen, dann aufstehen, dann erst arbeiten.",
+   "Noch ein wenig Geduld. Inzwischen können Sie schon die Folien auf BOKUlearn aufmachen – die funktionieren nämlich auch ohne Beamer.",
+   "Der Beamer fährt hoch. Das dauert ungefähr so lang wie ein Kaffee aus dem Automaten am Gang – nur ohne Kaffee.",
+   "Moment, das Bild kommt gleich. Technik ist wie Silage, Herrschaften: Man muss ihr ein bisserl Zeit geben.",
+   "Wir warten kurz. Das Gerät hängt da oben seit Jahren und hat schon viele Professoren kommen und gehen sehen. Es lässt sich nicht hetzen.",
+   "Er denkt nach … er denkt immer noch nach. Ich erzähl Ihnen inzwischen, was wir heute vorhaben."
   ],
   "greeting": [
-   "Grüß Gott, meine Damen und Herren. Es ist Viertel, dann fangen wir an.",
-   "Guten Morgen allerseits. Das akademische Viertel ist um, ich darf Sie herzlich begrüßen.",
-   "Grüß Gott zur Tierernährung. Schön, dass so viele da sind – an einem Dienstag um diese Uhrzeit.",
-   "So, guten Morgen. Ich würde sagen, wir beginnen – wer jetzt noch kommt, findet hoffentlich leise einen Platz.",
-   "Grüß Gott! Ich warte noch einen Moment, bis alle sitzen … gut, dann legen wir los."
+   "Grüß Gott, meine Damen und Herren. Schön, dass Sie da sind – an einem Dienstagvormittag ist das keine Selbstverständlichkeit.",
+   "Grüß Gott, Herrschaften! Tierernährung, Hörsaal 31. Wer in Bodenkunde wollte: Sie sind falsch, aber herzlich willkommen.",
+   "Guten Morgen allerseits. Ich darf Sie herzlich begrüßen – auch die, die noch nicht ganz wach sind. Ich seh Sie.",
+   "Grüß Gott zur Tierernährung! Das schönste Fach an dieser Universität. Ich bin da natürlich völlig objektiv.",
+   "So, guten Morgen. Wir beginnen – wer jetzt noch kommt, findet hoffentlich leise einen Platz.",
+   "Grüß Gott! Ich warte noch, bis alle sitzen … Die Jacken dürfen S’ ruhig anbehalten. Der Hörsaal wärmt sich, wie ich, erst langsam auf.",
+   "Guten Morgen! Eine gute Stunde Wiederkäuer, Schweine und Hendl – und ich. Halten S’ durch, es zahlt sich aus.",
+   "Grüß Gott, guten Morgen! Mein Häferl ist voll, der Hörsaal ist voll – wir können anfangen.",
+   "Grüß Gott zur Tierernährung. Schön, dass so viele da sind. Letzte Woche waren’s mehr – aber die Guten sind geblieben.",
+   "Guten Morgen, Herrschaften. Handys auf lautlos, Kopf auf laut – dann kann’s losgehen."
   ],
   "smalltalk": [
-   "Bei uns im Ort war am Sonntag Erntedank – die Erntekrone war heuer besonders schön. War wer von Ihnen auch bei einem Fest?",
-   "Draußen ist es heute ziemlich frisch. Den Kühen auf der Weide macht das weniger aus als uns, Rinder vertragen Kälte viel besser als Hitze.",
-   "Für die Exkursion nach Raumberg-Gumpenstein gibt's noch ein paar freie Plätze. Die Anmeldung läuft über BOKUonline.",
-   "Das Semester läuft jetzt schon ein paar Wochen. Ich hoffe, Sie haben sich eingelebt und finden inzwischen alle Hörsäle.",
+   "Bei uns im Weinviertel war am Sonntag Erntedank – die Erntekrone war heuer besonders schön. War wer von Ihnen auch bei einem Fest?",
    "Ich bin heute mit dem Rad gekommen. Der Anstieg zur Türkenschanze erinnert mich jedes Mal daran, dass ich nicht mehr zwanzig bin.",
-   "Wer von Ihnen kommt von einem landwirtschaftlichen Betrieb? … Doch einige. Dann können Sie heute gleich aus der Praxis mitreden.",
-   "Die ÖH sucht übrigens noch Leute für die Studienvertretung. Die Infos hängen draußen am Schwarzen Brett."
+   "Wer von Ihnen kommt von einem landwirtschaftlichen Betrieb? … Doch einige. Gut – Sie dürfen mich heute korrigieren. Aber bitte erst nach der Vorlesung.",
+   "Mein Häferl hier hat eine Kuh drauf. Ein Geschenk von Studierenden, vor fünfzehn Jahren. Es hat zwei Umzüge und einen Institutsumbau überlebt – ich auch, knapp.",
+   "Meine Frau ist Tierärztin. Beim Abendessen reden wir über den Pansen-pH. Unsere zwei Kinder haben deshalb beide etwas ganz anderes studiert. Erziehungsfehler.",
+   "Das Semester läuft jetzt schon ein paar Wochen. Sie finden inzwischen alle Hörsäle, die Mensa und hoffentlich auch das Skriptum.",
+   "Ich war nach dem Studium ein Jahr in Brasilien, an einem Feedlot mit 2000 Rindern. Kein einziger Grashalm weit und breit. Seitdem schätz ich jede österreichische Wiese.",
+   "Andere Leute gehen am Wochenende ins Theater. Ich war am Samstag bei einem Bauern und hab Silage gerochen. War auch dramatisch.",
+   "Ich unterrichte dieses Fach seit über zwanzig Jahren. Die Kühe sind in der Zeit deutlich leistungsfähiger geworden. Ich bin hauptsächlich grauer geworden.",
+   "Wer von Ihnen war schon einmal in einem Kuhstall? … Gut. Und wer hat dort auch etwas gerochen? … Sehen Sie, das ist Tierernährung. Mit allen Sinnen."
   ],
   "recap": [
-   "Kurz zur Erinnerung: Letzte Woche haben wir die Grundlagen gelegt, auf denen wir heute aufbauen.",
-   "Bevor wir weitermachen, ganz kurz, wo wir letztes Mal stehen geblieben sind.",
-   "Letzte Woche haben wir schon gesehen, dass das Tier nie alles nutzen kann, was im Futter steckt. Das zieht sich durch die ganze Lehrveranstaltung.",
-   "Wer letzte Woche nicht da war: Die Folien sind auf BOKUlearn, schauen Sie sich das bitte bis zur nächsten Einheit an.",
-   "Hat's zur letzten Einheit noch Fragen gegeben? … Nein? Sie können mir auch jederzeit über BOKUlearn schreiben."
+   "Kurz zur Erinnerung, wo wir letzte Woche stehen geblieben sind – das brauchen wir heute gleich wieder.",
+   "Letzte Woche haben wir gesehen: Das Tier kann nie alles nutzen, was im Futter steckt. Das zieht sich durch die ganze Lehrveranstaltung wie ein roter Faden durch die Rohfaser.",
+   "Wer letzte Woche nicht da war: Die Folien sind auf BOKUlearn. Und wer da war, aber nur körperlich – für Sie sind die Folien auch auf BOKUlearn.",
+   "Hat’s zur letzten Einheit noch Fragen gegeben? … Nein? Entweder war ich sehr klar, oder Sie sind sehr höflich.",
+   "Ich fass kurz zusammen, was hängen bleiben sollte. Nicht alles – nur das, was in einem Jahr noch da sein muss.",
+   "Eine kurze Wiederholung. Wiederholen ist die Mutter des Lernens – und die Kuh macht’s uns vor, die käut alles zweimal.",
+   "Ein kurzer Blick zurück: Futter hinein, Verdauung, Stoffwechsel, Leistung heraus. Alles, was wir hier machen, hängt an dieser Kette.",
+   "Die Zusammenfassung am Anfang ist erfahrungsgemäß der Teil, wo am meisten Leute zuhören. Also, aufgepasst.",
+   "Kurz zur Erinnerung: Futter ist nicht gleich Nährstoff, und Nährstoff ist nicht gleich Leistung. Dazwischen liegen Verluste – und genau die interessieren uns."
   ],
   "agenda": [
-   "Heute fangen wir mit dem Thema {section} an und schauen dann, wie weit wir kommen.",
-   "Auf dem Programm steht als Erstes: {section}. Danach geht's Schritt für Schritt weiter.",
-   "Wir beginnen heute mit {section} – das ist eine gute Grundlage für den Rest der Einheit.",
-   "Ich hab mir für heute einiges vorgenommen. Starten wir mit {section}.",
-   "Schauen wir uns zuerst {section} an. Wenn die Zeit reicht, schaffen wir danach noch einiges mehr."
+   "Heute fangen wir mit {section} an und schauen dann, wie weit wir kommen.",
+   "Auf dem Programm steht als Erstes: {section}. Danach geht’s Schritt für Schritt weiter – wie bei einer Futterumstellung, nie zu schnell.",
+   "Ich hab mir für heute einiges vorgenommen. Ich nehm mir immer zu viel vor. Starten wir mit {section}.",
+   "Wir beginnen mit {section}. So, jetzt wird’s wichtig – ab hier dürfen Sie mitschreiben.",
+   "Erster Punkt heute: {section}. Klingt trocken, ist es aber nicht. Versprochen.",
+   "Schauen wir uns zuerst {section} an. Wenn die Zeit reicht, schaffen wir danach noch einiges. Wenn nicht, holen wir’s nächste Woche nach.",
+   "Damit Sie wissen, worauf Sie sich heute einlassen: Wir starten mit {section}.",
+   "Heute am Speiseplan, als Vorspeise sozusagen: {section}.",
+   "Wir beginnen heute mit {section} – das ist die Grundlage für alles, was danach kommt. Zuerst das Fundament, dann das Dach."
   ],
   "transition": [
    "Gut. Damit kommen wir zum nächsten Thema: {section}.",
-   "Das soll fürs Erste reichen. Machen wir weiter mit {section}.",
-   "So, und jetzt ein Themenwechsel – {section}.",
-   "Wenn's dazu keine Fragen gibt, gehen wir weiter zu {section}.",
+   "Wenn’s dazu keine Fragen gibt, gehen wir weiter zu {section}.",
    "Behalten Sie das im Hinterkopf, das brauchen wir später wieder. Nächster Punkt: {section}.",
-   "Damit hätten wir das. Jetzt schauen wir uns {section} an.",
    "Ich wechsle die Folie … genau, wir sind jetzt bei {section}.",
-   "Weiter im Text. Als Nächstes steht {section} auf dem Plan.",
-   "Machen wir hier einen Punkt. Das nächste Kapitel heißt {section}."
+   "So, Themenwechsel. Ich seh schon die erleichterten Gesichter. Freuen S’ sich nicht zu früh – jetzt kommt {section}.",
+   "Das war der Pflichtteil. Jetzt kommt die Kür: {section}.",
+   "Neues Kapitel, neues Glück: {section}.",
+   "Damit hätten wir das. Atmen Sie kurz durch – weiter geht’s mit dem Thema {section}.",
+   "Und jetzt etwas, worauf ich mich schon die ganze Woche freu: {section}.",
+   "Machen wir hier einen Punkt. Das nächste Kapitel heißt {section} – und es ist eines meiner liebsten. Ich weiß, das sag ich bei jedem.",
+   "Alles, was wir bis jetzt gehört haben, fließt jetzt zusammen. Nächstes Kapitel: {section}.",
+   "So, umsatteln. Wir kommen zu {section}.",
+   "Weiter im Text. Als Nächstes steht {section} auf dem Plan – schreiben S’ das ruhig groß drüber.",
+   "Wenn Sie gerade kurz abschalten wollten: schlechter Zeitpunkt. Jetzt kommt {section}."
   ],
   "latecomer_enter": [
-   "'Tschuldigung …",
+   "’Tschuldigung …",
    "Sorry, die Bim ist ausgefallen …",
    "Darf ich kurz durch? Danke …",
    "Pardon, ist der Platz da frei?",
-   "Entschuldigung, ich hab den Hörsaal nicht gleich gefunden."
+   "Entschuldigung, ich hab den Hörsaal nicht gleich gefunden.",
+   "Sorry … der Bus war so voll, der ist einfach vorbeigefahren.",
+   "’Tschuldigung, die Schlange beim Kaffee war so lang …",
+   "Sorry, sorry … bin schon leise."
   ],
   "latecomer_prof": [
-   "Grüß Gott. Setzen Sie sich ruhig, hinten ist noch Platz.",
+   "Grüß Gott. Kommen S’ nur herein, wir sind erst beim Aufwärmen. Das Wichtigste kommt noch.",
    "Kommen Sie nur, Sie haben nicht viel versäumt – nur das Wichtigste.",
-   "Guten Morgen. Den Anfang finden Sie dann in den Folien auf BOKUlearn.",
-   "Kein Problem. Da drüben, am Rand, ist noch was frei.",
-   "Bitte die Tür leise zumachen – die fällt sonst gern laut ins Schloss."
+   "Guten Morgen! Setzen S’ sich, hinten ist noch Platz. Den Anfang finden Sie in den Folien auf BOKUlearn.",
+   "Grüß Gott. Bitte die Tür leise zumachen – die fällt gern ins Schloss, als hätt sie einen schlechten Tag.",
+   "Da drüben am Rand ist noch was frei. Nein, nicht drübersteigen – außen herum, das geht schneller.",
+   "Willkommen! Sie haben den spannenden Teil verpasst, wo ich meine Unterlagen sortiert hab.",
+   "Grüß Gott. Keine Sorge, die Kuh hat auf Sie gewartet. Die hat Zeit, die käut eh noch wieder.",
+   "Kommen S’ herein, setzen S’ sich. Ich wiederhol nichts – aber Ihre Sitznachbarn erzählen’s Ihnen sicher gern.",
+   "Guten Morgen. Wir haben gerade erst angefangen – der Kaffeebecher in Ihrer Hand ist also verziehen."
   ],
   "phone_ring_prof": [
    "Das ist nicht meins, oder? … Nein. Gut.",
-   "Da möchte jemand ganz dringend mit Ihnen sprechen. Ich warte kurz.",
-   "Den Klingelton kenn ich noch gar nicht. Bitte auf lautlos stellen, danke.",
+   "Wenn das der Futtermittelhändler ist: Richten S’ ihm aus, das Eiweißfutter ist mir eh schon zu teuer.",
+   "Schöner Klingelton. Trotzdem bitte auf lautlos, danke.",
+   "Da möchte jemand ganz dringend mit Ihnen sprechen. Wenn’s die Mama ist: schönen Gruß, Sie sind eh brav in der Vorlesung.",
+   "Lassen S’ ruhig läuten, ich warte. Ich hab in meinem Leben schon länger auf eine Kuh beim Abkalben gewartet.",
+   "Ah – das war jetzt aber kein Wecker, oder? Dafür wär’s um die Uhrzeit schon ein bisserl spät.",
+   "Bitte alle Handys stumm. Eine gestresste Kuh gibt weniger Milch – und ein gestresster Professor gibt weniger Stoff.",
    "Wenn das die Studienabteilung ist, richten Sie einen schönen Gruß aus.",
-   "Kurze Unterbrechung – bitte stellen Sie die Handys stumm, das stört auch Ihre Nachbarn."
+   "Sagen S’ einfach: Rückruf um halb zwölf, jetzt ist Tierernährung.",
+   "Mein eigenes Handy ist aus der Zeit, als Telefone noch Tasten hatten. Das läutet nie. Das hat seine Vorteile."
   ],
   "phone_ring_student": [
    "Oh – Entschuldigung …",
    "Sorry, sorry, ist schon aus.",
    "Das war mein Wecker … tut mir leid.",
    "Tut mir leid, hab vergessen, es leise zu stellen.",
-   "Ups … Entschuldigung, ich mach's gleich aus."
+   "Ups … Entschuldigung, ich mach’s gleich aus.",
+   "’Tschuldigung – meine Oma. Ich ruf zurück.",
+   "Sorry … wie stellt man das ab …"
   ],
   "projector_lost": [
-   "Hoppla, jetzt ist das Bild weg.",
-   "Und schwarz. Moment, das haben wir gleich.",
-   "„Kein Signal“ – das sagt er mir in letzter Zeit öfter.",
-   "Sehen Sie noch was? Ich nämlich auch nicht mehr.",
-   "Das Kabel schon wieder. Bleiben Sie kurz sitzen, ich schau mir das an."
+   "Und weg ist es. Der Beamer und ich, wir haben eine sehr ehrliche Beziehung: Er macht, was er will.",
+   "Und schwarz. „Kein Signal“ – das sagt er mir in letzter Zeit öfter.",
+   "Sehen Sie noch was? Ich nämlich auch nicht mehr. Dann sind wir uns wenigstens einig.",
+   "Hoppla. Jetzt ist das Bild weg – genau bei der wichtigsten Folie. Er hat ein Gespür dafür.",
+   "Na servas. Bleiben S’ sitzen, das ist sicher wieder das Kabel.",
+   "Das Bild ist weg. Das passiert dem Gerät immer dann, wenn’s spannend wird. Ein Kritiker, der Beamer.",
+   "Blackout – aber nur beim Beamer, nicht bei Ihnen, hoffe ich.",
+   "Und aus. Ich glaub, der braucht eine Pause. Er kriegt aber keine – Sie ja auch nicht.",
+   "Moment, das haben wir gleich. Sagt man so. Ich sag’s seit über zwanzig Jahren."
   ],
   "projector_fixing": [
    "Das da hinten … nein, das ist der Strom.",
    "Raus und wieder rein … komm schon.",
-   "Vielleicht liegt's am Adapter …",
-   "Die Taste da müsst's sein … nein, doch nicht.",
-   "Einen Moment noch, gleich hab ich's."
+   "Vielleicht liegt’s am Adapter … Es liegt immer am Adapter.",
+   "Die Taste da müsst’s sein … nein, das war die Lautstärke.",
+   "Einen Moment noch … Bei einer Kuh weiß ich wenigstens, wo vorne und hinten ist.",
+   "Eingang eins, Eingang zwei … wozu braucht ein Beamer sieben Eingänge?",
+   "Ich hab hier sogar eine Anleitung … aus dem Jahr, in dem das Gerät gekauft wurde. Hilft nix.",
+   "Kabel wackeln … das ist im Grunde meine gesamte technische Ausbildung.",
+   "Gleich … Reden Sie ruhig kurz miteinander. Über Tierernährung, natürlich."
   ],
   "projector_back": [
    "So, da ist es wieder. Wo waren wir?",
-   "Na bitte. Die Technik und ich, wir verstehen uns doch noch.",
-   "Das Bild ist zurück. Ich wiederhole kurz den letzten Gedanken.",
-   "Danke für die Geduld. Machen wir weiter.",
-   "Es geht wieder. Und falls nicht, erzähl ich halt ohne Folien weiter."
+   "Na bitte. Geht doch. Applaus ist nicht nötig – aber ich nehm ihn.",
+   "Das Bild ist zurück. Ich hab nichts gemacht, ehrlich. Er hat’s sich anders überlegt.",
+   "Danke für die Geduld. Sie waren geduldiger als ich.",
+   "Es geht wieder. Und falls nicht, erzähl ich halt ohne Folien weiter – das hab ich früher auch können.",
+   "Da ist es wieder. Fragen S’ mich bitte nicht, warum.",
+   "So. Ein klassischer Fall von aus- und wieder einschalten. Das Allheilmittel der Technik.",
+   "Das Bild ist da. Ich hab mit dem Kabel ein ernstes Wort geredet."
   ],
   "long_calc_intro": [
    "Rechnen wir das einmal durch, Schritt für Schritt – schreiben Sie ruhig mit.",
-   "Das schauen wir uns jetzt an der Tafel an. Dauert ein paar Minuten, aber es zahlt sich aus.",
-   "Ich rechne Ihnen das einmal vor, so wie Sie's in der Prüfung auch machen müssen.",
-   "Zahlen sagen mehr als jede Folie. Ich schreib das jetzt an.",
-   "Machen wir ein konkretes Beispiel mit realistischen Werten, dann wird das greifbar."
+   "So, jetzt wird’s wichtig: Wir rechnen. Taschenrechner heraus, Panik bleibt drinnen.",
+   "Ich rechne Ihnen das vor, so wie Sie’s in der Prüfung auch machen müssen. Nur langsamer, weil ich nebenbei red.",
+   "Zahlen sagen mehr als jede Folie. Und an der Tafel kann mich wenigstens keine Technik im Stich lassen.",
+   "Machen wir ein Beispiel mit realistischen Werten. Eine ganz normale Kuh – keine Rekordkuh aus der Zeitung.",
+   "Das schauen wir uns jetzt an der Tafel an. Dauert ein paar Minuten, aber genau das ist das Handwerk.",
+   "Rechnen ist in der Tierernährung kein Selbstzweck. Am Ende steht eine Kuh vor dem Futtertisch – und die will, dass es stimmt.",
+   "Jetzt rechnen wir. Keine Sorge, es ist nur Multiplizieren und Addieren. Das Schwierigste ist, die richtigen Zahlen zu finden."
   ],
   "long_calc_step": [
    "So, und das setzen wir jetzt hier ein.",
    "Achten Sie auf die Einheiten – da passieren in der Prüfung die meisten Fehler.",
-   "Bis hierher klar? Gut, dann der nächste Schritt.",
-   "Das runden wir, so genau sind die Tabellenwerte auch wieder nicht.",
+   "Bis hierher klar? … Ich nehm das Schweigen als Ja.",
+   "Das runden wir. So genau sind die Tabellenwerte auch wieder nicht – und die Kuh rechnet sowieso nicht mit.",
    "Nicht erschrecken, das schaut komplizierter aus, als es ist.",
-   "Rechnen Sie ruhig mit dem Taschenrechner mit. Ich mach's im Kopf und hoffe, es stimmt."
+   "Rechnen Sie ruhig mit. Ich mach’s im Kopf und hoffe, es stimmt. Wenn nicht, sagen S’ es mir bitte jetzt – und nicht erst in der Evaluierung.",
+   "Megajoule pro Kilo mal Kilo – die Kilo kürzen sich weg. Schön, wenn sich einmal etwas von selbst erledigt.",
+   "Das Zwischenergebnis bitte unterstreichen. Das brauchen wir gleich noch einmal.",
+   "Und jetzt kommt der Schritt, wo in der Prüfung die Hälfte falsch abbiegt. Langsam …",
+   "Kurz kontrollieren: Ist das plausibel? Eine Kuh frisst keine hundert Kilo Kraftfutter am Tag. Gut, passt."
   ],
   "long_calc_end": [
    "Und das ist das Ergebnis. Ist das plausibel? Ja, die Größenordnung passt.",
-   "Merken Sie sich weniger die Zahl als den Rechenweg.",
-   "Wenn Sie in der Praxis etwas ganz anderes herausbekommen, schauen Sie zuerst bei den Einheiten nach.",
-   "So rechnet man das am Betrieb auch – nur hilft dort meistens ein Rationsprogramm.",
-   "Das ist kein Naturgesetz, sondern eine Planungsgröße. Die Kuh hält sich nicht immer an die Tabelle."
+   "Merken Sie sich weniger die Zahl als den Rechenweg. Die Zahl ändert sich mit jeder Kuh – der Weg nie.",
+   "Wenn Sie in der Praxis etwas ganz anderes herausbekommen, schauen Sie zuerst bei den Einheiten nach. Dann beim Taschenrechner. Dann erst bei der Kuh.",
+   "Am Betrieb hilft dabei meistens ein Rationsprogramm. Aber verstehen tut das Programm nur, wer’s einmal mit der Hand gerechnet hat.",
+   "Das ist kein Naturgesetz, sondern eine Planungsgröße. Die Kuh hält sich nicht immer an die Tabelle – sie hat sie ja nie gelesen.",
+   "Fertig. Und? War gar nicht so schlimm. Das sagen S’ dann bitte auch in der Prüfung.",
+   "Das Ergebnis schaut nüchtern aus. Aber dahinter steht eine Kuh, die gesund bleibt – oder eben nicht.",
+   "Damit haben Sie gerade eine echte Rationsrechnung gemacht. Gratuliere – Sie sind jetzt offiziell gefährlich."
   ],
   "aisle_walk": [
    "Ich komm ein Stück zu Ihnen hinauf, dann hört man mich hinten besser.",
-   "Bleiben Sie sitzen, ich geh nur kurz durch die Reihen.",
-   "Ich will sehen, ob man das in den hinteren Reihen auch lesen kann.",
-   "Erzählen kann ich das genauso gut von hier oben.",
-   "Ich vertret mir kurz die Beine – den ganzen Vormittag am Pult stehen ist auch nix."
+   "Bleiben Sie sitzen, ich geh nur kurz durch die Reihen. Ich schau nicht auf Ihre Bildschirme. Fast nicht.",
+   "Ich vertret mir kurz die Beine. Den ganzen Vormittag am Pult stehen – da hätte jede Kuh etwas dagegen.",
+   "Ich will sehen, ob man die Folie in den hinteren Reihen lesen kann. … Na ja. Ich red einfach lauter.",
+   "Ich mach eine kleine Runde. Bewegung ist wichtig – für Kühe und für Professoren.",
+   "Ich geh ein Stück hinauf. Von oben schaut der Hörsaal übrigens ganz anders aus. Viel mehr Laptops.",
+   "Erzählen kann ich das genauso gut von hier oben. Und Sie sehen mich dafür von der Nähe – das ist nicht immer ein Vorteil.",
+   "Ich komm einmal zu Ihnen. Keine Angst, ich prüf niemanden. Heute noch nicht."
   ],
   "aisle_return": [
    "So, zurück nach vorne zur Tafel.",
-   "Ich geh wieder runter, sonst sehen Sie die Folie nicht.",
-   "Gut, dann wieder ans Pult.",
-   "Und wieder hinunter. Danke da oben fürs Zuhören.",
-   "Ich brauch die Tafel, also zurück nach vorn."
+   "Ich geh wieder hinunter, sonst sehen Sie die Folie nicht – und ich auch nicht.",
+   "Und wieder hinunter. Danke da oben fürs Zuhören. Und fürs flinke Umschalten auf die Folien – ich hab’s eh nicht gesehen.",
+   "Ich brauch die Tafel, also zurück nach vorn.",
+   "So, Abstieg geschafft. Die Stufen hier sind steiler als der Weg zur Türkenschanze.",
+   "Zurück ans Pult, zu meinem Häferl. Es wartet schon.",
+   "Gut, dann wieder hinunter. Die Aussicht von oben war schön – lauter aufmerksame Gesichter. Die meisten.",
+   "Und hinunter. Die Bewegungseinheit für heute hab ich damit erledigt."
   ],
   "attendance_start": [
    "Ich lass jetzt die Anwesenheitsliste herumgehen. Bitte leserlich unterschreiben und weitergeben.",
-   "Die Liste geht wieder durch die Reihen – bitte jede und jeder nur für sich selbst.",
-   "Die Anwesenheitsliste startet vorne links. Bitte nicht im Rucksack verschwinden lassen.",
-   "Ich geb die Liste in die erste Reihe. Am Ende hätte ich sie gern vollständig zurück.",
-   "Wie jede Woche die Liste: Name, Matrikelnummer, Unterschrift."
+   "Die Liste geht durch die Reihen – bitte jede und jeder nur für sich selbst. Ich hab schon Listen gesehen mit mehr Unterschriften als Leuten im Saal. Zählen kann ich nämlich.",
+   "Die Anwesenheitsliste startet vorne links. Bitte nicht im Rucksack verschwinden lassen – die war letztes Semester einmal zwei Wochen verschollen.",
+   "Wie jede Woche die Liste: Name, Matrikelnummer, Unterschrift. Kunstwerke bitte auf die Rückseite.",
+   "Die Liste geht herum. Sie ist wie eine Herde: Sie bewegt sich langsam, aber am Ende kommt sie heim.",
+   "Ich geb die Liste in die erste Reihe. Am Ende hätte ich sie gern vollständig zurück – mit gleich vielen Seiten wie jetzt.",
+   "Anwesenheitsliste! Wer nicht unterschreibt, war offiziell nicht da. Und wer nicht da war, hat offiziell auch nichts gelernt. Nur damit wir uns verstehen.",
+   "Ich schick die Liste auf die Reise. Bitte zügig weitergeben – nicht wiederkäuen."
   ],
   "attendance_neighbor": [
    "Da, die Liste.",
    "Hier, für dich.",
    "Unterschreibst du kurz? Dann weiter nach rechts.",
    "Liste. Der Kuli hängt eh dran.",
-   "Gibst du's dann weiter?"
+   "Gibst du’s dann weiter?",
+   "Liste. Kannst du den Kuli auch weitergeben? Ist meiner.",
+   "Schnell, unterschreib, er schaut grad."
   ],
   "attendance_collect": [
    "Wo ist denn die Liste gerade? … Ah, hinten. Bitte nach vorne durchreichen.",
    "Die Anwesenheitsliste hätte ich gern wieder – legen Sie sie einfach beim Rausgehen aufs Pult.",
-   "Hat noch wer nicht unterschrieben? Dann bitte jetzt.",
-   "Danke, die Liste ist wieder da. Schaut vollständig aus.",
-   "Bitte geben Sie die Liste nach vorne, bevor alle zusammenpacken."
+   "Hat noch wer nicht unterschrieben? Dann bitte jetzt – nachher bin ich weg, und die Liste mit mir.",
+   "Danke, die Liste ist wieder da. Schaut vollständig aus. Fast verdächtig vollständig.",
+   "Die Liste bitte nach vorne, bevor alle zusammenpacken. Sie hat heute schon eine weite Reise hinter sich.",
+   "Wer hat die Liste? … Niemand? Listen verschwinden nicht von selbst. Das schaffen nur Kugelschreiber.",
+   "Ich zähl die Unterschriften nachher. Ich zähl auch die Köpfe. Ich sag’s nur.",
+   "Liste nach vorne, bitte. Wer in der Reihe als Letzter sitzt, ist heute der Hirte."
   ],
   "direct_question_intro": [
    "Ich frag einmal in Reihe {row} – ja, Sie.",
-   "Eine Frage an Sie, in Reihe {row}:",
    "Schauen wir, ob das angekommen ist. Reihe {row}, genau Sie – was sagen Sie?",
-   "Ich hätte gern eine Antwort aus Reihe {row}. Sie schauen so, als wüssten Sie's.",
-   "Darf ich Sie fragen, in Reihe {row}? Keine Sorge, das geht in keine Note ein."
+   "Eine Frage an Sie in Reihe {row}. Keine Sorge, das geht in keine Note ein. Nur in mein Herz.",
+   "Reihe {row}, Sie schauen so, als wüssten Sie’s. Oder so, als hätten Sie gehofft, dass ich nicht frag.",
+   "Ich hätte gern eine Antwort aus Reihe {row}. Sie dürfen auch laut nachdenken – das mach ich hier vorne seit über zwanzig Jahren.",
+   "Reihe {row} – Sie hab ich heute noch gar nicht gefragt. Das ändern wir jetzt.",
+   "Darf ich Sie fragen, in Reihe {row}? Sie haben vorhin so aufmerksam geschaut.",
+   "So, jetzt wird’s interaktiv. Reihe {row}, ja, genau Sie. Bitte.",
+   "Fragen wir einmal die Expertin oder den Experten in Reihe {row}.",
+   "Reihe {row}, ich hab eine Frage für Sie. Nicht erschrecken – es gibt keine falschen Antworten. Nur interessante."
   ],
   "quiz_right": [
-   "Richtig, sehr gut.",
+   "Richtig! Sehen Sie, und jetzt haben Sie mehr gewusst als die halbe Fachzeitschrift von 1985.",
    "Genau so ist es. Danke.",
-   "Ja, das stimmt. Schön, dass das hängen geblieben ist.",
-   "Korrekt – und das war keine ganz leichte Frage.",
-   "Passt. Haben das alle mitbekommen?"
+   "Richtig. Das schreib ich mir auf – im Kopf, aber immerhin.",
+   "Ja! Schön, dass das hängen geblieben ist. Bei mir hat das damals zwei Semester gebraucht.",
+   "Korrekt – und das war keine ganz leichte Frage. Ich hab fast gehofft, Sie wissen’s nicht, damit ich’s erklären darf.",
+   "Passt. Haben das alle mitbekommen? Das war nämlich die Prüfungsantwort.",
+   "Sehr gut. Sie dürfen sich jetzt kurz wichtig fühlen. Kurz.",
+   "Richtig. Wenn Sie so weitermachen, muss ich am Wochenende schwierigere Fragen schreiben. Danke dafür.",
+   "Genau. Die Kuh wäre stolz auf Sie.",
+   "Stimmt! Und ohne ins Skriptum zu schauen. Respekt.",
+   "Richtig. So eine Antwort wünsch ich mir in der Prüfung: kurz, klar, stimmt.",
+   "Jawohl. Den Punkt hätten Sie.",
+   "Ganz genau. Sie haben das Prinzip verstanden, nicht nur die Folie.",
+   "Richtig. Ich bin fast ein bisserl gerührt."
   ],
   "quiz_wrong": [
-   "Nicht ganz – aber das ist ein häufiger Gedanke. Schauen wir's uns noch einmal an.",
-   "Das stimmt leider nicht. Ich erklär's noch einmal kurz, das betrifft wahrscheinlich mehrere.",
-   "Knapp daneben. Die richtige Antwort ist eine andere, ich zeig's Ihnen gleich.",
-   "Nein, aber gut, dass Sie's versucht haben – genau dafür fragen wir ja.",
-   "Das verwechselt man leicht. Richtig ist die andere Variante – ich sag gleich, warum."
+   "Nicht ganz – aber das ist ein häufiger Gedanke. Schauen wir’s uns noch einmal an.",
+   "Knapp daneben. Ist auch daneben, aber knapp. Ich zeig’s Ihnen gleich.",
+   "Nein, aber gut, dass Sie’s versucht haben – genau dafür fragen wir ja.",
+   "Das verwechselt man leicht. Ich hab’s in meiner eigenen Prüfung auch verwechselt. Darum erklär ich’s jetzt besonders gern.",
+   "Leider nein. Aber jetzt merken Sie sich die richtige Antwort sicher – falsche Antworten merkt man sich am besten.",
+   "Hm, nein. Da hat das Bauchgefühl zugeschlagen. Das ist in der Tierernährung leider oft ein schlechter Ratgeber.",
+   "Nicht ganz. Aber Sie sind nicht allein – das ist die häufigste falsche Antwort im ganzen Jahrgang.",
+   "Das stimmt so nicht. Kein Problem – lieber jetzt hier falsch als im Jänner bei der Prüfung.",
+   "Mutig, aber nein. Schauen wir, wo der Haken ist.",
+   "Nein – aber Sie haben in die richtige Richtung gedacht. Nur ein Stück zu weit.",
+   "Leider daneben. Ich erklär’s noch einmal, das betrifft wahrscheinlich mehrere hier herinnen."
   ],
   "quiz_timeout": [
    "Keine Idee? Kein Problem, ich lös auf.",
-   "Ich warte noch kurz … gut, dann sag ich's.",
-   "Ich seh schon, das braucht noch einen Moment. Ich verrat's Ihnen.",
-   "Auch keine Antwort ist eine Antwort. Dann erklär ich's eben selbst.",
-   "Dann helfe ich nach – wir hatten das vor ein paar Minuten auf der Folie."
+   "Ich warte noch kurz … gut, dann sag ich’s.",
+   "Auch keine Antwort ist eine Antwort. Nur keine richtige.",
+   "Ich seh schon, das braucht noch einen Moment. Wie die Pansenmikroben bei einer Futterumstellung – die brauchen auch ein paar Wochen.",
+   "Stille. Das kenn ich aus der mündlichen Prüfung. Ich helf Ihnen.",
+   "Dann helfe ich nach – wir hatten das vor ein paar Minuten auf der Folie.",
+   "Schweigen ist Gold, aber Antworten gibt Punkte. Ich verrat’s Ihnen.",
+   "Keine Antwort? Dann nehm ich an, Sie denken noch. Ich denk inzwischen laut für Sie.",
+   "Gut, ich erlöse Sie. Die Antwort ist …"
   ],
   "neighbor_warn": [
    "Psst, er schaut.",
    "Achtung, er schaut her.",
    "Pass auf, er kommt rauf.",
    "Mach zu, schnell.",
-   "Er schaut grad zu uns."
+   "Er schaut grad zu uns.",
+   "Oida, Laptop runter.",
+   "Er hat dich im Visier.",
+   "Nicht jetzt, er schaut genau her."
   ],
   "neighbor_betray": [
    "[räuspert sich laut und schaut demonstrativ zu dir] Ähm …",
    "[rückt hörbar ein Stück von dir weg] Also ich schreib mit.",
    "[schaut zu dir, dann zum Prof, dann wieder zu dir] Hm.",
-   "[hustet absichtlich, gerade als der Prof herschaut] 'Tschuldigung.",
+   "[hustet absichtlich, gerade als der Prof herschaut] ’Tschuldigung.",
    "[deutet mit dem Kuli unauffällig auf deinen Bildschirm] Na ja …",
-   "[seufzt hörbar und schüttelt den Kopf] Echt jetzt?"
+   "[seufzt hörbar und schüttelt den Kopf] Echt jetzt?",
+   "[hebt demonstrativ den Kuli und schreibt sehr eifrig mit] Mhm. Mhm.",
+   "[flüstert gerade laut genug] Ich hab’s eh gesagt …"
   ],
   "neighbor_smalltalk": [
    "Hast du das mitgeschrieben? Ich bin nicht nachgekommen.",
@@ -211,213 +317,628 @@
    "Ich glaub, das steht eh im Skriptum.",
    "Wie viele Folien kommen heute noch?",
    "Die Rechnung von vorhin hab ich nicht ganz kapiert.",
-   "Das war letztes Jahr bei der Prüfung, hat mir wer erzählt."
+   "Das war letztes Jahr bei der Prüfung, hat mir wer erzählt.",
+   "Hast du einen Kuli für mich? Meiner ist leer.",
+   "Wieso braucht die Kuh vier Mägen? Ich schaff’s mit einem kaum.",
+   "Weißt du, ob die Exkursion schon voll ist?"
   ],
   "joke": [
    "Die Kuh ist eine Gärkammer auf vier Beinen. In einem einzigen Milliliter Pansensaft schwimmen mehr Bakterien, als es Menschen auf der Erde gibt.",
    "Die Kuh selbst hat übrigens kein einziges Enzym, das Zellulose spaltet. Sie ist eigentlich nur die Vermieterin – die Arbeit machen die Untermieter im Pansen.",
-   "Beim Schwein ist das Liebig'sche Fass in einer Getreideration fast immer gleich gebaut: Die kürzeste Daube heißt Lysin. Sie können überall sonst nachlegen, es rinnt trotzdem dort raus.",
-   "Grassilage ist im Prinzip Sauerkraut im Fahrsilo. Dieselben Milchsäurebakterien, dieselbe Idee – nur die Portionen sind größer.",
+   "Beim Schwein ist das Liebig’sche Fass in einer Getreideration fast immer gleich gebaut: Die kürzeste Daube heißt Lysin. Sie können überall sonst nachlegen, es rinnt trotzdem dort raus.",
+   "Grassilage ist im Prinzip Sauerkraut im Fahrsilo. Milchsäurebakterien, dieselbe Idee – nur die Portionen sind größer.",
    "Beim Methan schauen alle immer aufs falsche Ende der Kuh. Über neunzig Prozent kommen vorne raus, beim Rülpsen und Ausatmen.",
-   "Das Pferd hat keine Gallenblase. Braucht's auch nicht – wer von Natur aus bis zu sechzehn Stunden am Tag frisst, muss die Galle nicht zwischenlagern.",
-   "Das Huhn hat keine Zähne, dafür einen Muskelmagen mit kleinen Steinchen drin. Ein Gebiss zum Selbstnachfüllen, sozusagen.",
-   "Die stickstofffreien Extraktstoffe hat eigentlich noch nie jemand gemessen. Die sind einfach das, was übrig bleibt – wie das Budget am Monatsende.",
+   "Das Pferd hat keine Gallenblase. Braucht’s auch nicht – wer von Natur aus bis zu sechzehn Stunden am Tag frisst, muss die Galle nicht zwischenlagern.",
    "Nach der Formel N mal 6,25 hätte Futterharnstoff knapp 290 Prozent Rohprotein. Deshalb heißt es auch Rohprotein und nicht Protein.",
    "Der Blättermagen heißt in der alten Literatur auch Psalter, weil er innen ausschaut wie ein aufgeschlagenes Buch. Damit ist er der belesenste Teil der Kuh.",
    "Manche Kühe tragen einen Magneten im Netzmagen – nicht für die Kühlschranktür, sondern damit verschluckte Drahtstücke dort liegen bleiben und nichts durchstechen.",
-   "Österreich ist reich an vielem, aber Selen im Boden gehört nicht dazu. Deshalb steht es auf praktisch jedem Etikett von Rindermineralfutter.",
-   "Die Kuh frisst Gras, das wir nicht verdauen können, und macht daraus Milch, die wir verdauen können. Das ist eigentlich die ganze Vorlesung in einem Satz – der Rest sind Details."
+   "Die Kuh frisst Wiesenfutter, das wir nicht verdauen können, und macht daraus Milch, die wir verdauen können. Das ist die ganze Vorlesung in einem Satz. Der Rest sind Details – ein ganzes Semester lang.",
+   "Schweine haben kaum funktionierende Schweißdrüsen. „Schwitzen wie ein Schwein“ ist also fachlich falsch. Darum suhlen sie sich – das ist keine Schlamperei, das ist Klimaanlage.",
+   "Das Pferd kann nicht erbrechen. Was einmal im Magen ist, muss hinten hinaus. Darum ist eine Kolik beim Pferd immer ein Notfall – und darum füttert man es in vielen kleinen Portionen.",
+   "Kaninchen fressen einen Teil ihres eigenen Kots wieder, den Blinddarmkot. Klingt grauslich, ist aber genial: So holen sie sich Vitamine und Mikrobenprotein zurück. Zu Hause bitte nicht nachmachen.",
+   "Ziegen fressen nicht alles. Das ist ein Gerücht. Ziegen sind ausgesprochen wählerisch – sie probieren nur alles.",
+   "Wir Menschen können Vitamin C nicht selbst bilden. Das Meerschweinchen auch nicht. Das Schwein schon. Beim Vitamin C sind wir also näher beim Meerschweinchen als beim Schwein.",
+   "Eine Milchkuh bildet am Tag 100 bis 200 Liter Speichel. Das ist kein Sabbern, Herrschaften – das ist Pufferkapazität. Ohne den Speichel hätte der Pansen ein ernstes Säureproblem.",
+   "Ein Kalb kommt mit einem Pansen auf die Welt, der noch gar nicht arbeitet. Die Milch rinnt über die Schlundrinne gleich in den Labmagen. Am Anfang ist das Kalb verdauungstechnisch also ein Monogastrier. Wiederkäuer wird es erst mit der Zeit.",
+   "Nach dem Brennwert wäre ein Holzscheit ein recht ordentliches Futtermittel – ungefähr so viel Bruttoenergie wie Getreide. Darum schauen wir nie auf die Bruttoenergie allein. Die Kuh schaut auf die Verdaulichkeit.",
+   "Das Wort „Ration“ kommt vom lateinischen „ratio“ – Berechnung, Vernunft. Rationsplanung ist also Rechnen mit Vernunft. Auf das zweite Wort leg ich besonderen Wert.",
+   "Silage ist ein Wettrennen: Milchsäurebakterien gegen den ganzen Rest. Unsere einzige Aufgabe ist, den Guten einen Vorsprung zu geben – Luft raus, gut verdichten, schnell zu.",
+   "Eine Kuh liegt rund zwölf Stunden am Tag. Das ist keine Faulheit: Im Liegen wird das Euter besser durchblutet. Wenn Sie am Sonntag bis Mittag liegen bleiben – bei der Kuh wär das Leistung.",
+   "Eine Milchkuh trinkt bis zu 20 Liter in der Minute. Gibt die Tränke weniger her, steht die ganze Herde Schlange – wie Sie in der Pause vor dem Kaffeeautomaten.",
+   "Die Weender Analyse ist über 150 Jahre alt und wird immer noch verwendet. Erfunden in einer Zeit, als man mit der Kutsche zur Uni gefahren ist. Und sie funktioniert zuverlässiger als so manches Gerät hier im Saal.",
+   "Hühner haben keine Harnblase. Den Stickstoff scheiden sie als Harnsäure aus, zusammen mit dem Kot. Das Weiße, das Sie manchmal auf Ihrem Fahrrad finden, ist also angewandte Stoffwechselphysiologie.",
+   "Eine Kuh hat oben vorne keine Schneidezähne, nur eine harte Kauplatte. Sie wickelt das Futter mit der Zunge ein und reißt es ab. Die Zunge ist ihr Mähwerk."
   ],
   "drink": [
    "Moment … So.",
-   "Entschuldigung, kurz einen Schluck Wasser.",
+   "Entschuldigung, kurz einen Schluck.",
    "Reden macht durstig – einen Augenblick.",
-   "Ich muss kurz was trinken, die Luft herinnen ist sehr trocken.",
-   "Eine Sekunde … Wasser ist übrigens auch bei der Milchkuh das Futtermittel, auf das man am leichtesten vergisst."
+   "Eine Sekunde … Wasser ist bei der Milchkuh übrigens der Nährstoff, an den man am wenigsten denkt – und ohne den gar nichts geht.",
+   "Kurz einen Schluck aus dem Häferl. Das Häferl hat schon mehr Vorlesungen gehört als Sie alle zusammen.",
+   "Moment, ich muss nachfüllen. Kühe trinken übrigens am meisten rund ums Fressen und nach dem Melken. Ich nach dem Reden.",
+   "Kurz trinken. Die Luft herinnen ist trocken wie gutes Heu. Lagerfähig, sozusagen.",
+   "Ein Schluck Wasser, dann geht’s weiter. Sie dürfen auch – Trinken ist im Hörsaal ausdrücklich erlaubt. Spielen nicht."
   ],
   "clock_check": [
-   "Oh, die Zeit läuft. Ich mach ein bisserl schneller.",
    "Wir haben noch gut {minutes} Minuten, das sollte sich ausgehen.",
-   "Ich seh grad auf die Uhr – da muss ich ein wenig Gas geben.",
    "Noch {minutes} Minuten. Dann fass ich den Rest etwas kürzer.",
-   "Hm, schon so spät. Ein paar Details lass ich weg, die stehen eh im Skriptum."
+   "Oh, die Zeit läuft. Noch {minutes} Minuten – ich schalt einen Gang hinauf.",
+   "Ein Blick auf die Uhr … {minutes} Minuten. Das ist optimistisch für das, was ich noch vorhab.",
+   "Noch {minutes} Minuten. Ich hab gelernt, das nicht zu laut zu sagen – sonst fangen die Ersten schon zu packen an.",
+   "Hm, noch {minutes} Minuten. Ein paar Details lass ich weg, die stehen eh im Skriptum.",
+   "{minutes} Minuten noch. Das reicht für das Wichtigste – und für ein bisserl was dazu, wenn Sie brav sind.",
+   "Kurzer Blick auf die Uhr: {minutes} Minuten. Ich red jetzt ein bisserl schneller. Bitte nicht im selben Tempo abschalten."
   ],
   "break_announce": [
-   "Machen wir hier fünf Minuten Pause. Lüften Sie ruhig kurz durch.",
-   "So, fünf Minuten Pause. Bitte pünktlich wieder da sein.",
-   "Wir machen eine kurze Pause – fünf Minuten, nicht fünfzehn.",
-   "Ich glaub, eine Pause können wir alle brauchen. Fünf Minuten, dann geht's weiter.",
-   "Kurze Pause, fünf Minuten. Wer noch einen Kaffee will, muss sich beeilen."
+   "So, fünf Minuten Pause. Fünf. Nicht die Wiener fünf Minuten – die echten.",
+   "Machen wir hier eine kurze Pause. Lüften Sie ruhig durch – Sie und der Hörsaal.",
+   "Pause! Fünf Minuten. Bitte pünktlich wieder da sein, ich fang auch ohne Sie an. Ich hab das schon öfter gemacht.",
+   "Ich glaub, eine Pause können wir alle brauchen. Sogar ich.",
+   "Kurze Pause. Wer noch einen Kaffee will, muss sich beeilen – die Schlange am Automaten ist länger als die Pause.",
+   "So, Pause. Stehen S’ auf, gehen S’ ein paar Schritte. Liegen dürfen nur die Kühe.",
+   "Wir machen eine kurze Pause. Fünf Minuten, nicht fünfzehn – ich zähl mit.",
+   "Halbzeit! Kurze Pause. Wer jetzt geht, verpasst den besseren Teil – sag ich jedes Semester, und es stimmt jedes Semester.",
+   "Pause. Die Laptops dürfen S’ ruhig offen lassen – in der Pause dürfen Sie spielen, was Sie wollen."
   ],
   "break_end": [
-   "So, die fünf Minuten sind um. Wenn Sie bitte wieder Platz nehmen.",
+   "So, die Pause ist um. Wenn Sie bitte wieder Platz nehmen.",
    "Darf ich bitten? Wir machen weiter.",
-   "Alle wieder da? Die Tür bitte zumachen, danke.",
-   "Gut, weiter geht's – wo waren wir stehen geblieben?",
-   "Ich fang wieder an. Wer noch draußen ist, kommt hoffentlich gleich nach."
+   "Alle wieder da? Die Tür bitte zumachen, danke. Wer noch draußen ist, verpasst jetzt das Beste.",
+   "Gut, weiter geht’s. Ich hoff, Sie haben getankt – Kaffee, frische Luft oder beides.",
+   "Ich fang wieder an. Wer noch draußen ist, kommt hoffentlich gleich nach – die Herde findet sich schon wieder zusammen.",
+   "So, zweite Halbzeit. Die meisten sind wieder da. Die Besten sowieso.",
+   "Die Pause ist vorbei. Ich seh ein paar leere Plätze – die kommen sicher gleich, mit sehr guten Ausreden.",
+   "Weiter im Programm. Konzentration zusammenkratzen, wir haben noch einiges vor.",
+   "Und weiter. Kurz durchatmen … so, jetzt wird’s wichtig."
   ],
   "board_wipe": [
    "Ich mach kurz Platz auf der Tafel.",
-   "Das brauchen wir nicht mehr – haben's alle abgeschrieben? Gut.",
-   "Einen Moment, ich wisch das weg.",
-   "Die Tafel ist voll. Wer's noch braucht, bitte jetzt fotografieren.",
-   "So, sauber. Neue Tafel, neues Glück."
+   "Das brauchen wir nicht mehr – haben’s alle abgeschrieben? … Gut. Weg damit.",
+   "Die Tafel ist voll. Wer’s noch braucht, bitte jetzt fotografieren. Drei, zwei, eins …",
+   "So, sauber. Neue Tafel, neues Glück.",
+   "Einen Moment, ich wisch das weg. Das ist der Teil meiner Arbeit, bei dem ich sicher bin, dass ich alles richtig mach.",
+   "Weg damit. Nach über zwanzig Jahren hab ich eine gewisse Technik beim Tafelwischen. Vielleicht mein größtes Talent.",
+   "Kurz wischen. Der Kreidestaub ist meine persönliche Rohasche.",
+   "Ich wisch das weg – im Skriptum steht’s eh noch einmal. Dort sogar leserlich."
   ],
   "board_slide": [
-   "Ich schieb die Tafel hinauf, dann sehen Sie's auch hinten.",
+   "Ich schieb die Tafel hinauf, dann sehen Sie’s auch hinten.",
    "Das kommt nach oben, das brauchen wir gleich noch.",
-   "Moment, ich hol mir die untere Tafel.",
-   "Hinauf damit – dann bleibt's stehen.",
-   "Die schieben wir hoch, dann hab ich unten wieder Platz."
+   "Moment, ich hol mir die untere Tafel. Die quietscht. Die hat immer schon gequietscht.",
+   "Hinauf damit. Was oben ist, bleibt stehen – wie meine Grundsätze.",
+   "Die schieben wir hoch, dann hab ich unten wieder Platz zum Rechnen.",
+   "Tafel hinauf. Das ist meine tägliche Kraftübung, neben dem Radfahren.",
+   "Ich schieb das nach oben. Bitte nicht abschreiben, was ganz oben steht – das ist noch vom Kollegen um acht.",
+   "So – ein Stockwerk höher. Damit Sie’s auch in der letzten Reihe sehen. Und in der vorletzten."
   ],
   "mic_feedback": [
    "Uh, Entschuldigung. Das war das Mikro.",
    "Pardon – ich geh einen Schritt weg vom Lautsprecher.",
-   "Das hat jetzt allen in den Ohren wehgetan, mir auch.",
-   "Ich dreh ein wenig leiser. Hört man mich noch?",
-   "Hoppla. Die Technik meldet sich auch zu Wort."
+   "Das hat jetzt allen in den Ohren wehgetan. Mir auch, falls Sie das tröstet.",
+   "Ich dreh ein wenig leiser. Hört man mich noch? … Hinten wird genickt. Gut.",
+   "Hoppla. Die Technik meldet sich auch zu Wort – ungefragt, wie immer.",
+   "Uff. Sind jetzt alle wach? Dann hat’s wenigstens einen Zweck gehabt.",
+   "Pardon! Kühe hören hohe Töne übrigens besser als wir. Im Stall hätten wir jetzt eine Herde mit gespitzten Ohren.",
+   "Entschuldigung. Das Mikro und ich – wir üben noch."
   ],
   "blinds": [
    "Die Sonne blendet auf der Leinwand – könnte jemand am Fenster bitte die Jalousie runterlassen?",
-   "Sieht man da hinten noch was auf der Folie? Ich glaub nicht. Die Jalousie bitte, danke.",
-   "Darf ich Sie am Fenster bitten, die Jalousie ein Stück runterzulassen? Danke vielmals.",
-   "Bei so viel Sonne sieht man das Diagramm nicht mehr. Kann wer die Jalousie bedienen?",
-   "Schönes Wetter, aber schlecht für den Beamer. Jalousie runter, bitte."
+   "Bei so viel Sonne sieht man das Diagramm nicht mehr. Kann wer die Jalousie bedienen? Danke vielmals.",
+   "Schönes Wetter, aber schlecht für die Folien. Jalousie runter, bitte – die Sonne kriegen Sie in der Pause wieder.",
+   "Darf ich Sie am Fenster bitten? Die Jalousie ein Stück runter. Ich weiß, das ist grausam bei dem Wetter.",
+   "Sieht man da hinten noch was auf der Folie? … Ich hab’s befürchtet. Die Jalousie, bitte.",
+   "Die Sonne gewinnt gegen den Beamer. Ich kann’s ihr nicht verübeln. Jalousie runter, bitte.",
+   "Die Folie ist nur noch weiß. Das ist kein neuer, minimalistischer Stil – das ist die Sonne. Jalousie, bitte.",
+   "Wer am Fenster sitzt, hat heute den schönsten Platz – und eine Aufgabe: die Jalousie. Danke!"
   ],
   "rain_start": [
-   "Jetzt fängt's zu regnen an. Gut für die Wiesen, schlecht für alle mit dem Rad.",
-   "Hören Sie das? Regen. Da ist man froh, wenn das Heu schon herinnen ist.",
-   "Es regnet. Dann bleiben Sie in der Pause wohl lieber herinnen.",
-   "Na, da hat der Wetterbericht ausnahmsweise recht gehabt.",
-   "Das klingt nach einem ordentlichen Guss. Hoffentlich hat jeder einen Schirm mit."
+   "Jetzt fängt’s zu regnen an. Gut für die Wiesen, schlecht für alle mit dem Rad. Also für mich.",
+   "Hören Sie das? Regen. Da ist man froh, wenn das Heu schon herinnen ist – und im Oktober ist es das hoffentlich.",
+   "Es regnet. Dann bleiben Sie in der Pause wohl lieber herinnen. Ich auch.",
+   "Na, da hat der Wetterbericht ausnahmsweise recht gehabt. Merken S’ sich den Tag.",
+   "Das klingt nach einem ordentlichen Guss. Den Kühen im Stall ist das wurscht, die haben ein Dach. Ich hab ein Rad.",
+   "Regen. Zum Silieren das schlechteste Wetter überhaupt – nasses Material, und die Clostridien reiben sich die Hände.",
+   "Jetzt schüttet’s. Ich hab in der Früh noch gesagt: Das hält. Ich bin Tierernährer, kein Meteorologe.",
+   "Regen am Fenster. Bei dem Geräusch wird ein Bauer im Sommer nervös – und im Oktober bleibt er gelassen."
   ],
   "door_bang": [
    "Oha. Die Tür.",
    "Das war nur die Tür – die fällt leider immer so laut zu.",
    "Huch – ich glaub, das hat man bis in die Mensa gehört.",
-   "Die Tür hat einen sehr eigenen Charakter.",
-   "Kein Problem, die schließt halt kräftig."
+   "Die Tür hat einen sehr eigenen Charakter. Seit Jahren. Wir haben uns arrangiert.",
+   "So, jetzt sind alle munter. Danke, liebe Tür.",
+   "Die Tür. Eine Kuh beim Melken würde jetzt die Milch zurückhalten – Stresshormone. Sie dürfen weiterschreiben.",
+   "Kein Problem. Die Tür schließt halt mit Überzeugung.",
+   "Bumm. Ich nehm das als Applaus für die letzte Folie."
   ],
   "leaves_early": [
    "Auf Wiedersehen – die Folien sind dann online.",
-   "Gehen Sie nur, aber bitte leise.",
-   "Schönen Tag noch. Den Rest finden Sie im Skriptum.",
-   "Kein Problem. Die Tür bitte sanft zumachen.",
-   "Da hat wohl jemand einen Termin. Alles gut, wir machen weiter."
+   "Gehen Sie nur, aber bitte leise. Die Tür ist da etwas temperamentvoll.",
+   "Schönen Tag noch! Den Rest finden Sie im Skriptum – den spannenden Teil leider nicht.",
+   "Da hat wohl jemand einen Termin. Alles gut, wir machen weiter – die Kuh wartet nicht.",
+   "Auf Wiedersehen! Ich nehm’s nicht persönlich. Ein bisserl vielleicht.",
+   "Kommen S’ gut heim! Für alle anderen: Wir sind noch nicht fertig, auch wenn’s draußen verlockend ausschaut.",
+   "Kein Problem. Die Tür bitte sanft zumachen – sie ist empfindlich. Ich auch.",
+   "Auf Wiedersehen. Nächste Woche bleiben S’ dann bis zum Schluss – da kommt nämlich der beste Teil. Kommt er immer."
   ],
   "cough_fit": [
-   "Gesundheit. Geht's? Ich warte gern kurz.",
+   "Gesundheit. Geht’s? Ich warte gern kurz.",
    "Brauchen Sie ein Wasser? Ich hab hier vorne noch eine Flasche.",
    "Lassen Sie sich Zeit. Wenn Sie kurz rausgehen wollen, ist das völlig in Ordnung.",
-   "Ich mach kurz Pause, bis es wieder geht.",
-   "Alles in Ordnung? Kann jemand ein Wasser rüberreichen?"
+   "Alles in Ordnung? Kann jemand ein Wasser rüberreichen?",
+   "Gesundheit! Die trockene Heizungsluft hier herinnen ist für die Atemwege eine Zumutung. Für meine auch.",
+   "Ich mach kurz Pause. Herbst ist Hustenzeit – bei Mensch und Kalb. Passen S’ auf sich auf.",
+   "Geht’s wieder? Gut. Ich hab extra eine langweilige Folie aufgelegt, damit Sie nichts verpassen.",
+   "Gesundheit. Brauchen S’ ein Zuckerl? Ich hab immer eins im Sakko. Berufskrankheit.",
+   "Alles gut? Lassen S’ sich ruhig Zeit. Der Stoff läuft uns nicht davon."
   ],
   "light_flicker": [
    "Das Licht flackert. Ich hoffe, das ist kein schlechtes Omen für die Prüfung.",
-   "Hm, die Deckenbeleuchtung. Das meld ich nachher der Haustechnik.",
-   "Solange der Beamer geht, ist mir das Licht fast egal.",
-   "Wenn's ganz ausgeht, machen wir halt mit der Tafel weiter.",
-   "Das flackert schon seit letzter Woche. Ignorieren wir's einfach."
+   "Hm, die Deckenbeleuchtung. Das meld ich nachher der Haustechnik. Die kennt mich schon.",
+   "Solange der Beamer geht, ist mir das Licht fast egal. Fast.",
+   "Wenn’s ganz ausgeht, machen wir halt mit der Tafel weiter. Kreide funktioniert auch im Dunkeln – schlecht, aber doch.",
+   "Das flackert schon seit letzter Woche. Ignorieren wir’s einfach – das ist meine bewährte Strategie bei Technik.",
+   "Diskolicht im Hörsaal 31. Mehr Party gibt’s in der Tierernährung nicht.",
+   "Hühner sehen so ein Flackern übrigens viel deutlicher als wir. Für die ist das wie ein Stroboskop. Seien Sie froh, dass Sie kein Huhn sind.",
+   "Das Licht blinzelt. Bleiben Sie wach – das Licht schafft’s ja auch, gerade so."
   ],
   "bottle_drop": [
    "Da ist was runtergefallen – nichts passiert?",
-   "Rollt da eine Flasche nach vorne? Lassen Sie, ich heb sie dann auf.",
-   "Kein Problem, das passiert jedem einmal.",
+   "Rollt da eine Flasche nach vorne? Lassen S’, ich heb sie dann auf.",
+   "Kein Problem, das passiert jedem einmal. Mir ist einmal das Häferl runtergefallen. Das Häferl hat’s überlebt. Der Kaffee nicht.",
    "Hoffentlich war die zu.",
-   "So, jetzt sind alle wieder munter."
+   "So, jetzt sind alle wieder munter.",
+   "Die Flasche rollt nach vorne – schneller als die Anwesenheitsliste.",
+   "Nichts passiert? Gut. Hörsäle sind leider schief gebaut – alles rollt zum Professor. Auch die Fragen.",
+   "Hoppla. Ein kleiner Wasserschaden. Hauptsache, kein Laptop."
   ],
   "exam_hint": [
    "Das zu {section} merken Sie sich bitte – das kommt in der Prüfung sicher in irgendeiner Form.",
    "Wenn Sie aus {section} nur eine Sache mitnehmen, dann bitte das.",
-   "Ich sag's ganz offen: Bei {section} frag ich das gern bei der Prüfung.",
    "Das ist bei {section} der Kern. Den sollten Sie erklären können, nicht nur auswendig wissen.",
-   "Unterstreichen Sie sich das im Skriptum – bei {section} ist das prüfungsrelevant.",
-   "Das Prinzip hinter {section} sollten Sie bis zur Prüfung selbst herleiten können.",
-   "Bei {section} wird in der Prüfung erfahrungsgemäß genau das am häufigsten verwechselt. Hier also bitte aufpassen."
+   "Bei {section} wird in der Prüfung erfahrungsgemäß genau das am häufigsten verwechselt. Hier also bitte aufpassen.",
+   "So, jetzt wird’s wichtig. Bei {section} ist das prüfungsrelevant – und zwar nicht, weil ich’s sag, sondern weil’s stimmt.",
+   "Kleiner Tipp zu {section}, ganz unter uns – also unter uns und allen, die zuhören: Das sollten Sie können.",
+   "Wenn Sie bei {section} das hier erklären können, haben Sie in der Prüfung schon einen Fuß in der Tür.",
+   "Sie dürfen das mitschreiben. Beim Thema {section} ist das die Stelle, die ich jedes Jahr frag.",
+   "Bei {section} unterstreichen Sie sich das bitte doppelt. Einfach unterstreichen war voriges Jahr zu wenig.",
+   "Das Prinzip hinter {section} sollten Sie bis zur Prüfung selbst herleiten können. Herleiten, nicht herbeten.",
+   "Ich verrat Ihnen ein Geheimnis zu {section}: Das hier kommt dran. So geheim ist es also nicht.",
+   "Zu {section}: Das ist die Frage, an der ich in der Prüfung seh, wer zugehört hat. Sie gehören ab jetzt dazu."
   ],
   "slides_online": [
    "Die Folien finden Sie wie immer auf BOKUlearn.",
-   "Sie müssen nicht alles abschreiben – die Folien stell ich heute noch auf BOKUlearn.",
-   "Das ist alles auf BOKUlearn, auch das Skriptum als PDF.",
-   "Die Folien von heute lade ich am Nachmittag hoch.",
-   "Wer die Tafelbilder will: Ich fotografier sie und stell sie zu den Folien auf BOKUlearn."
+   "Sie müssen nicht alles abschreiben – die Folien stell ich heute noch online. Schreiben S’ lieber mit, was nicht draufsteht.",
+   "Das ist alles auf BOKUlearn, auch das Skriptum als PDF. Lesen müssen S’ es allerdings selber.",
+   "Die Folien von heute lade ich am Nachmittag hoch. Spätestens am Abend. Allerspätestens, wenn mich jemand per Mail erinnert.",
+   "Wer die Tafelbilder will: Ich fotografier sie und stell sie zu den Folien. Meine Handschrift wird dadurch nicht leserlicher, aber größer.",
+   "Die Folien kommen online. Die Witze nicht – die gibt’s nur live.",
+   "Alles, was Sie heute gesehen haben, finden Sie online. Alles, was Sie heute gehört haben, leider nur in Ihren Notizen.",
+   "Die Folien sind dann auf BOKUlearn. Bitte nicht nur herunterladen – auch einmal aufmachen. Das ist ein großer Unterschied."
   ],
   "attention_hm": [
    "Hm.",
    "Alles klar da hinten?",
    "Kommen alle mit?",
    "Hm … gut, weiter.",
-   "Alles in Ordnung in Reihe {row}?"
+   "Alles in Ordnung in Reihe {row}?",
+   "Aha.",
+   "Reihe {row}? … Na gut.",
+   "Ich seh Sie, gell?",
+   "Interessant … sehr interessant.",
+   "Hm. Weiter im Text.",
+   "Sind wir noch beisammen?",
+   "Na, schauen wir einmal."
   ],
   "attention_lock": [
    "Ich warte kurz, bis alle wieder bei mir sind.",
    "Hm … ich schau nur, ob das bei allen angekommen ist.",
-   "Da hinten … na gut.",
+   "Da hinten … na gut. Noch.",
    "Ich mach einen Moment Pause. Nicht meinetwegen.",
-   "Ist da oben alles in Ordnung? … Gut."
+   "Ist da oben alles in Ordnung? … Ich frag nur. Noch frag ich nur.",
+   "Ich hab das Gefühl, ein paar Bildschirme sind gerade spannender als ich. Das kränkt mich – fachlich.",
+   "Ich warte. Ich hab Geduld – ich hab jahrelang Kühen beim Wiederkäuen zugeschaut.",
+   "So … ich seh gerade mehr Bildschirmlicht als Gesichter. Das ist kein gutes Verhältnis.",
+   "Hm. Ich schau jetzt einmal ein bisserl länger in diese Richtung."
   ],
   "caught_1": [
    "Sie in Reihe {row} – bitte den Laptop jetzt nur für die Vorlesung. Danke.",
-   "Ich sehe, da läuft etwas anderes am Bildschirm. Bitte machen Sie das zu.",
-   "Darf ich Sie bitten, bei uns zu bleiben? Das Spiel läuft Ihnen nicht davon.",
-   "Bitte schließen Sie, was Sie da gerade offen haben. Wir sind mitten im Stoff.",
-   "Kurz an Sie: Ich hätte gern Ihre Aufmerksamkeit hier vorne, nicht am Bildschirm."
+   "Sie in Reihe {row}: Ich weiß nicht, was auf Ihrem Bildschirm so spannend ist – aber ich wette, es hat keinen Pansen.",
+   "Reihe {row}, darf ich Sie bitten, bei uns zu bleiben? Das Spiel läuft Ihnen nicht davon. Die Prüfung auch nicht.",
+   "Reihe {row} – wenn Sie schon Kreuzerl machen, dann bitte auf der Anwesenheitsliste.",
+   "Sie in Reihe {row}, bitte machen Sie zu, was Sie da offen haben. Wir sind mitten im Stoff – und der Stoff ist eifersüchtig.",
+   "Reihe {row}: Ich sehe von hier aus Ihren Bildschirm. Ich seh schlecht – aber so schlecht auch wieder nicht.",
+   "Kurz an Sie in Reihe {row}: Ihre Aufmerksamkeit hätte ich gern hier vorne. Ich bin nicht so bunt wie Ihr Bildschirm, aber ich bin prüfungsrelevant.",
+   "Reihe {row}, ich hab gerade das Gefühl, wir zwei sind nicht im selben Hörsaal. Kommen S’ bitte zu uns zurück.",
+   "Sie in Reihe {row}: Laptop für die Mitschrift – gern. Für alles andere – nach der Vorlesung.",
+   "Reihe {row}, nur ein freundlicher Hinweis: Was immer da gerade gewinnt – hier vorne verlieren Sie gerade den Faden."
   ],
   "caught_2": [
-   "Das ist jetzt das zweite Mal. Bitte klappen Sie den Laptop zu.",
-   "Ich hab Sie schon einmal gebeten. Wenn Sie nicht zuhören wollen, lenken Sie bitte wenigstens die anderen nicht ab.",
-   "Reihe {row}, noch einmal: Laptop zu, bitte. Ich sag's ungern ein drittes Mal.",
-   "Ich nehme an, das ist kein Rationsprogramm, was Sie da offen haben. Bitte zumachen – jetzt.",
-   "Ich möchte die Vorlesung nicht ständig deswegen unterbrechen. Bitte legen Sie das weg."
+   "Reihe {row}, noch einmal: Laptop zu, bitte. Ich sag’s ungern ein drittes Mal.",
+   "Reihe {row}, das ist jetzt das zweite Mal. Bitte klappen Sie den Laptop zu.",
+   "Sie in Reihe {row}: Ich nehme an, das ist kein Rationsprogramm, was Sie da offen haben. Bitte zumachen – jetzt.",
+   "Reihe {row}, ich hab Sie schon einmal gebeten. Wenn Sie nicht zuhören wollen, lenken Sie bitte wenigstens die anderen nicht ab.",
+   "Reihe {row}, beim Fußball wär das jetzt die zweite Gelbe. Sie wissen, was nach der kommt.",
+   "Reihe {row}: Ich hab Geduld wie eine Kuh beim Wiederkäuen. Aber auch die Kuh hört irgendwann auf. Laptop zu, bitte.",
+   "Sie in Reihe {row} – schon wieder. Ich mein das jetzt ganz ernst und ganz freundlich: zuklappen.",
+   "Reihe {row}, ich unterbreche jetzt schon zum zweiten Mal wegen Ihnen. Die anderen hier möchten auch einmal fertig werden.",
+   "Reihe {row}, beim ersten Mal war’s ein Hinweis. Jetzt ist es eine Bitte mit Nachdruck. Beim dritten Mal wird’s eine Entscheidung."
   ],
   "caught_3_kick": [
    "Ich muss Sie jetzt bitten, den Hörsaal zu verlassen. Die Folien finden Sie auf BOKUlearn.",
-   "Das war jetzt das dritte Mal. Packen Sie bitte zusammen und gehen Sie – wir sehen uns nächste Woche.",
-   "Bitte verlassen Sie für heute die Lehrveranstaltung. Das ist nichts Persönliches, aber so geht's nicht.",
-   "Ich habe Sie zweimal gebeten. Für heute ist hier für Sie Schluss – bitte gehen Sie.",
-   "Ich unterbreche jetzt nicht ein viertes Mal. Bitte verlassen Sie den Hörsaal, danke."
+   "Das war jetzt das dritte Mal. Packen Sie bitte zusammen und gehen Sie. Wir sehen uns nächste Woche – mit Aufmerksamkeit, hoffe ich.",
+   "Bitte verlassen Sie für heute die Lehrveranstaltung. Das ist nichts Persönliches, aber so geht’s nicht.",
+   "Ich habe Sie zweimal gebeten. Für heute ist hier für Sie Schluss – bitte gehen Sie. Und die Tür bitte leise.",
+   "Dreimal ist einmal zu viel. Bitte packen S’ zusammen. Nächste Woche dürfen Sie gern wiederkommen – ohne Spiel.",
+   "So, jetzt reicht’s. Bitte verlassen Sie den Hörsaal. Ich sag das nicht gern – aber ich sag’s.",
+   "Ich unterbreche jetzt nicht ein viertes Mal. Bitte gehen Sie für heute. Nächste Woche fangen wir zwei von vorne an.",
+   "Bitte packen Sie ein und gehen Sie. Die anderen hier haben ein Recht auf eine Vorlesung ohne Zwischenrunden.",
+   "Es tut mir leid, aber für heute ist hier Endstation. Bitte verlassen Sie den Saal – das Skriptum wartet zu Hause auf Sie."
   ],
   "caught_3_move": [
    "Setzen Sie sich bitte nach vorne in die erste Reihe. Da ist genug Platz.",
-   "Packen Sie bitte zusammen und kommen Sie nach vorne in die erste Reihe. Dann hab ich Sie im Blick.",
    "Sie haben vorhin gut mitgedacht, deshalb schick ich Sie nicht hinaus. Bitte in die erste Reihe.",
-   "Ich mach Ihnen einen Vorschlag: erste Reihe, Laptop zu, und wir vergessen das.",
-   "Setzen Sie sich bitte nach vorne. Wer so gut antwortet, gehört eh in die erste Reihe."
+   "Setzen Sie sich bitte nach vorne. Wer so gut antwortet, gehört eh in die erste Reihe.",
+   "Packen Sie bitte zusammen und kommen Sie nach vorne. Dann hab ich Sie im Blick – und Sie mich.",
+   "Kommen S’ bitte nach vorne. Die erste Reihe hat den besten Blick auf die Tafel – und ich den besten auf Sie.",
+   "Neuer Platz für Sie: erste Reihe, Mitte. Das ist keine Strafe, das ist ein Aufstieg.",
+   "Sie wissen eh viel – zu schade für die hinteren Reihen. Bitte nach vorne, Laptop zu.",
+   "Bitte übersiedeln Sie in die erste Reihe. Dort ist das WLAN übrigens schlechter. Rein zufällig.",
+   "Ich mach Ihnen einen Vorschlag: Sie kommen nach vorne, und ich vergess, was ich gesehen hab. Abgemacht?"
   ],
   "opponent_caught": [
    "Sie in Reihe {row}, das gilt auch für Sie: Laptop bitte nur für die Vorlesung.",
    "In Reihe {row} spielt auch wer, seh ich. Bitte zumachen.",
-   "Reihe {row}, bitte. Ich sehe den Bildschirm von hier.",
-   "Und in Reihe {row} – auch Sie hätte ich gern bei der Sache.",
-   "Reihe {row}: Was immer das ist, es hat Zeit bis zur Pause."
+   "Reihe {row}, ich sehe den Bildschirm von hier. Sie haben übrigens gerade verloren – zumindest bei mir.",
+   "Und in Reihe {row}: Zu einem Spiel gehören offenbar immer zwei. Auch Sie bitte zumachen.",
+   "Reihe {row}: Was immer das ist, es hat Zeit bis zur Pause.",
+   "Reihe {row}, ich sehe da eine gewisse Zusammenarbeit über mehrere Reihen hinweg. Bitte beenden S’ die Kooperation.",
+   "Auch in Reihe {row}, bitte. Ich geh davon aus, das ist keine Futterwerttabelle.",
+   "Reihe {row} – Sie dachten, ich schau nur in eine Richtung? Ich hab einen Blick wie ein Rind: fast rundherum."
   ],
   "tutor_pass": [
    "Pst – er hat schon zweimal zu dir geschaut.",
    "Tipp: Bildschirm ein bisserl dunkler.",
    "Die Liste kommt gleich bei dir vorbei.",
    "Kurz Laptop runter, er schaut her.",
-   "Die Folien sind eh online, du musst nicht alles abtippen."
+   "Die Folien sind eh online, du musst nicht alles abtippen.",
+   "Er mag’s, wenn man nickt. Einfach ab und zu nicken.",
+   "Psst – Fenster wechseln, wenn er raufgeht.",
+   "Wenn er „Das kommt zur Prüfung“ sagt, schreib’s auf. Wirklich."
   ],
   "closing": [
-   "Gut, das war's für heute. Nächste Woche machen wir dort weiter, wo wir jetzt aufgehört haben.",
-   "Danke für die Aufmerksamkeit. Nächste Woche wird's praktischer, da rechnen wir mehr Rationen.",
-   "Damit sind wir am Ende. Schauen Sie sich bis nächste Woche bitte die Folien noch einmal an.",
-   "Das war's für heute. Ich wünsch Ihnen einen schönen Tag, wir sehen uns nächsten Dienstag.",
-   "Schluss für heute. Wer Fragen hat, kann gern noch nach vorne kommen – ich bin noch ein paar Minuten da."
+   "Gut, das war’s für heute. Nächste Woche machen wir dort weiter, wo wir jetzt aufgehört haben.",
+   "Danke für die Aufmerksamkeit – und für die Geduld. Beides ist bei mir nicht selbstverständlich.",
+   "Damit sind wir am Ende. Sie wissen jetzt mehr über Kühe als die meisten Menschen in ihrem ganzen Leben. Gratuliere.",
+   "Das war’s für heute. Ich wünsch Ihnen einen schönen Tag, wir sehen uns nächsten Dienstag – selbe Zeit, selbe Kuh.",
+   "Schluss für heute. Wer Fragen hat, kann gern noch nach vorne kommen. Ich beiß nicht – ich käu höchstens wieder.",
+   "So, Herrschaften, das war’s. Gehen S’ an die frische Luft und lassen S’ das Gelernte ein bisserl wiederkäuen.",
+   "Ende für heute. Wenn Sie nur eine Sache mitnehmen: Die Kuh frisst nicht für sich, sie füttert ihre Mikroben. Der Rest steht im Skriptum.",
+   "Danke! Ich hoffe, es war nicht nur lehrreich, sondern auch ein bisserl unterhaltsam. Und wenn nicht – bitte nicht weitersagen.",
+   "Damit sind wir durch. Schauen Sie sich bis nächste Woche die Folien noch einmal an – einmal reicht, wenn Sie’s ordentlich machen."
   ],
   "exam_info": [
    "Noch kurz zur Prüfung: Die Anmeldung läuft über BOKUonline, bitte vergessen Sie nicht auf die Frist.",
-   "Der erste Prüfungstermin ist am Ende des Semesters. Die Termine stehen schon in BOKUonline.",
    "Zur Prüfung: schriftlich, Stoff sind die Folien und das Skriptum. Bitte rechtzeitig in BOKUonline anmelden.",
-   "Bei der Prüfung kommen auch Rechenbeispiele. Taschenrechner mitnehmen – das Handy bleibt in der Tasche.",
-   "Wer sich noch nicht angemeldet hat: Das geht in BOKUonline, und die Frist endet ein paar Tage vor dem Termin."
+   "Bei der Prüfung kommen auch Rechenbeispiele. Taschenrechner mitnehmen – das Handy bleibt in der Tasche, auch wenn ein Taschenrechner drauf ist.",
+   "Der erste Prüfungstermin ist im Jänner. Ich weiß, das klingt weit weg. Das hat der letzte Jahrgang auch gesagt.",
+   "Zur Prüfung noch: Ich frag nichts, was nicht in der Vorlesung war. Ich frag aber alles, was in der Vorlesung war.",
+   "Kleiner Hinweis: Wer sich nicht anmeldet, kann auch nicht durchfallen. Aber auch nicht bestehen. Die Anmeldung ist in BOKUonline.",
+   "Zur Vorbereitung: Rechnen Sie die Beispiele selber durch. Nur anschauen ist wie Kühe anschauen – davon wird man noch kein Landwirt.",
+   "Bitte lernen S’ für die Prüfung nicht nur die Folien auswendig. Ich frag gern so, dass man’s verstanden haben muss. Das ist keine Gemeinheit, das ist Didaktik.",
+   "Die Anmeldefrist endet ein paar Tage vor dem Termin. Ich sag das jedes Semester, und jedes Semester kommt eine Mail am Tag danach."
+  ],
+  "orga_excursion": [
+   "Kurz etwas Organisatorisches: Am Freitag ist die Exkursion zur Versuchswirtschaft nach Groß-Enzersdorf. Die Liste geht nachher herum – maximal vierzig Plätze.",
+   "Zur Exkursion nach Groß-Enzersdorf: Abfahrt Freitag um acht bei der Dänenstraße. Die Anmeldeliste kommt im Lauf der Stunde zu Ihnen.",
+   "Bevor wir anfangen: Exkursion am Freitag! Bitte festes Schuhwerk. Weiße Turnschuhe kommen sauber hin, aber nicht sauber zurück.",
+   "Organisatorisches: Die Exkursion am Freitag ist bald voll. Die Liste geht heute herum – bitte leserlich eintragen. Wenn ich Ihren Namen nicht lesen kann, fährt der Bus ohne Sie.",
+   "Am Freitag fahren wir auf die Versuchswirtschaft. Dort sehen Sie das, worüber wir hier reden – in echt und mit Geruch. Die Liste kommt gleich bei Ihnen vorbei.",
+   "Ein Hinweis noch: Exkursion am Freitag, Abfahrt um acht. Um acht heißt um acht – bei der Exkursion gibt’s kein akademisches Viertel.",
+   "Für die Exkursion geht heute eine Liste herum. Vierzig Plätze. Wer zuerst unterschreibt, fährt mit – das ist das einzige Mal, wo sich Schnelligkeit bei mir auszahlt.",
+   "Wer am Freitag mit zur Versuchswirtschaft will: Die Liste kommt im Lauf der Stunde. Gummistiefel sind kein Muss, aber ein guter Rat."
+  ],
+  "knock_thanks": [
+   "Danke, schönen Tag noch!",
+   "Danke Ihnen – bis nächste Woche.",
+   "Wunderbar, danke. Bis Dienstag!",
+   "Danke! Ich nehm das Klopfen als Zeichen, dass es Ihnen gefallen hat – und nicht als Erleichterung.",
+   "Danke! Das Klopfen ist mir lieber als jeder Applaus. Und es ist leiser als die Tür.",
+   "Vielen Dank! Kommen S’ gut heim – und fahren S’ vorsichtig.",
+   "Danke schön! Das hör ich nach über zwanzig Jahren immer noch gern.",
+   "Danke! Bis nächste Woche, Herrschaften. Und schauen S’ einmal ins Skriptum – es beißt nicht."
+  ],
+  "gag_beamer_1": [
+   "Komisch. Gestern im Büro hat alles funktioniert. Er weiß genau, wann Publikum da ist.",
+   "Ich drück da drauf – es passiert nix. Ich drück noch einmal – auch nix. Konsequent ist er, das muss man ihm lassen.",
+   "Nanu? Die Fernbedienung hat genau zwei Knöpfe. Und ich erwisch seit Jahren zuverlässig den falschen.",
+   "Hm. Bei der Probe vorhin hat das noch funktioniert. Wie bei jeder Probe.",
+   "Na so was. Ich hab eine Dissertation über Pansenprotozoen geschrieben – aber dieses Gerät versteh ich nicht.",
+   "Was ist denn jetzt los? … Der hat mich noch nie im Stich gelassen. Zumindest nicht diese Woche.",
+   "Interessant. Eine sture Kuh merkt man sich. Den Beamer werd ich mir auch merken."
+  ],
+  "gag_beamer_2": [
+   "Schon wieder. Der Beamer und ich – wir zwei werden keine Freunde mehr.",
+   "Zweites Mal heute. Ich sag’s, wie’s ist: Wir zwei werden keine Freunde mehr. Aber wir sind Profis, wir arbeiten trotzdem zusammen.",
+   "Er hat’s wieder getan. Ich hab’s im Guten probiert. Der Beamer und ich – das wird nix mehr mit uns zwei.",
+   "Wieder. Mit einer sturen Kuh kann man reden. Mit dem da nicht. Freunde werden wir keine mehr.",
+   "Und noch einmal. Ich glaub, er mag mich nicht. Und ehrlich gesagt: Das beruht auf Gegenseitigkeit.",
+   "Ich hab ihm heute eine zweite Chance gegeben. Er hat sie genutzt – um wieder auszufallen. Freunde werden wir zwei keine mehr.",
+   "Zum zweiten Mal. Wenn das eine Beziehung wär, würd ich jetzt sagen: Wir sollten getrennte Wege gehen."
+  ],
+  "gag_beamer_3": [
+   "Sie wissen eh, der Beamer und ich … Ich hab übrigens beantragt, dass er in Pension geht.",
+   "Sie kennen das schon: der Beamer und ich. Ich hab offiziell beantragt, dass er in Pension geht. Den Antrag hat er vermutlich auch nicht angezeigt.",
+   "Dritte Runde. Der Antrag auf Pensionierung für den Beamer ist geschrieben. Begründung: mehr Ausfälle als Dienstjahre.",
+   "Sie wissen eh … ich und der Beamer. Beim nächsten Mal schreib ich alles an die Tafel. Die Tafel hat mich in über zwanzig Jahren kein einziges Mal im Stich gelassen.",
+   "Drei zu null für den Beamer. Ich hab beantragt, dass er in Pension geht. Ehrlich gesagt hat er innerlich schon länger gekündigt.",
+   "Und da ist er wieder, unser Klassiker. Der Beamer geht übrigens in Pension – ich hab’s beantragt. Ob er das weiß? Er reagiert ja nicht.",
+   "Ich seh schon, Sie wissen, was jetzt kommt. Richtig: Der Beamer geht in Pension, der Antrag ist gestellt. Ich bleib noch ein bisserl."
+  ],
+  "gag_mensa_energy": [
+   "Fett liefert mehr als doppelt so viel Energie wie Stärke. Ich sag Ihnen das nicht nur als Wissenschaftler – ich sag’s als jemand, der jeden Dienstag in der Mensa die Kaspressknödel isst.",
+   "Ein Kaspressknödel aus der Mensa ist im Grunde eine Weender Analyse auf dem Teller: Rohprotein und Rohfett vom Käse, Stärke vom Knödelbrot, noch mehr Fett vom Herausbacken. Rohfaser – eher Fehlanzeige.",
+   "Energiedichte, Herrschaften. Wenn Sie wissen wollen, was das ist: Heben Sie in der Mensa einmal einen Kaspressknödel auf. Klein, schwer – und er hält bis zum Abend.",
+   "Einer Kuh dürfen Sie nicht beliebig viel Fett geben, sonst leidet die Faserverdauung im Pansen. Ich hab leider keinen Pansen, der mich bei den Kaspressknödeln bremst.",
+   "Ein Teil der umsetzbaren Energie geht als Wärme verloren – Sie merken das nach dem Essen. Nach zwei Kaspressknödeln in der Mensa spür ich diese Wärmeverluste ganz persönlich.",
+   "Ich hab einmal überlegt, einen Kaspressknödel aus der Mensa ins Bombenkalorimeter zu geben. Die Kollegin im Labor hat gesagt, das Gerät ist für Futtermittel. Ich hab gesagt: eben.",
+   "Die Bruttoenergie misst man, indem man verbrennt. Ich mess sie lieber, indem ich nach den Kaspressknödeln die Stiegen zum Hörsaal hinaufsteig."
+  ],
+  "gag_mensa_break": [
+   "Wer ist noch nicht in der Mensa? … Die Kaspressknödel stehen heute auf der Karte. Ich hab nachgeschaut. Rein dienstlich.",
+   "Fünf Minuten – für die Mensa reicht das nicht, ich weiß. Aber für einen sehnsüchtigen Blick auf die Kaspressknödel schon.",
+   "Und wer jetzt in die Mensa geht: Lassen S’ mir einen Kaspressknödel übrig. Ich komm um halb zwölf.",
+   "Wer ist noch nicht in der Mensa? Gehen S’ ruhig schauen – aber kommen S’ wieder. Ein Knödel ist kein Grund, die zweite Hälfte zu versäumen.",
+   "Ich weiß, was einige von Ihnen jetzt denken: Mensa. Ich denk dasselbe. Kaspressknödel. Aber erst um halb zwölf.",
+   "Wer ist noch nicht in der Mensa? Ich empfehl die Kaspressknödel. Seit zwanzig Jahren. Ich stell meine Ration nicht gern um – da bin ich wie eine Kuh.",
+   "Für alle, die in die Mensa gehen: Eine ausgewogene Ration besteht nicht nur aus Kaspressknödeln. Sagt der, der jeden Dienstag Kaspressknödel isst."
+  ],
+  "gag_mensa_end": [
+   "Und jetzt Kaspressknödel – mit gutem Gewissen. Wir haben ja heute gelernt, was drin ist.",
+   "So, ich geh jetzt in die Mensa. Sie wissen, was ich nehm. Ich hab’s heute oft genug gesagt.",
+   "Wer mit in die Mensa geht: Wenn Sie mich bei den Kaspressknödeln sehen – das ist Feldforschung.",
+   "Ende der Vorlesung, Beginn der Mittagspause. Die Kaspressknödel warten. Die Rohfaser hol ich mir morgen.",
+   "Mahlzeit, Herrschaften! Und wenn S’ heute einen Kaspressknödel essen: Denken S’ an die Energiestufen. Dann schmeckt er gleich viel wissenschaftlicher.",
+   "Halb zwölf – Mensa. Meine Ration ist seit Jahren dieselbe: Kaspressknödel. Keine Futterumstellung, keine Verdauungsprobleme.",
+   "Ich weiß jetzt schon, was ich ess. Und Sie wissen nach heute, was da drin ist. Wir sind also beide gut vorbereitet."
+  ],
+  "gag_rudi_rumen": [
+   "Meinen ersten Pansen von innen hab ich bei Rudi gesehen, einem Fistelochsen auf dem Versuchsgut. Deckel auf, Arm hinein – warm, es blubbert, und es riecht nach Sauerkraut. Ich war Anfang zwanzig und sofort verliebt. In die Wissenschaft.",
+   "Ich muss Ihnen von Rudi erzählen. Rudi ist ein Fistelochse auf unserem Versuchsgut – er hat eine Öffnung in den Pansen, mit Deckel. Und bevor wer fragt: Das ist verheilt, tut ihm nicht weh, und Rudi wird tierärztlich betreut wie kaum ein anderes Rind.",
+   "Rudi, unser Fistelochse, hat mir mehr über Pansenmikrobiologie beigebracht als drei Semester Vorlesung. Sagen S’ das bitte nicht meinem eigenen Professor von damals.",
+   "Bei Rudi sieht man die Schichtung im Pansen mit freiem Auge: oben die Gasblase, darunter die Fasermatte, unten die Flüssigkeit. Und Rudi frisst seelenruhig weiter, während man ihm in den Bauch schaut.",
+   "Rudi ist übrigens schon der dritte Rudi am Versuchsgut. Der Name wird weitergegeben, wie ein Titel. Und ein Fistelochse hat bei uns ein langes, ruhiges Leben – ruhiger als meines im Semester.",
+   "Wenn auf dem Versuchsgut eine Kuh nach einer Operation nicht frisst, hilft Rudi: ein paar Liter Pansensaft von ihm, und ihre Mikroben kommen wieder in Schwung. Rudi ist sozusagen unser Mikrobenspender. Bezahlt wird er in Heu.",
+   "Der erste Griff in Rudis Pansen ist für alle Studierenden ein Erlebnis. Manche werden blass, manche werden Tierernährer. Ich bin beides geworden.",
+   "Rudi käut seelenruhig wieder, während eine ganze Gruppe Studierender durch das Fenster in seinen Pansen schaut. Ich kenn Menschen, die beim Essen weniger entspannt sind, wenn man ihnen zuschaut."
+  ],
+  "gag_rudi_callback": [
+   "Wissen S’ noch, Rudi, der Fistelochse? Bei ihm hängen wir kleine Nylonsäckchen mit Futter in den Pansen und holen sie nach ein paar Stunden wieder heraus. So misst man, wie viel Protein im Pansen abgebaut wird. Rudi macht das ehrenamtlich.",
+   "Da ist er wieder, der Rudi: Was in seinem Pansen nicht abgebaut wird, fließt als unabgebautes Protein in den Dünndarm. Und was abgebaut wird, machen seine Mikroben zu Mikrobenprotein. Rudi ist im Grunde eine wandelnde Folie.",
+   "Rudi war übrigens auch einmal in der Respirationskammer, zum Methanmessen. Er hat dort sehr gewissenhaft gerülpst. Ich hab selten ein so engagiertes Versuchstier erlebt.",
+   "Rudi, unser Fistelochse, hat schon für mehr Diplomarbeiten Pansensaft gespendet, als ich betreut hab. Und ich hab viele betreut.",
+   "Unser Rudi würde jetzt sagen: Methan ist kein Abgas, Methan ist verlorene Energie. Gut – Rudi sagt gar nix. Aber er würde, wenn er könnte.",
+   "Ein kleiner Gruß von Rudi: Bei ihm sieht man’s im Pansen sofort, wenn die Ration kippt – die Fasermatte wird dünn, der Saft wird sauer. Rudi ist das ehrlichste Versuchstier, das ich kenn.",
+   "Wie ich bei Rudi gelernt hab: Die Pansenmikroben brauchen Stickstoff und Energie, und zwar zur selben Zeit. Kommt eins zu früh, ist das andere beleidigt.",
+   "Ich muss noch einmal auf Rudi zurückkommen. Sein Methan kommt fast zur Gänze vorne heraus – das haben wir an ihm schön gesehen. Rudi hat damit mehr zur Klimaforschung beigetragen als mancher Kongress."
+  ],
+  "gag_rudi_bye": [
+   "Rudi lässt grüßen.",
+   "Ach ja – schöne Grüße vom Rudi. Er hat heute sicher wieder mehr wiedergekäut als Sie.",
+   "Rudi lässt grüßen. Wenn Sie ihn bei der Exkursion besuchen: Hände waschen, vorher und nachher, und in den Pansen bitte nur mit Aufsicht.",
+   "Und schöne Grüße von Rudi – der hat heute auch gearbeitet. Acht Stunden Wiederkauen, ganz ohne Beamer.",
+   "Rudi lässt grüßen. Er ist der einzige Ochse, den ich kenn, der unter den Studierenden eine eigene Fangemeinde hat.",
+   "Bevor ich’s vergess: Rudi lässt Sie herzlich grüßen. Er hätte gern gewinkt, aber er ist mit Wiederkäuen beschäftigt.",
+   "Rudi lässt grüßen. Und falls Sie heute Nacht vom Pansen träumen: Das ist normal. Das geht vorbei. Bei mir zwar nicht, aber bei den meisten."
+  ],
+  "gag_bus40a_late": [
+   "Der 40A, nehm ich an? … Sie brauchen nicht nicken, ich seh’s Ihnen an.",
+   "Lassen S’ mich raten: der 40A. Entweder zu spät oder zu voll. Meistens beides.",
+   "Der 40A ist wie eine Kuh vor dem Abkalben: Man weiß ungefähr, wann er kommt – aber nie genau.",
+   "Wenn das der 40A war: Sie haben mein Mitgefühl. Der fährt nach einem Fahrplan, den nur er selber kennt.",
+   "40A? Ich kenn das. Darum fahr ich mit dem Rad, bei jedem Wetter. Meine Frau sagt, das ist Sturheit. Ich sag, das ist Erfahrung mit dem 40A.",
+   "Sie sind mit dem 40A gekommen? Dann sind Sie eigentlich pünktlich – nach 40A-Zeit.",
+   "Der 40A hat wieder zugeschlagen. Setzen S’ sich, verschnaufen S’ – Sie haben eine Expedition hinter sich."
+  ],
+  "gag_bus40a_weather": [
+   "Und wer nachher mit dem 40A heimfahren will: Bei Regen fahren alle mit dem 40A, die sonst zu Fuß gehen. Viel Glück.",
+   "Regen heißt übrigens: Der 40A ist nachher voll bis unters Dach. Ich empfehl, noch ein bisserl dazubleiben und Fragen zu stellen.",
+   "Bei dem Wetter wird der 40A verdichtet wie ein gutes Fahrsilo. Luft bleibt keine übrig.",
+   "Regen bedeutet: Der 40A kommt später und ist voller. Zwei Größen, die bei Nässe zuverlässig steigen – wie der Sickersaft bei nasser Silage.",
+   "Jetzt regnet’s. Ich fahr mit dem Rad heim, Sie mit dem 40A. Nass werden wir beide – Sie halt von den Schirmen der anderen.",
+   "Ich seh die Schlange beim 40A schon vor mir. Bei Regen ist der Bus ein bisserl wie der Pansen: alles drin, alles in Bewegung, und keiner kommt schnell raus.",
+   "Regenwetter – da freut sich der 40A. Er hat endlich wieder eine Ausrede."
+  ],
+  "gag_bus40a_end": [
+   "Wer heute mit dem 40A gekommen ist: Sie sind entschuldigt, auch für nächste Woche.",
+   "Und wer jetzt zum 40A rennt: Gehen S’ ruhig. Er ist eh noch nicht da.",
+   "Schönen Heimweg! Und wer den 40A nimmt: viel Geduld. Die haben Sie heute bei mir eh schon trainiert.",
+   "Für alle, die mit dem 40A fahren: Ich würd Sie ja früher gehen lassen. Zu spät kommen S’ trotzdem – aber wenigstens nicht wegen mir.",
+   "Wer heute wegen dem 40A zu spät war: alles verziehen. Mit dem 40A hab ich selber noch eine Rechnung offen.",
+   "Mit dem 40A heim? Dann sehen wir uns nächste Woche – wenn der Bus will."
+  ],
+  "student_gras": [
+   "Aber die Kuh frisst doch einfach Gras, oder?",
+   "Und im Sommer kriegen die Kühe dann nur Gras?",
+   "Ist Gras nicht eh das Beste für die Kuh?",
+   "Also wenn die Kuh auf der Weide Gras frisst …",
+   "Und das Gras wird dann einfach siliert?",
+   "Kann man Pferden auch nur Gras geben?",
+   "Heißt das, mehr Gras ist besser?"
+  ],
+  "gag_gras": [
+   "Gras? … Herrschaften, Gras ist kein Futtermittel. Gras ist ein Zustand. Das Futtermittel heißt Grünfutter, Weidefutter – oder, wenn’s vergoren ist, Grassilage.",
+   "Ich hab „Gras“ gehört. Ich korrigier das liebevoll: Gras ist ein Zustand. Füttern tun wir Wiesenfutter, Heu oder Silage.",
+   "„Gras“ – botanisch ist das eine Pflanzenfamilie mit über zehntausend Arten. Welche davon meinen Sie? Das Futtermittel heißt Grünfutter.",
+   "Wer in der Prüfung „Gras“ schreibt, kriegt ein Bienchen. Aber keinen Punkt. Gras ist kein Futtermittel – Gras ist ein Zustand.",
+   "Gras ist ein Zustand, und zwar meistens der Zustand vor dem Mähen. Danach heißt es Grünfutter – und ab da interessiert es uns.",
+   "Darf ich übersetzen? Sie meinen den ersten Aufwuchs einer Dauerwiese, geschnitten zu Beginn des Ährenschiebens, angewelkt. Das ist ein Futtermittel. Gras ist ein Zustand.",
+   "Ich weiß, ich bin da pingelig. Meine Familie leidet seit Jahren darunter. Aber: Gras ist kein Futtermittel. Gras ist ein Zustand.",
+   "„Gras“. Ich hör das Wort und spür, wie mein Blutdruck steigt. Wir sagen Grünfutter, Wiesenfutter, Weidefutter. Gras ist ein Zustand.",
+   "Ein „Gras“ in meiner Vorlesung … Na gut, einmal im Jahr lass ich’s durchgehen. Das war’s jetzt für heuer. Gras ist ein Zustand, Grünfutter ist ein Futtermittel."
+  ],
+  "gag_pruefung": [
+   "Das kommt zur Prüfung. Ich sag’s nicht, weil ich muss. Ich sag’s, weil ich’s gern sag.",
+   "Das kommt zur Prüfung. Und bevor S’ fragen: Ja, das auch.",
+   "Das kommt zur Prüfung. Ich seh, wie die Kugelschreiber plötzlich aufwachen. Schön.",
+   "Das kommt zur Prüfung. Ich weiß, ich sag das oft. Aber es kommt halt auch oft.",
+   "Das kommt zur Prüfung. Das war jetzt kein Witz – auch wenn ich’s im selben Tonfall sag.",
+   "Das kommt zur Prüfung. Machen S’ einen Stern daneben. Oder zwei. Ich zähl die Sterne nicht, aber Sie werden froh sein.",
+   "Das kommt zur Prüfung. Sie dürfen das mitschreiben. Sie sollten das sogar mitschreiben.",
+   "Das kommt zur Prüfung. Ich hab das letztes Jahr auch gesagt, und es ist gekommen. Ich bin ein Mann meines Wortes.",
+   "Das kommt zur Prüfung. Und zwar nicht, weil ich’s sag – sondern weil’s stimmt. Gut, ein bisserl auch, weil ich’s sag.",
+   "Das kommt zur Prüfung. Wie oft hab ich das heute eigentlich schon gesagt? … Das kommt übrigens nicht zur Prüfung."
+  ],
+  "gag_rosi": [
+   "Daheim im Weinviertel hatten wir dreißig Kühe. Meine Lieblingskuh war die Rosi. Die Rosi hat pro Laktation rund 4000 Kilo Milch gegeben. Eine gute Kuh heute schafft 8000 bis 10.000. Und trotzdem: Die Rosi hat ihr Bestes gegeben.",
+   "Die Rosi, meine Kuh aus Kindertagen, hätte in einem Leistungsvergleich heute keine Chance. Rund 4000 Kilo pro Laktation. Aber sie hat jeden Morgen gewusst, wann das Futter kommt – auf die Minute.",
+   "Wenn ich von Leistungssteigerung red, denk ich an die Rosi. Rund 4000 Kilo damals, heute 8000 bis 10.000 bei einer guten Kuh. Das ist nicht, weil die Rosi faul war. Das ist Zucht, Fütterung und Management – also das, was Sie hier lernen.",
+   "Die Rosi war meine erste Lehrerin in Tierernährung. Wenn das Heu schlecht war, hat sie’s mir gezeigt: Sie hat’s einfach liegen lassen. Ehrlicher kann ein Feedback nicht sein.",
+   "Ich hab als Bub neben der Rosi im Stall Hausaufgaben gemacht. Warm war’s, ruhig war’s – und sie hat nie abgeschrieben.",
+   "Die Rosi hat rund 4000 Kilo pro Laktation gegeben, eine gute Kuh heute 8000 bis 10.000. Beides verdient Respekt. Nur braucht die Kuh von heute eine Ration, die man rechnen muss. Und genau das machen wir.",
+   "Ein Foto von der Rosi hängt bei mir im Büro. Neben der Dissertation. Ich sag’s ehrlich: Die Rosi hat mich mehr geprägt.",
+   "Meine Mutter hat immer gesagt, die Rosi gibt Milch mit Charakter. Rund 4000 Kilo pro Laktation – aber jedes Kilo mit Überzeugung."
+  ],
+  "weather_sunny": [
+   "Schauen S’ einmal hinaus – Sonne über dem Türkenschanzpark, Ende Oktober. Bei dem Wetter wären die Kühe gern noch auf der Weide. Ich ehrlich gesagt auch.",
+   "Herrlicher Herbsttag. Kalte Nacht, sonniger Tag – genau bei so einem Wetter lagert das Weidefutter viel Fruktan ein. Für Pferde ist das ein Hufrehe-Risiko. Sie sehen: Sogar das Wetter ist prüfungsrelevant.",
+   "Sonne! Das ist im Oktober in Wien ein Geschenk. Genießen S’ es in der Pause – der Hochnebel kommt bestimmt.",
+   "So ein Wetter, und wir sitzen herinnen. Die Eichhörnchen im Türkenschanzpark legen draußen gerade Wintervorräte an. Futterkonservierung – nur ohne Fahrsilo.",
+   "Schönes Wetter heute. Wissen S’, was die Sonne mit dem Heu macht? Beim Trocknen am Feld entsteht Vitamin D. Sonnengetrocknetes Heu hat deshalb mehr davon als Silage. Die Sonne füttert also mit.",
+   "Blauer Himmel über der Türkenschanze. Ich bin mit dem Rad gekommen und hab mir gedacht: Heute ist ein Tag für die Weide. Leider ist heute auch ein Tag für die Vorlesung.",
+   "Sonnig und frisch – ideales Kuhwetter. Rinder vertragen Kälte viel besser als Hitze. An so einem Tag ist eine Milchkuh hochzufrieden. Sie hoffentlich auch.",
+   "Die Sonne scheint, die Blätter im Park sind gelb und rot. Eine Kuh sieht das übrigens nicht so bunt wie wir – Rot kann sie kaum unterscheiden. Dafür riecht sie den Herbst viel besser."
+  ],
+  "weather_rain": [
+   "Wer von Ihnen ist heute nass geworden? … Ich auch, ich bin mit dem Rad da. Meine Frau sagt, das ist Charakter. Ich sag: Erhaltungsbedarf plus Bewegungszuschlag.",
+   "Regen in Wien, Ende Oktober. Die Weidesaison neigt sich dem Ende zu – die Kühe übersiedeln in den Stall, und die Ration wird umgestellt. Langsam, bitte: Die Pansenmikroben brauchen ein paar Wochen.",
+   "Regenwetter. Einer Kuh macht Kälte wenig aus, Nässe und Wind aber schon – nasses Fell isoliert schlecht. Auch die Kuh hätte heute also gern einen Schirm.",
+   "Schauen S’ hinaus – Regen über dem Türkenschanzpark. Heute würde kein Bauer mähen. Nasses Futter siliert schlecht, und Heu machen S’ bei dem Wetter sowieso keines.",
+   "Es schüttet. Die Enten im Teich im Türkenschanzpark sind heute die Einzigen, die sich freuen. Die Enten und die Regenwürmer.",
+   "Ein richtiger Herbstregen. Für die Wiesen ist das gut, die Böden brauchen Wasser für den Winter. Für Ihre Schuhe weniger. Die Schirme bitte nicht in den Gang stellen.",
+   "Regen. Das perfekte Wetter für eine Vorlesung über Tierernährung: Draußen ist nix los, und herinnen ist es trocken. Meistens."
+  ],
+  "weather_cloudy": [
+   "Grau in grau heute. Hochnebel über Wien – das klassische Novemberwetter, nur ein paar Tage zu früh.",
+   "Bewölkt und kühl. Draußen wächst jetzt kaum noch was – unter rund fünf Grad stellt das Grünland das Wachstum weitgehend ein. Die Wiesen gehen in die Winterpause. Sie leider nicht.",
+   "Kein Sonnenstrahl heute. Fürs Vitamin D ist das schlecht – bei uns und bei den Kühen im Stall. Darum steht Vitamin D auch im Mineralfutter.",
+   "Schauen S’ hinaus, der Türkenschanzpark im Nebel. Schaut ein bisserl aus wie meine Handschrift an der Tafel: Man ahnt, was gemeint ist.",
+   "Wolken, Herbst, Hörsaal. Ideale Bedingungen zum Lernen – draußen versäumen S’ heute wirklich nichts.",
+   "Ein grauer, kühler Tag. Eine Milchkuh findet das übrigens angenehm – Hitze belastet sie viel mehr. Nehmen wir uns ein Beispiel an der Kuh.",
+   "Bedeckt heute. Der Wetterbericht hat Regen versprochen. Schauen wir, wer zuerst nachgibt – der Himmel oder Ihre Aufmerksamkeit."
+  ],
+  "time_quarter": [
+   "So, es ist Viertel. Akademisches Viertel, cum tempore – die einzige Verspätung, die an der Uni offiziell genehmigt ist.",
+   "Viertel nach. „c. t.“ heißt: Wir fangen eine Viertelstunde später an. Ich bin seit Viertel vor da. Sie wissen also, wer hier Geduld hat.",
+   "Es ist Viertel. Früher hat die volle Stunde geschlagen, und dann hatte man eine Viertelstunde, um in den Hörsaal zu kommen. Heute hat jeder eine Uhr am Handy – das Viertel haben wir trotzdem behalten.",
+   "Viertel nach – wir fangen an. Cum tempore, wie man so schön sagt. Sine tempore gibt’s bei mir nur bei der Exkursion.",
+   "Das akademische Viertel ist um. Wer jetzt noch kommt, kommt nicht mehr akademisch, sondern einfach spät.",
+   "Es ist Viertel. Ich hab gewartet – nicht aus Höflichkeit, sondern weil im Vorlesungsverzeichnis „c. t.“ steht. Ich halt mich an Vorschriften. Meistens.",
+   "Viertel nach zehn. Pünktlich wie eine Kuh zur Melkzeit – und die braucht dafür nicht einmal eine Uhr."
+  ],
+  "time_overrun": [
+   "Ich seh, es ist schon halb. Zwei Minuten noch, dann lass ich Sie gehen – versprochen.",
+   "Ich überzieh ein bisserl, ich weiß. Das ist wie beim Kraftfutter: Ein bisserl mehr geht, zu viel wird sauer.",
+   "Es ist schon nach halb. Ich bin gleich fertig – Ehrenwort eines Tierernährers.",
+   "Entschuldigung, ich bin über der Zeit. Die nächste Gruppe steht schon vor der Tür, ich hör sie schon.",
+   "Noch ein Satz. Und ich weiß: „Noch ein Satz“ ist bei mir eine dehnbare Einheit.",
+   "Ich merk, die Rucksäcke werden schon gepackt. Verständlich. Eine Minute noch, dann ist es amtlich.",
+   "Die Zeit ist um, ich weiß. Aber der Gedanke muss noch fertig werden – ein halber Gedanke ist wie eine halbe Ration: Davon wird niemand satt."
+  ],
+  "time_last_minutes": [
+   "Die letzten Minuten. Jetzt bitte nicht abschalten – das Wichtigste kommt oft ganz am Schluss.",
+   "Wir sind fast am Ende. Noch ein paar Minuten Konzentration, dann haben Sie’s für heute geschafft.",
+   "Endspurt, Herrschaften. An die letzten Minuten erinnert man sich in der Prüfung am besten. Sagt die Lernpsychologie – und ich.",
+   "Ein paar Minuten noch. Ich seh schon die ersten Blicke zur Uhr. Ich schau auch hin – aber aus anderen Gründen.",
+   "Kurz vor Schluss – darum jetzt nur noch das, was wirklich zählt.",
+   "Die letzten paar Minuten. Wer jetzt noch durchhält, kriegt von mir einen inneren Applaus.",
+   "Fast geschafft. Halten S’ noch kurz durch – ich tu’s auch."
+  ],
+  "callback_question": [
+   "Wie vorhin in Reihe {row} gefragt wurde – genau da sind wir jetzt angekommen.",
+   "Erinnern Sie sich an die Frage aus Reihe {row}? Die passt jetzt nämlich wunderbar. Gute Fragen kommen immer wieder.",
+   "Das schließt übrigens an die Frage aus Reihe {row} an. Sehen S’, Fragen zahlen sich aus.",
+   "Für Reihe {row}: Das ist die Fortsetzung zu Ihrer Frage von vorhin. Ich hab’s nicht vergessen.",
+   "Reihe {row}, Ihre Frage von vorhin hat mich nicht losgelassen. Jetzt kommt sozusagen der zweite Teil der Antwort.",
+   "Wie die Frage aus Reihe {row} schon hat vermuten lassen: Es hängt alles zusammen. Das ist das Schöne an diesem Fach.",
+   "Hier sind wir bei dem, was in Reihe {row} vorhin gefragt wurde. Ich hätt’s nicht besser planen können. Ich hab’s auch nicht geplant."
+  ],
+  "callback_latecomer": [
+   "Und für alle, die heute etwas später gekommen sind: Das hier ist der Teil, den Sie nicht versäumt haben. Gut so.",
+   "Übrigens, an die Person, die vorhin später gekommen ist: Sie sind jetzt genau richtig dran. Jetzt wird’s nämlich wichtig.",
+   "Wer heute später gekommen ist: Keine Sorge, den Anfang finden Sie im Skriptum. Das hier dagegen wiederhol ich nicht.",
+   "Ich hoffe, wer vorhin etwas später dazugekommen ist, hat sich inzwischen gut eingelebt. Jetzt kommt der Teil, für den sich das Kommen gelohnt hat.",
+   "Und für die späte Ankunft von vorhin: Sie sind inzwischen voll im Stoff. Ich seh’s an der Mitschrift.",
+   "Wer vorhin später gekommen ist, hat inzwischen hoffentlich alles aufgeholt. Wenn nicht: Die Sitznachbarn haben sicher mitgeschrieben.",
+   "Für alle, die mit Verspätung dazugestoßen sind: noch einmal offiziell willkommen. Jetzt sind Sie nicht mehr spät, jetzt sind Sie mittendrin."
+  ],
+  "callback_phone": [
+   "Falls das Handy von vorhin noch einmal läutet: Diesmal heb ich ab und halte einen kurzen Vortrag über den Pansen.",
+   "Ich hab übrigens noch über das Handy von vorhin nachgedacht. Den Klingelton krieg ich nicht mehr aus dem Kopf. Danke dafür.",
+   "Das Handy von vorhin ist hoffentlich jetzt im Winterschlaf. Wie ein Murmeltier – das frisst sich dafür übrigens vorher eine ordentliche Fettreserve an.",
+   "Hat das Handy von vorhin eigentlich zurückgerufen? Wenn’s der Futtermittelhändler war, sagen S’ mir bitte die Preise.",
+   "Das Handy von vorhin schweigt jetzt. Sehen S’, Technik kann man erziehen. Beim Beamer arbeit ich noch dran.",
+   "Kleiner Nachtrag zum Handy von vorhin: Ich war nicht böse. Ich war nur neidisch – mich ruft während der Vorlesung nie wer an.",
+   "Apropos Signale: Das Handy von vorhin war bis jetzt das lauteste Signal heute. Lauter als jede Folie."
+  ],
+  "callback_caught": [
+   "Reihe {row}, Sie sind ja jetzt ganz bei der Sache. Das freut mich wirklich.",
+   "Ich seh, in Reihe {row} wird jetzt fleißig mitgeschrieben. Schaut gut aus – ich nehm alles zurück, was ich mir gedacht hab.",
+   "Reihe {row}, Sie dürfen gern wieder aufschauen, ich bin nicht mehr böse. Ich war’s eigentlich nie.",
+   "Und in Reihe {row}: Was immer Sie vorhin gewonnen haben – das hier ist mehr wert. Versprochen.",
+   "Reihe {row}, das hier ist übrigens spannender als alles, was auf einem Bildschirm läuft. Fast alles.",
+   "Ich schau jetzt bewusst nicht in Reihe {row}. Ich vertrau Ihnen. Das ist eine pädagogische Maßnahme.",
+   "Reihe {row}, schön, dass Sie wieder ganz bei uns sind. Wir haben Sie vermisst. Ein bisserl."
+  ],
+  "resume_after_interrupt": [
+   "Wo war ich? Ah ja – {section}.",
+   "So. Wo waren wir stehen geblieben? Genau: {section}.",
+   "Zurück zum Thema – wir waren bei {section}. Ich hab den Faden noch, ich hab ihn nur kurz abgelegt.",
+   "Weiter im Text. Wir sind bei {section}, und da bleiben wir jetzt auch.",
+   "Ich hab den Faden … da ist er. {section}.",
+   "Gut, wo waren wir? Ich schau auf die Folie, die weiß es. Richtig: {section}.",
+   "Nach dieser kleinen Unterbrechung zurück zu {section}. Wiederholung schadet nie – die Kuh macht’s ja auch.",
+   "So, das Leben im Hörsaal geht weiter – und {section} auch."
+  ],
+  "joke_flop": [
+   "… das war ein Witz. Den können S’ auch nicht mitschreiben.",
+   "Stille. Gut, der war vielleicht ein bisserl zu fachlich. Oder zu schlecht.",
+   "Na gut. Den heb ich mir für den nächsten Jahrgang auf. Vielleicht sind die weniger anspruchsvoll.",
+   "… Das war die Stelle, wo man lacht. Aber ich zwing niemanden.",
+   "Hm. Bei den Kollegen am Institut hat der funktioniert. Das sagt jetzt mehr über die Kollegen aus.",
+   "Kein Lacher. Ich nehm das als akademische Zurückhaltung.",
+   "Der Witz ist von 1998. Er hat sich, wie Sie merken, nicht weiterentwickelt.",
+   "Gut, nicht jeder Witz zündet. Bei der Silage gelingt auch nicht jede Gärung."
+  ],
+  "laugh_response": [
+   "Danke, danke. Ich bin die ganze Woche hier.",
+   "Sehen S’, Tierernährung kann lustig sein. Erzählen S’ das bitte weiter.",
+   "Freut mich, dass das ankommt. Den hab ich mir seit dem Sommer aufgehoben.",
+   "Gut, jetzt sind alle wieder wach. Das war der eigentliche Zweck.",
+   "Lachen hilft beim Merken. Wissenschaftlich ist das nicht ganz sauber belegt – aber ich glaub fest daran.",
+   "Danke. Aber bitte nicht zu laut – sonst glauben die nebenan, wir haben hier zu viel Spaß.",
+   "Schön. Das war übrigens auch prüfungsrelevant. Nein, Scherz.",
+   "Ich seh, Sie sind ein dankbares Publikum. Das nutz ich gleich aus – jetzt kommt was Schwieriges."
+  ],
+  "quiz_right_streak": [
+   "Schon wieder richtig! Ich muss mir für Sie langsam schwierigere Fragen überlegen.",
+   "Richtig – und das nicht zum ersten Mal heute. Sie hätten die Vorlesung auch selber halten können.",
+   "Wieder richtig. Ich bin beeindruckt. Und ehrlich gesagt ein bisserl beunruhigt.",
+   "Stimmt! Sie sind heute in Form. Ich hoffe, die Prüfung fällt auf einen Dienstag.",
+   "Richtig, schon wieder. Wenn Sie so weitermachen, reservier ich Ihnen bei der Exkursion den Platz ganz vorne im Bus.",
+   "Genau! Ihre Trefferquote ist heute besser als die von meinem Beamer.",
+   "Und wieder richtig. Herrschaften, merken Sie sich diesen Platz – von dort kommt vor der Prüfung die beste Zusammenfassung.",
+   "Richtig. Sie haben offensichtlich zugehört. Das ist hier herinnen nicht selbstverständlich – ich weiß das zu schätzen."
   ],
   "chat_opponent_wait": [
    "warte, er schaut zu mir",
    "moment",
    "sek, er geht grad rauf",
    "nicht jetzt, nachbarin schaut mit",
-   "kurz pause, der schaut die ganze zeit her"
+   "kurz pause, der schaut die ganze zeit her",
+   "warte, er fragt grad wen",
+   "1 min, muss kurz mitschreiben",
+   "sek, die tutorin geht vorbei"
   ],
   "chat_opponent_move": [
    "du bist",
@@ -425,28 +946,38 @@
    "so. du",
    "hab gesetzt",
    "bitte sehr",
-   "jetzt du, schnell"
+   "jetzt du, schnell",
+   "na mach",
+   "dein zug, bevor er wieder schaut"
   ],
   "chat_opponent_win": [
    "gg",
    "haha, diagonale",
    "sry, das war zu leicht",
    "punkt für mich",
-   "nochmal? ich bin grad im flow"
+   "nochmal? ich bin grad im flow",
+   "das kommt zur prüfung lol",
+   "revanche gefällig?",
+   "oida wie hast du die ecke übersehen"
   ],
   "chat_opponent_lose": [
    "ok, verdient",
    "hab die ecke nicht gesehen",
    "na super. revanche",
    "war abgelenkt, er hat grad zu mir geschaut",
-   "gg, die nächste gewinn ich"
+   "gg, die nächste gewinn ich",
+   "wie bitte. nochmal",
+   "ich schieb das auf den pansen",
+   "ok du bist besser in tierernährung. äh, tic tac toe"
   ],
   "chat_opponent_draw": [
    "unentschieden, war klar",
    "remis. nochmal?",
    "wieder nix lol",
    "patt. wir sind zu gut",
-   "ok, das bringt nix, neue runde"
+   "ok, das bringt nix, neue runde",
+   "schon wieder unentschieden. wir sind wie zwei kühe am futtertisch",
+   "x o x o … langweilig. nochmal"
   ],
   "chat_opponent_idle": [
    "gehst du nachher mensa?",
@@ -457,21 +988,30 @@
    "kaffee nach der vo?",
    "das mit der weender analyse hab ich null verstanden",
    "der redet heute echt schnell",
-   "hast du dich schon für die prüfung angemeldet?"
+   "hast du dich schon für die prüfung angemeldet?",
+   "fährst du am freitag mit zur exkursion?",
+   "wie oft hat er heute schon pansen gesagt",
+   "ich glaub er hat mich vorhin angeschaut",
+   "kann ich nachher deine mitschrift fotografieren?"
   ],
   "chat_opponent_caught": [
    "oida. erwischt",
    "ups, hat mich gesehen",
    "sry, muss kurz brav sein",
    "bin mal 5 min unsichtbar",
-   "peinlich. später weiter"
+   "peinlich. später weiter",
+   "mein herz. bin kurz raus",
+   "ok ich schreib jetzt 10 min mit. dann weiter"
   ],
   "chat_you_caught": [
    "autsch",
    "uff. alles ok?",
-   "sorry, aber man hat's echt gesehen lol",
+   "sorry, aber man hats echt gesehen lol",
    "mach mal pause, ich wart",
-   "der schaut jetzt sicher öfter zu dir"
+   "der schaut jetzt sicher öfter zu dir",
+   "mit reihennummer und allem. legendär",
+   "bildschirm dunkler machen hilft übrigens",
+   "ich hab fast laut gelacht"
   ],
   "audience_questions": [
    {
@@ -764,215 +1304,323 @@
      "Deshalb wird Katzenfutter mit Taurin ergänzt, und deshalb ist Hundefutter für Katzen auf Dauer keine gute Idee."
     ]
    }
-  ],
-  "orga_excursion": [
-   "Kurz etwas Organisatorisches: Am Freitag ist die Exkursion zur Versuchswirtschaft nach Groß-Enzersdorf. Die Liste geht nachher herum – maximal vierzig Plätze.",
-   "Bevor wir anfangen: Für die Exkursion am Freitag geht später eine Liste durch die Reihen. Wer mitfahren will, bitte eintragen – die Plätze sind begrenzt.",
-   "Zur Exkursion nach Groß-Enzersdorf: Abfahrt Freitag um acht bei der Dänenstraße. Die Anmeldeliste kommt im Lauf der Stunde zu Ihnen.",
-   "Ein Hinweis noch: Die Exkursion am Freitag ist bald voll. Ich lasse heute die Liste herumgehen, bitte gut leserlich eintragen."
-  ],
-  "knock_thanks": [
-   "Danke, schönen Tag noch!",
-   "Danke Ihnen – bis nächste Woche.",
-   "Wunderbar, danke. Bis Dienstag!"
   ]
  },
  "en": {
   "mic_check": [
+   "Can you hear me in the last row? If you can't, please raise your hand. … Yes, I see the flaw in that system.",
+   "One, two … testing. The microphone and I are both on probation this semester.",
+   "Is this on? The little light is green. In my experience that means nothing, but let's be optimistic.",
+   "Back row, thumbs up if it's loud enough. … Thumbs. Thank you. Very democratic.",
+   "Let me try the microphone. If it crackles, that's the microphone. If it rumbles, that's my breakfast.",
+   "Hello up there in the cheap seats – is the volume all right like this?",
    "So, can you hear me at the back? Last row, just raise a hand if it's too quiet.",
-   "One, two … is this working? Yes, I see nodding in the back row, very good.",
-   "Is the mic on? Ah, the little light is green. Can you hear me up there?",
-   "Hello – is the volume all right like this? Otherwise we'll turn it up a bit.",
-   "Let me try it with the microphone. If it's crackling or too quiet at the back, just give me a sign."
+   "If it's too loud at the front, move back. If it's too quiet at the back, move forward. That's the whole of acoustics.",
+   "One, two … I've been told I don't need a microphone. I've been told that by people in the front row.",
+   "Grüß Gott – testing. If the back row nods, we're in business. … Very good, a nod. Two nods, even."
   ],
   "projector_wait": [
-   "The projector needs another moment, it's not quite awake yet either.",
-   "We'll wait a moment until the picture comes up. The thing has to warm up first.",
-   "A little more patience, the projector is starting up. In the meantime you can open BOKUlearn, the slides are there.",
-   "So, everything's plugged in … now it's looking for the signal. That always takes a few seconds.",
-   "The lamp has to warm up first. Meanwhile I'll tell you what we're planning for today."
+   "The projector is warming up. It's a bit like a cow in the morning – it gets there, but not before it's ready.",
+   "One moment, the projector is still thinking about it. Like many of us at this hour.",
+   "It's looking for the signal. It always looks for the signal. It rarely finds it on the first try.",
+   "While the lamp warms up, you can open the slides on BOKUlearn. That way at least one of us has a picture.",
+   "Everything's plugged in … now we wait. In agriculture we call this patience. In IT they call it booting.",
+   "The projector needs another moment – it's not a morning person either.",
+   "Blue screen, then black, then blue again. I've learned not to read anything into it.",
+   "Meanwhile I'll tell you what we're planning for today. That's the advantage of having it in your head and not only on the slides.",
+   "It's still searching. I'd offer it a coffee, but I need that myself.",
+   "A little patience, please. This projector has seen a lot of semesters – and it lets you feel every one of them."
   ],
   "greeting": [
-   "Good morning, ladies and gentlemen. It's quarter past, so let's begin.",
-   "Good morning, everyone. The academic quarter is over, so a warm welcome to you all.",
-   "Good morning and welcome to Animal Nutrition. Nice to see so many of you – on a Tuesday, at this hour.",
-   "Right, good morning. I'd say we start – anyone still coming in will hopefully find a seat quietly.",
-   "Good morning! I'll wait a moment until everyone's seated … good, then let's get going."
+   "Grüß Gott, ladies and gentlemen. It's quarter past – so we begin.",
+   "Good morning and welcome to Animal Nutrition. Nice to see so many of you – on a Tuesday, at this hour, voluntarily.",
+   "Grüß Gott, everyone. The academic quarter is over, the coffee is in my mug, so we can start.",
+   "Good morning! I'll wait a moment until everyone's found a seat … good. Coats off, brains on.",
+   "Good morning, ladies and gentlemen. Welcome back to the only lecture at this university that is entirely about lunch – just not ours.",
+   "Grüß Gott! Some familiar faces, some new ones – and a few I mostly know from the cafeteria queue.",
+   "Right, good morning. Anyone still coming in, please find a seat quietly – the cows on the slides are already waiting.",
+   "Good morning. I've cycled up the hill, I've had my coffee, I'm ready. I hope you've had your coffee too.",
+   "Grüß Gott and good morning. Today is a good day – we talk about food for ninety minutes, and nobody has to cook.",
+   "Good morning, ladies and gentlemen. Phones on silent, pens out – and let's see what the cow has for us today."
   ],
   "smalltalk": [
-   "Back in my village we had the harvest festival on Sunday – the harvest crown was particularly nice this year. Did any of you go to one?",
-   "It's pretty chilly outside today. The cows on pasture mind that less than we do – cattle cope with cold much better than with heat.",
-   "There are still a few places left on the excursion to Raumberg-Gumpenstein. You register via BOKUonline.",
-   "The semester's been running for a few weeks now. I hope you've settled in and can find all the lecture halls by now.",
-   "I came by bike today. The climb up to Türkenschanze reminds me every time that I'm not twenty any more.",
-   "Who here comes from a farm? … Quite a few, actually. Then you can bring in some practical experience today.",
-   "By the way, the ÖH is still looking for people for the student representation. The information is on the notice board outside."
+   "I came by bike again today, from the nineteenth district. The climb up to Türkenschanze reminds me every week that I'm not twenty any more.",
+   "Who here grew up on a farm? … Quite a few of you. Good – then I have allies when I start talking about manure.",
+   "My coffee mug has a cow on it. It's dented, it's older than the projector, and it works every single time. Make of that what you will.",
+   "My wife is a vet. So at home I talk about what goes into the cow, and she talks about what happens afterwards. Very balanced dinners.",
+   "Both of our children are grown up now, and neither of them went into agriculture. An error in upbringing – I take full responsibility.",
+   "I once spent a year in Brazil as a postdoc, on a feedlot with two thousand cattle. When I came back to Austria, I very nearly hugged the first meadow I saw.",
+   "It's getting chilly out there. The cows on pasture mind that much less than we do – cattle cope with cold far better than with heat.",
+   "Over the weekend I was up in the Weinviertel, where I grew up. Thirty cows on our farm back then. Today the neighbours mostly grow wine – also fermentation, to be fair.",
+   "We're a few weeks into the semester now. I hope you can all find the lecture halls – and the cafeteria, which is arguably more important.",
+   "By the way, the ÖH, the student union, is still looking for people for the student representation. The details are on the notice board outside."
   ],
   "recap": [
-   "Just a quick reminder: last week we laid the foundations that we're building on today.",
-   "Before we carry on, very briefly, where we left off last time.",
-   "Last week we already saw that an animal can never use everything that's in the feed. That's the thread running through this whole course.",
-   "For those who weren't here last week: the slides are on BOKUlearn, please have a look before the next session.",
-   "Any questions left over from last time? … No? You can always write to me via BOKUlearn as well."
+   "Before we move on, a quick recap. Not for my sake – I know it already. Mostly.",
+   "A brief recap. Repetition is the mother of learning – and the grandmother of the exam.",
+   "Last week we saw that an animal can never use everything that's in the feed. That's the thread running through this whole course.",
+   "Let me briefly summarise. If you were here last time, nod. If you weren't, nod anyway, and read the slides later.",
+   "For those who weren't here last week: the slides are on BOKUlearn. For those who were: the slides are also on BOKUlearn.",
+   "A short look back. Feed goes in at the front, something useful comes out – milk, meat, eggs – and the rest goes back to the field.",
+   "Any questions left over from last time? … No? Then either everything was clear, or nobody remembers. I'll assume the first.",
+   "Quick recap, so nobody gets lost: we're still following the feed on its way through the animal. We haven't lost it yet.",
+   "So, where do we stand? Let's chew on it once more. The cow does that for hours every day – we can manage half a minute.",
+   "Let me pull the threads together for a moment, before we tie the next knot."
   ],
   "agenda": [
-   "Today we'll start with {section} and then see how far we get.",
-   "First on the programme today: {section}. After that we'll take it step by step.",
-   "We'll begin with {section} today – that's a good basis for the rest of the session.",
-   "I've planned quite a lot for today. Let's start with {section}.",
-   "Let's have a look at {section} first. If time allows, we'll cover quite a bit more after that."
+   "Today we'll start with {section} – and then we'll see how far the cow carries us.",
+   "First on the programme today: {section}. After that, step by step – like a good change of ration: slowly.",
+   "We begin with {section}. It's the basis for everything that follows – like a good forage base.",
+   "I've planned rather a lot for today. Optimistically. We start with {section}.",
+   "Let's look at {section} first. If time allows, we'll do a lot more. Time usually doesn't allow.",
+   "Top of the list today: {section}. So – now it gets important.",
+   "First item: {section}. Please don't be alarmed by the length of the list – I never get through it either.",
+   "Here's the plan. We start with {section}, and the rest is on the slide. It's a menu, not a promise.",
+   "We open today with {section}. Pens ready – this is the part you'll be glad you wrote down.",
+   "Today's first course: {section}. Main course and dessert to follow, projector permitting."
   ],
   "transition": [
    "Good. That brings us to the next topic: {section}.",
-   "That should do for now. Let's move on to {section}.",
-   "Right, and now a change of topic – {section}.",
-   "If there are no questions on that, we'll move on to {section}.",
-   "Keep that in the back of your mind, we'll need it again later. Next point: {section}.",
-   "So much for that. Now let's have a look at {section}.",
-   "Let me change the slide … exactly, we're now at {section}.",
-   "Moving on. Next on the plan is {section}.",
-   "Let's stop there. The next chapter is {section}."
+   "Keep that in the back of your mind – we'll need it again later. Next stop: {section}.",
+   "So much for that. And now, a change of pasture – {section}.",
+   "If there are no questions on that … there are never questions on that. Moving on to {section}.",
+   "Let me change the slide … and if the remote cooperates, we're now at {section}.",
+   "That was the appetiser. Now the main course: {section}.",
+   "Let's leave it there and move on. Next chapter: {section}.",
+   "Right. Everything we just did will come back, I promise. Next up: {section}.",
+   "That's that. Now a topic I'm particularly fond of – I say that about every topic – {section}.",
+   "We follow the feed one step further now, to {section}."
   ],
   "latecomer_enter": [
    "Sorry …",
-   "Sorry, the tram didn't come …",
+   "Sorry, the bus …",
    "Can I just squeeze past? Thanks …",
    "Excuse me, is this seat free?",
-   "Sorry, I couldn't find the lecture hall at first."
+   "Sorry, I was in the wrong building.",
+   "Sorry – sorry – thank you …",
+   "Is this still Animal Nutrition? Oh, good.",
+   "Sorry, the 40A was full …"
   ],
   "latecomer_prof": [
-   "Good morning. Do sit down, there's still room at the back.",
-   "Come on in, you haven't missed much – only the most important part.",
-   "Good morning. You'll find the beginning in the slides on BOKUlearn.",
-   "No problem. Over there, at the end of the row, there's still a free seat.",
-   "Please close the door quietly – otherwise it tends to slam."
+   "Good morning. Come in, come in – you haven't missed much. Only the important part.",
+   "Good morning. You'll find the beginning in the slides on BOKUlearn – it was a very good beginning.",
+   "No problem. There's a free seat at the end of that row. Mind the backpacks – they're more dangerous than any bull.",
+   "Please close the door gently – it has a temper.",
+   "Don't worry, we've only just started. You're practically early.",
+   "Good morning. In Vienna, ten minutes late is practically punctual. Practically.",
+   "Come in. Quietly, if possible – the rest of the hall is in a delicate state of concentration.",
+   "Ah, good morning. Take your time finding a seat – but not too much of it.",
+   "Grüß Gott. There's room in row two. Nobody ever sits in row two. It's very comfortable.",
+   "Welcome. Just slip in – the cows on the slide won't mind, and neither will I."
   ],
   "phone_ring_prof": [
-   "That's not mine, is it? … No. Good.",
-   "Someone urgently wants to talk to you. I'll wait a moment.",
-   "I don't know that ringtone yet. Please switch it to silent, thank you.",
+   "That's not mine, is it? … No. Good. Then it's yours.",
+   "Someone urgently wants to talk to you. I'll wait. I'm used to waiting – I work with this projector.",
+   "I don't know that ringtone. Very catchy. Please switch it off anyway.",
    "If that's the student office, do give them my regards.",
-   "A short interruption – please put your phones on silent, it bothers the people next to you as well."
+   "If that's your mother, tell her you're in a lecture. She'll be very proud.",
+   "If that's a farmer calling about a sick cow, take it. Otherwise – silent mode, please.",
+   "Ah, a short musical interlude. Thank you. And now silent mode, please.",
+   "When I was a boy, the only thing that rang on our farm was the telephone in the hallway – and it was always the vet.",
+   "Phones on silent, please. It bothers your neighbours, and it bothers the cows on my slides.",
+   "Don't worry, it happens. Just don't let it happen twice."
   ],
   "phone_ring_student": [
    "Oh – sorry …",
    "Sorry, sorry, it's off.",
-   "That was my alarm … I'm sorry.",
-   "Sorry, I forgot to put it on silent.",
-   "Oops … sorry, I'm turning it off right now."
+   "That was my alarm … sorry.",
+   "Sorry, forgot to put it on silent.",
+   "It's my mum … sorry.",
+   "Oops – off, it's off.",
+   "Sorry! Wrong button … there."
   ],
   "projector_lost": [
+   "And – gone. The projector and I have a very honest relationship: it does what it likes.",
    "Whoops, the picture's gone.",
-   "And black. One moment, we'll sort that out.",
-   "“No signal” – it's been telling me that a lot lately.",
-   "Can you still see anything? Because I can't.",
-   "The cable again. Stay seated for a moment, I'll have a look."
+   "“No signal.” It's been telling me that a lot lately. I'm trying not to take it personally.",
+   "Can you still see anything? Because I can't. And I'm the one with the slides.",
+   "And black. Very atmospheric. Not very informative.",
+   "The cable again. Stay seated – this is my favourite part of the lecture.",
+   "Ah. The screen has decided to ruminate. We'll give it a moment.",
+   "The picture's gone. Fortunately, the cow is still in my head.",
+   "Well. That's the projector telling me it's had enough nutrition for one day.",
+   "Black screen. If anyone in here understands projectors – now would be a wonderful time to say so."
   ],
   "projector_fixing": [
    "This one at the back … no, that's the power.",
-   "Out and back in … come on.",
-   "Maybe it's the adapter …",
+   "Out … and back in … come on.",
+   "Maybe it's the adapter. It's always the adapter.",
    "It should be this button … no, it isn't.",
-   "Just a moment, almost got it."
+   "Just a moment, almost got it.",
+   "Input one, input two … why are there four inputs?",
+   "If I hold it like this … no. Like this … also no.",
+   "The little light is blinking. Is blinking good? Nobody knows.",
+   "Have you tried turning it off and on again? … I'm asking myself, don't worry.",
+   "Come on, old friend. Just one more lecture."
   ],
   "projector_back": [
    "There we go, it's back. Where were we?",
-   "There you are. The technology and I still get along after all.",
-   "The picture's back. Let me briefly repeat the last point.",
-   "Thanks for your patience. Let's carry on.",
-   "It's working again. And if it isn't, I'll simply carry on without slides."
+   "There you are. The technology and I still get along – on a trial basis.",
+   "The picture's back. Let me briefly repeat the last point – for the projector's benefit.",
+   "Thank you for your patience. I'd thank the cable as well, but I don't want to encourage it.",
+   "It's working again. And if it stops, I'll simply carry on without slides – the cow never had slides either.",
+   "Ha! Sometimes even I win.",
+   "And – light. Applause is optional.",
+   "Back. I have no idea what I did, so please don't ask me to repeat it.",
+   "There it is. It just wanted a bit of attention – like all of us.",
+   "Picture's back. Let's carry on before it changes its mind."
   ],
   "long_calc_intro": [
    "Let's work through this once, step by step – feel free to write along.",
-   "Let's look at this on the board now. It takes a few minutes, but it's worth it.",
-   "I'll calculate this for you once, the way you'll have to do it in the exam.",
-   "Numbers say more than any slide. I'll write it up now.",
-   "Let's do a concrete example with realistic values, then it becomes tangible."
+   "Now I'll calculate it on the board. It takes a few minutes, but they're the most useful few minutes of the day.",
+   "I'll do this once the way you'll have to do it in the exam. Pens ready.",
+   "Numbers say more than any slide. And they don't need a projector.",
+   "Let's do a concrete example with realistic values. Real cow, real feed, imaginary farmer.",
+   "So – now it gets important. A calculation. Please don't all leave at once.",
+   "A ration is just a story told in numbers. Let me tell you one.",
+   "I'll write it on the board. Chalk and board – the only technology in this room that has never let me down.",
+   "This looks dry, I know. But it's the bit that decides whether a farm makes money or not.",
+   "Calculators out. We're going to feed a cow – on paper, which is the cleanest way to do it."
   ],
   "long_calc_step": [
    "Right, and this is what we plug in here.",
-   "Watch the units – that's where most mistakes happen in the exam.",
-   "Clear so far? Good, then the next step.",
-   "We'll round that, the table values aren't that precise anyway.",
-   "Don't be alarmed, it looks more complicated than it is.",
-   "Feel free to follow along on your calculator. I'm doing it in my head and hoping it's right."
+   "Watch the units – that's where most points are lost in the exam. Not in the thinking. In the units.",
+   "Clear so far? I'll take the silence as a yes.",
+   "We round that – the table values aren't that precise anyway. The cow doesn't eat to two decimal places.",
+   "Don't be alarmed, it looks more complicated than it is. Most things do.",
+   "Follow along on your calculator. I'm doing it in my head and hoping for the best.",
+   "Dry matter, please, not fresh weight. Silage is mostly water – and water has no energy.",
+   "A small sanity check: does that number look like something a cow could actually eat? Good.",
+   "If you got lost just now, don't worry – the next step is the one that matters.",
+   "Times this, plus that, carry the one … my primary school teacher would be very proud."
   ],
   "long_calc_end": [
-   "And that's the result. Is it plausible? Yes, the order of magnitude is right.",
-   "Remember the method rather than the number.",
-   "If you get something completely different in practice, check the units first.",
-   "That's how it's done on the farm too – except there a ration programme usually helps.",
-   "That's not a law of nature, it's a planning figure. The cow doesn't always stick to the table."
+   "And that's the result. Plausible? Yes – the order of magnitude is right.",
+   "Remember the method, not the number. The number changes with every cow; the method doesn't.",
+   "If you get something completely different in practice, check the units first. Then the cow.",
+   "On the farm, a ration programme usually helps with this. And a farmer who says, “That's not what my cows eat.”",
+   "That's a planning figure, not a law of nature. The cow doesn't always read the table.",
+   "There. Not so bad, was it? … Don't answer that.",
+   "And that's exactly how it'll look in the exam – only with different numbers and less time.",
+   "So: the cow is fed. At least on paper. Paper cows are very easy to feed.",
+   "If you understood that, you understand half of practical feeding. The other half is standing in the barn and looking.",
+   "And with that, the board has earned a rest. And so have you – almost."
   ],
   "aisle_walk": [
-   "I'll come up towards you a bit, then you can hear me better at the back.",
-   "Stay seated, I'm just walking through the rows for a moment.",
-   "I want to see whether you can read this in the back rows too.",
-   "I can tell you this just as well from up here.",
-   "I'll stretch my legs a little – standing at the lectern all morning isn't great either."
+   "I'll come up towards you a little – then you can hear me better at the back. And I can see better.",
+   "Stay seated, I'm just walking through the rows. Consider it a farm visit.",
+   "I want to check whether you can read this in the back rows. And whether you're reading this.",
+   "I'll stretch my legs a little. Standing all morning isn't good for anyone – a dairy cow lies down for about half the day, you know.",
+   "Let me come up the stairs. It's the only exercise I get between the bike ride and lunch.",
+   "I'll walk up for a moment. Don't worry, I'm not inspecting anyone. Mostly.",
+   "Up we go. In the barn we'd call this a walk-through – you see more from the aisle than from the office.",
+   "A little walk through the herd. Carry on, please – behave naturally.",
+   "I'll come up for a bit. The view from the back is always very instructive.",
+   "Let me wander up the aisle. Feel free to ask me something on the way – it's quicker than email."
   ],
   "aisle_return": [
    "Right, back down to the board.",
-   "I'll go back down, otherwise you can't see the slide.",
-   "Good, back to the lectern then.",
-   "And back down again. Thanks for listening up there.",
-   "I need the board, so back to the front."
+   "I'll go back down – otherwise you can't see the slide.",
+   "Good, back to the lectern.",
+   "And back down again. Thank you for listening up there.",
+   "I need the board, so back to the front.",
+   "Down we go. Going down is the easy part – just like milk yield after the peak.",
+   "Back to base. Lovely view up here, by the way.",
+   "Right, I've seen enough. Back to the front.",
+   "Back down. My knees thank you for the short trip.",
+   "Back to my natural habitat – the lectern."
   ],
   "attendance_start": [
    "I'm sending the attendance list round now. Please sign legibly and pass it on.",
-   "The list is going through the rows again – please, everyone sign only for themselves.",
-   "The attendance list starts at the front left. Please don't let it disappear into your backpack.",
-   "I'm handing the list to the front row. At the end I'd like it back complete.",
-   "The list, as every week: name, student ID number, signature."
+   "The list is going through the rows. Everyone signs only for themselves – I do know the difference between one handwriting and another. Usually.",
+   "The attendance list starts at the front left. Please don't let it vanish into a backpack – it has a home to go to.",
+   "Here comes the list – name, student number, signature. Same procedure as every week.",
+   "The list is on its way. It travels through the hall like feed through a cow: in at the front, out at the back – and hopefully nothing gets lost.",
+   "I'm handing the list to the front row. At the end I'd like it back – complete, and without doodles.",
+   "Attendance list, please. One signature each. I don't need autographs, just evidence.",
+   "The attendance list is starting its journey. Please sign only once – this isn't a petition.",
+   "Here's the list. Please sign only for people who are actually present – and that includes you.",
+   "Off goes the list. It never misses a lecture – a very good role model."
   ],
   "attendance_neighbor": [
    "Here, the list.",
    "Here, for you.",
-   "Can you sign quickly? Then pass it to the right.",
+   "Can you sign quickly? Then pass it on.",
    "List. The pen's attached.",
-   "Can you pass it on after?"
+   "Can you pass it on after?",
+   "Sign and pass it right.",
+   "Your turn – the pen barely works.",
+   "Quick, the list. He's watching where it goes."
   ],
   "attendance_collect": [
-   "Where's the list right now? … Ah, at the back. Please pass it forward.",
-   "I'd like the attendance list back – just leave it on the lectern on your way out.",
-   "Has anyone not signed yet? Then please do it now.",
-   "Thank you, the list is back. Looks complete.",
-   "Please pass the list to the front before everyone packs up."
+   "Where's the list right now? … Ah, at the back. Please pass it forward – it's finished its tour.",
+   "I'd like the attendance list back. Just leave it on the lectern on your way out.",
+   "Has anyone not signed yet? Now's your chance – the list is boarding.",
+   "Thank you, the list is back. Looks complete. Suspiciously complete.",
+   "Please pass the list forward before everyone packs up.",
+   "The list, please. It's not a souvenir.",
+   "Has the list been everywhere? Every row? Good. It's had a more thorough tour than I have.",
+   "Who has the list? … Nobody? That's how lists disappear. Please check your bags.",
+   "List back to the front, please. I'd like to see it again before the end of the semester.",
+   "Thank you. Later I'll compare the number of signatures with the number of heads. I'm a scientist – I always compare."
   ],
   "direct_question_intro": [
    "Let me ask in row {row} – yes, you.",
-   "A question for you, in row {row}:",
-   "Let's see if that's sunk in. Row {row}, yes, you – what do you say?",
-   "I'd like an answer from row {row}. You look as if you know it.",
-   "May I ask you, in row {row}? Don't worry, it doesn't count towards any grade."
+   "A question for you, in row {row}. Don't worry, it doesn't count towards anything except my mood.",
+   "Let's see if that's sunk in. Row {row} – yes, you. What do you say?",
+   "I'd like an answer from row {row}. You look as though you know it. That's a compliment.",
+   "Row {row}, you've been very attentive – or very good at looking attentive. Let's find out.",
+   "May I ask you, in row {row}? There are no wrong answers. Well – there are. But that's fine.",
+   "Row {row}, please. Take a breath – it's only animal nutrition, not a job interview.",
+   "A little question for row {row}. If you know it, wonderful. If not, also wonderful – then we learn something.",
+   "Row {row}, I'm looking at you. Kindly. Here's the question.",
+   "Let me pick someone at random … row {row}. Purely random. Scientifically random."
   ],
   "quiz_right": [
-   "Correct, very good.",
-   "Exactly right. Thank you.",
-   "Yes, that's right. Nice to see that it stuck.",
-   "Correct – and that wasn't an easy question.",
-   "Spot on. Did everyone catch that?"
+   "Correct! You see – now you know more than half a scientific journal from 1985.",
+   "Exactly right. Thank you. Passt.",
+   "Yes, that's right. Lovely to see it stuck – like a good silage: properly compacted.",
+   "Correct – and that wasn't an easy question. I made it hard on purpose.",
+   "Spot on. Did everyone catch that? Because I'll ask again.",
+   "Right! I'd give you a point, but I don't have any. Have my respect instead.",
+   "Correct. Very good. You may sit a little more comfortably now.",
+   "That's it. Exactly that. I couldn't have put it better – and I've had many years of practice.",
+   "Correct! Somewhere a dairy cow is very proud of you.",
+   "Yes! You see, it's not difficult – it only sounds difficult."
   ],
   "quiz_wrong": [
-   "Not quite – but it's a common line of thought. Let's look at it again.",
-   "That's not right, unfortunately. Let me explain it again briefly, it probably concerns several of you.",
-   "Close, but no. The correct answer is a different one, I'll show you in a second.",
-   "No, but good that you tried – that's exactly why we ask.",
-   "That's easy to mix up. The other option is correct – I'll explain why in a moment."
+   "Not quite – but it's a very common line of thought. Let's look at it again.",
+   "Unfortunately not. But a good wrong answer is worth more than a lucky right one – it shows us where the trap is.",
+   "Close, but no. Close counts in horseshoes, not in feed analysis.",
+   "No – but good that you tried. That's exactly why we ask.",
+   "That's easy to mix up. Half the hall would have said the same – the other half is just quieter.",
+   "Not quite. Don't worry – my first exam answer on this topic was worse. Much worse.",
+   "No, but I can see the thought behind it. The thought is good – it just took a wrong turn.",
+   "Hm. Not right – but brave. Let me explain; it probably concerns several of you.",
+   "Unfortunately not. That's precisely the answer the exam is designed to catch – so better now than then.",
+   "Not quite. But it's a useful mistake – the kind we can learn from. Here's why."
   ],
   "quiz_timeout": [
-   "No idea? No problem, I'll give you the answer.",
-   "I'll wait a moment … all right, then I'll tell you.",
-   "I can see that needs a moment longer. I'll let you in on it.",
-   "No answer is an answer too. Then I'll explain it myself.",
-   "Then I'll help out – we had that on the slide a few minutes ago."
+   "No idea? No problem – I'll give you the answer.",
+   "I'll wait a moment … rumination takes time, I know … all right, then I'll tell you.",
+   "I can see that needs a little longer. I'll let you in on it.",
+   "No answer is also an answer. Not a good one, but an answer.",
+   "Then I'll help out – we had that on the slide a few minutes ago. The slide remembers.",
+   "Silence. That's all right – the best answers in agriculture usually start with a long pause.",
+   "Time's up. Don't worry, I'll ask you something easier next time. Maybe.",
+   "I can hear you thinking. Unfortunately, I can't hear the answer. So here it is.",
+   "Let me rescue you – here's the answer.",
+   "All right, I won't torture you. The answer is this."
   ],
   "neighbor_warn": [
    "Psst, he's looking.",
    "Careful, he's looking over.",
    "Watch out, he's coming up.",
    "Close it, quick.",
-   "He's looking our way."
+   "He's looking our way.",
+   "Laptop down – now.",
+   "He just stopped talking. That's never good.",
+   "Eyes front, he's coming."
   ],
   "neighbor_betray": [
    "[clears throat loudly and looks pointedly at you] Um …",
@@ -980,222 +1628,360 @@
    "[looks at you, then at the professor, then back at you] Hm.",
    "[coughs deliberately just as the professor looks over] Sorry.",
    "[points discreetly at your screen with a pen] Well …",
-   "[sighs audibly and shakes head] Seriously?"
+   "[sighs audibly and shakes head] Seriously?",
+   "[raises a hand halfway, then lowers it again, staring at your screen] Never mind.",
+   "[whispers far too loudly] Is that tic-tac-toe?"
   ],
   "neighbor_smalltalk": [
    "Did you get that down? I couldn't keep up.",
    "Do you think that's on the exam?",
    "He really likes talking about the rumen.",
-   "I think that's in the lecture notes anyway.",
+   "He's mentioned that cow again.",
    "How many more slides today?",
    "I didn't quite get the calculation from before.",
-   "That was on last year's exam, someone told me."
+   "That was on last year's exam, someone told me.",
+   "Kaspressknödel today, by the way.",
+   "Wait, who's Rudi?"
   ],
   "joke": [
    "The cow is a fermentation vat on four legs. A single millilitre of rumen fluid holds more bacteria than there are people on Earth.",
-   "The cow herself, by the way, doesn't have a single enzyme that breaks down cellulose. She's really just the landlady – the tenants in the rumen do the work.",
-   "In a cereal-based pig ration, Liebig's barrel is almost always built the same way: the shortest stave is called lysine. You can top up everything else – it still leaks out there.",
+   "The cow herself doesn't have a single enzyme that breaks down cellulose. She's really just the landlady – the tenants in the rumen do the work.",
    "Grass silage is basically sauerkraut in a bunker silo. Same lactic acid bacteria, same idea – just bigger portions.",
-   "When it comes to methane, everyone always looks at the wrong end of the cow. Over ninety percent comes out the front, by belching and breathing out.",
+   "When it comes to methane, everyone looks at the wrong end of the cow. Over ninety percent comes out the front – by belching and breathing out.",
    "The horse has no gallbladder. It doesn't need one – if you naturally eat for up to sixteen hours a day, there's no point storing bile.",
    "The chicken has no teeth, but it has a gizzard with little stones in it. Self-refilling dentures, so to speak.",
    "Nobody has ever actually measured the nitrogen-free extract. It's simply what's left over – like your budget at the end of the month.",
-   "By the formula N times 6.25, feed urea would have almost 290 percent crude protein. That's why it's called crude protein and not protein.",
-   "In older literature the omasum is also called the psalterium, because inside it looks like an open book. Which makes it the best-read part of the cow.",
-   "Some cows carry a magnet in their reticulum – not for the fridge door, but so that swallowed bits of wire stay put and don't pierce anything.",
-   "Austria is rich in many things, but selenium in the soil isn't one of them. That's why it's on practically every label of cattle mineral feed.",
-   "The cow eats grass that we can't digest and turns it into milk that we can. That's really the whole lecture in one sentence – the rest is detail."
+   "By the formula N times 6.25, feed urea would have almost 290 percent crude protein. That's why it's called crude protein – and not protein.",
+   "Cellulose is the most abundant organic compound on Earth. And hardly anyone competes with the cow for it – apart from the termite.",
+   "A horse practically cannot vomit. So whatever it eats, it's committed to. A lesson for all of us in the cafeteria.",
+   "Rabbits eat some of their own droppings – the soft ones, mostly at night. It's called caecotrophy. Please don't try it at home – you're not a rabbit.",
+   "Sheep graze, goats browse. The goat is the gourmet who sends back the main course and eats the table decoration.",
+   "The cow has no upper incisors – just a dental pad. Biting is overrated; she wraps her tongue round the forage and tears it off.",
+   "Feed analysis is the only discipline where we boil a sample in acid, then in alkali, and call whatever survives “crude fibre”. Crude is the right word.",
+   "Ruminants chew everything twice. Students, statistically, read their lecture notes once – the night before the exam. The cow has the better system.",
+   "The pig and I have a lot in common: a single stomach, an omnivorous diet – and a weakness for cereals.",
+   "Lactic acid in the silo preserves the feed. Lactic acid piling up in the rumen gives the cow acidosis. Same acid, wrong address.",
+   "The cow eats forage that we can't digest and turns it into milk that we can. That's the whole lecture in one sentence – the rest is detail."
   ],
   "drink": [
-   "One moment … There.",
-   "Excuse me, just a sip of water.",
-   "Talking makes you thirsty – just a second.",
-   "I need a quick drink, the air in here is very dry.",
-   "One second … Water, by the way, is also the feed people most easily forget about with dairy cows."
+   "One moment … there.",
+   "Excuse me – a sip of water. A high-yielding dairy cow can drink well over a hundred litres a day. I'll manage with one sip.",
+   "Talking makes you thirsty – one second.",
+   "A quick drink, please – the air in here is drier than first-cut hay.",
+   "One second … water, by the way, is the feedstuff people most easily forget about with dairy cows.",
+   "A sip of water. No, it's not a Kaspressknödel. Unfortunately.",
+   "Pardon me – water break. The cow drinks in long, deep draughts. I sip. Different species.",
+   "Excuse me. Viennese tap water – mountain spring water, mind you. The cow would approve.",
+   "Just a moment … ah. Rehydrated. Where was I?",
+   "One sip. The microphone dries me out."
   ],
   "clock_check": [
-   "Oh, time's running. I'll speed up a little.",
-   "We've still got a good {minutes} minutes, that should work out.",
-   "I'm just looking at the clock – I'll have to step on it a bit.",
-   "{minutes} minutes left. Then I'll keep the rest a bit shorter.",
-   "Hm, already this late. I'll skip a few details, they're in the lecture notes anyway."
+   "We still have a good {minutes} minutes – that should work out. Should.",
+   "{minutes} minutes left. I'll keep the rest a little shorter – the summary, not the full lactation.",
+   "Let me look at the clock … {minutes} minutes. Plenty, if the projector behaves.",
+   "About {minutes} minutes to go. I'll speed up a little – which is more than the 40A ever does.",
+   "{minutes} minutes. I'll skip a few details – they're in the lecture notes, where they're very happy.",
+   "Oh, time flies when you're talking about rumen bacteria. {minutes} minutes left.",
+   "The clock says {minutes} minutes. My plan says a lot more. One of us is wrong – and it's usually the plan.",
+   "{minutes} minutes left – enough for the essentials. The details will survive without us.",
+   "Still {minutes} minutes. Don't pack up yet – I can hear the zips from here.",
+   "Hm, {minutes} minutes. I'm going to speed up – please keep up, I won't slow down for the bends."
   ],
   "break_announce": [
-   "Let's take a five-minute break here. Feel free to let some fresh air in.",
-   "Right, five minutes' break. Please be back on time.",
-   "We'll take a short break – five minutes, not fifteen.",
-   "I think we could all use a break. Five minutes, then we'll continue.",
-   "Short break, five minutes. If you still want a coffee, you'll have to hurry."
+   "So – five minutes' break. Five. Not the Viennese five minutes – real ones.",
+   "Let's take a five-minute break. Open a window, let some oxygen in – the microbes in here have earned it.",
+   "Five minutes' break, please. Stretch your legs, ruminate a little, come back.",
+   "Short break, five minutes. If you want a coffee, hurry – the queue is longer than the break.",
+   "I think we could all use a break. Five minutes – and please be back before the projector forgets us.",
+   "Break. Five minutes. I'll stay here and guard the board.",
+   "Time for a break. A dairy cow spends hours a day lying down and ruminating. You get five minutes. Use them well.",
+   "Five minutes off. Don't wander too far – I count heads afterwards. Metaphorically.",
+   "We'll stop here for a short break. Five minutes, not fifteen. I know the difference – I'm a scientist.",
+   "Pause, ladies and gentlemen. Five minutes. Fresh air for you, fresh coffee for me."
   ],
   "break_end": [
-   "Right, the five minutes are up. If you'd please take your seats again.",
+   "So, the five minutes are up – the real ones. Please take your seats.",
    "If I may? Let's continue.",
-   "Everyone back? Please close the door, thank you.",
-   "Good, let's go on – where did we leave off?",
-   "I'm starting again. Whoever's still outside will hopefully follow shortly."
+   "Everyone back? Please close the door – thank you.",
+   "Right, we carry on. Where did we leave off? … Ah, yes. Exactly there.",
+   "I'm starting again. Whoever's still outside will hopefully hear me through the door.",
+   "Welcome back. I hope your break was more productive than mine – I spent it with the projector.",
+   "So. Refreshed, refuelled? Then off we go – second half, same cow.",
+   "Back to work. The rumen never takes a break, so neither do we. Well – we just did. But no more.",
+   "Please sit down. Five minutes in Vienna, I've noticed, is an elastic unit.",
+   "Good, most of you are back. The rest are probably still in the coffee queue – we'll forgive them."
   ],
   "board_wipe": [
    "Let me make some room on the board.",
-   "We don't need this any more – has everyone copied it? Good.",
+   "We don't need this any more – has everyone copied it? Good. Last chance … gone.",
    "One moment, I'll wipe this off.",
-   "The board's full. If you still need it, please take a photo now.",
-   "There, clean. Fresh board, fresh start."
+   "The board is full. If you still need it, take a photo now – I'm counting to three.",
+   "There – clean. Fresh board, fresh start.",
+   "Wiping the board. The most satisfying part of this job – just ahead of correcting exams.",
+   "Away with it. It's in your notes now – or it's nowhere.",
+   "Let me tidy up. My wife says I should do this more often at home, too.",
+   "A clean board. Like an empty feed trough – full of possibilities.",
+   "Off it goes. Don't mourn it – it'll be on BOKUlearn."
   ],
   "board_slide": [
-   "I'll slide the board up, then you can see it at the back too.",
-   "This goes up top, we'll need it again shortly.",
+   "I'll slide the board up – then you can see it at the back too.",
+   "This goes up top; we'll need it again shortly.",
    "One moment, I'll get the lower board.",
    "Up it goes – that way it stays visible.",
-   "We'll push this one up, then I've got space at the bottom again."
+   "Push this one up, and I've got room at the bottom again. Board management – the underrated core skill of the professor.",
+   "Up you go. These boards have outlived three projectors, and they still work.",
+   "Up it goes – like milk yield in early lactation.",
+   "Board up, fresh space below. Good forage planning – always keep a bit of room in reserve.",
+   "I'll put this one upstairs. It gets a better view.",
+   "Let me move this up. Mind your heads in the front row – only joking."
   ],
   "mic_feedback": [
-   "Ooh, sorry. That was the mic.",
+   "Ooh, sorry. That was the microphone.",
    "Pardon me – I'll step away from the speaker.",
-   "That hurt everyone's ears, mine included.",
+   "That hurt everyone's ears – mine included.",
    "I'll turn it down a little. Can you still hear me?",
-   "Whoops. The technology wants to have its say too."
+   "Whoops. The technology wants to have its say as well.",
+   "Sorry! That was a noise even a pig wouldn't make – and pigs can be very loud.",
+   "Sorry about that. I got too close to the speaker. The speaker and I need to talk.",
+   "Ouch. If the cows heard that, milk let-down would be cancelled for the day – stress blocks it, you know.",
+   "Excuse me. That squeal wasn't me, I promise.",
+   "Well, that woke up the back row. Not the intended method, but effective."
   ],
   "blinds": [
-   "The sun's glaring on the screen – could someone by the window please lower the blinds?",
-   "Can you still see anything on the slide at the back? I don't think so. The blinds, please, thank you.",
-   "May I ask you by the window to lower the blinds a little? Thanks very much.",
-   "With this much sun, you can't see the diagram any more. Could someone work the blinds?",
-   "Lovely weather, but bad for the projector. Blinds down, please."
+   "The sun's glaring on the screen – could someone by the window lower the blinds, please?",
+   "Can you see anything on the slide at the back? I can't. Blinds, please – thank you.",
+   "May I ask you by the window to lower the blinds a little? Thank you very much.",
+   "With this much sun, the diagram has gone pale. Could someone help with the blinds?",
+   "Lovely weather, terrible for the projector. Blinds down, please.",
+   "The October sun is low and very determined. Blinds, please, before it wins.",
+   "Could someone by the window be our shade tree? The blinds, please. Cows look for shade too, by the way.",
+   "Sunshine in late October – a gift. Unfortunately not for the projector. Blinds, please.",
+   "Would someone kindly lower the blinds? The slide currently looks like a hay field at noon.",
+   "Blinds, please, on the window side. The cow on this slide is starting to fade."
   ],
   "rain_start": [
-   "Now it's starting to rain. Good for the meadows, bad for everyone on a bike.",
+   "Now it's starting to rain. Good for the meadows, bad for everyone on a bike – including me.",
    "Can you hear that? Rain. That's when you're glad the hay is already in.",
-   "It's raining. Then you'll probably prefer to stay inside during the break.",
-   "Well, the weather forecast was right for once.",
-   "That sounds like a proper downpour. Hopefully everyone brought an umbrella."
+   "It's raining. You'll probably prefer to stay inside during the break. Very sensible.",
+   "Well, the weather forecast was right for once. Somebody should give it a medal.",
+   "That's a proper downpour. I hope everyone brought an umbrella. I didn't – I came by bike.",
+   "Rain. For the soil, wonderful. For the 40A – a catastrophe.",
+   "There's the rain. Somewhere a farmer with hay still in the field is saying something I can't repeat in a lecture.",
+   "Rain on the windows – the perfect sound for a lecture. Please don't fall asleep to it.",
+   "Rain in late October. Too late for the last cut, too early for snow. A very Viennese compromise.",
+   "Listen to that. The cows outside don't care much – a good winter coat, and a rumen full of fermentation keeps them warm from the inside."
   ],
   "door_bang": [
    "Oh. The door.",
-   "That was just the door – unfortunately it always slams like that.",
-   "Whoa – I think they heard that all the way to the Mensa.",
+   "That was just the door – it always slams like that. It has a temper.",
+   "Whoa – I think they heard that all the way to the cafeteria.",
    "That door has a character all of its own.",
-   "No problem, it just closes with some force."
+   "No problem – it just closes with some force. Like an exam period.",
+   "The door. It's been doing that since I started here. We've both learned to carry on.",
+   "Ah. Nothing to worry about – the door is simply making a point.",
+   "And that, ladies and gentlemen, was the door. Back to the cow.",
+   "That woke up the rumen microbes. And the back row.",
+   "Bang. The door votes for a break. Overruled."
   ],
   "leaves_early": [
    "Goodbye – the slides will be online.",
    "Go ahead, but quietly, please.",
-   "Have a nice day. You'll find the rest in the lecture notes.",
-   "No problem. Please close the door gently.",
-   "Someone must have an appointment. That's fine, let's carry on."
+   "Have a nice day. You'll find the rest in the lecture notes – sadly, it's the best part.",
+   "No problem. Close the door gently – it has a temper.",
+   "Someone must have an appointment. That's fine – let's carry on.",
+   "Off you go. Say hello to the 40A for me.",
+   "Leaving already? Then you'll never know how this story ends. … It ends with milk.",
+   "See you next week. I'll keep your seat warm. Well – I won't, but someone will.",
+   "Goodbye. The cow and I will try to manage without you.",
+   "That's all right. Not everyone can take this much excitement in one sitting."
   ],
   "cough_fit": [
-   "Bless you. Are you all right? I'm happy to wait a moment.",
+   "Are you all right? Take your time – I'm happy to wait.",
    "Do you need some water? I've got another bottle up here.",
    "Take your time. If you'd like to step out for a moment, that's perfectly fine.",
-   "I'll pause for a moment until it's better.",
-   "Everything OK? Can someone pass some water over?"
+   "I'll pause until it's better.",
+   "Everything OK? Could someone pass some water over?",
+   "Take your time. The air in here is terribly dry – it's not you, it's the building.",
+   "Don't worry, we'll wait. The cow isn't going anywhere.",
+   "Water, anyone? Thank you – very good herd behaviour.",
+   "It's that time of year – late October, and half of Vienna is coughing. Get well soon.",
+   "All right again? Good. No hurry – the material will keep."
   ],
   "light_flicker": [
    "The light's flickering. I hope that's not a bad omen for the exam.",
-   "Hm, the ceiling lights. I'll report that to building services afterwards.",
-   "As long as the projector works, I don't mind the light that much.",
-   "If it goes out completely, we'll just carry on with the board.",
-   "It's been flickering since last week. Let's just ignore it."
+   "Hm, the ceiling lights. I'll report that to building services afterwards. Again.",
+   "As long as the projector works, I don't mind the light. … Don't say it.",
+   "If it goes out completely, we'll carry on with the board. The board doesn't need electricity.",
+   "It's been flickering since last week. Let's just ignore it – that's what I do with my email.",
+   "Flickering light. In a poultry house that would be a real problem – chickens are far more sensitive to flicker than we are. Here, it's just annoying.",
+   "Ah, disco lighting. Very modern. Not very helpful.",
+   "Is that the light or is it me? … It's the light. Good.",
+   "The light is ruminating. On, off, on, off.",
+   "Don't worry – if it goes dark, I know this lecture by heart."
   ],
   "bottle_drop": [
    "Something fell down there – nothing broken?",
    "Is that a bottle rolling down to the front? Leave it, I'll pick it up later.",
-   "No problem, that happens to everyone.",
+   "No problem – it happens to everyone.",
    "Hopefully that one had its lid on.",
-   "Well, that's woken everyone up."
+   "Well, that's woken everyone up.",
+   "And it's rolling … still rolling … these steps are very well built.",
+   "Gravity – one of the few things in this room that always works.",
+   "Don't worry. If it's water, the floor will survive. If it's coffee – my sympathies.",
+   "Ah, a bottle, rolling to the front. The only one in here who wants to sit in row one.",
+   "Nothing broken? Good. Moving on."
   ],
   "exam_hint": [
-   "Please remember this point on {section} – it'll come up in the exam in some form, for sure.",
-   "If you take away only one thing from {section}, let it be this.",
-   "I'll be quite open with you: on {section}, I like to ask this in the exam.",
+   "Please remember this point on {section}. It will be in the exam in some form – not because I say so, but because it's true.",
+   "If you take only one thing away from {section}, let it be this.",
+   "I'll be quite open with you: on {section}, I like to ask exactly this.",
    "That's the core of {section}. You should be able to explain it, not just recite it.",
-   "Underline that in your lecture notes – for {section}, this is exam-relevant.",
-   "By the exam, you should be able to derive the principle behind {section} yourself.",
-   "In {section}, experience shows this is exactly what gets mixed up most often in the exam. So please pay attention here."
+   "Underline that – for {section}, this is exam-relevant. Underline it twice, if you have the ink.",
+   "So – now it gets important. On {section}, this is the point that separates a good exam from a long one.",
+   "In {section}, experience shows this is exactly what gets mixed up most often in the exam. So – eyes on me.",
+   "I'm not saying this will be in the exam for {section}. I'm saying it very slowly, which in my case is the same thing.",
+   "On {section}: if you can draw this on a napkin, you'll pass. Please don't bring the napkin.",
+   "For {section}, you may write this down. You may even write it down twice – I won't stop you."
   ],
   "slides_online": [
    "As always, you'll find the slides on BOKUlearn.",
-   "You don't need to copy everything – I'll put the slides on BOKUlearn later today.",
+   "You don't need to copy everything – the slides go up on BOKUlearn later today.",
    "It's all on BOKUlearn, including the lecture notes as a PDF.",
-   "I'll upload today's slides this afternoon.",
-   "If you want the board notes: I'll take photos and put them with the slides on BOKUlearn."
+   "I'll upload today's slides this afternoon. If the upload works – it's a close relative of the projector.",
+   "The board notes: I'll photograph them and put them on BOKUlearn with the slides. Apologies for my handwriting in advance.",
+   "Slides on BOKUlearn, as usual. Reading them doesn't replace listening – but it's an excellent second best.",
+   "Everything from today goes online this afternoon. Including the bits the projector refused to show.",
+   "Don't worry about the slides – they'll be online. Worry about understanding them. That's the part I can't upload.",
+   "The slides are online by tonight. Please look at them before the exam – ideally not the night before.",
+   "BOKUlearn, as always. And if something's missing, write to me. I do answer. Eventually."
   ],
   "attention_hm": [
    "Hm.",
    "All right back there?",
-   "Is everyone keeping up?",
+   "Everyone keeping up?",
    "Hm … right, moving on.",
-   "Everything all right in row {row}?"
+   "Everything all right in row {row}?",
+   "Row {row} – still with us?",
+   "Hm. Interesting.",
+   "I see you, row {row}.",
+   "Hmm … yes.",
+   "Something exciting up there?"
   ],
   "attention_lock": [
    "I'll wait a moment until everyone's with me again.",
    "Hm … I'm just checking whether that's got through to everyone.",
-   "Back there … all right.",
+   "Up there at the back … all right. I'm watching. Kindly.",
    "I'll pause for a moment. Not for my sake.",
-   "Is everything all right up there? … Good."
+   "Is everything all right up there? … Good. Then eyes to the front.",
+   "I'll just wait. I have time. The cow has time. The exam, unfortunately, doesn't.",
+   "Let me stop for a second. Some of you are somewhere else – please come back to the rumen.",
+   "I have a feeling not everyone is here with me. Physically, yes. Mentally – we'll see.",
+   "One moment. I'd like the whole herd facing the same way.",
+   "I'll wait until I'm more interesting than whatever is on those screens. … That may take a while."
   ],
   "caught_1": [
-   "You in row {row} – please use the laptop only for the lecture now. Thank you.",
-   "I can see something else is running on your screen. Please close it.",
-   "May I ask you to stay with us? The game won't run away.",
-   "Please close whatever you have open there. We're in the middle of the material.",
-   "Just a word to you: I'd like your attention here at the front, not on the screen."
+   "You in row {row} – the laptop is for the lecture, please. Thank you.",
+   "Row {row}, I can see something on your screen that isn't a dairy cow. Please close it.",
+   "Row {row}, may I ask you to stay with us? The game will still be there at the break.",
+   "Row {row} – whatever you have open there, please close it. We're in the middle of something good.",
+   "A word to row {row}: I'd like your attention here at the front, not on the screen. I'm told I'm almost as entertaining.",
+   "Row {row}, I've been doing this a long time. Nobody concentrates that hard on lecture notes. Close it, please.",
+   "Row {row} – the light on your face is very colourful. That's not my slide. Please close it.",
+   "A gentle reminder to row {row}: this is Animal Nutrition, not animal recreation. Laptop for the lecture, please.",
+   "Row {row}, I'm flattered you brought your laptop to my lecture. Now please use it for my lecture.",
+   "Row {row}, eyes to the front, please. The cow on this slide has been waiting for you."
   ],
   "caught_2": [
-   "That's the second time now. Please close the laptop.",
-   "I've already asked you once. If you don't want to listen, please at least don't distract the others.",
+   "Row {row}, that's the second time. Please close the laptop.",
+   "Row {row}, I've asked you once already. If you don't want to listen, please at least don't distract the others.",
    "Row {row}, once more: laptop closed, please. I'd rather not say it a third time.",
-   "I assume that's not a ration programme you've got open there. Please close it – now.",
-   "I don't want to keep interrupting the lecture for this. Please put it away."
+   "Row {row} – I assume that's not a ration programme you've got open there. Close it, please. Now.",
+   "Row {row}, I don't want to keep interrupting the lecture for this. Please put it away.",
+   "Row {row}, I know noughts and crosses when I see it. I've played it in more faculty meetings than you have lectures. Laptop closed, please.",
+   "Row {row}, second warning. My patience is like the rumen: large, but not infinite.",
+   "Row {row}, this is the second time. A third time, and we'll have a conversation neither of us wants.",
+   "Row {row} – again. Laptop closed. Not half closed. Closed.",
+   "Row {row}, please. Twice is a pattern. In science, a pattern needs an explanation – and I don't want to hear it."
   ],
   "caught_3_kick": [
-   "I have to ask you to leave the lecture hall now. You'll find the slides on BOKUlearn.",
-   "That was the third time. Please pack up and leave – we'll see each other next week.",
+   "I have to ask you to leave the lecture hall now. The slides are on BOKUlearn.",
+   "That was the third time. Please pack up and go – we'll see each other next week.",
    "Please leave the lecture for today. It's nothing personal, but it can't go on like this.",
-   "I've asked you twice. That's it for you today – please go.",
-   "I won't interrupt a fourth time. Please leave the lecture hall, thank you."
+   "I've asked you twice. That's it for today – please go.",
+   "I won't interrupt a fourth time. Please leave the lecture hall. Thank you.",
+   "Three times. I'm sorry – please pack up. Next week we start fresh, both of us.",
+   "That's enough for today. Please leave quietly – and next week, bring your attention as well as your laptop.",
+   "I'm sorry, but the others want to learn. Please go. The door is that way – and it closes by itself. Loudly.",
+   "Third time. You know what comes now. Please leave – no hard feelings, but no fourth chance today.",
+   "Please pack up and leave the hall. I'd rather lose one listener than the concentration of the whole room."
   ],
   "caught_3_move": [
    "Please move to the front, to the first row. There's plenty of room.",
-   "Please pack up and come to the front row. Then I can keep an eye on you.",
+   "Please pack up and come to the front row. Then I can keep an eye on you – a friendly one.",
    "You were thinking along well earlier, so I won't send you out. Front row, please.",
-   "Here's my suggestion: first row, laptop closed, and we'll forget about it.",
-   "Please sit at the front. Anyone who answers that well belongs in the first row anyway."
+   "Here's my suggestion: first row, laptop closed, and we forget about it.",
+   "Please sit at the front. Anyone who answers the way you did belongs in the first row anyway.",
+   "Row one is free. It's always free. It has the best view of the cows. Please.",
+   "Come down to the front, please. You know too much to be sitting at the back playing games.",
+   "I have a better idea than sending you out: first row. Directly in front of me. Laptop in the bag.",
+   "Front row, please. Think of it as a promotion – with supervision.",
+   "Please come and sit at the front. I'd rather have you close and listening than far away and playing."
   ],
   "opponent_caught": [
-   "You in row {row}, that goes for you too: laptop only for the lecture, please.",
-   "Someone in row {row} is playing too, I see. Please close it.",
-   "Row {row}, please. I can see the screen from here.",
+   "You in row {row} – that goes for you too: the laptop is for the lecture, please.",
+   "Someone in row {row} is playing as well, I see. Please close it.",
+   "Row {row}, please. I can see your screen from here – and it's not my slide.",
    "And row {row} – I'd like you with us as well.",
-   "Row {row}: whatever that is, it can wait until the break."
+   "Row {row}: whatever that is, it can wait until the break.",
+   "Row {row}, you too. These games are played in pairs, I know. So are reprimands.",
+   "Ah – and the other half of the match. Row {row}, laptop closed, please.",
+   "Row {row}, I suspect you're the opponent. Please concede and close the laptop.",
+   "Row {row} – it takes two to play. Please be the one who stops.",
+   "And row {row}. Don't look so innocent – I was a student too, a very long time ago."
   ],
   "tutor_pass": [
    "Psst – he's already looked at you twice.",
    "Tip: turn your screen down a bit.",
    "The list's coming your way in a sec.",
    "Laptop down for a sec, he's looking.",
-   "The slides are online anyway, you don't have to type everything."
+   "The slides are online anyway, you don't have to type everything.",
+   "He picks people at random. Just so you know.",
+   "If he says “exam”, write it down.",
+   "Careful – he notices more than you'd think."
   ],
   "closing": [
-   "Good, that's it for today. Next week we'll pick up where we left off.",
-   "Thank you for your attention. Next week will be more practical, we'll be calculating more rations.",
-   "That brings us to the end. Please have another look at the slides before next week.",
-   "That's all for today. Have a nice day, see you next Tuesday.",
-   "That's it for today. If you have questions, feel free to come to the front – I'll be here a few more minutes."
+   "Good, that's it for today. Next week we carry on exactly where we left off – I'll even remember where that was.",
+   "Thank you for your attention. Next week is more practical – we'll be calculating rations. Bring a calculator, and courage.",
+   "That brings us to the end. Please look at the slides again before next week. Once is enough – but once is required.",
+   "That's all for today. Have a nice day – see you next Tuesday.",
+   "That's it. If you have questions, come down to the front – I'll be here a few more minutes, guarding my coffee mug.",
+   "And that's the end. You came in knowing a lot about food – you're leaving knowing a lot about feed. That's progress.",
+   "Thank you, ladies and gentlemen. The cows thank you too – they just don't say it.",
+   "That's it for today. Go outside, get some air, look at a cow if you see one. In Vienna, that's harder than it sounds.",
+   "So, done. Thank you for coming – and for staying, which is not the same thing.",
+   "We'll stop here. Next week: more feed, more cows – and, I hope, a more cooperative projector."
   ],
   "exam_info": [
-   "Quickly about the exam: registration is via BOKUonline, please don't forget the deadline.",
+   "Quickly about the exam: registration is via BOKUonline. Please don't miss the deadline – I can't register you, and feeling sorry for you doesn't help either.",
    "The first exam date is at the end of the semester. The dates are already in BOKUonline.",
-   "About the exam: it's written, and it covers the slides and the lecture notes. Please register in BOKUonline in good time.",
-   "The exam includes calculation problems as well. Bring a calculator – the phone stays in your bag.",
-   "If you haven't registered yet: you do that in BOKUonline, and the deadline is a few days before the exam."
+   "About the exam: it's written, it covers the slides and the lecture notes, and it's fair. Demanding, but fair.",
+   "The exam includes calculation problems. Bring a calculator – the phone stays in your bag, switched off, not just on silent.",
+   "If you haven't registered yet: BOKUonline, and the deadline is a few days before the exam. Days, not hours.",
+   "One word on the exam: understanding beats memorising. If you understand the rumen, you can work out half the answers yourself.",
+   "For the exam, practise the calculations. Ration calculation is like riding a bike – you only learn it by doing it, and it's wobbly at first.",
+   "Old exam questions are fine for practice. But I write new ones every year. With great pleasure.",
+   "Exam registration closes before the exam, not during it. Please put it in your calendar now. Yes – now.",
+   "On the exam: no trick questions. Well – a few. But fair ones."
   ],
   "chat_opponent_wait": [
    "wait he's looking at me",
    "hang on",
    "sec, he's walking up",
    "not now, my neighbour's watching",
-   "short break, he keeps looking over here"
+   "short break, he keeps looking over here",
+   "brb he's doing his walk through the rows",
+   "wait. projector drama",
+   "hold on, actually writing something down for once"
   ],
   "chat_opponent_move": [
    "ur turn",
@@ -1203,53 +1989,392 @@
    "ok. you",
    "done",
    "there you go",
-   "you now, quick"
+   "you now, quick",
+   "beat that",
+   "your go, think fast"
   ],
   "chat_opponent_win": [
    "gg",
    "haha, diagonal",
    "sry, that was too easy",
    "point to me",
-   "again? i'm on a roll"
+   "again? i'm on a roll",
+   "three in a row. like the forestomachs",
+   "that one's going on the exam",
+   "ez. you were watching the slides weren't you"
   ],
   "chat_opponent_lose": [
    "ok, fair enough",
    "didn't see the corner",
    "great. rematch",
    "got distracted, he was looking at me",
-   "gg, i'll take the next one"
+   "gg, i'll take the next one",
+   "rigged",
+   "ok you've done this before",
+   "i was listening to the rumen bit, doesn't count"
   ],
   "chat_opponent_draw": [
    "draw, obviously",
    "tie. again?",
    "nothing again lol",
    "stalemate. we're too good",
-   "ok this is going nowhere, new round"
+   "ok this is going nowhere, new round",
+   "draw. like every game of this ever",
+   "tie again. this game is solved you know",
+   "draw. at least we're consistent"
   ],
   "chat_opponent_idle": [
    "you going to the mensa after?",
-   "do you know when the first exam date is yet?",
+   "kaspressknödel today btw",
    "tüwi on thursday?",
    "do you have last week's slides?",
    "i've got soil science practical at 2",
-   "coffee after the lecture?",
-   "i understood zero of the weende analysis stuff",
+   "i understood zero of the weende stuff",
    "he's talking really fast today",
-   "have you registered for the exam yet?"
+   "have you registered for the exam yet?",
+   "who is rudi and why does he keep coming up",
+   "40a was packed again this morning"
   ],
   "chat_opponent_caught": [
    "damn. caught",
    "oops, he saw me",
    "sry, gotta behave for a bit",
    "going invisible for 5 min",
-   "embarrassing. later"
+   "embarrassing. later",
+   "he said my row number out loud. dying",
+   "ok taking notes now. real ones",
+   "brb, looking very interested in protein"
   ],
   "chat_you_caught": [
    "ouch",
    "oof. you ok?",
    "sorry but it was really obvious lol",
    "take a break, i'll wait",
-   "he's def gonna watch you more now"
+   "he's def gonna watch you more now",
+   "rip",
+   "screen brightness down. trust me",
+   "lie low, i'll keep the board"
+  ],
+  "orga_excursion": [
+   "Quick bit of admin first: on Friday we have the field trip to the research farm in Groß-Enzersdorf. The list will go round later – forty places at most.",
+   "Before we start: a sign-up list for Friday's field trip will come through the rows. If you'd like to come, put your name down – places are limited.",
+   "About the field trip to Groß-Enzersdorf: we leave on Friday at eight from Dänenstraße. Eight means eight. Not academic eight.",
+   "One more note: Friday's field trip is filling up. I'll pass the list round today – please write legibly.",
+   "Admin first, then cows. Friday is the field trip to Groß-Enzersdorf – forty places, and the list comes round in a moment.",
+   "For Friday's field trip, please wear sturdy shoes. Not white trainers. I've seen what a field does to white trainers.",
+   "A quick reminder about Friday: eight o'clock, Dänenstraße, sturdy shoes, a warm jacket – and curiosity, which weighs nothing.",
+   "Let me announce the field trip before I forget – and before you forget: Friday, Groß-Enzersdorf. The list is on its way."
+  ],
+  "knock_thanks": [
+   "Thank you, have a nice day!",
+   "Thank you – see you next week.",
+   "Wonderful, thank you. See you on Tuesday!",
+   "Thank you! Knocking on the desks – the Austrian academic applause. The best kind.",
+   "Thank you, thank you. Get home safely – and good luck with the 40A.",
+   "Thank you very much. That's the nicest sound in this building – just ahead of the coffee machine.",
+   "Thank you. You've been a very good herd today.",
+   "Thank you all. Go and eat something – now you know what's in it."
+  ],
+  "gag_beamer_1": [
+   "Next slide … next slide? … The remote. It worked perfectly this morning – in my office, with nobody watching.",
+   "I press the button and – nothing. Interesting. I'll press it again, with more conviction.",
+   "Hm. The remote doesn't want to go on. Perhaps it hasn't finished reading this slide.",
+   "Let me just … click. Click. Is it the batteries? It's always the batteries. Except when it isn't.",
+   "That's strange. Yesterday this worked. The day before, too. Today we have an audience – that seems to matter.",
+   "The projector has frozen on this slide. Well – it's a good slide. I'd have stayed on it too.",
+   "Click … click … am I pointing it the wrong way round? … No. It's simply ignoring me.",
+   "Funny. In the barn, everything does what I say eventually. Even the goats – sometimes. This remote, never."
+  ],
+  "gag_beamer_2": [
+   "The projector and I – we will never be friends. We've both accepted that.",
+   "Again. The projector and I have a very honest relationship: it does what it likes, and I pretend that was the plan.",
+   "You see, the projector and I – we'll never be friends. Colleagues, at best. Distant colleagues.",
+   "The remote again. I think it can sense fear. After all these years of lecturing, it can still sense fear.",
+   "There it goes again. The two of us – no. Never friends. Not in this life.",
+   "The projector and I had agreed on a ceasefire. It has just broken it.",
+   "Once might be chance. Twice is a pattern. The projector and I will never be friends – that's now statistically significant.",
+   "Ah, my old adversary. Some relationships are simply not meant to be, ladies and gentlemen. This is one of them."
+  ],
+  "gag_beamer_3": [
+   "You know by now – the projector and I … I've officially applied for it to retire. Early retirement, full pension.",
+   "As you know, the projector and I – well. I've submitted a request for it to go into retirement. It hasn't replied. Of course.",
+   "Third time today. I'm writing to the faculty this afternoon: the projector deserves a well-earned retirement. And I deserve a new projector.",
+   "You know how this goes. The projector and I – no. I've applied for its retirement. They told me it still has years left in it. That's exactly what they say about me.",
+   "You saw that coming, I saw that coming. I've applied for the projector to retire – with a farewell party. I'll bring the cake.",
+   "I don't even need to say it any more, do I? The projector and I … its retirement application is already on file. Next to my application for a new remote.",
+   "Third time. That's the projector's way of telling us it wants to retire. I've supported the application – wholeheartedly.",
+   "And there it goes. You know the story. I've put in the paperwork for its retirement – in triplicate, by hand. I didn't trust the printer either."
+  ],
+  "gag_mensa_energy": [
+   "Fat delivers more than twice as much energy per gram as starch. Which is why the Kaspressknödel in the cafeteria is not boiled – it's fried.",
+   "A practical example: a Kaspressknödel from the cafeteria. Bread, cheese, egg, fried in fat. In Weende terms – plenty of ether extract.",
+   "If we put a Kaspressknödel into the bomb calorimeter, it would burn beautifully. Gross energy – excellent. Digestibility – unfortunately also excellent.",
+   "Fat has the highest energy density of all nutrients – roughly twice that of carbohydrates. I check this every Tuesday in the cafeteria. Empirically.",
+   "Surplus energy in a fattening pig ends up as back fat. In a professor, it ends up as a very good reason to cycle home. The Kaspressknödel knows what it did.",
+   "A cafeteria Kaspressknödel with a bit of salad: plenty of energy, very little structure. A cow would take one look and say – lacks physically effective fibre.",
+   "Too much fat in a cow's ration and the rumen microbes go on strike – fibre digestion suffers. The Kaspressknödel has no such limits. Neither, sadly, do I.",
+   "Gross energy, digestible energy, metabolisable energy – every year I explain it with the Kaspressknödel. The losses along the way are small. That's the problem."
+  ],
+  "gag_mensa_break": [
+   "Break – five minutes. Who hasn't been to the cafeteria yet this week? It's Tuesday. You know what that means. Kaspressknödel.",
+   "Five minutes' break. Not enough for a Kaspressknödel, I'm afraid – but enough to reserve one emotionally.",
+   "Short break. If anyone's going past the cafeteria – one Kaspressknödel, please. I'm joking. Mostly.",
+   "Break! And no, you can't get to the cafeteria and back in five minutes. I've tried. For science.",
+   "Five minutes. A tip for the hungry: on Tuesdays the Kaspressknödel tend to be gone by early afternoon. Plan accordingly.",
+   "Let's have a break. Who here has never had the Kaspressknödel in our cafeteria? … Then you haven't really studied here yet.",
+   "Break time. I can smell the cafeteria from here – which means it's Kaspressknödel day, or my imagination is very well trained.",
+   "Five minutes' break. Please don't come back with a Kaspressknödel – the smell would ruin the whole next chapter for me."
+  ],
+  "gag_mensa_end": [
+   "And now – Kaspressknödel. With a clear conscience: today we've learned exactly what's in them.",
+   "Off to the cafeteria with you. Kaspressknödel – and this time you can estimate the energy content in your head.",
+   "That's it. I'm going to the cafeteria – you can guess what I'm having. As a nutritionist, I call it fieldwork.",
+   "Enjoy your lunch. If it's Kaspressknödel: fat, starch, protein, a little ash. You'll never look at them the same way again.",
+   "Goodbye – and if you see me in the cafeteria queue: no, I'm not doing research. Well – a little.",
+   "Enjoy your meal, ladies and gentlemen. And remember: a Kaspressknödel is very energy-dense – but it is not a balanced ration.",
+   "Off to lunch. The cow has four stomach compartments to deal with whatever she eats. We have one. Choose accordingly.",
+   "So – now the most important part of the day. Kaspressknödel. Analysed, evaluated – and eaten with a clear conscience."
+  ],
+  "gag_rudi_rumen": [
+   "At the research farm we have an ox called Rudi. Rudi has a rumen fistula – a sort of porthole with a lid. You open it, and you look straight into the rumen. Rudi doesn't mind. Rudi is eating.",
+   "Let me tell you about Rudi, an ox at our research farm, with a cannula in his flank – a lid to his rumen. The first time I reached in up to the shoulder, I understood fermentation. Warm, about thirty-nine degrees – and it moves.",
+   "Rudi is our fistulated ox. Behind a little lid in his side there's a whole fermentation vat. Visitors always ask if it hurts him. No – it's long healed, a vet looks after him, and he eats with great enthusiasm.",
+   "The best teacher I ever had on the rumen was an ox called Rudi. Open the lid in his side and you see it all: gas at the top, the fibre mat below it, the liquid at the bottom. A textbook – on four legs.",
+   "Rudi, our ox at the research farm, has a window into his rumen. When students look in for the first time, there are two reactions: fascination – or a sudden urgent need for fresh air. Both are normal.",
+   "Many values in your feed tables come from animals like Rudi. Rudi is an ox with a rumen fistula. We put little nylon bags of feed inside, take them out after some hours, and see what the microbes have eaten. Rudi does the work; we write the papers.",
+   "Let me introduce Rudi – an ox at the research farm, and the most important member of my team who doesn't have an office. Through his fistula we take samples of rumen fluid. He's very patient about it. More patient than I am with the projector.",
+   "Rudi, our fistulated ox, taught me more about rumen pH than any book. You can measure it right there, through the lid – and when the ration is wrong, Rudi's rumen tells you before Rudi does."
+  ],
+  "gag_rudi_callback": [
+   "Remember Rudi? The degradability values in this table came from nylon bags in oxen just like him. Every number there – someone like Rudi chewed on it, so to speak.",
+   "And here Rudi comes back. Microbial protein: the bacteria in Rudi's rumen build it, and further down the line Rudi digests the bacteria. A very efficient arrangement. For Rudi.",
+   "Methane – Rudi again. When you open his lid, the gas does say hello. But nearly all of it normally leaves through the front, not the back. Rudi is very well-mannered about it.",
+   "Rudi would agree with this slide. He has nothing against urea in the ration – as long as there's enough energy for his microbes. Rudi is a pragmatist.",
+   "You remember Rudi, our ox with the window. Give him too much rapidly degradable protein and too little energy, and the ammonia in his rumen goes up – you can measure it right there in the rumen fluid.",
+   "Back to Rudi for a moment. The archaea in his rumen make methane from hydrogen and carbon dioxide – it's their way of tidying up. Expensive for Rudi, though: several percent of his gross energy, gone.",
+   "Our friend Rudi has been in more feeding trials than I can count. Protein, energy, methane – if there was a trial, Rudi was in it. Frankly, he has a better publication record than I do.",
+   "This is a Rudi topic. If you ever visit the research farm, ask to see his rumen fluid under the microscope – protozoa swimming everywhere. I wrote my dissertation on them. Rudi has no idea he's famous."
+  ],
+  "gag_rudi_bye": [
+   "That's it for today. Rudi sends his regards.",
+   "Goodbye, ladies and gentlemen – and Rudi says hello. He's ruminating on today's lecture as we speak.",
+   "See you next week. I'll tell Rudi you were all very attentive. I'll exaggerate slightly.",
+   "Rudi sends his regards from the research farm. He couldn't make it today – he's eating.",
+   "Off you go. And Rudi says: chew everything twice. That includes the lecture notes.",
+   "Regards from Rudi – who reminds you that the rumen never takes a break. You, however, may take one now.",
+   "I'm out at the research farm this afternoon. Any messages for Rudi? … I'll tell him you said hello.",
+   "Have a nice day. Greetings from Rudi – the only member of my team who has never once complained about the projector."
+  ],
+  "gag_bus40a_late": [
+   "Good morning. Let me guess – the 40A?",
+   "Come in, come in. The 40A, I assume. The only thing in Vienna that's later than the academic quarter.",
+   "Good morning. Don't worry – if it was the 40A, you're forgiven. If it wasn't, say it was.",
+   "The 40A again? Late, or full, or both. Sit down, you've earned it.",
+   "Welcome. The 40A has a very relaxed interpretation of the timetable. Very Viennese.",
+   "Ah, another passenger of the 40A. Please, sit – it's warmer in here than at the bus stop.",
+   "Good morning. I overtook the 40A on my bike on the way up – I suspect you were in it.",
+   "Late? The 40A, I'm sure. One day I'll write a paper on it: “Punctuality of urban buses – a long-term study in patience.”"
+  ],
+  "gag_bus40a_weather": [
+   "Rain like this – the 40A will be either late or full. Usually both.",
+   "Weather like this, and the 40A fills up with everyone who normally cycles. Not me – I'm loyal. And wet.",
+   "When it's grey like this, the 40A fills up with everyone who looked out of the window and changed their mind about walking.",
+   "Fog, rain, the first cold mornings – and the 40A behaves as if it has never seen weather before.",
+   "On days like this, the bus stop outside fills up like a feed trough at morning feeding.",
+   "I can see the stop from here: the 40A just went past – full. The people at the stop look like a herd waiting for the gate to open.",
+   "Autumn in Vienna: leaves on the road, rain on the windows – and the 40A out there somewhere, thinking about it.",
+   "Anyone taking the 40A home after this: bring patience and an umbrella. In that order."
+  ],
+  "gag_bus40a_end": [
+   "Whoever came with the 40A today: you're excused – for next week as well.",
+   "Those of you who were late because of the 40A – you're forgiven. And I'm forgiving you in advance for next Tuesday.",
+   "To everyone who came by 40A: excused today, and next week too. I'm a realist.",
+   "Safe journey home. And if the 40A is late again – you have my official sympathy.",
+   "A general amnesty for all 40A passengers: today's lateness and next week's. Consider it signed.",
+   "Get home safely. If you're waiting for the 40A, you'll have time to read the lecture notes. All of them.",
+   "That's it. The 40A leaves from the stop outside. Eventually.",
+   "Goodbye. Cyclists: well done. 40A passengers: well endured."
+  ],
+  "gag_gras": [
+   "Grass? … Grass is not a feedstuff. Grass is a state of mind. What you mean is pasture herbage – or grass silage, or hay. Be specific.",
+   "“Grass” – I hear that word and something inside me twitches. Grass is a state of mind. The feedstuff is first-cut forage at the start of heading.",
+   "Not grass, please. Grass is a state of mind. Is it fresh? Ensiled? Dried? First cut, second cut? The cow knows the difference – so should you.",
+   "Ah, grass. I was waiting for someone to say it. Grass is not a feedstuff – grass is a state of mind. A feedstuff has a cut, a growth stage and an analysis.",
+   "You said grass. I'll allow it once. Grass is a state of mind; pasture herbage is a feedstuff with an energy content.",
+   "Careful with “grass”. Grass is a state of mind. For a ration I need to know: fresh, silage or hay – otherwise the dry matter is a guess.",
+   "Grass … you know what I'm going to say. Grass is a state of mind. Young, leafy forage and old, stemmy forage are two completely different feeds.",
+   "In Brazil I worked on a feedlot – two thousand cattle, and not a single blade of … pasture. You see, I don't even say it myself. Grass is a state of mind."
+  ],
+  "gag_pruefung": [
+   "That will be on the exam. Not because I say so – because it's true.",
+   "That will be on the exam. I don't say it because I have to. I say it because I enjoy saying it.",
+   "That will be on the exam. You can tell from the way I'm saying it very slowly.",
+   "That will be on the exam. Underline it, circle it, draw a little cow next to it.",
+   "That will be on the exam. I'm telling you now, so nobody can say later that I didn't.",
+   "That will be on the exam. And “it depends” is not a complete answer – it's the beginning of one.",
+   "That will be on the exam. Somewhere between question three and the calculation that takes too long.",
+   "That will be on the exam. Yes, I know – I've said that about a lot of things today. I meant every single one.",
+   "That will be on the exam. My colleagues say I say that too often. They're right. It's still on the exam.",
+   "That will be on the exam. I've been saying this sentence for over twenty years, and it has never once been untrue."
+  ],
+  "gag_rosi": [
+   "When I was a boy, we had a cow called Rosi. Rosi gave about four thousand kilos of milk per lactation. A good dairy cow today gives eight to ten thousand. Rosi wasn't worse – she lived in a different time, on a different ration.",
+   "Let me tell you about Rosi, my favourite cow on our farm in the Weinviertel. About four thousand kilos of milk a lactation. Today, eight to ten thousand. That's not magic – that's breeding, feeding and a great deal of knowledge. And Rosi had a wonderful character.",
+   "When I talk about energy requirements, I always think of Rosi. With about four thousand kilos per lactation, she could cover most of it from forage. A cow giving eight to ten thousand can't. That's why we do this calculation.",
+   "Rosi – our cow when I was a boy – taught me two things: cows have personalities, and they always know when you're late for milking.",
+   "My first great love in agriculture was Rosi. A cow, I should add – before anyone writes that down wrongly. About four thousand kilos of milk per lactation, and I knew her better than my homework.",
+   "People ask me whether cows were happier in Rosi's day, with about four thousand kilos, or today, with eight to ten thousand. The honest answer: that depends on the farmer more than on the number. Rosi had a good one – my father.",
+   "Whenever a student says “only” eight thousand kilos, I think of Rosi. About four thousand kilos per lactation, and we were proud of every one of them. Eight to ten thousand today is an achievement. So was Rosi's.",
+   "Rosi stood in a tie stall, like all thirty cows on our farm – that was normal back then. She gave about four thousand kilos a lactation. Today's cows give eight to ten thousand, and many of them can move about freely. Both deserve our respect."
+  ],
+  "weather_sunny": [
+   "Look at that – sunshine in late October. The Türkenschanzpark is glowing out there. Enjoy it from in here; it's very nearly the same.",
+   "Beautiful day. The leaves in the park are every colour from silage green to hay gold.",
+   "Sun in late October. The last cows out on pasture are enjoying it too – soon they'll be in the barn for the winter, on hay and silage.",
+   "What a morning. I cycled up the hill with the sun in my face – the only time this year the climb felt like a reward.",
+   "Sunny, cold, autumn – perfect weather for cows. They like it cool; it's heat that bothers them.",
+   "Sunshine outside, and you're in here with me. I appreciate the sacrifice. I'll try to make it worth it.",
+   "The squirrels in the Türkenschanzpark are working hard this morning – burying food for the winter. Feed storage, essentially. They're doing practical nutrition while we do the theory.",
+   "Lovely low October sun. If it dazzles you, tell me. If it dazzles the projector, it will tell me itself."
+  ],
+  "weather_rain": [
+   "Grüß Gott – and congratulations on getting here dry. Or at least less wet than you could be.",
+   "Rain, late October, Vienna. The Türkenschanzpark looks like a well-watered pasture – just without the cows.",
+   "I cycled up in the rain. My trousers are still drying; my motivation is fine. Let's begin.",
+   "Rainy days are good days for a lecture – nobody wishes they were outside. Not even me.",
+   "Rain on the windows. Good for the soil, good for next year's first cut – and good for concentration in here.",
+   "Wet out there. Cattle don't mind rain much, as long as there's shelter from the wind and a dry place to lie down. A dry place to sit – that we have.",
+   "If you came by bus today, I assume it was full. If you came by bike, I salute you – we're the damp minority.",
+   "Rain today. The ducks on the pond in the park are delighted. They're the only ones."
+  ],
+  "weather_cloudy": [
+   "Grey skies over Vienna – the famous high fog. In late October it moves in and simply stays. A bit like me in the cafeteria.",
+   "A grey morning. The Türkenschanzpark looks like a black-and-white photo of itself.",
+   "Cloudy and cool – ideal weather for cows, and for lectures. No distractions, no excuses.",
+   "Overcast today. The projector will be pleased – no sun on the screen. It's the only thing that pleases it.",
+   "High fog again. Viennese autumn: you don't see the sun, you only hear rumours of it.",
+   "A grey day. Perfect for staying indoors and thinking about the rumen. What else would you rather do?",
+   "The clocks have just gone back, and now it's grey as well. The cows noticed the time change too, by the way – suddenly milking is an hour off for them.",
+   "Grey skies, a few leaves still hanging on in the park. They look the way I feel on a Tuesday before my coffee."
+  ],
+  "time_quarter": [
+   "It's quarter past – the academic quarter is over. In Vienna, it's the only quarter of an hour that's actually fifteen minutes.",
+   "Quarter past. Cum tempore – with time. Not with plenty of time. Just with time.",
+   "It's quarter past, so we start. The academic quarter: a very old tradition, invented by people who never had to wait for the 40A.",
+   "Quarter past the hour. Officially, we begin now. Unofficially, the back row begins in about five minutes.",
+   "The academic quarter is over. Fifteen minutes of grace – I used mine for coffee. I hope you used yours for coffee too.",
+   "Quarter past – cum tempore, as we say. Whoever isn't here yet is in the hands of the 40A. My condolences.",
+   "Right, quarter past. As a first-year I thought the academic quarter was a joke. Then I became a professor and discovered it's untouchable.",
+   "It's quarter past. Punctual to the minute – which may be the only thing today that is."
+  ],
+  "time_overrun": [
+   "I know, it's past the hour. Two more minutes – real ones, not Viennese ones.",
+   "I'm running over, I know. Please don't pack up yet – the zips are very loud from down here.",
+   "Just one more slide. I promise. I always promise. Sometimes it's even true.",
+   "We're over time – entirely my fault. The rumen is simply too interesting to stop.",
+   "Sorry, I'm overrunning. The cow didn't fit into ninety minutes. She rarely does.",
+   "I can see you looking at the clock. I'm looking at it too. We both disagree with it.",
+   "Two minutes over. Consider it a bonus – no extra charge.",
+   "Let me finish this thought, and then you're free. It's a short thought. Mostly."
+  ],
+  "time_last_minutes": [
+   "Last few minutes. I'll stop on time today – I'm told that would be a first.",
+   "We're nearly there. Five more minutes of concentration – you can do it. I believe in you.",
+   "The home straight. Let's bring it in neatly.",
+   "Just a few minutes left. This is where everyone suddenly listens again – very good.",
+   "Last minutes. Let me sum up, so you take something home besides your coat.",
+   "Almost done. The cafeteria is calling – and I can hear it too.",
+   "A few minutes to go. Let me use them well – and quickly.",
+   "Final stretch. The rumen keeps working after we stop, by the way. Please don't take that as a model."
+  ],
+  "callback_question": [
+   "And this is exactly what row {row} asked about earlier. A very good question – it was just a little ahead of its time.",
+   "Remember the question from row {row}? Here's the rest of the answer. I owed you that.",
+   "Row {row}, this one's for you – you asked about it earlier. You see, I don't forget.",
+   "As our colleague in row {row} rightly asked earlier – this is where it all comes together.",
+   "This connects nicely to the question from row {row}. Questions like that make my lecture better. Keep them coming.",
+   "Row {row} asked earlier, and I said “later”. Well – it's later now.",
+   "Row {row} – your question from earlier. Here's the slide that answers it. Pure coincidence. Or excellent planning.",
+   "Earlier, row {row} put a finger exactly on this point. Now you'll all see why that was a clever question."
+  ],
+  "callback_latecomer": [
+   "For our colleague who joined us a little later – this is what you missed at the beginning. Now you're up to date. Lucky you.",
+   "Our latecomer will recognise this from the slides they missed. Welcome to the story.",
+   "For everyone who arrived after the academic quarter: this is the bit from the beginning. I'm feeling generous today.",
+   "For those who came in a little later – don't worry, here we catch up. It's like rumination: everything comes round a second time.",
+   "I see our latecomer has settled in. Good – just in time for the important part.",
+   "For the late arrivals: you've missed nothing that isn't on BOKUlearn. And you didn't miss this. So, please – attention.",
+   "And our colleague who came in late is now fully caught up. I can tell – the expression is exactly the same as everyone else's.",
+   "A brief summary for the late arrivals – sponsored, as always, by the 40A."
+  ],
+  "callback_phone": [
+   "And this time, no phone. Very good – I see we're learning.",
+   "We had a little ringtone earlier – please make sure it's off now. I've grown used to the silence.",
+   "If the phone from earlier rings again, I'll take the call myself. I'll tell them you're very busy with ruminants.",
+   "Phones still on silent? Good. The cows on my slides were quite unsettled earlier.",
+   "Since the ringtone earlier, I've been waiting for an encore. Please don't give me one.",
+   "Remember the phone from earlier? I've decided it was the student office. They do that.",
+   "Nice and quiet now. That ringtone from earlier is still in my head, by the way. Very catchy. Very annoying.",
+   "No more phones, please – one concert per lecture is the limit."
+  ],
+  "callback_caught": [
+   "Row {row} – look at that: full attention. I knew you had it in you.",
+   "Row {row}, you've been very attentive since our little conversation. I'm almost suspicious.",
+   "This one's for row {row}. You've been following beautifully – so I'll give you an easy one later. Maybe.",
+   "Row {row}, I'm glad you're with us. The game will still be there at lunchtime.",
+   "And row {row}, still with us? Good. I mean that kindly – you're doing well.",
+   "Row {row}, you look very focused. Either it's my lecture, or you've closed something. Both are good.",
+   "Row {row} – a nod, please, if this is clear. … Thank you. You see, we're friends again.",
+   "Row {row}, I notice you're taking notes now. I'm moved. Genuinely."
+  ],
+  "resume_after_interrupt": [
+   "Where were we? Ah yes – {section}.",
+   "Right. Back to {section}. That was a little detour – the cow takes those too, on the way to the feed trough.",
+   "So – where was I before that? {section}. Exactly. Let's pick up the thread.",
+   "Let me find my place again … {section}. Here we are.",
+   "Good, interruption over. We're still at {section} – it waited patiently for us.",
+   "Back to business: {section}. And I'll repeat the last point, because I've forgotten it too.",
+   "Where did we leave off? … {section}. Like a good silage, we seal it up again and carry on.",
+   "Now, after that little intermission – back to {section}."
+  ],
+  "joke_flop": [
+   "… That was a joke. You can't write that one down either.",
+   "Na ja. In my first year of teaching, that one got a laugh. Times change.",
+   "Silence. Fine. The cows always laugh at that one.",
+   "That was a joke, ladies and gentlemen. It won't be on the exam – you can relax.",
+   "Nothing? … All right. I'll leave the comedy to the projector.",
+   "Ah. Tough audience. Back to fermentation – that always works.",
+   "… I'll take that as quiet appreciation. Very quiet.",
+   "My wife doesn't laugh at that one either. I'm beginning to see a pattern."
+  ],
+  "laugh_response": [
+   "Thank you, thank you. I'm here all semester.",
+   "Ah, you're awake. Wonderful. Let's make use of it.",
+   "Glad you liked it. The cow never finds it funny – but then she has four stomach compartments and no sense of humour.",
+   "You laugh – but it's true. That's the best kind of joke.",
+   "Good – laughter. The sign of a healthy herd.",
+   "Thank you. That one took me twenty years to get right.",
+   "Right, right. Enough fun – back to the serious business of fermentation.",
+   "I'll tell my children you laughed. They never believe me."
+  ],
+  "quiz_right_streak": [
+   "Right again. If this continues, I'll have to ask harder questions.",
+   "Another correct answer. Ladies and gentlemen, we have a ruminant expert among us.",
+   "Correct – again. I'm beginning to suspect you've read the lecture notes. Voluntarily.",
+   "That's a streak. Careful – in my experience, that's exactly when the calculation questions start.",
+   "Right once more. You're making me look very good as a teacher. Thank you.",
+   "Correct again. I'll have to tell Rudi about you.",
+   "Correct! At this rate you can give next week's lecture. I'll sit at the back and play noughts and crosses.",
+   "Yes – and yes again. That's not luck any more; that's understanding."
+  ],
+  "student_gras": [
+   "But the cow just eats grass, doesn’t she?",
+   "So in summer the cows only get grass?",
+   "Isn’t grass the best thing for a cow anyway?",
+   "So when the cow eats grass out on the pasture …",
+   "And then the grass just gets made into silage?",
+   "Can you feed horses nothing but grass?",
+   "Does that mean more grass is better?"
   ],
   "audience_questions": [
    {
@@ -1542,17 +2667,6 @@
      "That's why cat food is supplemented with taurine, and why dog food isn't a good long-term option for cats."
     ]
    }
-  ],
-  "orga_excursion": [
-   "Quick bit of admin first: on Friday we have the field trip to the research farm in Groß-Enzersdorf. The list will go round later – forty places at most.",
-   "Before we start: a sign-up list for Friday's field trip will go through the rows later. If you'd like to come, please put your name down – places are limited.",
-   "About the field trip to Groß-Enzersdorf: we leave on Friday at eight from Dänenstraße. The sign-up list will reach you during the lecture.",
-   "One more note: Friday's field trip is filling up. I'll pass the list round today – please write legibly."
-  ],
-  "knock_thanks": [
-   "Thank you, have a nice day!",
-   "Thank you – see you next week.",
-   "Wonderful, thanks. See you on Tuesday!"
   ]
  }
 }

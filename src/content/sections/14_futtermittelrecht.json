@@ -358,5 +358,67 @@
       "Aflatoxin B1 → M1 in milk"
     ],
     "script": "Feed is the first link in the food chain; feed safety is therefore part of consumer protection. Feed law is largely governed by EU legal acts: Regulation (EC) No 178/2002 contains the general principles including traceability, Regulation (EC) No 183/2005 the requirements for feed hygiene, which also apply to farmers as feed business operators. Regulation (EC) No 767/2009 governs placing on the market and labelling, Regulation (EC) No 1831/2003 the authorisation of additives, and Directive 2002/32/EC the maximum levels of undesirable substances. In Austria, the Feed Act 1999 and the Feed Ordinance 2010 implement these requirements. The Federal Office for Food Safety (BAES) is responsible for controlling manufacturing and placing on the market, while AGES carries out sampling and analyses; control of feeding on the farm is the responsibility of the federal provinces. The label of a compound feed includes, among other things, the type of feed, the target species, analytical constituents, additives and the feed materials in descending order of their weight. Binding maximum levels apply to aflatoxin B1 because it passes into milk as aflatoxin M1; for deoxynivalenol and zearalenone there are EU guidance values, which were revised in 2026. Pigs are particularly sensitive to these Fusarium toxins. Private quality assurance schemes complement official control; GM-free feeding only permits adventitious, technically unavoidable GM content of up to 0.9 %."
-  }
+  },
+  "asides": [
+    {
+      "after": 0,
+      "kind": "anecdote",
+      "de": "Ich hab als junger Wissenschaftler gedacht, Futtermittelrecht ist das trockenste Kapitel der ganzen Tierernährung. Dann kam BSE, verbreitet über Tiermehl im Futter, und plötzlich wollte jeder wissen, was im Trog war – 2001 hat die EU die Verfütterung von Tiermehl an Nutztiere verboten. Seitdem halte ich diese Einheit mit Respekt. Trocken ist sie trotzdem – aber trocken wie gutes Heu: lagerfähig.",
+      "en": "As a young scientist I thought feed law was the driest chapter in all of animal nutrition. Then came BSE, spread through meat-and-bone meal in feed, and suddenly everyone wanted to know what had been in the trough – in 2001 the EU banned feeding processed animal protein to farm animals. Since then I have treated this unit with respect. It is still dry – but dry like good hay: it keeps.",
+      "facts": [
+        "F77"
+      ]
+    },
+    {
+      "after": 1,
+      "kind": "pointe",
+      "gag": "pruefung",
+      "de": "Diese Nummern kommen nicht zur Prüfung – aber wer wofür zuständig ist, das schon. Die Nummern merkt sich nur, wer zu viele Verordnungen liest. Und das wünsch ich Ihnen ehrlich gesagt nicht – mir selber ist es leider schon passiert.",
+      "en": "These numbers won’t be on the exam – but who is responsible for what certainly will. Only people who read far too many regulations remember the numbers. And frankly I wouldn’t wish that on you – I am afraid it has already happened to me.",
+      "facts": []
+    },
+    {
+      "after": 2,
+      "kind": "pointe",
+      "gag": "beamer",
+      "de": "Apropos Zuständigkeit: Ich hab offiziell beantragt, dass der Beamer in Pension geht. Der Antrag liegt jetzt irgendwo im Haus. Nach dieser Einheit über Behördenwege fürchte ich allerdings, er liegt dort länger, als der Beamer noch durchhält.",
+      "en": "Speaking of responsibilities: I have formally applied for the projector to be retired. The application is now somewhere in the building. After this unit on official channels, however, I fear it will lie there longer than the projector has left.",
+      "facts": []
+    },
+    {
+      "after": 4,
+      "kind": "frage",
+      "gag": "mensa",
+      "de": "Wer von Ihnen liest im Supermarkt die Zutatenliste? … Ein paar. Beim Futter ist das Etikett noch wichtiger, denn die Kuh kann’s nicht lesen – also tun Sie’s für sie. Ich selber hab’s nur in der Mensa bei den Kaspressknödeln aufgegeben. Manches isst man aus Vertrauen.",
+      "en": "Who here reads the ingredients list at the supermarket? … A few of you. With feed the label matters even more, because the cow cannot read it – so you must read it for her. I have only ever given up with the Kaspressknödel in the refectory. Some things one eats on trust.",
+      "facts": []
+    },
+    {
+      "after": 5,
+      "kind": "pointe",
+      "de": "Das Verdünnungsverbot ist eine meiner Lieblingsbestimmungen, weil sie so bäuerlich logisch ist: Ein verdorbenes Futter wird nicht besser, wenn man es mit gutem mischt – man hat dann nur mehr verdorbenes Futter. Meine Großmutter hätte das über die Milch genauso gesagt, nur ohne Richtlinie.",
+      "en": "The ban on dilution is one of my favourite provisions, because it is such plain farmyard logic: contaminated feed does not get better by mixing it with good feed – you simply end up with more contaminated feed. My grandmother would have said exactly the same about milk, only without a directive.",
+      "facts": [
+        "F78"
+      ]
+    },
+    {
+      "after": 6,
+      "kind": "pointe",
+      "de": "Ein Schwein, das DON-belastetes Futter bekommt, frisst einfach weniger oder lässt den Trog ganz stehen – daher der alte Name Vomitoxin, im schlimmeren Fall erbricht es. Ich sag immer: Das Schwein ist das ehrlichste Labor am Hof. Leider auch das teuerste, weil es seine Ergebnisse in verlorenen Zunahmen mitteilt.",
+      "en": "A pig given DON-contaminated feed simply eats less, or leaves the trough altogether – hence the old name vomitoxin; in worse cases it vomits. I always say the pig is the most honest laboratory on the farm. Unfortunately also the most expensive, because it reports its results in lost weight gain.",
+      "facts": [
+        "F79"
+      ]
+    },
+    {
+      "after": 7,
+      "kind": "frage",
+      "de": "Warum ist der Höchstgehalt beim Milchviehfutter so streng? … Weil die Kuh Aflatoxin B1 zu M1 umbaut und das in die Milch geht – und Milch trinken auch Kleinkinder. Da gibt’s keine Pointe, Herrschaften. Da gibt’s nur einen sehr niedrigen Grenzwert, und den halten wir gern ein.",
+      "en": "Why is the maximum level for dairy feed so strict? … Because the cow converts aflatoxin B1 into M1, which passes into the milk – and small children drink milk too. There is no punchline here, ladies and gentlemen. There is only a very low limit, and we are glad to keep to it.",
+      "facts": [
+        "F80"
+      ]
+    }
+  ]
 }

@@ -338,5 +338,78 @@
       "Fish: FCR ~1; replace fishmeal"
     ],
     "script": "The principles developed in this lecture apply to all farm animals, but their implementation depends on the digestive system. The horse is a hindgut fermenter: after the small stomach (10–20 l) and the small intestine, microbial digestion of structural carbohydrates takes place in the caecum and colon. This gives the basic rules of horse feeding: roughage as the basis with at least 1.5 kg DM per 100 kg body weight per day, several meals with feeding gaps of no more than about four hours, and limited amounts of starch and sugar per meal to prevent colic and laminitis. The GfE (2014) evaluates the energy requirement of horses at the level of metabolisable energy. Among small ruminants, the sheep is particularly sensitive to copper; the EU maximum level is 15 mg Cu/kg complete feed, compared with 30 mg for cattle and 35 mg for goats. According to Hofmann, the goat is an intermediate feeder and eats very selectively, preferring leaves, shoots and herbs. Fish are cold-blooded and supported by the water, which explains their high feed efficiency; in trout, feed conversion is about 1–1.2 kg per kg of gain. As fishmeal and fish oil come from limited wild catch, plant proteins, insect meals – approved for aquaculture in the EU since 2017 – and algal oils as a source of omega-3 are gaining importance. Overall, animal nutrition links feed evaluation, requirements and ration formulation with animal health, food quality and environmental impact."
-  }
+  },
+  "asides": [
+    {
+      "after": 0,
+      "kind": "frage",
+      "gag": "pruefung",
+      "de": "Kommt das alles zur Prüfung? … Die Prinzipien ja, die Pferdefütterung im Detail nein – Sie sehen, ich werd mild zum Semesterende. Und der Satz „Das kommt zur Prüfung“, den hab ich heuer so oft gesagt, dass er jetzt selber zur Prüfung kommt.",
+      "en": "Will all of this be on the exam? … The principles, yes; the finer points of horse feeding, no – you see, I mellow towards the end of term. And the sentence ‘that will be on the exam’ – I have said it so often this year that it is now on the exam itself.",
+      "facts": []
+    },
+    {
+      "after": 1,
+      "kind": "anecdote",
+      "de": "Meine Tochter wollte als Kind unbedingt reiten. Ich hab ihr erklärt, dass das Pferd ein Dickdarmverdauer ist und der Magen nur 10 bis 20 Liter fasst. Sie hat mich angeschaut und gesagt: „Papa, ich will reiten, nicht füttern.“ Heute ist sie nicht in der Landwirtschaft – Erziehungsfehler, eindeutig meiner.",
+      "en": "As a child my daughter desperately wanted to ride. I explained that the horse is a hindgut fermenter and that its stomach holds only 10 to 20 litres. She looked at me and said: ‘Daddy, I want to ride it, not feed it.’ Today she is not in agriculture – an error of upbringing, and clearly mine.",
+      "facts": [
+        "F81"
+      ]
+    },
+    {
+      "after": 2,
+      "kind": "frage",
+      "de": "Wissen Sie, was ein Pferd im Gegensatz zu Hund, Katze und Schwein nicht kann? … Erbrechen. Der Mageneingang ist so fest verschlossen, dass praktisch nichts mehr zurückgeht. Was einmal unten ist, muss durch – und genau deshalb nimmt man Fütterungsfehler beim Pferd so ernst.",
+      "en": "Do you know what a horse, unlike a dog, a cat or a pig, cannot do? … Vomit. The entrance to the stomach closes so tightly that practically nothing comes back up. Whatever has gone down must go through – which is exactly why feeding mistakes in horses are taken so seriously.",
+      "facts": [
+        "F82"
+      ]
+    },
+    {
+      "after": 5,
+      "kind": "anecdote",
+      "de": "Ich hab auf einer Exkursion eine Ziege erlebt, die sich in fünf Minuten durch die Hecke, den Rosenstock vor dem Hofladen und den Zipfel meiner Jacke gearbeitet hat. Selektiv heißt bei der Ziege nicht heikel. Es heißt: Sie sucht sich das Beste aus – und manchmal hält sie eben eine Jacke dafür.",
+      "en": "On a field trip I once watched a goat work her way, in five minutes, through the hedge, the rose bush outside the farm shop and the corner of my jacket. Selective, in a goat, does not mean fussy. It means she picks out the best – and occasionally she considers that to be a jacket.",
+      "facts": [
+        "F83"
+      ]
+    },
+    {
+      "after": 6,
+      "kind": "pointe",
+      "de": "Eine Forelle braucht für ein Kilo Zuwachs nur gut ein Kilo Futter. Nicht, weil sie besonders sparsam ist – sie muss einfach nicht heizen und nicht stehen. Wenn ich mir anschau, was ich jeden Morgen am Rad den Berg zur Türkenschanze hinauf verbrenn, beneid ich die Forelle ein bisserl.",
+      "en": "A trout needs only a little over a kilo of feed per kilo of gain. Not because she is especially thrifty – she simply does not have to heat herself or stand up. When I think how much I burn every morning cycling up the hill to the Türkenschanze, I do rather envy the trout.",
+      "facts": [
+        "F84"
+      ]
+    },
+    {
+      "after": 7,
+      "kind": "pointe",
+      "de": "Insektenmehl klingt für viele exotisch. Für ein Huhn ist es das Natürlichste der Welt – lassen Sie Hühner auf eine Wiese, die suchen als Erstes Käfer und Larven, und die Forelle schnappt im Bach auch nach Insekten. Exotisch ist eher, dass wir ihnen jahrzehntelang Fisch aus dem Meer gefüttert haben.",
+      "en": "Insect meal sounds exotic to many people. To a chicken it is the most natural thing in the world – let hens loose on a meadow and the first thing they look for is beetles and grubs, and a trout in a stream snaps at insects too. What is really exotic is that for decades we fed them fish from the sea.",
+      "facts": [
+        "F85"
+      ]
+    },
+    {
+      "after": 8,
+      "kind": "pointe",
+      "gag": "mensa",
+      "de": "Und wenn Sie heute in die Mensa gehen und Kaspressknödel bestellen: mit gutem Gewissen. Sie wissen jetzt, was drin ist – Rohprotein und Rohfett aus dem Käse, Stärke aus dem Knödelbrot, sogar ein bisserl Kalzium. Und Sie wissen, dass Ihre Verdauung das alles ganz ohne Pansen schafft.",
+      "en": "And if you go to the refectory today and order the Kaspressknödel: do so with a clear conscience. You now know what is in them – crude protein and crude fat from the cheese, starch from the bread, even a little calcium. And you know that your digestion manages all of it without a rumen.",
+      "facts": [
+        "F86"
+      ]
+    },
+    {
+      "after": 9,
+      "kind": "anecdote",
+      "gag": "rudi",
+      "de": "Rudi lässt grüßen. Er steht heute auf der Weide am Versuchsgut, kaut wieder und hat keine Ahnung, dass er in diesem Semester berühmt geworden ist. Wenn Sie ihn auf der Exkursion besuchen: Er mag es, wenn man ihn hinter dem Ohr krault. Den Pansen zeig ich Ihnen nur, wenn er einverstanden ist.",
+      "en": "Rudi sends his regards. He is out on pasture at the research farm today, chewing the cud, with no idea that he has become famous this semester. If you visit him on the field trip: he likes being scratched behind the ear. I shall only show you his rumen if he agrees.",
+      "facts": []
+    }
+  ]
 }

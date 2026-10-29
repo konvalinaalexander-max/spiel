@@ -364,5 +364,63 @@
       "Brewers' grains, beet pulp, bran: by-products"
     ],
     "script": "Feed science classifies feedstuffs by origin, dry matter content and nutrient concentration. In ruminants, home-grown forage forms the basis of the ration: hay, grass and maize silage, as well as pasture and alpine forage. Its feeding value depends above all on the stage of growth at harvest; as the sward matures, the fibre content rises while energy and protein concentrations fall. Grass silage is protein-oriented (about 145–190 g CP/kg DM), whereas maize silage is rich in energy and starch but low in protein (around 80 g CP/kg DM), which is why the two complement each other well. Alpine forage often reaches only 4–5.5 MJ NEL/kg DM. All table values refer to dry matter, so fresh weights must always be converted using the DM content. Concentrates supply either energy (barley, grain maize: about 8.2–8.4 MJ NEL/kg DM) or protein (soybean meal around 500, rapeseed meal around 390 g CP/kg DM). In Austria, milk has been produced with GM-free feed since 2010; domestic rapeseed, domestic soy and GM-free soy of European origin (Donau Soja) are therefore particularly important. By-products of food processing such as brewers' grains, dried beet pulp or wheat bran make use of residues that humans do not use. Finally, mineral feeds supply the macro and trace elements that forage and concentrates do not provide in sufficient amounts."
-  }
+  },
+  "asides": [
+    {
+      "after": 0,
+      "kind": "pointe",
+      "gag": "gras",
+      "de": "Und bevor jetzt jemand „Gras“ sagt – Sie wissen eh: Gras ist kein Futtermittel, Gras ist ein Zustand. Jetzt sehen Sie auch, warum: In der Futterwerttabelle stehen für den Wiesenaufwuchs gleich mehrere Zeilen, je nach Schnitt und Stadium. Die Kuh merkt den Unterschied beim ersten Bissen – wir brauchen dafür ein Labor.",
+      "en": "And before anyone says ‘grass’ – you know what is coming: grass is not a feedstuff, grass is a condition. Now you can see why: the feed tables list several rows for meadow growth, depending on cut and stage. The cow notices the difference at the first bite – we need a laboratory for it.",
+      "facts": [
+        "F06"
+      ]
+    },
+    {
+      "after": 1,
+      "kind": "anecdote",
+      "de": "Mein Vater hat immer gesagt: „Heu wird nicht besser, wenn’s länger steht.“ Und dann hat er’s trotzdem jedes Jahr stehen lassen, bis das Wetter gepasst hat. Fachlich hatte er recht, praktisch hatte das Wetter recht. Das ist bis heute die ehrlichste Zusammenfassung der Grünlandwirtschaft, die ich kenne.",
+      "en": "My father always said: ‘Hay doesn’t get any better for standing longer.’ And every year he left it standing anyway, until the weather played along. Scientifically he was right; in practice, the weather was right. To this day it is the most honest summary of grassland farming I know.",
+      "facts": [
+        "F06"
+      ]
+    },
+    {
+      "after": 3,
+      "kind": "anecdote",
+      "de": "Mir selber ist das als Dissertant passiert: Ich hab einer Versuchskuh auf dem Papier sechzig Kilo Trockenmasse Grassilage zugeteilt – Frischmasse und Trockenmasse verwechselt. Mein Betreuer hat nur gefragt, ob wir neuerdings Elefanten füttern. Eine Milchkuh schafft realistisch zwanzig bis fünfundzwanzig Kilo Trockenmasse am Tag. Seitdem schreib ich zu jeder Zahl „frisch“ oder „trocken“ dazu – sogar auf die Einkaufsliste.",
+      "en": "It happened to me as a doctoral student: on paper I allotted a trial cow sixty kilos of grass silage dry matter – I had mixed up fresh matter and dry matter. My supervisor merely asked whether we had started feeding elephants. A dairy cow realistically manages twenty to twenty-five kilos of dry matter a day. Since then I write ‘fresh’ or ‘dry’ next to every figure – even on my shopping list.",
+      "facts": [
+        "F45"
+      ]
+    },
+    {
+      "after": 4,
+      "kind": "pointe",
+      "de": "Junges Weidefutter hat so wenig Trockenmasse, dass eine Kuh für zwanzig Kilo Trockenmasse weit über hundert Kilo frisches Futter abbeißen muss. Und dann wundern sich die Leute, warum die Kühe den ganzen Tag mit dem Kopf unten herumgehen. Das ist keine Gemütlichkeit, Herrschaften – das ist Schichtarbeit.",
+      "en": "Young pasture has so little dry matter that a cow has to bite off well over a hundred kilos of fresh herbage to get twenty kilos of dry matter. And then people wonder why cows spend all day walking about with their heads down. That is not leisure, ladies and gentlemen – that is shift work.",
+      "facts": [
+        "F46"
+      ]
+    },
+    {
+      "after": 6,
+      "kind": "frage",
+      "de": "Warum nimmt man dann nicht überall Raps statt Soja? … In der Milchviehfütterung macht man das in Österreich ohnehin sehr viel, da passt er hervorragend. Beim Schwein und beim Geflügel ist es schwieriger: weniger Lysin, mehr Faser, und dazu die Glucosinolate. Der Raps ist ein sehr guter Kollege – aber kein Ersatzspieler für jede Position.",
+      "en": "So why not use rapeseed instead of soya everywhere? … In Austrian dairy feeding that is very much what happens, and it works splendidly. In pigs and poultry it is trickier: less lysine, more fibre, and the glucosinolates on top. Rapeseed is an excellent team player – but not a substitute for every position.",
+      "facts": [
+        "F47"
+      ]
+    },
+    {
+      "after": 8,
+      "kind": "pointe",
+      "gag": "mensa",
+      "de": "Nebenprodukte sind das Recycling der Futtermittelkunde: Kleie aus der Mühle, Treber aus der Brauerei, Schnitzel aus der Zuckerfabrik. Die übrig gebliebenen Kaspressknödel aus der Mensa dürfen aber nicht in den Trog – Küchen- und Speiseabfälle an Nutztiere sind in der EU verboten. Und das aus gutem Grund: Über Speisereste sind schon Tierseuchen wie die Maul- und Klauenseuche verschleppt worden.",
+      "en": "By-products are the recycling department of feed science: bran from the mill, brewers’ grains from the brewery, beet pulp from the sugar factory. The leftover Kaspressknödel from the refectory, however, may not go into the trough – feeding catering waste to farm animals is banned in the EU. And for good reason: food scraps have spread animal diseases such as foot-and-mouth disease before.",
+      "facts": [
+        "F48"
+      ]
+    }
+  ]
 }

@@ -366,5 +366,61 @@
       "Choose mineral feed by forage analysis"
     ],
     "script": "Minerals are divided into macro and trace elements. Calcium and phosphorus are building blocks of the skeleton and of milk; each kg of milk requires about 2.5 g Ca and 1.4 g P, and the Ca:P ratio of the ration should be about 1.5–2 : 1. Phosphorus should be fed to requirement, as surpluses pollute waters via farm manure; rations rich in rapeseed meal can often manage with phosphorus-free mineral feed. Magnesium must be supplied daily because the cow has no mobilisable store. Grassland forage is usually low in sodium and rich in potassium. Among trace elements, the GfE recommends about 10 mg copper, 50 mg zinc, 0.5 mg iodine and 0.2 mg selenium per kg DM for dairy cows. Large parts of Austria are considered selenium-poor, and forage is often below 0.1 mg Se/kg DM; deficiency shows, among other things, in retained placentas and muscular dystrophy in calves. Sheep are particularly sensitive to copper and must therefore not receive cattle mineral feed. Vitamin A is formed from β-carotene, vitamin D in the skin under UV light, and vitamin E comes mainly from green forage; β-carotene and vitamin E decline during conservation. B vitamins and vitamin K are synthesised by the rumen microbes, which need cobalt for vitamin B12. The amount of mineral feed results from the difference between requirement and supply from the ration, while respecting the EU maximum levels."
-  }
+  },
+  "asides": [
+    {
+      "after": 0,
+      "kind": "pointe",
+      "de": "Mineralstoffe sind das Kleingedruckte der Ration: Niemand liest es, bis es teuer wird. Und wie beim Kleingedruckten steht das Wichtigste oft in der kleinsten Schrift – beim Selen in Milligramm, nicht in Kilo.",
+      "en": "Minerals are the small print of the ration: nobody reads it until it gets expensive. And as with any small print, the most important part is in the tiniest type – selenium comes in milligrams, not kilos.",
+      "facts": [
+        "F66"
+      ]
+    },
+    {
+      "after": 1,
+      "kind": "frage",
+      "de": "Warum braucht die Kuh 2,5 Gramm Kalzium je Kilo Milch, wenn in einem Kilo Milch nur rund 1,2 Gramm drin sind? … Weil sie vom Futterkalzium nur etwa die Hälfte tatsächlich aufnimmt. Die Kuh zahlt also für jedes Gramm in der Milch den doppelten Preis. Mineralstoffe haben einen Wechselkurs – und der ist selten zu unseren Gunsten.",
+      "en": "Why does a cow need 2.5 grams of calcium per kilo of milk when a kilo of milk only contains about 1.2 grams? … Because she absorbs only about half of the calcium in her feed. So for every gram in the milk she pays double. Minerals have an exchange rate – and it is rarely in our favour.",
+      "facts": [
+        "F67"
+      ]
+    },
+    {
+      "after": 2,
+      "kind": "pointe",
+      "de": "Fehlt der Kuh Natrium, merkt man das ganz ohne Labor: Sie beleckt Stalleinrichtung, Wände, Erde, sogar die Nachbarin. Das nennt man Lecksucht. Wenn Ihre Kühe also am Futterbarren herumschlecken, ist das keine Zuneigung – das ist ein Befund.",
+      "en": "If a cow is short of sodium, you will notice without any laboratory: she licks the fittings, the walls, the soil, even her neighbour. It is called pica, a craving to lick. So if your cows are licking the feed barrier, that is not affection – that is a clinical finding.",
+      "facts": [
+        "F68"
+      ]
+    },
+    {
+      "after": 5,
+      "kind": "anecdote",
+      "de": "Ich hab einmal einen Bergbauern beraten, dessen Kälber schwach auf die Welt gekommen sind, mit steifem Gang. Am Ende war’s Selenmangel, und mit dem richtigen Mineralfutter war der Spuk im nächsten Jahr vorbei. Zum Jahreswechsel hat er mir einen Sellerie geschickt, mit einem Kärtchen: „Hauptsache Se.“ Ich hab mich nie getraut, ihm zu sagen, dass Sellerie und Selen nur den Anfang gemeinsam haben.",
+      "en": "I once advised a hill farmer whose calves were born weak, with a stiff gait. In the end it was selenium deficiency, and with the right mineral feed the trouble was gone the following year. At New Year he sent me a celery, with a little card: ‘All thanks to Se.’ I never had the heart to tell him that celery and selenium only share the first few letters.",
+      "facts": [
+        "F69"
+      ]
+    },
+    {
+      "after": 6,
+      "kind": "anecdote",
+      "de": "Als junger Assistent hab ich einem Hobbyhalter am Telefon geraten, seinen Schafen „irgendein Mineralfutter“ zu geben. Zum Glück hat er nachgefragt, ob das vom Rind auch geht. Seitdem sag ich bei Schafen nur noch ein Wort, und zwar laut: Kupfer!",
+      "en": "As a young assistant I once advised a hobby keeper on the telephone to give his sheep ‘any old mineral feed’. Luckily he asked whether the cattle one would do. Since then, when it comes to sheep, I say only one word, and I say it loudly: copper!",
+      "facts": [
+        "F70"
+      ]
+    },
+    {
+      "after": 8,
+      "kind": "pointe",
+      "de": "Vitamin D bildet die Kuh in der Haut aus Sonnenlicht, genau wie wir. Eine Kuh, die das ganze Jahr im Stall steht, ist da im Februar ungefähr so gut versorgt wie wir alle in einem Wiener Büro. Darum ist Vitamin D im Mineralfutter Standard – bei der Kuh. Bei uns müssen S’ das mit Ihrem Hausarzt ausmachen.",
+      "en": "The cow makes vitamin D in her skin from sunlight, just as we do. A cow kept indoors all year is about as well supplied in February as the rest of us in a Viennese office. That is why vitamin D is standard in mineral feed – for cows. For yourselves, please consult your GP.",
+      "facts": [
+        "F71"
+      ]
+    }
+  ]
 }

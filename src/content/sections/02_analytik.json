@@ -444,5 +444,73 @@
       "NDF ↔ intake, ADF/ADL ↔ digestibility"
     ],
     "script": "The Weende proximate analysis was developed in the 1860s at the Weende research station near Göttingen and is still the basis of feed evaluation today. Drying at 103 °C gives the dry matter (DM), ashing at 550 °C the crude ash (CA), which contains not only minerals but also contaminants such as soil. Crude protein (CP) is determined from the nitrogen content by the Kjeldahl method and multiplied by the factor 6.25, since proteins contain about 16 % nitrogen on average. Because every form of nitrogen is captured, CP also includes non-protein nitrogen such as ammonia or urea. Ether extract (EE) is the petroleum ether extract, crude fibre (CF) the organic residue after boiling in dilute acid and alkali. The nitrogen-free extract (NFE) is not measured but calculated as a difference: NFE = DM − (CA + CP + EE + CF). Because parts of the hemicellulose and lignin dissolve during the crude fibre procedure, NFE is an imprecise value. For ruminants, the detergent analysis after Van Soest is therefore used. NDF comprises the entire cell wall of hemicellulose, cellulose and lignin, ADF cellulose and lignin, and ADL essentially the lignin. From these, hemicellulose (NDF − ADF) and cellulose (ADF − ADL) can be derived. NDF is closely linked to rumen fill and thus feed intake, ADF and ADL to digestibility. In the LK Silage Project 2024, Austrian first-cut grass silages contained on average about 406 g NDF per kg DM."
-  }
+  },
+  "asides": [
+    {
+      "after": 0,
+      "kind": "pointe",
+      "gag": "beamer",
+      "de": "Die Weender Analyse stammt aus den 1860er-Jahren, aus Weende bei Göttingen. Damit ist sie älter als die BOKU – die wurde erst 1872 gegründet. Und sie funktioniert bis heute zuverlässiger als unser Beamer … wobei, das ist zugegeben keine hohe Latte.",
+      "en": "Proximate analysis dates from the 1860s, from Weende near Göttingen. That makes it older than BOKU itself – the university was only founded in 1872. And it still works more reliably than our projector … though admittedly, that is not a high bar.",
+      "facts": [
+        "F07"
+      ]
+    },
+    {
+      "after": 1,
+      "kind": "pointe",
+      "de": "Die Rohasche ist gnadenlos ehrlich: Da ist alles drin, was nicht brennt – die Mineralstoffe genauso wie die Erde, die der Ladewagen mitgenommen hat. Bei einer Grassilage sollte sie unter etwa 10 Prozent der Trockenmasse liegen. Wenn ich deutlich mehr seh, frag ich den Betrieb immer ganz höflich: Haben S’ gemäht oder umgeackert?",
+      "en": "Crude ash is brutally honest: it contains everything that doesn’t burn – the minerals, and also whatever soil the forage wagon picked up on the way. In grass silage it should stay below about 10 percent of dry matter. When I see a good deal more than that, I ask the farmer very politely: did you mow this, or plough it?",
+      "facts": [
+        "F08"
+      ]
+    },
+    {
+      "after": 2,
+      "kind": "frage",
+      "de": "Warum eigentlich gerade 6,25? … Weil hundert durch sechzehn 6,25 ergibt – Protein hat im Mittel rund 16 Prozent Stickstoff. Im Mittel, wohlgemerkt: Für Milcheiweiß nimmt die Lebensmittelanalytik 6,38, für Weizen 5,7. Die Futtermittelanalytik bleibt bei 6,25 – aus Prinzip, aus Tradition und, ganz ehrlich, ein bisserl aus Bequemlichkeit.",
+      "en": "Why 6.25, of all numbers? … Because one hundred divided by sixteen is 6.25 – protein contains on average about 16 percent nitrogen. On average, mind you: food analysts use 6.38 for milk protein and 5.7 for wheat. Feed analysis sticks with 6.25 – out of principle, out of tradition and, frankly, a little out of convenience.",
+      "facts": [
+        "F09"
+      ]
+    },
+    {
+      "after": 3,
+      "kind": "anecdote",
+      "de": "Dass die Methode nur Stickstoff zählt, ist keine reine Theorie. 2007 ist in Nordamerika Heimtierfutter aufgetaucht, dessen Eiweißrohstoffe man mit Melamin gestreckt hatte – Melamin besteht zu rund zwei Dritteln aus Stickstoff. Viele Hunde und Katzen sind an Nierenversagen gestorben. Da gibt’s keine Pointe, Herrschaften – nur die Lehre, dass eine Analyse so ehrlich ist wie der, der das Futter liefert.",
+      "en": "The fact that the method only counts nitrogen is not merely theoretical. In 2007, pet food turned up in North America whose protein ingredients had been spiked with melamine – and melamine is about two-thirds nitrogen. Many dogs and cats died of kidney failure. There is no punchline here, ladies and gentlemen – only the lesson that an analysis is exactly as honest as whoever supplies the feed.",
+      "facts": [
+        "F10",
+        "F09"
+      ]
+    },
+    {
+      "after": 5,
+      "kind": "pointe",
+      "de": "Die Rohfaser ist ein bisserl wie ein schlecht organisiertes Aufnahmeverfahren: Was Säure und Lauge übersteht, gilt als Faser. Dabei fällt aber ein Teil vom Lignin und von der Hemicellulose durch und landet stillschweigend in der NfE. Also ausgerechnet die Kandidaten, die wir eigentlich kennenlernen wollten.",
+      "en": "Crude fibre is a bit like a badly run admissions procedure: whatever survives acid and alkali counts as fibre. But part of the lignin and the hemicellulose gets lost along the way and quietly ends up in the nitrogen-free extract. Precisely the candidates we actually wanted to meet.",
+      "facts": [
+        "F11"
+      ]
+    },
+    {
+      "after": 7,
+      "kind": "pointe",
+      "gag": "pruefung",
+      "de": "NDF, ADF und ADL stecken ineinander wie die Schalen einer Zwiebel: außen die ganze Zellwand, und ganz innen bleibt am Ende nur das Lignin übrig. Das kommt zur Prüfung – und zwar als Zeichnung. Bei einer Zeichnung seh ich nämlich sofort, ob Sie’s verstanden oder nur auswendig gelernt haben.",
+      "en": "NDF, ADF and ADL nest inside one another like the layers of an onion: the whole cell wall on the outside, and right at the centre only the lignin is left. That will be on the exam – as a drawing. A drawing tells me at once whether you have understood it or merely memorised it.",
+      "facts": [
+        "F12"
+      ]
+    },
+    {
+      "after": 9,
+      "kind": "anecdote",
+      "de": "Nasschemie hat auch ihre Gefahren. Ich hab als Dissertant einmal übers Wochenende den Trockenschrank laufen lassen – mit meiner Jause drin, aus Versehen. Am Montag hatte die Wurstsemmel bei 103 Grad Gewichtskonstanz erreicht: lehrbuchmäßig getrocknet, analytisch einwandfrei … und völlig ungenießbar. Das ist übrigens genau der Unterschied zwischen einer Futtermittelanalyse und einem Futtermittel.",
+      "en": "Wet chemistry has its hazards. As a doctoral student I once left the drying oven running over the weekend – with my lunch inside, by accident. By Monday the ham roll had reached constant weight at 103 degrees: textbook drying, analytically flawless … and utterly inedible. Which, incidentally, is precisely the difference between a feed analysis and a feed.",
+      "facts": [
+        "F13"
+      ]
+    }
+  ]
 }

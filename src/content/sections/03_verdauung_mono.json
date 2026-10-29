@@ -382,5 +382,69 @@
       "Passage: pig ~30–40 h, chicken ~3–5 h"
     ],
     "script": "Pigs and poultry are monogastrics. Their digestion relies mainly on endogenous enzymes; microbial fermentation is confined to the large intestine or the caeca. In the pig, feed is acidified in the simple stomach by hydrochloric acid to a pH of about 2 to 4, pepsin starts protein breakdown, and the acid acts as a barrier against germs. The small intestine is the main site of enzymatic digestion and absorption: pancreatic enzymes, bile and brush-border enzymes split starch, proteins and fats, and glucose, amino acids and fatty acids are absorbed. In the large intestine, microbes ferment undigested fibre residues to volatile fatty acids, and water is reabsorbed. Amino acids released only there are practically no longer available to the animal; that is why precaecal digestibility is used in pigs. Apparent digestibility is calculated as (intake − faecal excretion) / intake × 100; it is called apparent because faeces also contain endogenous material. The chicken swallows its feed without chewing; it is stored and softened in the crop. In the proventriculus hydrochloric acid and pepsin are added, and in the gizzard the feed is ground mechanically with the help of the koilin lining and grit. Digestion and absorption take place in the small intestine, while the paired caeca carry out limited fermentation. Faeces and urine are excreted together via the cloaca. Passage is short: a few hours in broilers, and roughly 30 to 40 hours in fattening pigs."
-  }
+  },
+  "asides": [
+    {
+      "after": 0,
+      "kind": "pointe",
+      "de": "Für uns Menschen ist übrigens das Schwein das bessere Vorbild als die Kuh: Allesfresser, einhöhliger Magen, sehr ähnlicher Darm. Deshalb ist es in der Humanernährungsforschung ein beliebtes Modelltier. Wenn Sie also wissen wollen, wie Ihre eigene Verdauung funktioniert – fragen Sie nicht die Kuh.",
+      "en": "For us humans, incidentally, the pig is a far better role model than the cow: omnivore, simple stomach, a very similar gut. That is why it is a popular model animal in human nutrition research. So if you want to know how your own digestion works – don’t ask the cow.",
+      "facts": [
+        "F14"
+      ]
+    },
+    {
+      "after": 1,
+      "kind": "anecdote",
+      "de": "Schweine sind übrigens deutlich gescheiter, als ihr Ruf ist. Am Versuchsgut hatten wir eine Sau, die hat den Riegel vom Futterautomaten nach zwei Tagen durchschaut. Unser Techniker hat drei Wochen für einen neuen Verschluss gebraucht. Wer da an wem einen Versuch gemacht hat, war am Ende nicht ganz klar.",
+      "en": "Pigs, by the way, are a good deal cleverer than their reputation. At the research farm we had a sow who worked out the latch on the feed dispenser in two days. It took our technician three weeks to build a new one. By the end it was not entirely clear who was experimenting on whom.",
+      "facts": []
+    },
+    {
+      "after": 3,
+      "kind": "pointe",
+      "de": "Aminosäuren, die erst im Dickdarm frei werden, sind für das Schwein wie ein Gutschein, der erst nach Ladenschluss gilt. Die Mikroben dort freuen sich, das Schwein hat kaum noch was davon. Genau deshalb bewerten wir später praecaecal – also bis zum Ende vom Dünndarm.",
+      "en": "Amino acids released only in the large intestine are, for the pig, like a voucher that is only valid after the shop has shut. The microbes down there are delighted; the pig gets next to nothing out of it. That is exactly why we shall evaluate protein precaecally later on – up to the end of the small intestine.",
+      "facts": [
+        "F15"
+      ]
+    },
+    {
+      "after": 4,
+      "kind": "pointe",
+      "de": "„Scheinbar“ heißt übrigens nicht, dass das Schwein nur so tut. Im Kot stecken auch abgeschilferte Darmzellen, Verdauungsenzyme und Schleim vom Tier selber. Das Schwein zahlt für jede Mahlzeit sozusagen eine Bearbeitungsgebühr – und weil wir sie nicht heraustrennen können, verbuchen wir sie beim Futter.",
+      "en": "‘Apparent’, by the way, does not mean the pig is only pretending. The faeces also contain shed gut cells, digestive enzymes and mucus from the animal itself. So the pig pays a handling fee on every meal – and since we cannot separate it out, we charge it to the feed.",
+      "facts": [
+        "F16"
+      ]
+    },
+    {
+      "after": 6,
+      "kind": "anecdote",
+      "de": "Bei meiner Großmutter sind die Hühner noch frei im Hof herumgelaufen und haben sich ihre Steinchen selber gesucht. Wenn eines geschlachtet worden ist, hat man im Muskelmagen gesehen, wo es überall war: Kies vom Weg, ein Stückerl Ziegel vom Stadel. Der Muskelmagen ist sozusagen das Reisetagebuch vom Huhn.",
+      "en": "At my grandmother’s, the hens still roamed the yard and found their own little stones. When one was slaughtered, you could tell from the gizzard where she had been: gravel from the path, a bit of brick from the barn. The gizzard is, so to speak, the chicken’s travel diary.",
+      "facts": [
+        "F17"
+      ]
+    },
+    {
+      "after": 7,
+      "kind": "frage",
+      "de": "Wie viele Blinddärme hat ein Huhn? … Zwei. Wir Menschen haben nur einen, und an dem hängt auch noch ein Wurmfortsatz, den man uns gern herausnimmt. Beim Blinddarm ist das Huhn also eindeutig besser ausgestattet als Sie und ich.",
+      "en": "How many caeca does a chicken have? … Two. We humans have just the one, with an appendix attached that surgeons are rather keen to remove. In the caecum department, the chicken is clearly better equipped than you or I.",
+      "facts": [
+        "F18"
+      ]
+    },
+    {
+      "after": 8,
+      "kind": "pointe",
+      "gag": "bus40a",
+      "de": "Drei bis fünf Stunden vom Schnabel bis zur Kloake – da ist das Futter beim Masthuhn schneller durch als mancher von uns in der Früh mit dem 40A herauf. … Na ja, beim 40A ist das kein Verdauungsproblem. Das ist ein Fahrplanproblem.",
+      "en": "Three to five hours from beak to cloaca – feed passes through a broiler faster than some of us get up the hill on the 40A in the morning. … Na ja, with the 40A it is not a digestion problem. It is a timetable problem.",
+      "facts": [
+        "F19"
+      ]
+    }
+  ]
 }

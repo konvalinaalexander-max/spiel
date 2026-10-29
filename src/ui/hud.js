@@ -9,7 +9,7 @@ export class HUD {
   constructor(root, settings) {
     this.root = root; this.settings = settings;
     root.innerHTML = `
-      <div class="hud-top-left"><div class="hud-clock" id="h-clock">09:57</div><div class="hud-phase" id="h-phase"></div><div class="hud-section" id="h-section"></div></div>
+      <div class="hud-top-left"><div class="hud-clock" id="h-clock">10:10</div><div class="hud-phase" id="h-phase"></div><div class="hud-section" id="h-section"></div></div>
       <div class="hud-top-right"><div class="hud-score" id="h-score"></div><div class="hud-strikes" id="h-strikes" aria-label=""></div></div>
       <div class="hud-sus" id="h-sus" aria-hidden="true"><svg viewBox="0 0 48 28" width="48" height="28"><path d="M2 14 Q24 -6 46 14 Q24 34 2 14Z" fill="none" stroke="currentColor" stroke-width="2.5"/><circle id="h-pupil" cx="24" cy="14" r="6" fill="currentColor"/></svg><div class="sus-bar"><i id="h-susbar"></i></div></div>
       <div class="hud-hints" id="h-hints" aria-live="polite"></div>

@@ -448,5 +448,63 @@
       "GfE 2023: dairy cows moving to ME"
     ],
     "script": "Energy evaluation starts from gross energy (GE), the heat of combustion determined in a bomb calorimeter. Subtracting the energy in faeces gives digestible energy (DE); after deducting the energy in urine and – significant in ruminants – methane, we obtain metabolisable energy (ME). Net energy (NE) results after deducting heat losses during metabolism. According to GfE (2001), dairy cows were evaluated in net energy for lactation (NEL); the efficiency of ME use for milk production is about 60 %. The maintenance requirement is 0.293 MJ NEL per kg of metabolic body weight (BW^0.75), i.e. about 37.7 MJ NEL daily for a 650 kg cow. Each kg of milk requires 1.05 + 0.38 × fat % + 0.21 × protein % MJ NEL, which is 3.28 MJ at 4.0 % fat and 3.4 % protein. With 30 kg of milk, the daily requirement is about 136 MJ NEL. The GfE recommendations of 2023 switch the evaluation of dairy cows to ME; feed tables and software are being adapted. Typical contents of Austrian forages are about 5.3–5.9 MJ NEL per kg DM for first-cut hay, around 6.3 for first-cut grass silage and around 6.6 for maize silage; barley is at about 8.1 and grain maize at 8.4 MJ NEL. Pigs are evaluated in ME, about 12.6 MJ for barley and 13.8 MJ for wheat per kg at 88 % DM. In poultry, faeces and urine are excreted together; the apparent metabolisable energy corrected to zero nitrogen balance (AMEn) is used."
-  }
+  },
+  "asides": [
+    {
+      "after": 0,
+      "kind": "anecdote",
+      "de": "Fürs Bombenkalorimeter wird die Probe getrocknet und zu einer kleinen Tablette gepresst. Ich hab das als Student einmal schlampig gemacht – Ergebnis: unvollständig verbrannt, Ruß im Tiegel und ein Assistent, dessen Blick ich bis heute nicht vergessen hab. Das war meine erste Lektion in Bruttoenergie: Was nicht verbrennt, zählt nicht.",
+      "en": "For the bomb calorimeter the sample is dried and pressed into a small pellet. As a student I once did that sloppily – result: incomplete combustion, soot in the crucible, and a lab assistant whose expression I remember to this day. That was my first lesson in gross energy: what doesn’t burn doesn’t count.",
+      "facts": [
+        "F26"
+      ]
+    },
+    {
+      "after": 1,
+      "kind": "frage",
+      "de": "Was hat mehr Bruttoenergie – ein Kilo Butter oder ein Kilo Heu? … Die Butter, fast doppelt so viel, weil Fett rund 39 Megajoule je Kilo liefert. Trotzdem käme keine Kuh mit Butter weit: Mehr als etwa 5 Prozent Fett in der Ration, und die Faserverdauung im Pansen streikt. Energie ist eben nicht, was drin ist – sondern was ankommt.",
+      "en": "Which has more gross energy – a kilo of butter or a kilo of hay? … The butter, almost twice as much, because fat delivers about 39 megajoules per kilo. Yet no cow would get far on butter: more than about 5 percent fat in the ration and fibre digestion in the rumen goes on strike. Energy is not what is in it – it is what arrives.",
+      "facts": [
+        "F27",
+        "F28"
+      ]
+    },
+    {
+      "after": 3,
+      "kind": "pointe",
+      "gag": "mensa",
+      "de": "Ich denk bei den Energiestufen immer an meine Kaspressknödel in der Mensa. Bruttoenergie: beachtlich. Umsetzbare Energie: auch noch ordentlich. Und was dann um zwei in der Nachmittagsvorlesung an Nettoenergie für die Lehre übrig bleibt … das beurteilen bitte Sie.",
+      "en": "Whenever I think of the energy cascade, I think of my Kaspressknödel – cheese dumplings – in the refectory. Gross energy: considerable. Metabolisable energy: still respectable. And how much net energy is left over for teaching at the two o’clock lecture … I shall leave that for you to judge.",
+      "facts": []
+    },
+    {
+      "after": 6,
+      "kind": "pointe",
+      "de": "Hundertsechsunddreißig Megajoule am Tag – nur zur Größenordnung: Ein erwachsener Mensch kommt mit rund 10 Megajoule aus. Die Kuh braucht also mehr als das Zehnfache, und das als Nettoenergie, nach allen Verlusten. Eine Hochleistungskuh füttern ist im Grunde Spitzensportbetreuung – nur hat diese Athletin rund dreihundert Wettkampftage im Jahr.",
+      "en": "A hundred and thirty-six megajoules a day – just for scale: an adult human gets by on about 10. So the cow needs more than ten times as much, and that is net energy, after all the losses. Feeding a high-yielding cow is essentially looking after a professional athlete – one with about three hundred competition days a year.",
+      "facts": [
+        "F29",
+        "F30"
+      ]
+    },
+    {
+      "after": 7,
+      "kind": "pointe",
+      "gag": "pruefung",
+      "de": "Diese Gehalte – Heu, Grassilage, Maissilage, Gerste – kommen zur Prüfung. Nicht auf die Kommastelle genau, aber in der richtigen Reihenfolge. Wer mir schreibt, dass Heu mehr Energie hat als Gerste, kriegt den Punkt nicht – aber eine herzliche Einladung zum Heuwenden.",
+      "en": "These values – hay, grass silage, maize silage, barley – will be on the exam. Not to the decimal place, but in the right order. Anyone who writes that hay has more energy than barley won’t get the mark – but will receive a warm invitation to come and turn hay.",
+      "facts": [
+        "F31"
+      ]
+    },
+    {
+      "after": 9,
+      "kind": "pointe",
+      "de": "Beim Huhn kommt alles aus einer Öffnung – für den Analytiker ist das praktisch: ein Probenbecher statt zwei. Für den, der die Proben sammelt, sag ich’s diplomatisch: Man gewöhnt sich an vieles. Ich hab mich in drei Versuchen an alles gewöhnt … nur nicht an den Geruch.",
+      "en": "In poultry everything leaves through a single exit – which is handy for the analyst: one sample pot instead of two. For whoever collects the samples, let me put it diplomatically: one gets used to a great deal. Over three trials I got used to everything … except the smell.",
+      "facts": [
+        "F32"
+      ]
+    }
+  ]
 }

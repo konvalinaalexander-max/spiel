@@ -422,5 +422,61 @@
       "−1 % point CP ≈ −10 % N excretion"
     ],
     "script": "Pigs and poultry have no rumen in which microbes remodel feed protein. Their requirement is therefore a requirement for amino acids, more precisely for essential amino acids that the organism cannot synthesise itself, such as lysine, methionine, threonine, tryptophan, valine, isoleucine, leucine, histidine and phenylalanine. They are evaluated as precaecally digestible amino acids (pcd), because only what is absorbed by the end of the small intestine can be used for protein deposition. According to the law of the minimum, the amino acid in shortest supply limits protein deposition; the barrel with its shortest stave illustrates this. In cereal-soy diets lysine is usually first-limiting in pigs and methionine in poultry, partly because of the high requirement for sulphur amino acids for feathering. The ideal protein concept sets lysine at 100 and expresses the other essential amino acids in fixed ratios, for fattening pigs about Met+Cys 60, threonine 65 and tryptophan 18. Since the requirement per kg of feed declines with increasing weight, pigs are fed in phases. By adding free amino acids such as L-lysine, DL-methionine, L-threonine and L-tryptophan, crude protein can be reduced without compromising supply. Per percentage point less crude protein, nitrogen excretion falls by about 10 %, which mainly reduces ammonia emissions. Phytase improves the availability of phytate phosphorus and allows P-reduced feeding. In Austria, strongly N-reduced feeding of pigs is supported under the ÖPUL agri-environmental programme."
-  }
+  },
+  "asides": [
+    {
+      "after": 2,
+      "kind": "frage",
+      "de": "Warum ist beim Huhn ausgerechnet Methionin zuerst knapp? … Federn! Federn sind fast reines Keratin, und das ist reich an schwefelhaltigen Aminosäuren, vor allem Cystin – und das bildet das Huhn aus Methionin. Ein Huhn trägt seinen Methioninbedarf sozusagen als Mantel.",
+      "en": "Why is it methionine, of all things, that runs short first in poultry? … Feathers! Feathers are almost pure keratin, which is rich in sulphur amino acids, above all cystine – and the bird makes cystine from methionine. In a sense, a chicken wears its methionine requirement as a coat.",
+      "facts": [
+        "F39"
+      ]
+    },
+    {
+      "after": 3,
+      "kind": "anecdote",
+      "de": "Ich hab das Liebig-Fass erst richtig verstanden, als bei uns daheim die alte Regentonne eine gesprungene Daube hatte. Das Wasser ist genau bis zum Sprung gestanden, keinen Zentimeter höher. Mein Vater hat gesagt: „Siehst, da hilft’s nix, wenn die anderen Bretter länger sind.“ Der Mann hat nie eine Zeile Liebig gelesen und trotzdem die Vorlesung gehalten.",
+      "en": "I only truly understood Liebig’s barrel when the old rain barrel at home had a cracked stave. The water stood exactly up to the crack, not an inch higher. My father said: ‘See – no use the other boards being longer.’ The man never read a line of Liebig and still gave the lecture.",
+      "facts": []
+    },
+    {
+      "after": 4,
+      "kind": "frage",
+      "de": "Warum bezieht man eigentlich alles auf Lysin? … Weil Lysin beim Schwein fast immer zuerst knapp wird und weil man es gut analysieren und gezielt ergänzen kann. Lysin ist sozusagen die Leitwährung – die anderen Aminosäuren werden darin umgerechnet, so wie wir früher alles in Schilling umgerechnet haben. Manche von uns tun das ja heute noch.",
+      "en": "Why is everything expressed relative to lysine? … Because in pigs lysine is almost always the first to run short, and because it is easy to analyse and to supplement precisely. Lysine is the reserve currency, so to speak – the other amino acids are converted into it, much as we Austrians used to convert everything into schillings. Some of us still do.",
+      "facts": [
+        "F40",
+        "F41"
+      ]
+    },
+    {
+      "after": 5,
+      "kind": "anecdote",
+      "de": "Bei uns daheim hat’s für die paar Schweine für den Eigenbedarf ein einziges Futter gegeben, vom Ferkel bis zum Schlachttag. Einfach war’s – nur hatten die Jungen eher zu wenig und die Alten zu viel Eiweiß. Das Zuviel haben wir in der Güllegrube wiedergefunden. Gewusst haben wir’s damals nicht … gerochen schon.",
+      "en": "At home we kept a few pigs for the household, and they got one single feed from piglet to slaughter. Simple, certainly – except the young ones had rather too little protein and the older ones too much. The surplus turned up again in the slurry pit. We didn’t know that at the time … we could smell it, though.",
+      "facts": [
+        "F42"
+      ]
+    },
+    {
+      "after": 6,
+      "kind": "pointe",
+      "gag": "beamer",
+      "de": "Hier hätt ich Ihnen eigentlich ein Video gezeigt, wie Lysin hergestellt wird – aber der Beamer und ich, wir werden keine Freunde mehr. Also mündlich: L-Lysin, Threonin und Tryptophan machen Bakterien in riesigen Fermentern, nur das DL-Methionin kommt klassisch aus der chemischen Synthese. Das Lysin im Schweinefutter haben also auch Mikroben gemacht – wie im Pansen, nur mit Edelstahl rundherum.",
+      "en": "I was going to show you a video of how lysine is made – but the projector and I are never going to be friends. So, verbally: L-lysine, threonine and tryptophan are produced by bacteria in enormous fermenters; only DL-methionine traditionally comes from chemical synthesis. So the lysine in pig feed was made by microbes too – just like in the rumen, only with stainless steel round it.",
+      "facts": [
+        "F43"
+      ]
+    },
+    {
+      "after": 8,
+      "kind": "pointe",
+      "de": "Im Getreide steckt jede Menge Phosphor, an den das Schwein kaum herankommt – rund zwei Drittel davon sind als Phytin gebunden. Das Schwein sitzt also vor einem gedeckten Tisch mit einer Glasglocke drüber. Und die Phytase ist der Kellner, der die Glocke hebt.",
+      "en": "Cereals contain plenty of phosphorus that the pig can barely get at – roughly two-thirds of it is bound as phytate. So the pig is sitting at a laid table with a glass cloche over the food. And phytase is the waiter who lifts the cloche.",
+      "facts": [
+        "F44"
+      ]
+    }
+  ]
 }

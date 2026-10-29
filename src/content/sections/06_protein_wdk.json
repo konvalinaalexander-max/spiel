@@ -424,5 +424,73 @@
       "Always read urea with milk protein"
     ],
     "script": "In ruminants, feed crude protein says little about protein supply, because rumen microbes remodel it. The rumen-degradable fraction (RDP) is broken down to peptides, amino acids and finally ammonia; the undegradable fraction (UDP) reaches the small intestine unchanged. From ammonia and fermentable energy, the microbes synthesise microbial protein with a high-quality amino acid pattern, as a rule of thumb about 10 g per MJ ME. According to GfE (2001), protein supply is evaluated as utilisable crude protein at the duodenum (uCP, German nXP), the sum of microbial protein and UDP. About 85 g uCP are needed per kg of milk. The ruminal nitrogen balance RNB = (CP − uCP) / 6.25 shows in g N whether nitrogen in the rumen is in surplus (positive) or deficit (negative). Grass silages usually have a positive RNB, maize silages a clearly negative one of about −10 g N per kg DM; the total ration should not fall below zero. Excess ammonia passes through the rumen wall into the blood and is converted to urea in the liver at an energy cost. Urea can be returned to the rumen via saliva and the rumen wall, or excreted in urine and milk. Milk urea content is therefore a practical indicator: about 15–25 mg/100 ml is considered optimal, values above 30 indicate a protein surplus, values below 15 a deficiency. It should always be read together with milk protein, which reflects energy supply. The GfE recommendations of 2023 will replace uCP with small-intestinal digestible protein."
-  }
+  },
+  "asides": [
+    {
+      "after": 1,
+      "kind": "anecdote",
+      "gag": "rudi",
+      "de": "Am Rudi kann man das wunderbar zeigen: Wir hängen kleine Nylonsackerl mit Sojaschrot durch die Fistel in den Pansen und schauen nach ein paar Stunden nach, wie viel Protein noch drin ist. Das ist die In-situ-Methode, und so kommen viele Abbauwerte in die Tabellen. Der Rudi ist dabei der geduldigste Mitarbeiter vom ganzen Versuchsgut. Gehalt kriegt er keines – aber die beste Ration.",
+      "en": "Rudi is perfect for demonstrating this: we hang little nylon bags of soybean meal into the rumen through the fistula and check after a few hours how much protein is left. That is the in situ method, and it is how many degradability values get into the tables. Rudi is the most patient member of staff on the entire research farm. He draws no salary – but he does get the best ration.",
+      "facts": [
+        "F33",
+        "F20"
+      ]
+    },
+    {
+      "after": 2,
+      "kind": "pointe",
+      "de": "Die Pansenmikroben haben eine bemerkenswerte Karriere: Sie arbeiten rund um die Uhr, sorgen selber für Nachwuchs – und wenn sie mit dem Futterbrei in den Labmagen kommen, werden sie verdaut. Als hochwertiges Eiweiß, immerhin. Eine Laufbahn mit eher kurzer Pension.",
+      "en": "Rumen microbes have a remarkable career: they work round the clock, train up their own successors – and when they are washed into the abomasum with the digesta, they are digested. As high-quality protein, at least. A career with a rather short retirement.",
+      "facts": [
+        "F34"
+      ]
+    },
+    {
+      "after": 3,
+      "kind": "frage",
+      "de": "Woher hat die Kuh ihr Eiweiß, wenn nicht direkt aus dem Futter? … Das Eiweiß, das am Dünndarm ankommt, stammt meist zu mehr als der Hälfte aus Pansenmikroben. Wenn Sie Milch trinken, trinken Sie also Eiweiß, das über Bakterien gelaufen ist. Ich find das wunderschön – meine Kinder finden es bis heute ein bisserl grauslich. Vielleicht mit ein Grund, warum keines in der Landwirtschaft gelandet ist.",
+      "en": "Where does the cow get her protein, if not directly from the feed? … The protein reaching the small intestine usually comes more than half from rumen microbes. So when you drink milk, you are drinking protein that has been through bacteria. I find that wonderful – my children still find it slightly revolting. Possibly one reason neither of them went into farming.",
+      "facts": [
+        "F35"
+      ]
+    },
+    {
+      "after": 6,
+      "kind": "anecdote",
+      "de": "Die Kuh betreibt Recycling, lange bevor es Mode war: Harnstoff aus der Leber geht über Speichel und Pansenwand zurück zu den Mikroben, und die machen wieder Eiweiß daraus. Bei knapper Proteinversorgung kann sie so einen erheblichen Teil ihres Stickstoffs wiederverwerten. Ich hab das einmal in der Vorlesung „Kreislaufwirtschaft auf vier Beinen“ genannt. Eine Woche später ist es auf einem Plakat im Gang gestanden – ohne Quellenangabe.",
+      "en": "The cow was recycling long before it was fashionable: urea from the liver goes back to the microbes via saliva and the rumen wall, and they turn it into protein again. When protein is scarce, she can reuse a considerable share of her nitrogen this way. I once called it ‘the circular economy on four legs’ in a lecture. A week later it was on a poster in the corridor – without a citation.",
+      "facts": [
+        "F36"
+      ]
+    },
+    {
+      "after": 7,
+      "kind": "anecdote",
+      "de": "Im Feedlot in Brasilien ist der Futterharnstoff in großen Säcken im Lager gestanden – billigeren Stickstoff gibt’s nicht. Aber Vorsicht, das ist reine Dosierungssache: zu viel auf einmal oder ohne Gewöhnung, und das Ammoniak geht schneller ins Blut, als die Leber nachkommt. Dort hab ich gelernt, dass man Harnstoff langsam anfüttert und sauber einmischt. Und dass man das Lager zusperrt – nicht wegen der Diebe, sondern wegen der neugierigen Rinder.",
+      "en": "On the feedlot in Brazil, feed-grade urea stood in big sacks in the store – there is no cheaper nitrogen. But careful, it is all about the dose: too much at once, or without adaptation, and ammonia floods into the blood faster than the liver can cope. That is where I learned to introduce urea gradually and mix it in thoroughly. And to lock the store – not because of thieves, but because of curious cattle.",
+      "facts": [
+        "F37"
+      ]
+    },
+    {
+      "after": 8,
+      "kind": "pointe",
+      "gag": "pruefung",
+      "de": "15 bis 25 Milligramm pro hundert Milliliter – das kommt zur Prüfung. Und danach kommt’s jeden Monat im Milchkontrollbericht, ein ganzes Berufsleben lang. Die Prüfung schaffen Sie einmal; den Kontrollbericht haben Sie dreißig Jahre.",
+      "en": "Fifteen to twenty-five milligrams per hundred millilitres – that will be on the exam. And after that it will be in the milk recording report every month for your entire career. You pass the exam once; the recording report stays with you for thirty years.",
+      "facts": [
+        "F38"
+      ]
+    },
+    {
+      "after": 9,
+      "kind": "pointe",
+      "de": "Stellen Sie sich eine Baustelle vor: Ziegel liegen haufenweise herum – das ist der Stickstoff. Aber die Maurer haben nichts gegessen – das ist die fehlende Energie. Dann wird nichts gebaut, und die Ziegel räumt man am Ende wieder weg … über Leber und Harn.",
+      "en": "Picture a building site: bricks piled up everywhere – that is the nitrogen. But the bricklayers have had no lunch – that is the missing energy. So nothing gets built, and in the end the bricks are carted away again … via the liver and the urine.",
+      "facts": [
+        "F36"
+      ]
+    }
+  ]
 }

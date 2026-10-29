@@ -348,5 +348,71 @@
       "86 % of global feed is not human-edible"
     ],
     "script": "Microbial fermentation in the rumen produces carbon dioxide and hydrogen in addition to volatile fatty acids. Methanogenic archaea use the hydrogen to reduce CO₂ to methane, which is released almost entirely via eructation and exhaled air. A dairy cow produces roughly 300–500 g CH₄ per day, corresponding to an energy loss of about 6 % of gross energy. Over 100 years, methane is about 27 times as climate-active as CO₂, but it is broken down in the atmosphere within about twelve years. As yield rises, emissions per kg of milk fall because the maintenance requirement is spread over more product; a complete balance, however, must include rearing, productive lifespan and forage production. Added fat and additives such as 3-nitrooxypropanol (3-NOP), approved in the EU for dairy cows since 2022, can reduce methane formation by about 15–30 % depending on the ration; limits arise from fibre digestion, costs and open questions about long-term effects. Dairy cows convert only about 20–30 % of ingested nitrogen into milk. Protein supply matched to requirement (RNB around zero, milk urea 15–25 mg/100 ml) reduces ammonia and nitrate losses. In pig feeding, phase feeding, amino acid supplementation and phytase markedly reduce N and P excretion. Around 86 % of the dry matter fed to livestock worldwide is not edible for humans. Grassland, almost half of the utilised agricultural area in Austria, can be used for food production mainly via ruminants."
-  }
+  },
+  "asides": [
+    {
+      "after": 0,
+      "kind": "pointe",
+      "de": "Kuh und Klima ist ein Thema, bei dem jeder eine Meinung hat und kaum jemand eine Zahl. Wir machen’s heute umgekehrt: zuerst die Zahlen. Die Meinung bilden Sie sich dann bitte selber – dafür sind Sie an einer Universität.",
+      "en": "Cows and climate is a subject on which everyone has an opinion and hardly anyone has a number. Today we shall do it the other way round: numbers first. You may then form your own opinion – that is what a university is for.",
+      "facts": []
+    },
+    {
+      "after": 1,
+      "kind": "anecdote",
+      "gag": "rudi",
+      "de": "Der Rudi war auch schon in der Respirationskammer – das ist eine abgedichtete Kammer mit genau gemessenem Luftstrom, in der man jedes Gramm Methan erfasst, das ein Tier abgibt. Drei Tage lang hat er gefressen, wiedergekaut und uns ignoriert: ein vorbildlicher Proband. Das Einzige, was er nicht leiden kann, ist, wenn jemand die Tür aufmacht, bevor er fertig gefressen hat. Da sind wir zwei uns sehr ähnlich.",
+      "en": "Rudi has also done his stint in the respiration chamber – a sealed chamber with precisely metered airflow, in which every gram of methane an animal gives off is recorded. For three days he ate, chewed the cud and ignored us: a model test subject. The only thing he cannot abide is someone opening the door before he has finished eating. In that respect he and I are very much alike.",
+      "facts": [
+        "F72"
+      ]
+    },
+    {
+      "after": 2,
+      "kind": "frage",
+      "de": "Wie viel sind 300 bis 500 Gramm Methan am Tag? … Als Gas sind das grob 400 bis 700 Liter – also jeden Tag ein paar Badewannen voll. Klingt viel, und es ist auch viel. Aber gleich kommt die Bezugsgröße, und die ändert das Bild.",
+      "en": "How much is 300 to 500 grams of methane a day? … As a gas, that is roughly 400 to 700 litres – a few bathtubs full, every single day. It sounds a lot, and it is a lot. But the reference unit is coming next, and it changes the picture.",
+      "facts": [
+        "F73"
+      ]
+    },
+    {
+      "after": 3,
+      "kind": "anecdote",
+      "gag": "rosi",
+      "de": "Da kommt meine Rosi wieder ins Spiel. Sie hat rund viertausend Kilo Milch im Jahr gegeben, eine gute Kuh heute acht- bis zehntausend. Pro Kilo Milch hat die Rosi deutlich mehr Methan gemacht – nicht, weil sie schlechter war, sondern weil ein größerer Teil ihres Futters in die Erhaltung gegangen ist. Gern gehabt hab ich sie trotzdem mehr als jede Statistik.",
+      "en": "This is where my Rosi comes back in. She gave about four thousand kilos of milk a year; a good cow today gives eight to ten thousand. Per kilo of milk, Rosi produced considerably more methane – not because she was worse, but because a larger share of her feed went into maintenance. I was still fonder of her than of any statistic.",
+      "facts": [
+        "F58",
+        "F74"
+      ]
+    },
+    {
+      "after": 7,
+      "kind": "anecdote",
+      "de": "Bei uns im Dorf hat’s eine Kuh gegeben, die ist vierzehn Jahre alt geworden und hatte elf Kälber – die hat das ganze Dorf gekannt. Bevor eine Kuh überhaupt einen Liter Milch gibt, hat sie zwei bis zweieinhalb Jahre Aufzucht hinter sich, und jede weitere Laktation verteilt diesen Aufwand auf mehr Milch. Lange Nutzungsdauer ist also gut für den Betrieb, gut fürs Klima – und, ganz ehrlich, auch gut für die Kuh.",
+      "en": "In our village there was a cow who lived to fourteen and had eleven calves – the whole village knew her. Before a cow gives a single litre of milk, she has two to two and a half years of rearing behind her, and every further lactation spreads that cost over more milk. A long productive life is good for the farm, good for the climate – and, quite honestly, good for the cow.",
+      "facts": [
+        "F75"
+      ]
+    },
+    {
+      "after": 8,
+      "kind": "anecdote",
+      "de": "Nach dem Jahr im Feedlot in Brasilien – zweitausend Rinder, kein einziges Gras – bin ich heimgekommen und hab als Erstes eine Wiese fotografiert. Meine Frau hat gefragt, ob mir nicht gut ist. Mir war sehr gut: Ich hab zum ersten Mal richtig gesehen, wie viel Futter bei uns einfach so wächst, das kein Mensch essen kann – außer über die Kuh.",
+      "en": "After my year on the feedlot in Brazil – two thousand cattle, not a single blade of grass – the first thing I did when I got home was photograph a meadow. My wife asked whether I was feeling unwell. I was feeling very well: for the first time I truly saw how much feed simply grows here that no human can eat – except by way of the cow.",
+      "facts": [
+        "F03"
+      ]
+    },
+    {
+      "after": 9,
+      "kind": "pointe",
+      "de": "Die Kuh rülpst also ständig, ganz diskret, wie ein gut erzogener Gast. Gefährlich wird’s erst, wenn sie’s nicht mehr kann: Dann staut sich das Gas, und es kommt zur Pansenblähung – und die ist ein echter Notfall. Ein Rülpser im Stall ist also, fachlich gesehen, eine gute Nachricht.",
+      "en": "So the cow belches all the time, quite discreetly, like a well-brought-up guest. It only becomes dangerous when she can’t: then the gas builds up and you get bloat – and that is a genuine emergency. A belch in the barn is therefore, scientifically speaking, good news.",
+      "facts": [
+        "F76"
+      ]
+    }
+  ]
 }

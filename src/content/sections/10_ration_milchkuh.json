@@ -356,5 +356,59 @@
       "Maize → protein, grass → energy balancer"
     ],
     "script": "Ration calculation links the animal's requirements with the feeding values of the available feeds. The energy requirement of a dairy cow consists of maintenance and production. According to the GfE (2001), the maintenance requirement is 0.293 MJ NEL per kg of metabolic body weight (BW to the power of 0.75), i.e. about 37.7 MJ NEL per day for a cow weighing 650 kg. Each kg of milk with 4.0 % fat and 3.4 % protein requires about 3.3 MJ NEL; at 30 kg of milk, this gives a total requirement of about 137 MJ NEL. The requirement for utilisable crude protein is about 450 g uCP for maintenance and 85 g per kg of milk, around 3,000 g in total. Since feed intake at this yield is only about 20–21 kg DM, the ration must contain almost 7 MJ NEL and about 150 g uCP per kg DM. Energy from forage minus the maintenance requirement gives the milk yield from forage; in the example, 15 kg DM at 6.2 MJ NEL cover about 17 kg of milk. A balancer corrects energy or protein surpluses in the forage (RNB around zero), and the remaining requirement is covered by dairy concentrate, roughly 1 kg per 2 kg of milk. Forage displacement and a limit of about 10 kg of concentrate per day must be considered. In 2023 the GfE published new recommendations based on metabolisable energy; in feed tables and advisory practice, NEL is still widely used."
-  }
+  },
+  "asides": [
+    {
+      "after": 0,
+      "kind": "anecdote",
+      "de": "Mein Vater hat Rationen ganz ohne Taschenrechner gemacht: ein Blick auf den Kot, ein Blick in den Milchtank, eine Schaufel Schrot mehr oder weniger. Das war erstaunlich oft richtig. Aber er hatte dreißig Kühe und hat jede beim Namen gekannt – Sie werden Betriebe mit dreihundert beraten. Darum rechnen wir.",
+      "en": "My father did rations without a calculator: a look at the dung, a look in the milk tank, one shovel of meal more or less. It was right surprisingly often. But he had thirty cows and knew each one by name – you will be advising farms with three hundred. That is why we calculate.",
+      "facts": []
+    },
+    {
+      "after": 1,
+      "kind": "frage",
+      "de": "Warum eigentlich hoch 0,75 und nicht einfach das Körpergewicht? … Weil ein großes Tier pro Kilo weniger Energie umsetzt als ein kleines – eine Maus braucht pro Kilo Körpermasse ein Vielfaches von dem, was eine Kuh braucht. Mit dem Exponenten 0,75 vergleicht man sauber über alle Größen. Das können Sie übrigens auf einer Party erzählen – vorausgesetzt, Sie gehen auf die richtigen Partys.",
+      "en": "Why to the power of 0.75 and not simply body weight? … Because a large animal turns over less energy per kilo than a small one – a mouse needs many times more per kilo of body mass than a cow does. The exponent 0.75 lets you compare cleanly across all sizes. You may use that at parties, by the way – provided you go to the right sort of parties.",
+      "facts": [
+        "F55"
+      ]
+    },
+    {
+      "after": 6,
+      "kind": "pointe",
+      "de": "Die Faustzahl stimmt übrigens erstaunlich genau: 6,7 durch 3,3 ist ein bisserl mehr als zwei. Selten, dass eine Bauernregel so exakt hinkommt. Bei der Wetterregel für die Heuernte hat’s bei uns daheim jedenfalls nie so gut geklappt.",
+      "en": "The rule of thumb is remarkably accurate, by the way: 6.7 divided by 3.3 is a shade over two. It is rare for a farmers’ rule to be that precise. The weather lore for haymaking at home was certainly never that reliable.",
+      "facts": [
+        "F56"
+      ]
+    },
+    {
+      "after": 7,
+      "kind": "anecdote",
+      "de": "Im Feedlot in Brasilien haben die Rinder fast nur Kraftfutter bekommen. Das geht dort nur, weil man über Wochen in Stufen anfüttert, Puffer einsetzt und sehr genau mischt – und trotzdem hat sich der Tierarzt jeden Morgen zuerst den Kot angeschaut, bevor er Kaffee getrunken hat. Eine Milchkuh soll viele Jahre gesund bleiben, nicht nur ein paar Monate. Darum sind wir bei der Struktur so pingelig.",
+      "en": "On the feedlot in Brazil the cattle got almost nothing but concentrate. That only works because they are stepped up over weeks, given buffers and fed very precisely mixed rations – and even so, the vet inspected the dung every morning before he had his coffee. A dairy cow is meant to stay healthy for many years, not just a few months. That is why we are so fussy about structure.",
+      "facts": [
+        "F57"
+      ]
+    },
+    {
+      "after": 8,
+      "kind": "pointe",
+      "gag": "pruefung",
+      "de": "Ausgleichsfutter vor Leistungsfutter – das kommt zur Prüfung, als Rechenbeispiel. Und eines verspreche ich Ihnen: Die Kuh in der Prüfung hat wieder 650 Kilo. Die Kuh ist nämlich das Einzige an meiner Prüfung, das sich seit Jahren nicht ändert.",
+      "en": "Balancer before production concentrate – that will be on the exam, as a calculation. And I promise you one thing: the cow in the exam will weigh 650 kilos again. The cow is the one thing about my exam that has not changed in years.",
+      "facts": []
+    },
+    {
+      "after": 9,
+      "kind": "anecdote",
+      "gag": "rosi",
+      "de": "Meine Rosi hat damals rund viertausend Kilo Milch im Jahr gegeben, fast alles aus Heu und Grünfutter. Heute sind acht- bis zehntausend Kilo normal, und ohne gute Ration ginge das nicht. Aber eines haben die Rosi und die Hochleistungskuh gemeinsam: Das beste Kraftfutter ist immer noch ein gutes Grundfutter. Ich hab beide gern – die eine aus Nostalgie, die andere aus Respekt.",
+      "en": "My Rosi gave about four thousand kilos of milk a year back then, nearly all of it from hay and fresh herbage. Today eight to ten thousand kilos is normal, and that would be impossible without a good ration. But Rosi and the modern high-yielder have one thing in common: the best concentrate is still good forage. I am fond of them both – one out of nostalgia, the other out of respect.",
+      "facts": [
+        "F58"
+      ]
+    }
+  ]
 }

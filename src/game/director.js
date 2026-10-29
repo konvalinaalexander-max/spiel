@@ -13,12 +13,12 @@ const plainLen = s => s.replace(/[\^_]\{([^}]*)\}/g, '$1').length;
 
 /** Phasen-Anteile an der Gesamtzeit; Uhrzeit (Spielminuten) pro Phase */
 export const PHASES = [
-  { id: 'arrival', share: 0.06, clock: [9 * 60 + 57, 10 * 60 + 2] },
-  { id: 'intro', share: 0.07, clock: [10 * 60 + 2, 10 * 60 + 8] },
-  { id: 'part1', share: 0.37, clock: [10 * 60 + 8, 10 * 60 + 43] },
-  { id: 'break', share: 0.06, clock: [10 * 60 + 43, 10 * 60 + 48] },
-  { id: 'part2', share: 0.37, clock: [10 * 60 + 48, 11 * 60 + 24] },
-  { id: 'closing', share: 0.07, clock: [11 * 60 + 24, 11 * 60 + 30] }
+  { id: 'arrival', share: 0.06, clock: [10 * 60 + 10, 10 * 60 + 15] },
+  { id: 'intro', share: 0.07, clock: [10 * 60 + 15, 10 * 60 + 21] },
+  { id: 'part1', share: 0.37, clock: [10 * 60 + 21, 10 * 60 + 57] },
+  { id: 'break', share: 0.06, clock: [10 * 60 + 57, 11 * 60 + 2] },
+  { id: 'part2', share: 0.37, clock: [11 * 60 + 2, 11 * 60 + 39] },
+  { id: 'closing', share: 0.07, clock: [11 * 60 + 39, 11 * 60 + 45] }
 ];
 
 export class Director {
@@ -388,7 +388,9 @@ export class Director {
   /** Anekdote aus dem Abschnitt nach Lehrsatz bi – mit Abstand zur letzten Pointe, nie während Rechnung/Frage */
   _maybeAside(cs, bi) {
     const list = (cs.sec.asides || []).filter((a, i) => a.after === bi && !this.usedAsides.has(cs.sec.id + i));
-    if (!list.length || this.t - this.mem.lastAside < 40 || this.quizPending || !this.rng.chance(0.6)) return false;
+    // Dosis laut Persona-Bibel: etwa 8–12 Anekdoten/Pointen je 90 Minuten (inkl. Witze aus dem Pool), nie zwei direkt hintereinander
+    const maxAsides = Math.max(2, Math.round(this.total / 140)), gap = Math.max(50, this.total / 10);
+    if (!list.length || this.usedAsides.size >= maxAsides || this.t - this.mem.lastAside < gap || this.quizPending || !this.rng.chance(0.5)) return false;
     const a = list[0], idx = cs.sec.asides.indexOf(a);
     this.usedAsides.add(cs.sec.id + idx); this.mem.lastAside = this.t;
     if (a.gag) this._gagDone(a.gag);
@@ -571,7 +573,7 @@ export class Director {
         seq([sayStep('drink'), act(() => { pl.gesture = 'drink'; this.out('fx', { kind: 'drink' }); }), wait(5.5), act(() => { pl.gesture = 'none'; })]);
         break;
       case 'clock_check':
-        seq([act(() => this._look('clock')), wait(1.2), sayStep('clock_check', { vars: { minutes: Math.round(11 * 60 + 30 - this.clockMinutes()) } }), act(() => { this.speedUp = 1.25; })]);
+        seq([act(() => this._look('clock')), wait(1.2), sayStep('clock_check', { vars: { minutes: Math.round(11 * 60 + 45 - this.clockMinutes()) } }), act(() => { this.speedUp = 1.25; })]);
         break;
       case 'exam_hint':
         seq([this.rng.chance(0.4) && this.D().gag_pruefung ? sayStep('gag_pruefung', { look: 'class', kind: 'joke' }) : sayStep('exam_hint', { vars: { section: this.currentSection ? this.L(this.currentSection.sec).title : '' }, look: 'class' })]);
@@ -623,8 +625,12 @@ export class Director {
         break;
       case 'aside': {
         const a = s.aside, text = a[this.lang] || a.de;
-        const lookAt = a.kind === 'frage' ? 'student' : 'class';
-        seq([act(() => { pl.setFace('class'); pl.gesture = 'explain'; }), { start: () => { this._qd = say(null, { text, kind: a.kind === 'frage' ? 'question' : 'joke' }); this._look(lookAt); }, done: t => t >= this._qd && !this.ctx.busy() }, ...(a.kind === 'frage' ? [wait(0.8)] : react())]);
+        // Beim Erzählen wandert der Blick: erst ins Erinnern (Fenster/Notizen), zur Pointe zurück in den Saal
+        const lookAt = a.kind === 'frage' ? 'student' : a.kind === 'anecdote' ? this.rng.pick(['window', 'notes', 'window', 'class']) : 'class';
+        seq([act(() => { pl.setFace('class'); pl.gesture = 'explain'; }),
+          { start: () => { this._qd = say(null, { text, kind: a.kind === 'frage' ? 'question' : 'joke' }); this._qBack = lookAt === 'class' || lookAt === 'student'; this._look(lookAt); },
+            done: t => { if (!this._qBack && t > this._qd * 0.65) { this._qBack = true; this._look('class'); } return t >= this._qd && !this.ctx.busy(); } },
+          ...(a.kind === 'frage' ? [wait(0.8)] : react())]);
         break;
       }
       case 'clicker_fail':

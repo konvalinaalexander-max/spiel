@@ -116,6 +116,15 @@ if (!args.includes('--dialogue-only')) {
     checkLang(f, j.de, 'de'); checkLang(f, j.en, 'en'); sameShape(f, j.de, j.en, 'de');
     quiz += (j.de?.quiz || []).length; calc += j.de?.calc ? 1 : 0;
   }
+  // V3: Anekdoten/Pointen je Abschnitt (asides) – Beat-Index gültig, beide Sprachen, Art bekannt
+  for (const file of files) {
+    const j = JSON.parse(fs.readFileSync(path.join(dir, file), 'utf8'));
+    for (const [i, a] of (j.asides || []).entries()) {
+      if (!(a.after >= 0 && a.after < (j.de?.beats?.length || 0))) err('sections/' + file, `asides[${i}].after außerhalb`);
+      if (!a.de || !a.en) err('sections/' + file, `asides[${i}] ohne de/en`);
+      if (!['anecdote', 'pointe', 'frage'].includes(a.kind)) err('sections/' + file, `asides[${i}].kind unbekannt: ${a.kind}`);
+    }
+  }
   console.log(`Abschnitte: ${files.length}, core: ${core}, Quizfragen: ${quiz}, Rechenbeispiele: ${calc}, DE-Sätze in Beats: ${sentencesDe}`);
   if (core > 8) err('sections', `zu viele core-Abschnitte (${core})`);
 }
@@ -138,7 +147,20 @@ if (!args.includes('--sections-only')) {
         if (!Array.isArray(aq) || aq.length < 12) err(f, `${lang}.audience_questions: mind. 12`);
         else aq.forEach((q, i) => { if (!q.section || !q.student || !q.repeat || !Array.isArray(q.answer) || !q.answer.length) err(f, `${lang}.audience_questions[${i}] unvollständig`); if (lang === 'de') n += 2 + q.answer.length; });
       }
-      sameShape(f, j.de, j.en, 'de');
+      // Ereignis-Pools: DE und EN sind eigene Fassungen (V3) – gleiche Schlüssel und Platzhalter, Anzahl darf abweichen (je ≥ 6).
+      // Paarweise gleich aufgebaut bleiben nur die Saalfragen (Frage ↔ Antwort je Abschnitt).
+      const ph = s => [...new Set(String(s).match(/\{[a-z]+\}/g) || [])].sort().join(',');
+      for (const k of Object.keys(j.de)) {
+        if (k === 'audience_questions') continue;
+        const a = j.de[k], b = j.en?.[k];
+        if (!Array.isArray(b)) { err(f, `en fehlt ${k}`); continue; }
+        if (a.length < 6 || b.length < 6) err(f, `${k}: mind. 6 Varianten je Sprache (${a.length}/${b.length})`);
+        const pa = [...new Set(a.map(ph))].sort().join('|'), pb = [...new Set(b.map(ph))].sort().join('|');
+        if (pa !== pb) err(f, `${k}: Platzhalter de/en verschieden (${pa} / ${pb})`);
+        for (const L of [a, b]) if (new Set(L).size !== L.length) err(f, `${k}: doppelte Zeile`);
+      }
+      for (const k of Object.keys(j.en)) if (!(k in j.de)) err(f, `de fehlt ${k}`);
+      sameShape(f, j.de.audience_questions, j.en.audience_questions, 'audience_questions');
       sentencesDe += n;
       console.log(`Dialog-Zeilen (DE): ${n}`);
     }

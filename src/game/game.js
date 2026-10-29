@@ -72,7 +72,7 @@ export class Game {
     this.hintsOn = cfg.hints !== false;
     S.externalBusy = () => this._busy();
     // Startzustand Leinwand: Beamer aus, Desktop des Prof-Laptops vorbereitet
-    W.fx.slides.desktop(SLIDE_META[lang], '09:57'); W.fx.updateSlideTextures(); W.fx.setBeamer(false);
+    W.fx.slides.desktop(SLIDE_META[lang], '10:10'); W.fx.updateSlideTextures(); W.fx.setBeamer(false);
     // Profs Kopfposition für Studierende
     this.hud.show(true); this.hud.setStrikes(0); this.hud.touch(matchMedia('(pointer: coarse)').matches);
     this.hud.setScore(S.ttt, S.target);

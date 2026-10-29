@@ -422,5 +422,62 @@
       "Methane ≈ 6–7 % of GE"
     ],
     "script": "Ahead of the abomasum, which corresponds to the glandular stomach of monogastrics, ruminants have a forestomach system consisting of rumen, reticulum and omasum. The rumen of a dairy cow holds about 160 litres and harbours a dense community of bacteria, protozoa, anaerobic fungi and methanogenic archaea. These microbes break down carbohydrates, including cellulose, into volatile fatty acids, carbon dioxide and methane. On forage-rich diets about 60–70 % of the fatty acids are acetate, 15–25 % propionate and 10–15 % butyrate; starch-rich rations shift the pattern towards propionate. The fatty acids are absorbed through the rumen wall and cover most of the energy requirement. Propionate is the most important precursor of gluconeogenesis in the liver, while acetate and butyrate serve energy supply and milk fat synthesis. Rumen pH is normally about 6.2 to 7.0. If it falls below 5.8 for more than about five hours a day, subacute ruminal acidosis (SARA) is present, usually triggered by too much rapidly fermentable starch combined with too little structure. Consequences are fluctuating feed intake, milk fat depression, loose faeces and laminitis. Physically effective fibre (peNDF) stimulates rumination, which lasts about 7 to 10 hours daily in dairy cows. This produces about 100 to 200 litres of saliva, whose bicarbonate and phosphate buffer the fatty acids. A guide value is about 18 % peNDF (particles above 8 mm) in ration DM. Methane is formed when archaea convert hydrogen and CO₂ to CH₄; about 6–7 % of gross energy is lost in the process."
-  }
+  },
+  "asides": [
+    {
+      "after": 1,
+      "kind": "anecdote",
+      "gag": "rudi",
+      "de": "Am Versuchsgut haben wir den Rudi, einen Ochsen mit Pansenfistel. Das ist ein verschließbarer Zugang durch die Flanke, tierärztlich angelegt und genehmigt, und der Rudi lebt damit seit Jahren völlig unbeeindruckt. Wer einmal den Arm bis zur Schulter in einem warmen Pansen gehabt hat – rund 39 Grad, sehr feucht –, weiß, was 160 Liter bedeuten. Der Rudi kaut dabei übrigens gemütlich weiter. Er hat mehr Geduld mit Studierenden als ich.",
+      "en": "At the research farm we have Rudi, a steer with a rumen fistula. That is a closable port through the flank, put in by a vet under an approved protocol, and Rudi has lived with it for years, entirely unbothered. Once you have had your arm in a warm rumen up to the shoulder – about 39 degrees, very damp – you know what 160 litres means. Rudi carries on chewing throughout. He has more patience with students than I do.",
+      "facts": [
+        "F20",
+        "F21"
+      ]
+    },
+    {
+      "after": 2,
+      "kind": "anecdote",
+      "gag": "rosi",
+      "de": "Ich hab meine Dissertation über Pansenprotozoen geschrieben – Einzeller, die unter dem Mikroskop ausschauen wie behaarte Kartoffeln, die es eilig haben. Es gibt viel weniger davon als Bakterien, aber sie sind so groß, dass sie trotzdem einen beachtlichen Teil der Mikrobenmasse ausmachen. Drei Jahre hab ich sie gezählt. Meine Mutter hat bis heute nicht verstanden, wozu – die Rosi hat das ja auch ohne Doktorat gekonnt.",
+      "en": "I wrote my doctoral thesis on rumen protozoa – single-celled creatures that look under the microscope like hairy potatoes in a hurry. There are far fewer of them than bacteria, but they are so large that they still make up a considerable share of the microbial mass. I spent three years counting them. My mother never quite understood why – after all, Rosi had managed perfectly well without a doctorate.",
+      "facts": [
+        "F22"
+      ]
+    },
+    {
+      "after": 4,
+      "kind": "pointe",
+      "de": "Die Kuh ist damit der einzige Betrieb, in dem aus Essig Butter wird. … Ja, das ist vereinfacht, aber nicht falsch: Aus Essigsäure baut das Euter einen guten Teil der Milchfettsäuren selber auf. Kein Chemiker schafft das so elegant – und schon gar nicht mit Heu und Silage als Rohstoff.",
+      "en": "Which makes the cow the only enterprise on earth that turns vinegar into butter. … Yes, that is simplified, but it isn’t wrong: the udder builds a good share of the milk fatty acids from acetic acid. No chemist manages that so elegantly – and certainly not with hay and silage as raw material.",
+      "facts": [
+        "F23"
+      ]
+    },
+    {
+      "after": 5,
+      "kind": "frage",
+      "de": "Wie misst man den Pansen-pH bei einer Kuh, die nicht mitreden will? … Früher mit der Schlundsonde – nur zieht man dabei oft Speichel mit, und der schönt den Wert. Heute liegen in manchen Kühen pH-Boli im Netzmagen und funken alle paar Minuten einen Messwert. Die Kuh ist also inzwischen digitaler als so mancher Hörsaal.",
+      "en": "How do you measure rumen pH in a cow who won’t tell you? … The old way was a stomach tube – but you tend to pull up saliva with it, which flatters the result. Today some cows carry a pH bolus in the reticulum that radios a reading every few minutes. The cow, in other words, is now more digital than many a lecture theatre.",
+      "facts": [
+        "F24"
+      ]
+    },
+    {
+      "after": 7,
+      "kind": "anecdote",
+      "de": "Mein Vater ist jeden Abend noch einmal in den Stall gegangen, nur um zu schauen, ob die Kühe liegen und wiederkauen. Wenn ja, hat er „Passt“ gesagt und ist schlafen gegangen. Heute macht das ein Sensor am Halsband und schickt eine Nachricht aufs Handy. Das Prinzip ist dasselbe – nur schläft der Bauer heute schlechter, weil das Handy piepst.",
+      "en": "Every evening my father went back into the barn just to see whether the cows were lying down and chewing the cud. If they were, he said ‘Right then’ and went to bed. Today a sensor on a neck collar does that and sends a message to your phone. Same principle – except the farmer now sleeps worse, because the phone keeps beeping.",
+      "facts": []
+    },
+    {
+      "after": 8,
+      "kind": "pointe",
+      "de": "Die Schüttelbox ist das einzige Laborgerät, das man mit vollem Körpereinsatz bedient: fünfmal schütteln, Vierteldrehung, das Ganze achtmal – vierzig Mal in Summe. Ich hab Studierende gesehen, die nach drei Proben fitter waren als nach einem Semester Unisport. Und die Kuh? Die kaut daneben wieder und denkt sich ihren Teil.",
+      "en": "The shaker box is the only piece of lab equipment you operate with your whole body: five shakes, a quarter turn, eight times round – forty shakes in all. I have seen students come out of three samples fitter than after a semester of university sport. And the cow? She chews the cud next to you and keeps her opinions to herself.",
+      "facts": [
+        "F25"
+      ]
+    }
+  ]
 }

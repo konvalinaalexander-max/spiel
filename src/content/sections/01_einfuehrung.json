@@ -382,5 +382,72 @@
       "Austria: almost half of farmland grassland"
     ],
     "script": "Animal nutrition links crop production, livestock farming and food production. In the animal, feed is converted into milk, meat and eggs; how well this works depends on a needs-based supply of energy, protein, minerals and vitamins. Feeding affects animal health, performance, product quality and environmental impact alike. Economically, feed is the largest cost item in livestock farming: in dairy production, forage and concentrates account for roughly half of the production costs, and in pig fattening usually for more than half. A key indicator is therefore the feed conversion ratio, i.e. the amount of feed used per kilogram of weight gain. Typical values in practice are about 2.8 to 2.9 : 1 for fattening pigs and around 1.6 : 1 for broilers. For dairy cows, feed efficiency is expressed as kilograms of energy-corrected milk per kilogram of feed dry matter; values of about 1.4 to 1.6 are considered good. Livestock farming is part of a nutrient cycle of soil, plant, animal and livestock manure. Only part of the nutrients consumed is retained in the product – in the dairy cow only about a quarter of the feed nitrogen ends up in the milk. The rest passes via faeces and urine into slurry and manure; it can be used as fertiliser, but is also a source of ammonia and nitrate losses. In Austria almost half of the utilised agricultural area is permanent grassland, plus around 8,000 alpine pastures. This grassland can be used for human nutrition mainly via ruminants."
-  }
+  },
+  "asides": [
+    {
+      "after": 0,
+      "kind": "anecdote",
+      "gag": "rosi",
+      "de": "Damit Sie wissen, mit wem Sie es zu tun haben: Ich komm von einem Milchviehbetrieb im Weinviertel, dreißig Kühe, Anbindehaltung. Meine Lieblingskuh war die Rosi, und die hat mir mehr über Fütterung beigebracht als das ganze erste Semester. Wenn das Heu nichts getaugt hat, hat sie’s liegen lassen – demonstrativ, mit Blick auf mich. Eine ehrlichere Futterbewertung hab ich seither nicht gesehen.",
+      "en": "So that you know who you are dealing with: I grew up on a dairy farm in the Weinviertel, thirty cows, tie stalls. My favourite cow was called Rosi, and she taught me more about feeding than my entire first semester. If the hay was no good, she simply left it – pointedly, while looking at me. I have not seen a more honest feed evaluation since.",
+      "facts": []
+    },
+    {
+      "after": 2,
+      "kind": "anecdote",
+      "de": "Mein Vater hat das ganz ohne Betriebswirtschaft gewusst. Wenn der Lastwagen vom Futtermittelhändler in den Hof gefahren ist, hat er gesagt: „Jetzt kommt der, der eigentlich die Milch kriegt.“ … Bei rund der Hälfte der Kosten war das gar nicht so falsch.",
+      "en": "My father knew this without a single lecture in farm economics. Whenever the feed merchant’s lorry pulled into the yard, he would say: ‘Here comes the man who actually gets the milk money.’ … With feed at roughly half the costs, he wasn’t far off.",
+      "facts": [
+        "F01"
+      ]
+    },
+    {
+      "after": 3,
+      "kind": "anecdote",
+      "de": "Ich war nach der Dissertation ein Jahr in Brasilien, auf einem Feedlot: zweitausend Rinder, kein einziges Gras. Dort ist die Futterverwertung jeden Morgen beim Kaffee besprochen worden, so wie bei uns das Wetter. Ein Zehntel besser, mal zweitausend Tiere, mal jeden Tag – da redet man nicht mehr über Kommastellen. Da redet man über Lastwagen.",
+      "en": "After my doctorate I spent a year in Brazil on a feedlot: two thousand cattle, not a single blade of grass. Feed conversion was discussed every morning over coffee, the way we discuss the weather. Improve it by a tenth, multiply by two thousand animals and by every single day – and you are no longer talking about decimal places. You are talking about lorries.",
+      "facts": [
+        "F02"
+      ]
+    },
+    {
+      "after": 4,
+      "kind": "frage",
+      "de": "Kurze Frage an den Saal: Wer ist effizienter – das Masthuhn oder die Milchkuh? … Die meisten sagen das Huhn, und auf dem Papier stimmt das auch. Aber die Kuh frisst zum Großteil Grundfutter, das wir Menschen gar nicht essen könnten. Effizienz hängt also immer davon ab, was Sie in den Nenner schreiben – merken Sie sich das, das verfolgt Sie das ganze Studium.",
+      "en": "Quick question for the room: who is more efficient – the broiler or the dairy cow? … Most people say the chicken, and on paper they are right. But the cow mostly eats forage that we humans could not eat at all. So efficiency always depends on what you put in the denominator – do remember that, it will follow you through your entire degree.",
+      "facts": [
+        "F03"
+      ]
+    },
+    {
+      "after": 6,
+      "kind": "pointe",
+      "de": "Mein Großvater hat gesagt: „Der Misthaufen ist das Sparbuch vom Bauern.“ Fachlich hat er recht gehabt – der Stickstoff, der nicht in der Milch landet, geht über Gülle und Mist zurück auf die Fläche. Nur zahlt dieses Sparbuch leider auch Zinsen an die Luft … als Ammoniak.",
+      "en": "My grandfather used to say: ‘The dung heap is the farmer’s savings account.’ Scientifically he had a point – the nitrogen that doesn’t end up in the milk goes back to the land via slurry and manure. Unfortunately this account also pays interest into the air … in the form of ammonia.",
+      "facts": [
+        "F04",
+        "F05"
+      ]
+    },
+    {
+      "after": 7,
+      "kind": "frage",
+      "gag": "gras",
+      "de": "Und was frisst die Kuh auf diesem Grünland? … „Gras“, hör ich da hinten. Da muss ich Sie gleich am ersten Tag korrigieren: Gras ist kein Futtermittel, Gras ist ein Zustand. Eine Wiese im Mai und dieselbe Wiese im August sind für die Kuh zwei völlig verschiedene Futtermittel – spätestens bei der Energiebewertung glauben Sie mir das, gell?",
+      "en": "And what does the cow eat on all that grassland? … ‘Grass’, I hear from the back. I am afraid I must correct you on day one: grass is not a feedstuff, grass is a condition. A meadow in May and the same meadow in August are two entirely different feeds as far as the cow is concerned – you will believe me by the time we reach energy evaluation.",
+      "facts": [
+        "F06"
+      ]
+    },
+    {
+      "after": 8,
+      "kind": "pointe",
+      "gag": "pruefung",
+      "de": "Kostenblock und Futterverwertung – das kommt zur Prüfung. Nicht, weil ich so streng bin, sondern weil Sie’s auf jedem Betrieb als Erstes gefragt werden. Am Hof fragt Sie niemand nach der Weender Analyse. Dort fragt man: „Und was kostet mich das?“",
+      "en": "Feed costs and feed conversion – that will be on the exam. Not because I am strict, but because it is the first thing you will be asked on any farm. Nobody in a farmyard will ask you about proximate analysis. They will ask: ‘And what is that going to cost me?’",
+      "facts": [
+        "F01"
+      ]
+    }
+  ]
 }

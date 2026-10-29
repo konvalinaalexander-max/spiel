@@ -360,5 +360,73 @@
       "DLG key: 90–100 points = very good"
     ],
     "script": "The aim of forage conservation is to make seasonally produced forage available all year round with minimal losses. During ensiling, lactic acid bacteria ferment the water-soluble carbohydrates into lactic acid in the absence of air; the pH falls and undesirable microorganisms are inhibited. Prerequisites are a sufficient sugar content, wilting to about 30–40 % DM, a short chop length, rapid filling, intensive compaction and immediate airtight sealing. Additives containing homofermentative lactic acid bacteria improve the fermentation, while heterofermentative strains or acids improve aerobic stability; they cannot compensate for management errors. Wet or soil-contaminated material favours butyric fermentation by clostridia. It causes energy losses and lower feed intake, and clostridial spores can pass into the milk and cause late blowing of hard cheese. After opening, aerobic spoilage threatens because yeasts degrade lactic acid when air enters; a sufficient feed-out rate (at least 1.5 m per week in winter and 2.5 m in summer) prevents it. Hay is only storable at 87–88 % DM. Barn drying allows the crop to be brought in at about 60–70 % DM and reduces shattering and respiration losses; it is an important basis of silage-free hay-milk production. Fermentation quality is assessed with the DLG key on the basis of butyric acid, acetic acid and pH, with up to 100 points."
-  }
+  },
+  "asides": [
+    {
+      "after": 0,
+      "kind": "pointe",
+      "gag": "gras",
+      "de": "Ja, ich hab gerade selber „Gras“ gesagt. Sie wissen, was jetzt kommt: Gras ist kein Futtermittel, Gras ist ein Zustand. Und Konservieren heißt nichts anderes, als diesen Zustand möglichst gut festzuhalten – am besten den jungen, nicht den überständigen.",
+      "en": "Yes, I have just said ‘grass’ myself. You know what is coming: grass is not a feedstuff, grass is a condition. And conserving forage means nothing other than preserving that condition as well as possible – ideally the young one, not the overmature one.",
+      "facts": [
+        "F06"
+      ]
+    },
+    {
+      "after": 3,
+      "kind": "anecdote",
+      "de": "Am Versuchsgut haben wir einmal die Dichte im Fahrsilo mit Bohrkernen gemessen. Ziel bei Grassilage sind, je nach Trockenmasse, grob 200 Kilo Trockenmasse je Kubikmeter. Genau dort, wo ich als junger Assistent gewalzt hab und zwischendurch zur Jause abgestiegen bin, hatten wir ein Loch in der Statistik – und im nächsten Winter Schimmel. Seitdem jausne ich erst nach dem Abdecken.",
+      "en": "At the research farm we once measured the density in the bunker silo with core samples. The target for grass silage, depending on dry matter, is roughly 200 kilos of dry matter per cubic metre. Exactly where I, as a young assistant, had been rolling and had climbed down for a sandwich, we found a hole in the statistics – and mould the following winter. Since then I only eat once the sheet is on.",
+      "facts": [
+        "F49"
+      ]
+    },
+    {
+      "after": 5,
+      "kind": "anecdote",
+      "de": "Clostridiensporen sind zäh: Sie überstehen den Pansen, den Darm und sogar die Pasteurisierung. Deshalb verlangen viele Hartkäsereien bis heute silofreie Milch. Ein Käser hat mir einmal gesagt: „Eine schlechte Silage schmeckt man nicht in der Milch – die sieht man Monate später im Käse.“",
+      "en": "Clostridial spores are tough: they survive the rumen, the gut and even pasteurisation. That is why many hard-cheese dairies still insist on silage-free milk. A cheesemaker once told me: ‘You can’t taste bad silage in the milk – you see it months later in the cheese.’",
+      "facts": [
+        "F50"
+      ]
+    },
+    {
+      "after": 6,
+      "kind": "frage",
+      "de": "Wie erkennt man Nacherwärmung ohne Messgerät? … Hand in den Anschnitt. Wenn’s dort wärmer ist als in Ihrer Jackentasche, haben die Hefen schon gearbeitet. Wir haben am Versuchsgut einmal im Februar über dreißig Grad in einer Silage gemessen – die Hofkatzen haben das sehr geschätzt, die Kühe weniger.",
+      "en": "How do you detect aerobic heating without instruments? … Put your hand into the silage face. If it is warmer in there than in your coat pocket, the yeasts have already been at work. At the research farm we once measured over thirty degrees in a silage in February – the farm cats greatly appreciated it, the cows rather less.",
+      "facts": [
+        "F51"
+      ]
+    },
+    {
+      "after": 7,
+      "kind": "anecdote",
+      "de": "Heueinbringen war bei uns daheim eine Familienangelegenheit mit Wetterbericht: Wenn am Horizont eine Wolke war, ist sogar meine Großmutter auf den Wagen gestiegen. Zu feucht eingelagertes Heu schimmelt nämlich nicht nur – es kann sich so stark erhitzen, dass es sich selbst entzündet. Über Heustockbrände haben wir daheim nie Witze gemacht, und ich mach heute auch keine.",
+      "en": "Bringing in the hay was a family affair at home, run by the weather forecast: if there was a cloud on the horizon, even my grandmother climbed onto the wagon. Hay stored too damp doesn’t just go mouldy – it can heat up until it catches fire by itself. We never joked about hay fires at home, and I am not going to start now.",
+      "facts": [
+        "F52"
+      ]
+    },
+    {
+      "after": 8,
+      "kind": "anecdote",
+      "de": "Heumilch ist eine österreichische Besonderheit, die mich als Wiederkäuermenschen freut: keine Silage, viel Raufutter, und seit 2016 ist sie als garantiert traditionelle Spezialität EU-weit geschützt. Erfunden haben das Prinzip im Grunde die Käser – wegen genau der Clostridien von vorhin. Manchmal ist Tradition einfach angewandte Mikrobiologie, die nur niemand so genannt hat.",
+      "en": "Hay milk is an Austrian speciality that warms my ruminant-loving heart: no silage, plenty of forage, and since 2016 it has been protected across the EU as a traditional speciality guaranteed. The principle was really invented by cheesemakers – because of those very clostridia. Sometimes tradition is simply applied microbiology that nobody bothered to call by that name.",
+      "facts": [
+        "F53",
+        "F50"
+      ]
+    },
+    {
+      "after": 9,
+      "kind": "pointe",
+      "gag": "pruefung",
+      "de": "Den DLG-Schlüssel müssen Sie nicht auswendig können, aber anwenden. Das kommt zur Prüfung – mit einer Gärsäureanalyse, die ich mir selber ausgedacht hab. Ich verrat Ihnen nur so viel: Die Silage riecht schon auf dem Papier ein bisserl nach Buttersäure.",
+      "en": "You needn’t memorise the DLG scoring key, but you must be able to apply it. That will be on the exam – with a fermentation acid profile I have invented myself. I shall only tell you this much: the silage smells faintly of butyric acid even on paper.",
+      "facts": [
+        "F54"
+      ]
+    }
+  ]
 }
