@@ -136,8 +136,7 @@ export class UI {
       </div>
       <div class="tabpanel" data-panel="audio" hidden>
         ${['master', 'voice', 'sfx', 'amb', 'music'].map(k => `<label class="row"><span data-i18n="set.vol.${k}"></span><input type="range" min="0" max="1" step="0.05" data-vol="${k}"><output></output></label>`).join('')}
-        <label class="row"><span data-i18n="set.voice"></span><select id="s-voice"><option value="voice" data-i18n="set.voice.voice"></option><option value="tts" data-i18n="set.voice.tts"></option><option value="murmur" data-i18n="set.voice.murmur"></option><option value="off" data-i18n="set.voice.off"></option></select></label>
-        <label class="row"><span data-i18n="set.ttsRate"></span><input type="range" id="s-rate" min="0.7" max="1.4" step="0.05"><output id="s-rate-o"></output></label>
+        <label class="row"><span data-i18n="set.voice"></span><select id="s-voice"><option value="voice" data-i18n="set.voice.voice"></option><option value="off" data-i18n="set.voice.off"></option></select></label>
         <p class="opt-desc" id="s-voiceinfo"></p>
         <button class="btn" id="s-test" data-i18n="set.test"></button>
       </div>
@@ -305,8 +304,6 @@ export class UI {
     // Audio
     for (const el of $$('[data-vol]', this.root)) { const k = el.dataset.vol, o = el.nextElementSibling; el.value = A.vol[k]; o.textContent = Math.round(A.vol[k] * 100) + ' %'; el.addEventListener('input', () => { A.setVolume(k, +el.value); o.textContent = Math.round(el.value * 100) + ' %'; }); }
     $('#s-voice').value = A.voiceMode; $('#s-voice').addEventListener('change', e => A.setVoiceMode(e.target.value));
-    $('#s-rate').value = A.ttsRate; $('#s-rate-o').textContent = '×' + A.ttsRate.toFixed(2);
-    $('#s-rate').addEventListener('input', e => { A.ttsRate = +e.target.value; storage.set('ttsRate', A.ttsRate); $('#s-rate-o').textContent = '×' + A.ttsRate.toFixed(2); });
     $('#s-test').addEventListener('click', () => this.hooks.testVoice?.());
     // Steuerung
     rng('#s-sens', 'sens', v => '×' + (+v).toFixed(2)); chk('#s-invert', 'invertY'); chk('#s-plock', 'pointerLock'); chk('#s-cellkeys', 'cellKeys');
@@ -320,7 +317,7 @@ export class UI {
   _refreshSettings() {
     if (!$$('[role=tab][aria-selected=true]', this.root).length) this._tab('gfx');
     const A = this.hooks.audio;
-    $('#s-voiceinfo').textContent = A.ttsAvailable ? t('set.voiceInfo', { v: A.tts.voice ? A.tts.voice.name + ' (' + A.tts.voice.lang + ')' : t('set.voiceDefault') }) : t('set.noTTS');
+    $('#s-voiceinfo').textContent = t('set.voiceInfo');
     $('#s-gpu').textContent = this.hooks.gpuInfo?.() || '';
     this._showPixels();
   }

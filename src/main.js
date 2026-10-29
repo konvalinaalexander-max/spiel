@@ -54,7 +54,7 @@ async function boot() {
     resume: () => resume(), quit: () => quitToMenu('start'), toMenu: s => quitToMenu(s),
     applySettings: s => applyGfxSettings(s), reloadQuality: () => { sessionStorage.setItem('boku-ttt-v2:menu', 'settings'); location.reload(); },
     gate: () => enterGate(), inGame: () => !!game && !game.ended, click: () => audio.play('uiClick', { bus: 'ui', gain: 0.3 }),
-    lang: l => { audio.setLang(l); }, testVoice: () => { audio.start(); audio.speak(t('set.testLine')); },
+    lang: l => { audio.setLang(l); }, testVoice: () => { audio.start(); audio.testVoice(t('set.testLine')); },
     renderInfo: () => gfx ? gfx.renderInfo() : null,
     gpuInfo: () => gfx ? t('set.gpuInfo', { gpu: gfx.gpuName || '?', preset: t('set.q.' + gfx.presetId) }) + (gfx.measured ? ' · ' + t('set.measured', { ms: gfx.measured.ms.toFixed(1), preset: t('set.q.' + gfx.measured.suggestion) }) : '') : '',
     screen: name => { document.body.dataset.screen = name || 'none'; }
@@ -157,20 +157,17 @@ function enterGate() {
 function pause() {
   if (!game || state !== 'game') return;
   state = 'pause'; game.paused = true; input.enabled = false; input.exitLock();
-  try { speechSynthesis.pause(); } catch (e) { /* egal */ }
   if (audio.ctx) audio.ctx.suspend();
   ui.show('pause');
 }
 function resume() {
   if (!game) return;
   ui.hide(); state = 'game'; game.paused = false; input.enabled = true; input.requestLock();
-  try { speechSynthesis.resume(); } catch (e) { /* egal */ }
   if (audio.ctx) audio.ctx.resume();
   last = performance.now();
 }
 function quitToMenu(screen) {
   if (game) { game.abort(); }
-  try { speechSynthesis.cancel(); } catch (e) { /* egal */ }
   if (audio.ctx) audio.ctx.resume();
   input.enabled = false; input.exitLock(); hud.show(false);
   game = null; state = 'menu';

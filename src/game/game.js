@@ -226,7 +226,7 @@ export class Game {
     const tpl = d.tpl || (last && last.text === d.text ? last.tpl : d.text), vars = d.vars || (last && last.text === d.text ? last.vars : null);
     if (sp === 'prof') {
       const clip = A.speakClip({ speaker: 'prof', tpl, vars, pos: this.profView.char.headWorld(V()), gain: d.kind === 'whisper' ? 0.5 : 0.95 });
-      const dur = clip ? clip.dur : A.speak(d.text, { gain: d.kind === 'whisper' ? 0.5 : 0.95 });
+      const dur = clip ? clip.dur : A.speak(d.text);
       this.speech = { start: this.t, est: dur };
       this.profView.say(clip ? clip.dur : (d.dur || dur), clip ? clip.env : null, d.text, getLang());
       if (d.kind === 'alert') this.player.startle = 1;
@@ -237,7 +237,6 @@ export class Game {
       const female = sp === 'neighbor' || sp === 'tutor' || (d.who && W.crowd.byId.get(d.who)?.s.female);
       const who = sp === 'neighbor' ? 'neighbor' : 'student_' + (female ? 'f' : 'm');
       const clip = A.speakClip({ speaker: who, tpl, vars, pos, gain: d.kind === 'whisper' ? 0.6 : 0.8 });
-      if (!clip && A.voiceMode === 'murmur') A.voice(d.text, { pos, gain: d.kind === 'whisper' ? 0.55 : 0.7, whisper: d.kind === 'whisper', f0: female ? 205 : 125, dur: d.dur });
       // Mund der sprechenden Figur (Lautstärkekurve der Aufnahme, Mundformen aus dem Text)
       const speakerId = sp === 'neighbor' ? W.plan.neighbor.id : sp === 'tutor' ? 'tutor' : d.who;
       if (speakerId) W.crowd.say(speakerId, clip ? clip.dur : (d.dur || 2), clip ? clip.env : null, d.text, getLang());

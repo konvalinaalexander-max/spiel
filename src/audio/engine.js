@@ -30,15 +30,13 @@ export class AudioEngine {
     this.vol = storage.get('volumes', { master: 0.85, voice: 1, sfx: 0.8, amb: 0.65, music: 0.5 });
     this.loops = {}; this.listenerPos = [0, 1.5, 0];
     this.muffle = 0; this.headphones = false;
-    // V3: vorgerenderte Stimmen ('voice'); Browser-TTS/Murmeln nur noch als ausdrückliche Wahl, Standard ist die echte Aufnahme
+    // V3: nur vorgerenderte Aufnahmen ('voice') oder aus ('off'); fehlt eine Aufnahme, bleibt es beim Untertitel.
+    // Keine Sprachausgabe des Browsers und kein synthetisches Murmeln mehr (Auftrag V3: 0 Browser-TTS, 0 synthetische Quellen).
     this.bank = new VoiceBank();
-    this.voiceMode = storage.get('voiceMode3', this.bank.available ? 'voice' : 'tts'); // 'voice' | 'tts' | 'murmur' | 'off'
-    this.ttsRate = storage.get('ttsRate', 1.0); this.ttsPitch = storage.get('ttsPitch', 0.9);
-    this.tts = { supported: typeof speechSynthesis !== 'undefined', voice: null, speaking: false, utter: null };
+    const vm = storage.get('voiceMode3', 'voice');
+    this.voiceMode = vm === 'off' ? 'off' : 'voice';
     this.lang = 'de';
     this.music = null;
-    this._pickVoiceBound = () => this.pickVoice();
-    if (this.tts.supported) { try { speechSynthesis.addEventListener('voiceschanged', this._pickVoiceBound); } catch (e) { speechSynthesis.onvoiceschanged = this._pickVoiceBound; } }
   }
   /** Klänge vorab synthetisieren (geht ohne Nutzerinteraktion) */
   async prepare(progress) {
@@ -280,18 +278,8 @@ export class AudioEngine {
   }
 
   // ---------------------------------------------------------------- Stimme
-  pickVoice() {
-    if (!this.tts.supported) return;
-    let vs = [];
-    try { vs = speechSynthesis.getVoices() || []; } catch (e) { vs = []; }
-    const want = this.lang === 'en' ? [/en[-_]GB/i, /en[-_](IE|AU)/i, /en[-_]US/i, /^en/i] : [/de[-_]AT/i, /de[-_]DE/i, /de[-_]CH/i, /^de/i];
-    const male = /male|mann|herr|stefan|markus|hans|klaus|yannick|conrad|jonas|daniel|george|arthur|oliver|guy|ryan|thomas/i;
-    let best = null;
-    for (const re of want) { const cands = vs.filter(v => re.test(v.lang)); if (cands.length) { best = cands.find(v => male.test(v.name) && !/female|frau/i.test(v.name)) || cands.find(v => v.localService) || cands[0]; break; } }
-    this.tts.voice = best;
-  }
-  setLang(l) { this.lang = l; this.pickVoice(); }
-  setVoiceMode(m) { this.voiceMode = m; storage.set('voiceMode3', m); if (m !== 'tts') this.stopSpeech(); }
+  setLang(l) { this.lang = l; }
+  setVoiceMode(m) { this.voiceMode = m === 'off' ? 'off' : 'voice'; storage.set('voiceMode3', this.voiceMode); if (this.voiceMode === 'off') this.stopSpeech(); }
   /**
    * Vorgerenderte Aufnahme abspielen. o: { speaker ('prof' | 'student_m' | 'student_f' | 'neighbor'), tpl (Satz mit Platzhaltern),
    * vars, pos (Vector3), gain }. Rückgabe { dur, env(t) } oder null, wenn (noch) keine Aufnahme vorliegt.
@@ -319,112 +307,19 @@ export class AudioEngine {
     return shape;
   }
   _stopProfClip() { if (this._profSrcs) { for (const sN of this._profSrcs) { try { sN.stop(); } catch (e) { /* schon zu Ende */ } } this._profSrcs = null; } this._profToken = null; }
-  get ttsAvailable() { return this.tts.supported; }
+  /** Probe in den Einstellungen: der gewünschte Satz, sonst irgendeine Aufnahme des Profs */
+  testVoice(text) {
+    if (this.speakClip({ speaker: 'prof', tpl: text, gain: 0.95 })) return;
+    const clips = this.bank.data?.[this.lang]?.clips || this.bank.data?.de?.clips; if (!clips) return;
+    const c = Object.values(clips).find(c => c.s === 'prof' && c.k === 'part' && c.t && !/\{/.test(c.t));
+    if (c) this.speakClip({ speaker: 'prof', tpl: c.t, gain: 0.95 });
+  }
   /**
-   * Prof spricht einen Satz. o: { pos (Vector3 Kopf), gain (0–1 Lautheit), onEnd, onStart }
-   * Gibt geschätzte Dauer (s) zurück.
+   * Geschätzte Sprechdauer (s) eines Satzes ohne Aufnahme – für Untertitel und Mundbewegung; es wird nichts abgespielt.
    */
-  speak(text, o = {}) {
-    const est = 0.9 + text.length * 0.062 / (this.ttsRate || 1);
-    const useTTS = this.voiceMode === 'tts' && this.tts.supported;
-    if (useTTS) {
-      try {
-        speechSynthesis.cancel();
-        const u = new SpeechSynthesisUtterance(text);
-        u.lang = this.tts.voice ? this.tts.voice.lang : (this.lang === 'en' ? 'en-GB' : 'de-AT');
-        if (this.tts.voice) u.voice = this.tts.voice;
-        u.rate = this.ttsRate; u.pitch = this.ttsPitch;
-        // Lautheit nach Entfernung/Laptop-Fokus/Kopfhörer (TTS lässt sich nicht räumlich routen)
-        const base = this.vol.master * this.vol.voice * (o.gain ?? 1);
-        u.volume = clamp(base * (this.headphones ? 0.35 : 1 - this.muffle * 0.45), 0, 1);
-        this.tts.speaking = true; this.tts.utter = u;
-        u.onstart = () => o.onStart && o.onStart();
-        u.onend = u.onerror = () => { if (this.tts.utter === u) this.tts.speaking = false; o.onEnd && o.onEnd(); };
-        speechSynthesis.speak(u);
-      } catch (e) { this.tts.speaking = false; }
-    } else if (this.voiceMode === 'murmur' && this.ready) {
-      this._murmur(text, est, o);
-    }
-    return est;
-  }
-  stopSpeech() {
-    this._stopProfClip(); this._clipEnd = 0;
-    if (this.tts.supported) { try { speechSynthesis.cancel(); } catch (e) { /* egal */ } }
-    this.tts.speaking = false;
-    if (this._murmurNodes) { try { this._murmurNodes.forEach(n => n.stop && n.stop()); } catch (e) { /* schon gestoppt */ } this._murmurNodes = null; }
-  }
-  get speaking() { return this.tts.speaking || (this._murmurEnd && this.ctx && this.ctx.currentTime < this._murmurEnd) || (this._clipEnd && this.ctx && this.ctx.currentTime < this._clipEnd); }
-  /** Synthetische, sprachähnliche Silbenfolge (Formantfilter), räumlich am Kopf des Profs */
-  _murmur(text, dur, o) {
-    const ctx = this.ctx; const t0 = ctx.currentTime + 0.02;
-    this.stopSpeech();
-    const src = ctx.createOscillator(); src.type = 'sawtooth';
-    const noise = ctx.createBufferSource(); noise.buffer = this._buf('roomTone') || null; noise.loop = true;
-    const f0 = 112; src.frequency.setValueAtTime(f0, t0);
-    const env = ctx.createGain(); env.gain.value = 0.0001;
-    const f1 = ctx.createBiquadFilter(); f1.type = 'bandpass'; f1.Q.value = 6;
-    const f2 = ctx.createBiquadFilter(); f2.type = 'bandpass'; f2.Q.value = 8;
-    const mix = ctx.createGain(); mix.gain.value = 0.9;
-    src.connect(f1); src.connect(f2); f1.connect(mix); f2.connect(mix); mix.connect(env);
-    // Silben aus Vokalgruppen schätzen
-    const syl = Math.max(3, (text.match(/[aeiouäöüy]+/gi) || []).length);
-    const sd = dur / syl;
-    const F = [[730, 1090], [530, 1840], [270, 2290], [570, 840], [300, 870], [660, 1720], [440, 1020]];
-    let t = t0;
-    for (let i = 0; i < syl; i++) {
-      const [a, b] = F[Math.floor(Math.random() * F.length)];
-      f1.frequency.setValueAtTime(a, t); f2.frequency.setValueAtTime(b, t);
-      src.frequency.setValueAtTime(f0 * (1 + 0.12 * Math.sin(i * 0.7) + (i === syl - 1 ? -0.1 : 0)), t);
-      const pk = 0.22 + Math.random() * 0.12;
-      env.gain.setTargetAtTime(pk, t, 0.02);
-      env.gain.setTargetAtTime(0.02, t + sd * 0.55, 0.03);
-      if (/[,.;:]/.test(text[Math.floor(i / syl * text.length)] || '')) t += 0.18;
-      t += sd;
-    }
-    env.gain.setTargetAtTime(0.0001, t, 0.05);
-    let out = env;
-    if (o.pos) { const p = this._panner(o.pos, 'HRTF', 2.5); env.connect(p); out = p; }
-    const g = ctx.createGain(); g.gain.value = (o.gain ?? 1) * 0.55; out.connect(g); g.connect(this.voiceLP);
-    const sg = ctx.createGain(); sg.gain.value = 0.5; g.connect(sg); sg.connect(this.reverbIn);
-    src.start(t0); src.stop(t + 0.3);
-    this._murmurNodes = [src]; this._murmurEnd = t;
-    if (o.onEnd) setTimeout(() => o.onEnd(), (t - ctx.currentTime) * 1000 + 50);
-  }
-
-  /**
-   * Nebenstimmen (Sitznachbarin, Tutorin, Studierende): leises, räumliches Flüstern/Murmeln aus
-   * gefiltertem Rauschen bzw. Stimmton – läuft parallel zur Sprachausgabe des Profs.
-   * o: { pos, gain, f0 (Grundton), whisper (bool), dur }
-   */
-  voice(text, o = {}) {
-    if (!this.ready || this.voiceMode === 'off') return 0;
-    const ctx = this.ctx, t0 = ctx.currentTime + 0.03;
-    const dur = o.dur ?? (0.6 + text.length * 0.055);
-    const syl = Math.max(2, (text.match(/[aeiouäöüy]+/gi) || []).length), sd = dur / syl;
-    let src;
-    if (o.whisper) { src = ctx.createBufferSource(); src.buffer = this._noiseBuf || (this._noiseBuf = (() => { const b = ctx.createBuffer(1, ctx.sampleRate, ctx.sampleRate), d = b.getChannelData(0); for (let i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1; return b; })()); src.loop = true; }
-    else { src = ctx.createOscillator(); src.type = 'sawtooth'; src.frequency.value = o.f0 || 190; }
-    const f1 = ctx.createBiquadFilter(); f1.type = 'bandpass'; f1.Q.value = o.whisper ? 3 : 6;
-    const f2 = ctx.createBiquadFilter(); f2.type = 'bandpass'; f2.Q.value = o.whisper ? 4 : 8;
-    const env = ctx.createGain(); env.gain.value = 0.0001;
-    src.connect(f1); src.connect(f2); f1.connect(env); f2.connect(env);
-    const F = [[730, 1090], [530, 1840], [270, 2290], [570, 840], [300, 870], [660, 1720], [440, 1020]];
-    let t = t0;
-    for (let i = 0; i < syl; i++) {
-      const [a, b] = F[Math.floor(Math.random() * F.length)], k = o.whisper ? 1.25 : (o.f0 > 160 ? 1.15 : 1);
-      f1.frequency.setValueAtTime(a * k, t); f2.frequency.setValueAtTime(b * k, t);
-      if (!o.whisper) src.frequency.setValueAtTime((o.f0 || 190) * (1 + 0.1 * Math.sin(i * 0.9)), t);
-      env.gain.setTargetAtTime((o.whisper ? 0.5 : 0.22) * (0.8 + Math.random() * 0.4), t, 0.02);
-      env.gain.setTargetAtTime(0.01, t + sd * 0.6, 0.03);
-      t += sd;
-    }
-    env.gain.setTargetAtTime(0.0001, t, 0.04);
-    let out = env;
-    if (o.pos) { const p = this._panner(o.pos, 'HRTF', 0.8); env.connect(p); out = p; }
-    const g = ctx.createGain(); g.gain.value = (o.gain ?? 0.6); out.connect(g); g.connect(this.voiceLP);
-    src.start(t0); src.stop(t + 0.2);
-    return dur;
-  }
+  speak(text) { return 0.9 + text.length * 0.062; }
+  stopSpeech() { this._stopProfClip(); this._clipEnd = 0; }
+  get speaking() { return !!(this._clipEnd && this.ctx && this.ctx.currentTime < this._clipEnd); }
 
   // ---------------------------------------------------------------- Menü-Musik
   /** Menü-Musik: „Almost Bliss“ (Kevin MacLeod, CC BY 4.0) als Schleife, leise im Hintergrund – nur in Menüs, keine Synthese */
