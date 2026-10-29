@@ -45,7 +45,7 @@ export async function loadPropModels(gfx, onProgress = () => {}) {
     try {
       const bytes = await get(id + '.glb'); if (!bytes) continue;
       const gltf = await loader.parseAsync(bytes.buffer.slice(bytes.byteOffset, bytes.byteOffset + bytes.byteLength), '');
-      const parts = [];
+      const parts = [], nodes = new Map();
       gltf.scene.updateMatrixWorld(true);
       gltf.scene.traverse(o => {
         if (!o.isMesh) return;
@@ -54,18 +54,27 @@ export async function loadPropModels(gfx, onProgress = () => {}) {
           for (const key of ['map', 'normalMap', 'roughnessMap', 'metalnessMap', 'aoMap', 'emissiveMap']) if (m[key]) m[key].anisotropy = aniso;
           if (!m.userData.registered) { m.userData.registered = true; gfx.register(m); }
         }
-        parts.push({ geometry: toFloat(o.geometry, o.matrixWorld), material: mats[0] });
+        // Teilmodell: Mesh-Knoten (Poly-Haven-Dateien mit mehreren Varianten nebeneinander, z. B. drei Pflanzen); mehrere
+        // Primitive eines Knotens lädt three.js als Gruppe mit Mesh-Kindern → Name des Elternknotens
+        const key = o.parent && o.parent.type === 'Group' && o.parent !== gltf.scene ? o.parent.name : o.name;
+        const part = { geometry: toFloat(o.geometry, o.matrixWorld), material: mats[0] };
+        parts.push(part);
+        if (!nodes.has(key)) nodes.set(key, []);
+        nodes.get(key).push(part);
       });
-      const box = new THREE.Box3(); for (const p of parts) { p.geometry.computeBoundingBox(); box.union(p.geometry.boundingBox); }
-      models[id] = { parts, box, info: index[id] };
+      const boxOf = list => { const b = new THREE.Box3(); for (const p of list) { p.geometry.computeBoundingBox(); b.union(p.geometry.boundingBox); } return b; };
+      const box = boxOf(parts);
+      models[id] = { parts, box, info: index[id], nodes: [...nodes.entries()].map(([name, list]) => ({ name, parts: list, box: boxOf(list) })) };
     } catch (e) { console.warn('Requisite', id, e); }
     onProgress(++k / ids.length);
   }
   ktx2.dispose();
   const R = { models, index };
-  /** Modell an Matrix m in den Batcher legen; Ursprung = Mitte der Grundfläche (auf den Boden/Tisch gestellt) */
+  /** Modell an Matrix m in den Batcher legen; Ursprung = Mitte der Grundfläche (auf den Boden/Tisch gestellt).
+   *  opts: { scale, cast, node } – node wählt einen einzelnen Mesh-Knoten (Variante) einer Datei mit mehreren Objekten */
   R.place = (B, id, m, opts = {}) => {
-    const md = models[id]; if (!md) return false;
+    let md = models[id]; if (!md) return false;
+    if (opts.node != null) { md = typeof opts.node === 'string' ? md.nodes.find(n => n.name.includes(opts.node)) : md.nodes[opts.node % md.nodes.length]; if (!md) return false; }
     const b = md.box, base = new THREE.Matrix4().makeTranslation(-(b.min.x + b.max.x) / 2, -b.min.y, -(b.min.z + b.max.z) / 2);
     const s = opts.scale ?? 1, full = new THREE.Matrix4().multiplyMatrices(m, new THREE.Matrix4().makeScale(s, s, s)).multiply(base);
     for (const p of md.parts) B.add(p.geometry, p.material, full, { keepUV: true, cast: opts.cast ?? true, receive: true });
@@ -73,6 +82,7 @@ export async function loadPropModels(gfx, onProgress = () => {}) {
   };
   R.has = id => !!models[id];
   /** Höhe (m) des Modells */
-  R.height = id => (models[id] ? models[id].box.max.y - models[id].box.min.y : 0);
+  R.height = (id, node = null) => { let md = models[id]; if (!md) return 0; if (node != null) md = typeof node === 'string' ? md.nodes.find(n => n.name.includes(node)) : md.nodes[node % md.nodes.length]; return md ? md.box.max.y - md.box.min.y : 0; };
+  R.nodeCount = id => (models[id] ? models[id].nodes.length : 0);
   return R;
 }

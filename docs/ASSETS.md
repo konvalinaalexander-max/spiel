@@ -163,11 +163,55 @@ Verarbeitet mit `tools/pipeline/props.mjs` (vereinfacht, KTX2, Meshopt).
 | Ceramic Vase 01 | Vase | James Ray Cock | 1222 | https://polyhaven.com/a/ceramic_vase_01 |
 | Lemon | Zitrone | Kuutti Siitonen | 600 | https://polyhaven.com/a/lemon |
 | Wooden Bookshelf Worn | Bücherregal | Ulan Cabanilla | 3000 | https://polyhaven.com/a/wooden_bookshelf_worn |
+| Seedling Tray 01 | Anzuchtschale auf der Fensterbank (BOKU) | Satyaki Mandal | 2000 | https://polyhaven.com/a/seeding_tray_01 |
+| Planter Pot Clay | Tontopf auf der Fensterbank | Amal Kumar | 1200 | https://polyhaven.com/a/planter_pot_clay |
+| Watering Can Metal 01 | Gießkanne auf der Fensterbank | Charles Nderitu | 2499 | https://polyhaven.com/a/watering_can_metal_01 |
+| Binoculars | Fernglas auf der Fensterbank (Vogelbeobachtung) | Derek Wight | 3855 | https://polyhaven.com/a/binoculars |
+| Anthurium Botany 01 | Topfpflanze hinten | Rob Tuytel, Rico Cilliers | 3993 | https://polyhaven.com/a/anthurium_botany_01 |
+| Calathea Orbifolia 01 | Topfpflanze vorne rechts | Rob Tuytel, Rico Cilliers | 6996 | https://polyhaven.com/a/calathea_orbifolia_01 |
+| Ceramic Vase 03 | Vase auf der Fensterbank | James Ray Cock | 1500 | https://polyhaven.com/a/ceramic_vase_03 |
+| Office Notepads | Notizblöcke am Vortragstisch | Ulan Cabanilla | 666 | https://polyhaven.com/a/office_notepads |
+| Binder Notebook | Ringbuch am Vortragstisch | DaDrood | 2998 | https://polyhaven.com/a/binder_notebook |
+| Round Spectacles | Ersatzbrille des Profs | Sean Buckley | 2498 | https://polyhaven.com/a/round_spectacles |
+| Wooden Bowl 01 | Holzschale mit Futterprobe | Oliver Harries | 2000 | https://polyhaven.com/a/wooden_bowl_01 |
+| Alarm Clock 01 | Wecker am Vortragstisch (Zeitansage) | Yann Kervran, James Ray Cock | 2517 | https://polyhaven.com/a/alarm_clock_01 |
+| Bunsen Burner | Bunsenbrenner (Vorführung) | BKS | 2498 | https://polyhaven.com/a/bunsen_burner |
+| Digital Wrist Watch | Armbanduhr auf einem Pult | Adrian C | 2997 | https://polyhaven.com/a/digital_wrist_watch |
+| Hamburger Buns | Weckerl am Pult | Alexander Shulha | 1996 | https://polyhaven.com/a/hamburger_buns |
+| Pears Asian 01 | Birne am Pult | Amal Kumar | 1198 | https://polyhaven.com/a/food_pears_asian_01 |
+| Food Kiwi 01 | Kiwi am Pult | Oliver Harries | 800 | https://polyhaven.com/a/food_kiwi_01 |
+| Gamepad | Controller auf einem Pult | Josh Dean | 2500 | https://polyhaven.com/a/gamepad |
+| Fire Alarm | Rauchmelder an der Decke | Slinc | 1275 | https://polyhaven.com/a/fire_alarm |
+| Korean Fire Extinguisher 01 | Feuerlöscher an der Wand | UM JOORIN | 3079 | https://polyhaven.com/a/korean_fire_extinguisher_01 |
+| Power Box 01 | Verteilerkasten an der Rückwand | Rico Cilliers, Yann Kervran | 3993 | https://polyhaven.com/a/power_box_01 |
+| Utility Box 01 | Wandkasten neben der Tür | James Ray Cock | 1500 | https://polyhaven.com/a/utility_box_01 |
+| Wet Floor Sign 01 | Warnschild Rutschgefahr (Regentag) | Fran Calvente | 228 | https://polyhaven.com/a/WetFloorSign_01 |
+| Drawer Cabinet | Schubladenschrank auf dem Podium | Ulan Cabanilla | 4590 | https://polyhaven.com/a/drawer_cabinet |
+| Shelf 01 | Wandregal hinten | Gabriel Radić | 182 | https://polyhaven.com/a/Shelf_01 |
+| Hanging Picture Frame 01 | Bild an der Wand | James Ray Cock | 1501 | https://polyhaven.com/a/hanging_picture_frame_01 |
+| Hanging Picture Frame 03 | Bild an der Wand | James Ray Cock | 2993 | https://polyhaven.com/a/hanging_picture_frame_03 |
+| Fancy Picture Frame 01 | Bild an der Wand | Rob Tuytel, Rico Cilliers | 938 | https://polyhaven.com/a/fancy_picture_frame_01 |
+| Side Table 01 | Beistelltisch neben dem Pult | James Ray Cock | 1500 | https://polyhaven.com/a/side_table_01 |
+| Plastic Monobloc Chair 01 | Stuhl für Gäste vorne | Kuutti Siitonen | 2000 | https://polyhaven.com/a/plastic_monobloc_chair_01 |
+| Metal Stool 02 | Hocker am Podium | Ulan Cabanilla | 1999 | https://polyhaven.com/a/metal_stool_02 |
+| Wicker Basket 02 | Korb mit Proben | Kuutti Siitonen | 3998 | https://polyhaven.com/a/wicker_basket_02 |
+| Plastic Crate 02 | Kunststoffkiste hinten | Fabi_G | 2500 | https://polyhaven.com/a/plastic_crate_02 |
+| Wooden Crate 02 | Holzkiste hinten | James Ray Cock, Jurita Burger | 2499 | https://polyhaven.com/a/wooden_crate_02 |
+| All Purpose Cleaner | Reiniger beim Besen | Kuutti Siitonen | 1500 | https://polyhaven.com/a/all_purpose_cleaner |
+| Mousetrap | Mausefalle in der Ecke | GreenPixel | 1499 | https://polyhaven.com/a/mousetrap |
+| Street Lamp 01 | Straßenlaterne (Außenwelt) | Josh Dean | 5185 | https://polyhaven.com/a/street_lamp_01 |
+| Planter Box 02 | Pflanztrog am Gehsteig | James Ray Cock | 3000 | https://polyhaven.com/a/planter_box_02 |
+| Painted Wooden Bench | Bank im Park | Kirill Sannikov | 630 | https://polyhaven.com/a/painted_wooden_bench |
+| Lightbulb Led | Ersatzlampe am Vortragstisch | Josh Dean | 799 | https://polyhaven.com/a/lightbulb_led |
+| Television 02 | Alter Fernseher auf dem Regal hinten | Benny Weimer | 2000 | https://polyhaven.com/a/television_02 |
+| Vintage Telephone Wall Clock | Wandtelefon (Hausapparat) neben der Tür | Adrian C | 3999 | https://polyhaven.com/a/vintage_telephone_wall_clock |
 
-## Geräusche und Musik (echte Aufnahmen)
+## Geräusche, Musik und Hall (echte Aufnahmen)
 
 Aufbereitet mit `tools/audio/build_sfx.py` aus den Kandidaten in `tools/pipeline/audio_sources.json`
-(Recherche und Lizenzprüfung: `docs/AUDIO_QUELLEN.md`). CC-BY-Aufnahmen sind im Spiel unter „Impressum, Quellen & Lizenzen“ genannt.
+(geladen und geprüft mit `tools/audio/fetch_sfx.py`, Prüfsummen dort; Recherche: `docs/AUDIO_QUELLEN.md`, Übersicht und Clipliste: `docs/AUDIO.md`).
+Der Hall (`irFront`, `irBack`) stammt aus echten Impulsantworten eines Hörsaals (TU Berlin, Auditorium 3; `tools/audio/extract_ir.py`).
+CC-BY-Aufnahmen sind im Spiel unter „Impressum, Quellen & Lizenzen“ genannt.
 
 | Klang | Lizenz | Herkunft |
 |---|---|---|
@@ -177,22 +221,22 @@ Aufbereitet mit `tools/audio/build_sfx.py` aus den Kandidaten in `tools/pipeline
 | bird | CC-BY-4.0 | "Birds Singing In A Peaceful Park Sound Effect" – Downloaded from www.freesoundslibrary.com (Free Sounds Library, Spanac), CC BY 4.0 |
 | boardSlide | CC-BY-4.0 | "Sliding Door Sounds" – Downloaded from www.freesoundslibrary.com (Free Sounds Library, Spanac), CC BY 4.0 |
 | boardSlide | CC-BY-4.0 | "Rock/Metal Slide" by Varkalandar – https://opengameart.org/content/rockmetal-slide – CC BY 4.0 |
-| bottleDrop, chairCreak, cough, doorClose, doorOpen, laughSoft, micThump, penClick, stepCarpet, throatClear, heart | Public-Domain | https://pdsounds.tuxfamily.org/list.html (Public-Domain) |
-| breath, clicker, cloth, cough, coughHigh, hinge, lidClose, micThump, pageTurn, penWrite, phoneVibrate, stepCarpet, stepParquet, stepStair, touchpad, zipper, uiClick | CC0-1.0 | https://opengameart.org/content/sound-effects-pack (CC0-1.0) |
+| bottleDrop, chairCreak, cough, doorClose, doorOpen, laughSoft, micThump, penClick, stepCarpet, throatClear, heart, keyboards, laughSmall, laughMid, laughBig, cutlery, highlighter, murmurQuiet, paperTear, sneeze, yawn | Public-Domain | https://pdsounds.tuxfamily.org/list.html (Public-Domain) |
+| breath, clicker, cloth, cough, coughHigh, hinge, lidClose, micThump, pageTurn, penWrite, phoneVibrate, stepCarpet, stepParquet, stepStair, touchpad, zipper, uiClick, laughSmall, laughMid, laughBig, bag, shush, yawn | CC0-1.0 | https://opengameart.org/content/sound-effects-pack (CC0-1.0) |
 | chairCreak | CC-BY-4.0 | "The Linke Hofman Standard tram – the bench" – recorded by Museum of Municipal Engineering, Work With Sounds (EU-Projekt, http://soundsofchanges.eu/sound/the-linke-hofman-standard-tram-the-bench/) – CC BY 4.0 |
 | chairCreak, pageTurn | CC0-1.0 | https://opengameart.org/content/various-sound-effects (CC0-1.0) |
 | chalkScratch, chalkTap | CC-BY-4.0 | "Chalk" – recorded by La Fonderie, Work With Sounds (EU-Projekt, http://soundsofchanges.eu/sound/chalk/) – CC BY 4.0 |
 | clicker, touchpad, uiClick | CC0-1.0 | https://opengameart.org/content/middle-mouse-click (CC0-1.0) |
-| cloth | CC0-1.0 | https://opengameart.org/content/202-more-sound-effects (CC0-1.0) |
-| cough | CC0-1.0 | https://opengameart.org/content/old-man-cough (CC0-1.0) |
+| cloth, bag | CC0-1.0 | https://opengameart.org/content/202-more-sound-effects (CC0-1.0) |
+| cough, laughMid, laughBig | CC0-1.0 | https://opengameart.org/content/old-man-cough (CC0-1.0) |
 | cough | CC0-1.0 | https://opengameart.org/content/sick-noises (CC0-1.0) |
 | coughHigh | CC-BY-4.0 | "Coughing Sound Effect" – Downloaded from www.freesoundslibrary.com (Free Sounds Library, Spanac), CC BY 4.0 |
 | doorBang, doorClose, doorOpen | CC0-1.0 | https://opengameart.org/content/door-open-door-close-set (CC0-1.0) |
-| glass | CC0-1.0 | https://opengameart.org/content/100-cc0-sfx (CC0-1.0) |
-| glass | CC-BY-4.0 | "Cup On Table Sfx Sound Effect" – Sound Effect By Nicole Marie T – https://opengameart.org/content/cup-on-table-sfx-sound-effect – CC BY 4.0 |
-| keyClick, ttPlace | CC0-1.0 | https://opengameart.org/content/keyboard-soundpack-1-typing-and-single-keystrokes (CC0-1.0) |
+| glass, cupDown | CC0-1.0 | https://opengameart.org/content/100-cc0-sfx (CC0-1.0) |
+| glass, cupDown | CC-BY-4.0 | "Cup On Table Sfx Sound Effect" – Sound Effect By Nicole Marie T – https://opengameart.org/content/cup-on-table-sfx-sound-effect – CC BY 4.0 |
+| keyClick, ttPlace, keyboards | CC0-1.0 | https://opengameart.org/content/keyboard-soundpack-1-typing-and-single-keystrokes (CC0-1.0) |
 | keyClick, ttPlace | CC-BY-4.0 | "Computer work at home" – recorded by Erik Pålsson, Work With Sounds (EU-Projekt, http://soundsofchanges.eu/sound/computer-work-at-home/) – CC BY 4.0 |
-| laughSoft | CC0-1.0 | https://opengameart.org/content/group-giggling (CC0-1.0) |
+| laughSoft, laughSmall, laughMid, laughBig | CC0-1.0 | https://opengameart.org/content/group-giggling (CC0-1.0) |
 | murmur, murmurBurst | CC-BY-4.0 | "Audience Murmur Sound Effect" – Downloaded from www.freesoundslibrary.com (Free Sounds Library, Spanac), CC BY 4.0 |
 | murmurBurst | PDM-1.0 | https://archive.org/details/aporee_36189_41517 (PDM-1.0) |
 | music | CC-BY-4.0 | "Almost Bliss" Kevin MacLeod (incompetech.com), Licensed under Creative Commons: By Attribution 4.0 License, http://creativecommons.org/licenses/by/4.0/ |
@@ -218,3 +262,18 @@ Aufbereitet mit `tools/audio/build_sfx.py` aus den Kandidaten in `tools/pipeline
 | wind | CC0-1.0 | https://opengameart.org/content/park-ambiences (CC0-1.0) |
 | good, quizSting, sting | CC-BY-4.0 | "Clear Waters" Kevin MacLeod (incompetech.com), Licensed under Creative Commons: By Attribution 4.0 – einzelne Klaviertöne als Signal |
 | micFeedback | CC-BY-4.0 | "The Linke Hofman Standard tram – the bell (recorded from the outside)" – recorded by Museum of Municipal Engineering, Work With Sounds (EU-Projekt, http://soundsofchanges.eu/sound/the-linke-hofman-standard-tram-the-bell-recorded-from-the-outside/) – CC BY 4.0 – bearbeitet (Rückkopplungston) |
+| laughSmall, laughMid, laughBig | CC0-1.0 | https://opengameart.org/content/do-you-remember-laughter (CC0-1.0) |
+| irBack, irFront | CC-BY-4.0 | "Binaural room impulse responses recorded with KEMAR in a mid-size lecture hall" (Auditorium 3, TU Berlin) – H. Wierstorf, M. Geier, Zenodo, doi:10.5281/zenodo.160749 – CC BY 4.0 |
+| appleBite | CC0-1.0 | https://opengameart.org/content/apple-bite (CC0-1.0) |
+| appleBite | CC0-1.0 | https://opengameart.org/content/7-eating-crunches (CC0-1.0) |
+| bag | CC-BY-3.0 | "Inventory Bag" by spookymodem (opengameart.org/content/inventory-bag) – CC BY 3.0 |
+| birds | PDM-1.0 | https://archive.org/details/aporee_70348_82012 (PDM-1.0) |
+| corridor | PDM-1.0 | https://archive.org/details/aporee_26981_72131 (PDM-1.0) |
+| cupDown, cutlery | CC0-1.0 | https://opengameart.org/content/cutlery-sounds (CC0-1.0) |
+| murmurBreak | PDM-1.0 | https://archive.org/details/aporee_31068_35712 (PDM-1.0) |
+| paperTear | CC0-1.0 | https://opengameart.org/content/various-paper-sound-effects (CC0-1.0) |
+| rainHeavy | PDM-1.0 | https://archive.org/details/aporee_60048_68965 (PDM-1.0) |
+| shush | CC-BY-3.0 | "No Talking in The Library!" by jdagenet (Jason Dagenet), opengameart.org – CC BY 3.0 |
+| sneeze | CC0-1.0 | https://opengameart.org/content/genuine-sneeze-sound (CC0-1.0) |
+| sneeze | CC0-1.0 | https://opengameart.org/content/sneeze (CC0-1.0) |
+| streetFar | PDM-1.0 | https://archive.org/details/aporee_60629_69672 (PDM-1.0) |

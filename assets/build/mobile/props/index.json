@@ -690,5 +690,977 @@
    0,
    -0.291
   ]
+ },
+ "seeding_tray_01": {
+  "id": "seeding_tray_01",
+  "name": "Seedling Tray 01",
+  "authors": [
+   "Satyaki Mandal"
+  ],
+  "license": "CC0-1.0",
+  "source": "https://polyhaven.com/a/seeding_tray_01",
+  "use": "Anzuchtschale auf der Fensterbank (BOKU)",
+  "tris": 2000,
+  "trisSrc": 8334,
+  "kb": 48,
+  "size": [
+   0.22,
+   0.061,
+   0.22
+  ],
+  "min": [
+   -0.11,
+   0.001,
+   -0.11
+  ]
+ },
+ "planter_pot_clay": {
+  "id": "planter_pot_clay",
+  "name": "Planter Pot Clay",
+  "authors": [
+   "Amal Kumar"
+  ],
+  "license": "CC0-1.0",
+  "source": "https://polyhaven.com/a/planter_pot_clay",
+  "use": "Tontopf auf der Fensterbank",
+  "tris": 1200,
+  "trisSrc": 3080,
+  "kb": 29,
+  "size": [
+   0.266,
+   0.222,
+   0.263
+  ],
+  "min": [
+   -0.134,
+   0,
+   -0.12
+  ]
+ },
+ "watering_can_metal_01": {
+  "id": "watering_can_metal_01",
+  "name": "Watering Can Metal 01",
+  "authors": [
+   "Charles Nderitu"
+  ],
+  "license": "CC0-1.0",
+  "source": "https://polyhaven.com/a/watering_can_metal_01",
+  "use": "Gie\u00dfkanne auf der Fensterbank",
+  "tris": 2499,
+  "trisSrc": 11837,
+  "kb": 52,
+  "size": [
+   0.191,
+   0.197,
+   0.452
+  ],
+  "min": [
+   -0.095,
+   -0.001,
+   -0.175
+  ]
+ },
+ "binoculars": {
+  "id": "binoculars",
+  "name": "Binoculars",
+  "authors": [
+   "Derek Wight"
+  ],
+  "license": "CC0-1.0",
+  "source": "https://polyhaven.com/a/binoculars",
+  "use": "Fernglas auf der Fensterbank (Vogelbeobachtung)",
+  "tris": 3855,
+  "trisSrc": 19248,
+  "kb": 80,
+  "size": [
+   0.167,
+   0.066,
+   0.288
+  ],
+  "min": [
+   -0.076,
+   -0.002,
+   -0.229
+  ]
+ },
+ "anthurium_botany_01": {
+  "id": "anthurium_botany_01",
+  "name": "Anthurium Botany 01",
+  "authors": [
+   "Rob Tuytel",
+   "Rico Cilliers"
+  ],
+  "license": "CC0-1.0",
+  "source": "https://polyhaven.com/a/anthurium_botany_01",
+  "use": "Topfpflanze hinten",
+  "tris": 3993,
+  "trisSrc": 67152,
+  "kb": 111,
+  "size": [
+   2.792,
+   0.498,
+   1.797
+  ],
+  "min": [
+   -1.418,
+   -0.01,
+   -1.146
+  ]
+ },
+ "calathea_orbifolia_01": {
+  "id": "calathea_orbifolia_01",
+  "name": "Calathea Orbifolia 01",
+  "authors": [
+   "Rob Tuytel",
+   "Rico Cilliers"
+  ],
+  "license": "CC0-1.0",
+  "source": "https://polyhaven.com/a/calathea_orbifolia_01",
+  "use": "Topfpflanze vorne rechts",
+  "tris": 6996,
+  "trisSrc": 16688,
+  "kb": 126,
+  "size": [
+   2.492,
+   0.424,
+   1.194
+  ],
+  "min": [
+   -1.294,
+   -0.008,
+   -0.316
+  ]
+ },
+ "ceramic_vase_03": {
+  "id": "ceramic_vase_03",
+  "name": "Ceramic Vase 03",
+  "authors": [
+   "James Ray Cock"
+  ],
+  "license": "CC0-1.0",
+  "source": "https://polyhaven.com/a/ceramic_vase_03",
+  "use": "Vase auf der Fensterbank",
+  "tris": 1500,
+  "trisSrc": 11136,
+  "kb": 34,
+  "size": [
+   0.112,
+   0.414,
+   0.112
+  ],
+  "min": [
+   -0.056,
+   0,
+   -0.056
+  ]
+ },
+ "office_notepads": {
+  "id": "office_notepads",
+  "name": "Office Notepads",
+  "authors": [
+   "Ulan Cabanilla"
+  ],
+  "license": "CC0-1.0",
+  "source": "https://polyhaven.com/a/office_notepads",
+  "use": "Notizbl\u00f6cke am Vortragstisch",
+  "tris": 666,
+  "trisSrc": 666,
+  "kb": 26,
+  "size": [
+   1.103,
+   0.022,
+   0.66
+  ],
+  "min": [
+   -0.555,
+   0,
+   -0.331
+  ]
+ },
+ "binder_notebook": {
+  "id": "binder_notebook",
+  "name": "Binder Notebook",
+  "authors": [
+   "DaDrood"
+  ],
+  "license": "CC0-1.0",
+  "source": "https://polyhaven.com/a/binder_notebook",
+  "use": "Ringbuch am Vortragstisch",
+  "tris": 2998,
+  "trisSrc": 18077,
+  "kb": 88,
+  "size": [
+   0.584,
+   0.025,
+   0.2
+  ],
+  "min": [
+   -0.157,
+   -0.002,
+   -0.1
+  ]
+ },
+ "round_spectacles": {
+  "id": "round_spectacles",
+  "name": "Round Spectacles",
+  "authors": [
+   "Sean Buckley"
+  ],
+  "license": "CC0-1.0",
+  "source": "https://polyhaven.com/a/round_spectacles",
+  "use": "Ersatzbrille des Profs",
+  "tris": 2498,
+  "trisSrc": 11810,
+  "kb": 54,
+  "size": [
+   0.158,
+   0.046,
+   0.149
+  ],
+  "min": [
+   -0.079,
+   -0.023,
+   -0.148
+  ]
+ },
+ "wooden_bowl_01": {
+  "id": "wooden_bowl_01",
+  "name": "Wooden Bowl 01",
+  "authors": [
+   "Oliver Harries"
+  ],
+  "license": "CC0-1.0",
+  "source": "https://polyhaven.com/a/wooden_bowl_01",
+  "use": "Holzschale mit Futterprobe",
+  "tris": 2000,
+  "trisSrc": 14122,
+  "kb": 34,
+  "size": [
+   0.313,
+   0.093,
+   0.309
+  ],
+  "min": [
+   -0.157,
+   0.001,
+   -0.154
+  ]
+ },
+ "alarm_clock_01": {
+  "id": "alarm_clock_01",
+  "name": "Alarm Clock 01",
+  "authors": [
+   "Yann Kervran",
+   "James Ray Cock"
+  ],
+  "license": "CC0-1.0",
+  "source": "https://polyhaven.com/a/alarm_clock_01",
+  "use": "Wecker am Vortragstisch (Zeitansage)",
+  "tris": 2517,
+  "trisSrc": 8985,
+  "kb": 60,
+  "size": [
+   0.131,
+   0.174,
+   0.067
+  ],
+  "min": [
+   -0.066,
+   -0.001,
+   -0.024
+  ]
+ },
+ "bunsen_burner": {
+  "id": "bunsen_burner",
+  "name": "Bunsen Burner",
+  "authors": [
+   "BKS"
+  ],
+  "license": "CC0-1.0",
+  "source": "https://polyhaven.com/a/bunsen_burner",
+  "use": "Bunsenbrenner (Vorf\u00fchrung)",
+  "tris": 2498,
+  "trisSrc": 8434,
+  "kb": 53,
+  "size": [
+   0.139,
+   0.173,
+   0.139
+  ],
+  "min": [
+   -0.069,
+   0,
+   -0.069
+  ]
+ },
+ "digital_wrist_watch": {
+  "id": "digital_wrist_watch",
+  "name": "Digital Wrist Watch",
+  "authors": [
+   "Adrian C"
+  ],
+  "license": "CC0-1.0",
+  "source": "https://polyhaven.com/a/digital_wrist_watch",
+  "use": "Armbanduhr auf einem Pult",
+  "tris": 2997,
+  "trisSrc": 10390,
+  "kb": 79,
+  "size": [
+   0.036,
+   0.008,
+   0.217
+  ],
+  "min": [
+   -0.018,
+   -0.002,
+   -0.089
+  ]
+ },
+ "hamburger_buns": {
+  "id": "hamburger_buns",
+  "name": "Hamburger Buns",
+  "authors": [
+   "Alexander Shulha"
+  ],
+  "license": "CC0-1.0",
+  "source": "https://polyhaven.com/a/hamburger_buns",
+  "use": "Weckerl am Pult",
+  "tris": 1996,
+  "trisSrc": 11588,
+  "kb": 40,
+  "size": [
+   0.397,
+   0.063,
+   0.114
+  ],
+  "min": [
+   -0.198,
+   0,
+   -0.049
+  ]
+ },
+ "food_pears_asian_01": {
+  "id": "food_pears_asian_01",
+  "name": "Pears Asian 01",
+  "authors": [
+   "Amal Kumar"
+  ],
+  "license": "CC0-1.0",
+  "source": "https://polyhaven.com/a/food_pears_asian_01",
+  "use": "Birne am Pult",
+  "tris": 1198,
+  "trisSrc": 12572,
+  "kb": 35,
+  "size": [
+   0.126,
+   0.071,
+   0.166
+  ],
+  "min": [
+   -0.08,
+   0,
+   -0.1
+  ]
+ },
+ "food_kiwi_01": {
+  "id": "food_kiwi_01",
+  "name": "Food Kiwi 01",
+  "authors": [
+   "Oliver Harries"
+  ],
+  "license": "CC0-1.0",
+  "source": "https://polyhaven.com/a/food_kiwi_01",
+  "use": "Kiwi am Pult",
+  "tris": 800,
+  "trisSrc": 7748,
+  "kb": 25,
+  "size": [
+   0.069,
+   0.09,
+   0.068
+  ],
+  "min": [
+   -0.035,
+   0,
+   -0.035
+  ]
+ },
+ "gamepad": {
+  "id": "gamepad",
+  "name": "Gamepad",
+  "authors": [
+   "Josh Dean"
+  ],
+  "license": "CC0-1.0",
+  "source": "https://polyhaven.com/a/gamepad",
+  "use": "Controller auf einem Pult",
+  "tris": 2500,
+  "trisSrc": 9546,
+  "kb": 48,
+  "size": [
+   0.404,
+   0.019,
+   0.434
+  ],
+  "min": [
+   -0.211,
+   -0.001,
+   -0.214
+  ]
+ },
+ "fire_alarm": {
+  "id": "fire_alarm",
+  "name": "Fire Alarm",
+  "authors": [
+   "Slinc"
+  ],
+  "license": "CC0-1.0",
+  "source": "https://polyhaven.com/a/fire_alarm",
+  "use": "Rauchmelder an der Decke",
+  "tris": 1275,
+  "trisSrc": 2705,
+  "kb": 39,
+  "size": [
+   0.099,
+   0.144,
+   0.026
+  ],
+  "min": [
+   -0.05,
+   -0.077,
+   0
+  ]
+ },
+ "korean_fire_extinguisher_01": {
+  "id": "korean_fire_extinguisher_01",
+  "name": "Korean Fire Extinguisher 01",
+  "authors": [
+   "UM JOORIN"
+  ],
+  "license": "CC0-1.0",
+  "source": "https://polyhaven.com/a/korean_fire_extinguisher_01",
+  "use": "Feuerl\u00f6scher an der Wand",
+  "tris": 3079,
+  "trisSrc": 9913,
+  "kb": 163,
+  "size": [
+   0.279,
+   0.658,
+   0.367
+  ],
+  "min": [
+   -0.14,
+   0,
+   -0.123
+  ]
+ },
+ "power_box_01": {
+  "id": "power_box_01",
+  "name": "Power Box 01",
+  "authors": [
+   "Rico Cilliers",
+   "Yann Kervran"
+  ],
+  "license": "CC0-1.0",
+  "source": "https://polyhaven.com/a/power_box_01",
+  "use": "Verteilerkasten an der R\u00fcckwand",
+  "tris": 3993,
+  "trisSrc": 21272,
+  "kb": 96,
+  "size": [
+   0.461,
+   0.503,
+   0.399
+  ],
+  "min": [
+   -0.286,
+   -0.252,
+   -0.047
+  ]
+ },
+ "utility_box_01": {
+  "id": "utility_box_01",
+  "name": "Utility Box 01",
+  "authors": [
+   "James Ray Cock"
+  ],
+  "license": "CC0-1.0",
+  "source": "https://polyhaven.com/a/utility_box_01",
+  "use": "Wandkasten neben der T\u00fcr",
+  "tris": 1500,
+  "trisSrc": 4404,
+  "kb": 37,
+  "size": [
+   0.52,
+   1.12,
+   0.431
+  ],
+  "min": [
+   -0.26,
+   0,
+   -0.21
+  ]
+ },
+ "WetFloorSign_01": {
+  "id": "WetFloorSign_01",
+  "name": "Wet Floor Sign 01",
+  "authors": [
+   "Fran Calvente"
+  ],
+  "license": "CC0-1.0",
+  "source": "https://polyhaven.com/a/WetFloorSign_01",
+  "use": "Warnschild Rutschgefahr (Regentag)",
+  "tris": 228,
+  "trisSrc": 228,
+  "kb": 18,
+  "size": [
+   0.3,
+   0.63,
+   0.359
+  ],
+  "min": [
+   -0.15,
+   0.002,
+   -0.193
+  ]
+ },
+ "drawer_cabinet": {
+  "id": "drawer_cabinet",
+  "name": "Drawer Cabinet",
+  "authors": [
+   "Ulan Cabanilla"
+  ],
+  "license": "CC0-1.0",
+  "source": "https://polyhaven.com/a/drawer_cabinet",
+  "use": "Schubladenschrank auf dem Podium",
+  "tris": 4590,
+  "trisSrc": 26406,
+  "kb": 106,
+  "size": [
+   1.141,
+   1.874,
+   0.488
+  ],
+  "min": [
+   -0.571,
+   0,
+   -0.248
+  ]
+ },
+ "Shelf_01": {
+  "id": "Shelf_01",
+  "name": "Shelf 01",
+  "authors": [
+   "Gabriel Radi\u0107"
+  ],
+  "license": "CC0-1.0",
+  "source": "https://polyhaven.com/a/Shelf_01",
+  "use": "Wandregal hinten",
+  "tris": 182,
+  "trisSrc": 182,
+  "kb": 20,
+  "size": [
+   1.003,
+   2.08,
+   0.257
+  ],
+  "min": [
+   -0.502,
+   0,
+   0
+  ]
+ },
+ "hanging_picture_frame_01": {
+  "id": "hanging_picture_frame_01",
+  "name": "Hanging Picture Frame 01",
+  "authors": [
+   "James Ray Cock"
+  ],
+  "license": "CC0-1.0",
+  "source": "https://polyhaven.com/a/hanging_picture_frame_01",
+  "use": "Bild an der Wand",
+  "tris": 1501,
+  "trisSrc": 2586,
+  "kb": 38,
+  "size": [
+   0.594,
+   0.841,
+   0.016
+  ],
+  "min": [
+   -0.297,
+   -0.42,
+   0
+  ]
+ },
+ "hanging_picture_frame_03": {
+  "id": "hanging_picture_frame_03",
+  "name": "Hanging Picture Frame 03",
+  "authors": [
+   "James Ray Cock"
+  ],
+  "license": "CC0-1.0",
+  "source": "https://polyhaven.com/a/hanging_picture_frame_03",
+  "use": "Bild an der Wand",
+  "tris": 2993,
+  "trisSrc": 24348,
+  "kb": 70,
+  "size": [
+   0.384,
+   0.502,
+   0.032
+  ],
+  "min": [
+   -0.191,
+   -0.255,
+   0
+  ]
+ },
+ "fancy_picture_frame_01": {
+  "id": "fancy_picture_frame_01",
+  "name": "Fancy Picture Frame 01",
+  "authors": [
+   "Rob Tuytel",
+   "Rico Cilliers"
+  ],
+  "license": "CC0-1.0",
+  "source": "https://polyhaven.com/a/fancy_picture_frame_01",
+  "use": "Bild an der Wand",
+  "tris": 938,
+  "trisSrc": 938,
+  "kb": 33,
+  "size": [
+   0.603,
+   0.464,
+   0.02
+  ],
+  "min": [
+   -0.302,
+   -0.232,
+   0.002
+  ]
+ },
+ "side_table_01": {
+  "id": "side_table_01",
+  "name": "Side Table 01",
+  "authors": [
+   "James Ray Cock"
+  ],
+  "license": "CC0-1.0",
+  "source": "https://polyhaven.com/a/side_table_01",
+  "use": "Beistelltisch neben dem Pult",
+  "tris": 1500,
+  "trisSrc": 2756,
+  "kb": 38,
+  "size": [
+   0.55,
+   0.551,
+   0.45
+  ],
+  "min": [
+   -0.275,
+   -0.002,
+   -0.225
+  ]
+ },
+ "plastic_monobloc_chair_01": {
+  "id": "plastic_monobloc_chair_01",
+  "name": "Plastic Monobloc Chair 01",
+  "authors": [
+   "Kuutti Siitonen"
+  ],
+  "license": "CC0-1.0",
+  "source": "https://polyhaven.com/a/plastic_monobloc_chair_01",
+  "use": "Stuhl f\u00fcr G\u00e4ste vorne",
+  "tris": 2000,
+  "trisSrc": 3356,
+  "kb": 50,
+  "size": [
+   0.642,
+   0.88,
+   0.628
+  ],
+  "min": [
+   -0.321,
+   0,
+   -0.336
+  ]
+ },
+ "metal_stool_02": {
+  "id": "metal_stool_02",
+  "name": "Metal Stool 02",
+  "authors": [
+   "Ulan Cabanilla"
+  ],
+  "license": "CC0-1.0",
+  "source": "https://polyhaven.com/a/metal_stool_02",
+  "use": "Hocker am Podium",
+  "tris": 1999,
+  "trisSrc": 6532,
+  "kb": 43,
+  "size": [
+   0.448,
+   0.458,
+   0.473
+  ],
+  "min": [
+   -0.224,
+   0,
+   -0.235
+  ]
+ },
+ "wicker_basket_02": {
+  "id": "wicker_basket_02",
+  "name": "Wicker Basket 02",
+  "authors": [
+   "Kuutti Siitonen"
+  ],
+  "license": "CC0-1.0",
+  "source": "https://polyhaven.com/a/wicker_basket_02",
+  "use": "Korb mit Proben",
+  "tris": 3998,
+  "trisSrc": 17850,
+  "kb": 102,
+  "size": [
+   0.347,
+   0.2,
+   0.254
+  ],
+  "min": [
+   -0.108,
+   0,
+   -0.145
+  ]
+ },
+ "plastic_crate_02": {
+  "id": "plastic_crate_02",
+  "name": "Plastic Crate 02",
+  "authors": [
+   "Fabi_G"
+  ],
+  "license": "CC0-1.0",
+  "source": "https://polyhaven.com/a/plastic_crate_02",
+  "use": "Kunststoffkiste hinten",
+  "tris": 2500,
+  "trisSrc": 5840,
+  "kb": 48,
+  "size": [
+   0.506,
+   0.254,
+   0.406
+  ],
+  "min": [
+   -0.253,
+   0,
+   -0.203
+  ]
+ },
+ "wooden_crate_02": {
+  "id": "wooden_crate_02",
+  "name": "Wooden Crate 02",
+  "authors": [
+   "James Ray Cock",
+   "Jurita Burger"
+  ],
+  "license": "CC0-1.0",
+  "source": "https://polyhaven.com/a/wooden_crate_02",
+  "use": "Holzkiste hinten",
+  "tris": 2499,
+  "trisSrc": 5176,
+  "kb": 82,
+  "size": [
+   0.529,
+   0.464,
+   1.166
+  ],
+  "min": [
+   -0.265,
+   -0.01,
+   -0.583
+  ]
+ },
+ "all_purpose_cleaner": {
+  "id": "all_purpose_cleaner",
+  "name": "All Purpose Cleaner",
+  "authors": [
+   "Kuutti Siitonen"
+  ],
+  "license": "CC0-1.0",
+  "source": "https://polyhaven.com/a/all_purpose_cleaner",
+  "use": "Reiniger beim Besen",
+  "tris": 1500,
+  "trisSrc": 4624,
+  "kb": 32,
+  "size": [
+   0.156,
+   0.319,
+   0.117
+  ],
+  "min": [
+   -0.075,
+   0,
+   -0.059
+  ]
+ },
+ "mousetrap": {
+  "id": "mousetrap",
+  "name": "Mousetrap",
+  "authors": [
+   "GreenPixel"
+  ],
+  "license": "CC0-1.0",
+  "source": "https://polyhaven.com/a/mousetrap",
+  "use": "Mausefalle in der Ecke",
+  "tris": 1499,
+  "trisSrc": 5136,
+  "kb": 40,
+  "size": [
+   0.055,
+   0.018,
+   0.1
+  ],
+  "min": [
+   -0.027,
+   0,
+   -0.05
+  ]
+ },
+ "street_lamp_01": {
+  "id": "street_lamp_01",
+  "name": "Street Lamp 01",
+  "authors": [
+   "Josh Dean"
+  ],
+  "license": "CC0-1.0",
+  "source": "https://polyhaven.com/a/street_lamp_01",
+  "use": "Stra\u00dfenlaterne (Au\u00dfenwelt)",
+  "tris": 5185,
+  "trisSrc": 30610,
+  "kb": 97,
+  "size": [
+   0.704,
+   3.871,
+   0.386
+  ],
+  "min": [
+   -0.352,
+   0,
+   -0.193
+  ]
+ },
+ "planter_box_02": {
+  "id": "planter_box_02",
+  "name": "Planter Box 02",
+  "authors": [
+   "James Ray Cock"
+  ],
+  "license": "CC0-1.0",
+  "source": "https://polyhaven.com/a/planter_box_02",
+  "use": "Pflanztrog am Gehsteig",
+  "tris": 3000,
+  "trisSrc": 10944,
+  "kb": 98,
+  "size": [
+   1.251,
+   0.453,
+   0.467
+  ],
+  "min": [
+   -0.625,
+   0,
+   -0.235
+  ]
+ },
+ "painted_wooden_bench": {
+  "id": "painted_wooden_bench",
+  "name": "Painted Wooden Bench",
+  "authors": [
+   "Kirill Sannikov"
+  ],
+  "license": "CC0-1.0",
+  "source": "https://polyhaven.com/a/painted_wooden_bench",
+  "use": "Bank im Park",
+  "tris": 630,
+  "trisSrc": 630,
+  "kb": 25,
+  "size": [
+   1.165,
+   0.889,
+   0.496
+  ],
+  "min": [
+   -0.576,
+   -0.001,
+   -0.254
+  ]
+ },
+ "lightbulb_led": {
+  "id": "lightbulb_led",
+  "name": "Lightbulb Led",
+  "authors": [
+   "Josh Dean"
+  ],
+  "license": "CC0-1.0",
+  "source": "https://polyhaven.com/a/lightbulb_led",
+  "use": "Ersatzlampe am Vortragstisch",
+  "tris": 799,
+  "trisSrc": 6420,
+  "kb": 27,
+  "size": [
+   0.061,
+   0.1,
+   0.061
+  ],
+  "min": [
+   -0.031,
+   -0.016,
+   -0.031
+  ]
+ },
+ "television_02": {
+  "id": "television_02",
+  "name": "Television 02",
+  "authors": [
+   "Benny Weimer"
+  ],
+  "license": "CC0-1.0",
+  "source": "https://polyhaven.com/a/television_02",
+  "use": "Alter Fernseher auf dem Regal hinten",
+  "tris": 2000,
+  "trisSrc": 2310,
+  "kb": 39,
+  "size": [
+   0.4,
+   0.411,
+   0.35
+  ],
+  "min": [
+   -0.202,
+   0,
+   -0.228
+  ]
+ },
+ "vintage_telephone_wall_clock": {
+  "id": "vintage_telephone_wall_clock",
+  "name": "Vintage Telephone Wall Clock",
+  "authors": [
+   "Adrian C"
+  ],
+  "license": "CC0-1.0",
+  "source": "https://polyhaven.com/a/vintage_telephone_wall_clock",
+  "use": "Wandtelefon (Hausapparat) neben der T\u00fcr",
+  "tris": 3999,
+  "trisSrc": 15864,
+  "kb": 104,
+  "size": [
+   0.343,
+   0.501,
+   0.193
+  ],
+  "min": [
+   -0.176,
+   -0.073,
+   0
+  ]
  }
 }

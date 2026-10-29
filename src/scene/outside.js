@@ -29,7 +29,7 @@ function leafTexture(kind) {
   return t;
 }
 
-export function buildOutside(gfx, weatherId, quality) {
+export function buildOutside(gfx, weatherId, quality, models = null) {
   const scene = gfx.scene; const rng = makeRng(1180);
   const out = { t: 0, busT: 20 };
   const W = { sunny: { top: 0x4a86c8, hor: 0xd3e2ee, cloud: 0.35, dark: 0, haze: 0xb9c9d6 }, cloudy: { top: 0x8e9cab, hor: 0xd6dde3, cloud: 0.85, dark: 0.15, haze: 0xc5ccd2 }, rain: { top: 0x5d6873, hor: 0xa9b2ba, cloud: 1.0, dark: 0.35, haze: 0x9aa3ab } }[weatherId] || {};
@@ -101,11 +101,14 @@ export function buildOutside(gfx, weatherId, quality) {
   const shelterGlass = new THREE.Mesh(new THREE.PlaneGeometry(3.3, 2.2), glassMat); shelterGlass.position.set(stopX - 1.05, GROUND + 1.2, stopZ); shelterGlass.rotation.y = Math.PI / 2; scene.add(shelterGlass);
   // Parkbänke, Laternen, Parkweg
   const lampMat = gfx.pbr({ name: 'lampPost', color: 0x2a3033, roughness: 0.5, metalness: 0.6 });
-  for (let zz = -48; zz < 48; zz += 16) { B.add(cyl(0.07, 0.09, 4.5, 8), lampMat, mat(-17.9, GROUND + 2.25, zz), {}); B.add(rbox(0.6, 0.18, 0.28, 0.06), lampMat, mat(-17.6, GROUND + 4.5, zz), {}); }
+  // echte Modelle (Poly Haven, CC0), sonst einfache Formen
+  const real = (id, m, o) => !!(models && models.place(B, id, m, o));
+  for (let zz = -48; zz < 48; zz += 16) if (!real('street_lamp_01', mat(-17.9, GROUND + 0.12, zz, 0, Math.PI / 2, 0), { scale: 1.15 })) { B.add(cyl(0.07, 0.09, 4.5, 8), lampMat, mat(-17.9, GROUND + 2.25, zz), {}); B.add(rbox(0.6, 0.18, 0.28, 0.06), lampMat, mat(-17.6, GROUND + 4.5, zz), {}); }
+  for (const zz of [-26, -9, 12, 30]) real('planter_box_02', mat(-5.75, GROUND + 0.1, zz, 0, Math.PI / 2, 0));
   const path = gfx.pbr({ name: 'gravel', recipe: 'concrete', texOpts: { c1: '#b9a98a', seed: 12, size: 512 } });
   B.add(box(2.6, 0.04, 140), path, mat(-30, GROUND + 0.02, 0, 0, 0.12, 0), { tile: 2 });
   const benchMat = gfx.pbr({ name: 'parkBench', color: 0x3c5a3a, roughness: 0.7 });
-  for (const zz of [-20, 4, 26]) { B.add(rbox(0.5, 0.06, 1.8, 0.02), benchMat, mat(-28.3, GROUND + 0.45, zz), {}); B.add(rbox(0.06, 0.45, 1.8, 0.02), benchMat, mat(-28.05, GROUND + 0.72, zz), {}); }
+  for (const zz of [-20, 4, 26]) if (!real('painted_wooden_bench', mat(-28.3, GROUND, zz, 0, -Math.PI / 2, 0), { scale: 1.3 })) { B.add(rbox(0.5, 0.06, 1.8, 0.02), benchMat, mat(-28.3, GROUND + 0.45, zz), {}); B.add(rbox(0.06, 0.45, 1.8, 0.02), benchMat, mat(-28.05, GROUND + 0.72, zz), {}); }
 
   // ---------------------------------------------------------------- Cottage-Villen und Paulinenwarte
   const villaCols = ['#efe2bd', '#e7d49b', '#f3efe6', '#e2c98e', '#ebe4d4'];

@@ -190,6 +190,264 @@
    "tex": 512,
    "tris": 3000,
    "use": "Bücherregal"
+  },
+  {
+   "id": "seeding_tray_01",
+   "tex": 256,
+   "tris": 2000,
+   "use": "Anzuchtschale auf der Fensterbank (BOKU)"
+  },
+  {
+   "id": "planter_pot_clay",
+   "tex": 256,
+   "tris": 1200,
+   "use": "Tontopf auf der Fensterbank"
+  },
+  {
+   "id": "watering_can_metal_01",
+   "tex": 256,
+   "tris": 2500,
+   "use": "Gießkanne auf der Fensterbank"
+  },
+  {
+   "id": "binoculars",
+   "tex": 256,
+   "tris": 2500,
+   "use": "Fernglas auf der Fensterbank (Vogelbeobachtung)"
+  },
+  {
+   "id": "anthurium_botany_01",
+   "tex": 512,
+   "tris": 4000,
+   "use": "Topfpflanze hinten",
+   "error": 0.05
+  },
+  {
+   "id": "calathea_orbifolia_01",
+   "tex": 512,
+   "tris": 7000,
+   "use": "Topfpflanze vorne rechts",
+   "error": 0.06
+  },
+  {
+   "id": "ceramic_vase_03",
+   "tex": 256,
+   "tris": 1500,
+   "use": "Vase auf der Fensterbank"
+  },
+  {
+   "id": "office_notepads",
+   "tex": 256,
+   "tris": 700,
+   "use": "Notizblöcke am Vortragstisch"
+  },
+  {
+   "id": "binder_notebook",
+   "tex": 512,
+   "tris": 3000,
+   "use": "Ringbuch am Vortragstisch"
+  },
+  {
+   "id": "round_spectacles",
+   "tex": 256,
+   "tris": 2500,
+   "use": "Ersatzbrille des Profs"
+  },
+  {
+   "id": "wooden_bowl_01",
+   "tex": 256,
+   "tris": 2000,
+   "use": "Holzschale mit Futterprobe"
+  },
+  {
+   "id": "alarm_clock_01",
+   "tex": 256,
+   "tris": 2500,
+   "use": "Wecker am Vortragstisch (Zeitansage)"
+  },
+  {
+   "id": "bunsen_burner",
+   "tex": 256,
+   "tris": 2500,
+   "use": "Bunsenbrenner (Vorführung)"
+  },
+  {
+   "id": "digital_wrist_watch",
+   "tex": 256,
+   "tris": 1500,
+   "use": "Armbanduhr auf einem Pult"
+  },
+  {
+   "id": "hamburger_buns",
+   "tex": 256,
+   "tris": 2000,
+   "use": "Weckerl am Pult"
+  },
+  {
+   "id": "food_pears_asian_01",
+   "tex": 256,
+   "tris": 1200,
+   "use": "Birne am Pult",
+   "error": 0.03
+  },
+  {
+   "id": "food_kiwi_01",
+   "tex": 256,
+   "tris": 800,
+   "use": "Kiwi am Pult",
+   "error": 0.03
+  },
+  {
+   "id": "gamepad",
+   "tex": 256,
+   "tris": 2500,
+   "use": "Controller auf einem Pult"
+  },
+  {
+   "id": "fire_alarm",
+   "tex": 256,
+   "tris": 1200,
+   "use": "Rauchmelder an der Decke"
+  },
+  {
+   "id": "korean_fire_extinguisher_01",
+   "tex": 512,
+   "tris": 3000,
+   "use": "Feuerlöscher an der Wand"
+  },
+  {
+   "id": "power_box_01",
+   "tex": 256,
+   "tris": 3000,
+   "use": "Verteilerkasten an der Rückwand"
+  },
+  {
+   "id": "utility_box_01",
+   "tex": 256,
+   "tris": 1500,
+   "use": "Wandkasten neben der Tür"
+  },
+  {
+   "id": "WetFloorSign_01",
+   "tex": 256,
+   "tris": 300,
+   "use": "Warnschild Rutschgefahr (Regentag)"
+  },
+  {
+   "id": "drawer_cabinet",
+   "tex": 512,
+   "tris": 4000,
+   "use": "Schubladenschrank auf dem Podium"
+  },
+  {
+   "id": "Shelf_01",
+   "tex": 256,
+   "tris": 300,
+   "use": "Wandregal hinten"
+  },
+  {
+   "id": "hanging_picture_frame_01",
+   "tex": 256,
+   "tris": 1500,
+   "use": "Bild an der Wand"
+  },
+  {
+   "id": "hanging_picture_frame_03",
+   "tex": 256,
+   "tris": 3000,
+   "use": "Bild an der Wand"
+  },
+  {
+   "id": "fancy_picture_frame_01",
+   "tex": 256,
+   "tris": 1000,
+   "use": "Bild an der Wand"
+  },
+  {
+   "id": "side_table_01",
+   "tex": 256,
+   "tris": 1500,
+   "use": "Beistelltisch neben dem Pult"
+  },
+  {
+   "id": "plastic_monobloc_chair_01",
+   "tex": 256,
+   "tris": 2000,
+   "use": "Stuhl für Gäste vorne"
+  },
+  {
+   "id": "metal_stool_02",
+   "tex": 256,
+   "tris": 2000,
+   "use": "Hocker am Podium"
+  },
+  {
+   "id": "wicker_basket_02",
+   "tex": 512,
+   "tris": 4000,
+   "use": "Korb mit Proben",
+   "error": 0.03
+  },
+  {
+   "id": "plastic_crate_02",
+   "tex": 256,
+   "tris": 2500,
+   "use": "Kunststoffkiste hinten"
+  },
+  {
+   "id": "wooden_crate_02",
+   "tex": 512,
+   "tris": 2500,
+   "use": "Holzkiste hinten"
+  },
+  {
+   "id": "all_purpose_cleaner",
+   "tex": 256,
+   "tris": 1500,
+   "use": "Reiniger beim Besen"
+  },
+  {
+   "id": "mousetrap",
+   "tex": 256,
+   "tris": 1500,
+   "use": "Mausefalle in der Ecke"
+  },
+  {
+   "id": "street_lamp_01",
+   "tex": 512,
+   "tris": 5000,
+   "use": "Straßenlaterne (Außenwelt)"
+  },
+  {
+   "id": "planter_box_02",
+   "tex": 512,
+   "tris": 3000,
+   "use": "Pflanztrog am Gehsteig",
+   "error": 0.03
+  },
+  {
+   "id": "painted_wooden_bench",
+   "tex": 256,
+   "tris": 700,
+   "use": "Bank im Park"
+  },
+  {
+   "id": "lightbulb_led",
+   "tex": 256,
+   "tris": 800,
+   "use": "Ersatzlampe am Vortragstisch"
+  },
+  {
+   "id": "television_02",
+   "tex": 256,
+   "tris": 2000,
+   "use": "Alter Fernseher auf dem Regal hinten"
+  },
+  {
+   "id": "vintage_telephone_wall_clock",
+   "tex": 512,
+   "tris": 4000,
+   "use": "Wandtelefon (Hausapparat) neben der Tür"
   }
  ]
 }

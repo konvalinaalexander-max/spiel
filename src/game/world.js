@@ -35,11 +35,12 @@ export async function buildWorld(gfx, params, progress = () => {}) {
   await step(0.35, 'load.light');
   W.light = buildLighting(gfx, W.hall, params.weather);
   await step(0.42, 'load.outside');
-  W.outside = buildOutside(gfx, params.weather, gfx.preset);
+  // echte Requisiten (Poly Haven) vor Außenwelt und Saal-Requisiten laden: beide stellen Modelle auf
+  if (W.models === undefined) { try { W.models = await loadPropModels(gfx); } catch (e) { console.warn('Requisiten: Rückfall auf einfache Formen', e); W.models = null; } }
+  W.outside = buildOutside(gfx, params.weather, gfx.preset, W.models);
   W.blinds = buildBlinds(gfx, params.weather === 'sunny' ? [0.45, 0, 0] : [0, 0, 0]);
   await step(0.52, 'load.props');
   W.plan = planPopulation(POP_SEED, params.seat);
-  if (W.models === undefined) { try { W.models = await loadPropModels(gfx); } catch (e) { console.warn('Requisiten: Rückfall auf einfache Formen', e); W.models = null; } }
   W.props = buildProps(gfx, W.hall, W.plan, { models: W.models, weather: params.weather, notesHeader: params.lang === 'en' ? 'Animal Nutrition – 27 Oct' : 'Tierernährung VO – 27.10.' });
   W.details = buildDetails(gfx, W.hall, W.plan);
   await step(0.62, 'load.people');

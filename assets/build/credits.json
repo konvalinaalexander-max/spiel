@@ -20,14 +20,29 @@
   "en": "Kokoro-82M by hexgrad (Apache-2.0): bm_daniel, bf_emma, af_heart, am_michael – synthetic voices"
  },
  "models": [
+  "Adrian C",
   "Alex Weber",
+  "Alexander Shulha",
+  "Amal Kumar",
+  "BKS",
   "Balen",
+  "Benny Weimer",
+  "Charles Nderitu",
+  "DaDrood",
   "Dario Barresi",
+  "Derek Wight",
   "Ethan Place",
+  "Fabi_G",
+  "Fran Calvente",
+  "Gabriel Radić",
+  "GreenPixel",
   "Greg Zaal",
   "James Ray Cock",
   "Jiří Ptáček",
   "John Malcolm",
+  "Josh Dean",
+  "Jurita Burger",
+  "Kirill Sannikov",
   "Kuutti Siitonen",
   "L",
   "Luis José Fernández Rodríguez",
@@ -38,6 +53,11 @@
   "Plat251",
   "Rahul Chaudhary",
   "Rico Cilliers",
+  "Rob Tuytel",
+  "Satyaki Mandal",
+  "Sean Buckley",
+  "Slinc",
+  "UM JOORIN",
   "Ulan Cabanilla",
   "Yann Kervran"
  ],
@@ -62,6 +82,14 @@
    "license": "CC-BY-4.0",
    "names": [
     "ventilation"
+   ]
+  },
+  {
+   "line": "\"Binaural room impulse responses recorded with KEMAR in a mid-size lecture hall\" (Auditorium 3, TU Berlin) – H. Wierstorf, M. Geier, Zenodo, doi:10.5281/zenodo.160749 – CC BY 4.0",
+   "license": "CC-BY-4.0",
+   "names": [
+    "irBack",
+    "irFront"
    ]
   },
   {
@@ -121,7 +149,8 @@
    "line": "\"Cup On Table Sfx Sound Effect\" – Sound Effect By Nicole Marie T – https://opengameart.org/content/cup-on-table-sfx-sound-effect – CC BY 4.0",
    "license": "CC-BY-4.0",
    "names": [
-    "glass"
+    "glass",
+    "cupDown"
    ]
   },
   {
@@ -129,6 +158,20 @@
    "license": "CC-BY-4.0",
    "names": [
     "projectorFan"
+   ]
+  },
+  {
+   "line": "\"Inventory Bag\" by spookymodem (opengameart.org/content/inventory-bag) – CC BY 3.0",
+   "license": "CC-BY-3.0",
+   "names": [
+    "bag"
+   ]
+  },
+  {
+   "line": "\"No Talking in The Library!\" by jdagenet (Jason Dagenet), opengameart.org – CC BY 3.0",
+   "license": "CC-BY-3.0",
+   "names": [
+    "shush"
    ]
   },
   {
@@ -244,6 +287,20 @@
    ]
   },
   {
+   "line": "https://archive.org/details/aporee_26981_72131 (PDM-1.0)",
+   "license": "PDM-1.0",
+   "names": [
+    "corridor"
+   ]
+  },
+  {
+   "line": "https://archive.org/details/aporee_31068_35712 (PDM-1.0)",
+   "license": "PDM-1.0",
+   "names": [
+    "murmurBreak"
+   ]
+  },
+  {
    "line": "https://archive.org/details/aporee_34806_40011 (PDM-1.0)",
    "license": "PDM-1.0",
    "names": [
@@ -265,6 +322,13 @@
    ]
   },
   {
+   "line": "https://archive.org/details/aporee_60048_68965 (PDM-1.0)",
+   "license": "PDM-1.0",
+   "names": [
+    "rainHeavy"
+   ]
+  },
+  {
    "line": "https://archive.org/details/aporee_60623_69666 (PDM-1.0)",
    "license": "PDM-1.0",
    "names": [
@@ -272,17 +336,33 @@
    ]
   },
   {
+   "line": "https://archive.org/details/aporee_60629_69672 (PDM-1.0)",
+   "license": "PDM-1.0",
+   "names": [
+    "streetFar"
+   ]
+  },
+  {
+   "line": "https://archive.org/details/aporee_70348_82012 (PDM-1.0)",
+   "license": "PDM-1.0",
+   "names": [
+    "birds"
+   ]
+  },
+  {
    "line": "https://opengameart.org/content/100-cc0-sfx (CC0-1.0)",
    "license": "CC0-1.0",
    "names": [
-    "glass"
+    "glass",
+    "cupDown"
    ]
   },
   {
    "line": "https://opengameart.org/content/202-more-sound-effects (CC0-1.0)",
    "license": "CC0-1.0",
    "names": [
-    "cloth"
+    "cloth",
+    "bag"
    ]
   },
   {
@@ -293,6 +373,13 @@
    ]
   },
   {
+   "line": "https://opengameart.org/content/7-eating-crunches (CC0-1.0)",
+   "license": "CC0-1.0",
+   "names": [
+    "appleBite"
+   ]
+  },
+  {
    "line": "https://opengameart.org/content/ambient-bird-sounds (CC0-1.0)",
    "license": "CC0-1.0",
    "names": [
@@ -300,10 +387,34 @@
    ]
   },
   {
+   "line": "https://opengameart.org/content/apple-bite (CC0-1.0)",
+   "license": "CC0-1.0",
+   "names": [
+    "appleBite"
+   ]
+  },
+  {
    "line": "https://opengameart.org/content/crows-singing (CC0-1.0)",
    "license": "CC0-1.0",
    "names": [
     "bird"
+   ]
+  },
+  {
+   "line": "https://opengameart.org/content/cutlery-sounds (CC0-1.0)",
+   "license": "CC0-1.0",
+   "names": [
+    "cupDown",
+    "cutlery"
+   ]
+  },
+  {
+   "line": "https://opengameart.org/content/do-you-remember-laughter (CC0-1.0)",
+   "license": "CC0-1.0",
+   "names": [
+    "laughSmall",
+    "laughMid",
+    "laughBig"
    ]
   },
   {
@@ -316,10 +427,20 @@
    ]
   },
   {
+   "line": "https://opengameart.org/content/genuine-sneeze-sound (CC0-1.0)",
+   "license": "CC0-1.0",
+   "names": [
+    "sneeze"
+   ]
+  },
+  {
    "line": "https://opengameart.org/content/group-giggling (CC0-1.0)",
    "license": "CC0-1.0",
    "names": [
-    "laughSoft"
+    "laughSoft",
+    "laughSmall",
+    "laughMid",
+    "laughBig"
    ]
   },
   {
@@ -327,7 +448,8 @@
    "license": "CC0-1.0",
    "names": [
     "keyClick",
-    "ttPlace"
+    "ttPlace",
+    "keyboards"
    ]
   },
   {
@@ -343,7 +465,9 @@
    "line": "https://opengameart.org/content/old-man-cough (CC0-1.0)",
    "license": "CC0-1.0",
    "names": [
-    "cough"
+    "cough",
+    "laughMid",
+    "laughBig"
    ]
   },
   {
@@ -358,6 +482,13 @@
    "license": "CC0-1.0",
    "names": [
     "cough"
+   ]
+  },
+  {
+   "line": "https://opengameart.org/content/sneeze (CC0-1.0)",
+   "license": "CC0-1.0",
+   "names": [
+    "sneeze"
    ]
   },
   {
@@ -380,7 +511,20 @@
     "stepStair",
     "touchpad",
     "zipper",
-    "uiClick"
+    "uiClick",
+    "laughSmall",
+    "laughMid",
+    "laughBig",
+    "bag",
+    "shush",
+    "yawn"
+   ]
+  },
+  {
+   "line": "https://opengameart.org/content/various-paper-sound-effects (CC0-1.0)",
+   "license": "CC0-1.0",
+   "names": [
+    "paperTear"
    ]
   },
   {
@@ -405,7 +549,17 @@
     "penClick",
     "stepCarpet",
     "throatClear",
-    "heart"
+    "heart",
+    "keyboards",
+    "laughSmall",
+    "laughMid",
+    "laughBig",
+    "cutlery",
+    "highlighter",
+    "murmurQuiet",
+    "paperTear",
+    "sneeze",
+    "yawn"
    ]
   }
  ]

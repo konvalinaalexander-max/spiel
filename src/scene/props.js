@@ -233,8 +233,8 @@ export function buildProps(gfx, hall, plan, opts = {}) {
   const real = (id, m, o) => !!(RP && RP.place(B, id, m, o));
   const appleProc = m => { B.add(new THREE.SphereGeometry(0.036, 14, 10), PM.gloss, M4(m, mat(0, 0.034, 0, 0, 0, 0, 1, 0.9, 1)), { ...C(0xb8282a), keepUV: true }); B.add(cyl(0.002, 0.002, 0.018, 5), PM.matte, M4(m, mat(0, 0.07, 0)), { ...C(0x5d3a1a), keepUV: true, cast: false }); };
   const apple = m => { if (!real('food_apple_01', M4(m, mat(0, 0, 0, 0, rng.range(0, 6), 0)))) appleProc(m); };
-  const fruit = (m, r) => { const id = r.pick(['croissant', 'lemon', 'food_apple_01', 'lemon']); if (!real(id, M4(m, mat(0, 0, 0, 0, r.range(0, 6), 0)))) appleProc(m); };
-  const kornspitz = m => { B.add(rbox(0.18, 0.05, 0.09, 0.02), PM.paper, M4(m, mat(0, 0.025, 0, 0, 0, 0.05)), { ...C(0xd8c3a0), keepUV: true }); };
+  const fruit = (m, r) => { const id = r.pick(['croissant', 'lemon', 'food_apple_01', 'food_pears_asian_01', 'food_kiwi_01', 'lemon']); if (!real(id, M4(m, mat(0, 0, 0, 0, r.range(0, 6), 0)))) appleProc(m); };
+  const kornspitz = m => { if (real('hamburger_buns', M4(m, mat(0, 0, 0, 0, rng.range(0, 6), 0)), { node: rng.int(0, 2) })) return; B.add(rbox(0.18, 0.05, 0.09, 0.02), PM.paper, M4(m, mat(0, 0.025, 0, 0, 0, 0.05)), { ...C(0xd8c3a0), keepUV: true }); };
   const pencilCase = (m, col) => { B.add(cyl(0.03, 0.03, 0.2, 12), PM.fabric, M4(m, mat(0, 0.028, 0, 0, 0, Math.PI / 2, 1, 0.9, 1)), { ...C(col), keepUV: true }); B.add(box(0.19, 0.003, 0.006), PM.metal, M4(m, mat(0, 0.055, 0)), { ...C(0x999999), keepUV: true, cast: false }); };
   const calculator = m => { B.add(rbox(0.08, 0.014, 0.16, 0.006), PM.matte, M4(m, mat(0, 0.007, 0)), { ...C(0x2b2d31), keepUV: true, cast: false }); B.add(box(0.06, 0.001, 0.025), PM.gloss, M4(m, mat(0, 0.0145, -0.055)), { ...C(0x8fa38a), keepUV: true, cast: false }); for (let k = 0; k < 20; k++) B.add(box(0.011, 0.002, 0.008), PM.matte, M4(m, mat(-0.024 + (k % 4) * 0.016, 0.015, -0.02 + Math.floor(k / 4) * 0.016)), { ...C(k % 4 === 3 ? 0x4a6a8a : 0x5a5d63), keepUV: true, cast: false }); };
   const stackPaper = (m, cell, n = 1) => { B.add(box(0.21, 0.002 * n + 0.002, 0.297), PM.paper, M4(m, mat(0, 0.001 * n + 0.001, 0)), { ...C(0xf7f7f2), keepUV: true, cast: false }); const g = new THREE.PlaneGeometry(0.2, 0.1); g.rotateX(-Math.PI / 2); atlasUV(g, cell, lab.cols, lab.rows); B.add(g, PM.labels, M4(m, mat(0, 0.0022 * n + 0.0025, -0.09)), { keepUV: true, cast: false }); };
@@ -300,6 +300,8 @@ export function buildProps(gfx, hall, plan, opts = {}) {
       () => book(onDesk(row, x - 0.26, zc, r.range(-0.15, 0.15))), () => tablet(onDesk(row, x - 0.05, zc, r.range(-0.1, 0.1))),
       () => usb(onDesk(row, x + 0.15, zc + 0.08, r.range(0, 3))), () => ruler(onDesk(row, x - 0.15, zc + 0.03, r.range(-0.3, 0.3))),
       () => headphonesDesk(onDesk(row, x + 0.24, zc, r.range(-0.5, 0.5)), r.pick([0x1a1a1a, 0xf0f0f0, 0x34495e])),
+      () => real('digital_wrist_watch', onDesk(row, x + 0.22, zc + 0.07, r.range(0, 6))),
+      () => { if (r.chance(0.3)) real('gamepad', onDesk(row, x - 0.22, zc + 0.03, r.range(-0.5, 0.5)), { scale: 0.38 }); },
       () => beanie(onDesk(row, x - 0.24, zc + 0.02, r.range(0, 3)), r.pick(SCARF))];
     const n = r.int(0, 3);
     for (let i = 0; i < n; i++) r.pick(extras)();
@@ -458,7 +460,7 @@ export function buildProps(gfx, hall, plan, opts = {}) {
   {
     const sillY = LY.WINDOWS.y0 - 0.02, sx = LY.ROOM.x0 + 0.2;
     const plant = (z) => { const m = mat(sx, sillY, z); B.add(cyl(0.07, 0.055, 0.12, 16), PM.matte, M4(m, mat(0, 0.06, 0)), { ...C(0xb5651d), keepUV: true }); for (let k = 0; k < 14; k++) { const a = k / 14 * Math.PI * 2; B.add(box(0.012, 0.002, 0.22), PM.matte, M4(m, mat(Math.cos(a) * 0.05, 0.16, Math.sin(a) * 0.05, -0.6, -a + Math.PI / 2, 0)), { ...C(k % 2 ? 0x58a845 : 0xa9d18e), keepUV: true }); } };
-    plant(LY.WINDOWS.list[1] - 0.5);
+    if (!real('calathea_orbifolia_01', mat(sx + 0.02, sillY, LY.WINDOWS.list[1] - 0.5, 0, 0.4, 0), { node: 'calathea_orbifolia_01_b' })) plant(LY.WINDOWS.list[1] - 0.5);
     bottlePET(mat(sx, sillY, LY.WINDOWS.list[2] + 0.4)); mensaCup(mat(sx + 0.04, sillY, LY.WINDOWS.list[0] + 0.6));
     // Jacken an der Garderobe
     const hy = LY.BACK_FLOOR + 1.72, hz = LY.ROOM.z1 - 0.12;
@@ -524,6 +526,51 @@ export function buildProps(gfx, hall, plan, opts = {}) {
     real('dustpan', P(LY.ROOM.x1 - 0.3, LY.PODIUM.h, LY.ROOM.z0 + 0.45, 1.2));
     real('medical_box', P(LY.ROOM.x1 - 0.3, LY.PODIUM.h + 2.063 * 0.9, LY.ROOM.z0 + 2.45, -Math.PI / 2), { scale: 0.6 });
     real('hanging_picture_frame_02', mat(LY.ROOM.x1 - 0.03, 1.9, -0.8, 0, -Math.PI / 2, 0), { scale: 1.2, cast: false });
+    // Vortragstisch: Ringbuch, Notizblöcke, Ersatzbrille, Holzschale mit Futterprobe, Wecker, Bunsenbrenner, Ersatzlampe
+    real('binder_notebook', P(T2.x + 1.78, ty2, T2.z + 0.22, 0.25), { node: 'closed' });
+    real('office_notepads', P(T2.x - 0.48, ty2, T2.z - 0.3, -0.2), { node: 'yellow_pad' });
+    real('office_notepads', P(T2.x + 0.02, ty2, T2.z + 0.3, 0.4), { node: 'sticky_stack' });
+    real('round_spectacles', P(T2.x + 0.62, ty2, T2.z + 0.3, 2.6));
+    real('wooden_bowl_01', P(T2.x - 2.3, ty2, T2.z - 0.22, 0.4), { scale: 0.85 });
+    real('alarm_clock_01', P(T2.x + 1.55, ty2, T2.z + 0.06, Math.PI + 0.3));
+    real('bunsen_burner', P(T2.x - 0.62, ty2, T2.z - 0.3, 0.7));
+    real('lightbulb_led', mat(T2.x + 2.05, ty2 + 0.03, T2.z + 0.25, 0, 0.8, Math.PI / 2));
+    // Fensterbänke (BOKU): Anzuchtschalen, Tontopf, Gießkanne, Fernglas, Vase
+    const sill = (k, dz) => [LY.ROOM.x0 + 0.22, LY.WINDOWS.y0 - 0.02, LY.WINDOWS.list[k] + dz];
+    { const [x, y, z] = sill(0, -0.65); real('seeding_tray_01', P(x, y, z, 0.1)); }
+    { const [x, y, z] = sill(0, -0.4); real('seeding_tray_01', P(x, y, z, 1.7)); }
+    { const [x, y, z] = sill(0, -0.12); real('planter_pot_clay', P(x, y, z, 0.6), { scale: 0.75 }); }
+    { const [x, y, z] = sill(0, 0.18); real('watering_can_metal_01', P(x, y, z, 0.2)); }
+    { const [x, y, z] = sill(1, 0.1); real('binoculars', P(x, y, z, 2.3)); }
+    { const [x, y, z] = sill(2, -0.05); real('ceramic_vase_03', P(x, y, z, 0.4), { scale: 0.8 }); }
+    // Saalausstattung: Brandschutz, Haustechnik, Hausapparat
+    real('korean_fire_extinguisher_01', P(LY.ROOM.x1 - 0.2, 0, LY.FRONT_PASSAGE.z0 + 0.42, -Math.PI / 2), { scale: 0.95 });
+    real('vintage_telephone_wall_clock', mat(LY.ROOM.x1 - 0.02, 1.45, LY.FRONT_PASSAGE.z0 + 0.5, 0, -Math.PI / 2, 0), { scale: 0.8, cast: false });
+    real('fire_alarm', mat(LY.ROOM.x1 - 0.02, LY.PODIUM.h + 1.45, LY.FRONT_DOOR.z + 0.75, 0, -Math.PI / 2, 0), { cast: false });
+    real('fire_alarm', mat(LY.BACK_DOOR.x - 0.85, LY.BACK_FLOOR + 1.45, LY.ROOM.z1 - 0.02, 0, Math.PI, 0), { cast: false });
+    real('power_box_01', mat(0.95, LY.BACK_FLOOR + 1.25, LY.ROOM.z1 - 0.02, 0, Math.PI, 0), { scale: 0.85 });
+    real('utility_box_01', P(LY.ROOM.x0 + 0.4, LY.BACK_FLOOR, LY.ROOM.z1 - 0.24, Math.PI));
+    if (opts.weather === 'rain') real('WetFloorSign_01', P(LY.BACK_DOOR.x - 0.45, LY.BACK_FLOOR, LY.ROOM.z1 - 0.55, 2.6));
+    // Rückwand: Schubladenschrank mit Fernseher und Büchern, Wandregal mit Kisten, Hocker
+    real('drawer_cabinet', P(1.55, LY.BACK_FLOOR, LY.ROOM.z1 - 0.25, Math.PI));
+    real('television_02', P(1.55, LY.BACK_FLOOR + 1.12, LY.ROOM.z1 - 0.3, Math.PI + 0.15), { scale: 0.8 });
+    real('book_encyclopedia_set_01', P(1.55, LY.BACK_FLOOR + 1.46, LY.ROOM.z1 - 0.27, Math.PI), { scale: 0.7 });
+    real('Shelf_01', P(2.72, LY.BACK_FLOOR, LY.ROOM.z1 - 0.14, Math.PI));
+    real('plastic_crate_02', P(2.72, LY.BACK_FLOOR + 0.14, LY.ROOM.z1 - 0.16, Math.PI), { scale: 0.5 });
+    real('wicker_basket_02', P(2.72, LY.BACK_FLOOR + 0.66, LY.ROOM.z1 - 0.15, Math.PI + 0.2), { scale: 0.7 });
+    real('binder_notebook', P(2.72, LY.BACK_FLOOR + 1.22, LY.ROOM.z1 - 0.14, Math.PI / 2), { node: 'closed', scale: 1 });
+    real('metal_stool_02', P(0.4, LY.BACK_FLOOR, LY.ROOM.z1 - 0.5, 0.5));
+    real('wooden_crate_02', P(-3.05, LY.BACK_FLOOR, LY.ROOM.z1 - 0.32, Math.PI / 2), { scale: 0.85 });
+    // vorne links (Fensterseite): Beistelltisch mit Pflanze, Gästestuhl; Mausefalle in der Ecke; Reiniger beim Besen
+    real('side_table_01', P(LY.ROOM.x0 + 0.42, LY.PODIUM.h, LY.PODIUM.z1 - 0.32, 0.1));
+    real('anthurium_botany_01', P(LY.ROOM.x0 + 0.42, LY.PODIUM.h + 0.555, LY.PODIUM.z1 - 0.32, 0.6), { node: 'anthurium_botany_01_c', scale: 0.8 });
+    real('plastic_monobloc_chair_01', P(LY.ROOM.x0 + 1.05, LY.PODIUM.h, LY.PODIUM.z1 - 0.35, 0.35));
+    real('mousetrap', P(LY.ROOM.x0 + 0.16, LY.PODIUM.h, LY.ROOM.z0 + 0.15, 0.6));
+    real('all_purpose_cleaner', P(LY.ROOM.x1 - 0.22, LY.PODIUM.h, LY.ROOM.z0 + 0.7, 0.4));
+    // Bilder an der Vertäfelung (rechts)
+    real('hanging_picture_frame_01', mat(LY.ROOM.x1 - 0.02, LY.floorAt(4.0, 1.4) + 1.75, 1.4, 0, -Math.PI / 2, 0), { scale: 0.9, cast: false });
+    real('hanging_picture_frame_03', mat(LY.ROOM.x1 - 0.02, LY.floorAt(4.0, 3.3) + 1.8, 3.3, 0, -Math.PI / 2, 0), { cast: false });
+    real('fancy_picture_frame_01', mat(LY.ROOM.x1 - 0.02, 2.15, -2.3, 0, -Math.PI / 2, 0), { cast: false });
   }
   const meshes = B.build(scene, 'props');
   // Studi-Bildschirme: dezentes Flimmern der Emission (Videos, Scrollen)
