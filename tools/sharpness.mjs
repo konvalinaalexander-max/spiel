@@ -124,7 +124,7 @@ for (const dpr of dprs) {
       const big = await sharp(png).resize({ width: Math.round(clip.width * dpr * 3), kernel: 'lanczos3' }).greyscale().png().toBuffer();
       const { data } = await worker.recognize(big); ocrText = data.text; ocr = recall(r.truth, ocrText);
     }
-    const row = { label, view: v, dpr, canvasDpr: info.dprCanvas, pxW: Math.round(clip.width * dpr), pxH: Math.round(clip.height * dpr), laplace: +lv.toFixed(1), ocr: ocr == null ? null : +(ocr * 100).toFixed(1), words: words(r.truth).length, file };
+    const row = { label, q, view: v, dpr, canvasDpr: info.dprCanvas, pxW: Math.round(clip.width * dpr), pxH: Math.round(clip.height * dpr), laplace: +lv.toFixed(1), ocr: ocr == null ? null : +(ocr * 100).toFixed(1), words: words(r.truth).length, file };
     results.push(row);
     lap(`${v} DPR ${dpr}: ${row.pxW}×${row.pxH} px, Laplace ${row.laplace}, OCR ${row.ocr ?? '–'} % (${row.words} Wörter)`);
     if (args.debug) fs.writeFileSync(path.join(outDir, `${label}_${v}_dpr${dpr}.txt`), `QUELLTEXT:\n${r.truth}\n\nOCR:\n${ocrText}`);

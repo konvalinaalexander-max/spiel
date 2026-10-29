@@ -28,7 +28,7 @@ gebracht (bilinear hochskaliert, wenn der Puffer kleiner ist als der Bildschirm 
 |---|---|${labels.map(() => '---|').join('')}---|---|
 `;
 for (const v of Object.keys(VIEWS)) for (const dpr of [1, 2]) {
-  const cells = labels.map(l => { const r = get(l, v, dpr); return r ? `${r.pxW}×${r.pxH} · ${de(r.laplace, 0)} · ${r.ocr == null ? '–' : de(r.ocr) + ' %'}` : '–'; });
+  const cells = labels.map(l => { const r = get(l, v, dpr); return r ? `${r.pxW}×${r.pxH} · ${de(r.laplace, 0)} · ${r.ocr == null ? '–' : de(r.ocr) + ' %'}${r.q && r.q !== 'medium' ? ' *' : ''}` : '–'; });
   const a = get(base, v, dpr), b = get(labels[labels.length - 1], v, dpr);
   const f = a && b && labels.length > 1 ? de(b.laplace / a.laplace, 2) + ' ×' : '–';
   md += `| ${VIEWS[v]} | ${dpr} | ${cells.join(' | ')} | ${f} | ${TARGET[v] ? '≥ ' + TARGET[v] + ' %' : '–'} |\n`;

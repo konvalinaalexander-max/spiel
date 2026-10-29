@@ -1,0 +1,64 @@
+{
+ "label": "v3",
+ "html": "dist/BOKU_TicTacTierernaehrung_v3.html",
+ "q": "medium",
+ "viewport": [
+  1920,
+  1080
+ ],
+ "date": "2026-10-29",
+ "results": [
+  {
+   "label": "v3",
+   "view": "K1",
+   "dpr": 1,
+   "canvasDpr": 1,
+   "pxW": 508,
+   "pxH": 338,
+   "laplace": 4289.8,
+   "ocr": 88.9,
+   "words": 45,
+   "file": "v3_K1_dpr1.png",
+   "q": "medium"
+  },
+  {
+   "label": "v3",
+   "view": "K2",
+   "dpr": 1,
+   "canvasDpr": 1,
+   "pxW": 1383,
+   "pxH": 856,
+   "laplace": 1257.4,
+   "ocr": 98.1,
+   "words": 206,
+   "file": "v3_K2_dpr1.png",
+   "q": "medium"
+  },
+  {
+   "label": "v3",
+   "view": "K3",
+   "dpr": 1,
+   "canvasDpr": 1,
+   "pxW": 471,
+   "pxH": 183,
+   "laplace": 611.8,
+   "ocr": null,
+   "words": 0,
+   "file": "v3_K3_dpr1.png",
+   "q": "medium"
+  },
+  {
+   "label": "v3",
+   "view": "K4",
+   "dpr": 1,
+   "canvasDpr": 1,
+   "pxW": 1304,
+   "pxH": 862,
+   "laplace": 1232.2,
+   "ocr": 95.6,
+   "words": 45,
+   "file": "v3_K4_dpr1.png",
+   "q": "medium"
+  }
+ ]
+}
