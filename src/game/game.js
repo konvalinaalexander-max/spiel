@@ -323,6 +323,7 @@ export class Game {
     const spos = st ? st.c.headWorld(V()) : null;
     switch (d.kind) {
       case 'micThump': A.play('micThump', { gain: 0.6 }); break;
+      case 'chalkSqueak': { const B = this.board || {}; A.play('chalkScratch', { pos: B.penWorld || V(LY.BOARD.x, LY.BOARD.lowY + 0.6, LY.BOARD.zFront), gain: 0.9, rate: 2.6, ref: 2 }); break; }   // echte Kreideaufnahme, höher gespielt
       case 'micFeedback': A.play('micFeedback', { gain: 0.35 }); C.lookAll(V(LY.LECTERN.x, 2.5, LY.LECTERN.z), 1.5, 0.5); break;
       case 'latecomer': A.play('doorOpen', { pos: V(LY.BACK_DOOR.x, LY.BACK_FLOOR + 1, LY.BACK_DOOR.z), gain: 0.8 }); C.latecomerEnter(); setTimeout(() => A.play('doorClose', { pos: V(LY.BACK_DOOR.x, LY.BACK_FLOOR + 1, LY.BACK_DOOR.z), gain: 0.6 }), 2500); C.lookAll(V(LY.BACK_DOOR.x, LY.BACK_FLOOR + 1.6, LY.BACK_DOOR.z), 2.5, 0.6); this._lateT = 0; break;
       case 'handRaise': C.handRaise(d.who, true); break;

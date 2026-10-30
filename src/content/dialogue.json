@@ -1304,6 +1304,38 @@
      "Deshalb wird Katzenfutter mit Taurin ergänzt, und deshalb ist Hundefutter für Katzen auf Dauer keine gute Idee."
     ]
    }
+  ],
+  "gag_kreide_1": [
+   "Hören Sie das Quietschen? Das ist meine Kreide. Die quietscht nur, wenn's wichtig wird.",
+   "Moment – die Kreide quietscht. Merken Sie sich das: Wenn die Kreide quietscht, ist es prüfungsrelevant.",
+   "Diese Kreide hab ich seit zweitausendneun. Die quietscht genau dann, wenn ich was Gescheites schreibe.",
+   "Entschuldigung für das Quietschen. Die Kreide und ich sind uns nicht immer einig, was wichtig ist.",
+   "Das ist übrigens meine eigene Kreide. Die vom Haus quietscht nicht – aber die schreibt auch nichts Gescheites.",
+   "Die Kreide quietscht. Ein gutes Zeichen, dann hat sie verstanden, worum's geht."
+  ],
+  "gag_kreide_2": [
+   "Schon wieder quietscht sie. Ich glaub, die Kreide will auch zur Prüfung antreten.",
+   "Hören Sie's? Prüfungsrelevantes Quietschen. Ich hab Sie gewarnt.",
+   "Die Kreide quietscht zum zweiten Mal heute. Beim dritten Mal kommt's ins Skriptum.",
+   "Na bitte, die Kreide meldet sich wieder. Wer mitzählt, kriegt einen Bonuspunkt. Scherz.",
+   "Quietschen Nummer zwei. Wenn das so weitergeht, braucht die Kreide einen eigenen Sitzplatz.",
+   "Sie quietscht schon wieder. Die Kreide hat heute offenbar ihren fleißigen Tag."
+  ],
+  "gag_kreide_3": [
+   "Drittes Quietschen. Sie wissen eh: Die Kreide und die Prüfung, das gehört zusammen.",
+   "Und da ist es wieder. Wenn Sie heute nur eine Sache mitnehmen: Hören Sie auf die Kreide.",
+   "Ich glaub, ich nehm die Kreide nächstes Semester als Tutorin.",
+   "Dreimal gequietscht. Den Rekord hat sie letztes Jahr bei der Weender Analyse aufgestellt.",
+   "Die Kreide hat entschieden: Das kommt zur Prüfung. Ich widersprech ihr nicht.",
+   "Noch einmal Quietschen. Ich geb auf, die Kreide hat recht."
+  ],
+  "gag_kreide_end": [
+   "Und wenn Sie heute Nacht ein Quietschen hören: Das ist der Stoff, der sich setzt. Schönen Abend.",
+   "Die Kreide bedankt sich für Ihre Aufmerksamkeit. Ich mich auch.",
+   "Meine Kreide kommt nächste Woche wieder mit. Sie hoffentlich auch.",
+   "Die Kreide hat heute brav gearbeitet. Sie auch, hoff ich.",
+   "Merken Sie sich die Stellen, wo die Kreide gequietscht hat. Mehr verrat ich nicht.",
+   "Die Kreide geht jetzt zurück in ihre Dose. Und Sie in die Mensa, nehm ich an."
   ]
  },
  "en": {
@@ -2667,6 +2699,38 @@
      "That's why cat food is supplemented with taurine, and why dog food isn't a good long-term option for cats."
     ]
    }
+  ],
+  "gag_kreide_1": [
+   "Hear that squeak? That's my chalk. It only squeaks when things get important.",
+   "One moment – the chalk is squeaking. Rule of thumb: when the chalk squeaks, it's on the exam.",
+   "I've had this piece of chalk since two thousand and nine. It squeaks precisely when I write something sensible.",
+   "Sorry about the squeak. The chalk and I don't always agree on what matters.",
+   "This is my own chalk, by the way. The university's chalk doesn't squeak – but it doesn't write anything clever either.",
+   "The chalk is squeaking. Good sign – it means it got the point."
+  ],
+  "gag_kreide_2": [
+   "Squeaking again. I think the chalk wants to sit the exam too.",
+   "Did you hear that? Exam-relevant squeaking. You have been warned.",
+   "Second squeak of the day. One more and it goes into the lecture notes.",
+   "There it is again. Whoever's counting gets a bonus point. Just kidding.",
+   "Squeak number two. At this rate the chalk will need its own seat.",
+   "Another squeak. The chalk is clearly having a productive day."
+  ],
+  "gag_kreide_3": [
+   "Third squeak. You know the drill by now: the chalk and the exam go together.",
+   "And there it is again. If you remember one thing today: listen to the chalk.",
+   "I think I'll hire this chalk as a tutor next semester.",
+   "Three squeaks. That's the record it set last year during the Weende analysis.",
+   "The chalk has spoken: this is on the exam. I'm not going to argue with it.",
+   "One more squeak. I give up – the chalk is right."
+  ],
+  "gag_kreide_end": [
+   "And if you hear a squeak tonight: that's the material settling in. Have a good evening.",
+   "The chalk thanks you for your attention. So do I.",
+   "My chalk will be back next week. I hope you will be too.",
+   "The chalk worked hard today. I hope you did as well.",
+   "Remember where the chalk squeaked. That's all I'm saying.",
+   "The chalk goes back into its tin now. And you to the cafeteria, I assume."
   ]
  }
 }

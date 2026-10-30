@@ -52,6 +52,7 @@ Prof. Haferkorn ist **frei erfunden**. Keine Ähnlichkeit mit realen Personen, k
 | `gras` | „Gras ist kein Futtermittel, Gras ist ein Zustand.“ | wird von ihm bei jedem „Gras“ aus dem Saal korrigiert |
 | `pruefung` | „Das kommt zur Prüfung.“ | jedes Mal mit anderem Nachsatz, am Schluss Selbstbezug |
 | `rosi` | seine Kindheitskuh Rosi | Milchleistung damals (≈ 4 000 kg) vs. heute (≈ 8 000–10 000 kg) – mit Respekt vor beiden |
+| `kreide` | seine eigene Kreide (seit 2009) quietscht „nur bei Wichtigem“ | beim Tafelanschrieb: 1. „quietscht nur, wenn's wichtig wird“ → 2. „prüfungsrelevantes Quietschen“ → 3. „ich nehm die Kreide als Tutorin“ → Schluss: „Wenn Sie heute Nacht ein Quietschen hören: Das ist der Stoff, der sich setzt.“ (echtes Kreidegeräusch, höher gespielt) |
 
 ## 5. Tabus
 

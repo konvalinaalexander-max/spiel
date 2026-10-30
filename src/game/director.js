@@ -164,7 +164,8 @@ export class Director {
       q.push({ type: 'slide', kind: 'end' });
       q.push({ type: 'say', key: 'closing', look: 'class', gesture: 'open' });
       if (this.mem.gags.rudi && this.rng.chance(0.6)) q.push({ type: 'say', key: 'gag_rudi_bye', look: 'class' });
-      if (this.mem.gags.mensa && this.rng.chance(0.5)) q.push({ type: 'say', key: 'gag_mensa_end', look: 'class' });
+      if (this.mem.gags.kreide >= 2 && this.rng.chance(0.5)) q.push({ type: 'say', key: 'gag_kreide_end', look: 'class' });
+      else if (this.mem.gags.mensa && this.rng.chance(0.5)) q.push({ type: 'say', key: 'gag_mensa_end', look: 'class' });
       else if (this.mem.gags.bus40a && this.rng.chance(0.5)) q.push({ type: 'say', key: 'gag_bus40a_end', look: 'class' });
       q.push({ type: 'say', key: 'exam_info', look: 'class', gesture: 'count' });
       q.push({ type: 'say', key: 'slides_online', look: 'class' });
@@ -341,6 +342,11 @@ export class Director {
       const block = this.L(s.sec).board.find(x => x.id === s.b.board);
       s.write = this._boardWrite({ lines: block ? block.lines : [], inline: true });
       this._startBeatSpeech(s);
+      // Running Gag „Kreide“: seine eigene Kreide quietscht nur bei Wichtigem (höchstens dreimal, mit Abstand)
+      const kg = this.mem.gags.kreide || 0;
+      if (kg < 3 && this.t - (this.mem.kreideT ?? -1e9) > Math.max(90, this.total / 6) && this.rng.chance(kg ? 0.4 : 0.55) && this.D().gag_kreide_1) {
+        this.mem.kreideT = this.t; this.queue.splice(0, 0, { type: 'event', name: 'chalk_squeak' });
+      }
     }
     if (s.speaking) { s.speakT += dt; if (s.speakT >= s.dur && !this.ctx.busy()) s.speaking = false; }
     if (s.write && !s.write.done) { this._updateBoard(dt, s.write); return false; }
@@ -645,6 +651,10 @@ export class Director {
       case 'clicker_fail':
         seq([act(() => this.out('clicker', {})), wait(1.1), act(() => this.out('clicker', {})), wait(0.8), act(() => this._look('screen')),
           { start: () => { this._qd = say(this._gagKey('beamer'), { kind: 'joke' }); this._gagDone('beamer'); }, done: t => t >= (this._qd || 0) && !this.ctx.busy() }, act(() => this.out('clicker', {})), wait(0.5)]);
+        break;
+      case 'chalk_squeak':
+        seq([act(() => this.out('fx', { kind: 'chalkSqueak' })), wait(0.7), act(() => this._look('class')),
+          { start: () => { this._qd = say(this._gagKey('kreide'), { kind: 'joke' }); this._gagDone('kreide'); }, done: t => t >= (this._qd || 0) && !this.ctx.busy() }, ...react()]);
         break;
       case 'gras_callout': {
         const who = this.rng.pick(pop.students);

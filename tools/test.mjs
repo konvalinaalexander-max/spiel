@@ -135,6 +135,22 @@ test('≥14 Abschnitte, ≥40 Quizfragen, ≥8 Rechenbeispiele', () => {
   ok(secs.length >= 14 && quiz >= 40 && calcs >= 8, `${secs.length} Abschnitte, ${quiz} Fragen, ${calcs} Rechnungen`);
 });
 
+test('Dialog: ≥ 1 500 Sätze je Sprache, ≥ 60 Anekdoten, ≥ 8 Running Gags, ≥ 6 Varianten je Ereignis', () => {
+  const dlg = JSON.parse(fs.readFileSync(path.join(root, 'src/content/dialogue.json'), 'utf8'));
+  const secs = fs.readdirSync(path.join(root, 'src/content/sections')).filter(f => f.endsWith('.json')).map(f => JSON.parse(fs.readFileSync(path.join(root, 'src/content/sections', f), 'utf8')));
+  const strings = o => (typeof o === 'string' ? (o.trim() ? 1 : 0) : Array.isArray(o) ? o.reduce((a, x) => a + strings(x), 0) : o && typeof o === 'object' ? Object.values(o).reduce((a, x) => a + strings(x), 0) : 0);
+  for (const lang of ['de', 'en']) {
+    const n = strings(dlg[lang]) + secs.reduce((a, sc) => a + strings((sc[lang].beats || []).map(b => b.variants)) + strings((sc.asides || []).map(x => x[lang])), 0);
+    ok(n >= 1500, `${lang}: nur ${n} Sätze`);
+    const few = Object.entries(dlg[lang]).filter(([, v]) => Array.isArray(v) && v.length < 6).map(([k]) => k);
+    ok(!few.length, `${lang}: weniger als 6 Varianten: ${few.join(', ')}`);
+  }
+  const anec = secs.reduce((a, sc) => a + (sc.asides || []).filter(x => x.kind === 'anecdote').length, 0) + (dlg.de.joke || []).length;
+  ok(anec >= 60, `nur ${anec} Anekdoten`);
+  const gags = new Set(Object.keys(dlg.de).filter(k => k.startsWith('gag_')).map(k => k.split('_')[1]));
+  ok(gags.size >= 8, `nur ${gags.size} Running Gags: ${[...gags]}`);
+});
+
 if (!args.includes('--quick')) {
   console.log('Regie & Simulation');
   const { runOne } = await import('./sim.mjs');
@@ -145,6 +161,12 @@ if (!args.includes('--quick')) {
     ok(['intro', 'part1', 'break', 'part2', 'closing'].every(p => phases.has(p)), 'Phasen: ' + [...phases]);
     const types = new Set(events.filter(e => e.type === 'event').map(e => e.d.name));
     ok(types.size >= 10, 'nur ' + types.size + ' Ereignistypen: ' + [...types]);
+  });
+  test('Keine Wiederholung eines Prof-Satzes innerhalb einer Vorlesung (10 simulierte Vorlesungen)', () => {
+    for (let i = 0; i < 10; i++) {
+      const { events } = runOne('bachelor', 500 + i, { log: true }); const seen = new Set();
+      for (const e of events) if (e.type === 'say' && e.d.speaker === 'prof') { ok(!seen.has(e.d.text), `Vorlesung ${i}: „${e.d.text.slice(0, 60)}“ doppelt`); seen.add(e.d.text); }
+    }
   });
   test('Normale Vorlesung dauert ±5 % der Sollzeit', () => { const { s } = runOne('erstsemester', 3, {}); ok(Math.abs(s.t - s.seconds) / s.seconds < 0.05, `t=${s.t.toFixed(0)} soll=${s.seconds}`); });
   test('Wer nie spielt, wird nie erwischt (Diplom)', () => {
