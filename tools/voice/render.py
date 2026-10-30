@@ -38,6 +38,9 @@ rank = {k: i for i, k in enumerate(ORDER)}
 # Reihenfolge: Ereignis-Sätze, Fragen, Werte, Titel, Anekdoten, dann Lehrsätze (je Takt zuerst Variante 0, dann 1, 2)
 clips.sort(key=lambda c: (LANGS.index(c['lang']), c.get('vi', 0) if c['kind'] == 'lecture' else -1, rank.get(c['kind'], 99), SPEAKERS.index(c['speaker'])))
 if LIMIT: clips = clips[:LIMIT]
+# Aufteilung auf mehrere Prozesse (--shard k/n): jeder rendert jede n-te offene Aufnahme in seinen eigenen VOICE_OUT-Ordner;
+# tools/voice/sync.py führt die Ordner zusammen. Auf 4 CPU-Kernen liefern 2 Prozesse × 2 Threads mehr als 1 × 4.
+SHARD = opt('shard')
 
 
 def manifest_path(lang): return os.path.join(OUT, lang, 'manifest.json')
@@ -57,6 +60,7 @@ def main():
     import soundfile as sf
     man = {l: load_manifest(l) for l in LANGS}
     todo = [c for c in clips if c['id'] not in man[c['lang']]]
+    if SHARD: k, n = map(int, SHARD.split('/')); todo = todo[k::n]
     print(f'{len(todo)} von {len(clips)} Aufnahmen offen', flush=True)
     t0 = time.time(); audio = 0.0
     for i, c in enumerate(todo):
