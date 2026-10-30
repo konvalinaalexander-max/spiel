@@ -1,23 +1,56 @@
 # Performance
 
-## Version 3: Szene, Budgets, Speicher (Stand Lieferung B in Arbeit)
+## Version 3 – Endfassung (gemessen am 30.10.2026)
 
-Gemessen headless (SwiftShader, Stufe „Mittel“, Sitzplatz Reihe 5) mit einem Szenen-Zähler über alle sichtbaren Meshes.
+Messung: `node tools/perf-table.mjs` (Desktop-Datei) bzw. `--url http://…/index.html` (Mobil-Fassung über HTTP wie auf Pages),
+1280 × 720, Sitzplatz Reihe 5, Software-Renderer (siehe „Messumgebung“). Draw Calls und Dreiecke zählen **ein ganzes Bild**:
+Schattenkaskaden, Hauptbild und Nachbearbeitung. Rohdaten: `docs/perf_v3.json`, `docs/perf_mobile.json`.
 
-| Größe | Wert | Budget „Mittel“ | Maßnahme |
-|---|---|---|---|
-| sichtbare Dreiecke | ≈ 0,66 Mio. | – | Menge mit Detailstufe 1 (≈ 30 % der Dreiecke) außer den direkten Sitznachbar:innen |
-| Schattenwerfer | ≈ 0,41 Mio. | – | Schatten nur für Figuren in der Nähe des eigenen Platzes |
-| Dreiecke je Bild (Hauptpass + 2 Kaskaden) | ≈ 1,5 Mio. | ≤ 1,5 Mio. | vorher ≈ 3,5 Mio.; die Menge allein hatte 0,7 Mio. sichtbar |
-| Requisiten | 30 Modelle, verschmolzen je Material | – | Batcher: gleiches Material = ein Draw Call |
-| Desktop-Datei | ≈ 52 MB + Stimmen-Begleitdateien | ≤ 80 MB (Ziel) | Stimmen ausgelagert (GitHub-Grenze 100 MB je Datei) |
-| Mobil-Kern | ≈ 23 MB | ≤ 30 MB | Profil `mobile`: Atlanten und Texturen halbiert, Stimmen bei Bedarf |
+**Desktop** (`dist/BOKU_TicTacTierernaehrung_v3.html`)
 
-**Speicher im Test-Container:** Bei 3840 × 2160 Pixeln (DPR 2) wird der Software-Renderer wegen Speichermangel beendet. Auf echten
-Grafikchips gilt das nicht; die Grenze betrifft nur die Messung (`docs/SCHAERFE.md`).
+| Stufe | Draw Calls Zuhören / Laptop | Dreiecke je Bild | Geometrien | Texturen | Shader-Programme | JS-Heap | Ladezeit* | Bildzeit* |
+|---|---|---|---|---|---|---|---|---|
+| Niedrig | 154 / 144 | 0,77 Mio. | 166 | 238 | 183 | 711 MB | 40 s | 57 ms |
+| **Mittel** | **246 / 242** | **1,13 Mio.** | 170 | 276 | 206 | 714 MB | 42 s | 44 ms |
+| Hoch | 326 / 323 | 1,72 Mio. | 171 | 283 | 209 | 713 MB | 78 s | 65 ms |
+| Ultra | 323 / 320 | 2,11 Mio. | 169 | 279 | 208 | 710 MB | 78 s | 88 ms |
+
+**Mobil** (`dist/mobile/`, Automatik höchstens „Niedrig“)
+
+| Stufe | Draw Calls Zuhören / Laptop | Dreiecke je Bild | Geometrien | Texturen | Shader-Programme | JS-Heap | Ladezeit* | Bildzeit* |
+|---|---|---|---|---|---|---|---|---|
+| **Niedrig** | **116 / 109** | **0,36 Mio.** | 148 | 198 | 166 | 357 MB | 32 s | 22 ms |
+| Mittel (nur von Hand) | 166 / 169 | 0,49 Mio. | 152 | 236 | 189 | 383 MB | 35 s | 39 ms |
+
+\* Software-Renderer auf 4 CPU-Kernen: nur relativ vergleichbar, auf echter Grafikhardware um ein Vielfaches schneller.
+
+| Budget (Auftrag V3) | Ziel | Stand |
+|---|---|---|
+| „Mittel“ Desktop | ≤ 250 Draw Calls, ≤ 1,5 Mio. Dreiecke | **246**, **1,13 Mio.** ✓ |
+| Mobil | ≤ 120 Draw Calls, ≤ 400 k Dreiecke | **116**, **357 k** ✓ |
+| Figuren | ≤ 12 Draw Calls Desktop / ≤ 6 Mobil | **7** / **5** ✓ |
+| Desktop-Datei | ≤ 80 MB | **73,0 MB** + Stimmen als Begleitdateien (Deutsch 64,0 MB, Englisch 36,8 MB, Base64) ✓ |
+| Mobil-Kern (vorab gespeichert) | ≤ 30 MB | **28,5 MB** ✓ (Stimmen werden beim Abspielen geladen: Deutsch 45,4 MB, Englisch 26,2 MB) |
+
+**Speicher:** Der JS-Heap der Desktop-Datei liegt bei rund 0,7 GB, weil alle Daten (Figuren, Texturen, Requisiten, Licht, Klänge)
+eingebettet in der HTML-Datei stecken und beim Start dekodiert werden; über die Vorlesung bleibt er flach (gemessen über 4 Minuten
+Vorlesungszeit: 706 → 725 MB). Die Mobil-Fassung lädt Dateien einzeln und braucht die Hälfte. Seit der Endfassung hält die
+Stimme höchstens 48 dekodierte Aufnahmen im Speicher (vorher wuchs der Puffer über die ganze Vorlesung).
+
+**Shader-Programme:** Mit Lightmaps, Atlas-Materialien und den Figuren sind es rund 200 Programme (Version 2: ≈ 110). Sie werden
+beim Laden vorkompiliert – parallel, wo der Treiber `KHR_parallel_shader_compile` anbietet –, damit es beim ersten Umschauen nicht
+ruckelt.
+
+**Speicher im Test-Container:** Bei 3840 × 2160 Pixeln (DPR 2) und im Laptop-Blick bei 1920 × 1080 wird der Software-Renderer wegen
+Speichermangel beendet. Auf echten Grafikchips gilt das nicht; die Grenze betrifft nur die Messung (`docs/SCHAERFE.md`).
 
 **Tafel:** Teil-Uploads der Kreideschrift und das Nachziehen der Mipmaps laufen nur noch direkt vor einem gezeichneten Bild
 (vorher in jedem Simulationsschritt). Das spart im Spiel GPU-Arbeit und verhinderte im Headless-Test ein Speicherleck.
+
+**Weg zu den Budgets:** Requisiten in einem gemeinsamen Texturatlas (73 Materialien → 1 Atlasseite), Glas ohne
+Transmissionsdurchgang, Echtzeitschatten nur für Möbelgroßes, Wände und Figuren, Figuren mit einem Material je Atlas:
+„Mittel“ 706 → 246 Draw Calls. Mobil zusätzlich: Echtzeitschatten nur von Wänden, Rollos und Menschen, weniger Kleinkram auf den
+Pulten, Außenwelt ohne Modelle, engere Detailstufen der Menge (154 → 116 Draw Calls, 0,77 → 0,36 Mio. Dreiecke).
 
 ## Messumgebung – ehrlich vorweg
 
@@ -30,6 +63,8 @@ nicht direkt verifiziert werden; die Budgets unten sind so gewählt, dass es nac
 Messung: `node tools/phaseshots.mjs --only presets` → `docs/perf_presets.json` (identische Kamera am Sitzplatz Reihe 5/Platz 8,
 Prof schreibt an die Tafel, 1280 × 720; zusätzlich Laptop-Blick). „Calls“ zählt **alle** Passes eines Bildes: Schattenkaskaden,
 Hauptbild und Post-Stack.
+
+**Zwischenstand vom 28.10.2026** (vor Rocketbox-Figuren, Requisiten-Atlas und Lightmaps; Werkzeug `tools/phaseshots.mjs --only presets`):
 
 <!--PERF-TABLE-->
 | Stufe | Blick | Draw Calls | Dreiecke | Geometrien | Texturen | Shader-Programme | Bildzeit SwiftShader* |

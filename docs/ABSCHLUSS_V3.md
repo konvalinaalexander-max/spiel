@@ -30,14 +30,14 @@ offline per Download der HTML-Datei (README, Abschnitt „Spielen“).
 | Dialog | ≥ 1 500 Sätze je Sprache, ≥ 60 Anekdoten, ≥ 8 Running Gags, ≥ 6 Varianten, 0 Wiederholungen | **DE 1 560, EN 1 616**, 64 Anekdoten/Witze, **8 Running Gags**, alle 101 Ereignisse mit ≥ 6 Varianten, 0 Wiederholungen in 10 simulierten Vorlesungen | `npm test` |
 | Stimme | menschliche Qualität, 100 % (laut Auftraggeber: Deutsch reicht) | <!--VOICE-->**Deutsch 100 %: 1 697 von 1 697 Aufnahmen** (XTTS v2, 45,4 MB, ≤ −1 dBTP)<!--/VOICE-->; Englisch: Kokoro-82M, 1 193 von 1 622 Prof-Sätzen, Rest Untertitel; 0 Browser-TTS | `docs/AUDIO.md`, `docs/audio/beispiele/` |
 | Klang | 0 synthetische Quellen (außer ≤ 5 UI-Töne), ≥ 120 Clips | 151 echte Aufnahmen für 72 Klänge, 5 synthetische Laptop-Signaltöne | `docs/AUDIO.md`, `tools/audio-check.mjs` |
-| Desktop-Build | ≤ 80 MB | **71 MB** (+ Stimmen als Begleitdateien) | `dist/SHA256.txt` |
-| Mobil-Build | ≤ 30 MB, PWA | **Kern 27,9 MB**, Manifest, Service Worker | `npm test` |
+| Desktop-Build | ≤ 80 MB | **73,0 MB** (+ Stimmen als Begleitdateien) | `dist/SHA256.txt` |
+| Mobil-Build | ≤ 30 MB, PWA | **Kern 28,5 MB**, Manifest, Service Worker; Automatik höchstens „Niedrig“ | `npm test` |
 | Leistung „Mittel“ | ≤ 250 Draw Calls, ≤ 1,5 Mio. Dreiecke | **246**, **1,13 Mio.** (je Bild inkl. Schatten und Nachbearbeitung) | `docs/PERFORMANCE.md` |
 | Leistung Mobil | ≤ 120 Draw Calls, ≤ 400 k Dreiecke | **116**, **357 k** | `docs/PERFORMANCE.md` |
 | Figuren Draw Calls | ≤ 12 Desktop / ≤ 6 Mobil | **7** / **5** | `docs/PERFORMANCE.md` |
 | Touch | automatisierter Durchlauf | **bestanden** (Start → Laptop → Feld → Mitschreiben → Quiz → Ende, 0 Konsolenfehler) | `docs/touch-e2e.json` |
 | Dauerlauf | 10 Vorlesungen ohne Fehler | <!--SOAK-->folgt<!--/SOAK--> | `docs/soak.json` |
-| Tests | alle grün | <!--TESTS-->36 Tests grün<!--/TESTS--> | `npm test` |
+| Tests | alle grün | <!--TESTS-->**38 von 38 grün** (inkl. Browser-Test: Start ohne Konsolenfehler, Stimme spricht in der Sprache der Oberfläche)<!--/TESTS--> | `npm test` |
 | Balancing | Bachelor 45–60 %, monoton | **86 / 54 / 28 / 16 %** (80 Läufe je Stufe, echtes Sprechtempo) | `docs/BALANCING.md` |
 
 ## Was in dieser Runde dazukam (Rückmeldungen des Auftraggebers)
@@ -47,6 +47,11 @@ offline per Download der HTML-Datei (README, Abschnitt „Spielen“).
 2. **Haar der Frau („metallener Schädel“):** Ursache nach innen zeigende Normalen der Haarkarten → behoben.
 3. **„Deutsch reicht“:** Deutsch wird vollständig vertont, Englisch bleibt Textfassung mit den vorhandenen Aufnahmen.
 4. **„Wie spiele ich?“:** GitHub-Pages-Veröffentlichung vom Standard-Branch (Spielen im Browser ohne Download), README vereinfacht.
+5. **Fehler aus der Endprüfung behoben:** (a) Bei englischer Oberfläche blieb die Vorlesung stumm (Audio-Engine suchte in den
+   deutschen Aufnahmen) – jetzt folgt die Stimme der Oberflächensprache, der Browser-Test prüft das. (b) Dekodierte Aufnahmen
+   sammelten sich über die ganze Vorlesung im Speicher – jetzt höchstens 48. (c) Handys mit Apple- oder Adreno-7xx-Grafik bekamen
+   automatisch „Mittel“ (über dem Mobil-Budget) – jetzt höchstens „Niedrig“. (d) Deutsche Aufnahmen auf 20 kbit/s mit Limiter
+   (Speicherbudget, Spitzen ≤ −1 dBTP).
 
 ## Ehrliche Grenzen
 

@@ -67,6 +67,11 @@
 - Neu abgestimmt auf die gesprächigeren Prof-Texte, danach nachgemessen mit dem echten Sprechtempo: **86 / 54 / 28 / 16 %**
   Erfolg (80 Läufe je Stufe; Bachelor im Zielband 45–60 %).
 
+**Endprüfung**
+- Stimme folgt der Sprache der Oberfläche (vorher blieb eine englische Vorlesung stumm, weil die Audio-Engine immer mit Deutsch
+  startete); höchstens 48 dekodierte Aufnahmen im Speicher; Knoten eines Satzes werden danach abgehängt.
+- Mobil-Fassung: Automatik höchstens „Niedrig“ (Apple- und Adreno-7xx-Grafik landeten auf „Mittel“, über dem Mobil-Budget).
+
 **Tests**
 - Neu: Rocketbox-Figuren (Gewichte, Animationsformat, Lizenzhinweis), Dialogumfang (≥ 1 500 Sätze je Sprache, ≥ 60 Anekdoten,
   ≥ 8 Running Gags, ≥ 6 Varianten), keine Wiederholung eines Prof-Satzes in 10 simulierten Vorlesungen; Werkzeuge für Dauerlauf
