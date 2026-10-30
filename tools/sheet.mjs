@@ -1,5 +1,5 @@
 // Prüf- und Dokubilder: mehrere Ansichten in einer Sitzung: je Ansicht rendern, ins 2D-Blatt kopieren, am Ende einmal auslesen.
-// node tools/sheet.mjs <out.jpg> <q> <w> <h> <views.json>   (WEATHER=rain für anderes Wetter; Ansichten in tools/shots/)   views: [{ pre: "js (g, W) → void", steps: 0, cam: "js → [x,y,z,tx,ty,tz,fov]" }]
+// node tools/sheet.mjs <out.jpg> <q> <w> <h> <views.json>   (WEATHER=rain für anderes Wetter, SHOT_LANG=de für deutsche Oberfläche; Ansichten in tools/shots/)   views: [{ pre: "js (g, W) → void", steps: 0, cam: "js → [x,y,z,tx,ty,tz,fov]" }]
 import { createRequire } from 'node:module';
 import fs from 'node:fs';
 const { chromium } = createRequire(import.meta.url)('playwright');
@@ -9,6 +9,8 @@ const browser = await chromium.launch({ args: ['--use-gl=angle', '--use-angle=sw
 const page = await browser.newPage({ viewport: { width: +w, height: +h } });
 page.on('pageerror', e => console.log('pageerror', e.message));
 page.on('console', m => { if (m.type() === 'error') console.log('console', m.text().slice(0, 200)); });
+// SHOT_LANG=de|en: Sprache der Oberfläche (sonst Browsersprache, headless meist Englisch)
+if (process.env.SHOT_LANG) await page.addInitScript(l => { try { localStorage.setItem('boku-ttt-v2:lang', JSON.stringify(l)); localStorage.setItem('boku-ttt-v3:lang', JSON.stringify(l)); } catch (e) { /* egal */ } }, process.env.SHOT_LANG);
 await page.goto('file:///home/user/spiel/dist/BOKU_TicTacTierernaehrung_v3.html?q=' + q);
 await page.waitForFunction(() => window.__state && window.__world && window.__state() === 'menu', null, { timeout: 300000, polling: 500 });
 const weather = process.env.WEATHER || null;

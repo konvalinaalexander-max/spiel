@@ -149,6 +149,15 @@ async function convertFigure(id, avatar, opts) {
     const kind = kindOf(gr.materialIndex);
     for (let t = gr.start; t < gr.start + gr.count; t += 3) tris.push([idx ? idx[t] : t, idx ? idx[t + 1] : t + 1, idx ? idx[t + 2] : t + 2, kind]);
   }
+  // dropHair: Haarkarten weglassen, Wimpern behalten (Dreiecke der Alpha-Gruppe weiter als 4 cm von beiden Augen entfernt fallen weg).
+  // Für Figuren mit fast kahlem Kopf, deren Kopfhaut-Textur das kurze Haar schon zeigt: Die Karten wirkten aus der Nähe wie graue,
+  // metallisch glänzende Plättchen an den Schläfen.
+  if (opts.dropHair) {
+    const eyes = ['Bip01_LEye', 'Bip01_REye'].map(n => joints[n]).filter(Boolean), n0 = tris.length;
+    const nearEye = t => { const c = [0, 1, 2].map(a => (pos[t[0] * 3 + a] + pos[t[1] * 3 + a] + pos[t[2] * 3 + a]) / 3); return eyes.some(e => Math.hypot(c[0] - e[0], c[1] - e[1], c[2] - e[2]) < 0.04); };
+    for (let i = tris.length - 1; i >= 0; i--) if (tris[i][3] === 'opacity' && !nearEye(tris[i])) tris.splice(i, 1);
+    console.log(`  ${id}: Haarkarten weggelassen (${n0 - tris.length} Dreiecke), Wimpern: ${tris.filter(t => t[3] === 'opacity').length} Dreiecke`);
+  }
   // Vertices je Art kopieren und verschweißen (FBX liefert je Ecke eigene Vertices)
   const parts = {};
   for (const kind of ['body', 'head', 'opacity']) {
@@ -306,7 +315,7 @@ const want = id => !only || only.includes(id);
 // Hauptfiguren: eigener Atlas (Spielfigur mit großer Körperkachel für die Hände)
 for (const [id, h] of Object.entries(cfg.heroes)) {
   if (!want(id)) continue;
-  const fig = await convertFigure(id, h.avatar, { facial: h.facial });
+  const fig = await convertFigure(id, h.avatar, { facial: h.facial, dropHair: h.dropHair });
   const female = h.avatar.startsWith('Female');
   const player = h.role === 'player';
   const sz = player ? { body: 2048, head: 512, opacity: 512 } : { body: 1024, head: 1024, opacity: 512 };

@@ -42,7 +42,9 @@
    "facial": true,
    "role": "prof",
    "hairTint": "#86827b",
-   "hairTintNote": "Male_Adult_03: Farbkanal der Haartextur ist Kopfhaut statt Haar (Rocketbox „with_opacity_version“) – Farbe aus der Vorschau (hellgrau)"
+   "hairTintNote": "Male_Adult_03: Farbkanal der Haartextur ist Kopfhaut statt Haar (Rocketbox „with_opacity_version“) – Farbe aus der Vorschau (hellgrau)",
+   "dropHair": true,
+   "dropHairNote": "Haarkarten an den Schläfen wirkten aus der Nähe wie graue Plättchen; die Kopfhaut-Textur zeigt das kurze Haar bereits"
   },
   "neighbor": {
    "avatar": "Female_Adult_08",

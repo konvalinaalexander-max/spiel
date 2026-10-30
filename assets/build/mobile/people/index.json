@@ -1,15 +1,15 @@
 {
  "people": {
   "prof": {
-   "verts": 4483,
-   "tris": 7200,
-   "kb": 108,
+   "verts": 4253,
+   "tris": 6994,
+   "kb": 105,
    "morphs": 22,
    "role": "prof",
    "female": false,
    "atlas": "prof",
    "avatar": "Male_Adult_03",
-   "atlasKB": 127,
+   "atlasKB": 104,
    "normalKB": 87
   },
   "neighbor": {
@@ -395,7 +395,7 @@
  "atlases": {
   "prof": {
    "w": 1024,
-   "h": 768,
+   "h": 512,
    "normal": true
   },
   "neighbor": {

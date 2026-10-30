@@ -119,21 +119,25 @@ export class PlayerView {
     // Deckel anfassen
     this.lidReach = damp(this.lidReach, inp?.lidMoving ? 1 : 0, 8, dt);
     const lidTop = lap.lid.localToWorld(V(0.06, 0.004, 0.2));
-    // Notizen: rechte Hand an der Stiftspitze, linke hält den Block
-    // Griff: Handgelenk liegt entlang des Stifts hinter der Griffstelle, Finger zeigen zur Spitze
+    // Notizen: Dreipunktgriff – Daumen und Zeigefinger fassen den Stift ≈ 2,5 cm über der Spitze, der Schaft läuft über die
+    // Daumenkuhle nach hinten oben und bleibt sichtbar. Das Handgelenk liegt rechts neben dem Stift und tiefer (Kleinfingerseite
+    // nahe am Papier). Vorher lag das Handgelenk auf der Stiftachse: Die Faust verschluckte den Stift.
+    // Linke Hand liegt flach auf dem Block (vorher zeigten die Finger schräg nach unten in den Tisch – im Bild nur ein Stumpf).
     const tipW = nb.tipWorld(V()), topW = nb.topWorld(V()), axis = topW.clone().sub(tipW).normalize();
-    const tip = tipW.clone().addScaledVector(axis, 0.1).add(V(0.012, 0.012, 0));
-    const nbHold = nb.group.localToWorld(V(-0.1, 0.03, 0.06));
+    const axisH = V(axis.x, 0, axis.z); if (axisH.lengthSq() < 1e-6) axisH.set(0.6, 0, 0.4); axisH.normalize();
+    const tip = tipW.clone().addScaledVector(axisH, 0.095).add(V(0.028, 0.045, 0));   // Handgelenk beim Schreiben
+    const pinch = tipW.clone().addScaledVector(axis, 0.025);
+    const nbHold = nb.group.localToWorld(V(-0.1, 0.035, 0.07));
     // Mischung
     const R = rest(1).lerp(kbR.clone().add(V(0, tw, 0)).lerp(padPt, this._pad * 0.85), blend).lerp(tip, nbB).lerp(lidTop, this.lidReach);
     const Lh = rest(-1).lerp(kbL.clone().add(V(0, -tw, 0)), blend).lerp(nbHold, nbB);
     // Zittern bei hohem Stress
     const tr = Math.max(0, (inp?.stress || 0) - 0.55) * 0.012;
     if (tr > 0) { R.x += Math.sin(t * 37) * tr; R.y += Math.sin(t * 41 + 1) * tr; Lh.x += Math.sin(t * 33 + 2) * tr; Lh.y += Math.sin(t * 39) * tr; }
-    const dirR = V(-0.15, -0.6, -1).normalize().lerp(axis.clone().negate(), nbB * 0.9).normalize();
-    const palmR = V(0, -1, 0.1).normalize().lerp(V(-1, -0.35, 0).normalize(), nbB).normalize();
+    const dirR = V(-0.15, -0.6, -1).normalize().lerp(pinch.clone().sub(tip).normalize(), nbB).normalize();
+    const palmR = V(0, -1, 0.1).normalize().lerp(V(-0.55, -0.8, 0.1).normalize(), nbB).normalize();
     c.setArm('R', 1, R, poleR, { dir: dirR, palm: palmR });
-    c.setArm('L', 1, Lh, poleL, { dir: V(0.15, -0.6, -1).normalize(), palm: handDown.palm });
+    c.setArm('L', 1, Lh, poleL, { dir: V(0.15, -0.6, -1).normalize().lerp(V(0.35, -0.1, -1).normalize(), nbB).normalize(), palm: handDown.palm });
     // Finger: Tastatur leicht gebeugt, beim Mitschreiben Stiftgriff rechts, links flach auf dem Block
     if (c.isClip) {
       const pen = nbB > 0.3;
