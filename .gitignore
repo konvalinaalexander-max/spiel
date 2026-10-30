@@ -14,3 +14,4 @@ assets/build/humans/
 dist/mobile/
 __pycache__/
 assets/build/voice/**/*.wav
+dist/*_mobile.zip

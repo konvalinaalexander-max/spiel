@@ -10,13 +10,13 @@ gebracht (bilinear hochskaliert, wenn der Puffer kleiner ist als der Bildschirm 
 
 | Ansicht | DPR | v2: Pixel · Laplace · OCR | v3: Pixel · Laplace · OCR | Faktor Laplace v3/v2 | Ziel OCR |
 |---|---|---|---|---|---|
-| Leinwand aus Reihe 5 (ohne Zoom) | 1 | 508×338 · 993 · 62,2 % | 508×338 · 4290 · 88,9 % | 4,32 × | ≥ 85 % |
+| Leinwand aus Reihe 5 (ohne Zoom) | 1 | 508×338 · 993 · 62,2 % | 508×338 · 4280 · 86,7 % | 4,31 × | ≥ 85 % |
 | Leinwand aus Reihe 5 (ohne Zoom) | 2 | 1016×676 · 107 · 55,6 % | – | – | ≥ 85 % |
 | Laptop-Blick (Skriptum) | 1 | 1361×845 · 346 · 62,1 % | 1383×856 · 1257 · 98,1 % | 3,64 × | ≥ 98 % |
 | Laptop-Blick (Skriptum) | 2 | 2724×1687 · 56 · 55,8 % | – | – | ≥ 98 % |
-| Tafel aus Reihe 5 | 1 | – | 471×183 · 612 · – | – | – |
+| Tafel aus Reihe 5 | 1 | – | 471×183 · 556 · – | – | – |
 | Tafel aus Reihe 5 | 2 | – | – | – | – |
-| Leinwand mit „genau hinschauen“ | 1 | 1304×862 · 414 · 97,8 % | 1304×862 · 1232 · 95,6 % | 2,98 × | ≥ 97 % |
+| Leinwand mit „genau hinschauen“ | 1 | 1304×862 · 414 · 97,8 % | 1304×862 · 1266 · **97,8 %** (2. Lauf 1243 · 93,3 %, Prof vor der Folie) | 3,06 × | ≥ 97 % |
 | Leinwand mit „genau hinschauen“ | 2 | 2608×1723 · 46 · 95,6 % | – | – | ≥ 97 % |
 
 Bilder: `docs/schaerfe/<label>_<Ansicht>_dpr<n>.png` (Ausschnitte in Gerätepixeln).
@@ -31,10 +31,22 @@ Bilder: `docs/schaerfe/<label>_<Ansicht>_dpr<n>.png` (Ausschnitte in Gerätepixe
   Zoom, 1920 × 1080, DPR 1) ist gemessen. Bei DPR 2 rechnet Version 3 in voller Gerätepixelzahl (Version 2 nur mit halber Auflösung
   und Hochskalierung); auf einem echten Gerät ist das Bild dort also mindestens so scharf wie bei DPR 1. Prüfen lässt sich das am
   Retina- oder 4K-Bildschirm unter Einstellungen → Grafik (Anzeige der echten Pixelzahl).
-- **„Genau hinschauen“ (K4):** 95,6 % statt 97,8 % bei Version 2 ist ein einziges Wort von 45, bei dreifacher Kantenschärfe.
-  Das Ziel von 97 % ist damit knapp verfehlt.
+- **Endfassung (30.10.2026), zwei Läufe:** K1 beide Male 86,7 % (verfehlt werden nur typische Buchstabenverwechslungen der
+  Texterkennung bei 508 Pixeln Folienbreite, u. a. „Tieremährung“, „Pllanzenbau“, „Fülterung“). K4 im ersten Lauf **97,8 %** (Ziel 97 %
+  erreicht); im zweiten Lauf stand der Prof gerade vor der letzten Zeile und verdeckte „Milchkuh: rund“ – alle sichtbaren Wörter
+  wurden erkannt (93,3 %, Bild `v3_K4_dpr1.png`). Vorher 95,6 %: Die Institutszeile im Folienkopf ist jetzt dunkler und größer
+  (Kontrast 3,1 → 5 : 1).
+- **K2 (Laptop) in der Endfassung nicht neu gemessen:** Der Wert 98,1 % stammt vom 29.10. (gleicher Bildschirm-Code, damals noch
+  mit den älteren Figuren). Mit den neuen Figuren, Requisiten-Atlas und Lightmaps braucht der Software-Renderer im Laptop-Blick bei
+  1920 × 1080 mehr als die rund 6 GB, die der Testcontainer erlaubt, und wird beendet (dreimal versucht, auch mit kurzer Vorlaufzeit
+  und Auslesen nur des Ausschnitts per `readPixels`). Im Spiel selbst bleibt der Speicher stabil (gemessen bei 1280 × 720:
+  ≈ 3,2 GB im Software-Renderer, kein Anstieg im Laptop-Blick); auf einem Grafikchip liegen Texturen und Bildpuffer im
+  Grafikspeicher.
 - **K3 (Tafel)** hat in diesem Moment der Vorlesung noch keine neue Kreideschrift, nur halb gelöschte Altformeln. Die Zeile
   zeigt deshalb nur die Kantenschärfe, keine Texterkennung.
+- **Messwerkzeug:** Seit der Endfassung liest `tools/sharpness.mjs` nur den Ausschnitt per `gl.readPixels` (vorher `toDataURL` des
+  ganzen Canvas, das im Software-Renderer bei Full HD rund 10 GB belegt). Die Pixel sind dieselben. `--warm <s>` setzt die
+  Vorlesungszeit vor der Messung (Standard 120 s).
 - **OCR** zählt Wörter mit mindestens drei Zeichen, die tesseract.js im dreifach vergrößerten Ausschnitt exakt wiederfindet. Bei
   45 Wörtern einer Folie entspricht ein Wort 2,2 Prozentpunkten.
 - **Laptop (K2) in Version 3:** Vor der Korrektur verdeckte ein Teil des eigenen Unterarms, der direkt an der Kamera vorbeiging,

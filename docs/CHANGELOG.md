@@ -5,7 +5,8 @@
 **Schärfe und Lesbarkeit**
 - Folien: Institutszeile im Kopf dunkler und größer (Kontrast 3,1 → 5 : 1).
 - Render- = Bildschirmpixel bis DPR 2 auf allen Stufen, MSAA statt FXAA, Nachschärfung (CAS), entgiftete Nachbearbeitung.
-- Folie aus Reihe 5: Texterkennung 88,9 % statt 62,2 %, Kantenschärfe 4,3-fach; Laptop 98,1 % statt 62,1 % (`docs/SCHAERFE.md`).
+- Folie aus Reihe 5: Texterkennung 86,7 % statt 62,2 %, Kantenschärfe 4,3-fach; „genau hinschauen“ 97,8 %; Laptop 98,1 % statt
+  62,1 % (`docs/SCHAERFE.md`).
 - Laptop-Blick: Teile der eigenen Figur direkt vor der Kamera werden ausgeblendet (vorher verdeckte der Unterarm Text).
 
 **Menschen (überarbeitet: Microsoft Rocketbox + Motion Capture)**

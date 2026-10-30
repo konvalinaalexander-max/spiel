@@ -6,20 +6,20 @@
   1920,
   1080
  ],
- "date": "2026-10-29",
+ "date": "2026-10-30",
  "results": [
   {
    "label": "v3",
+   "q": "medium",
    "view": "K1",
    "dpr": 1,
    "canvasDpr": 1,
    "pxW": 508,
    "pxH": 338,
-   "laplace": 4289.8,
-   "ocr": 88.9,
+   "laplace": 4280.3,
+   "ocr": 86.7,
    "words": 45,
-   "file": "v3_K1_dpr1.png",
-   "q": "medium"
+   "file": "v3_K1_dpr1.png"
   },
   {
    "label": "v3",
@@ -36,29 +36,29 @@
   },
   {
    "label": "v3",
+   "q": "medium",
    "view": "K3",
    "dpr": 1,
    "canvasDpr": 1,
    "pxW": 471,
    "pxH": 183,
-   "laplace": 611.8,
+   "laplace": 555.6,
    "ocr": null,
    "words": 0,
-   "file": "v3_K3_dpr1.png",
-   "q": "medium"
+   "file": "v3_K3_dpr1.png"
   },
   {
    "label": "v3",
+   "q": "medium",
    "view": "K4",
    "dpr": 1,
    "canvasDpr": 1,
    "pxW": 1304,
    "pxH": 862,
-   "laplace": 1232.2,
-   "ocr": 95.6,
+   "laplace": 1243.4,
+   "ocr": 93.3,
    "words": 45,
-   "file": "v3_K4_dpr1.png",
-   "q": "medium"
+   "file": "v3_K4_dpr1.png"
   }
  ]
 }

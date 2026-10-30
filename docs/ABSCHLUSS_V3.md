@@ -18,10 +18,10 @@ offline per Download der HTML-Datei (README, Abschnitt „Spielen“).
 | Bereich | Ziel | Stand | Nachweis |
 |---|---|---|---|
 | Auflösung | Render- = Bildschirmpixel bis DPR 2 | erfüllt: alle Stufen `maxDpr 2`, `renderScale 1`, Regler 50–200 % mit Pixelanzeige | `src/gfx/quality.js` |
-| Folie ohne Zoom (K1) | OCR ≥ 85 % | **88,9 %** (v2: 62,2 %) | `docs/SCHAERFE.md` |
-| Folie mit Zoom (K4) | OCR ≥ 97 % | <!--K4-->95,6 % (1 Wort unter Ziel)<!--/K4--> | `docs/SCHAERFE.md` |
-| Laptop (K2) | OCR ≥ 98 % | **98,1 %** | `docs/SCHAERFE.md` |
-| Kantenschärfe | ≥ 3 × v2 | Leinwand **4,3 ×**, Laptop **3,6 ×** | `docs/SCHAERFE.md` |
+| Folie ohne Zoom (K1) | OCR ≥ 85 % | **86,7 %** (v2: 62,2 %) | `docs/SCHAERFE.md` |
+| Folie mit Zoom (K4) | OCR ≥ 97 % | <!--K4-->**97,8 %** (2. Lauf 93,3 %: Prof stand vor der letzten Zeile, alle sichtbaren Wörter erkannt)<!--/K4--> | `docs/SCHAERFE.md` |
+| Laptop (K2) | OCR ≥ 98 % | **98,1 %** (Messung 29.10.; in der Endfassung sprengt Full HD den Speicher des Software-Renderers) | `docs/SCHAERFE.md` |
+| Kantenschärfe | ≥ 3 × v2 | Leinwand **4,3 ×**, Zoom **3,1 ×**, Laptop **3,6 ×** | `docs/SCHAERFE.md` |
 | Menschen | ≥ 40 Studierende, ≥ 16 Looks, echte Hände | **erfüllt**: Microsoft Rocketbox (MIT), 29 Figuren für die Menge (≈ 110 Plätze), Prof, Nachbarin, Tutorin, 3 Spielfiguren; Bewegung aus Motion Capture, Finger aus den Aufnahmen + Griffe | `docs/ASSETS.md`, `docs/ITERATIONEN.md` |
 | Gesichter | Blinzeln, Blick, Mund zur Stimme; Prof ≥ 6 Mundformen | **erfüllt**: Prof/Nachbarin/Tutorin 15 Visemes (Gesichtsformen), Blinzeln, Brauen; Studierende Kiefer + Lider; Blick mit Sakkaden | `src/chars/clipCharacter.js` |
 | Requisiten | ≥ 70 Typen aus Paketen, 0 Primitiven | 72 Poly-Haven-Modelle (+ prozedurale Kleinteile, siehe Grenzen) | `docs/ASSETS.md` |
