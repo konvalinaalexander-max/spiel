@@ -13,18 +13,23 @@ Lass dich nicht erwischen.
 
 ## Spielen
 
-**Am Computer (offline):**
+**Am einfachsten – im Browser, ohne Download** (Computer und Handy):
+**https://konvalinaalexander-max.github.io/spiel/** (Handy-Fassung, auch am Computer spielbar) bzw.
+**https://konvalinaalexander-max.github.io/spiel/BOKU_TicTacTierernaehrung_v3.html** (Computer, volle Qualität).
+Voraussetzung (einmalig, durch die Besitzerin bzw. den Besitzer des Repositorys): *Settings → Pages → Build and deployment →
+Source: „GitHub Actions“*. Danach veröffentlicht der Workflow `.github/workflows/pages.yml` bei jedem Push automatisch
+(oder sofort über *Actions → Pages → Run workflow*).
 
-1. Aus `dist/` diese drei Dateien in **denselben Ordner** laden:
-   `BOKU_TicTacTierernaehrung_v3.html`, `BOKU_TicTacTierernaehrung_v3_stimme_de.js`, `BOKU_TicTacTierernaehrung_v3_stimme_en.js`.
-   Die Stimmen liegen in eigenen Dateien, damit die HTML-Datei unter der 100-MB-Grenze von GitHub bleibt. Ohne sie läuft das
-   Spiel auch, dann mit Untertiteln statt Stimme.
-2. Die HTML-Datei per Doppelklick in einem aktuellen Browser öffnen (Chrome, Edge, Firefox, Safari; WebGL 2 nötig).
+**Offline am Computer (Download):**
+
+1. Aus `dist/` die Datei `BOKU_TicTacTierernaehrung_v3.html` herunterladen (auf GitHub: Datei öffnen → „Download raw file“),
+   für die deutsche Stimme zusätzlich `BOKU_TicTacTierernaehrung_v3_stimme_de.js` in **denselben Ordner** (Englisch:
+   `…_stimme_en.js`). Ohne Stimmdatei läuft das Spiel auch, dann mit Untertiteln.
+2. Die HTML-Datei per Doppelklick öffnen (Chrome, Edge, Firefox, Safari; WebGL 2).
 3. „Zur Lehrveranstaltung“ → Schwierigkeit, Modus, Dauer, Sitzplatz wählen → „Vorlesung betreten“.
 
-**Am Handy:** über GitHub Pages (Workflow `.github/workflows/pages.yml`, einmalig in den Repository-Einstellungen unter
-*Pages → Source: GitHub Actions* einschalten) oder `dist/BOKU_TicTacTierernaehrung_v3_mobile.zip` auf einem eigenen HTTPS-Server.
-Installierbar als App, offline nach dem ersten Start. Details und Touch-Steuerung: `docs/MOBILE.md`.
+**Am Handy** über die Pages-Adresse oben (installierbar als App, offline nach dem ersten Start) oder
+`dist/BOKU_TicTacTierernaehrung_v3_mobile.zip` auf einem eigenen HTTPS-Server. Details und Touch-Steuerung: `docs/MOBILE.md`.
 
 Version 2 liegt unverändert als `dist/BOKU_TicTacTierernaehrung_v2.html` bei. Prüfsummen: `dist/SHA256.txt`.
 
@@ -65,7 +70,9 @@ Alle Tasten sind in den Einstellungen frei belegbar.
 - „Niedrig“ läuft auf einfacher integrierter Grafik; „Mittel“ ist für aktuelle integrierte Grafik (z. B. Intel Iris Xe) ausgelegt,
   „Hoch/Ultra“ für dedizierte GPUs. Die Stufe wird automatisch gewählt und kann in den Einstellungen geändert werden
   (Messwerte und Grenzen: `docs/PERFORMANCE.md`).
-- Echte, vorgerenderte Stimmen (Deutsch: Coqui XTTS v2, Englisch: Kokoro-82M) und echte Geräuschaufnahmen; Untertitel gibt es immer.
+- Echte, vorgerenderte Stimmen (Deutsch vollständig: Coqui XTTS v2; Englisch als Textfassung mit Kokoro-82M-Aufnahmen) und echte
+  Geräuschaufnahmen; Untertitel gibt es immer.
+- Menschen: Microsoft Rocketbox (MIT) mit Motion-Capture-Animationen; Gesichter von Prof, Nachbarin und Tutorin mit Mundformen.
 
 ## Entwickeln
 
@@ -93,14 +100,16 @@ src/
   core/              Hilfsfunktionen (Zufall, Dämpfung, Speicher, Ereignisbus), Eingabe (Maus/Pointer Lock, Tastatur, Gamepad, Touch)
   gfx/               Renderer, Post-Stack, Kaskadenschatten, Qualitätsstufen, GPU-Texturgeneratoren (GLSL), Geometrie-Batching
   scene/             Hörsaal (Maße in layout.js), Tafeln (Kreidepfade), Folien, Beamer, Licht, Außenwelt, Requisiten
-  chars/             echte Figuren (MakeHuman, humans.js/humanPack.js), Skelett-Rig, Prof, Studierende, eigener Körper/Kamera
+  chars/             Figuren (Rocketbox: humans.js/humanPack.js, clipCharacter.js = Motion Capture + Blick/IK/Griffe/Gesicht),
+                     Prof, Studierende, eigener Körper/Kamera; ältere MakeHuman-/prozedurale Figuren als Rückfall
   game/              Session (Logik), Vorlesungs-Director, Prof-KI, Sichtmodell, Verdacht, Tic Tac Toe, Gegner:in, Bot, Welt-Aufbau
   laptop/os.js       Studierenden-Desktop als Bildschirmtextur (Tic Tac Toe, Snake, Skriptum, BOKUlearn, Mail)
   ui/                Menüs im BOKU-Stil, HUD, Übersetzung, Design-Tokens (tokens.css)
   audio/             echte Geräusche (sfx.js), vorgerenderte Stimmen (voice.js), Mixer, Hall; Synthese nur für 5 Laptop-Signaltöne
   content/           15 Vorlesungsabschnitte (JSON, DE/EN), Dialoge, UI-Texte DE/EN
 tools/               build (+ build-mobile), test, sim (Bot), sharpness, audio-check, e2e/docshots, validate-content
-  pipeline/          Asset-Pipeline: Figuren (Blender + MPFB), Materialien, Requisiten, Lizenzliste
+  pipeline/          Asset-Pipeline: Figuren (Rocketbox: people-fetch.py, people.mjs, hair.mjs), Materialien, Requisiten (+ Atlas),
+                     Licht (Cycles-Lightmaps), Lizenzliste
   voice/, audio/     Sprachsynthese (Korpus, Normalisierung, Rendern, Mastering), Geräusch-Aufbereitung
 docs/                Recherche, Iterationen, Performance, Balancing, Audio, Changelog, Abschluss, Screenshots, RUN_LOG
 ```
@@ -112,7 +121,8 @@ Die Spiellogik (`src/game/*`) ist DOM- und renderfrei und läuft identisch im Br
 - Spiel-Code und Inhalte: MIT.
 - [three.js](https://threejs.org) r183 – MIT · [postprocessing](https://github.com/pmndrs/postprocessing) – Zlib ·
   [N8AO](https://github.com/N8python/n8ao) – CC0 · [Work Sans](https://github.com/weiweihuanghuang/Work-Sans) – SIL OFL 1.1.
-- Figuren: MakeHuman-Assetpakete (CC0), Materialien: ambientCG (CC0), Requisiten: Poly Haven (CC0).
+- Figuren und Bewegungen: Microsoft Rocketbox Avatar Library (MIT, © 2020 Microsoft; Lizenztext `docs/licenses/`),
+  Materialien: ambientCG (CC0), Requisiten: Poly Haven (CC0).
 - Geräusche: CC0, Public Domain und CC BY (Nennung im Spiel und in `docs/AUDIO_QUELLEN.md`); Musik: Kevin MacLeod (CC BY 4.0).
 - Stimmen: Coqui XTTS v2 (Coqui Public Model License, nicht-kommerziell) und Kokoro-82M (Apache-2.0), synthetische Sprecher:innen.
 - Vollständige Liste mit Prüfsummen: `docs/ASSETS.md`; im Spiel unter „Impressum, Quellen & Lizenzen“.
