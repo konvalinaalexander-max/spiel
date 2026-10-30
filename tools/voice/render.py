@@ -69,6 +69,9 @@ def main():
             mine = {c['id'] for c in [c for c in clips if c['id'] not in bm][k::n]}
             todo = [c for c in todo if c['id'] in mine]
         else: todo = todo[k::n]
+        # SUBSHARD j/m: den verbleibenden Rest dieses Teils noch einmal aufteilen (Ausgleich, wenn ein Teil früher fertig ist)
+        sub = os.environ.get('SUBSHARD')
+        if sub: j, m = map(int, sub.split('/')); todo = todo[j::m]
     print(f'{len(todo)} von {len(clips)} Aufnahmen offen', flush=True)
     t0 = time.time(); audio = 0.0
     for i, c in enumerate(todo):
