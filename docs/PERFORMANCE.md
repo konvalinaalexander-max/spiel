@@ -29,8 +29,8 @@ Schattenkaskaden, Hauptbild und Nachbearbeitung. Rohdaten: `docs/perf_v3.json`, 
 | „Mittel“ Desktop | ≤ 250 Draw Calls, ≤ 1,5 Mio. Dreiecke | **246**, **1,13 Mio.** ✓ |
 | Mobil | ≤ 120 Draw Calls, ≤ 400 k Dreiecke | **116**, **357 k** ✓ |
 | Figuren | ≤ 12 Draw Calls Desktop / ≤ 6 Mobil | **7** / **5** ✓ |
-| Desktop-Datei | ≤ 80 MB | **73,0 MB** + Stimmen als Begleitdateien (Deutsch 64,0 MB, Englisch 36,8 MB, Base64) ✓ |
-| Mobil-Kern (vorab gespeichert) | ≤ 30 MB | **28,5 MB** ✓ (Stimmen werden beim Abspielen geladen: Deutsch 45,4 MB, Englisch 26,2 MB) |
+| Desktop-Datei | ≤ 80 MB | **72,9 MB** + Stimmen als Begleitdateien (Deutsch 64,0 MB, Englisch 36,8 MB, Base64) ✓ |
+| Mobil-Kern (vorab gespeichert) | ≤ 30 MB | **28,4 MB** ✓ (Stimmen werden beim Abspielen geladen: Deutsch 45,4 MB, Englisch 26,2 MB) |
 
 **Speicher:** Der JS-Heap der Desktop-Datei liegt bei rund 0,7 GB, weil alle Daten (Figuren, Texturen, Requisiten, Licht, Klänge)
 eingebettet in der HTML-Datei stecken und beim Start dekodiert werden; über die Vorlesung bleibt er flach (gemessen über 4 Minuten

@@ -203,3 +203,16 @@ Gewählt: Microsoft Rocketbox (MIT, 115 Figuren mit Gesichtsformen, mehrere hund
 Prüfbilder: `figuren_vorher_nachher.jpg`, `figuren_haar_gesichter.jpg`, `figuren_pruefung_*.jpg` (Prof an Pult, Tafel, Leinwand,
 Gehsequenz in 10 Bildern; Studierende vom Podium, Hand heben, Handy, schlafend, Lachen, Flüstern; eigene Hände am Laptop und beim
 Mitschreiben; Spätkommer, Pause, Strecken).
+
+### Endprüfung (30.10.2026): Mitschreiben und Prof aus der Nähe
+
+Beim Rendern der Abschlussbilder fielen zwei Stellen auf, die in den Prüfbildern davor nicht nah genug zu sehen waren:
+
+| Problem | Ursache | Maßnahme |
+|---|---|---|
+| Mitschreiben: linker Unterarm endet in einem Stumpf | Handrichtung schräg nach unten (wie an der höher liegenden Tastatur) – Handfläche und Finger steckten im Tisch | linke Hand liegt flach auf dem Block |
+| Mitschreiben: rechte Hand „schreibt“ ohne Stift | Handgelenk lag auf der Stiftachse, die Faust verschluckte den Stift (mit ausgeblendeter Figur war er da) | Dreipunktgriff: Daumen und Zeigefinger 2,5 cm über der Spitze, Handgelenk rechts daneben und tiefer, Schaft über der Daumenkuhle sichtbar |
+| Prof aus der Nähe: graue, metallisch wirkende Plättchen an den Schläfen | 206 Haarkarten-Dreiecke über fast kahlem Kopf | Haarkarten beim Prof weggelassen (`dropHair` in `people.json`); die Kopfhaut-Textur zeigt das kurze graue Haar |
+
+Bilder: `endpruefung_mitschreiben_vorher.jpg` / `…_nachher.jpg` (Ich-Sicht und Außenansichten), `endpruefung_prof_haar_vorher.jpg` /
+`…_nachher.jpg`.

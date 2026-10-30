@@ -1,6 +1,6 @@
 # Changelog
 
-## 3.0.0 (in Arbeit) – Version 3: scharf, echt, mobil
+## 3.0.0 (2026-10-30) – Version 3: scharf, echt, mobil
 
 **Schärfe und Lesbarkeit**
 - Folien: Institutszeile im Kopf dunkler und größer (Kontrast 3,1 → 5 : 1).
@@ -60,7 +60,7 @@
 **Leistung**
 - Requisiten in einem gemeinsamen Texturatlas (73 Materialien → 1 Atlasseite), Glas ohne Transmissionsdurchgang, Echtzeitschatten
   nur für Möbelgroßes, Wände und Figuren; Figuren ein Material je Atlas. „Mittel“: 706 → 245 Draw Calls je Bild (Budget 250).
-- Desktop-Datei 73 MB (Ziel ≤ 80), Mobil-Kern 28,5 MB (≤ 30) (Positionen der Figuren als Int16, Lightmap-UVs kompakt, Animationen als
+- Desktop-Datei 72,9 MB (Ziel ≤ 80), Mobil-Kern 28,4 MB (≤ 30) (Positionen der Figuren als Int16, Lightmap-UVs kompakt, Animationen als
   Int16-Differenzen).
 
 **Balance**
@@ -71,6 +71,8 @@
 - Stimme folgt der Sprache der Oberfläche (vorher blieb eine englische Vorlesung stumm, weil die Audio-Engine immer mit Deutsch
   startete); höchstens 48 dekodierte Aufnahmen im Speicher; Knoten eines Satzes werden danach abgehängt.
 - Mobil-Fassung: Automatik höchstens „Niedrig“ (Apple- und Adreno-7xx-Grafik landeten auf „Mittel“, über dem Mobil-Budget).
+- Mitschreiben: Dreipunktgriff mit sichtbarem Stift, linke Hand flach auf dem Block (vorher Stumpf im Tisch, Stift in der Faust).
+- Prof: Haarkarten an den Schläfen entfernt (wirkten aus der Nähe wie graue Plättchen).
 
 **Tests**
 - Neu: Rocketbox-Figuren (Gewichte, Animationsformat, Lizenzhinweis), Dialogumfang (≥ 1 500 Sätze je Sprache, ≥ 60 Anekdoten,

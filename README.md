@@ -9,7 +9,7 @@ Lass dich nicht erwischen.
 > sind nachempfunden. Prof. Haferkorn und alle Studierenden sind frei erfunden. Die Fachinhalte sind recherchiert (Quellen in
 > `docs/RECHERCHE.md`), ersetzen aber keine Lehrveranstaltung.
 
-![Blick vom Sitzplatz](docs/screenshots/v3/alpha_1_listen.jpg)
+![Blick vom Sitzplatz in Reihe 5](docs/screenshots/v3/final_blick_vom_platz.jpg)
 
 ## Spielen
 
@@ -116,6 +116,15 @@ docs/                Recherche, Iterationen, Performance, Balancing, Audio, Chan
 ```
 
 Die Spiellogik (`src/game/*`) ist DOM- und renderfrei und läuft identisch im Browser und in Node (Bot-Simulation, Tests).
+
+## Bilder
+
+| | |
+|---|---|
+| ![Spielfigur: Zuhören, Laptop, Mitschreiben, Prof und Nachbarin aus der Nähe](docs/screenshots/v3/final_player.jpg) | ![Prof: Pult, Tafel, Laserpointer; Studierende](docs/screenshots/v3/final_prof.jpg) |
+| ![Hörsaal aus sechs Blickwinkeln](docs/screenshots/v3/final_orbit.jpg) | ![Regentag](docs/screenshots/v3/final_regen.jpg) |
+
+Gerendert mit `tools/sheet.mjs` (Stufe „Mittel“, Software-Renderer); auf einem Grafikchip identisch, nur schneller.
 
 ## Lizenzen
 

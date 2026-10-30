@@ -16,6 +16,9 @@ await page.waitForFunction(() => window.__state && window.__world && window.__st
 const weather = process.env.WEATHER || null;
 await page.evaluate(w => { window.__hold = true; if (w) window.__ui.cfg.weather = w; window.__ui.hooks.start(window.__ui.cfg); }, weather);
 // anderes Wetter → die Seite lädt neu und startet die Vorlesung selbst
+// nach dem Neuladen wartet das Spiel am Eingang („Vorlesung betreten“, Klick für Ton/Zeiger) – hier per Haken betreten
+await page.waitForFunction(() => window.__state && ['gate', 'game'].includes(window.__state()), null, { timeout: 600000, polling: 500 });
+if (await page.evaluate(() => window.__state() === 'gate')) await page.evaluate(() => { window.__hold = true; window.__ui.hooks.gate(); });
 await page.waitForFunction(() => window.__state && window.__state() === 'game', null, { timeout: 300000, polling: 500 });
 await page.evaluate(() => { window.__hold = true; });
 const cols = Math.min(3, views.length), rows = Math.ceil(views.length / cols);

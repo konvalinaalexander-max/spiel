@@ -10,6 +10,8 @@ Statusbericht zum Auftrag `AUFTRAG_V3.md`. Zahlen sind gemessen (Werkzeug in Kla
 | B (Zwischenstand) | – | entfallen: Der Auftraggeber wollte nach den neuen Figuren keine Zwischenlieferung mehr, nur die fertige Fassung |
 | **C (final)** | `dist/BOKU_TicTacTierernaehrung_v3.html` + `…_stimme_de.js` / `…_stimme_en.js`, `dist/SHA256.txt`, Mobil-Fassung + ZIP über den Pages-Workflow (`npm run build:mobile` baut beides lokal) | siehe unten |
 
+Bilder der Endfassung: `docs/screenshots/v3/final_*.jpg` (Blick vom Platz, Spielfigur, Prof, Saal, Regentag).
+
 **Spielen:** im Browser über GitHub Pages (`https://konvalinaalexander-max.github.io/spiel/`, nach einmaligem Einschalten) oder
 offline per Download der HTML-Datei (README, Abschnitt „Spielen“).
 
@@ -30,8 +32,8 @@ offline per Download der HTML-Datei (README, Abschnitt „Spielen“).
 | Dialog | ≥ 1 500 Sätze je Sprache, ≥ 60 Anekdoten, ≥ 8 Running Gags, ≥ 6 Varianten, 0 Wiederholungen | **DE 1 560, EN 1 616**, 64 Anekdoten/Witze, **8 Running Gags**, alle 101 Ereignisse mit ≥ 6 Varianten, 0 Wiederholungen in 10 simulierten Vorlesungen | `npm test` |
 | Stimme | menschliche Qualität, 100 % (laut Auftraggeber: Deutsch reicht) | <!--VOICE-->**Deutsch 100 %: 1 697 von 1 697 Aufnahmen** (XTTS v2, 45,4 MB, ≤ −1 dBTP)<!--/VOICE-->; Englisch: Kokoro-82M, 1 193 von 1 622 Prof-Sätzen, Rest Untertitel; 0 Browser-TTS | `docs/AUDIO.md`, `docs/audio/beispiele/` |
 | Klang | 0 synthetische Quellen (außer ≤ 5 UI-Töne), ≥ 120 Clips | 151 echte Aufnahmen für 72 Klänge, 5 synthetische Laptop-Signaltöne | `docs/AUDIO.md`, `tools/audio-check.mjs` |
-| Desktop-Build | ≤ 80 MB | **73,0 MB** (+ Stimmen als Begleitdateien) | `dist/SHA256.txt` |
-| Mobil-Build | ≤ 30 MB, PWA | **Kern 28,5 MB**, Manifest, Service Worker; Automatik höchstens „Niedrig“ | `npm test` |
+| Desktop-Build | ≤ 80 MB | **72,9 MB** (+ Stimmen als Begleitdateien) | `dist/SHA256.txt` |
+| Mobil-Build | ≤ 30 MB, PWA | **Kern 28,4 MB**, Manifest, Service Worker; Automatik höchstens „Niedrig“ | `npm test` |
 | Leistung „Mittel“ | ≤ 250 Draw Calls, ≤ 1,5 Mio. Dreiecke | **246**, **1,13 Mio.** (je Bild inkl. Schatten und Nachbearbeitung) | `docs/PERFORMANCE.md` |
 | Leistung Mobil | ≤ 120 Draw Calls, ≤ 400 k Dreiecke | **116**, **357 k** | `docs/PERFORMANCE.md` |
 | Figuren Draw Calls | ≤ 12 Desktop / ≤ 6 Mobil | **7** / **5** | `docs/PERFORMANCE.md` |
@@ -51,7 +53,9 @@ offline per Download der HTML-Datei (README, Abschnitt „Spielen“).
    deutschen Aufnahmen) – jetzt folgt die Stimme der Oberflächensprache, der Browser-Test prüft das. (b) Dekodierte Aufnahmen
    sammelten sich über die ganze Vorlesung im Speicher – jetzt höchstens 48. (c) Handys mit Apple- oder Adreno-7xx-Grafik bekamen
    automatisch „Mittel“ (über dem Mobil-Budget) – jetzt höchstens „Niedrig“. (d) Deutsche Aufnahmen auf 20 kbit/s mit Limiter
-   (Speicherbudget, Spitzen ≤ −1 dBTP).
+   (Speicherbudget, Spitzen ≤ −1 dBTP). (e) Beim Mitschreiben steckte die linke Hand im Tisch (nur ein Stumpf sichtbar) und die
+   rechte Faust verschluckte den Stift – jetzt Dreipunktgriff mit sichtbarem Stift und flacher linker Hand. (f) Prof aus der Nähe:
+   graue Haarkarten-Plättchen an den Schläfen entfernt (`docs/ITERATIONEN.md`, Bilder `endpruefung_*.jpg`).
 
 ## Ehrliche Grenzen
 
