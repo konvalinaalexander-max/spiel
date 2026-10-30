@@ -252,8 +252,9 @@ langem, lautem Einatmen – Pausenpegel −41 dBFS – wurde deshalb aussortiert
 der CPU vorgerendert. Es gibt keine Browser-Sprachausgabe und kein synthetisches Murmeln mehr; die Einstellung kennt nur
 „Echte Stimme“ und „Aus“. Fehlt eine Aufnahme, bleibt es beim Untertitel.
 
-**Sprache:** Laut Auftraggeber reicht Deutsch – Deutsch wird vollständig vertont, Englisch bleibt als Textfassung mit den
-vorhandenen Kokoro-Aufnahmen (der Großteil der Prof-Sätze, Rest als Untertitel).
+**Sprache:** Laut Auftraggeber reicht Deutsch – Deutsch ist **vollständig vertont: 1 697 von 1 697 Aufnahmen** (alle Sätze von
+Prof, Nachbarin, Tutorin und Studierenden, Platzhalter-Sätze in Stücken), 45,4 MB. Englisch bleibt als Textfassung mit den
+vorhandenen Kokoro-Aufnahmen (1 193 von 1 622 Prof-Sätzen, Rest als Untertitel).
 
 **Modell:** Coqui XTTS v2 (CPML, nicht-kommerziell) mit eingebauten, synthetischen Studiosprechern – keine geklonte reale Person.
 
@@ -291,7 +292,11 @@ Grenze: XTTS spricht Standarddeutsch, keine österreichische Färbung. Mit `AZUR
 `tools/.venv/bin/python tools/voice/render.py --lang de` bzw. `tools/.venv-kokoro/bin/python tools/voice/render_kokoro.py` (Sprechfassung über `tools/voice/normalize.py`: Zahlen, Einheiten und
 Fachabkürzungen ausgeschrieben, z. B. „6,2 MJ NEL je kg TM“ → „sechs Komma zwei Megajoule en-e-el je Kilogramm Trockenmasse“) →
 Mastering je Clip mit ffmpeg (`tools/voice/master.py`, für beide Modelle gleich): Hochpass 80 Hz, De-Esser-Absenkung, Stille ≤ 80 ms, Lautheit −16 LUFS (zweistufig), True Peak
-−1,5 dBTP, 48 kHz, Opus 28 kbit/s mono; Lautstärkekurve 20 Hz für die Mundbewegung → `assets/build/voice/<sprache>/`.
+−1,5 dBTP, 48 kHz, Opus mono (Englisch 28 kbit/s, Deutsch 20 kbit/s); Lautstärkekurve 20 Hz für die Mundbewegung → `assets/build/voice/<sprache>/`.
+**Speicher Deutsch:** Mit 28 kbit/s wären es 62,6 MB gewesen (Budget Sprache ≤ 50 MB) – deshalb `tools/voice/reencode.py`: aus den
+28-kbit/s-Fassungen neu mit 20 kbit/s kodiert (Sprachmodus von Opus). Opus überschwingt bei niedriger Bitrate (gemessen bis +0,7 dBFS
+nach dem Dekodieren); ein Limiter vor dem Kodieren (−3,3 dBFS, 4-fach überabgetastet) hält jetzt **alle 1 697 Aufnahmen ≤ −1,0 dBTP**.
+Lautheit danach im Mittel −17,3 LUFS (Stichprobe von 12: −18,6 … −16,8), Dauer unverändert (Abweichung ≤ 7 ms).
 Im Spiel (`src/audio/voice.js`): Aufnahme über ihre Kennung finden, Stücke mit 60 ms Abstand aneinanderreihen, räumlich am Kopf
 der Figur abspielen, Hall aus dem Raum. Mund: Aus dem gesprochenen Text entsteht eine Lautfolge (`src/chars/visemes.js`), über die
 Lautstärkekurve zeitlich verteilt; Prof, Nachbarin und Tutorin zeigen sie mit den Rocketbox-Visemes (15 Mundformen als

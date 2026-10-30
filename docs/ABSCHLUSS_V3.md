@@ -28,7 +28,7 @@ offline per Download der HTML-Datei (README, Abschnitt „Spielen“).
 | Materialien | PBR aus ambientCG/Poly Haven, KTX2 | erfüllt (17 ambientCG-Materialien, Requisiten-Atlas) | `docs/ASSETS.md` |
 | Licht | Lightmap ≥ 4 × 2048², rauschfrei | **4 × 2048²** (Cycles, OpenImageDenoise), Wetter sonnig/bewölkt, mobil 4 × 1024² | `docs/PIPELINE.md` |
 | Dialog | ≥ 1 500 Sätze je Sprache, ≥ 60 Anekdoten, ≥ 8 Running Gags, ≥ 6 Varianten, 0 Wiederholungen | **DE 1 560, EN 1 616**, 64 Anekdoten/Witze, **8 Running Gags**, alle 101 Ereignisse mit ≥ 6 Varianten, 0 Wiederholungen in 10 simulierten Vorlesungen | `npm test` |
-| Stimme | menschliche Qualität, 100 % (laut Auftraggeber: Deutsch reicht) | <!--VOICE-->Deutsch: XTTS v2 (Rendern läuft)<!--/VOICE-->; Englisch: Kokoro-82M, 1 193 von 1 622 Prof-Sätzen, Rest Untertitel; 0 Browser-TTS | `docs/AUDIO.md`, `docs/audio/beispiele/` |
+| Stimme | menschliche Qualität, 100 % (laut Auftraggeber: Deutsch reicht) | <!--VOICE-->**Deutsch 100 %: 1 697 von 1 697 Aufnahmen** (XTTS v2, 45,4 MB, ≤ −1 dBTP)<!--/VOICE-->; Englisch: Kokoro-82M, 1 193 von 1 622 Prof-Sätzen, Rest Untertitel; 0 Browser-TTS | `docs/AUDIO.md`, `docs/audio/beispiele/` |
 | Klang | 0 synthetische Quellen (außer ≤ 5 UI-Töne), ≥ 120 Clips | 151 echte Aufnahmen für 72 Klänge, 5 synthetische Laptop-Signaltöne | `docs/AUDIO.md`, `tools/audio-check.mjs` |
 | Desktop-Build | ≤ 80 MB | **71 MB** (+ Stimmen als Begleitdateien) | `dist/SHA256.txt` |
 | Mobil-Build | ≤ 30 MB, PWA | **Kern 27,9 MB**, Manifest, Service Worker | `npm test` |
