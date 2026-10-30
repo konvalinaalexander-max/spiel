@@ -60,7 +60,15 @@ def main():
     import soundfile as sf
     man = {l: load_manifest(l) for l in LANGS}
     todo = [c for c in clips if c['id'] not in man[c['lang']]]
-    if SHARD: k, n = map(int, SHARD.split('/')); todo = todo[k::n]
+    if SHARD:
+        k, n = map(int, SHARD.split('/'))
+        # SHARD_BASE: Verzeichnis, aus dem die Aufteilung ursprünglich berechnet wurde (Neustart eines Teils ohne Überschneidung)
+        base = os.environ.get('SHARD_BASE')
+        if base:
+            bm = json.load(open(os.path.join(base, 'manifest.json'), encoding='utf-8'))
+            mine = {c['id'] for c in [c for c in clips if c['id'] not in bm][k::n]}
+            todo = [c for c in todo if c['id'] in mine]
+        else: todo = todo[k::n]
     print(f'{len(todo)} von {len(clips)} Aufnahmen offen', flush=True)
     t0 = time.time(); audio = 0.0
     for i, c in enumerate(todo):
