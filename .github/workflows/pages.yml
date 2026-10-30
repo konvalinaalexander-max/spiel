@@ -17,6 +17,8 @@ jobs:
     # nur vom Standard-Branch veröffentlichen (Pushes auf andere Branches bauen nicht)
     if: github.ref_name == github.event.repository.default_branch || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
+    outputs:
+      enabled: ${{ steps.pages.outcome == 'success' }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -31,12 +33,20 @@ jobs:
           node tools/build.mjs
           cp dist/BOKU_TicTacTierernaehrung_v3.html dist/BOKU_TicTacTierernaehrung_v3_stimme_*.js dist/mobile/
           cp dist/BOKU_TicTacTierernaehrung_v3_mobile.zip dist/mobile/ || true
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
+      # Solange Pages im Repository nicht eingeschaltet ist, schlägt dieser Schritt fehl – dann nur ein Hinweis statt rotem Lauf
+      - id: pages
+        uses: actions/configure-pages@v5
+        continue-on-error: true
+      - if: steps.pages.outcome != 'success'
+        run: |
+          echo "::notice::GitHub Pages ist noch nicht eingeschaltet – Settings → Pages → Source = GitHub Actions, dann diesen Lauf erneut starten."
+      - if: steps.pages.outcome == 'success'
+        uses: actions/upload-pages-artifact@v3
         with:
           path: dist/mobile
   deploy:
     needs: build
+    if: needs.build.outputs.enabled == 'true'
     runs-on: ubuntu-latest
     environment:
       name: github-pages
