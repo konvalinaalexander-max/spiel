@@ -194,7 +194,7 @@ export class ClipCharacter {
     if (this.seat && this.sitBlend > 0.02 && this.mode === 'sit') {
       const k = 1 - Math.exp(-4 * dt);
       this.pos.lerp(this.seat.pos, k); this.yaw = angleDamp(this.yaw, this.seat.yaw, 5, dt);
-    }
+    } else if (this.mode !== 'sit') this.pos.y = damp(this.pos.y, this.floorAt(this.pos.x, this.pos.z), 9, dt);   // Stufen im Gang weich nachführen
     // alle Knochen auf Ruhe zurücksetzen, danach schreibt der Mixer die animierten (Gesicht: keine Spuren in den Clips)
     for (const [o, q] of this.restQ) o.quaternion.copy(q);
     for (const [o, q] of this.faceRest) o.quaternion.copy(q);
