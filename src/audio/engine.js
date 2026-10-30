@@ -288,20 +288,25 @@ export class AudioEngine {
     const lang = this.lang || 'de';
     const ids = this.bank.parts(lang, o.speaker, o.tpl, o.vars); if (!ids) return null;
     const shape = this.bank.shape(lang, ids);
+    this.clipsPlayed = (this.clipsPlayed || 0) + 1;   // für den Browser-Test
     const ctx = this.ctx, token = {};
     if (o.speaker === 'prof') { this._stopProfClip(); this._profToken = token; }
     const out = ctx.createGain(); out.gain.value = (o.gain ?? 0.95);
-    if (o.pos) { const p = this._panner(o.pos, 'HRTF', o.speaker === 'prof' ? 3 : 0.9); out.connect(p); p.connect(this.voiceLP); }
+    let pan = null;
+    if (o.pos) { pan = this._panner(o.pos, 'HRTF', o.speaker === 'prof' ? 3 : 0.9); out.connect(pan); pan.connect(this.voiceLP); }
     else out.connect(this.voiceLP);
     // Raumanteil über den Hall (Hörsaal), beim Prof etwas mehr
     const send = ctx.createGain(); send.gain.value = o.speaker === 'prof' ? 0.2 : 0.1; out.connect(send); send.connect(this.reverbIn);
     const start = ctx.currentTime + 0.04;
     this._clipEnd = Math.max(this._clipEnd || 0, start + shape.dur);
     Promise.all(ids.map(id => this.bank.buffer(ctx, lang, id))).then(bufs => {
-      if (o.speaker === 'prof' && this._profToken !== token) return;
+      if (o.speaker === 'prof' && this._profToken !== token) { out.disconnect(); send.disconnect(); if (pan) pan.disconnect(); return; }
       let t = Math.max(ctx.currentTime + 0.01, start); const srcs = [];
       for (const b of bufs) { if (!b) continue; const sN = ctx.createBufferSource(); sN.buffer = b; sN.connect(out); sN.start(t); srcs.push(sN); t += b.duration + 0.06; }
       if (o.speaker === 'prof') this._profSrcs = srcs;
+      // Satz zu Ende (oder abgebrochen): Knoten abhängen, sonst bleiben je Satz Verstärker, HRTF-Panner und Hall-Abzweig im Graphen
+      const release = () => { out.disconnect(); send.disconnect(); if (pan) pan.disconnect(); };
+      if (srcs.length) srcs[srcs.length - 1].onended = release; else release();
     });
     return shape;
   }

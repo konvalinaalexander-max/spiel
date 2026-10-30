@@ -287,6 +287,11 @@ if (args.includes('--e2e')) {
   console.log('Browser (headless)');
   const out = execFileSync(process.execPath, [path.join(root, 'tools/e2e.mjs'), '--steps', 'game,sim20,state', '--out', 'docs/screenshots/e2e-test'], { encoding: 'utf8', timeout: 900000 });
   test('Spiel startet ohne Konsolenfehler', () => { ok(/keine Fehler\/Warnungen/.test(out), out.split('\n').slice(-12).join('\n')); });
+  test('Stimme: Sprache der Aufnahmen = Sprache der Oberfläche, Prof spricht', () => {
+    const st = JSON.parse(out.split('\n').find(l => l.startsWith('{') && l.includes('"voice"')) || '{}');
+    ok(st.voice && st.voice.lang === st.voice.ui, `Aufnahmen ${st.voice?.lang}, Oberfläche ${st.voice?.ui}`);
+    ok(st.voice.clips >= 1, `${st.voice.clips} Aufnahmen gestartet`);
+  });
 }
 
 console.log(`\n${pass} bestanden, ${fail} fehlgeschlagen`);

@@ -45,6 +45,9 @@ function applyGfxSettings(s) {
 }
 
 async function boot() {
+  // Sprache der Aufnahmen = Sprache der Oberfläche (gespeichert bzw. Browsersprache) – sonst suchte eine englische Vorlesung in den
+  // deutschen Aufnahmen und blieb stumm
+  audio.setLang(getLang());
   input = new Input(canvas);
   hud = new HUD(hudRoot, {});
   hud.show(false);
@@ -145,7 +148,7 @@ function startLecture(cfg, again) {
   enterGate();
 }
 function enterGate() {
-  audio.start();
+  audio.start(); audio.setLang(getLang());
   const cfg = ui._pendingCfg || ui.sessionCfg();
   world.fresh = false;
   ui.hide();

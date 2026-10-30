@@ -9,6 +9,10 @@ import { b64, embedded, remote, fetchBytes, fetchJSON } from '../core/assets.js'
 
 export function fnv(s) { let h = 0x811c9dc5; for (const ch of s) { const c = ch.codePointAt(0); h ^= c & 0xff; h = Math.imul(h, 0x01000193) >>> 0; if (c > 0xff) { h ^= c >>> 8; h = Math.imul(h, 0x01000193) >>> 0; } } return h.toString(16).padStart(8, '0'); }
 const GAP = 0.06; // Pause zwischen zusammengesetzten Stücken (s)
+// Dekodierte Aufnahmen liegen als PCM im Speicher (48 kHz Float ≈ 190 KB je Sekunde). Sätze wiederholen sich kaum – ohne Grenze
+// sammelten sich über eine 90-Minuten-Vorlesung Hunderte MB an (auf Handys ein Absturzrisiko). Ein laufender Satz behält seinen
+// Puffer über die Abspielquelle, auch wenn er hier schon verdrängt ist.
+const CACHE_MAX = 48;
 
 export class VoiceBank {
   constructor() {
@@ -16,7 +20,7 @@ export class VoiceBank {
     // Desktop: Begleitdateien je Sprache (window.__voicePacks), sonst eingebetteter Block
     const packs = typeof window !== 'undefined' && window.__voicePacks;
     this.data = t ? JSON.parse(t) : (packs && Object.keys(packs).length ? packs : null);
-    this.cache = new Map();   // id → Promise<AudioBuffer>
+    this.cache = new Map();   // id → Promise<AudioBuffer>; begrenzt (CACHE_MAX), älteste zuerst raus
     this.titles = {};         // Abschnittstitel → Text (für {section})
     // Mobil-Build: nur die Verzeichnisse (Dauer, Lautstärkekurve) laden; die Aufnahmen selbst holt buffer() bei Bedarf
     this.remote = !this.data && remote && remote.voice ? remote.voice : null;
@@ -48,12 +52,14 @@ export class VoiceBank {
   }
   buffer(ctx, lang, id) {
     const key = lang + id;
-    if (!this.cache.has(key)) {
-      const c = this.data[lang].clips[id];
-      const bytes = c.a ? Promise.resolve(b64(c.a)) : fetchBytes(`${this.remote}${lang}/${id}.ogg`);
-      this.cache.set(key, bytes.then(b => ctx.decodeAudioData(b.buffer)).catch(() => null));
-    }
-    return this.cache.get(key);
+    let p = this.cache.get(key);
+    if (p) { this.cache.delete(key); this.cache.set(key, p); return p; }   // zuletzt benutzt ans Ende
+    const c = this.data[lang].clips[id];
+    const bytes = c.a ? Promise.resolve(b64(c.a)) : fetchBytes(`${this.remote}${lang}/${id}.ogg`);
+    p = bytes.then(b => ctx.decodeAudioData(b.buffer)).catch(() => null);
+    this.cache.set(key, p);
+    while (this.cache.size > CACHE_MAX) this.cache.delete(this.cache.keys().next().value);
+    return p;
   }
   /** Gesamtdauer (s) und Lautstärkekurve (0–1) über die Zeit seit Beginn */
   shape(lang, ids) {
