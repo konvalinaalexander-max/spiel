@@ -212,7 +212,8 @@ export class SlideRenderer {
     c.fillStyle = '#ffffff'; c.fillRect(0, 0, 1920, 1080);
     drawBokuLogo(c, 90, 56, 74);
     c.fillStyle = T; c.font = `24px ${FONT}`; c.fillText(meta.university, 290, 84);
-    c.fillStyle = MID; c.font = `22px ${FONT}`; c.fillText(meta.institute, 290, 118);
+    // Institutszeile: dunkleres Grau und etwas größer (vorher #929191/22 px, Kontrast 3,1 : 1 – beim genauen Hinschauen las man „rn“ als „m“)
+    c.fillStyle = '#6f6f6f'; c.font = `24px ${FONT}`; c.fillText(meta.institute, 290, 120);
     c.textAlign = 'right'; c.fillText(meta.courseShort, 1830, 84); c.textAlign = 'left';
     c.fillStyle = G; c.fillRect(90, 160, 1740, 5);
     c.fillStyle = GREY; c.fillRect(0, 1020, 1920, 60);
