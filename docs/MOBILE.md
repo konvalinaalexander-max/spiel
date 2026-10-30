@@ -32,7 +32,7 @@ assets/voice/de|en/     Verzeichnis der Aufnahmen + Opus-Dateien
   `dist/mobile/` samt Desktop-Fassung (`…/BOKU_TicTacTierernaehrung_v3.html` mit Stimmdateien). Einmalig im Repository
   einschalten: *Settings → Pages → Source: GitHub Actions*; ohne diese Einstellung meldet der Lauf nur einen Hinweis.
   Adresse danach: `https://konvalinaalexander-max.github.io/spiel/`.
-- **Eigener Server:** `dist/BOKU_TicTacTierernaehrung_v3_mobile.zip` entpacken und den Ordner per HTTPS ausliefern
+- **Eigener Server:** `dist/BOKU_TicTacTierernaehrung_v3_mobile.zip` (aus `npm run build:mobile` oder von der Pages-Seite) entpacken und den Ordner per HTTPS ausliefern
   (Service Worker und Wake Lock brauchen HTTPS; `localhost` geht zum Testen).
 - Direkt als Datei geöffnet (`file://`) läuft der Mobil-Build nicht. Dafür gibt es die Desktop-Datei.
 

@@ -8,7 +8,7 @@ Statusbericht zum Auftrag `AUFTRAG_V3.md`. Zahlen sind gemessen (Werkzeug in Kla
 |---|---|---|
 | A (Schärfe, Lesbarkeit) | `dist/BOKU_TicTacTierernaehrung_v3-alpha.html` | geliefert |
 | B (Zwischenstand) | – | entfallen: Der Auftraggeber wollte nach den neuen Figuren keine Zwischenlieferung mehr, nur die fertige Fassung |
-| **C (final)** | `dist/BOKU_TicTacTierernaehrung_v3.html` + `…_stimme_de.js` / `…_stimme_en.js`, `dist/mobile/`, `dist/BOKU_TicTacTierernaehrung_v3_mobile.zip`, `dist/SHA256.txt`, Pages-Workflow | siehe unten |
+| **C (final)** | `dist/BOKU_TicTacTierernaehrung_v3.html` + `…_stimme_de.js` / `…_stimme_en.js`, `dist/SHA256.txt`, Mobil-Fassung + ZIP über den Pages-Workflow (`npm run build:mobile` baut beides lokal) | siehe unten |
 
 **Spielen:** im Browser über GitHub Pages (`https://konvalinaalexander-max.github.io/spiel/`, nach einmaligem Einschalten) oder
 offline per Download der HTML-Datei (README, Abschnitt „Spielen“).

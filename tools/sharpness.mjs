@@ -1,5 +1,5 @@
 // Schärfe- und Lesbarkeitsmessung (Auftrag V3, Anhang B).
-// node tools/sharpness.mjs --html tools/.cache/baseline_v2.html --label v2 [--dpr 1,2] [--views K1,K2,K3,K4] [--q medium] [--w 1920 --h 1080]
+// node tools/sharpness.mjs --html tools/.cache/baseline_v2.html --label v2 [--dpr 1,2] [--views K1,K2,K3,K4] [--q medium] [--w 1920 --h 1080] [--warm 120]
 // Misst für feste Kameras den Bildausschnitt so, wie ihn der Spieler sieht (Seiten-Screenshot in Gerätepixeln, also inkl.
 // Hochskalierung durch den Browser): Laplace-Varianz (Kantenschärfe) und OCR-Trefferquote (Anteil der Wörter des Quelltexts,
 // die tesseract.js im 3-fach vergrößerten Ausschnitt exakt wiederfindet). Ergebnis: docs/schaerfe/<label>.json + Bilder.
@@ -58,7 +58,8 @@ async function openAt(browser, dpr) {
   await page.evaluate(() => { window.__hold = true; window.__ui.hooks.start({ ...window.__ui.cfg, seed: 4242 }); });
   await page.waitForFunction(() => window.__state() === 'game', null, { timeout: 120000 });
   // bis eine Inhaltsfolie läuft und der Prof an der Tafel geschrieben hat
-  await page.evaluate(() => { const g = window.__game(); let n = 0; while (!(g.lastSlide && g.lastSlide.kind === 'content' && g.session.t > 120) && n++ < 30000) window.__step(0.05); window.__step(3); });
+  // --warm <s>: Vorlesungszeit vor der Messung (Standard 120 s; kürzer spart Speicher im CPU-Rasterizer, z. B. für K2 in Full HD)
+  await page.evaluate(warm => { const g = window.__game(); let n = 0; while (!(g.lastSlide && g.lastSlide.kind === 'content' && g.session.t > warm) && n++ < 30000) window.__step(0.05); window.__step(3); }, +(args.warm ?? 120));
   await page.evaluate(() => { for (const id of ['hud', 'ui']) { const e = document.getElementById(id); if (e) e.style.visibility = 'hidden'; } });
   const info = await page.evaluate(() => ({ dprCanvas: window.__gfx.renderer.getPixelRatio(), buf: [window.__gfx.renderer.domElement.width, window.__gfx.renderer.domElement.height] }));
   lap(`${label} DPR ${dpr}: Canvas-Pixelverhältnis ${info.dprCanvas}, Puffer ${info.buf.join('×')}`);
@@ -112,11 +113,21 @@ for (const dpr of dprs) {
     const clip = { x: r.box.x, y: r.box.y, width: r.box.x1 - r.box.x, height: r.box.y1 - r.box.y };
     // Bild direkt aus dem Canvas (Renderpuffer) und auf Gerätepixel bringen, wie es der Browser beim Anzeigen tut
     // (bilineare Hochskalierung, wenn der Puffer kleiner als der Bildschirm ist) – Seiten-Screenshots hängen im CPU-Rasterizer
-    const full = await page.evaluate(() => { window.__gfx.render(0.016); return window.__gfx.renderer.domElement.toDataURL('image/png'); });
-    const buf0 = Buffer.from(full.split(',')[1], 'base64');
+    // Nur den Ausschnitt per gl.readPixels lesen (direkt nach dem Zeichnen, im selben Task): toDataURL des ganzen Full-HD-Canvas
+    // braucht im CPU-Rasterizer rund 10 GB und sprengt den Testcontainer
     const k = info.dprCanvas;
     const ext = { left: Math.round(clip.x * k), top: Math.round(clip.y * k), width: Math.round(clip.width * k), height: Math.round(clip.height * k) };
-    const png = await sharp(buf0).extract(ext).resize({ width: Math.round(clip.width * dpr), height: Math.round(clip.height * dpr), kernel: Math.abs(k - dpr) < 0.01 ? 'nearest' : 'linear' }).png().toBuffer();
+    const raw = await page.evaluate(e => {
+      const gfx = window.__gfx; gfx.render(0.016);
+      const gl = gfx.renderer.getContext(), H = gl.drawingBufferHeight, row = e.width * 4;
+      const px = new Uint8Array(row * e.height), out = new Uint8Array(px.length);
+      gl.bindFramebuffer(gl.FRAMEBUFFER, null);
+      gl.readPixels(e.left, H - e.top - e.height, e.width, e.height, gl.RGBA, gl.UNSIGNED_BYTE, px);
+      for (let y = 0; y < e.height; y++) out.set(px.subarray((e.height - 1 - y) * row, (e.height - y) * row), y * row);
+      let str = ''; for (let i = 0; i < out.length; i += 0x8000) str += String.fromCharCode.apply(null, out.subarray(i, i + 0x8000));
+      return btoa(str);
+    }, ext);
+    const png = await sharp(Buffer.from(raw, 'base64'), { raw: { width: ext.width, height: ext.height, channels: 4 } }).removeAlpha().resize({ width: Math.round(clip.width * dpr), height: Math.round(clip.height * dpr), kernel: Math.abs(k - dpr) < 0.01 ? 'nearest' : 'linear' }).png().toBuffer();
     const file = `${label}_${v}_dpr${dpr}.png`; fs.writeFileSync(path.join(outDir, file), png);
     const lv = await laplaceVar(png);
     let ocr = null, ocrText = '';

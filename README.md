@@ -29,7 +29,8 @@ Source: „GitHub Actions“*. Danach veröffentlicht der Workflow `.github/work
 3. „Zur Lehrveranstaltung“ → Schwierigkeit, Modus, Dauer, Sitzplatz wählen → „Vorlesung betreten“.
 
 **Am Handy** über die Pages-Adresse oben (installierbar als App, offline nach dem ersten Start) oder
-`dist/BOKU_TicTacTierernaehrung_v3_mobile.zip` auf einem eigenen HTTPS-Server. Details und Touch-Steuerung: `docs/MOBILE.md`.
+das ZIP `BOKU_TicTacTierernaehrung_v3_mobile.zip` auf einem eigenen HTTPS-Server (liegt auf der Pages-Seite unter
+`…/spiel/BOKU_TicTacTierernaehrung_v3_mobile.zip` oder entsteht lokal mit `npm run build:mobile`; mit 96 MB nicht im Repository). Details und Touch-Steuerung: `docs/MOBILE.md`.
 
 Version 2 liegt unverändert als `dist/BOKU_TicTacTierernaehrung_v2.html` bei. Prüfsummen: `dist/SHA256.txt`.
 

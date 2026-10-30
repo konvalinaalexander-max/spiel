@@ -3,6 +3,7 @@
 ## 3.0.0 (in Arbeit) – Version 3: scharf, echt, mobil
 
 **Schärfe und Lesbarkeit**
+- Folien: Institutszeile im Kopf dunkler und größer (Kontrast 3,1 → 5 : 1).
 - Render- = Bildschirmpixel bis DPR 2 auf allen Stufen, MSAA statt FXAA, Nachschärfung (CAS), entgiftete Nachbearbeitung.
 - Folie aus Reihe 5: Texterkennung 88,9 % statt 62,2 %, Kantenschärfe 4,3-fach; Laptop 98,1 % statt 62,1 % (`docs/SCHAERFE.md`).
 - Laptop-Blick: Teile der eigenen Figur direkt vor der Kamera werden ausgeblendet (vorher verdeckte der Unterarm Text).
@@ -41,7 +42,9 @@
   Umgebungsverdeckung auf allen Saalflächen (vier Atlanten à 2048², entrauscht, Wettervarianten sonnig/bewölkt).
 
 **Stimme (Entscheidung des Auftraggebers: Deutsch reicht)**
-- Vertont wird vollständig auf Deutsch; Englisch bleibt als Textfassung, nur teilweise vertont.
+- Deutsch vollständig vertont: **1 697 von 1 697 Aufnahmen** (Prof, Nachbarin, Tutorin, Studierende), Opus 20 kbit/s mit
+  Limiter (alle ≤ −1 dBTP), 45,4 MB. Englisch bleibt als Textfassung, teilweise vertont (1 193 von 1 622 Prof-Sätzen).
+- Hörproben: `docs/audio/beispiele/` (30 Prof-Sätze je Sprache + Transkript).
 - Keine Sprachausgabe des Browsers und kein synthetisches Murmeln mehr: ohne Aufnahme bleibt der Untertitel.
 
 - Achter Running Gag „Kreide“: seine eigene Kreide quietscht „nur bei Wichtigem“ (je 6 Varianten DE/EN, echtes Kreidegeräusch).
@@ -56,7 +59,7 @@
 **Leistung**
 - Requisiten in einem gemeinsamen Texturatlas (73 Materialien → 1 Atlasseite), Glas ohne Transmissionsdurchgang, Echtzeitschatten
   nur für Möbelgroßes, Wände und Figuren; Figuren ein Material je Atlas. „Mittel“: 706 → 245 Draw Calls je Bild (Budget 250).
-- Desktop-Datei 71 MB (Ziel ≤ 80), Mobil-Kern < 30 MB (Positionen der Figuren als Int16, Lightmap-UVs kompakt, Animationen als
+- Desktop-Datei 73 MB (Ziel ≤ 80), Mobil-Kern 28,5 MB (≤ 30) (Positionen der Figuren als Int16, Lightmap-UVs kompakt, Animationen als
   Int16-Differenzen).
 
 **Balance**
