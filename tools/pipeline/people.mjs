@@ -219,7 +219,7 @@ async function writeHPK(fig, cls, atlasKey, place, AW, AH, normalMap, opts) {
     await MeshoptSimplifier.ready; const P32 = new Float32Array(pos); idx1 = []; groups1 = [];
     for (const gr of groups) {
       const sub = Uint32Array.from(idx.slice(gr.start, gr.start + gr.count));
-      const target = Math.floor(gr.count * (gr.alpha ? 0.5 : 0.35) / 3) * 3;
+      const target = Math.floor(gr.count * (gr.alpha ? (profile === 'mobile' ? 0.4 : 0.5) : (profile === 'mobile' ? 0.2 : 0.35)) / 3) * 3;   // mobil gröber
       const [r] = MeshoptSimplifier.simplify(sub, P32, 3, target, gr.alpha ? 0.03 : 0.02, []);
       groups1.push({ start: idx1.length, count: r.length, alpha: gr.alpha }); for (const i of r) idx1.push(i);
     }

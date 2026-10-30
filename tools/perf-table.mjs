@@ -19,6 +19,7 @@ for (const q of presets) {
   await page.waitForFunction(() => window.__state && window.__world && window.__state() === 'menu', null, { timeout: 300000, polling: 250 });
   const loadS = (Date.now() - t0) / 1000;
   await page.evaluate(() => { window.__hold = true; window.__ui.hooks.start(window.__ui.cfg); });
+  await page.waitForFunction(() => window.__state() === 'game', null, { timeout: 120000 });
   await page.evaluate(() => window.__step(3));
   const frame = () => page.evaluate(() => {
     const R = window.__gfx.renderer, info = R.info, ar = info.autoReset; info.autoReset = false; info.reset();

@@ -267,7 +267,7 @@ export function buildBlinds(gfx, initial = [0.45, 0, 0]) {
   boxes.castShadow = false; gfx.scene.add(boxes);   // Kasten über dem Fenster: Schatten unerheblich, spart Draw Calls
   const items = WN.list.map((c, i) => {
     const x = ROOM.x0 - 0.06;
-    const cloth = new THREE.Mesh(new THREE.PlaneGeometry(WN.w - 0.02, 1), fab); cloth.rotation.y = Math.PI / 2; cloth.castShadow = true; cloth.receiveShadow = true;
+    const cloth = new THREE.Mesh(new THREE.PlaneGeometry(WN.w - 0.02, 1), fab); cloth.name = 'rollo'; cloth.rotation.y = Math.PI / 2; cloth.castShadow = true; cloth.receiveShadow = true;
     const bar = new THREE.Mesh(rbox(0.03, 0.03, WN.w - 0.01, 0.008), housing); bar.castShadow = false;
     gfx.scene.add(cloth, bar);
     return { cloth, bar, c, x, state: initial[i] ?? 0, target: initial[i] ?? 0 };

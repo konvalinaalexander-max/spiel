@@ -1,0 +1,56 @@
+{
+ "device": "Pixel 7 (emuliert, Querformat)",
+ "steps": [
+  {
+   "name": "Startseite",
+   "ok": true,
+   "info": "34.5 s bis bereit"
+  },
+  {
+   "name": "LV-Seite per Tipp",
+   "ok": true,
+   "info": ""
+  },
+  {
+   "name": "Vorlesung betreten",
+   "ok": true,
+   "info": ""
+  },
+  {
+   "name": "Tastenleiste sichtbar",
+   "ok": true,
+   "info": ""
+  },
+  {
+   "name": "Laptop per Taste",
+   "ok": true,
+   "info": ""
+  },
+  {
+   "name": "Feld per Tipp gesetzt",
+   "ok": true,
+   "info": "Zelle 4"
+  },
+  {
+   "name": "Mitschreiben (halten)",
+   "ok": true,
+   "info": ""
+  },
+  {
+   "name": "Prüfungsfrage per Tipp beantwortet",
+   "ok": true,
+   "info": ""
+  },
+  {
+   "name": "Vorlesung beendet, Zeugnis",
+   "ok": true,
+   "info": ""
+  },
+  {
+   "name": "0 Konsolenfehler",
+   "ok": true,
+   "info": ""
+  }
+ ],
+ "errors": []
+}

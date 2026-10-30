@@ -24,13 +24,15 @@ try {
   const cdp = await ctx.newCDPSession(page);
   const touch = async (type, x, y) => cdp.send('Input.dispatchTouchEvent', { type, touchPoints: type === 'touchEnd' ? [] : [{ x, y }] });
   const tap = async (x, y, hold = 0) => { await touch('touchStart', x, y); if (hold) await page.waitForTimeout(hold); await touch('touchEnd', x, y); await page.waitForTimeout(150); };
-  const tapSel = async (sel, hold = 0) => { const b = await page.locator(sel).first().boundingBox(); if (!b) throw new Error('nicht sichtbar: ' + sel); await tap(b.x + b.width / 2, b.y + b.height / 2, hold); };
+  const tapSel = async (sel, hold = 0) => { const l = page.locator(sel).first(); await l.scrollIntoViewIfNeeded(); await page.waitForTimeout(200); const b = await l.boundingBox(); if (!b) throw new Error('nicht sichtbar: ' + sel); await tap(b.x + b.width / 2, b.y + b.height / 2, hold); };
   const t0 = Date.now();
   await page.goto(`http://127.0.0.1:${port}/?q=low`);
   await page.waitForFunction(() => window.__state && window.__state() === 'menu', null, { timeout: 300000, polling: 250 });
   log('Startseite', true, `${((Date.now() - t0) / 1000).toFixed(1)} s bis bereit`);
   await tapSel('[data-go="lv"]'); await page.waitForTimeout(400);
   log('LV-Seite per Tipp', await page.evaluate(() => !document.querySelector('#scr-lv')?.hidden));
+  // Bildschleife anhalten (der Software-Renderer im Testcontainer läuft sonst bei Dauerbetrieb voll); gerendert wird gezielt
+  await page.evaluate(() => { window.__hold = true; });
   await tapSel('#lv-start');
   await page.waitForFunction(() => window.__state() === 'game' || !document.querySelector('#scr-gate')?.hidden, null, { timeout: 300000, polling: 250 });
   if (await page.evaluate(() => window.__state() !== 'game')) await tapSel('#gate-go');

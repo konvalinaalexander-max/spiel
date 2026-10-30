@@ -63,7 +63,9 @@ async function loadModel(m, io) {
   const tris = () => doc.getRoot().listMeshes().reduce((a, me) => a + me.listPrimitives().reduce((b, p) => b + (p.getIndices() ? p.getIndices().getCount() : p.getAttribute('POSITION').getCount()) / 3, 0), 0);
   await doc.transform(dedup(), prune(), weld());
   const t0 = tris();
-  if (t0 > m.tris) await doc.transform(simplify({ simplifier: MeshoptSimplifier, ratio: m.tris / t0, error: m.error ?? 0.01, lockBorder: false }));
+  // Mobil: 40 % des Dreiecksbudgets (Budget Handy ≤ 400 k Dreiecke je Bild; Requisiten stehen vielfach auf den Pulten)
+  const budget = profile === 'mobile' ? Math.round(m.tris * 0.4) : m.tris;
+  if (t0 > budget) await doc.transform(simplify({ simplifier: MeshoptSimplifier, ratio: budget / t0, error: (m.error ?? 0.01) * (profile === 'mobile' ? 6 : 1), lockBorder: false }));
   return { m, meta, doc, t0, t1: tris() };
 }
 

@@ -94,7 +94,8 @@ export async function loadPropModels(gfx, onProgress = () => {}) {
     // Schatten nur für Möbel: Kontaktschatten kleinerer Dinge (Becher, Obst, Lampen, Pflanzen) stecken schon im gebackenen Licht,
     // jede schattenwerfende Materialgruppe kostet sonst je Kaskade einen Draw Call
     const cast = opts.cast ?? (b.max.y - b.min.y) * s > 0.6;   // Möbelgröße (Regale, Schränke, Stühle, Ständer)
-    for (const p of md.parts) B.add(p.geometry, p.material, full, { keepUV: true, cast, receive: true });
+    // mobil: durchsichtige Teile (Glas von Lupe, Brille, Mikroskop, Wecker …) weglassen – je ein Draw Call, vom Platz aus unsichtbar
+    for (const p of md.parts) { if (remote && p.material.transparent) continue; B.add(p.geometry, p.material, full, { keepUV: true, cast, receive: true }); }
     return true;
   };
   R.has = id => !!models[id];

@@ -303,14 +303,14 @@ export function buildProps(gfx, hall, plan, opts = {}) {
       () => real('digital_wrist_watch', onDesk(row, x + 0.22, zc + 0.07, r.range(0, 6))),
       () => { if (r.chance(0.3)) real('gamepad', onDesk(row, x - 0.22, zc + 0.03, r.range(-0.5, 0.5)), { scale: 0.38 }); },
       () => beanie(onDesk(row, x - 0.24, zc + 0.02, r.range(0, 3)), r.pick(SCARF))];
-    const n = r.int(0, 3);
+    const n = opts.lite ? r.int(0, 1) : r.int(0, 3);   // mobil (lite) weniger Kleinkram je Platz – Dreiecksbudget Handy
     for (let i = 0; i < n; i++) r.pick(extras)();
     // Getränke auf der Ablageleiste
     if (s.bottle) { const k = r.int(0, 2); const m = onLedge(row, x + r.range(-0.25, 0.25), r.range(0, 6)); if (k === 0) bottlePET(m); else if (k === 1) bottleSteel(m, r.pick([0x2e86c1, 0xa93226, 0x1e8449, 0xd0d3d4, 0x17202a])); else mateBottle(m); }
     if (s.cup) { if (r.chance(0.6)) mensaCup(onLedge(row, x + r.range(-0.2, 0.2))); else thermo(onLedge(row, x + r.range(-0.2, 0.2)), r.pick([0x7b241c, 0x1b4f72, 0x0e6251, 0x4d5656])); }
     // Rucksack: am Boden vor den Füßen (Fußraum unter dem Pult)
-    if (s.backpack) { const [c1, c2] = r.pick(BAGS); const side = r.chance(0.5) ? 1 : -1; backpack(mat(x + side * 0.27, LY.rowFloor(row), LY.rowFront(row) + 0.14, -0.1, side * Math.PI / 2 + r.range(-0.25, 0.25), 0), c1, c2); }
-    if (s.jacketOnBench) jacket(x, row, r.pick([0x1b2631, 0x5d4037, 0x2e4053, 0x7d6608, 0x641e16, 0x283747]));
+    if (s.backpack && (!opts.lite || r.chance(0.5))) { const [c1, c2] = r.pick(BAGS); const side = r.chance(0.5) ? 1 : -1; backpack(mat(x + side * 0.27, LY.rowFloor(row), LY.rowFront(row) + 0.14, -0.1, side * Math.PI / 2 + r.range(-0.25, 0.25), 0), c1, c2); }
+    if (s.jacketOnBench && (!opts.lite || r.chance(0.5))) jacket(x, row, r.pick([0x1b2631, 0x5d4037, 0x2e4053, 0x7d6608, 0x641e16, 0x283747]));
     if (r.chance(0.08) && !occupied.has(`${row}-${s.seat.k + 1}`)) helmet(mat(x + 0.32, LY.rowFloor(row) + LY.SEAT_H + 0.02, LY.seatZ(row) - 0.02, 0, r.range(0, 6), 0));
     if (opts.weather === 'rain' && r.chance(0.25)) umbrella(mat(x + 0.25, LY.rowFloor(row), LY.rowFront(row) + 0.5, 0.25, 0, 0.1));
     return items;
@@ -498,7 +498,7 @@ export function buildProps(gfx, hall, plan, opts = {}) {
     const T2 = LY.TABLE, ty2 = LY.PODIUM.h + T2.h, P = (x, y, z, yaw = 0) => mat(x, y, z, 0, yaw, 0);
     // Vortragstisch: Mikroskop, Fachbücher, Krug, Lupe, Heftmaschine, Maßband, Gummiente
     real('vintage_microscope', P(T2.x + 1.05, ty2, T2.z - 0.18, 0.6));
-    real('book_encyclopedia_set_01', P(T2.x - 0.62, ty2, T2.z + 0.22, 0.1), { scale: 0.8 });
+    if (!opts.lite) real('book_encyclopedia_set_01', P(T2.x - 0.62, ty2, T2.z + 0.22, 0.1), { scale: 0.8 });   // mobil: 20 k bzw. 10 k Dreiecke, lassen sich nicht vereinfachen
     real('jug_01', P(T2.x + 0.92, ty2, T2.z - 0.28, 1.2), { scale: 0.9 });
     real('magnifying_glass_01', P(T2.x - 1.6, ty2, T2.z + 0.12, 2.2));
     real('vintage_stapler', P(T2.x - 0.18, ty2, T2.z + 0.27, -0.4));
@@ -519,7 +519,7 @@ export function buildProps(gfx, hall, plan, opts = {}) {
     // hinten: Regale, Kartons, Kisten, Büste auf dem Bücherregal
     real('cardboard_box_01', P(LY.ROOM.x0 + 1.9, LY.BACK_FLOOR, LY.ROOM.z1 - 0.35, 0.2));
     real('cardboard_box_01', P(LY.ROOM.x0 + 1.95, LY.BACK_FLOOR + 0.3, LY.ROOM.z1 - 0.35, -0.3), { scale: 0.8 });
-    real('plastic_crate_01', P(LY.ROOM.x0 + 2.5, LY.BACK_FLOOR, LY.ROOM.z1 - 0.4, 0.1));
+    if (!opts.lite) real('plastic_crate_01', P(LY.ROOM.x0 + 2.5, LY.BACK_FLOOR, LY.ROOM.z1 - 0.4, 0.1));
     real('wooden_bookshelf_worn', P(LY.ROOM.x1 - 0.3, LY.PODIUM.h, LY.ROOM.z0 + 2.0, -Math.PI / 2), { scale: 0.9 });
     real('marble_bust_01', P(LY.ROOM.x1 - 0.3, LY.PODIUM.h + 2.063 * 0.9, LY.ROOM.z0 + 2.0, -Math.PI / 2), { scale: 0.8 });
     // Tür vorne: Mülleimer, Besen, Kehrschaufel, Erste-Hilfe-Kasten an der Wand, Bilderrahmen
@@ -555,7 +555,7 @@ export function buildProps(gfx, hall, plan, opts = {}) {
     // Rückwand: Schubladenschrank mit Fernseher und Büchern, Wandregal mit Kisten, Hocker
     real('drawer_cabinet', P(1.55, LY.BACK_FLOOR, LY.ROOM.z1 - 0.25, Math.PI));
     real('television_02', P(1.55, LY.BACK_FLOOR + 1.12, LY.ROOM.z1 - 0.3, Math.PI + 0.15), { scale: 0.8 });
-    real('book_encyclopedia_set_01', P(1.55, LY.BACK_FLOOR + 1.46, LY.ROOM.z1 - 0.27, Math.PI), { scale: 0.7 });
+    if (!opts.lite) real('book_encyclopedia_set_01', P(1.55, LY.BACK_FLOOR + 1.46, LY.ROOM.z1 - 0.27, Math.PI), { scale: 0.7 });
     real('Shelf_01', P(2.72, LY.BACK_FLOOR, LY.ROOM.z1 - 0.14, Math.PI));
     real('plastic_crate_02', P(2.72, LY.BACK_FLOOR + 0.14, LY.ROOM.z1 - 0.16, Math.PI), { scale: 0.5 });
     real('wicker_basket_02', P(2.72, LY.BACK_FLOOR + 0.66, LY.ROOM.z1 - 0.15, Math.PI + 0.2), { scale: 0.7 });

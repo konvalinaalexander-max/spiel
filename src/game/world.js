@@ -14,6 +14,9 @@ import { loadPropModels } from '../scene/realProps.js';
 import { loadLightmaps, applyLightmaps } from '../gfx/lightmap.js';
 import { planPopulation } from './population.js';
 import { damp } from '../core/util.js';
+import { remote } from '../core/assets.js';
+// Mobil-Build (Dateien gehostet): Budget ≤ 120 Draw Calls / ≤ 400 k Dreiecke (Auftrag V3) → schlankere Szene
+const MOBILE = !!remote;
 import * as LY from '../scene/layout.js';
 
 export const POP_SEED = 4711;
@@ -38,6 +41,8 @@ export async function buildWorld(gfx, params, progress = () => {}) {
   // Echtzeitschatten nur, wo sie das Sonnenlicht im Saal formen: Boden, Fensterbänke, Heizkörper und Kleinteile werfen keine
   // (ihre Kontaktschatten stecken im gebackenen Licht) – je schattenwerfender Materialgruppe sonst ein Draw Call pro Kaskade
   for (const m of W.hall.meshes) if (/^(parquet|sillStone|radiator|whitePlastic|darkGrey|red|bins)\b/.test(m.material?.name || '')) m.castShadow = false;
+  // mobil: Echtzeitschatten nur von Wänden/Decke (Sonnenflecken durch die Fenster) und Menschen – Bänke, Pulte, Requisiten sind gebacken
+  if (MOBILE) for (const m of W.hall.meshes) if (!/^(plaster|ceilingPlaster|whitePaint|paneling|beadboard)\b/.test(m.material?.name || '')) m.castShadow = false;
   W.singlePass = () => {   // durchsichtig + beidseitig zeichnet three.js in zwei Durchgängen (Rück-, dann Vorderseite) – Glas/Folien brauchen das nicht
     gfx.scene.traverse(o => { if (o.isMesh) for (const m of [].concat(o.material)) if (m.transparent && m.side === THREE.DoubleSide) m.forceSinglePass = true; });
   };
@@ -49,17 +54,18 @@ export async function buildWorld(gfx, params, progress = () => {}) {
   await step(0.42, 'load.outside');
   // echte Requisiten (Poly Haven) vor Außenwelt und Saal-Requisiten laden: beide stellen Modelle auf
   if (W.models === undefined) { try { W.models = await loadPropModels(gfx); } catch (e) { console.warn('Requisiten: Rückfall auf einfache Formen', e); W.models = null; } }
-  W.outside = buildOutside(gfx, params.weather, gfx.preset, W.models);
+  // Außenwelt nur durchs Fenster sichtbar: mobil ohne echte Modelle (Laternen, Bänke, Pflanztröge)
+  W.outside = buildOutside(gfx, params.weather, gfx.preset, MOBILE ? null : W.models);
   W.blinds = buildBlinds(gfx, params.weather === 'sunny' ? [0.45, 0, 0] : [0, 0, 0]);
   await step(0.52, 'load.props');
   W.plan = planPopulation(POP_SEED, params.seat);
-  W.props = buildProps(gfx, W.hall, W.plan, { models: W.models, weather: params.weather, notesHeader: params.lang === 'en' ? 'Animal Nutrition – 27 Oct' : 'Tierernährung VO – 27.10.' });
+  W.props = buildProps(gfx, W.hall, W.plan, { models: W.models, weather: params.weather, lite: MOBILE, notesHeader: params.lang === 'en' ? 'Animal Nutrition – 27 Oct' : 'Tierernährung VO – 27.10.' });
   W.details = buildDetails(gfx, W.hall, W.plan);
   await step(0.62, 'load.people');
   W.charMat = characterMaterial(gfx);
   // Echte Figuren (Microsoft Rocketbox mit Motion Capture, MIT; ältere Fassung MakeHuman/MPFB, CC0); ohne eingebettete Daten bleibt es bei den prozeduralen Figuren
   try { W.humans = await loadHumans(gfx, f => progress(0.6 + f * 0.02, 'load.people')); } catch (e) { console.warn('Figuren: Rückfall auf prozedurale Figuren', e); W.humans = null; }
-  W.crowd = new Crowd(gfx, W.charMat, { ...W.plan, students: [] }, { shadows: gfx.preset.id === 'ultra' ? 'all' : gfx.preset.studentShadows, humans: W.humans });
+  W.crowd = new Crowd(gfx, W.charMat, { ...W.plan, students: [] }, { shadows: gfx.preset.id === 'ultra' ? 'all' : gfx.preset.studentShadows, humans: W.humans, lodTight: MOBILE });
   // Figuren einzeln anlegen und zwischendurch dem Browser Luft lassen (Menü bleibt bedienbar)
   for (let i = 0; i < W.plan.students.length; i++) {
     W.crowd.addStudent(W.plan.students[i]);
@@ -79,6 +85,8 @@ export async function buildWorld(gfx, params, progress = () => {}) {
   };
   W.textureCount = gfx.finalizeTextures();
   W.singlePass();
+  // mobil: Requisiten, Details und Außenwelt werfen keine Echtzeitschatten (Rollo-Stoff schon: er hält die Sonne ab)
+  if (MOBILE) gfx.scene.traverse(o => { if (o.isMesh && o.castShadow && !/^(hall|crowd|human|rollo)/.test(o.name)) o.castShadow = false; });
   // Shader vorkompilieren (vermeidet Ruckler beim ersten Blick in eine Richtung); parallel, wo der Treiber es kann
   try { if (gfx.renderer.compileAsync && gfx.renderer.extensions.has('KHR_parallel_shader_compile')) await gfx.renderer.compileAsync(gfx.scene, gfx.camera); else gfx.renderer.compile(gfx.scene, gfx.camera); } catch (e) { /* optional */ }
   await step(0.95, 'load.compile');

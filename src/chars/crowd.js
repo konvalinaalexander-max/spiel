@@ -49,7 +49,10 @@ export class Crowd {
     const near = !pl || !s.seat || (Math.abs(s.seat.row - pl.row) <= 2 && Math.abs(s.seat.k - pl.k) <= 4);
     rig.castShadow = this.opts.shadows === 'all' || (!!this.opts.shadows && near);
     // Detailstufe: volle Geometrie nur in der Nähe des eigenen Platzes, sonst die vereinfachte (≈ ⅓ der Dreiecke)
-    const lodNear = !pl || !s.seat || (Math.abs(s.seat.row - pl.row) <= 1 && Math.abs(s.seat.k - pl.k) <= 3);
+    // mobil (opts.lodTight): volle Geometrie nur für die direkten Nachbar:innen in der eigenen Reihe und der Reihe davor
+    const lodNear = !pl || !s.seat || (this.opts.lodTight
+      ? ((s.seat.row === pl.row || s.seat.row === pl.row - 1) && Math.abs(s.seat.k - pl.k) <= 2)
+      : (Math.abs(s.seat.row - pl.row) <= 1 && Math.abs(s.seat.k - pl.k) <= 3));
     rig.lod = lodNear || this.opts.lod === false ? 0 : 1;
     const st = { s, c, rig, state: 'idle', t: this.rng.range(0, 6), look: 'prof', lookT: this.rng.range(1, 5), react: null, handUp: false, leaving: null, phase: s.phase || 0, writeT: 0, drinkT: this.rng.range(8, 30), whisperT: this.rng.range(15, 40), present: !outside, lod: 0 };
     if (!outside) this._sit(st);
