@@ -44,11 +44,29 @@
 - Vertont wird vollständig auf Deutsch; Englisch bleibt als Textfassung, nur teilweise vertont.
 - Keine Sprachausgabe des Browsers und kein synthetisches Murmeln mehr: ohne Aufnahme bleibt der Untertitel.
 
+- Achter Running Gag „Kreide“: seine eigene Kreide quietscht „nur bei Wichtigem“ (je 6 Varianten DE/EN, echtes Kreidegeräusch).
+- Sprechdauern mit dem gemessenen Tempo der Aufnahmen (Deutsch 0,081 s/Zeichen statt geschätzt 0,064); der Ablauf wartet auf
+  das Ende jeder Aufnahme.
+
 **Handy**
-- Mobil-Build als PWA (offline nach erstem Start), Touch-Steuerung mit Tastenleiste, Pinch-Zoom, Wake Lock, Pages-Workflow.
+- Mobil-Build als PWA (offline nach erstem Start), Touch-Steuerung mit Tastenleiste, Pinch-Zoom, Wake Lock.
+- GitHub Pages: der Workflow veröffentlicht vom Standard-Branch – Handy-Fassung und Desktop-Fassung im Browser spielbar,
+  ohne Download (einmalig Pages einschalten).
+
+**Leistung**
+- Requisiten in einem gemeinsamen Texturatlas (73 Materialien → 1 Atlasseite), Glas ohne Transmissionsdurchgang, Echtzeitschatten
+  nur für Möbelgroßes, Wände und Figuren; Figuren ein Material je Atlas. „Mittel“: 706 → 245 Draw Calls je Bild (Budget 250).
+- Desktop-Datei 71 MB (Ziel ≤ 80), Mobil-Kern < 30 MB (Positionen der Figuren als Int16, Lightmap-UVs kompakt, Animationen als
+  Int16-Differenzen).
 
 **Balance**
-- Neu abgestimmt auf die gesprächigeren Prof-Texte: 93 / 50 / 31 / 15 % Erfolg (80 Läufe je Stufe).
+- Neu abgestimmt auf die gesprächigeren Prof-Texte, danach nachgemessen mit dem echten Sprechtempo: **86 / 54 / 28 / 16 %**
+  Erfolg (80 Läufe je Stufe; Bachelor im Zielband 45–60 %).
+
+**Tests**
+- Neu: Rocketbox-Figuren (Gewichte, Animationsformat, Lizenzhinweis), Dialogumfang (≥ 1 500 Sätze je Sprache, ≥ 60 Anekdoten,
+  ≥ 8 Running Gags, ≥ 6 Varianten), keine Wiederholung eines Prof-Satzes in 10 simulierten Vorlesungen; Werkzeuge für Dauerlauf
+  (`tools/soak.mjs`), Touch-Durchlauf (`tools/touch-e2e.mjs`) und Leistungstabelle (`tools/perf-table.mjs`).
 
 ## 2.0.0 – Tic Tac Tierernährung v2 (2026-10-28)
 

@@ -19,15 +19,19 @@ index.html              Spiel (JS und CSS eingebettet), nennt die Dateien in #as
 manifest.webmanifest    Name, Symbole 192/512, display standalone, Querformat
 sw.js                   Service Worker: Kerndateien beim Installieren vorhalten, Stimmen beim Abspielen
 icons/                  App-Symbole (aus SVG erzeugt)
-assets/humans/          Figuren (HPK-Geometrie, KTX2-Atlanten)
+assets/humans/          Figuren (Rocketbox: HPK-Geometrie, KTX2-Atlanten ≤ 1K, Animationen CLP2 mit 12/15 Bildern/s)
+assets/props/           Requisiten (GLB) + gemeinsamer Texturatlas 2048 × 1152
+assets/lightmap/        gebackenes Licht 4 × 1024² je Wetter + UV-Daten
 assets/basis/           KTX2-Transkodierer
 assets/voice/de|en/     Verzeichnis der Aufnahmen + Opus-Dateien
 ```
 
 ## Hosting
 
-- **GitHub Pages:** Der Workflow `.github/workflows/pages.yml` baut bei jedem Push auf `main` und veröffentlicht `dist/mobile/`.
-  Einmalig im Repository einschalten: *Settings → Pages → Source: GitHub Actions*.
+- **GitHub Pages:** Der Workflow `.github/workflows/pages.yml` baut bei jedem Push auf den Standard-Branch und veröffentlicht
+  `dist/mobile/` samt Desktop-Fassung (`…/BOKU_TicTacTierernaehrung_v3.html` mit Stimmdateien). Einmalig im Repository
+  einschalten: *Settings → Pages → Source: GitHub Actions*; ohne diese Einstellung meldet der Lauf nur einen Hinweis.
+  Adresse danach: `https://konvalinaalexander-max.github.io/spiel/`.
 - **Eigener Server:** `dist/BOKU_TicTacTierernaehrung_v3_mobile.zip` entpacken und den Ordner per HTTPS ausliefern
   (Service Worker und Wake Lock brauchen HTTPS; `localhost` geht zum Testen).
 - Direkt als Datei geöffnet (`file://`) läuft der Mobil-Build nicht. Dafür gibt es die Desktop-Datei.
@@ -80,6 +84,13 @@ Umsetzung:
 
 Code: `src/core/input.js` (Gesten, virtuelle Tasten), `src/ui/hud.js` (Leiste, Modus je Spielzustand), `src/ui/styles.css` (Layout),
 `src/main.js` (Wake Lock, Vollbild).
+
+## Automatischer Touch-Durchlauf
+
+`node tools/touch-e2e.mjs` startet den Mobil-Build über einen lokalen HTTP-Server, emuliert ein Pixel 7 im Querformat und spielt
+mit echten Touch-Ereignissen (Chrome DevTools Protocol): Startseite → „Zur Lehrveranstaltung“ → „Vorlesung betreten“ → Taste
+„Laptop“ → Tipp auf ein Spielfeld (Bildschirmposition aus dem Laptop-Bildschirm berechnet) → „Mitschreiben“ halten →
+Prüfungsfrage antippen → Vorlesung bis zum Zeugnis. Bericht: `docs/touch-e2e.json`.
 
 ## Checkliste für echte Geräte (5 Minuten)
 
