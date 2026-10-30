@@ -1,0 +1,36 @@
+[
+ {
+  "preset": "low",
+  "loadS": 32.1,
+  "listen": {
+   "calls": 116,
+   "triangles": 356770
+  },
+  "laptop": {
+   "calls": 109,
+   "triangles": 350992
+  },
+  "msSwiftShader": 21.8,
+  "geometries": 148,
+  "textures": 198,
+  "programs": 166,
+  "heapMB": 357
+ },
+ {
+  "preset": "medium",
+  "loadS": 35.4,
+  "listen": {
+   "calls": 166,
+   "triangles": 486198
+  },
+  "laptop": {
+   "calls": 169,
+   "triangles": 480428
+  },
+  "msSwiftShader": 38.7,
+  "geometries": 152,
+  "textures": 236,
+  "programs": 189,
+  "heapMB": 383
+ }
+]

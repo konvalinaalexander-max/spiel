@@ -12,6 +12,10 @@ HTML-Datei zu packen, und funktioniert nach dem ersten Start auch offline.
 
 `npm run build` baut beide. Der Mobil-Build bricht ab, wenn die vorab gespeicherten Kerndateien größer als 30 MB sind.
 
+**Qualitätsstufe:** In der Mobil-Fassung wählt die Automatik höchstens „Niedrig“ (gemessen 116 Draw Calls, 0,36 Mio. Dreiecke je Bild;
+Budget ≤ 120 / ≤ 400 k). „Mittel“ (≈ 166 / 0,49 Mio.) und höher lassen sich in den Einstellungen von Hand wählen, etwa auf Tablets
+mit starkem Grafikchip.
+
 Aufbau von `dist/mobile/`:
 
 ```

@@ -1,7 +1,8 @@
 // Einstieg: Laden, Startseite mit Live-Hero, LV-Seite, Spiel, Pause, Zeugnis.
 // Eine neue Vorlesung mit anderem Sitzplatz/Wetter/Qualität lädt die Seite neu (sauberer GPU-Speicher).
 import { Graphics } from './gfx/graphics.js';
-import { PRESETS, guessFromGPU, FrameTimer, saveDetected, loadDetected } from './gfx/quality.js';
+import { PRESETS, PRESET_ORDER, guessFromGPU, FrameTimer, saveDetected, loadDetected } from './gfx/quality.js';
+import { remote } from './core/assets.js';
 import { buildWorld, heroCamera } from './game/world.js';
 import { Game } from './game/game.js';
 import { UI } from './ui/ui.js';
@@ -21,10 +22,15 @@ let state = 'loading'; // loading | gate | menu | game | pause | result
 let last = performance.now(), clock = 0;
 const HERO_FOCUS = { x: 0.4, y: 1.75, z: -5.2, clone() { return { ...this }; } };
 
+// Mobil-Build (Dateien gehostet): die Automatik geht nicht über „Niedrig“ – Budget ≤ 120 Draw Calls / ≤ 400 k Dreiecke
+// („Mittel“ läge bei ≈ 166 / 0,49 Mio.). Wer selbst eine höhere Stufe wählt, bekommt sie.
+const AUTO_MAX = remote ? 'low' : 'ultra';
+const capAuto = p => (PRESET_ORDER.indexOf(p) > PRESET_ORDER.indexOf(AUTO_MAX) ? AUTO_MAX : p);
 function pickQuality(settings) {
   if (qs.get('q') && PRESETS[qs.get('q')]) return qs.get('q');
   if (settings.quality && settings.quality !== 'auto') return settings.quality;
-  return loadDetected() || null;
+  const d = loadDetected();
+  return d ? capAuto(d) : null;
 }
 function probeGPU() {
   try { const c = document.createElement('canvas'); const gl = c.getContext('webgl2') || c.getContext('webgl'); const r = guessFromGPU({ getContext: () => gl }); const lose = gl && gl.getExtension('WEBGL_lose_context'); if (lose) lose.loseContext(); return r; }
@@ -76,7 +82,7 @@ async function boot() {
   // Grafik: Stufe aus Einstellungen oder einmalig aus der GPU geschätzt
   let preset = pickQuality(ui.settings);
   const gpu = probeGPU();
-  if (!preset) { preset = gpu.preset; saveDetected(preset); }
+  if (!preset) { preset = capAuto(gpu.preset); saveDetected(preset); }
   gfx = new Graphics(canvas, preset);
   gfx.presetId = preset; gfx.gpuName = gpu.gpu;
   gfx.photosensitive = !!ui.settings.photosensitive;
@@ -193,7 +199,7 @@ function frame(now) {
   // automatische Qualitätsstufe: Bildzeiten der ersten 60 ruhigen Menü-Bilder messen, Empfehlung für den nächsten Start
   if (world && state === 'menu' && ui.settings.quality === 'auto' && !frameTimer.done) {
     frameTimer.push(dtRaw * 1000);
-    if (frameTimer.ready()) { const sug = frameTimer.suggest(gfx.presetId); gfx.measured = { ms: frameTimer.median(), suggestion: sug }; if (sug !== gfx.presetId) saveDetected(sug); }
+    if (frameTimer.ready()) { const sug = capAuto(frameTimer.suggest(gfx.presetId)); gfx.measured = { ms: frameTimer.median(), suggestion: sug }; if (sug !== gfx.presetId) saveDetected(sug); }
   }
   if (state === 'game' && game) {
     game.update(dt, clock);

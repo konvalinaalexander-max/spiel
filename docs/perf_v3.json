@@ -1,0 +1,70 @@
+[
+ {
+  "preset": "low",
+  "loadS": 39.9,
+  "listen": {
+   "calls": 154,
+   "triangles": 773537
+  },
+  "laptop": {
+   "calls": 144,
+   "triangles": 766518
+  },
+  "msSwiftShader": 56.5,
+  "geometries": 166,
+  "textures": 238,
+  "programs": 183,
+  "heapMB": 711
+ },
+ {
+  "preset": "medium",
+  "loadS": 41.7,
+  "listen": {
+   "calls": 246,
+   "triangles": 1133048
+  },
+  "laptop": {
+   "calls": 242,
+   "triangles": 1119509
+  },
+  "msSwiftShader": 44.2,
+  "geometries": 170,
+  "textures": 276,
+  "programs": 206,
+  "heapMB": 714
+ },
+ {
+  "preset": "high",
+  "loadS": 78.2,
+  "listen": {
+   "calls": 326,
+   "triangles": 1723750
+  },
+  "laptop": {
+   "calls": 323,
+   "triangles": 1716457
+  },
+  "msSwiftShader": 64.7,
+  "geometries": 171,
+  "textures": 283,
+  "programs": 209,
+  "heapMB": 713
+ },
+ {
+  "preset": "ultra",
+  "loadS": 78.4,
+  "listen": {
+   "calls": 323,
+   "triangles": 2114877
+  },
+  "laptop": {
+   "calls": 320,
+   "triangles": 2107584
+  },
+  "msSwiftShader": 87.7,
+  "geometries": 169,
+  "textures": 279,
+  "programs": 208,
+  "heapMB": 710
+ }
+]
