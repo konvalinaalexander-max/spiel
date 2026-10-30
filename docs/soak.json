@@ -1,0 +1,256 @@
+{
+ "q": "low",
+ "length": "short",
+ "runs": [
+  {
+   "run": 1,
+   "loadS": 37.5,
+   "start": {
+    "heapMB": 701,
+    "geometries": 160,
+    "textures": 229
+   },
+   "ended": true,
+   "simS": 516,
+   "wallS": 167,
+   "frames": 26,
+   "midHeapMB": 735,
+   "success": false,
+   "grade": 4,
+   "reason": "time",
+   "wins": 3,
+   "end": {
+    "heapMB": 709.4,
+    "geometries": 188,
+    "textures": 239
+   },
+   "errors": [],
+   "errorCount": 0
+  },
+  {
+   "run": 2,
+   "loadS": 88.2,
+   "start": {
+    "heapMB": 718.5,
+    "geometries": 160,
+    "textures": 229
+   },
+   "ended": true,
+   "simS": 497,
+   "wallS": 141,
+   "frames": 25,
+   "midHeapMB": 729.6,
+   "success": true,
+   "grade": 1,
+   "reason": "time",
+   "wins": 5,
+   "end": {
+    "heapMB": 709.3,
+    "geometries": 188,
+    "textures": 240
+   },
+   "errors": [],
+   "errorCount": 0
+  },
+  {
+   "run": 3,
+   "loadS": 112.9,
+   "start": {
+    "heapMB": 765.6,
+    "geometries": 160,
+    "textures": 229
+   },
+   "ended": true,
+   "simS": 478,
+   "wallS": 135,
+   "frames": 24,
+   "midHeapMB": 724.1,
+   "success": false,
+   "grade": 5,
+   "reason": "time",
+   "wins": 2,
+   "end": {
+    "heapMB": 709.3,
+    "geometries": 188,
+    "textures": 240
+   },
+   "errors": [],
+   "errorCount": 0
+  },
+  {
+   "run": 4,
+   "loadS": 126.7,
+   "start": {
+    "heapMB": 718.6,
+    "geometries": 160,
+    "textures": 229
+   },
+   "ended": true,
+   "simS": 491,
+   "wallS": 130,
+   "frames": 25,
+   "midHeapMB": 733.9,
+   "success": false,
+   "grade": 5,
+   "reason": "time",
+   "wins": 2,
+   "end": {
+    "heapMB": 709.4,
+    "geometries": 187,
+    "textures": 240
+   },
+   "errors": [],
+   "errorCount": 0
+  },
+  {
+   "run": 5,
+   "loadS": 135.6,
+   "start": {
+    "heapMB": 723.6,
+    "geometries": 160,
+    "textures": 229
+   },
+   "ended": true,
+   "simS": 488,
+   "wallS": 77,
+   "frames": 25,
+   "midHeapMB": 749.8,
+   "success": true,
+   "grade": 1,
+   "reason": "time",
+   "wins": 5,
+   "end": {
+    "heapMB": 709.4,
+    "geometries": 186,
+    "textures": 240
+   },
+   "errors": [],
+   "errorCount": 0
+  },
+  {
+   "run": 6,
+   "loadS": 179.9,
+   "start": {
+    "heapMB": 718.6,
+    "geometries": 160,
+    "textures": 229
+   },
+   "ended": true,
+   "simS": 510,
+   "wallS": 86,
+   "frames": 26,
+   "midHeapMB": 733.2,
+   "success": false,
+   "grade": 4,
+   "reason": "time",
+   "wins": 3,
+   "end": {
+    "heapMB": 709.5,
+    "geometries": 186,
+    "textures": 240
+   },
+   "errors": [],
+   "errorCount": 0
+  },
+  {
+   "run": 7,
+   "loadS": 173.6,
+   "start": {
+    "heapMB": 719.9,
+    "geometries": 160,
+    "textures": 229
+   },
+   "ended": true,
+   "simS": 477,
+   "wallS": 135,
+   "frames": 24,
+   "midHeapMB": 719.3,
+   "success": true,
+   "grade": 1,
+   "reason": "time",
+   "wins": 4,
+   "end": {
+    "heapMB": 709.3,
+    "geometries": 189,
+    "textures": 240
+   },
+   "errors": [],
+   "errorCount": 0
+  },
+  {
+   "run": 8,
+   "loadS": 108.6,
+   "start": {
+    "heapMB": 718.8,
+    "geometries": 160,
+    "textures": 229
+   },
+   "ended": true,
+   "simS": 517,
+   "wallS": 165,
+   "frames": 26,
+   "midHeapMB": 730.9,
+   "success": true,
+   "grade": 1,
+   "reason": "time",
+   "wins": 5,
+   "end": {
+    "heapMB": 709.4,
+    "geometries": 189,
+    "textures": 240
+   },
+   "errors": [],
+   "errorCount": 0
+  },
+  {
+   "run": 9,
+   "loadS": 96.7,
+   "start": {
+    "heapMB": 718.7,
+    "geometries": 160,
+    "textures": 229
+   },
+   "ended": true,
+   "simS": 460,
+   "wallS": 135,
+   "frames": 24,
+   "midHeapMB": 743,
+   "success": false,
+   "grade": 4,
+   "reason": "time",
+   "wins": 3,
+   "end": {
+    "heapMB": 709.3,
+    "geometries": 188,
+    "textures": 240
+   },
+   "errors": [],
+   "errorCount": 0
+  },
+  {
+   "run": 10,
+   "loadS": 114.8,
+   "start": {
+    "heapMB": 718.5,
+    "geometries": 160,
+    "textures": 229
+   },
+   "ended": true,
+   "simS": 482,
+   "wallS": 121,
+   "frames": 25,
+   "midHeapMB": 721.1,
+   "success": true,
+   "grade": 1,
+   "reason": "time",
+   "wins": 4,
+   "end": {
+    "heapMB": 709.4,
+    "geometries": 188,
+    "textures": 240
+   },
+   "errors": [],
+   "errorCount": 0
+  }
+ ]
+}

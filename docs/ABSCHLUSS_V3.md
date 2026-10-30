@@ -36,7 +36,7 @@ offline per Download der HTML-Datei (README, Abschnitt „Spielen“).
 | Leistung Mobil | ≤ 120 Draw Calls, ≤ 400 k Dreiecke | **116**, **357 k** | `docs/PERFORMANCE.md` |
 | Figuren Draw Calls | ≤ 12 Desktop / ≤ 6 Mobil | **7** / **5** | `docs/PERFORMANCE.md` |
 | Touch | automatisierter Durchlauf | **bestanden** (Start → Laptop → Feld → Mitschreiben → Quiz → Ende, 0 Konsolenfehler) | `docs/touch-e2e.json` |
-| Dauerlauf | 10 Vorlesungen ohne Fehler | <!--SOAK-->folgt<!--/SOAK--> | `docs/soak.json` |
+| Dauerlauf | 10 Vorlesungen ohne Fehler | <!--SOAK-->**10 von 10** Vorlesungen nacheinander im selben Tab (kurz, je ≈ 8 min Spielzeit, Test-Bot spielt): 0 Fehler, JS-Heap am Ende jeder Vorlesung 709,3–709,5 MB<!--/SOAK--> | `docs/soak.json` |
 | Tests | alle grün | <!--TESTS-->**38 von 38 grün** (inkl. Browser-Test: Start ohne Konsolenfehler, Stimme spricht in der Sprache der Oberfläche)<!--/TESTS--> | `npm test` |
 | Balancing | Bachelor 45–60 %, monoton | **86 / 54 / 28 / 16 %** (80 Läufe je Stufe, echtes Sprechtempo) | `docs/BALANCING.md` |
 

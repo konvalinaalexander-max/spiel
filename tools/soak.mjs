@@ -19,7 +19,7 @@ const rows = [];
 for (let i = 0; i < runs; i++) {
   errors = [];
   const t0 = Date.now();
-  await page.goto(url);
+  await page.goto(url, { timeout: 300000 });   // 73-MB-Datei + Stimmdateien: Neuladen im Software-Renderer dauert > 30 s
   await page.waitForFunction(() => window.__state && window.__world && window.__state() === 'menu', null, { timeout: 300000, polling: 250 });
   const loadS = (Date.now() - t0) / 1000;
   const heap = () => page.evaluate(() => { if (window.gc) window.gc(); const m = performance.memory || {}; const r = window.__gfx.renderer.info.memory; return { heapMB: +((m.usedJSHeapSize || 0) / 1048576).toFixed(1), geometries: r.geometries, textures: r.textures }; });

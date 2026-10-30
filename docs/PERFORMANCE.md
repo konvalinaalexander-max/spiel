@@ -37,6 +37,12 @@ eingebettet in der HTML-Datei stecken und beim Start dekodiert werden; über die
 Vorlesungszeit: 706 → 725 MB). Die Mobil-Fassung lädt Dateien einzeln und braucht die Hälfte. Seit der Endfassung hält die
 Stimme höchstens 48 dekodierte Aufnahmen im Speicher (vorher wuchs der Puffer über die ganze Vorlesung).
 
+**Dauerlauf:** `node tools/soak.mjs --runs 10 --q low --length short` → `docs/soak.json`: zehn kurze Vorlesungen (je ≈ 8 min
+Spielzeit, der Test-Bot spielt Tic Tac Toe) nacheinander im selben Tab, jedes Mal neu geladen. Alle zehn liefen bis zum Ende,
+**0 Konsolenfehler**, JS-Heap am Ende jeder Vorlesung 709,3–709,5 MB (Höchstwert zur Halbzeit 750 MB), Geometrien/Texturen am Ende
+186–189 / 239–240 in jedem Lauf (kein Anstieg von Lauf zu Lauf). Die Ladezeit schwankte im Software-Renderer zwischen 38 und 180 s
+(ohne Trend: Lauf 6 am langsamsten, Lauf 9 wieder 97 s).
+
 **Shader-Programme:** Mit Lightmaps, Atlas-Materialien und den Figuren sind es rund 200 Programme (Version 2: ≈ 110). Sie werden
 beim Laden vorkompiliert – parallel, wo der Treiber `KHR_parallel_shader_compile` anbietet –, damit es beim ersten Umschauen nicht
 ruckelt.
